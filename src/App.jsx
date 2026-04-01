@@ -1,39 +1,32 @@
-import Nav from "./components/Nav";
-import Hero from "./components/Hero";
-import TrustBar from "./components/TrustBar";
-import ConditionMarquee from "./components/ConditionMarquee";
-import HowItWorks from "./components/HowItWorks";
-import ProductShowcase from "./components/ProductShowcase";
-import WhatWeTest from "./components/WhatWeTest";
-import ComparisonTable from "./components/ComparisonTable";
-import Testimonials from "./components/Testimonials";
-import Pricing from "./components/Pricing";
-import FounderStory from "./components/FounderStory";
-import AdvisoryTeam from "./components/AdvisoryTeam";
-import FAQ from "./components/FAQ";
-import FinalCTA from "./components/FinalCTA";
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import HowItWorksPage from "./pages/HowItWorks";
+import WhatWeTestPage from "./pages/WhatWeTest";
+import StoriesPage from "./pages/Stories";
+import AboutPage from "./pages/About";
+import PricingPage from "./pages/Pricing";
+import FAQPage from "./pages/FAQ";
+import ContactPage from "./pages/Contact";
+import PrivacyPage from "./pages/Privacy";
+import BlogPage from "./pages/Blog";
+import CareersPage from "./pages/Careers";
 
 export default function App() {
   return (
-    <div className="bg-base min-h-screen overflow-x-hidden">
-      <Nav />
-      <main>
-        <Hero />
-        <TrustBar />
-        <ConditionMarquee />
-        <HowItWorks />
-        <ProductShowcase />
-        <WhatWeTest />
-        <ComparisonTable />
-        <Testimonials />
-        <Pricing />
-        <FounderStory />
-        <AdvisoryTeam />
-        <FAQ />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter basename="/BetterHealth-Front-End">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/what-we-test" element={<WhatWeTestPage />} />
+        <Route path="/stories" element={<StoriesPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/careers" element={<CareersPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

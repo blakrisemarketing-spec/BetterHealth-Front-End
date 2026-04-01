@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "../data/content";
+import logo from "../assets/logo.png";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -11,6 +13,46 @@ export default function Nav() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const renderLink = (link, mobile = false) => {
+    const routeMap = {
+      "How It Works": "/how-it-works",
+      "What We Test": "/what-we-test",
+      "Stories": "/stories",
+      "About": "/about",
+      "Pricing": "/pricing",
+    };
+    if (routeMap[link]) {
+      return (
+        <Link
+          key={link}
+          to={routeMap[link]}
+          onClick={() => mobile && setMobileMenu(false)}
+          className={
+            mobile
+              ? "text-text-primary text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
+              : "text-text-secondary text-sm font-medium hover:text-primary transition-colors"
+          }
+        >
+          {link}
+        </Link>
+      );
+    }
+    return (
+      <a
+        key={link}
+        href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
+        onClick={() => mobile && setMobileMenu(false)}
+        className={
+          mobile
+            ? "text-text-primary text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
+            : "text-text-secondary text-sm font-medium hover:text-primary transition-colors"
+        }
+      >
+        {link}
+      </a>
+    );
+  };
 
   return (
     <nav
@@ -23,26 +65,18 @@ export default function Nav() {
     >
       <div className="max-w-[1280px] mx-auto px-6 h-[72px] flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-primary to-primary-light flex items-center justify-center">
-            <span className="text-white text-lg font-extrabold font-heading">B</span>
-          </div>
-          <span className="text-lg font-bold text-text-primary font-heading tracking-tight">
-            BetterHealth Africa
-          </span>
-        </div>
+        <Link to="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="BetterHealth Africa"
+            className="h-11 w-auto object-contain"
+            style={{ maxWidth: "220px" }}
+          />
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden md:flex gap-8 items-center">
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-text-secondary text-sm font-medium hover:text-primary transition-colors"
-            >
-              {link}
-            </a>
-          ))}
+          {navLinks.map((link) => renderLink(link))}
         </div>
 
         {/* Right side */}
@@ -65,16 +99,7 @@ export default function Nav() {
       {/* Mobile menu */}
       {mobileMenu && (
         <div className="fixed top-[72px] left-0 right-0 bottom-0 bg-white p-8 flex flex-col gap-2 md:hidden z-50">
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-              onClick={() => setMobileMenu(false)}
-              className="text-text-primary text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
-            >
-              {link}
-            </a>
-          ))}
+          {navLinks.map((link) => renderLink(link, true))}
         </div>
       )}
     </nav>

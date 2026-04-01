@@ -1,5 +1,21 @@
+import { Link } from "react-router-dom";
 import { footerColumns } from "../data/content";
 import { Camera, Bird, Briefcase, MessageCircle } from "lucide-react";
+import logo from "../assets/logo.png";
+
+// Map footer link labels to internal routes
+const ROUTE_MAP = {
+  "How It Works": "/how-it-works",
+  "What We Test": "/what-we-test",
+  "Pricing": "/pricing",
+  "About Us": "/about",
+  "Stories": "/stories",
+  "Blog": "/blog",
+  "Careers": "/careers",
+  "FAQ": "/faq",
+  "Contact": "/contact",
+  "Privacy Policy": "/privacy",
+};
 
 export default function Footer() {
   return (
@@ -8,11 +24,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary-light flex items-center justify-center">
-                <span className="text-white text-base font-extrabold">B</span>
+            <div className="mb-4">
+              <div className="inline-block bg-white rounded-xl px-3 py-1.5">
+                <img
+                  src={logo}
+                  alt="BetterHealth Africa"
+                  className="h-8 w-auto object-contain"
+                  style={{ maxWidth: "160px" }}
+                />
               </div>
-              <span className="text-base font-bold text-text-on-dark font-heading">BetterHealth Africa</span>
             </div>
             <p className="text-sm leading-relaxed max-w-[260px] font-body">
               Comprehensive health screening, made accessible for Africa. Know your health before symptoms appear.
@@ -39,15 +59,26 @@ export default function Footer() {
               <h4 className="text-[13px] font-bold text-text-on-dark uppercase tracking-wider mb-4 font-heading">
                 {col.title}
               </h4>
-              {col.links.map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="block text-sm text-text-muted-dark no-underline py-1.5 hover:text-primary-light transition-colors font-body"
-                >
-                  {link}
-                </a>
-              ))}
+              {col.links.map((link) => {
+                const route = ROUTE_MAP[link];
+                return route ? (
+                  <Link
+                    key={link}
+                    to={route}
+                    className="block text-sm text-text-muted-dark no-underline py-1.5 hover:text-primary-light transition-colors font-body"
+                  >
+                    {link}
+                  </Link>
+                ) : (
+                  <a
+                    key={link}
+                    href="#"
+                    className="block text-sm text-text-muted-dark no-underline py-1.5 hover:text-primary-light transition-colors font-body"
+                  >
+                    {link}
+                  </a>
+                );
+              })}
             </div>
           ))}
         </div>
