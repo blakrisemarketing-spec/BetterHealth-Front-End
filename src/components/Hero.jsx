@@ -60,7 +60,7 @@ export default function Hero() {
 
           <Reveal delay={0.2}>
             <p className="text-lg leading-relaxed text-text-secondary max-w-[520px] mb-8 font-body">
-              Comprehensive lab testing with 100+ biomarkers, personalized health insights, and home sample collection. Know your health before symptoms appear.
+              Comprehensive lab testing with 100+ biomarkers, personalized health insights, and home sample collection. Starting from GHS 8/day.
             </p>
           </Reveal>
 

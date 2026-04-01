@@ -18,19 +18,21 @@ export default function App() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
       <Nav />
-      <Hero />
-      <TrustBar />
-      <ConditionMarquee />
-      <HowItWorks />
-      <ProductShowcase />
-      <WhatWeTest />
-      <ComparisonTable />
-      <Testimonials />
-      <Pricing />
-      <FounderStory />
-      <AdvisoryTeam />
-      <FAQ />
-      <FinalCTA />
+      <main>
+        <Hero />
+        <TrustBar />
+        <ConditionMarquee />
+        <HowItWorks />
+        <ProductShowcase />
+        <WhatWeTest />
+        <ComparisonTable />
+        <Testimonials />
+        <Pricing />
+        <FounderStory />
+        <AdvisoryTeam />
+        <FAQ />
+        <FinalCTA />
+      </main>
       <Footer />
     </div>
   );

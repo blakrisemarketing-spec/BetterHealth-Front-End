@@ -1,4 +1,5 @@
 import { footerColumns } from "../data/content";
+import { Camera, Bird, Briefcase, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -16,6 +17,20 @@ export default function Footer() {
             <p className="text-sm leading-relaxed max-w-[260px] font-body">
               Comprehensive health screening, made accessible for Africa. Know your health before symptoms appear.
             </p>
+            <div className="flex gap-4 mt-4">
+              <a href="#" aria-label="Instagram" className="text-text-muted-dark hover:text-primary transition-colors">
+                <Camera size={20} />
+              </a>
+              <a href="#" aria-label="Twitter / X" className="text-text-muted-dark hover:text-primary transition-colors">
+                <Bird size={20} />
+              </a>
+              <a href="#" aria-label="LinkedIn" className="text-text-muted-dark hover:text-primary transition-colors">
+                <Briefcase size={20} />
+              </a>
+              <a href="#" aria-label="WhatsApp" className="text-text-muted-dark hover:text-primary transition-colors">
+                <MessageCircle size={20} />
+              </a>
+            </div>
           </div>
 
           {/* Link columns */}
@@ -43,7 +58,7 @@ export default function Footer() {
             &copy; 2026 BetterHealth Africa. All rights reserved. Made in Ghana 🇬🇭
           </span>
           <div className="flex gap-2">
-            {["Mobile Money", "Visa", "Mastercard"].map((m) => (
+            {["MTN MoMo", "Vodafone Cash", "AirtelTigo", "Visa", "Mastercard"].map((m) => (
               <span
                 key={m}
                 className="px-2.5 py-1 rounded text-[11px] bg-white/[0.06] text-text-muted-dark/60 font-semibold"

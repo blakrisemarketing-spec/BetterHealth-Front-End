@@ -35,6 +35,9 @@ export default function FinalCTA() {
           <button className="bg-gradient-to-r from-primary to-primary-light text-white border-none rounded-[14px] px-10 py-[18px] text-[17px] font-bold font-heading cursor-pointer shadow-[0_4px_30px_rgba(13,148,136,0.35)] hover:shadow-[0_8px_40px_rgba(13,148,136,0.5)] transition-all hover:-translate-y-1 hover:scale-[1.02] inline-flex items-center gap-2.5">
             Start Your Health Check <ArrowRight size={20} />
           </button>
+          <p className="mt-4 text-sm text-text-muted-dark">
+            Results in 48 hours. Cancel anytime. Mobile Money accepted.
+          </p>
         </Reveal>
       </div>
     </section>
