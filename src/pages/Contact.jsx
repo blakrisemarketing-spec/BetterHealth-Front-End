@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, Mail, Phone, Camera, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
@@ -12,12 +13,12 @@ const CHANNELS = [
     label: "WhatsApp — Fastest Response",
     body: "Send us a message on WhatsApp for the fastest response. Our team typically replies within 1–2 hours during business hours. Available for general enquiries, account help, and booking support.",
     details: [
-      { key: "Number", val: "+233 XX XXX XXXX" },
+      { key: "Number", val: "+233 268 596 410" },
       { key: "Hours", val: "Mon–Sat, 7:00 AM – 8:00 PM GMT" },
       { key: "Avg. response", val: "Under 2 hours" },
     ],
     cta: "Chat on WhatsApp",
-    href: "https://wa.me/233XXXXXXXXX",
+    href: "https://wa.me/message/MJ3HXLS2NDQEJ1",
     primary: true,
     color: "from-green-400 to-emerald-500",
   },
@@ -42,11 +43,11 @@ const CHANNELS = [
     label: "Phone",
     body: "Prefer to speak to someone? Call us during business hours. If we can't answer immediately, we'll call you back within 4 hours.",
     details: [
-      { key: "Number", val: "+233 XX XXX XXXX" },
+      { key: "Number", val: "+233 268 596 410" },
       { key: "Hours", val: "Mon–Fri, 8:00 AM – 6:00 PM GMT" },
     ],
     cta: "Call Us",
-    href: "tel:+233XXXXXXXXX",
+    href: "tel:+233268596410",
     primary: false,
     color: "from-violet-400 to-purple-500",
   },
@@ -117,6 +118,9 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const text = `Hi BetterHealth Africa! 👋\n\nName: ${form.name}\nEmail: ${form.email}${form.phone ? `\nPhone: ${form.phone}` : ""}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`;
+    const encoded = encodeURIComponent(text);
+    window.open(`https://wa.me/message/MJ3HXLS2NDQEJ1?text=${encoded}`, "_blank");
     setSubmitted(true);
   };
 
@@ -130,8 +134,8 @@ function ContactForm() {
         <p className="text-[14px] text-text-secondary leading-relaxed">
           Thanks for reaching out! We've received your message and will get back to you within 24 hours.
           If your matter is urgent, WhatsApp us at{" "}
-          <a href="https://wa.me/233XXXXXXXXX" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
-            +233 XX XXX XXXX
+          <a href="https://wa.me/233303960000" rel="noopener noreferrer" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
+            +233 30 396 0000
           </a>{" "}
           for the fastest response.
         </p>
@@ -150,7 +154,7 @@ function ContactForm() {
             placeholder="Your full name"
             value={form.name}
             onChange={e => setForm({ ...form, name: e.target.value })}
-            className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all"
+            className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all"
           />
         </div>
         <div>
@@ -161,7 +165,7 @@ function ContactForm() {
             placeholder="your@email.com"
             value={form.email}
             onChange={e => setForm({ ...form, email: e.target.value })}
-            className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all"
+            className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all"
           />
         </div>
       </div>
@@ -169,10 +173,10 @@ function ContactForm() {
         <label className="block text-[13px] font-semibold text-text-primary mb-1.5">Phone <span className="text-text-muted font-normal">(optional)</span></label>
         <input
           type="tel"
-          placeholder="+233 XX XXX XXXX"
+          placeholder="+233 30 396 0000"
           value={form.phone}
           onChange={e => setForm({ ...form, phone: e.target.value })}
-          className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all"
+          className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all"
         />
       </div>
       <div>
@@ -181,7 +185,7 @@ function ContactForm() {
           required
           value={form.subject}
           onChange={e => setForm({ ...form, subject: e.target.value })}
-          className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all appearance-none"
+          className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all appearance-none"
         >
           <option value="">Select a topic</option>
           {SUBJECT_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
@@ -195,7 +199,7 @@ function ContactForm() {
           placeholder="Tell us how we can help..."
           value={form.message}
           onChange={e => setForm({ ...form, message: e.target.value })}
-          className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all resize-none"
+          className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all resize-none"
         />
       </div>
       <button
@@ -211,6 +215,10 @@ function ContactForm() {
 export default function ContactPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>Contact Us — BetterHealth Africa</title>
+        <meta name="description" content="Get in touch with BetterHealth Africa via WhatsApp, email, or phone. We respond to most enquiries within 24 hours." />
+      </Helmet>
       <Nav />
 
       {/* Hero */}
@@ -270,6 +278,7 @@ export default function ContactPage() {
                     {ch.cta && ch.href && (
                       <a
                         href={ch.href}
+                        rel="noopener noreferrer"
                         className={`inline-flex items-center gap-1.5 text-[13px] font-bold rounded-btn px-4 py-2.5 transition-all hover:-translate-y-0.5 no-underline justify-center ${ch.primary ? "bg-primary hover:bg-primary-dark text-white" : "bg-section-alt hover:bg-primary-bg text-primary border border-border hover:border-primary/30"}`}
                       >
                         {ch.cta} <ArrowRight size={13} />
