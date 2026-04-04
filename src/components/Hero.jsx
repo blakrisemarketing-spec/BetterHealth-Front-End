@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Reveal from "./ui/Reveal";
 import GradientOrb from "./ui/GradientOrb";
-import PhoneMockup from "./ui/PhoneMockup";
 import Badge from "./ui/Badge";
 import { heroStats, trustedPartners } from "../data/content";
 
@@ -66,12 +66,12 @@ export default function Hero() {
 
           <Reveal delay={0.3}>
             <div className="flex flex-wrap gap-3 mb-10">
-              <button className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-2">
+              <Link to="/pricing" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-2 no-underline">
                 Start Your Health Check <ArrowRight size={18} />
-              </button>
-              <button className="bg-transparent text-text-primary border-2 border-border hover:border-primary hover:text-primary rounded-btn px-7 py-4 text-base font-semibold font-heading transition-all cursor-pointer">
+              </Link>
+              <Link to="/what-we-test" className="bg-transparent text-text-primary border-2 border-border hover:border-primary hover:text-primary rounded-btn px-7 py-4 text-base font-semibold font-heading transition-all cursor-pointer no-underline">
                 See What We Test
-              </button>
+              </Link>
             </div>
           </Reveal>
 
@@ -109,10 +109,37 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Right - Phone Mockup */}
-        <Reveal delay={0.3} direction="right" className="flex-shrink-0 flex justify-center" style={{ flexBasis: "320px" }}>
-          <div className="animate-float">
-            <PhoneMockup />
+        {/* Right - Dashboard screenshot mockup */}
+        <Reveal delay={0.3} direction="right" className="flex-shrink-0 flex justify-center" style={{ flexBasis: "480px" }}>
+          <div className="animate-float w-full max-w-[540px] relative">
+            {/* Browser chrome */}
+            <div className="rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.18),0_0_0_1px_rgba(0,0,0,0.06)]">
+              {/* Chrome bar */}
+              <div className="bg-[#E8EAED] px-4 py-3 flex items-center gap-3">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                  <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                  <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
+                </div>
+                <div className="flex-1 bg-white rounded-full px-3 py-1 text-[11px] text-gray-400 font-medium">
+                  app.betterhealth.africa
+                </div>
+              </div>
+              {/* Screenshot */}
+              <div className="overflow-hidden" style={{ maxHeight: '360px' }}>
+                <img
+                  src={`${import.meta.env.BASE_URL}hero-demo.png`}
+                  alt="BetterHealth Africa patient dashboard"
+                  className="w-full object-cover object-top"
+                  loading="eager"
+                />
+              </div>
+            </div>
+            {/* Floating badge */}
+            <div className="absolute -bottom-4 -right-4 bg-primary text-white text-xs font-bold font-heading px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-white animate-pulse-dot" />
+              42 Biomarkers Tracked
+            </div>
           </div>
         </Reveal>
       </div>

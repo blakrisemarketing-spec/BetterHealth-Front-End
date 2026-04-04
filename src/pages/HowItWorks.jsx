@@ -6,6 +6,7 @@ import {
   UserPlus, CalendarDays, BarChart3, Zap,
   FlaskConical, UserCheck, ShieldCheck, PackageCheck,
 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
@@ -147,6 +148,10 @@ export default function HowItWorksPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>How It Works — BetterHealth Africa</title>
+        <meta name="description" content="Sign up, book a collection, and get your results in 48 hours. Learn how BetterHealth Africa makes comprehensive health screening simple and accessible." />
+      </Helmet>
       <Nav />
 
       {/* ── Hero ── */}
@@ -190,6 +195,50 @@ export default function HowItWorksPage() {
           <StepBlock key={step.num} step={step} index={i} />
         ))}
       </div>
+
+      {/* ── Dashboard Preview (triptych) ── */}
+      <section className="py-20 lg:py-[100px] px-6 bg-bg-dark overflow-hidden">
+        <div className="max-w-[1200px] mx-auto">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">Your Health, Visualised</p>
+              <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight">
+                Everything you need to{" "}
+                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
+                  understand your health.
+                </span>
+              </h2>
+              <p className="mt-4 text-[16px] text-text-muted-dark font-body max-w-[540px] mx-auto">
+                From a 10,000-foot view of your overall health to a deep dive on any single biomarker — all in one place.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="rounded-2xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.5)] border border-white/[0.06]">
+              <img
+                src={`${import.meta.env.BASE_URL}triptych.png`}
+                alt="BetterHealth Africa dashboard, biomarker tracking, and analytics views"
+                className="w-full h-auto block"
+                loading="lazy"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <div className="mt-8 grid grid-cols-3 gap-6 text-center">
+              {[
+                { title: 'Your Health Dashboard', sub: 'All biomarkers in one place' },
+                { title: 'Track Every Biomarker', sub: 'Monitor 40+ health markers' },
+                { title: 'Deep-Dive Analytics', sub: 'Trends, ranges & AI insights' },
+              ].map((item, i) => (
+                <div key={i}>
+                  <p className="text-white font-bold font-heading text-[15px]">{item.title}</p>
+                  <p className="text-text-muted-dark text-[13px] mt-1 font-body">{item.sub}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ── Safety & Quality ── */}
       <section className="py-20 lg:py-[100px] px-6 bg-base">
