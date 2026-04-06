@@ -24,7 +24,7 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <Reveal key={i} delay={i * 0.12}>
-              <div className="p-8 rounded-card bg-card border border-border hover:border-primary/30 hover:-translate-y-1 hover:shadow-glow-green transition-all duration-300 flex flex-col gap-5 h-full shadow-card">
+              <div className="p-5 sm:p-8 rounded-card bg-card border border-border hover:border-primary/30 hover:-translate-y-1 hover:shadow-glow-green transition-all duration-300 flex flex-col gap-5 h-full shadow-card">
                 <Badge variant="danger">
                   Discovered: {t.discovery}
                 </Badge>

@@ -235,7 +235,7 @@ export default function FAQPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
+            <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
               Everything you{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
                 need to know.
@@ -255,11 +255,11 @@ export default function FAQPage() {
       </section>
 
       {/* Category filter pills */}
-      <section className="py-6 px-6 bg-section-alt border-y border-border sticky top-[64px] z-20 backdrop-blur-md bg-section-alt/90">
+      <section className="py-4 sm:py-6 px-4 sm:px-6 bg-section-alt border-y border-border sticky top-[64px] z-20 backdrop-blur-md bg-section-alt/90">
         <div className="max-w-[860px] mx-auto flex flex-wrap gap-2 justify-center">
           <button
             onClick={() => setActiveCategory(null)}
-            className={`px-4 py-1.5 rounded-pill text-[13px] font-semibold transition-all border ${!activeCategory ? "bg-primary text-white border-primary" : "bg-white text-text-secondary border-border hover:border-primary/30 hover:text-primary"}`}
+            className={`px-3 sm:px-4 py-1.5 rounded-pill text-[12px] sm:text-[13px] font-semibold transition-all border ${!activeCategory ? "bg-primary text-white border-primary" : "bg-white text-text-secondary border-border hover:border-primary/30 hover:text-primary"}`}
           >
             All
           </button>
@@ -267,7 +267,7 @@ export default function FAQPage() {
             <button
               key={s.category}
               onClick={() => setActiveCategory(activeCategory === s.category ? null : s.category)}
-              className={`px-4 py-1.5 rounded-pill text-[13px] font-semibold transition-all border ${activeCategory === s.category ? "bg-primary text-white border-primary" : "bg-white text-text-secondary border-border hover:border-primary/30 hover:text-primary"}`}
+              className={`px-3 sm:px-4 py-1.5 rounded-pill text-[12px] sm:text-[13px] font-semibold transition-all border ${activeCategory === s.category ? "bg-primary text-white border-primary" : "bg-white text-text-secondary border-border hover:border-primary/30 hover:text-primary"}`}
             >
               {s.category}
             </button>
@@ -365,7 +365,7 @@ export default function FAQPage() {
         <GradientOrb color="green" size="400px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[520px] mx-auto text-center relative z-10">
           <Reveal>
-            <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight mb-4">
+            <h2 className="text-[1.6rem] sm:text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight mb-4">
               Ready to check your health?
             </h2>
             <Link

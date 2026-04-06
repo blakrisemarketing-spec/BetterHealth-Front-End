@@ -30,7 +30,7 @@ export default function Nav() {
           onClick={() => mobile && setMobileMenu(false)}
           className={
             mobile
-              ? "text-text-primary text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
+              ? "text-text-primary text-base sm:text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
               : "text-text-secondary text-sm font-medium hover:text-primary transition-colors"
           }
         >
@@ -45,7 +45,7 @@ export default function Nav() {
         onClick={() => mobile && setMobileMenu(false)}
         className={
           mobile
-            ? "text-text-primary text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
+            ? "text-text-primary text-base sm:text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
             : "text-text-secondary text-sm font-medium hover:text-primary transition-colors"
         }
       >
@@ -69,8 +69,7 @@ export default function Nav() {
           <img
             src={logo}
             alt="BetterHealth Africa"
-            className="h-11 w-auto object-contain"
-            style={{ maxWidth: "220px" }}
+            className="h-11 w-auto object-contain max-w-[180px] sm:max-w-[220px]"
           />
         </Link>
 
@@ -84,7 +83,7 @@ export default function Nav() {
           <a href="#" className="hidden md:inline-block text-text-secondary text-sm font-medium hover:text-primary transition-colors px-4 py-2">
             Log in
           </a>
-          <button className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-2.5 text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer">
+          <button className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer">
             Get Started
           </button>
           <button
@@ -98,7 +97,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {mobileMenu && (
-        <div className="fixed top-[72px] left-0 right-0 bottom-0 bg-white p-8 flex flex-col gap-2 md:hidden z-50">
+        <div className="fixed top-[72px] left-0 right-0 bottom-0 bg-white px-6 py-6 flex flex-col gap-2 md:hidden z-50">
           {navLinks.map((link) => renderLink(link, true))}
         </div>
       )}

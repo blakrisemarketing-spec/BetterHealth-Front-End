@@ -31,7 +31,7 @@ export default function CareersPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
+            <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
               Build the future of{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
                 African healthcare.
@@ -52,7 +52,7 @@ export default function CareersPage() {
           <Reveal>
             <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-bold text-center mb-8">How we work</p>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {VALUES.map((v, i) => (
               <Reveal key={i} delay={i * 0.08}>
                 <div className="bg-white/70 backdrop-blur-sm border border-border rounded-card p-7 hover:-translate-y-1 transition-all duration-300 hover:shadow-card">
@@ -95,10 +95,10 @@ export default function CareersPage() {
             <div className="flex flex-col gap-4">
               {OPEN_ROLES.map((role, i) => (
                 <Reveal key={i} delay={i * 0.06}>
-                  <div className="bg-white border border-border rounded-xl px-6 py-5 flex items-center justify-between hover:border-primary/30 hover:shadow-sm transition-all cursor-pointer">
-                    <div>
+                  <div className="bg-white border border-border rounded-xl px-4 sm:px-6 py-5 flex items-center justify-between gap-4 hover:border-primary/30 hover:shadow-sm transition-all cursor-pointer">
+                    <div className="min-w-0">
                       <h3 className="text-[16px] font-bold text-text-primary font-heading">{role.title}</h3>
-                      <div className="flex items-center gap-3 mt-1 text-[13px] text-text-muted">
+                      <div className="flex items-center gap-3 mt-1 text-[13px] text-text-muted flex-wrap">
                         <span className="flex items-center gap-1"><MapPin size={12} /> {role.location}</span>
                         <span className="bg-primary-bg text-primary px-2 py-0.5 rounded-full text-[11px] font-semibold">{role.type}</span>
                       </div>

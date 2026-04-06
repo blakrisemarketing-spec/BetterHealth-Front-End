@@ -32,7 +32,7 @@ export default function HowItWorks() {
             const Icon = iconMap[step.icon];
             return (
               <Reveal key={i} delay={i * 0.12}>
-                <div className="p-8 rounded-card bg-card border border-border hover:border-primary/30 hover:shadow-glow-green hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group cursor-default h-full">
+                <div className="p-5 sm:p-8 rounded-card bg-card border border-border hover:border-primary/30 hover:shadow-glow-green hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group cursor-default h-full">
                   <span className="absolute top-4 right-5 text-[64px] font-extrabold text-text-primary/[0.04] font-heading leading-none">
                     {step.num}
                   </span>

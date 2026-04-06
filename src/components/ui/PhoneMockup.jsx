@@ -13,7 +13,7 @@ export default function PhoneMockup() {
   const s = phoneScreens[activeScreen];
 
   return (
-    <div className="w-[280px] h-[560px] rounded-[36px] overflow-hidden bg-black p-3 shadow-[0_40px_80px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.1)] relative">
+    <div className="w-full max-w-[280px] aspect-[1/2] rounded-[36px] overflow-hidden bg-black p-3 shadow-[0_40px_80px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.1)] relative">
       {/* Notch */}
       <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-b-2xl z-10" />
 

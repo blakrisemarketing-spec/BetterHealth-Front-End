@@ -84,7 +84,7 @@ export default function BlogPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
+            <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
               Know your numbers.{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
                 Know your health.
@@ -153,13 +153,13 @@ export default function BlogPage() {
           <Reveal>
             <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-3">Get health insights in your inbox</h2>
             <p className="text-[14px] text-text-secondary mb-6">One email per month. No spam. Just useful health education for Ghanaians.</p>
-            <div className="flex gap-2 max-w-[420px] mx-auto">
+            <div className="flex gap-2 w-full max-w-[420px] mx-auto">
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 border border-border rounded-btn px-4 py-3 text-sm text-text-primary bg-white focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10"
+                className="flex-1 min-w-0 border border-border rounded-btn px-4 py-3 text-sm text-text-primary bg-white focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10"
               />
-              <button className="bg-primary hover:bg-primary-dark text-white rounded-btn px-5 py-3 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 shrink-0">
+              <button className="bg-primary hover:bg-primary-dark text-white rounded-btn px-5 py-3 min-h-[44px] text-sm font-bold font-heading transition-all hover:-translate-y-0.5 shrink-0">
                 Subscribe
               </button>
             </div>

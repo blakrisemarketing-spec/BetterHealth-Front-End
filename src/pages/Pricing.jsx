@@ -147,7 +147,7 @@ export default function PricingPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-5">
+            <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-5">
               Invest in knowing —{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
                 not in guessing.
@@ -161,7 +161,7 @@ export default function PricingPage() {
           </Reveal>
           {/* Value anchor banner */}
           <Reveal delay={0.3}>
-            <div className="bg-primary-bg border border-primary/20 rounded-xl px-6 py-4 text-[14px] text-text-primary font-medium">
+            <div className="bg-primary-bg border border-primary/20 rounded-xl px-4 sm:px-6 py-4 text-[13px] sm:text-[14px] text-text-primary font-medium break-words">
               💡 {valueAnchor}
             </div>
           </Reveal>
@@ -171,7 +171,7 @@ export default function PricingPage() {
       {/* ── Pricing Cards ── */}
       <section className="py-16 lg:py-20 px-6 bg-section-alt">
         <div className="max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-stretch">
             {plans.map((plan, i) => <PlanCard key={plan.name} plan={plan} index={i} />)}
           </div>
 
@@ -198,16 +198,16 @@ export default function PricingPage() {
       </section>
 
       {/* ── Comparison Table ── */}
-      <section className="py-20 px-6 bg-base overflow-x-auto">
+      <section className="py-20 px-6 bg-base">
         <div className="max-w-[900px] mx-auto">
           <Reveal>
-            <h2 className="text-[1.9rem] md:text-[2.2rem] font-extrabold text-text-primary font-heading tracking-tight text-center mb-8">
+            <h2 className="text-[1.5rem] sm:text-[1.9rem] md:text-[2.2rem] font-extrabold text-text-primary font-heading tracking-tight text-center mb-8">
               {comparison.headline}
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-card border border-border overflow-hidden">
-              <table className="w-full text-sm">
+            <div className="rounded-card border border-border overflow-x-auto">
+              <table className="w-full text-sm min-w-[480px]">
                 <thead>
                   <tr className="bg-section-alt border-b border-border">
                     <th className="text-left px-5 py-4 text-[13px] font-bold text-text-primary w-[40%]">Feature</th>
@@ -233,25 +233,25 @@ export default function PricingPage() {
       </section>
 
       {/* ── Hospital Comparison ── */}
-      <section className="py-20 px-6 bg-section-alt overflow-x-auto">
+      <section className="py-20 px-6 bg-section-alt">
         <div className="max-w-[860px] mx-auto">
           <Reveal>
             <div className="text-center mb-8">
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-2">Value vs Hospital</p>
-              <h2 className="text-[1.9rem] md:text-[2.2rem] font-extrabold text-text-primary font-heading tracking-tight mb-3">
+              <h2 className="text-[1.5rem] sm:text-[1.9rem] md:text-[2.2rem] font-extrabold text-text-primary font-heading tracking-tight mb-3">
                 {hospitalComparison.headline}
               </h2>
               <p className="text-[14px] text-text-secondary">{hospitalComparison.body}</p>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-card border border-border overflow-hidden">
-              <table className="w-full text-sm">
+            <div className="rounded-card border border-border overflow-x-auto">
+              <table className="w-full text-sm min-w-[420px]">
                 <thead>
                   <tr className="bg-section-alt border-b border-border">
-                    <th className="text-left px-5 py-4 text-[13px] font-bold text-text-primary">Test Group</th>
-                    <th className="text-center px-4 py-4 text-[13px] font-bold text-text-secondary">Typical Hospital</th>
-                    <th className="text-center px-4 py-4 text-[13px] font-bold text-primary bg-primary-bg/50">BetterHealth Complete</th>
+                    <th className="text-left px-4 sm:px-5 py-4 text-[13px] font-bold text-text-primary">Test Group</th>
+                    <th className="text-center px-3 sm:px-4 py-4 text-[13px] font-bold text-text-secondary">Typical Hospital</th>
+                    <th className="text-center px-3 sm:px-4 py-4 text-[13px] font-bold text-primary bg-primary-bg/50">BetterHealth Complete</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -317,7 +317,7 @@ export default function PricingPage() {
         <GradientOrb color="green" size="500px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[580px] mx-auto text-center relative z-10">
           <Reveal>
-            <h2 className="text-[2.2rem] md:text-[2.8rem] font-extrabold text-white font-heading tracking-tight mb-4">
+            <h2 className="text-[1.7rem] sm:text-[2.2rem] md:text-[2.8rem] font-extrabold text-white font-heading tracking-tight mb-4">
               {bottomCta.headline}
             </h2>
           </Reveal>

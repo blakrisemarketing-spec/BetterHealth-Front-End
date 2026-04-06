@@ -8,12 +8,12 @@ export default function ProductShowcase() {
     <section className="py-20 lg:py-[120px] px-6 bg-base relative overflow-hidden">
       <div className="max-w-[1280px] mx-auto flex flex-wrap items-center gap-16 relative z-10">
         {/* Phone left */}
-        <Reveal direction="left" className="flex-shrink-0 flex justify-center" style={{ flexBasis: "320px" }}>
+        <Reveal direction="left" className="w-full sm:w-[320px] sm:flex-shrink-0 flex justify-center">
           <PhoneMockup />
         </Reveal>
 
         {/* Copy right */}
-        <div className="flex-1 min-w-[300px]" style={{ flexBasis: "400px" }}>
+        <div className="flex-1 w-full sm:w-auto min-w-0 sm:min-w-[300px] sm:basis-[400px]">
           <Reveal>
             <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">
               Your Health Dashboard

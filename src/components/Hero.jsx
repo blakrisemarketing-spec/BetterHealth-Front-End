@@ -38,9 +38,9 @@ export default function Hero() {
       <GradientOrb color="green" size="700px" className="top-[-20%] right-[-15%]" />
       <GradientOrb color="blue" size="500px" className="bottom-[-15%] left-[-10%]" />
 
-      <div className="max-w-[1280px] mx-auto w-full flex flex-wrap items-center gap-12 lg:gap-16">
+      <div className="max-w-[1280px] mx-auto w-full flex flex-col md:flex-row flex-wrap items-center gap-10 md:gap-12 lg:gap-16">
         {/* Left - Copy */}
-        <div className="flex-1 min-w-[300px]" style={{ flexBasis: "480px" }}>
+        <div className="flex-1 w-full md:w-[480px] md:min-w-[300px]">
           <Reveal>
             <Badge variant="primary" className="mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-dot" />
@@ -79,14 +79,14 @@ export default function Hero() {
             <div className="flex gap-8 flex-wrap">
               {heroStats.map((stat, i) => (
                 <div key={i} className="flex flex-col">
-                  <span className="text-[28px] font-extrabold text-text-primary font-heading tracking-tight">
+                  <span className="text-xl sm:text-[28px] font-extrabold text-text-primary font-heading tracking-tight">
                     {stat.value === "127+" ? (
                       <><CountUp end={127} />+</>
                     ) : (
                       stat.value
                     )}
                   </span>
-                  <span className="text-[13px] text-text-muted font-medium tracking-wider uppercase">
+                  <span className="text-[11px] sm:text-[13px] text-text-muted font-medium tracking-wider uppercase">
                     {stat.label}
                   </span>
                 </div>
@@ -110,7 +110,7 @@ export default function Hero() {
         </div>
 
         {/* Right - Dashboard screenshot mockup */}
-        <Reveal delay={0.3} direction="right" className="flex-shrink-0 flex justify-center" style={{ flexBasis: "480px" }}>
+        <Reveal delay={0.3} direction="right" className="w-full md:w-[480px] md:flex-shrink-0 flex justify-center">
           <div className="animate-float w-full max-w-[540px] relative">
             {/* Browser chrome */}
             <div className="rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.18),0_0_0_1px_rgba(0,0,0,0.06)]">
@@ -126,7 +126,7 @@ export default function Hero() {
                 </div>
               </div>
               {/* Screenshot */}
-              <div className="overflow-hidden" style={{ maxHeight: '360px' }}>
+              <div className="overflow-hidden max-h-[360px]">
                 <img
                   src={`${import.meta.env.BASE_URL}hero-demo.png`}
                   alt="BetterHealth Africa patient dashboard"

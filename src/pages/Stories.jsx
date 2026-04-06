@@ -61,11 +61,11 @@ function StoryCard({ story, index }) {
     <Reveal delay={index * 0.06}>
       <article className="bg-white border border-border rounded-card shadow-sm hover:shadow-card transition-all duration-300 overflow-hidden">
         {/* Card header */}
-        <div className="p-6 pb-4">
-          <div className="flex items-start gap-4 mb-4">
+        <div className="p-4 sm:p-6 pb-4">
+          <div className="flex items-start gap-3 sm:gap-4 mb-4">
             {/* Avatar */}
-            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${avatarGrad} flex items-center justify-center shrink-0`}>
-              <span className="text-white font-bold text-lg font-heading">{initials}</span>
+            <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${avatarGrad} flex items-center justify-center shrink-0`}>
+              <span className="text-white font-bold text-base sm:text-lg font-heading">{initials}</span>
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap mb-1">
@@ -73,7 +73,7 @@ function StoryCard({ story, index }) {
                   {story.tag}
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 text-[13px] text-text-muted">
+              <div className="flex items-center gap-1.5 text-[12px] sm:text-[13px] text-text-muted flex-wrap">
                 <span className="font-semibold text-text-secondary">{story.name}</span>
                 {story.age && <span>· {story.age}</span>}
                 <MapPin size={11} className="ml-0.5" />
@@ -103,7 +103,7 @@ function StoryCard({ story, index }) {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden"
             >
-              <div className="px-6 pb-2 flex flex-col gap-3">
+              <div className="px-4 sm:px-6 pb-2 flex flex-col gap-3">
                 {story.narrative.slice(1).map((para, i) => (
                   <p key={i} className="text-[14px] text-text-secondary leading-relaxed">{para}</p>
                 ))}
@@ -119,7 +119,7 @@ function StoryCard({ story, index }) {
         </AnimatePresence>
 
         {/* Quote + toggle */}
-        <div className="px-6 py-4 border-t border-border/60">
+        <div className="px-4 sm:px-6 py-4 border-t border-border/60">
           <div className="flex gap-2 mb-3">
             <Quote size={16} className="text-primary shrink-0 mt-0.5" />
             <p className="text-[14px] italic text-text-primary font-medium leading-snug">{story.quote}</p>
@@ -158,7 +158,7 @@ export default function StoriesPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-5">
+            <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-5">
               The tests their doctors{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
                 never ordered.
@@ -214,7 +214,7 @@ export default function StoriesPage() {
         <GradientOrb color="green" size="500px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[600px] mx-auto text-center relative z-10">
           <Reveal>
-            <h2 className="text-[2.2rem] md:text-[2.8rem] font-extrabold text-white font-heading tracking-tight mb-4">
+            <h2 className="text-[1.7rem] sm:text-[2.2rem] md:text-[2.8rem] font-extrabold text-white font-heading tracking-tight mb-4">
               {bottomCta.headline}
             </h2>
           </Reveal>

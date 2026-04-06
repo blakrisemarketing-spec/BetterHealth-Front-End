@@ -42,7 +42,7 @@ export default function AdvisoryTeam() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {team.map((member, i) => (
             <Reveal key={i} delay={i * 0.15}>
-              <div className="flex flex-col items-center text-center p-8 rounded-card bg-card border border-border hover:border-primary/30 hover:-translate-y-1 hover:shadow-glow-green transition-all duration-300 shadow-card">
+              <div className="flex flex-col items-center text-center p-5 sm:p-8 rounded-card bg-card border border-border hover:border-primary/30 hover:-translate-y-1 hover:shadow-glow-green transition-all duration-300 shadow-card">
                 {/* Circular avatar with teal ring */}
                 <div className="w-[96px] h-[96px] rounded-full ring-4 ring-primary/40 ring-offset-2 ring-offset-card bg-primary-bg flex items-center justify-center mb-5">
                   <span className="text-primary text-2xl font-extrabold font-heading">

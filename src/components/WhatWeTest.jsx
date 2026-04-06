@@ -44,7 +44,7 @@ export default function WhatWeTest() {
               <button
                 key={i}
                 onClick={() => setActive(i)}
-                className={`px-4 py-2.5 rounded-btn border-none cursor-pointer text-[13px] font-semibold font-heading transition-all duration-250 ${
+                className={`px-4 py-3 rounded-btn border-none cursor-pointer text-[13px] font-semibold font-heading transition-all duration-250 ${
                   active === i
                     ? "bg-primary text-white"
                     : "bg-card text-text-secondary border border-border hover:border-primary hover:text-primary"
@@ -58,7 +58,7 @@ export default function WhatWeTest() {
 
         {/* Active panel */}
         <Reveal>
-          <div className="bg-card rounded-card p-8 border border-border shadow-card">
+          <div className="bg-card rounded-card p-5 sm:p-8 border border-border shadow-card">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}

@@ -130,7 +130,7 @@ export default function WhatWeTestPage() {
       <Nav />
 
       {/* ── Hero ── */}
-      <section className="min-h-[60vh] flex items-center pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
+      <section className="min-h-[60vh] flex items-center pt-[80px] md:pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
         <GradientOrb color="green" size="600px" className="top-[-10%] right-[-10%]" />
         <GradientOrb color="blue" size="400px" className="bottom-[-10%] left-[-5%]" />
         <div className="max-w-[800px] mx-auto text-center relative z-10">

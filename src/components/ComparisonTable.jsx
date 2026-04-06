@@ -32,15 +32,16 @@ export default function ComparisonTable() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="rounded-card overflow-hidden border border-border shadow-card">
+          <div className="overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0">
+          <div className="rounded-card overflow-hidden border border-border shadow-card min-w-[340px]">
             {/* Header */}
-            <div className="grid grid-cols-[1fr_100px_100px] sm:grid-cols-[1fr_120px_120px] bg-section-alt">
-              <div className="p-4" />
-              <div className="p-4 text-center bg-gradient-to-b from-primary to-primary-dark">
-                <span className="text-white text-[13px] font-bold font-heading">BetterHealth Africa</span>
+            <div className="grid grid-cols-[1fr_80px_80px] sm:grid-cols-[1fr_120px_120px] bg-section-alt">
+              <div className="p-3 sm:p-4" />
+              <div className="p-3 sm:p-4 text-center bg-gradient-to-b from-primary to-primary-dark">
+                <span className="text-white text-[11px] sm:text-[13px] font-bold font-heading">BetterHealth Africa</span>
               </div>
-              <div className="p-4 text-center">
-                <span className="text-text-muted text-[13px] font-semibold">Hospital Lab</span>
+              <div className="p-3 sm:p-4 text-center">
+                <span className="text-text-muted text-[11px] sm:text-[13px] font-semibold">Hospital Lab</span>
               </div>
             </div>
 
@@ -48,11 +49,11 @@ export default function ComparisonTable() {
             {comparisonRows.map((row, i) => (
               <div
                 key={i}
-                className={`grid grid-cols-[1fr_100px_100px] sm:grid-cols-[1fr_120px_120px] border-t border-border ${
+                className={`grid grid-cols-[1fr_80px_80px] sm:grid-cols-[1fr_120px_120px] border-t border-border ${
                   i % 2 === 0 ? "bg-card" : "bg-section-alt"
                 }`}
               >
-                <div className="p-3.5 px-6 text-sm font-medium text-text-primary font-body">
+                <div className="p-3 px-4 sm:p-3.5 sm:px-6 text-xs sm:text-sm font-medium text-text-primary font-body">
                   {row.feature}
                 </div>
                 <div className="p-3.5 flex justify-center items-center">
@@ -79,6 +80,7 @@ export default function ComparisonTable() {
                 </div>
               </div>
             ))}
+          </div>
           </div>
         </Reveal>
       </div>

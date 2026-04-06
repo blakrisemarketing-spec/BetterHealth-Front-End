@@ -38,7 +38,7 @@ export default function Pricing() {
           {plans.map((plan, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <div
-                className={`p-8 rounded-card flex flex-col h-full transition-all duration-300 relative ${
+                className={`p-5 sm:p-8 rounded-card flex flex-col h-full transition-all duration-300 relative ${
                   plan.popular
                     ? "bg-card border-2 border-primary shadow-[0_20px_60px_rgba(13,148,136,0.12)] scale-[1.02]"
                     : "bg-card border border-border hover:-translate-y-1 hover:shadow-card hover:border-primary/20 shadow-card"
@@ -55,7 +55,7 @@ export default function Pricing() {
                 </h3>
 
                 <div className="mb-2">
-                  <span className="text-[42px] font-extrabold text-text-primary font-heading tracking-tight">
+                  <span className="text-[28px] sm:text-[36px] md:text-[42px] font-extrabold text-text-primary font-heading tracking-tight">
                     GHS {plan.price}
                   </span>
                   <span className="text-[15px] text-text-muted">/month</span>
@@ -83,7 +83,7 @@ export default function Pricing() {
                 </div>
 
                 <button
-                  className={`w-full py-3.5 rounded-btn border-none text-[15px] font-bold font-heading cursor-pointer transition-all hover:-translate-y-0.5 ${
+                  className={`w-full py-4 rounded-btn border-none text-[15px] font-bold font-heading cursor-pointer transition-all hover:-translate-y-0.5 ${
                     plan.popular
                       ? "bg-gradient-to-r from-primary to-primary-light text-white"
                       : "bg-section-alt text-text-primary hover:bg-primary-bg hover:text-primary border border-border"

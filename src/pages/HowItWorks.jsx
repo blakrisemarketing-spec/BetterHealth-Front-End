@@ -127,7 +127,7 @@ function StepBlock({ step, index }) {
           </div>
 
           {/* Visual side — decorative step number card */}
-          <div className="flex-shrink-0 w-[260px] h-[260px] md:w-[300px] md:h-[300px] rounded-3xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15 flex items-center justify-center relative overflow-hidden">
+          <div className="flex-shrink-0 w-full max-w-[260px] aspect-square md:max-w-[300px] rounded-3xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15 flex items-center justify-center relative overflow-hidden">
             <span className="text-[110px] font-extrabold text-primary/20 font-heading leading-none select-none">
               {step.num}
             </span>
@@ -155,7 +155,7 @@ export default function HowItWorksPage() {
       <Nav />
 
       {/* ── Hero ── */}
-      <section className="min-h-[60vh] flex items-center pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
+      <section className="min-h-[60vh] flex items-center pt-[80px] md:pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
         <GradientOrb color="green" size="600px" className="top-[-10%] right-[-10%]" />
         <GradientOrb color="blue" size="400px" className="bottom-[-10%] left-[-5%]" />
         <div className="max-w-[760px] mx-auto text-center relative z-10">
@@ -166,7 +166,7 @@ export default function HowItWorksPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[2.8rem] md:text-[3.6rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-5">
+            <h1 className="text-[2.2rem] md:text-[3.6rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-5">
               From sign-up to results in{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
                 72 hours.
@@ -224,7 +224,7 @@ export default function HowItWorksPage() {
             </div>
           </Reveal>
           <Reveal delay={0.25}>
-            <div className="mt-8 grid grid-cols-3 gap-6 text-center">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
               {[
                 { title: 'Your Health Dashboard', sub: 'All biomarkers in one place' },
                 { title: 'Track Every Biomarker', sub: 'Monitor 40+ health markers' },

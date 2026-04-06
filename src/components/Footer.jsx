@@ -29,8 +29,7 @@ export default function Footer() {
                 <img
                   src={logo}
                   alt="BetterHealth Africa"
-                  className="h-8 w-auto object-contain"
-                  style={{ maxWidth: "160px" }}
+                  className="h-8 w-auto object-contain max-w-[160px]"
                 />
               </div>
             </div>
@@ -92,7 +91,7 @@ export default function Footer() {
             {["MTN MoMo", "Vodafone Cash", "AirtelTigo", "Visa", "Mastercard"].map((m) => (
               <span
                 key={m}
-                className="px-2.5 py-1 rounded text-[11px] bg-white/[0.06] text-text-muted-dark/60 font-semibold"
+                className="px-2.5 py-1 rounded text-xs bg-white/[0.06] text-text-muted-dark/60 font-semibold"
               >
                 {m}
               </span>

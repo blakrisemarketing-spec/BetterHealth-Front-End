@@ -144,7 +144,7 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white border border-border rounded-card p-8 shadow-sm flex flex-col gap-5">
+    <form onSubmit={handleSubmit} className="bg-white border border-border rounded-card p-4 sm:p-8 shadow-sm flex flex-col gap-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-[13px] font-semibold text-text-primary mb-1.5">Full Name *</label>
@@ -233,7 +233,7 @@ export default function ContactPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
+            <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
               We're here when{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
                 you need us.
@@ -256,7 +256,7 @@ export default function ContactPage() {
               const Icon = ch.icon;
               return (
                 <Reveal key={i} delay={i * 0.07}>
-                  <div className={`relative flex flex-col bg-white border rounded-card p-6 h-full transition-all duration-300 hover:-translate-y-1 ${ch.primary ? "border-primary shadow-[0_0_0_2px_#0D9488,0_8px_24px_rgba(13,148,136,0.12)]" : "border-border hover:shadow-card hover:border-primary/20"}`}>
+                  <div className={`relative flex flex-col bg-white border rounded-card p-4 sm:p-6 h-full transition-all duration-300 hover:-translate-y-1 ${ch.primary ? "border-primary shadow-[0_0_0_2px_#0D9488,0_8px_24px_rgba(13,148,136,0.12)]" : "border-border hover:shadow-card hover:border-primary/20"}`}>
                     {ch.primary && (
                       <span className="absolute -top-3 left-5 bg-primary text-white text-[10px] font-extrabold tracking-[0.12em] px-3 py-0.5 rounded-pill font-heading">
                         FASTEST
@@ -279,7 +279,7 @@ export default function ContactPage() {
                       <a
                         href={ch.href}
                         rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-1.5 text-[13px] font-bold rounded-btn px-4 py-2.5 transition-all hover:-translate-y-0.5 no-underline justify-center ${ch.primary ? "bg-primary hover:bg-primary-dark text-white" : "bg-section-alt hover:bg-primary-bg text-primary border border-border hover:border-primary/30"}`}
+                        className={`inline-flex items-center gap-1.5 text-[13px] font-bold rounded-btn px-4 py-3 min-h-[44px] transition-all hover:-translate-y-0.5 no-underline justify-center ${ch.primary ? "bg-primary hover:bg-primary-dark text-white" : "bg-section-alt hover:bg-primary-bg text-primary border border-border hover:border-primary/30"}`}
                       >
                         {ch.cta} <ArrowRight size={13} />
                       </a>
@@ -354,9 +354,9 @@ export default function ContactPage() {
             </div>
             <div className="rounded-card border border-border overflow-hidden">
               {RESPONSE_TIMES.map((r, i) => (
-                <div key={i} className={`flex items-center justify-between px-5 py-3.5 text-[14px] border-b border-border/50 last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-section-alt/60"}`}>
+                <div key={i} className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 px-4 sm:px-5 py-3 sm:py-3.5 text-[14px] border-b border-border/50 last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-section-alt/60"}`}>
                   <span className="font-semibold text-text-primary">{r.channel}</span>
-                  <span className="text-text-secondary">{r.time}</span>
+                  <span className="text-text-secondary text-[13px] sm:text-[14px]">{r.time}</span>
                 </div>
               ))}
             </div>
@@ -383,7 +383,7 @@ export default function ContactPage() {
         <GradientOrb color="green" size="500px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[560px] mx-auto text-center relative z-10">
           <Reveal>
-            <h2 className="text-[2.2rem] md:text-[2.6rem] font-extrabold text-white font-heading tracking-tight mb-4">
+            <h2 className="text-[1.7rem] sm:text-[2.2rem] md:text-[2.6rem] font-extrabold text-white font-heading tracking-tight mb-4">
               Ready to take the first step?
             </h2>
           </Reveal>

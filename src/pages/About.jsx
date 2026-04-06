@@ -41,7 +41,7 @@ export default function AboutPage() {
       <Nav />
 
       {/* ── Hero ── */}
-      <section className="min-h-[60vh] flex items-center pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
+      <section className="min-h-[60vh] flex items-center pt-[80px] md:pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
         <GradientOrb color="green" size="600px" className="top-[-10%] right-[-8%]" />
         <GradientOrb color="blue" size="360px" className="bottom-[-10%] left-[-5%]" />
         <div className="max-w-[800px] mx-auto text-center relative z-10">
@@ -153,7 +153,7 @@ export default function AboutPage() {
               </h2>
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {values.items.map((v, i) => {
               const Icon = VALUE_ICONS[v.icon] || ShieldCheck;
               return (
@@ -202,7 +202,7 @@ export default function AboutPage() {
               </h2>
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {partners.items.map((p, i) => (
               <Reveal key={i} delay={i * 0.08}>
                 <div className="bg-white/70 backdrop-blur-sm border border-border rounded-card p-6 hover:-translate-y-1 transition-all duration-300 hover:shadow-card">
@@ -232,7 +232,7 @@ export default function AboutPage() {
               <p className="text-[15px] text-text-secondary max-w-[600px] mx-auto">{advisory.body}</p>
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
             {advisory.advisors.map((a, i) => <AdvisorCard key={i} advisor={a} index={i} />)}
           </div>
         </div>
