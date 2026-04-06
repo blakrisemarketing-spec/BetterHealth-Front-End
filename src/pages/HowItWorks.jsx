@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -15,6 +15,79 @@ import { howItWorksPage } from "../data/content";
 
 const STEP_ICONS = [UserPlus, CalendarDays, BarChart3, Zap];
 const SAFETY_ICONS = { FlaskConical, UserCheck, ShieldCheck, PackageCheck };
+
+const carouselSlides = [
+  { src: 'screenshots/triptych-1.png', title: 'Your Health Dashboard', sub: 'All biomarkers in one place' },
+  { src: 'screenshots/triptych-2.png', title: 'Track Every Biomarker', sub: 'Monitor 40+ health markers' },
+  { src: 'screenshots/triptych-3.png', title: 'Deep-Dive Analytics', sub: 'Trends, ranges & AI insights' },
+];
+
+function DashboardCarousel() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const next = useCallback(() => setActive((p) => (p + 1) % carouselSlides.length), []);
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, [paused, next]);
+
+  return (
+    <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <Reveal delay={0.15}>
+        <div className="relative rounded-2xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.5)] border border-white/[0.06] aspect-[800/1050] max-w-[600px] mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={active}
+              src={`${import.meta.env.BASE_URL}${carouselSlides[active].src}`}
+              alt={carouselSlides[active].title}
+              className="w-full h-full object-cover object-top absolute inset-0"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              loading="lazy"
+            />
+          </AnimatePresence>
+        </div>
+      </Reveal>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2.5 mt-6">
+        {carouselSlides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 border-none cursor-pointer ${
+              i === active ? "bg-primary scale-125" : "bg-white/30 hover:bg-white/50"
+            }`}
+            aria-label={`Show slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Labels */}
+      <Reveal delay={0.25}>
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          {carouselSlides.map((slide, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`bg-transparent border-none cursor-pointer transition-opacity duration-300 ${
+                i === active ? "opacity-100" : "opacity-40 hover:opacity-70"
+              }`}
+            >
+              <p className="text-white font-bold font-heading text-[15px]">{slide.title}</p>
+              <p className="text-text-muted-dark text-[13px] mt-1 font-body">{slide.sub}</p>
+            </button>
+          ))}
+        </div>
+      </Reveal>
+    </div>
+  );
+}
 
 // ── FAQ Accordion ──────────────────────────────────────────────────────────────
 function FAQItem({ q, a, isOpen, onToggle }) {
@@ -213,30 +286,7 @@ export default function HowItWorksPage() {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={0.15}>
-            <div className="rounded-2xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.5)] border border-white/[0.06]">
-              <img
-                src={`${import.meta.env.BASE_URL}triptych.png`}
-                alt="BetterHealth Africa dashboard, biomarker tracking, and analytics views"
-                className="w-full h-auto block"
-                loading="lazy"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={0.25}>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-              {[
-                { title: 'Your Health Dashboard', sub: 'All biomarkers in one place' },
-                { title: 'Track Every Biomarker', sub: 'Monitor 40+ health markers' },
-                { title: 'Deep-Dive Analytics', sub: 'Trends, ranges & AI insights' },
-              ].map((item, i) => (
-                <div key={i}>
-                  <p className="text-white font-bold font-heading text-[15px]">{item.title}</p>
-                  <p className="text-text-muted-dark text-[13px] mt-1 font-body">{item.sub}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
+          <DashboardCarousel />
         </div>
       </section>
 

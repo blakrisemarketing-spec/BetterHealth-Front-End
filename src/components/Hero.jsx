@@ -5,6 +5,7 @@ import { useRef, useEffect, useState } from "react";
 import Reveal from "./ui/Reveal";
 import GradientOrb from "./ui/GradientOrb";
 import Badge from "./ui/Badge";
+import PhoneFrame from "./ui/PhoneFrame";
 import { heroStats, trustedPartners } from "../data/content";
 
 function CountUp({ end, duration = 1800 }) {
@@ -109,32 +110,13 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Right - Dashboard screenshot mockup */}
-        <Reveal delay={0.3} direction="right" className="w-full md:w-[480px] md:flex-shrink-0 flex justify-center">
-          <div className="animate-float w-full max-w-[540px] relative">
-            {/* Browser chrome */}
-            <div className="rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.18),0_0_0_1px_rgba(0,0,0,0.06)]">
-              {/* Chrome bar */}
-              <div className="bg-[#E8EAED] px-4 py-3 flex items-center gap-3">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-                  <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-                  <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
-                </div>
-                <div className="flex-1 bg-white rounded-full px-3 py-1 text-[11px] text-gray-400 font-medium">
-                  app.betterhealth.africa
-                </div>
-              </div>
-              {/* Screenshot */}
-              <div className="overflow-hidden max-h-[360px]">
-                <img
-                  src={`${import.meta.env.BASE_URL}hero-demo.png`}
-                  alt="BetterHealth Africa patient dashboard"
-                  className="w-full object-cover object-top"
-                  loading="eager"
-                />
-              </div>
-            </div>
+        {/* Right - Phone mockup with real screenshot */}
+        <Reveal delay={0.3} direction="right" className="w-full md:w-[380px] md:flex-shrink-0 flex justify-center">
+          <div className="animate-float relative">
+            <PhoneFrame
+              src={`${import.meta.env.BASE_URL}screenshots/health-score.jpg`}
+              alt="BetterHealth Africa health score dashboard showing 83/100 with organ system breakdown"
+            />
             {/* Floating badge */}
             <div className="absolute -bottom-4 -right-4 bg-primary text-white text-xs font-bold font-heading px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-white animate-pulse-dot" />

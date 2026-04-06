@@ -1,6 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import Reveal from "./ui/Reveal";
-import PhoneMockup from "./ui/PhoneMockup";
+import PhoneFrame from "./ui/PhoneFrame";
 import { showcaseFeatures } from "../data/content";
 
 export default function ProductShowcase() {
@@ -9,7 +9,10 @@ export default function ProductShowcase() {
       <div className="max-w-[1280px] mx-auto flex flex-wrap items-center gap-16 relative z-10">
         {/* Phone left */}
         <Reveal direction="left" className="w-full sm:w-[320px] sm:flex-shrink-0 flex justify-center">
-          <PhoneMockup />
+          <PhoneFrame
+            src={`${import.meta.env.BASE_URL}screenshots/focus.jpg`}
+            alt="BetterHealth Africa biomarker focus view with Today's Focus and Celebrate Your Wins sections"
+          />
         </Reveal>
 
         {/* Copy right */}
