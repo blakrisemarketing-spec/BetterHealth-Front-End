@@ -10,6 +10,7 @@ import ContactPage from "./pages/Contact";
 import PrivacyPage from "./pages/Privacy";
 import BlogPage from "./pages/Blog";
 import CareersPage from "./pages/Careers";
+import NotFoundPage from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/careers" element={<CareersPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
