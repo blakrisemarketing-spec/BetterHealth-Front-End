@@ -58,7 +58,7 @@ export default function Hero() {
           <Reveal delay={0.1}>
             <h1 className="text-h1 font-extrabold leading-[1.08] font-heading text-text-primary tracking-[-0.03em] mb-5">
               Know what&apos;s happening{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic pr-[0.1em]">
                 inside
               </span>{" "}
               your body.

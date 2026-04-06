@@ -255,7 +255,7 @@ export default function HowItWorksPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[2.2rem] md:text-[3.6rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-5">
               From sign-up to results in{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic pr-[0.1em]">
                 72 hours.
               </span>
             </h1>
@@ -291,7 +291,7 @@ export default function HowItWorksPage() {
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">Your Health, Visualised</p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight">
                 Everything you need to{" "}
-                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic">
+                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic pr-[0.1em]">
                   understand your health.
                 </span>
               </h2>
@@ -347,7 +347,7 @@ export default function HowItWorksPage() {
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">FAQ</p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight">
                 Questions?{" "}
-                <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+                <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent pr-[0.1em]">
                   Answered.
                 </span>
               </h2>
