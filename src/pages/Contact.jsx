@@ -235,7 +235,7 @@ export default function ContactPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
               We're here when{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic pr-[0.1em]">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic pr-[0.25em]">
                 you need us.
               </span>
             </h1>

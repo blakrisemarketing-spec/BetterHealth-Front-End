@@ -55,7 +55,7 @@ export default function FAQ() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               Questions?{" "}
-              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent pr-[0.1em]">
+              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent pr-[0.25em]">
                 Answered.
               </span>
             </h2>
