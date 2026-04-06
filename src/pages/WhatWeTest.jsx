@@ -141,7 +141,7 @@ export default function WhatWeTestPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-5">
+            <h1 className="text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                 127+ biomarkers.
               </span>{" "}

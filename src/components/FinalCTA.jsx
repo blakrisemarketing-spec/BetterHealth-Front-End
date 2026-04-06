@@ -19,7 +19,7 @@ export default function FinalCTA() {
 
       <div className="max-w-[700px] mx-auto relative z-10">
         <Reveal>
-          <h2 className="text-[clamp(32px,5vw,52px)] font-extrabold text-text-on-dark font-heading tracking-[-0.03em] leading-[1.15] mb-5">
+          <h2 className="text-[clamp(32px,5vw,52px)] font-extrabold text-text-on-dark font-heading leading-[1.15] mb-5">
             Preventable doesn&apos;t mean{" "}
             <span className="italic text-primary-light">inevitable.</span>
           </h2>

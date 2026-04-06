@@ -235,7 +235,7 @@ export default function FAQPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-4">
+            <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
               Everything you{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
                 need to know.

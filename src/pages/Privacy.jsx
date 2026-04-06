@@ -96,7 +96,7 @@ export default function PrivacyPage() {
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill bg-primary-bg border border-primary/25 text-primary text-xs font-bold font-heading tracking-wider uppercase mb-6">
               Legal
             </span>
-            <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-3">
+            <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-3">
               Privacy Policy
             </h1>
             <p className="text-[14px] text-text-muted mb-8">Last updated: April 2026</p>

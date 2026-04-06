@@ -52,7 +52,7 @@ export default function AboutPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[2.4rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.1] tracking-[-0.03em] text-text-primary mb-5">
+            <h1 className="text-[2.4rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.1] text-text-primary mb-5">
               We believe Africans deserve to know their health —{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
                 not after illness strikes, but before.
