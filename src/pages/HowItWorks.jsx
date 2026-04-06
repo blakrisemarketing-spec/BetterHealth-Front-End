@@ -17,9 +17,9 @@ const STEP_ICONS = [UserPlus, CalendarDays, BarChart3, Zap];
 const SAFETY_ICONS = { FlaskConical, UserCheck, ShieldCheck, PackageCheck };
 
 const carouselSlides = [
-  { src: 'screenshots/triptych-1.png', title: 'Your Health Dashboard', sub: 'All biomarkers in one place' },
-  { src: 'screenshots/triptych-2.png', title: 'Track Every Biomarker', sub: 'Monitor 40+ health markers' },
-  { src: 'screenshots/triptych-3.png', title: 'Deep-Dive Analytics', sub: 'Trends, ranges & AI insights' },
+  { src: 'screenshots/desktop-dashboard.png', title: 'Your Health Dashboard', sub: 'All biomarkers in one place' },
+  { src: 'screenshots/desktop-healthscore.png', title: 'Track Every Biomarker', sub: 'Monitor 40+ health markers' },
+  { src: 'screenshots/desktop-results.png', title: 'Deep-Dive Analytics', sub: 'Trends, ranges & AI insights' },
 ];
 
 function DashboardCarousel() {
@@ -37,20 +37,34 @@ function DashboardCarousel() {
   return (
     <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <Reveal delay={0.15}>
-        <div className="relative rounded-2xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.5)] border border-white/[0.06] aspect-[800/1050] max-w-[600px] mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={active}
-              src={`${import.meta.env.BASE_URL}${carouselSlides[active].src}`}
-              alt={carouselSlides[active].title}
-              className="w-full h-full object-cover object-top absolute inset-0"
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              loading="lazy"
-            />
-          </AnimatePresence>
+        <div className="rounded-2xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.5)] border border-white/[0.06]">
+          {/* Browser chrome */}
+          <div className="bg-[#E8EAED] px-4 py-3 flex items-center gap-3">
+            <div className="flex gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+              <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+              <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
+            </div>
+            <div className="flex-1 bg-white rounded-full px-3 py-1 text-[11px] text-gray-400 font-medium">
+              app.betterhealth.africa
+            </div>
+          </div>
+          {/* Screenshot */}
+          <div className="relative aspect-[2756/1646] bg-[#F5F3EF]">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={active}
+                src={`${import.meta.env.BASE_URL}${carouselSlides[active].src}`}
+                alt={carouselSlides[active].title}
+                className="w-full h-full object-cover object-top absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                loading="lazy"
+              />
+            </AnimatePresence>
+          </div>
         </div>
       </Reveal>
 

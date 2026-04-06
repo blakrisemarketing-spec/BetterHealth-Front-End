@@ -3,16 +3,19 @@ import Reveal from "./ui/Reveal";
 import PhoneFrame from "./ui/PhoneFrame";
 import { showcaseFeatures } from "../data/content";
 
+const phoneScreens = [
+  { src: `${import.meta.env.BASE_URL}screenshots/mobile-healthscore.jpg`, alt: "Health Score 83/100 with organ system breakdown" },
+  { src: `${import.meta.env.BASE_URL}screenshots/mobile-focus.jpg`, alt: "Today's Focus and Celebrate Your Wins" },
+  { src: `${import.meta.env.BASE_URL}screenshots/mobile-biomarker.jpg`, alt: "Blood Urea Nitrogen biomarker detail with trend chart" },
+];
+
 export default function ProductShowcase() {
   return (
     <section className="py-20 lg:py-[120px] px-6 bg-base relative overflow-hidden">
       <div className="max-w-[1280px] mx-auto flex flex-wrap items-center gap-16 relative z-10">
         {/* Phone left */}
         <Reveal direction="left" className="w-full sm:w-[320px] sm:flex-shrink-0 flex justify-center">
-          <PhoneFrame
-            src={`${import.meta.env.BASE_URL}screenshots/focus.jpg`}
-            alt="BetterHealth Africa biomarker focus view with Today's Focus and Celebrate Your Wins sections"
-          />
+          <PhoneFrame screens={phoneScreens} interval={3500} />
         </Reveal>
 
         {/* Copy right */}
