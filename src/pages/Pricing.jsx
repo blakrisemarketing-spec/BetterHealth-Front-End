@@ -149,7 +149,7 @@ export default function PricingPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] tracking-[-0.03em] text-text-primary mb-5">
               Invest in knowing —{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic pr-[0.25em]">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
                 not in guessing.
               </span>
             </h1>

@@ -32,7 +32,7 @@ export default function AdvisoryTeam() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               Your results, reviewed by{" "}
-              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent pr-[0.25em]">
+              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal">
                 qualified professionals
               </span>
             </h2>

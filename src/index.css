@@ -28,9 +28,9 @@ body {
   color: #111827;
 }
 
-/* Prevent italic bg-clip-text from clipping the last letter */
+/* Prevent italic bg-clip-text from clipping — reset inherited negative tracking */
 .bg-clip-text.italic {
-  padding-right: 0.25em;
+  letter-spacing: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

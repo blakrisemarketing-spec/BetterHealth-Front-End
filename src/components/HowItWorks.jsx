@@ -20,7 +20,7 @@ export default function HowItWorks() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               Four simple steps to{" "}
-              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent pr-[0.25em]">
+              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal">
                 knowing your health
               </span>
             </h2>
