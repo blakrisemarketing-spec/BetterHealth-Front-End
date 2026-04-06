@@ -28,6 +28,11 @@ body {
   color: #111827;
 }
 
+/* Prevent italic bg-clip-text from clipping the last letter */
+.bg-clip-text.italic {
+  padding-right: 0.15em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -8,6 +8,12 @@ import Badge from "./ui/Badge";
 import PhoneFrame from "./ui/PhoneFrame";
 import { heroStats, trustedPartners } from "../data/content";
 
+const heroScreens = [
+  { src: `${import.meta.env.BASE_URL}screenshots/mobile-healthscore.jpg`, alt: "Health Score 83/100 with organ system breakdown" },
+  { src: `${import.meta.env.BASE_URL}screenshots/mobile-focus.jpg`, alt: "Today's Focus and Celebrate Your Wins" },
+  { src: `${import.meta.env.BASE_URL}screenshots/mobile-biomarker.jpg`, alt: "Blood Urea Nitrogen biomarker detail" },
+];
+
 function CountUp({ end, duration = 1800 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -113,10 +119,7 @@ export default function Hero() {
         {/* Right - Phone mockup with real screenshot */}
         <Reveal delay={0.3} direction="right" className="w-full md:w-[380px] md:flex-shrink-0 flex justify-center">
           <div className="animate-float relative">
-            <PhoneFrame
-              src={`${import.meta.env.BASE_URL}screenshots/health-score.jpg`}
-              alt="BetterHealth Africa health score dashboard showing 83/100 with organ system breakdown"
-            />
+            <PhoneFrame screens={heroScreens} interval={3500} />
             {/* Floating badge */}
             <div className="absolute -bottom-4 -right-4 bg-primary text-white text-xs font-bold font-heading px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-white animate-pulse-dot" />

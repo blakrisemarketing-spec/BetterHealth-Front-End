@@ -17,9 +17,9 @@ const STEP_ICONS = [UserPlus, CalendarDays, BarChart3, Zap];
 const SAFETY_ICONS = { FlaskConical, UserCheck, ShieldCheck, PackageCheck };
 
 const carouselSlides = [
-  { src: 'screenshots/desktop-dashboard.png', title: 'Your Health Dashboard', sub: 'All biomarkers in one place' },
-  { src: 'screenshots/desktop-healthscore.png', title: 'Track Every Biomarker', sub: 'Monitor 40+ health markers' },
-  { src: 'screenshots/desktop-results.png', title: 'Deep-Dive Analytics', sub: 'Trends, ranges & AI insights' },
+  { src: 'screenshots/desktop-dashboard.webp', title: 'Your Health Dashboard', sub: 'All biomarkers in one place' },
+  { src: 'screenshots/desktop-healthscore.webp', title: 'Track Every Biomarker', sub: 'Monitor 40+ health markers' },
+  { src: 'screenshots/desktop-results.webp', title: 'Deep-Dive Analytics', sub: 'Trends, ranges & AI insights' },
 ];
 
 function DashboardCarousel() {
