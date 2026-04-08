@@ -1,7 +1,7 @@
 # Changelog index
 
 ## Active file
-changelogs/2026-04-05-001.md
+changelogs/2026-04-08-001.md
 
 ## Rules for agents
 1. Read `main-context.md` first for stable project context
@@ -20,4 +20,4 @@ When the active changelog exceeds 80 lines:
 ## History
 | File | Period | Key changes |
 |------|--------|-------------|
-| 2026-04-05-001.md | Apr 5 2026 – | [initial] |
+| 2026-04-08-001.md | Apr 8 2026 – | [initial] |
