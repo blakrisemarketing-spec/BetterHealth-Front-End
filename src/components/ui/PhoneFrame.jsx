@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
 
 /**
  * PhoneFrame — Premium iPhone 15 Pro-style mockup component.
@@ -14,6 +13,10 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function PhoneFrame({ src, alt, screens, interval = 3500, className = "" }) {
   const [active, setActive] = useState(0);
   const isMulti = Array.isArray(screens) && screens.length > 1;
+  const screenItems = useMemo(
+    () => (isMulti ? screens : [{ src, alt }].filter((screen) => screen.src)),
+    [alt, isMulti, screens, src]
+  );
 
   useEffect(() => {
     if (!isMulti) return;
@@ -21,8 +24,14 @@ export default function PhoneFrame({ src, alt, screens, interval = 3500, classNa
     return () => clearInterval(timer);
   }, [isMulti, screens, interval]);
 
-  const currentSrc = isMulti ? screens[active].src : src;
-  const currentAlt = isMulti ? screens[active].alt : alt;
+  useEffect(() => {
+    screenItems.forEach(({ src: screenSrc }) => {
+      if (!screenSrc) return;
+      const image = new Image();
+      image.decoding = "async";
+      image.src = screenSrc;
+    });
+  }, [screenItems]);
 
   return (
     <div
@@ -165,34 +174,45 @@ export default function PhoneFrame({ src, alt, screens, interval = 3500, classNa
             overflow: "hidden",
             borderRadius: "42px",
             background: "#000",
+            aspectRatio: "390 / 844",
+            isolation: "isolate",
+            contain: "paint",
+            transform: "translateZ(0)",
+            WebkitTransform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
             /* Very subtle inner shadow to add depth at screen edges */
             boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.5)",
           }}
         >
-          {isMulti ? (
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={active}
-                src={currentSrc}
-                alt={currentAlt}
-                className="w-full h-auto block"
-                style={{ display: "block", maxWidth: "100%" }}
-                initial={{ opacity: 0, scale: 1.03 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                loading="lazy"
-              />
-            </AnimatePresence>
-          ) : (
+          {screenItems.map((screen, index) => (
             <img
-              src={currentSrc}
-              alt={currentAlt}
-              className="w-full h-auto block"
-              style={{ display: "block", maxWidth: "100%" }}
-              loading="lazy"
+              key={screen.src}
+              src={screen.src}
+              alt={screen.alt}
+              aria-hidden={index !== active}
+              className="block"
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: index === active ? 1 : 0,
+                transition: isMulti ? "opacity 320ms cubic-bezier(0.16, 1, 0.3, 1)" : "none",
+                willChange: isMulti ? "opacity" : "auto",
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+                pointerEvents: "none",
+                userSelect: "none",
+              }}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              draggable="false"
             />
-          )}
+          ))}
 
           {/* Screen glare overlay — subtle top-left reflection */}
           <div

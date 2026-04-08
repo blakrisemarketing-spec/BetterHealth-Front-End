@@ -118,7 +118,16 @@ export default function Hero() {
 
         {/* Right - Phone mockup with real screenshot */}
         <Reveal delay={0.3} direction="right" className="w-full md:w-[380px] md:flex-shrink-0 flex justify-center">
-          <div className="animate-float relative">
+          <div
+            className="relative md:animate-float"
+            style={{
+              transform: "translateZ(0)",
+              WebkitTransform: "translateZ(0)",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              willChange: "transform",
+            }}
+          >
             <PhoneFrame screens={heroScreens} interval={3500} />
             {/* Floating badge */}
             <div className="absolute -bottom-4 -right-4 bg-primary text-white text-xs font-bold font-heading px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
