@@ -24,13 +24,13 @@ export default function ProductShowcase() {
             <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">
               Your Health Dashboard
             </p>
-            <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight mb-4">
+            <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight mb-5 leading-[1.1]">
               Your health,{" "}
-              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal">
+              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal pr-[0.12em]">
                 in one place
               </span>
             </h2>
-            <p className="text-[17px] leading-relaxed text-text-secondary font-body mb-8">
+            <p className="text-[17px] leading-[1.7] text-text-secondary font-body mb-8">
               Track every biomarker. Understand every result. See how your body changes over time with color-coded insights and personalized recommendations.
             </p>
           </Reveal>

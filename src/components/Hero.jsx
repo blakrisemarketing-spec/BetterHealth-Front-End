@@ -56,9 +56,9 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h1 className="text-h1 font-extrabold leading-[1.08] font-heading text-text-primary mb-5">
+            <h1 className="text-h1 font-extrabold leading-[1.1] font-heading text-text-primary mb-6">
               Know what&apos;s happening{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal pr-[0.15em]">
                 inside
               </span>{" "}
               your body.
@@ -66,14 +66,14 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <p className="text-lg leading-relaxed text-text-secondary max-w-[520px] mb-8 font-body">
+            <p className="text-lg leading-[1.7] text-text-secondary max-w-[520px] mb-8 font-body">
               Comprehensive lab testing with 100+ biomarkers, personalized health insights, and home sample collection. Starting from GHS 8/day.
             </p>
           </Reveal>
 
           <Reveal delay={0.3}>
             <div className="flex flex-wrap gap-3 mb-10">
-              <Link to="/pricing" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-2 no-underline">
+              <Link to="/pricing" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-8 py-4 text-base font-bold font-heading transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow-green cursor-pointer flex items-center gap-2 no-underline">
                 Start Your Health Check <ArrowRight size={18} />
               </Link>
               <Link to="/what-we-test" className="bg-transparent text-text-primary border-2 border-border hover:border-primary hover:text-primary rounded-btn px-7 py-4 text-base font-semibold font-heading transition-all cursor-pointer no-underline">
