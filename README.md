@@ -11,6 +11,7 @@ A modern, conversion-optimised SaaS landing page built to launch BetterHealth Af
 | Agent | Role | System Prompt |
 |-------|------|---------------|
 | **Atlas** | Product Manager | `agents/atlas-system-prompt.md` |
+| **Lyra** | Senior Copywriter & Brand Strategist | `agents/lyra-system-prompt.md` |
 | **Forge** | Senior Frontend Engineer | `agents/forge-system-prompt.md` |
 | **Pixel** | Senior UX/UI Designer | `agents/pixel-system-prompt.md` |
 | **Scout** | Senior QA Engineer | `agents/scout-system-prompt.md` |
