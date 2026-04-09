@@ -82,15 +82,18 @@ export default function Pricing() {
                   ))}
                 </div>
 
-                <button
-                  className={`w-full py-4 rounded-btn border-none text-[15px] font-bold font-heading cursor-pointer transition-all hover:-translate-y-0.5 ${
+                <a
+                  href="https://app.betterhealth.africa/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-4 rounded-btn text-[15px] font-bold font-heading cursor-pointer transition-all hover:-translate-y-0.5 no-underline text-center block ${
                     plan.popular
                       ? "bg-gradient-to-r from-primary to-primary-light text-white"
                       : "bg-section-alt text-text-primary hover:bg-primary-bg hover:text-primary border border-border"
                   }`}
                 >
                   Get Started
-                </button>
+                </a>
               </div>
             </Reveal>
           ))}

@@ -115,13 +115,18 @@ function PlanCard({ plan, index }) {
 
         {/* CTA */}
         <div className="p-5 pt-0">
-          <button className={`w-full py-3.5 rounded-btn text-[14px] font-bold font-heading transition-all hover:-translate-y-0.5 ${
-            plan.popular
-              ? "bg-primary hover:bg-primary-dark text-white shadow-md"
-              : "bg-section-alt hover:bg-primary-bg border border-border hover:border-primary/30 text-text-primary hover:text-primary"
-          }`}>
+          <a
+            href="https://app.betterhealth.africa/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`w-full py-3.5 rounded-btn text-[14px] font-bold font-heading transition-all hover:-translate-y-0.5 no-underline text-center block ${
+              plan.popular
+                ? "bg-primary hover:bg-primary-dark text-white shadow-md"
+                : "bg-section-alt hover:bg-primary-bg border border-border hover:border-primary/30 text-text-primary hover:text-primary"
+            }`}
+          >
             {plan.cta}
-          </button>
+          </a>
         </div>
       </div>
     </Reveal>
@@ -325,12 +330,14 @@ export default function PricingPage() {
             <p className="text-[17px] text-white/80 leading-relaxed font-body mb-8">{bottomCta.body}</p>
           </Reveal>
           <Reveal delay={0.2}>
-            <Link
-              to="/#pricing"
+            <a
+              href="https://app.betterhealth.africa/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
             >
               {bottomCta.cta} <ArrowRight size={18} />
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>

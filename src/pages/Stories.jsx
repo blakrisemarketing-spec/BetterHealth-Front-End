@@ -224,12 +224,14 @@ export default function StoriesPage() {
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <Link
-              to="/#pricing"
+            <a
+              href="https://app.betterhealth.africa/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
             >
               {bottomCta.cta} <ArrowRight size={18} />
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>

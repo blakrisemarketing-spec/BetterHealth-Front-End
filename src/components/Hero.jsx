@@ -67,15 +67,15 @@ export default function Hero() {
 
           <Reveal delay={0.2}>
             <p className="text-lg leading-[1.7] text-text-secondary max-w-[520px] mb-8 font-body">
-              Comprehensive lab testing with 100+ biomarkers, personalized health insights, and home sample collection. Starting from GHS 8/day.
+              Comprehensive lab testing with 100+ biomarkers, personalized health insights, and home sample collection. Starting from GHS 2/day.
             </p>
           </Reveal>
 
           <Reveal delay={0.3}>
             <div className="flex flex-wrap gap-3 mb-10">
-              <Link to="/pricing" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-8 py-4 text-base font-bold font-heading transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow-green cursor-pointer flex items-center gap-2 no-underline">
+              <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-8 py-4 text-base font-bold font-heading transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow-green cursor-pointer flex items-center gap-2 no-underline">
                 Start Your Health Check <ArrowRight size={18} />
-              </Link>
+              </a>
               <Link to="/what-we-test" className="bg-transparent text-text-primary border-2 border-border hover:border-primary hover:text-primary rounded-btn px-7 py-4 text-base font-semibold font-heading transition-all cursor-pointer no-underline">
                 See What We Test
               </Link>

@@ -80,12 +80,12 @@ export default function Nav() {
 
         {/* Right side */}
         <div className="flex items-center gap-3">
-          <a href="#" className="hidden md:inline-block text-text-secondary text-sm font-medium hover:text-primary transition-colors px-4 py-2">
+          <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="hidden md:inline-block text-text-secondary text-sm font-medium hover:text-primary transition-colors px-4 py-2">
             Log in
           </a>
-          <button className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer">
+          <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
             Get Started
-          </button>
+          </a>
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
             className="md:hidden bg-transparent border-none text-text-primary p-1 cursor-pointer"
@@ -97,8 +97,31 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {mobileMenu && (
-        <div className="fixed top-[72px] left-0 right-0 bottom-0 bg-white px-6 py-6 flex flex-col gap-2 md:hidden z-50">
+        <div
+          className="fixed top-[72px] left-0 right-0 bottom-0 px-6 py-6 flex flex-col gap-2 md:hidden z-[9999] border-t border-border shadow-xl overflow-y-auto"
+          style={{ backgroundColor: "#ffffff" }}
+        >
           {navLinks.map((link) => renderLink(link, true))}
+          <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
+            <a
+              href="https://app.betterhealth.africa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenu(false)}
+              className="w-full text-center bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-4 text-base font-bold font-heading transition-all no-underline"
+            >
+              Get Started
+            </a>
+            <a
+              href="https://app.betterhealth.africa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenu(false)}
+              className="w-full text-center text-text-secondary text-base font-medium hover:text-primary transition-colors py-2 no-underline"
+            >
+              Log in
+            </a>
+          </div>
         </div>
       )}
     </nav>
