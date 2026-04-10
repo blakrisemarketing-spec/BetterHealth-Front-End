@@ -1,5 +1,6 @@
 import Reveal from "./ui/Reveal";
 import { founderQuote, founderStory } from "../data/content";
+import founderPhoto from "../assets/founder.png";
 
 export default function FounderStory() {
   return (
@@ -7,14 +8,15 @@ export default function FounderStory() {
       <div className="max-w-[900px] mx-auto flex flex-wrap items-center gap-12">
         {/* Founder avatar */}
         <Reveal direction="left" className="w-full sm:w-[280px] sm:flex-shrink-0 flex justify-center">
-          <div className="w-[260px] h-[320px] rounded-card bg-gradient-to-b from-section-alt to-card border border-border flex flex-col items-center justify-center relative overflow-hidden shadow-card">
-            <div className="w-[120px] h-[120px] rounded-full bg-gradient-to-br from-primary to-primary-light flex items-center justify-center relative z-10 mb-6">
-              <span className="text-white text-5xl font-extrabold font-heading">D</span>
-            </div>
-
-            <div className="text-center relative z-10">
-              <div className="text-text-primary text-base font-bold font-heading">Damzi</div>
-              <div className="text-text-muted text-xs">Founder & CEO</div>
+          <div className="w-[260px] h-[320px] rounded-card overflow-hidden shadow-card relative">
+            <img
+              src={founderPhoto}
+              alt="Damzi — Founder & CEO, BetterHealth Africa"
+              className="w-full h-full object-cover object-top"
+            />
+            <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-black/60 to-transparent text-center">
+              <div className="text-white text-base font-bold font-heading">Damzi</div>
+              <div className="text-white/70 text-xs">Founder & CEO</div>
             </div>
           </div>
         </Reveal>

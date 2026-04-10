@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { aboutPage } from "../data/content";
+import founderPhoto from "../assets/founder.png";
 
 const VALUE_ICONS = { ShieldCheck, Eye, Globe };
 
@@ -105,16 +106,16 @@ export default function AboutPage() {
             {/* Photo side */}
             <Reveal className="lg:col-span-2">
               <div className="sticky top-[100px]">
-                <div className="w-full aspect-square max-w-[340px] mx-auto lg:mx-0 rounded-3xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15 flex flex-col items-center justify-center gap-4 relative overflow-hidden">
-                  <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
-                    <span className="text-white font-extrabold text-4xl font-heading">D</span>
+                <div className="w-full max-w-[340px] mx-auto lg:mx-0 rounded-3xl overflow-hidden relative shadow-card">
+                  <img
+                    src={founderPhoto}
+                    alt={`${founder.attribution} — ${founder.title}`}
+                    className="w-full aspect-square object-cover object-top"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 px-5 py-4 bg-gradient-to-t from-black/65 to-transparent">
+                    <p className="text-[17px] font-bold text-white font-heading">{founder.attribution}</p>
+                    <p className="text-[13px] text-white/70 mt-0.5">{founder.title}</p>
                   </div>
-                  <div className="text-center px-6">
-                    <p className="text-[17px] font-bold text-text-primary font-heading">{founder.attribution}</p>
-                    <p className="text-[13px] text-text-muted mt-1">{founder.title}</p>
-                  </div>
-                  {/* Decorative orb */}
-                  <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full bg-primary/8 blur-2xl" />
                 </div>
               </div>
             </Reveal>
