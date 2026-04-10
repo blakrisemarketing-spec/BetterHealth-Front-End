@@ -277,7 +277,7 @@ export default function AboutPage() {
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-3">{joinUs.headline}</h2>
               <p className="text-[15px] text-text-secondary leading-relaxed mb-6 font-body">{joinUs.body}</p>
               <a
-                href="mailto:careers@betterhealth.africa"
+                href="mailto:careers@betterhealth.africa?subject=I'd love to join BetterHealth — [Your Role]&body=Hi,%0A%0AHere's the role I'd love to own at BetterHealth:%0A%0A[Describe the position you'd love to fill]%0A%0AHere's why I'd be a great fit:%0A%0A[Your pitch]"
                 className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
               >
                 {joinUs.cta} <ExternalLink size={15} />

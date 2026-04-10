@@ -650,9 +650,9 @@ export const aboutPage = {
   },
   joinUs: {
     headline: "Help us build the future of African healthcare",
-    body: "We\u2019re a small, ambitious team solving one of the most important problems on the continent. If you\u2019re a designer, engineer, marketer, or healthcare professional who wants to build something that genuinely matters \u2014 we\u2019d love to hear from you.",
-    cta: "View Open Positions",
-    fallback: "Send your CV and a note about why BetterHealth excites you to careers@betterhealth.africa",
+    body: "We\u2019re a small, ambitious team solving one of the most important problems on the continent. We don\u2019t have a fixed list of open roles \u2014 but if you believe in what we\u2019re building and know how you\u2019d contribute, we want to hear from you. Tell us the role you\u2019d love to own.",
+    cta: "Pitch Your Role",
+    fallback: "Email us at careers@betterhealth.africa with your CV and the position you\u2019d love to fill.",
   },
   bottomCta: {
     headline: "We started BetterHealth for the people who never get tested.",
