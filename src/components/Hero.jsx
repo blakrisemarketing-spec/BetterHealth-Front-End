@@ -104,7 +104,7 @@ export default function Hero() {
           {/* Trust bar */}
           <Reveal delay={0.5}>
             <div className="mt-12 pt-8 border-t border-border">
-              <p className="text-[11px] text-text-muted uppercase tracking-[0.12em] font-semibold mb-4">Trusted Partners</p>
+              <p className="text-[11px] text-text-muted uppercase tracking-[0.12em] font-semibold mb-4">Our Partners</p>
               <div className="flex items-center gap-8 flex-wrap">
                 {trustedPartners.map((partner) => (
                   <span key={partner} className="text-sm font-bold text-text-muted font-heading tracking-tight">

@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
 
-const partners = ["Lab Access Ghana", "Paystack", "Ghana Health Service"];
+const BASE = import.meta.env.BASE_URL;
+
+const trustedBy = [
+  { name: "vire.agency", logo: `${BASE}logos/vire.png` },
+  { name: "Blakrise", logo: null },
+  { name: "Elevate", logo: `${BASE}logos/elevate.png` },
+  { name: "SavingGrains", logo: `${BASE}logos/savinggrains.svg` },
+  { name: "Skillitgh", logo: `${BASE}logos/skillitgh.png` },
+  { name: "Dexwin", logo: `${BASE}logos/dexwin.svg` },
+];
 
 export default function TrustBar() {
   return (
@@ -13,17 +22,27 @@ export default function TrustBar() {
     >
       <div className="max-w-[1280px] mx-auto flex flex-col items-center gap-4">
         <p className="text-[11px] font-semibold text-text-muted uppercase tracking-[0.14em]">
-          In partnership with
+          Trusted By
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {partners.map((partner) => (
-            <span
-              key={partner}
-              className="px-5 py-2 rounded-pill border border-border bg-white text-[13px] font-semibold text-text-muted tracking-wide grayscale hover:grayscale-0 hover:border-primary/30 hover:text-text-primary transition-all duration-200"
-            >
-              {partner}
-            </span>
-          ))}
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          {trustedBy.map(({ name, logo }) =>
+            logo ? (
+              <img
+                key={name}
+                src={logo}
+                alt={name}
+                title={name}
+                className="h-7 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-200"
+              />
+            ) : (
+              <span
+                key={name}
+                className="text-[13px] font-semibold text-text-muted tracking-wide opacity-60 hover:opacity-100 transition-all duration-200"
+              >
+                {name}
+              </span>
+            )
+          )}
         </div>
       </div>
     </motion.section>
