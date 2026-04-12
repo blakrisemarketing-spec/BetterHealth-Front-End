@@ -6,7 +6,7 @@ export const heroStats = [
   { value: "GHS 2", label: "Per day" },
 ];
 
-export const trustedPartners = ["Lab Access Ghana", "Paystack", "Ghana Health Service"];
+export const trustedPartners = ["Lab Access Ghana", "Banita Laboratory", "Paystack"];
 
 export const conditions = [
   "Diabetes", "Hypertension", "Sickle Cell Trait", "Hepatitis B", "Thyroid Disorders",
@@ -50,14 +50,15 @@ export const testCategories = [
 export const comparisonRows = [
   { feature: "100+ biomarkers in one visit", bh: true, hosp: false },
   { feature: "Home sample collection", bh: true, hosp: false },
-  { feature: "Results in 48\u201372 hours", bh: true, hosp: false },
   { feature: "Plain-language explanations", bh: true, hosp: false },
-  { feature: "Track biomarkers over time", bh: true, hosp: false },
+  { feature: "Detect and prevent diseases", bh: true, hosp: false },
+  { feature: "Track biomarkers over your life time", bh: true, hosp: false },
   { feature: "Digital health dashboard", bh: true, hosp: false },
   { feature: "Personalized recommendations", bh: true, hosp: false },
-  { feature: "Mobile Money payment", bh: true, hosp: false },
   { feature: "No referral needed", bh: true, hosp: false },
   { feature: "Fixed transparent pricing", bh: true, hosp: false },
+  { feature: "Own your health data in one place", bh: true, hosp: false },
+  { feature: "Detailed nutritional plan", bh: true, hosp: false },
 ];
 
 export const testimonials = [
@@ -67,9 +68,110 @@ export const testimonials = [
 ];
 
 export const plans = [
-  { name: "Essential", price: "61", annual: "730", daily: "2", features: ["67+ core biomarkers", "In-lab collection", "Digital health dashboard", "PDF report", "Email & SMS results notification"], popular: false },
-  { name: "Complete", price: "163", annual: "1,953", daily: "5", features: ["100+ biomarkers", "Organ system health view", "Biomarker trend tracking", "Personalized recommendations", "Priority results (48hr)"], popular: true },
-  { name: "Premium", price: "414", annual: "4,957", daily: "19", features: ["127+ biomarkers", "Home collection included", "Everything in Complete", "Doctor consultation call", "Family member discount"], popular: false },
+  {
+    name: "Essential",
+    price: "61",
+    annual: "730",
+    daily: "2",
+    popular: false,
+    categories: [
+      {
+        name: "Physical Health",
+        tests: [
+          "Height",
+          "Weight",
+          "Body Mass Index (BMI)",
+          "Waist-to-height ratio",
+          "Blood Pressure",
+        ],
+      },
+      {
+        name: "Biological Health",
+        tests: [
+          "Full blood count",
+          "Fasting or random blood sugar",
+          "Kidney function test",
+          "Liver function test",
+          "Urine routine examination",
+          "Lipid profile",
+          "Biological Age*",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Complete",
+    price: "163",
+    annual: "1,953",
+    daily: "5",
+    popular: true,
+    categories: [
+      {
+        name: "Physical Health",
+        tests: [
+          "Height",
+          "Weight",
+          "Body Mass Index (BMI)",
+          "Waist-to-height ratio",
+          "Blood Pressure",
+        ],
+      },
+      {
+        name: "Biological Health",
+        tests: [
+          "Full blood count",
+          "Fasting or random blood sugar",
+          "Kidney function test",
+          "Liver function test",
+          "Urine routine examination",
+          "Lipid Profile",
+          "Uric acid",
+          "Biological Age*",
+          "Doctor's written report",
+          "Standard nutritional plan",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Premium",
+    price: "414",
+    annual: "4,957",
+    daily: "19",
+    popular: false,
+    categories: [
+      {
+        name: "Physical Health",
+        tests: [
+          "Height",
+          "Weight",
+          "Body Mass Index (BMI)",
+          "Waist-to-height ratio",
+          "Blood Pressure",
+          "Biological Age*",
+        ],
+      },
+      {
+        name: "Biological Health",
+        tests: [
+          "Full blood count",
+          "Fasting or random blood sugar",
+          "Kidney function test",
+          "Liver Function Test",
+          "Urine routine examination",
+          "Lipid profile",
+          "Uric acid",
+          "Cardiac troponins I & T",
+          "C-Reactive Protein",
+          "Additional tests worth GHC 300",
+          "Free home or office sample collection",
+          "Biological Age*",
+          "Virtual Dr. Consultation",
+          "Customised nutritional plan",
+        ],
+      },
+    ],
+  },
 ];
 
 export const faqs = [
@@ -81,11 +183,11 @@ export const faqs = [
   { q: "What if my results show something concerning?", a: "Our platform flags any results outside the normal range. For critical findings, you\u2019ll receive immediate notification. We recommend discussing any concerning results with a healthcare provider, and our Premium plan includes a doctor consultation." },
 ];
 
-export const founderQuote = "I built BetterHealth because Africans deserve to know their health \u2014 not after illness strikes, but before.";
+export const founderQuote = "After watching diabetes and kidney disease kill all my beloved Aunties and Uncles, when it finally came for my parents - I knew things needed to change";
 
 export const founderStory = [
-  "In Ghana, comprehensive health screening has been a privilege \u2014 expensive, fragmented, and available only in a few facilities. Most people only see a doctor when something is already wrong. We\u2019re changing that.",
-  "BetterHealth Africa makes proactive health monitoring accessible, affordable, and beautifully simple. Because your health shouldn\u2019t be a mystery.",
+  "In Ghana, comprehensive health screening has been a privilege of the rich few; it\u2019s expensive, fragmented, and available only in a few facilities. Most people only see a doctor when something is already wrong. We\u2019re changing that.",
+  "BetterHealth Africa makes proactive health monitoring accessible, affordable, and beautifully simple. Because your health shouldn\u2019t be a mystery. What you don\u2019t know about your health can kill you, so start knowing.",
 ];
 
 export const footerColumns = [

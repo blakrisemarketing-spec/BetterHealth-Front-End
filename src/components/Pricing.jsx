@@ -62,7 +62,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Per-day equivalent — DEFECT 6 */}
-                <div className="mb-4 flex flex-col gap-0.5">
+                <div className="mb-1 flex flex-col gap-0.5">
                   <span className="text-[15px] font-semibold text-primary">
                     GHS {plan.daily}/day
                   </span>
@@ -71,16 +71,42 @@ export default function Pricing() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-3 mb-7 flex-1">
-                  {plan.features.map((f, fi) => (
-                    <div key={fi} className="flex gap-2.5 items-start">
-                      <div className="w-[18px] h-[18px] rounded-full bg-primary flex items-center justify-center mt-0.5 shrink-0">
-                        <Check size={12} className="text-white" strokeWidth={3} />
-                      </div>
-                      <span className="text-sm text-text-secondary leading-relaxed">{f}</span>
-                    </div>
-                  ))}
+                <div className="mb-4">
+                  <span className="inline-block text-[11px] font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-pill">
+                    Billed annually
+                  </span>
                 </div>
+
+                {plan.categories ? (
+                  <div className="flex flex-col gap-4 mb-7 flex-1">
+                    {plan.categories.map((cat, ci) => (
+                      <div key={ci}>
+                        <p className="text-[11px] font-bold text-primary uppercase tracking-[0.1em] mb-2">{cat.name}</p>
+                        <div className="flex flex-col gap-2">
+                          {cat.tests.map((test, ti) => (
+                            <div key={ti} className="flex gap-2.5 items-start">
+                              <div className="w-[18px] h-[18px] rounded-full bg-primary flex items-center justify-center mt-0.5 shrink-0">
+                                <Check size={12} className="text-white" strokeWidth={3} />
+                              </div>
+                              <span className="text-sm text-text-secondary leading-relaxed">{test}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-3 mb-7 flex-1">
+                    {plan.features.map((f, fi) => (
+                      <div key={fi} className="flex gap-2.5 items-start">
+                        <div className="w-[18px] h-[18px] rounded-full bg-primary flex items-center justify-center mt-0.5 shrink-0">
+                          <Check size={12} className="text-white" strokeWidth={3} />
+                        </div>
+                        <span className="text-sm text-text-secondary leading-relaxed">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 <a
                   href="https://app.betterhealth.africa/"

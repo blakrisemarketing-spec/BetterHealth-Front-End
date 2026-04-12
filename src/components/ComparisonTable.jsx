@@ -37,11 +37,11 @@ export default function ComparisonTable() {
             {/* Header */}
             <div className="grid grid-cols-[1fr_80px_80px] sm:grid-cols-[1fr_120px_120px] bg-section-alt">
               <div className="p-3 sm:p-4" />
-              <div className="p-3 sm:p-4 text-center bg-gradient-to-b from-primary to-primary-dark">
-                <span className="text-white text-[11px] sm:text-[13px] font-bold font-heading">BetterHealth Africa</span>
-              </div>
               <div className="p-3 sm:p-4 text-center">
                 <span className="text-text-muted text-[11px] sm:text-[13px] font-semibold">Hospital Lab</span>
+              </div>
+              <div className="p-3 sm:p-4 text-center bg-gradient-to-b from-primary to-primary-dark">
+                <span className="text-white text-[11px] sm:text-[13px] font-bold font-heading">BetterHealth Africa</span>
               </div>
             </div>
 
@@ -57,7 +57,7 @@ export default function ComparisonTable() {
                   {row.feature}
                 </div>
                 <div className="p-3.5 flex justify-center items-center">
-                  {row.bh ? (
+                  {row.hosp ? (
                     <div className="w-[18px] h-[18px] rounded-full bg-primary flex items-center justify-center">
                       <Check size={12} className="text-white" strokeWidth={3} />
                     </div>
@@ -68,7 +68,7 @@ export default function ComparisonTable() {
                   )}
                 </div>
                 <div className="p-3.5 flex justify-center items-center">
-                  {row.hosp ? (
+                  {row.bh ? (
                     <div className="w-[18px] h-[18px] rounded-full bg-primary flex items-center justify-center">
                       <Check size={12} className="text-white" strokeWidth={3} />
                     </div>

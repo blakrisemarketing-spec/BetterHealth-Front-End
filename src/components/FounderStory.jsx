@@ -28,9 +28,9 @@ export default function FounderStory() {
               Our Mission
             </p>
             <h2 className="text-[clamp(24px,3.5vw,34px)] font-extrabold text-text-primary font-heading tracking-tight mb-5 leading-[1.2]">
-              &ldquo;{founderQuote.split("Africans deserve to know their health")[0]}
-              <span className="text-primary">Africans deserve to know their health</span>
-              {founderQuote.split("Africans deserve to know their health")[1]}&rdquo;
+              &ldquo;{founderQuote.split("I knew things needed to change")[0]}
+              <span className="text-primary">I knew things needed to change</span>
+              {founderQuote.split("I knew things needed to change")[1]}&rdquo;
             </h2>
 
             {founderStory.map((p, i) => (
