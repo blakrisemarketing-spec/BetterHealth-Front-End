@@ -8,7 +8,7 @@ import GradientOrb from "../components/ui/GradientOrb";
 const FEATURED_POST = {
   tag: "Prevention",
   title: "Why your fasting glucose is normal but you might still be pre-diabetic",
-  excerpt: "Most Ghanaian hospital check-ups test fasting glucose and call it done. But HbA1c tells a completely different story — one that catches diabetes years earlier. Here's what you need to know.",
+  excerpt: "Most Ghanaian hospital check-ups test fasting glucose and call it done. But HbA1c tells a completely different story — one that catches diabetes years earlier. Here is what you need to know.",
   readTime: "6 min read",
   date: "March 2026",
 };
@@ -17,14 +17,14 @@ const POSTS = [
   {
     tag: "Lab Science",
     title: "What is HbA1c — and why is it more important than your fasting glucose?",
-    excerpt: "HbA1c measures your average blood sugar over 3 months. It's the gold standard for diabetes detection. Most Ghanaians have never had it tested.",
+    excerpt: "HbA1c measures your average blood sugar over 3 months. It is the gold standard for diabetes detection. Most Ghanaians have never had it tested.",
     readTime: "5 min read",
     date: "March 2026",
   },
   {
     tag: "Thyroid",
     title: "The thyroid conditions being missed in West Africa",
-    excerpt: "Hashimoto's thyroiditis, subclinical hypothyroidism, and thyroid nodules are far more common than most doctors realise. The reason they're missed: incomplete testing.",
+    excerpt: "Hashimoto's thyroiditis, subclinical hypothyroidism, and thyroid nodules are far more common than most doctors realise. The reason they are missed: incomplete testing.",
     readTime: "7 min read",
     date: "March 2026",
   },
@@ -38,21 +38,21 @@ const POSTS = [
   {
     tag: "Vitamins",
     title: "Vitamin D deficiency in the sunniest country on earth",
-    excerpt: "Ghana has year-round sunshine. And yet Vitamin D deficiency is widespread — particularly among office workers and urban professionals. Here's why.",
+    excerpt: "Ghana has year-round sunshine. And yet Vitamin D deficiency is widespread — particularly among office workers and urban professionals. Here is why.",
     readTime: "5 min read",
     date: "February 2026",
   },
   {
     tag: "Liver",
     title: "Non-alcoholic fatty liver disease: the silent epidemic in Ghana",
-    excerpt: "NAFLD affects an estimated 25% of adults globally. It has no symptoms until it's serious. The only way to know is to test your liver enzymes.",
+    excerpt: "NAFLD affects an estimated 25% of adults globally. It has no symptoms until it is serious. The only way to know is to test your liver enzymes.",
     readTime: "6 min read",
     date: "January 2026",
   },
   {
     tag: "Cardiovascular",
-    title: "Why cholesterol alone doesn't tell the full story",
-    excerpt: "ApoB and Lp(a) are better predictors of cardiovascular risk than LDL. They're almost never tested in Ghanaian hospitals. BetterHealth tests both.",
+    title: "Why cholesterol alone does not tell the full story",
+    excerpt: "ApoB and Lp(a) are better predictors of cardiovascular risk than LDL. They are almost never tested in Ghanaian hospitals. BetterHealth tests both.",
     readTime: "5 min read",
     date: "January 2026",
   },

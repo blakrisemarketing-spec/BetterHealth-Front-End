@@ -37,7 +37,7 @@ export default function FinalCTA() {
             Start Your Health Check <ArrowRight size={20} />
           </a>
           <p className="mt-4 text-sm text-text-muted-dark">
-            Results in 48 hours. Cancel anytime. Mobile Money accepted.
+            Results in 48 – 72 hours. Cancel anytime. Mobile Money accepted.
           </p>
         </Reveal>
       </div>

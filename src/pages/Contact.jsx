@@ -41,7 +41,7 @@ const CHANNELS = [
   {
     icon: Phone,
     label: "Phone",
-    body: "Prefer to speak to someone? Call us during business hours. If we can't answer immediately, we'll call you back within 4 hours.",
+    body: "Prefer to speak to someone? Call us during business hours. If we cannot answer immediately, we will call you back within 4 hours.",
     details: [
       { key: "Number", val: "+233 268 596 410" },
       { key: "Hours", val: "Mon–Fri, 8:00 AM – 6:00 PM GMT" },
@@ -72,12 +72,12 @@ const SUBJECT_OPTIONS = [
   "General enquiry",
   "I need help with my account",
   "I have a question about my results",
-  "I'm interested in subscribing",
-  "I'd like to book a collection",
+  "I am interested in subscribing",
+  "I would like to book a collection",
   "Partnership or business enquiry",
   "Media or press enquiry",
   "Feedback or suggestion",
-  "I'd like to report an issue",
+  "I would like to report an issue",
   "Other",
 ];
 
@@ -89,7 +89,7 @@ const ENQUIRY_TYPES = [
   },
   {
     title: "Healthcare Providers & Clinics",
-    body: "Are you a doctor, clinic, or hospital interested in partnering with BetterHealth? We'd love to explore how we can work together.",
+    body: "Are you a doctor, clinic, or hospital interested in partnering with BetterHealth? We would love to explore how we can work together.",
     email: "partners@betterhealth.africa",
   },
   {
@@ -132,7 +132,7 @@ function ContactForm() {
         </div>
         <h3 className="text-[18px] font-bold text-text-primary font-heading mb-2">Message sent!</h3>
         <p className="text-[14px] text-text-secondary leading-relaxed">
-          Thanks for reaching out! We've received your message and will get back to you within 24 hours.
+          Thanks for reaching out! We have received your message and will get back to you within 24 hours.
           If your matter is urgent, WhatsApp us at{" "}
           <a href="https://wa.me/233303960000" rel="noopener noreferrer" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
             +233 30 396 0000
@@ -234,7 +234,7 @@ export default function ContactPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
-              We're here when{" "}
+              We are here when{" "}
               <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
                 you need us.
               </span>
@@ -242,7 +242,7 @@ export default function ContactPage() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-lg text-text-secondary font-body max-w-[540px] mx-auto">
-              Whether you have a question about your results, need help with your account, or just want to learn more about BetterHealth — we'd love to hear from you. Most enquiries are answered within 24 hours.
+              Whether you have a question about your results, need help with your account, or just want to learn more about BetterHealth — we would love to hear from you. Most enquiries are answered within 24 hours.
             </p>
           </Reveal>
         </div>
@@ -297,7 +297,7 @@ export default function ContactPage() {
         <div className="max-w-[760px] mx-auto">
           <Reveal>
             <h2 className="text-[1.8rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">Send us a message</h2>
-            <p className="text-[14px] text-text-muted mb-8">Prefer a form? We'll get back to you within 24 hours.</p>
+            <p className="text-[14px] text-text-muted mb-8">Prefer a form? We will get back to you within 24 hours.</p>
           </Reveal>
           <Reveal delay={0.1}>
             <ContactForm />
@@ -372,7 +372,7 @@ export default function ContactPage() {
         <section className="py-10 px-6 bg-section-alt border-y border-border">
           <div className="max-w-[700px] mx-auto text-center">
             <p className="text-[14px] text-text-secondary leading-relaxed">
-              <span className="font-semibold text-text-primary">BetterHealth Africa is a digital-first company.</span> We don't have a walk-in office, but our team is available via WhatsApp, email, and phone throughout business hours.
+              <span className="font-semibold text-text-primary">BetterHealth Africa is a digital-first company.</span> We do not have a walk-in office, but our team is available via WhatsApp, email, and phone throughout business hours.
             </p>
           </div>
         </section>
@@ -389,7 +389,7 @@ export default function ContactPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="text-[16px] text-white/80 font-body mb-8">
-              You don't need to contact us to get started. Sign up, choose your plan, and book your collection — all in under 3 minutes.
+              You do not need to contact us to get started. Sign up, choose your plan, and book your collection — all in under 3 minutes.
             </p>
           </Reveal>
           <Reveal delay={0.2}>

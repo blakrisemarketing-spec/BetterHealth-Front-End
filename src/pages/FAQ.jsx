@@ -17,19 +17,19 @@ const FAQ_SECTIONS = [
       },
       {
         q: "Who is BetterHealth for?",
-        a: "Any adult (18+) in Ghana who wants to understand their health proactively — not just when something goes wrong. Our members include young professionals monitoring their baseline health, couples planning families, people with family histories of chronic disease, fitness enthusiasts tracking performance, and anyone who's tired of guessing about their health.",
+        a: "Any adult (18+) in Ghana who wants to understand their health proactively — not just when something goes wrong. Our members include young professionals monitoring their baseline health, couples planning families, people with family histories of chronic disease, fitness enthusiasts tracking performance, and anyone who is tired of guessing about their health.",
       },
       {
         q: "Do I need a doctor's referral to use BetterHealth?",
-        a: "No. BetterHealth is a direct-to-consumer platform. You sign up, choose your plan, book your collection, and receive your results — all without a referral. If you'd like to discuss your results with a doctor, our Premium plan includes a consultation, or you can share your downloadable PDF report with any healthcare provider.",
+        a: "No. BetterHealth is a direct-to-consumer platform. You sign up, choose your plan, book your collection, and receive your results — all without a referral. If you would like to discuss your results with a doctor, our Premium plan includes a consultation, or you can share your downloadable PDF report with any healthcare provider.",
       },
       {
         q: "Is BetterHealth a hospital or laboratory?",
-        a: "No. BetterHealth is a health technology company. We don't run labs — we partner with established, accredited laboratories in Ghana to process your samples. Our role is the technology platform, the health dashboard, the explanations, the tracking, and the experience.",
+        a: "No. BetterHealth is a health technology company. We do not run labs — we partner with established, accredited laboratories in Ghana to process your samples. Our role is the technology platform, the health dashboard, the explanations, the tracking, and the experience.",
       },
       {
         q: "Where is BetterHealth available?",
-        a: "We currently serve Greater Accra, Kumasi, and Tema. We're expanding to more Ghanaian cities throughout 2026 and plan to launch in Nigeria and Kenya in 2027.",
+        a: "We currently serve Greater Accra, Kumasi, and Tema. We are expanding to more Ghanaian cities throughout 2026 and plan to launch in Nigeria and Kenya in 2027.",
       },
     ],
   },
@@ -46,19 +46,19 @@ const FAQ_SECTIONS = [
       },
       {
         q: "Where are the partner labs located?",
-        a: "Our partner labs are located across Greater Accra, Kumasi, and Tema. When you book an in-lab collection, we'll show you the nearest locations with available appointment slots. All partner labs are accredited and follow Ghana Health Service standards.",
+        a: "Our partner labs are located across Greater Accra, Kumasi, and Tema. When you book an in-lab collection, we will show you the nearest locations with available appointment slots. All partner labs are accredited and follow Ghana Health Service standards.",
       },
       {
         q: "Do I need to fast before my test?",
-        a: "Some biomarkers require fasting — no food or drink (except water) for 8–12 hours before collection. When you book, we'll tell you exactly which tests require fasting and send you preparation instructions via SMS. If your plan includes fasting markers, we recommend booking a morning slot.",
+        a: "Some biomarkers require fasting — no food or drink (except water) for 8–12 hours before collection. When you book, we will tell you exactly which tests require fasting and send you preparation instructions via SMS. If your plan includes fasting markers, we recommend booking a morning slot.",
       },
       {
         q: "How much blood is taken?",
-        a: "A comprehensive panel requires about 15–25 mL of blood across 3–5 tubes. That's roughly 1–2 tablespoons. Most people feel no effects afterward. If you're prone to dizziness, let your phlebotomist know — they'll have you sit or lie down during and after the draw.",
+        a: "A comprehensive panel requires about 15–25 mL of blood across 3–5 tubes. That is roughly 1–2 tablespoons. Most people feel no effects afterward. If you are prone to dizziness, let your phlebotomist know — they will have you sit or lie down during and after the draw.",
       },
       {
-        q: "What if I'm afraid of needles?",
-        a: "You're not alone — many people are. Our phlebotomists are experienced and trained to make the process as comfortable as possible. The draw itself takes about 60 seconds. If you're particularly anxious, let us know when you book and we'll pair you with a collector experienced in working with needle-shy patients. Some members find that the home collection option feels less clinical and more comfortable than visiting a lab.",
+        q: "What if I am afraid of needles?",
+        a: "You are not alone — many people are. Our phlebotomists are experienced and trained to make the process as comfortable as possible. The draw takes about 60 seconds. If you are particularly anxious, let us know when you book and we will pair you with a collector experienced in working with needle-shy patients. Some members find that the home collection option feels less clinical and more comfortable than visiting a lab.",
       },
       {
         q: "How are my samples handled after collection?",
@@ -71,7 +71,7 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "How long until I get my results?",
-        a: "Most results are available within 48–72 hours after your sample is collected. Priority members (Complete and Premium plans) typically receive results within 48 hours. You'll get an SMS and email notification the moment your results are ready.",
+        a: "Most results are available within 48–72 hours after your sample is collected. Priority members (Complete and Premium plans) typically receive results within 48 hours. You will get an SMS and email notification the moment your results are ready.",
       },
       {
         q: "How do I access my results?",
@@ -86,8 +86,8 @@ const FAQ_SECTIONS = [
         a: "Yes. Every member can download a complete PDF report with all biomarker values, reference ranges, and status indicators. You can share this PDF with your doctor, keep it for your records, or print it.",
       },
       {
-        q: "What's the difference between \"normal\" and \"optimal\" ranges?",
-        a: "\"Normal\" ranges are based on population averages — they tell you whether you're within the range of what's common, not necessarily what's healthy. \"Optimal\" ranges are tighter and based on the latest research on disease prevention. BetterHealth shows you both, because being \"normal\" and being \"optimal\" are often two different things.",
+        q: "What is the difference between \"normal\" and \"optimal\" ranges?",
+        a: "\"Normal\" ranges are based on population averages — they tell you whether you are within the range of what is common, not necessarily what is healthy. \"Optimal\" ranges are tighter and based on the latest research on disease prevention. BetterHealth shows you both, because being \"normal\" and being \"optimal\" are often two different things.",
       },
       {
         q: "Can I share my results with my doctor?",
@@ -95,7 +95,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: "What if a result is critically abnormal?",
-        a: "If any result falls into a critical range, you'll receive an immediate notification via SMS and in-app alert. Our system flags these for priority review. We strongly recommend consulting a healthcare provider promptly. Premium members can use their included doctor consultation for this purpose.",
+        a: "If any result falls into a critical range, you will receive an immediate notification via SMS and in-app alert. Our system flags these for priority review. We strongly recommend consulting a healthcare provider promptly. Premium members can use their included doctor consultation for this purpose.",
       },
     ],
   },
@@ -108,19 +108,19 @@ const FAQ_SECTIONS = [
       },
       {
         q: "How is billing structured?",
-        a: "All plans are billed annually (once per year). When you sign up, you pay for the full year upfront. Your subscription renews automatically after 12 months. We'll send you a reminder email 14 days before renewal.",
+        a: "All plans are billed annually (once per year). When you sign up, you pay for the full year upfront. Your subscription renews automatically after 12 months. We will send you a reminder email 14 days before renewal.",
       },
       {
         q: "Can I cancel my subscription?",
-        a: "Yes. You can cancel at any time through your account settings. Cancellation takes effect at the end of your current billing period — you'll retain access to your dashboard and results until then. No penalties, no cancellation fees.",
+        a: "Yes. You can cancel at any time through your account settings. Cancellation takes effect at the end of your current billing period — you will retain access to your dashboard and results until then. No penalties, no cancellation fees.",
       },
       {
         q: "Is there a satisfaction guarantee?",
-        a: "Yes. If you sign up and decide BetterHealth isn't right for you within the first 14 days, we'll refund your payment in full — no questions asked. This applies to your first subscription only.",
+        a: "Yes. If you sign up and decide BetterHealth is not right for you within the first 14 days, we will refund your payment in full — no questions asked. This applies to your first subscription only.",
       },
       {
         q: "Can I upgrade or downgrade my plan?",
-        a: "Yes. You can upgrade at any time — you'll only pay the difference for the remainder of your billing cycle. Downgrades take effect at your next renewal date.",
+        a: "Yes. You can upgrade at any time — you will only pay the difference for the remainder of your billing cycle. Downgrades take effect at your next renewal date.",
       },
       {
         q: "Do you offer family or group pricing?",
@@ -149,7 +149,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: "What happens to my data if I cancel?",
-        a: "Your data remains in your account and is accessible to you even after cancellation. If you want your data permanently deleted, contact us at privacy@betterhealth.africa and we'll process your request within 30 days.",
+        a: "Your data remains in your account and is accessible to you even after cancellation. If you want your data permanently deleted, contact us at privacy@betterhealth.africa and we will process your request within 30 days.",
       },
     ],
   },
@@ -244,7 +244,7 @@ export default function FAQPage() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-lg text-text-secondary font-body max-w-[520px] mx-auto">
-              Can't find your answer here? WhatsApp us or email{" "}
+              Cannot find your answer here? WhatsApp us or email{" "}
               <a href="mailto:hello@betterhealth.africa" className="text-primary font-semibold hover:underline underline-offset-2 no-underline">
                 hello@betterhealth.africa
               </a>{" "}
@@ -305,10 +305,10 @@ export default function FAQPage() {
         <div className="max-w-[680px] mx-auto text-center">
           <Reveal>
             <h2 className="text-[1.8rem] font-extrabold text-text-primary font-heading mb-3">
-              Didn't find your answer?
+              Did not find your answer?
             </h2>
             <p className="text-[15px] text-text-secondary mb-8">
-              We're here to help. Reach out through any of these channels and we'll respond within 24 hours.
+              We are here to help. Reach out through any of these channels and we will respond within 24 hours.
             </p>
           </Reveal>
           <Reveal delay={0.1}>

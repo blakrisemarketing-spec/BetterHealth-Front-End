@@ -101,7 +101,7 @@ export default function PrivacyPage() {
             </h1>
             <p className="text-[14px] text-text-muted mb-8">Last updated: April 2026</p>
             <p className="text-[15px] text-text-secondary leading-relaxed mb-2">
-              BetterHealth Africa takes your privacy seriously. This policy explains what data we collect, why we collect it, how we protect it, and what rights you have. We've written it in plain language — no legal jargon.
+              BetterHealth Africa takes your privacy seriously. This policy explains what data we collect, why we collect it, how we protect it, and what rights you have. We have written it in plain language — no legal jargon.
             </p>
           </Reveal>
         </div>

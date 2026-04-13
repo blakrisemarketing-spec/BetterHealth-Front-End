@@ -32,7 +32,7 @@ export default function TrustBar() {
                 src={logo}
                 alt={name}
                 title={name}
-                className="h-7 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-200"
+                className="h-7 w-auto object-contain grayscale brightness-0 opacity-50 hover:grayscale-0 hover:brightness-100 hover:opacity-100 transition-all duration-200"
               />
             ) : (
               <span

@@ -6,9 +6,9 @@ import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 
 const VALUES = [
-  { title: "Mission first", body: "We're solving one of the most important health problems on the continent. Every decision is measured against the question: does this help more Ghanaians know their health?" },
-  { title: "Small team, big impact", body: "We're a lean, high-output team. You'll own your work, move fast, and see the direct results of what you build." },
-  { title: "People over polish", body: "We care about real outcomes for real people. We'd rather ship something useful than perfect something no one uses." },
+  { title: "Mission first", body: "We are solving one of the most important health problems on the continent. Every decision is measured against the question: does this help more Ghanaians know their health?" },
+  { title: "Small team, big impact", body: "We are a lean, high-output team. You will own your work, move fast, and see the direct results of what you build." },
+  { title: "People over polish", body: "We care about real outcomes for real people. We would rather ship something useful than perfect something no one uses." },
 ];
 
 const OPEN_ROLES = [
@@ -40,7 +40,7 @@ export default function CareersPage() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-lg text-text-secondary font-body max-w-[560px] mx-auto">
-              We're a small, ambitious team solving one of the most important problems on the continent. If you want to build something that genuinely matters — read on.
+              We are a small, ambitious team solving one of the most important problems on the continent. If you want to build something that genuinely matters — read on.
             </p>
           </Reveal>
         </div>
@@ -80,7 +80,7 @@ export default function CareersPage() {
                 </div>
                 <h3 className="text-[18px] font-bold text-text-primary font-heading mb-2">No open roles right now</h3>
                 <p className="text-[14px] text-text-secondary leading-relaxed mb-6 max-w-[460px] mx-auto">
-                  We're not actively hiring, but we're always interested in exceptional people. If BetterHealth excites you, send us a note.
+                  We are not actively hiring, but we are always interested in exceptional people. If BetterHealth excites you, send us a note.
                 </p>
                 <a
                   href="mailto:careers@betterhealth.africa"
@@ -121,7 +121,7 @@ export default function CareersPage() {
               Interested in the mission?
             </h2>
             <p className="text-[16px] text-white/80 font-body mb-6">
-              Even if we don't have a role that fits right now, we'd love to hear from you.
+              Even if we do not have a role that fits right now, we would love to hear from you.
             </p>
             <a
               href="mailto:careers@betterhealth.africa"

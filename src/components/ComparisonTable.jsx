@@ -26,7 +26,7 @@ export default function ComparisonTable() {
             <p className="text-[17px] md:text-[20px] font-semibold text-text-primary leading-snug font-heading">
               What would cost{" "}
               <span className="text-primary font-extrabold">GHS 15,000+</span> at a private hospital is{" "}
-              <span className="text-primary font-extrabold">GHS 247/month</span> with BetterHealth Africa
+              <span className="text-primary font-extrabold">GHS 61/month</span> with BetterHealth Africa
             </p>
           </div>
         </Reveal>

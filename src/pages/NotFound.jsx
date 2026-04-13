@@ -8,7 +8,7 @@ export default function NotFoundPage() {
     <div className="bg-base min-h-screen overflow-x-hidden">
       <Helmet>
         <title>Page Not Found — BetterHealth Africa</title>
-        <meta name="description" content="The page you're looking for doesn't exist. Return to BetterHealth Africa to explore comprehensive health screening services in Ghana." />
+        <meta name="description" content="The page you are looking for does not exist. Return to BetterHealth Africa to explore comprehensive health screening services in Ghana." />
       </Helmet>
       <Nav />
       <section className="min-h-[60vh] flex items-center justify-center pt-[80px] md:pt-[120px] pb-20 px-6">
@@ -16,7 +16,7 @@ export default function NotFoundPage() {
           <h1 className="text-[2.5rem] md:text-[4rem] font-extrabold font-heading text-primary mb-4">404</h1>
           <h2 className="text-[1.4rem] md:text-[1.8rem] font-extrabold font-heading text-text-primary mb-3">Page not found</h2>
           <p className="text-text-secondary text-lg mb-8 font-body">
-            Sorry, the page you're looking for doesn't exist or has been moved.
+            Sorry, the page you are looking for does not exist or has been moved.
           </p>
           <Link
             to="/"

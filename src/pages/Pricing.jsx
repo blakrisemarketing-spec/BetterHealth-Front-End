@@ -19,13 +19,12 @@ function CellValue({ val }) {
   return <span className="text-[12px] text-text-secondary font-medium">{val}</span>;
 }
 
-function FaqItem({ item, index }) {
-  const [open, setOpen] = useState(false);
+function FaqItem({ item, index, open, onToggle }) {
   return (
     <Reveal delay={index * 0.04}>
       <div className="border border-border rounded-xl overflow-hidden">
         <button
-          onClick={() => setOpen(!open)}
+          onClick={onToggle}
           className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left bg-white hover:bg-section-alt transition-colors"
         >
           <span className="text-[15px] font-semibold text-text-primary">{item.q}</span>
@@ -50,6 +49,32 @@ function FaqItem({ item, index }) {
         </AnimatePresence>
       </div>
     </Reveal>
+  );
+}
+
+function FaqSection({ faqs }) {
+  const [openIndex, setOpenIndex] = useState(null);
+  return (
+    <section className="py-20 px-6 bg-section-alt">
+      <div className="max-w-[720px] mx-auto">
+        <Reveal>
+          <h2 className="text-[1.7rem] md:text-[2rem] font-extrabold text-text-primary font-heading tracking-tight text-center mb-8">
+            Common questions
+          </h2>
+        </Reveal>
+        <div className="flex flex-col gap-3">
+          {faqs.map((item, i) => (
+            <FaqItem
+              key={i}
+              item={item}
+              index={i}
+              open={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -84,7 +109,7 @@ function PlanCard({ plan, index }) {
             </div>
             <p className="text-[12px] text-text-muted">Billed at {plan.annual}/year</p>
             <p className={`text-[12px] font-semibold mt-0.5 ${plan.popular ? "text-primary" : "text-text-secondary"}`}>
-              That's just {plan.daily}/day
+              That is just {plan.daily}/day
             </p>
           </div>
 
@@ -304,18 +329,7 @@ export default function PricingPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-20 px-6 bg-section-alt">
-        <div className="max-w-[720px] mx-auto">
-          <Reveal>
-            <h2 className="text-[1.7rem] md:text-[2rem] font-extrabold text-text-primary font-heading tracking-tight text-center mb-8">
-              Common questions
-            </h2>
-          </Reveal>
-          <div className="flex flex-col gap-3">
-            {faqs.map((item, i) => <FaqItem key={i} item={item} index={i} />)}
-          </div>
-        </div>
-      </section>
+      <FaqSection faqs={faqs} />
 
       {/* ── Bottom CTA ── */}
       <section className="py-20 lg:py-[100px] px-6 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
