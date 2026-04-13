@@ -148,7 +148,6 @@ export const plans = [
           "Body Mass Index (BMI)",
           "Waist-to-height ratio",
           "Blood Pressure",
-          "Biological Age*",
         ],
       },
       {
