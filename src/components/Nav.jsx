@@ -14,6 +14,11 @@ export default function Nav({ dark = false }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileMenu ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenu]);
+
   // When mobile menu is open, treat nav as "scrolled" so it stays opaque/visible
   const navActive = scrolled || mobileMenu;
 
