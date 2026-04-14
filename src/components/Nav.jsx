@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { navLinks } from "../data/content";
 import logo from "../assets/logo.png";
 
-export default function Nav() {
+export default function Nav({ dark = false }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
 
@@ -13,6 +13,11 @@ export default function Nav() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const desktopLinkClass =
+    !scrolled && dark
+      ? "text-white/90 text-sm font-medium hover:text-primary transition-colors"
+      : "text-text-secondary text-sm font-medium hover:text-primary transition-colors";
 
   const renderLink = (link, mobile = false) => {
     const routeMap = {
@@ -31,7 +36,7 @@ export default function Nav() {
           className={
             mobile
               ? "text-text-primary text-base sm:text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
-              : "text-text-secondary text-sm font-medium hover:text-primary transition-colors"
+              : desktopLinkClass
           }
         >
           {link}
@@ -46,7 +51,7 @@ export default function Nav() {
         className={
           mobile
             ? "text-text-primary text-base sm:text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
-            : "text-text-secondary text-sm font-medium hover:text-primary transition-colors"
+            : desktopLinkClass
         }
       >
         {link}
@@ -69,7 +74,9 @@ export default function Nav() {
           <img
             src={logo}
             alt="BetterHealth Africa"
-            className="h-11 w-auto object-contain max-w-[180px] sm:max-w-[220px]"
+            className={`h-11 w-auto object-contain max-w-[180px] sm:max-w-[220px] transition-all duration-300 ${
+              !scrolled && dark ? "brightness-0 invert" : ""
+            }`}
           />
         </Link>
 
@@ -80,7 +87,7 @@ export default function Nav() {
 
         {/* Right side */}
         <div className="flex items-center gap-3">
-          <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="hidden md:inline-block text-text-secondary text-sm font-medium hover:text-primary transition-colors px-4 py-2">
+          <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 ${!scrolled && dark ? "text-white/90" : "text-text-secondary"}`}>
             Log in
           </a>
           <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
@@ -88,7 +95,7 @@ export default function Nav() {
           </a>
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
-            className="md:hidden bg-transparent border-none text-text-primary p-1 cursor-pointer"
+            className={`md:hidden bg-transparent border-none p-1 cursor-pointer transition-colors ${!scrolled && dark ? "text-white" : "text-text-primary"}`}
           >
             {mobileMenu ? <X size={24} /> : <Menu size={24} />}
           </button>

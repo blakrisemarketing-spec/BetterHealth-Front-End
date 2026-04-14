@@ -244,7 +244,11 @@ export default function FAQPage() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-lg text-text-secondary font-body max-w-[520px] mx-auto">
-              Cannot find your answer here? WhatsApp us or email{" "}
+              Cannot find your answer here?{" "}
+              <a href="https://wa.me/message/MJ3HXLS2NDQEJ1" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline underline-offset-2 no-underline">
+                WhatsApp us
+              </a>{" "}
+              or email{" "}
               <a href="mailto:hello@betterhealth.africa" className="text-primary font-semibold hover:underline underline-offset-2 no-underline">
                 hello@betterhealth.africa
               </a>{" "}
@@ -318,7 +322,7 @@ export default function FAQPage() {
                   icon: MessageCircle,
                   label: "WhatsApp",
                   sub: "Fastest response",
-                  href: "https://wa.me/233XXXXXXXXX",
+                  href: "https://wa.me/message/MJ3HXLS2NDQEJ1",
                   cta: "Chat now",
                   primary: true,
                 },

@@ -56,10 +56,11 @@ const CHANNELS = [
     label: "Follow Us",
     body: "Health tips, product updates, and community stories. DMs are open on all platforms.",
     details: [
-      { key: "Instagram", val: "@betterhealthafrica" },
-      { key: "Twitter / X", val: "@betterhealthafr" },
+      { key: "Facebook", val: "@betterhealth.africa" },
+      { key: "Instagram", val: "@betterhealth.africa" },
+      { key: "Twitter / X", val: "@BetterHealth Africa" },
       { key: "LinkedIn", val: "BetterHealth Africa" },
-      { key: "TikTok", val: "@betterhealthafrica" },
+      { key: "TikTok", val: "@betterhealth.africa" },
     ],
     cta: null,
     href: null,
@@ -233,9 +234,9 @@ export default function ContactPage() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
+            <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-4">
               We are here when{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal pb-2 inline-block">
                 you need us.
               </span>
             </h1>

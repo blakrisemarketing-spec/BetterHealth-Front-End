@@ -280,8 +280,8 @@ export default function PricingPage() {
                 <thead>
                   <tr className="bg-section-alt border-b border-border">
                     <th className="text-left px-4 sm:px-5 py-4 text-[13px] font-bold text-text-primary">Test Group</th>
-                    <th className="text-center px-3 sm:px-4 py-4 text-[13px] font-bold text-text-secondary">Typical Hospital</th>
-                    <th className="text-center px-3 sm:px-4 py-4 text-[13px] font-bold text-primary bg-primary-bg/50">BetterHealth Complete</th>
+                    <th className="text-center px-3 sm:px-4 py-4 text-[13px] font-bold text-text-secondary">Hospitals/ Session</th>
+                    <th className="text-center px-3 sm:px-4 py-4 text-[13px] font-bold text-primary bg-primary-bg/50">BH Complete/ Year</th>
                   </tr>
                 </thead>
                 <tbody>
