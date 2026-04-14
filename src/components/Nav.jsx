@@ -14,8 +14,11 @@ export default function Nav({ dark = false }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // When mobile menu is open, treat nav as "scrolled" so it stays opaque/visible
+  const navActive = scrolled || mobileMenu;
+
   const desktopLinkClass =
-    !scrolled && dark
+    !navActive && dark
       ? "text-white/90 text-sm font-medium hover:text-primary transition-colors"
       : "text-text-secondary text-sm font-medium hover:text-primary transition-colors";
 
@@ -60,49 +63,51 @@ export default function Nav({ dark = false }) {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-border shadow-sm"
-          : "bg-transparent border-b border-transparent"
-      }`}
-      style={scrolled ? { background: "rgba(255,255,255,0.85)", backdropFilter: "blur(16px)" } : {}}
-    >
-      <div className="max-w-[1280px] mx-auto px-6 h-[72px] flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <img
-            src={logo}
-            alt="BetterHealth Africa"
-            className={`h-11 w-auto object-contain max-w-[180px] sm:max-w-[220px] transition-all duration-300 ${
-              !scrolled && dark ? "brightness-0 invert" : ""
-            }`}
-          />
-        </Link>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          navActive
+            ? "border-b border-border shadow-sm"
+            : "bg-transparent border-b border-transparent"
+        }`}
+        style={navActive ? { background: "rgba(255,255,255,0.85)", backdropFilter: "blur(16px)" } : {}}
+      >
+        <div className="max-w-[1280px] mx-auto px-6 h-[72px] flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="BetterHealth Africa"
+              className={`h-11 w-auto object-contain max-w-[180px] sm:max-w-[220px] transition-all duration-300 ${
+                !navActive && dark ? "brightness-0 invert" : ""
+              }`}
+            />
+          </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex gap-8 items-center">
-          {navLinks.map((link) => renderLink(link))}
+          {/* Desktop links */}
+          <div className="hidden md:flex gap-8 items-center">
+            {navLinks.map((link) => renderLink(link))}
+          </div>
+
+          {/* Right side */}
+          <div className="flex items-center gap-3">
+            <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
+              Log in
+            </a>
+            <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
+              Get Started
+            </a>
+            <button
+              onClick={() => setMobileMenu(!mobileMenu)}
+              className={`md:hidden bg-transparent border-none p-1 cursor-pointer transition-colors ${!navActive && dark ? "text-white" : "text-text-primary"}`}
+            >
+              {mobileMenu ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
+      </nav>
 
-        {/* Right side */}
-        <div className="flex items-center gap-3">
-          <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 ${!scrolled && dark ? "text-white/90" : "text-text-secondary"}`}>
-            Log in
-          </a>
-          <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
-            Get Started
-          </a>
-          <button
-            onClick={() => setMobileMenu(!mobileMenu)}
-            className={`md:hidden bg-transparent border-none p-1 cursor-pointer transition-colors ${!scrolled && dark ? "text-white" : "text-text-primary"}`}
-          >
-            {mobileMenu ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
+      {/* Mobile menu — rendered outside nav to avoid stacking context issues */}
       {mobileMenu && (
         <div
           className="fixed top-[72px] left-0 right-0 bottom-0 px-6 py-6 flex flex-col gap-2 md:hidden z-[9999] border-t border-border shadow-xl overflow-y-auto"
@@ -131,6 +136,6 @@ export default function Nav({ dark = false }) {
           </div>
         </div>
       )}
-    </nav>
+    </>
   );
 }
