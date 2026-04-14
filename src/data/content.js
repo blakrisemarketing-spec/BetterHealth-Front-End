@@ -892,7 +892,7 @@ export const pricingPage = {
   },
   hospitalComparison: {
     headline: "What this would cost you elsewhere",
-    body: "We surveyed private hospitals and diagnostic centres across Accra. Here\u2019s what comprehensive blood testing costs without BetterHealth (BH):",
+    body: "We surveyed private hospitals and diagnostic centres across Accra. Here\u2019s a comparative analyses on the costs of blood testing in a typical Hospital and with BetterHealth (BH):",
     rows: [
       { test: "Full Blood Count (CBC)", hospital: "GHS 200\u2013300", bh: "Offered twice" },
       { test: "Lipid Panel (Cholesterol)", hospital: "GHS 200\u2013400", bh: "Offered twice" },
