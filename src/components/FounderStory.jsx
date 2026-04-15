@@ -1,6 +1,6 @@
 import Reveal from "./ui/Reveal";
 import { founderQuote, founderStory } from "../data/content";
-import founderPhoto from "../assets/founder.png";
+import founderPhoto from "../assets/founder.webp";
 
 export default function FounderStory() {
   return (

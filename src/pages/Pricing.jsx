@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -163,6 +164,10 @@ export default function PricingPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>Pricing — BetterHealth Africa</title>
+        <meta name="description" content="Flexible health screening plans starting from GHS 8/day. Choose the right plan for your health goals — individual, family, or enterprise." />
+      </Helmet>
       <Nav />
 
       {/* ── Hero ── */}

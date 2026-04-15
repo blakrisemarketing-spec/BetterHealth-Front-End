@@ -192,7 +192,7 @@ export const founderStory = [
 export const footerColumns = [
   { title: "Product", links: ["How It Works", "What We Test", "Pricing", "Download App"] },
   { title: "Company", links: ["About Us", "Stories", "Blog", "Careers"] },
-  { title: "Support", links: ["FAQ", "Contact", "WhatsApp", "Privacy Policy"] },
+  { title: "Support", links: ["FAQ", "Contact", "WhatsApp", "Privacy Policy", "Terms of Service"] },
 ];
 
 export const phoneScreens = [

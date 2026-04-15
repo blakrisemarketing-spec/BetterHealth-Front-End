@@ -14,6 +14,7 @@ const ROUTE_MAP = {
   "FAQ": "/faq",
   "Contact": "/contact",
   "Privacy Policy": "/privacy",
+  "Terms of Service": "/terms",
 };
 
 // External links — open in a new tab

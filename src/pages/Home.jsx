@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Nav from "../components/Nav";
 import Hero from "../components/Hero";
 import TrustBar from "../components/TrustBar";
@@ -17,6 +18,10 @@ import Footer from "../components/Footer";
 export default function Home() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>BetterHealth Africa — Know Your Health Before Symptoms Appear</title>
+        <meta name="description" content="Comprehensive lab testing with 100+ biomarkers, personalized health insights, and home sample collection across Ghana. Starting from GHS 8/day." />
+      </Helmet>
       <Nav />
       <main>
         <Hero />

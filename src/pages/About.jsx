@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowRight, ShieldCheck, Eye, Globe, ExternalLink } from "lucide-react";
 import Nav from "../components/Nav";
@@ -5,7 +6,7 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { aboutPage } from "../data/content";
-import founderPhoto from "../assets/founder.png";
+import founderPhoto from "../assets/founder.webp";
 
 const VALUE_ICONS = { ShieldCheck, Eye, Globe };
 
@@ -39,6 +40,10 @@ export default function AboutPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>About Us — BetterHealth Africa</title>
+        <meta name="description" content="Meet the team behind BetterHealth Africa. Our mission is to make proactive health screening accessible and affordable for every Ghanaian." />
+      </Helmet>
       <Nav />
 
       {/* ── Hero ── */}

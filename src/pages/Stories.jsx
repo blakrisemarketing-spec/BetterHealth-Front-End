@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -144,6 +145,10 @@ export default function StoriesPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>Member Stories — BetterHealth Africa</title>
+        <meta name="description" content="Real stories from BetterHealth Africa members. See how early health screening helped Ghanaians take control of their health before symptoms appeared." />
+      </Helmet>
       <Nav />
 
       {/* ── Hero ── */}

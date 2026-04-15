@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -221,6 +222,10 @@ export default function FAQPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>FAQ — BetterHealth Africa</title>
+        <meta name="description" content="Answers to the most common questions about BetterHealth Africa — how it works, what we test, pricing, sample collection, and your results." />
+      </Helmet>
       <Nav />
 
       {/* Hero */}

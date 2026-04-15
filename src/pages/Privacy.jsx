@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
@@ -88,6 +89,10 @@ To exercise any right, email privacy@betterhealth.africa. We will respond within
 export default function PrivacyPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>Privacy Policy — BetterHealth Africa</title>
+        <meta name="description" content="How BetterHealth Africa collects, uses, and protects your personal and health data. Written in plain language, no legal jargon." />
+      </Helmet>
       <Nav />
 
       <section className="pt-[120px] pb-8 px-6">

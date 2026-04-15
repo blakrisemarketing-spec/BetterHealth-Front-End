@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -127,6 +128,10 @@ export default function WhatWeTestPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>What We Test — BetterHealth Africa</title>
+        <meta name="description" content="Explore 100+ biomarkers across 8 body systems — heart, liver, kidneys, hormones, blood, immunity, metabolism, and more. Know your full health picture." />
+      </Helmet>
       <Nav />
 
       {/* ── Hero ── */}

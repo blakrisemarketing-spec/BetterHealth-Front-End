@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
@@ -6,6 +7,10 @@ import GradientOrb from "../components/ui/GradientOrb";
 export default function BlogPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
+      <Helmet>
+        <title>Blog — BetterHealth Africa</title>
+        <meta name="description" content="Health insights, biomarker explainers, and wellness guides from the BetterHealth Africa team. Coming soon." />
+      </Helmet>
       <Nav />
 
       {/* Hero */}
