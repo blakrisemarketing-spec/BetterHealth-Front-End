@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Login Flow</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+    }
+
+    .viewport {
+      width: 375px;
+      height: 812px;
+      position: relative;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      border-radius: 40px;
+      border: 12px solid #000;
+    }
+
+    .scenes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .scene {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .scene.active {
+      opacity: 1;
+      z-index: 10;
+    }
+
+    .scene-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      overflow: hidden;
+    }
+
+    .scene-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .scene-title {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 12px;
+      color: #999;
+      z-index: 20;
+      background: rgba(0,0,0,0.3);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .placeholder {
+      color: #ccc;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .overlays {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    .overlay {
+      position: absolute;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 40;
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007AFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #0051D5; }
+
+    .progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: #007AFF;
+      width: 0%;
+      z-index: 35;
+    }
+
+    .info {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      color: #999;
+      background: rgba(0,0,0,0.3);
+      padding: 4px 8px;
+      border-radius: 4px;
+      z-index: 25;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="viewport">
+      <div class="scenes" id="scenes">
+        
+    <div class="scene" data-id="scene_1_splash" data-start="0" data-duration="2500">
+      <div class="scene-title">App Splash Screen</div>
+      <div class="scene-content">
+        <img src="assets/mobile-screens/01-splash.png" alt="App Splash Screen" />
+      </div>
+      
+    </div>
+    
+    <div class="scene" data-id="scene_2_login_form" data-start="2500" data-duration="2000">
+      <div class="scene-title">Login Form</div>
+      <div class="scene-content">
+        <img src="assets/mobile-screens/02-login-form.png" alt="Login Form" />
+      </div>
+      
+    </div>
+    
+    <div class="scene" data-id="scene_3_email_input" data-start="4500" data-duration="2500">
+      <div class="scene-title">Entering Email</div>
+      <div class="scene-content">
+        <img src="assets/mobile-screens/03-login-email-filled.png" alt="Entering Email" />
+      </div>
+      
+      <div class="interactions">
+        
+        <div class="interaction" data-type="text_input" data-timestamp="500">
+          text_input: email_field
+        </div>
+        
+      </div>
+      
+    </div>
+    
+    <div class="scene" data-id="scene_4_password_input" data-start="7000" data-duration="2500">
+      <div class="scene-title">Entering Password</div>
+      <div class="scene-content">
+        <img src="assets/mobile-screens/04-login-password-filled.png" alt="Entering Password" />
+      </div>
+      
+      <div class="interactions">
+        
+        <div class="interaction" data-type="text_input" data-timestamp="500">
+          text_input: password_field
+        </div>
+        
+      </div>
+      
+    </div>
+    
+    <div class="scene" data-id="scene_5_submit_login" data-start="9500" data-duration="500">
+      <div class="scene-title">Submitting Login</div>
+      <div class="scene-content">
+        <img src="assets/mobile-screens/04-login-password-filled.png" alt="Submitting Login" />
+      </div>
+      
+      <div class="interactions">
+        
+        <div class="interaction" data-type="button_click" data-timestamp="0">
+          button_click: login_btn
+        </div>
+        
+      </div>
+      
+    </div>
+    
+    <div class="scene" data-id="scene_6_loading" data-start="10000" data-duration="3000">
+      <div class="scene-title">Authentication Loading</div>
+      <div class="scene-content">
+        <img src="assets/mobile-screens/05-loading.png" alt="Authentication Loading" />
+      </div>
+      
+    </div>
+    
+    <div class="scene" data-id="scene_7_dashboard" data-start="13000" data-duration="5000">
+      <div class="scene-title">Dashboard</div>
+      <div class="scene-content">
+        <img src="assets/mobile-screens/06-dashboard.png" alt="Dashboard" />
+      </div>
+      
+    </div>
+    
+    <div class="scene" data-id="scene_8_dashboard_scrolled" data-start="18000" data-duration="8000">
+      <div class="scene-title">Dashboard Explore</div>
+      <div class="scene-content">
+        <img src="assets/mobile-screens/07-dashboard-scrolled.png" alt="Dashboard Explore" />
+      </div>
+      
+      <div class="interactions">
+        
+        <div class="interaction" data-type="scroll" data-timestamp="2000">
+          scroll: down
+        </div>
+        
+      </div>
+      
+    </div>
+    
+      </div>
+      <div class="overlays">
+        
+    <div class="overlay" id="title_overlay" data-type="text">
+      Patient Login Flow
+    </div>
+  
+      </div>
+      <div class="info" id="info">0:00 / 26.0s</div>
+      <div class="progress" id="progress"></div>
+      <div class="controls">
+        <button id="playBtn">▶ Play</button>
+        <button id="resetBtn">⟲ Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const manifest = {"version":"1.0.0","id":"patient_login_flow","title":"Patient Login Flow","description":"Interactive demonstration of logging into BetterHealth app","duration":26000,"viewport":{"width":375,"height":812},"scenes":[{"id":"scene_1_splash","name":"App Splash Screen","startTime":0,"duration":2500,"content":{"type":"screenshot","assetPath":"assets/mobile-screens/01-splash.png","description":"BetterHealth app initial screen"},"interactions":[]},{"id":"scene_2_login_form","name":"Login Form","startTime":2500,"duration":2000,"content":{"type":"screenshot","assetPath":"assets/mobile-screens/02-login-form.png","description":"Login form appears"},"interactions":[]},{"id":"scene_3_email_input","name":"Entering Email","startTime":4500,"duration":2500,"content":{"type":"screenshot","assetPath":"assets/mobile-screens/03-login-email-filled.png","description":"Email address entered"},"interactions":[{"id":"email_input","type":"text_input","target":"email_field","value":"peter.dag@gmail.com","timestamp":500,"duration":1500}]},{"id":"scene_4_password_input","name":"Entering Password","startTime":7000,"duration":2500,"content":{"type":"screenshot","assetPath":"assets/mobile-screens/04-login-password-filled.png","description":"Password entered"},"interactions":[{"id":"password_input","type":"text_input","target":"password_field","value":"Pass.1234","timestamp":500,"duration":1500}]},{"id":"scene_5_submit_login","name":"Submitting Login","startTime":9500,"duration":500,"content":{"type":"screenshot","assetPath":"assets/mobile-screens/04-login-password-filled.png","description":"Login button clicked"},"interactions":[{"id":"login_button","type":"button_click","target":"login_btn","timestamp":0,"duration":500}]},{"id":"scene_6_loading","name":"Authentication Loading","startTime":10000,"duration":3000,"content":{"type":"screenshot","assetPath":"assets/mobile-screens/05-loading.png","description":"Loading indicator while authenticating"},"interactions":[]},{"id":"scene_7_dashboard","name":"Dashboard","startTime":13000,"duration":5000,"content":{"type":"screenshot","assetPath":"assets/mobile-screens/06-dashboard.png","description":"Main dashboard after successful login"},"interactions":[]},{"id":"scene_8_dashboard_scrolled","name":"Dashboard Explore","startTime":18000,"duration":8000,"content":{"type":"screenshot","assetPath":"assets/mobile-screens/07-dashboard-scrolled.png","description":"Dashboard scrolled to show more content"},"interactions":[{"id":"scroll_down","type":"scroll","direction":"down","distance":200,"timestamp":2000,"duration":1500}]}],"transitions":[{"from":"scene_1_splash","to":"scene_2_login_form","type":"fade","duration":300},{"from":"scene_2_login_form","to":"scene_3_email_input","type":"fade","duration":200},{"from":"scene_3_email_input","to":"scene_4_password_input","type":"fade","duration":200},{"from":"scene_4_password_input","to":"scene_5_submit_login","type":"fade","duration":200},{"from":"scene_5_submit_login","to":"scene_6_loading","type":"fade","duration":300},{"from":"scene_6_loading","to":"scene_7_dashboard","type":"fade","duration":500},{"from":"scene_7_dashboard","to":"scene_8_dashboard_scrolled","type":"fade","duration":300}],"overlays":[{"id":"title_overlay","type":"text","text":"Patient Login Flow","position":{"x":10,"y":10},"styling":{"fontSize":"18px","fontWeight":"bold","color":"#ffffff","backgroundColor":"rgba(0,0,0,0.5)","padding":"10px"},"duration":[0,26000]}],"metadata":{"createdAt":"2026-04-18","updatedAt":"2026-04-18","author":"Godol","tags":["demo","login","mobile","authentication"]}};
+    const scenesEl = document.getElementById('scenes');
+    const progressEl = document.getElementById('progress');
+    const infoEl = document.getElementById('info');
+    const playBtn = document.getElementById('playBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    let currentTime = 0;
+    let isPlaying = false;
+    let animationFrame = null;
+    let startTime = 0;
+
+    function updateScene() {
+      const scenes = document.querySelectorAll('.scene');
+      scenes.forEach(scene => {
+        const sceneStart = parseInt(scene.dataset.start);
+        const sceneDuration = parseInt(scene.dataset.duration);
+        const sceneEnd = sceneStart + sceneDuration;
+
+        if (currentTime >= sceneStart && currentTime < sceneEnd) {
+          scene.classList.add('active');
+        } else {
+          scene.classList.remove('active');
+        }
+      });
+
+      const progress = (currentTime / manifest.duration) * 100;
+      progressEl.style.width = progress + '%';
+
+      const minutes = Math.floor(currentTime / 60000);
+      const seconds = ((currentTime % 60000) / 1000).toFixed(1);
+      const totalSeconds = (manifest.duration / 1000).toFixed(1);
+      infoEl.textContent = `${minutes}:${String(Math.floor(seconds)).padStart(2, '0')} / ${totalSeconds}s`;
+    }
+
+    function animate(timestamp) {
+      if (!startTime) startTime = timestamp;
+      currentTime = timestamp - startTime;
+
+      if (currentTime >= manifest.duration) {
+        currentTime = manifest.duration;
+        isPlaying = false;
+        playBtn.textContent = '▶ Play';
+      }
+
+      updateScene();
+
+      if (isPlaying) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        isPlaying = false;
+        playBtn.textContent = '▶ Play';
+        cancelAnimationFrame(animationFrame);
+      } else {
+        isPlaying = true;
+        playBtn.textContent = '⏸ Pause';
+        startTime = performance.now() - currentTime;
+        animationFrame = requestAnimationFrame(animate);
+      }
+    });
+
+    resetBtn.addEventListener('click', () => {
+      isPlaying = false;
+      currentTime = 0;
+      startTime = 0;
+      playBtn.textContent = '▶ Play';
+      cancelAnimationFrame(animationFrame);
+      updateScene();
+    });
+
+    updateScene();
+  </script>
+</body>
+</html>
