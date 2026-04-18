@@ -7,10 +7,18 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-motion': ['framer-motion'],
-          'vendor-ui': ['lucide-react', 'react-helmet-async'],
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react')) {
+              return 'vendor-react';
+            }
+            if (id.includes('framer-motion')) {
+              return 'vendor-motion';
+            }
+            if (id.includes('lucide-react') || id.includes('react-helmet-async')) {
+              return 'vendor-ui';
+            }
+          }
         },
       },
     },
