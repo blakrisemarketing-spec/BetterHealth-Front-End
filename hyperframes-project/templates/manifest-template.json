@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "id": "workflow_id",
+  "title": "Workflow Title",
+  "description": "Workflow description for users",
+  "duration": 30000,
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "scenes": [
+    {
+      "id": "scene_1",
+      "name": "Scene Name",
+      "startTime": 0,
+      "duration": 5000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/01-screen.png",
+        "description": "What this screen shows"
+      },
+      "interactions": [
+        {
+          "id": "interaction_1",
+          "type": "button_click",
+          "target": "button_id",
+          "timestamp": 1000,
+          "duration": 500
+        }
+      ]
+    },
+    {
+      "id": "scene_2",
+      "name": "Scene Name",
+      "startTime": 5000,
+      "duration": 5000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/02-screen.png",
+        "description": "What this screen shows"
+      },
+      "interactions": []
+    }
+  ],
+  "transitions": [
+    {
+      "from": "scene_1",
+      "to": "scene_2",
+      "type": "fade",
+      "duration": 500
+    }
+  ],
+  "overlays": [
+    {
+      "id": "title",
+      "type": "text",
+      "text": "Workflow Title",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "styling": {
+        "fontSize": "18px",
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "backgroundColor": "rgba(0,0,0,0.5)",
+        "padding": "10px"
+      },
+      "duration": [0, 30000]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2026-04-18",
+    "updatedAt": "2026-04-18",
+    "author": "Godol",
+    "tags": []
+  }
+}

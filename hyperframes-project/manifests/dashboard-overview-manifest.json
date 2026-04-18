@@ -1,0 +1,106 @@
+{
+  "version": "1.0.0",
+  "id": "dashboard_overview",
+  "title": "Dashboard Overview",
+  "description": "Interactive demonstration of the main dashboard and its key features",
+  "duration": 20000,
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "scenes": [
+    {
+      "id": "scene_1_main_dashboard",
+      "name": "Main Dashboard",
+      "startTime": 0,
+      "duration": 6000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/08-dashboard-main.png",
+        "description": "Main dashboard view with header and cards"
+      },
+      "interactions": []
+    },
+    {
+      "id": "scene_2_dashboard_cards",
+      "name": "Dashboard Cards",
+      "startTime": 6000,
+      "duration": 7000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/09-dashboard-cards.png",
+        "description": "Dashboard with card details and statistics visible"
+      },
+      "interactions": [
+        {
+          "id": "scroll_to_cards",
+          "type": "scroll",
+          "direction": "down",
+          "distance": 150,
+          "timestamp": 1000,
+          "duration": 1500
+        }
+      ]
+    },
+    {
+      "id": "scene_3_dashboard_bottom",
+      "name": "Dashboard Bottom Section",
+      "startTime": 13000,
+      "duration": 7000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/10-dashboard-bottom.png",
+        "description": "Dashboard bottom section with additional options"
+      },
+      "interactions": [
+        {
+          "id": "scroll_bottom",
+          "type": "scroll",
+          "direction": "down",
+          "distance": 150,
+          "timestamp": 1000,
+          "duration": 1500
+        }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "scene_1_main_dashboard",
+      "to": "scene_2_dashboard_cards",
+      "type": "fade",
+      "duration": 400
+    },
+    {
+      "from": "scene_2_dashboard_cards",
+      "to": "scene_3_dashboard_bottom",
+      "type": "fade",
+      "duration": 400
+    }
+  ],
+  "overlays": [
+    {
+      "id": "title_overlay",
+      "type": "text",
+      "text": "Dashboard Overview",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "styling": {
+        "fontSize": "18px",
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "backgroundColor": "rgba(0,0,0,0.5)",
+        "padding": "10px"
+      },
+      "duration": [0, 20000]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2026-04-18",
+    "updatedAt": "2026-04-18",
+    "author": "Godol",
+    "tags": ["demo", "dashboard", "mobile", "navigation", "overview"]
+  }
+}

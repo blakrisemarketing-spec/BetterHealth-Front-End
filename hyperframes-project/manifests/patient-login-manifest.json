@@ -1,0 +1,213 @@
+{
+  "version": "1.0.0",
+  "id": "patient_login_flow",
+  "title": "Patient Login Flow",
+  "description": "Interactive demonstration of logging into BetterHealth app",
+  "duration": 26000,
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "scenes": [
+    {
+      "id": "scene_1_splash",
+      "name": "App Splash Screen",
+      "startTime": 0,
+      "duration": 2500,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/01-splash.png",
+        "description": "BetterHealth app initial screen"
+      },
+      "interactions": []
+    },
+    {
+      "id": "scene_2_login_form",
+      "name": "Login Form",
+      "startTime": 2500,
+      "duration": 2000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/02-login-form.png",
+        "description": "Login form appears"
+      },
+      "interactions": []
+    },
+    {
+      "id": "scene_3_email_input",
+      "name": "Entering Email",
+      "startTime": 4500,
+      "duration": 2500,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/03-login-email-filled.png",
+        "description": "Email address entered"
+      },
+      "interactions": [
+        {
+          "id": "email_input",
+          "type": "text_input",
+          "target": "email_field",
+          "value": "peter.dag@gmail.com",
+          "timestamp": 500,
+          "duration": 1500
+        }
+      ]
+    },
+    {
+      "id": "scene_4_password_input",
+      "name": "Entering Password",
+      "startTime": 7000,
+      "duration": 2500,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/04-login-password-filled.png",
+        "description": "Password entered"
+      },
+      "interactions": [
+        {
+          "id": "password_input",
+          "type": "text_input",
+          "target": "password_field",
+          "value": "Pass.1234",
+          "timestamp": 500,
+          "duration": 1500
+        }
+      ]
+    },
+    {
+      "id": "scene_5_submit_login",
+      "name": "Submitting Login",
+      "startTime": 9500,
+      "duration": 500,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/04-login-password-filled.png",
+        "description": "Login button clicked"
+      },
+      "interactions": [
+        {
+          "id": "login_button",
+          "type": "button_click",
+          "target": "login_btn",
+          "timestamp": 0,
+          "duration": 500
+        }
+      ]
+    },
+    {
+      "id": "scene_6_loading",
+      "name": "Authentication Loading",
+      "startTime": 10000,
+      "duration": 3000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/05-loading.png",
+        "description": "Loading indicator while authenticating"
+      },
+      "interactions": []
+    },
+    {
+      "id": "scene_7_dashboard",
+      "name": "Dashboard",
+      "startTime": 13000,
+      "duration": 5000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/06-dashboard.png",
+        "description": "Main dashboard after successful login"
+      },
+      "interactions": []
+    },
+    {
+      "id": "scene_8_dashboard_scrolled",
+      "name": "Dashboard Explore",
+      "startTime": 18000,
+      "duration": 8000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/07-dashboard-scrolled.png",
+        "description": "Dashboard scrolled to show more content"
+      },
+      "interactions": [
+        {
+          "id": "scroll_down",
+          "type": "scroll",
+          "direction": "down",
+          "distance": 200,
+          "timestamp": 2000,
+          "duration": 1500
+        }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "scene_1_splash",
+      "to": "scene_2_login_form",
+      "type": "fade",
+      "duration": 300
+    },
+    {
+      "from": "scene_2_login_form",
+      "to": "scene_3_email_input",
+      "type": "fade",
+      "duration": 200
+    },
+    {
+      "from": "scene_3_email_input",
+      "to": "scene_4_password_input",
+      "type": "fade",
+      "duration": 200
+    },
+    {
+      "from": "scene_4_password_input",
+      "to": "scene_5_submit_login",
+      "type": "fade",
+      "duration": 200
+    },
+    {
+      "from": "scene_5_submit_login",
+      "to": "scene_6_loading",
+      "type": "fade",
+      "duration": 300
+    },
+    {
+      "from": "scene_6_loading",
+      "to": "scene_7_dashboard",
+      "type": "fade",
+      "duration": 500
+    },
+    {
+      "from": "scene_7_dashboard",
+      "to": "scene_8_dashboard_scrolled",
+      "type": "fade",
+      "duration": 300
+    }
+  ],
+  "overlays": [
+    {
+      "id": "title_overlay",
+      "type": "text",
+      "text": "Patient Login Flow",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "styling": {
+        "fontSize": "18px",
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "backgroundColor": "rgba(0,0,0,0.5)",
+        "padding": "10px"
+      },
+      "duration": [0, 26000]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2026-04-18",
+    "updatedAt": "2026-04-18",
+    "author": "Godol",
+    "tags": ["demo", "login", "mobile", "authentication"]
+  }
+}

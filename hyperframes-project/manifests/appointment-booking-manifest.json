@@ -1,0 +1,153 @@
+{
+  "version": "1.0.0",
+  "id": "appointment_booking",
+  "title": "Booking an Appointment",
+  "description": "Step-by-step guide to booking a medical appointment through the app",
+  "duration": 25000,
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "scenes": [
+    {
+      "id": "scene_1_appointments_list",
+      "name": "Appointments Page",
+      "startTime": 0,
+      "duration": 5000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/12-appointments-list.png",
+        "description": "Appointments list or main appointments page"
+      },
+      "interactions": []
+    },
+    {
+      "id": "scene_2_booking_form",
+      "name": "Booking Form",
+      "startTime": 5000,
+      "duration": 8000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/13-appointment-form.png",
+        "description": "Appointment booking form with initial fields"
+      },
+      "interactions": [
+        {
+          "id": "open_form",
+          "type": "button_click",
+          "target": "book_button",
+          "timestamp": 500,
+          "duration": 500
+        }
+      ]
+    },
+    {
+      "id": "scene_3_form_fields",
+      "name": "Booking Form Details",
+      "startTime": 13000,
+      "duration": 8000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/14-appointment-form-fields.png",
+        "description": "Booking form with all fields visible"
+      },
+      "interactions": [
+        {
+          "id": "scroll_form",
+          "type": "scroll",
+          "direction": "down",
+          "distance": 150,
+          "timestamp": 1000,
+          "duration": 1500
+        },
+        {
+          "id": "fill_form",
+          "type": "form_interaction",
+          "target": "appointment_form",
+          "timestamp": 3000,
+          "duration": 2000
+        }
+      ]
+    },
+    {
+      "id": "scene_4_confirmation",
+      "name": "Confirmation",
+      "startTime": 21000,
+      "duration": 4000,
+      "content": {
+        "type": "screenshot",
+        "assetPath": "assets/mobile-screens/14-appointment-form-fields.png",
+        "description": "Ready to confirm appointment booking"
+      },
+      "interactions": [
+        {
+          "id": "submit_form",
+          "type": "button_click",
+          "target": "confirm_button",
+          "timestamp": 1000,
+          "duration": 500
+        }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "scene_1_appointments_list",
+      "to": "scene_2_booking_form",
+      "type": "fade",
+      "duration": 400
+    },
+    {
+      "from": "scene_2_booking_form",
+      "to": "scene_3_form_fields",
+      "type": "fade",
+      "duration": 400
+    },
+    {
+      "from": "scene_3_form_fields",
+      "to": "scene_4_confirmation",
+      "type": "fade",
+      "duration": 400
+    }
+  ],
+  "overlays": [
+    {
+      "id": "title_overlay",
+      "type": "text",
+      "text": "Booking an Appointment",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "styling": {
+        "fontSize": "18px",
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "backgroundColor": "rgba(0,0,0,0.5)",
+        "padding": "10px"
+      },
+      "duration": [0, 25000]
+    },
+    {
+      "id": "step_counter",
+      "type": "text",
+      "text": "Step 1/4: View Appointments",
+      "position": {
+        "x": 10,
+        "y": 50
+      },
+      "styling": {
+        "fontSize": "12px",
+        "color": "#cccccc",
+        "backgroundColor": "rgba(0,0,0,0.3)"
+      },
+      "duration": [0, 5000]
+    }
+  ],
+  "metadata": {
+    "createdAt": "2026-04-18",
+    "updatedAt": "2026-04-18",
+    "author": "Godol",
+    "tags": ["demo", "appointments", "booking", "mobile", "scheduling", "tutorial"]
+  }
+}

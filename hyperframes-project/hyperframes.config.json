@@ -1,0 +1,40 @@
+{
+  "name": "BetterHealth Interactive Videos",
+  "description": "Interactive video demonstrations of BetterHealth Africa app interface in mobile view",
+  "version": "1.0.0",
+  "viewport": {
+    "width": 375,
+    "height": 812,
+    "type": "mobile"
+  },
+  "author": "Godol",
+  "basePath": "/Users/greatdamzi/Projects/BetterHealth-Front-End/hyperframes-project",
+  "outputDir": "./dist",
+  "demoCredentials": {
+    "email": "peter.dag@gmail.com",
+    "password": "Pass.1234",
+    "appUrl": "https://app.betterhealth.africa"
+  },
+  "workflows": [
+    {
+      "id": "patient_login",
+      "title": "Patient Login Flow",
+      "description": "Demonstrates the login process for patients"
+    },
+    {
+      "id": "dashboard_overview",
+      "title": "Dashboard Overview",
+      "description": "Shows the main dashboard and navigation"
+    },
+    {
+      "id": "test_results",
+      "title": "Viewing Test Results",
+      "description": "How to access and interpret test results"
+    },
+    {
+      "id": "appointment_booking",
+      "title": "Booking Appointments",
+      "description": "Step-by-step appointment scheduling"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "betterhealth-interactive-videos",
+  "version": "1.0.0",
+  "description": "Interactive video demonstrations of BetterHealth Africa app interface in mobile view",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'Use hyperframes producer to build manifests'",
+    "preview": "echo 'Use hyperframes player to preview videos'",
+    "studio": "cd ../../hyperframes && bun run studio",
+    "capture-mobile": "echo 'Use Playwright to capture mobile screenshots'",
+    "list-manifests": "ls -la manifests/"
+  },
+  "keywords": [
+    "hyperframes",
+    "interactive-video",
+    "mobile-demo",
+    "betterhealth"
+  ],
+  "author": "Godol",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  }
+}
