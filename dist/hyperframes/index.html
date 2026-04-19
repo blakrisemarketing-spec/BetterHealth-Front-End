@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BetterHealth Interactive Video Demos</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 60px;
+    }
+
+    .header h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .header p {
+      font-size: 18px;
+      opacity: 0.95;
+      font-weight: 400;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-thumbnail {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      font-weight: 300;
+      color: white;
+      overflow: hidden;
+    }
+
+    .video-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-info {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+
+    .video-description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .play-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: opacity 0.3s ease;
+      width: fit-content;
+    }
+
+    .video-card:hover .play-button {
+      opacity: 0.9;
+    }
+
+    .play-icon {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 6px solid white;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+    }
+
+    .footer {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 32px;
+      }
+
+      .videos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      body {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>BetterHealth Interactive Demos</h1>
+      <p>Explore key workflows in the BetterHealth app experience</p>
+    </div>
+
+    <div class="videos-grid">
+      <!-- Patient Login Video -->
+      <a href="patient-login.html" class="video-card">
+        <div class="video-thumbnail">
+          <img src="assets/mobile-screens/01-splash.png" alt="Patient Login Flow">
+        </div>
+        <div class="video-info">
+          <div class="video-title">Patient Login Flow</div>
+          <div class="video-description">
+            Step-by-step demonstration of how patients securely log into the BetterHealth app with their credentials.
+          </div>
+          <div class="play-button">
+            <span class="play-icon"></span> Watch Demo
+          </div>
+        </div>
+      </a>
+
+      <!-- Dashboard Overview Video -->
+      <a href="dashboard-overview.html" class="video-card">
+        <div class="video-thumbnail">
+          <img src="assets/mobile-screens/06-dashboard.png" alt="Dashboard Overview">
+        </div>
+        <div class="video-info">
+          <div class="video-title">Dashboard Overview</div>
+          <div class="video-description">
+            Tour of the main dashboard interface showcasing health metrics, appointments, and quick access features.
+          </div>
+          <div class="play-button">
+            <span class="play-icon"></span> Watch Demo
+          </div>
+        </div>
+      </a>
+
+      <!-- Appointment Booking Video -->
+      <a href="appointment-booking.html" class="video-card">
+        <div class="video-thumbnail">
+          <img src="assets/mobile-screens/13-appointment-form.png" alt="Booking Appointments">
+        </div>
+        <div class="video-info">
+          <div class="video-title">Booking Appointments</div>
+          <div class="video-description">
+            Complete walkthrough of the appointment scheduling process, from selecting a date to confirming your booking.
+          </div>
+          <div class="play-button">
+            <span class="play-icon"></span> Watch Demo
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="footer">
+      <p>BetterHealth Interactive Video Demos • Built with Hyperframes Framework</p>
+    </div>
+  </div>
+</body>
+</html>

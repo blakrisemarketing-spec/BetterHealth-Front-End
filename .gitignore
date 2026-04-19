@@ -9,3 +9,7 @@ dist/
 # Allow hyperframes project dist (generated videos)
 !hyperframes-project/dist/
 !hyperframes-project/dist/**
+
+# Allow GitHub Pages hyperframes gallery
+!dist/hyperframes/
+!dist/hyperframes/**
