@@ -10,8 +10,13 @@ export default function BlogPage() {
       <Helmet>
         <title>Blog — BetterHealth Africa</title>
         <meta name="description" content="Health insights, biomarker explainers, and wellness guides from the BetterHealth Africa team. Coming soon." />
+        <link rel="canonical" href="https://www.betterhealth.africa/blog" />
+        <meta property="og:url" content="https://www.betterhealth.africa/blog" />
+        <meta property="og:title" content="Blog — BetterHealth Africa" />
+        <meta property="og:description" content="Health insights, biomarker explainers, and wellness guides from the BetterHealth Africa team. Coming soon." />
       </Helmet>
       <Nav />
+      <main>
 
       {/* Hero */}
       <section className="min-h-[44vh] flex items-center pt-[120px] pb-14 px-6 bg-base relative overflow-hidden">
@@ -58,20 +63,22 @@ export default function BlogPage() {
           <Reveal>
             <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-3">Get health insights in your inbox</h2>
             <p className="text-[14px] text-text-secondary mb-6">One email per month. No spam. Just useful health education for Ghanaians.</p>
-            <div className="flex gap-2 w-full max-w-[420px] mx-auto">
+            <form onSubmit={(e) => { e.preventDefault(); window.open(`mailto:hello@betterhealth.africa?subject=Newsletter%20Signup&body=Please%20add%20me%20to%20the%20BetterHealth%20newsletter.`, "_blank"); }} className="flex gap-2 w-full max-w-[420px] mx-auto">
               <input
                 type="email"
                 placeholder="your@email.com"
+                required
                 className="flex-1 min-w-0 border border-border rounded-btn px-4 py-3 text-sm text-text-primary bg-white focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10"
               />
-              <button className="bg-primary hover:bg-primary-dark text-white rounded-btn px-5 py-3 min-h-[44px] text-sm font-bold font-heading transition-all hover:-translate-y-0.5 shrink-0">
+              <button type="submit" className="bg-primary hover:bg-primary-dark text-white rounded-btn px-5 py-3 min-h-[44px] text-sm font-bold font-heading transition-all hover:-translate-y-0.5 shrink-0">
                 Subscribe
               </button>
-            </div>
+            </form>
           </Reveal>
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

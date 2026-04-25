@@ -104,6 +104,8 @@ export default function Nav({ dark = false }) {
             </a>
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
+              aria-label={mobileMenu ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenu}
               className={`md:hidden bg-transparent border-none p-1 cursor-pointer transition-colors ${!navActive && dark ? "text-white" : "text-text-primary"}`}
             >
               {mobileMenu ? <X size={24} /> : <Menu size={24} />}

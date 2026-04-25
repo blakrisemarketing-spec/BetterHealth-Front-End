@@ -131,8 +131,13 @@ export default function WhatWeTestPage() {
       <Helmet>
         <title>What We Test — BetterHealth Africa</title>
         <meta name="description" content="Explore 100+ biomarkers across 8 body systems — heart, liver, kidneys, hormones, blood, immunity, metabolism, and more. Know your full health picture." />
+        <link rel="canonical" href="https://www.betterhealth.africa/what-we-test" />
+        <meta property="og:url" content="https://www.betterhealth.africa/what-we-test" />
+        <meta property="og:title" content="What We Test — BetterHealth Africa" />
+        <meta property="og:description" content="Explore 100+ biomarkers across 8 body systems — heart, liver, kidneys, hormones, blood, immunity, metabolism, and more. Know your full health picture." />
       </Helmet>
       <Nav />
+      <main>
 
       {/* ── Hero ── */}
       <section className="min-h-[60vh] flex items-center pt-[80px] md:pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
@@ -283,6 +288,7 @@ export default function WhatWeTestPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

@@ -225,8 +225,13 @@ export default function FAQPage() {
       <Helmet>
         <title>FAQ — BetterHealth Africa</title>
         <meta name="description" content="Answers to the most common questions about BetterHealth Africa — how it works, what we test, pricing, sample collection, and your results." />
+        <link rel="canonical" href="https://www.betterhealth.africa/faq" />
+        <meta property="og:url" content="https://www.betterhealth.africa/faq" />
+        <meta property="og:title" content="FAQ — BetterHealth Africa" />
+        <meta property="og:description" content="Answers to the most common questions about BetterHealth Africa — how it works, what we test, pricing, sample collection, and your results." />
       </Helmet>
       <Nav />
+      <main>
 
       {/* Hero */}
       <section className="min-h-[46vh] flex items-center pt-[120px] pb-14 px-6 bg-base relative overflow-hidden">
@@ -387,6 +392,7 @@ export default function FAQPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

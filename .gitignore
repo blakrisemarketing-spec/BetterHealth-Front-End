@@ -6,6 +6,9 @@ dist/
 .env.*
 !.env.example
 
+# Credentials — never commit
+credentials.md
+
 # Allow hyperframes project dist (generated videos)
 !hyperframes-project/dist/
 !hyperframes-project/dist/**

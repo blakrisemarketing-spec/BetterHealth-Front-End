@@ -158,10 +158,11 @@ export default function DownloadAppPage() {
                 The app is launching on iOS and Android in 2026. Drop your email below and we will notify you the moment it is live — plus early access perks for subscribers.
               </p>
               <form
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={(e) => { e.preventDefault(); const email = e.target.elements.email.value; window.open(`mailto:hello@betterhealth.africa?subject=App%20Early%20Access&body=Hi%2C%20please%20notify%20me%20at%20${encodeURIComponent(email)}%20when%20the%20app%20launches.`, "_blank"); }}
                 className="flex flex-col sm:flex-row gap-3"
               >
                 <input
+                  name="email"
                   type="email"
                   placeholder="Your email address"
                   className="flex-1 px-4 py-3 rounded-xl border border-border bg-white text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm"

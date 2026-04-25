@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://blakrisemarketing-spec.github.io/BetterHealth-Front-End/sitemap.xml
+Sitemap: https://www.betterhealth.africa/sitemap.xml

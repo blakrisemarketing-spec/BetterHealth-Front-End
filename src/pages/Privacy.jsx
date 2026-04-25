@@ -92,8 +92,13 @@ export default function PrivacyPage() {
       <Helmet>
         <title>Privacy Policy — BetterHealth Africa</title>
         <meta name="description" content="How BetterHealth Africa collects, uses, and protects your personal and health data. Written in plain language, no legal jargon." />
+        <link rel="canonical" href="https://www.betterhealth.africa/privacy" />
+        <meta property="og:url" content="https://www.betterhealth.africa/privacy" />
+        <meta property="og:title" content="Privacy Policy — BetterHealth Africa" />
+        <meta property="og:description" content="How BetterHealth Africa collects, uses, and protects your personal and health data. Written in plain language, no legal jargon." />
       </Helmet>
       <Nav />
+      <main>
 
       <section className="pt-[120px] pb-8 px-6">
         <div className="max-w-[760px] mx-auto">
@@ -131,6 +136,7 @@ export default function PrivacyPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

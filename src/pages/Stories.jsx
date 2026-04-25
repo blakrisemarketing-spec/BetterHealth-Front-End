@@ -148,8 +148,13 @@ export default function StoriesPage() {
       <Helmet>
         <title>Member Stories — BetterHealth Africa</title>
         <meta name="description" content="Real stories from BetterHealth Africa members. See how early health screening helped Ghanaians take control of their health before symptoms appeared." />
+        <link rel="canonical" href="https://www.betterhealth.africa/stories" />
+        <meta property="og:url" content="https://www.betterhealth.africa/stories" />
+        <meta property="og:title" content="Member Stories — BetterHealth Africa" />
+        <meta property="og:description" content="Real stories from BetterHealth Africa members. See how early health screening helped Ghanaians take control of their health before symptoms appeared." />
       </Helmet>
       <Nav />
+      <main>
 
       {/* ── Hero ── */}
       <section className="min-h-[52vh] flex items-center pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
@@ -241,6 +246,7 @@ export default function StoriesPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

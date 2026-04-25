@@ -95,8 +95,13 @@ export default function TermsPage() {
       <Helmet>
         <title>Terms of Service — BetterHealth Africa</title>
         <meta name="description" content="Read BetterHealth Africa's Terms of Service. Understand your rights, our service commitments, and how we operate." />
+        <link rel="canonical" href="https://www.betterhealth.africa/terms" />
+        <meta property="og:url" content="https://www.betterhealth.africa/terms" />
+        <meta property="og:title" content="Terms of Service — BetterHealth Africa" />
+        <meta property="og:description" content="Read BetterHealth Africa's Terms of Service. Understand your rights, our service commitments, and how we operate." />
       </Helmet>
       <Nav />
+      <main>
 
       <section className="pt-[120px] pb-8 px-6">
         <div className="max-w-[760px] mx-auto">
@@ -134,6 +139,7 @@ export default function TermsPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

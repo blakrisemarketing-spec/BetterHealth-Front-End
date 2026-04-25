@@ -13,12 +13,21 @@ const PrivacyPage = lazy(() => import("./pages/Privacy"));
 const TermsPage = lazy(() => import("./pages/Terms"));
 const BlogPage = lazy(() => import("./pages/Blog"));
 const CareersPage = lazy(() => import("./pages/Careers"));
+const DownloadAppPage = lazy(() => import("./pages/DownloadApp"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
+
+function LoadingSpinner() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-base">
+      <div className="w-8 h-8 border-3 border-primary/30 border-t-primary rounded-full animate-spin" />
+    </div>
+  );
+}
 
 export default function App() {
   return (
-    <BrowserRouter basename="/BetterHealth-Front-End">
-      <Suspense fallback={null}>
+    <BrowserRouter>
+      <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
@@ -32,6 +41,7 @@ export default function App() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/download-app" element={<DownloadAppPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

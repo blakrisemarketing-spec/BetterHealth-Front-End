@@ -219,8 +219,13 @@ export default function ContactPage() {
       <Helmet>
         <title>Contact Us — BetterHealth Africa</title>
         <meta name="description" content="Get in touch with BetterHealth Africa via WhatsApp, email, or phone. We respond to most enquiries within 24 hours." />
+        <link rel="canonical" href="https://www.betterhealth.africa/contact" />
+        <meta property="og:url" content="https://www.betterhealth.africa/contact" />
+        <meta property="og:title" content="Contact Us — BetterHealth Africa" />
+        <meta property="og:description" content="Get in touch with BetterHealth Africa via WhatsApp, email, or phone. We respond to most enquiries within 24 hours." />
       </Helmet>
       <Nav />
+      <main>
 
       {/* Hero */}
       <section className="min-h-[48vh] flex items-center pt-[120px] pb-14 px-6 bg-base relative overflow-hidden">
@@ -406,6 +411,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

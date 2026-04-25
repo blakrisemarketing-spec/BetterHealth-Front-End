@@ -43,8 +43,13 @@ export default function AboutPage() {
       <Helmet>
         <title>About Us — BetterHealth Africa</title>
         <meta name="description" content="Meet the team behind BetterHealth Africa. Our mission is to make proactive health screening accessible and affordable for every Ghanaian." />
+        <link rel="canonical" href="https://www.betterhealth.africa/about" />
+        <meta property="og:url" content="https://www.betterhealth.africa/about" />
+        <meta property="og:title" content="About Us — BetterHealth Africa" />
+        <meta property="og:description" content="Meet the team behind BetterHealth Africa. Our mission is to make proactive health screening accessible and affordable for every Ghanaian." />
       </Helmet>
       <Nav />
+      <main>
 
       {/* ── Hero ── */}
       <section className="min-h-[60vh] flex items-center pt-[80px] md:pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
@@ -318,6 +323,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

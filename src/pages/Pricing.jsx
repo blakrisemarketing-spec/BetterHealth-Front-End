@@ -167,8 +167,13 @@ export default function PricingPage() {
       <Helmet>
         <title>Pricing — BetterHealth Africa</title>
         <meta name="description" content="Flexible health screening plans starting from GHS 8/day. Choose the right plan for your health goals — individual, family, or enterprise." />
+        <link rel="canonical" href="https://www.betterhealth.africa/pricing" />
+        <meta property="og:url" content="https://www.betterhealth.africa/pricing" />
+        <meta property="og:title" content="Pricing — BetterHealth Africa" />
+        <meta property="og:description" content="Flexible health screening plans starting from GHS 8/day. Choose the right plan for your health goals — individual, family, or enterprise." />
       </Helmet>
       <Nav />
+      <main>
 
       {/* ── Hero ── */}
       <section className="min-h-[50vh] flex items-center pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
@@ -361,6 +366,7 @@ export default function PricingPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );
