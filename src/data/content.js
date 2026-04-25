@@ -37,14 +37,91 @@ export const showcaseFeatures = [
 ];
 
 export const testCategories = [
-  { name: "Heart & Cardiovascular", short: "Heart", count: 12, markers: ["Total Cholesterol", "LDL / HDL", "Triglycerides", "ApoB", "Lp(a)", "hs-CRP", "Homocysteine", "Chol/HDL Ratio"] },
-  { name: "Liver Function", short: "Liver", count: 6, markers: ["ALT", "AST", "ALP", "GGT", "Bilirubin", "Albumin"] },
-  { name: "Kidney Function", short: "Kidney", count: 8, markers: ["Creatinine", "BUN", "eGFR", "Uric Acid", "Electrolytes (Na, K, Cl)", "Calcium", "Phosphate", "CO2"] },
-  { name: "Metabolic & Diabetes", short: "Metabolic", count: 6, markers: ["Fasting Glucose", "HbA1c", "Insulin", "HOMA-IR", "C-Peptide", "Fructosamine"] },
-  { name: "Hormones", short: "Hormones", count: 10, markers: ["Testosterone (Total & Free)", "Estradiol", "Progesterone", "DHEA-S", "Cortisol", "FSH / LH", "Prolactin", "SHBG"] },
-  { name: "Nutrients & Vitamins", short: "Nutrients", count: 8, markers: ["Vitamin D", "Vitamin B12", "Folate", "Iron / Ferritin", "TIBC", "Zinc", "Magnesium", "Selenium"] },
-  { name: "Blood Health", short: "Blood", count: 14, markers: ["CBC (Full Blood Count)", "Hemoglobin", "Hematocrit", "WBC Differential", "Platelet Count", "ESR", "Reticulocytes", "Sickle Cell Screen"] },
-  { name: "Thyroid", short: "Thyroid", count: 5, markers: ["TSH", "Free T3", "Free T4", "TPO Antibodies", "Thyroglobulin Ab"] },
+  {
+    name: "Heart & Cardiovascular", short: "Heart", count: 12,
+    insight: "Are your arteries clogging? Is hidden inflammation raising your risk?",
+    markers: [
+      { label: "Cholesterol levels", clinical: "Total Cholesterol, LDL, HDL, Triglycerides" },
+      { label: "Heart attack risk predictor", clinical: "ApoB" },
+      { label: "Genetic heart risk", clinical: "Lp(a)" },
+      { label: "Hidden inflammation", clinical: "hs-CRP" },
+      { label: "Blood vessel damage", clinical: "Homocysteine" },
+      { label: "Advanced risk ratios", clinical: "Chol/HDL, Non-HDL" },
+    ],
+  },
+  {
+    name: "Liver Function", short: "Liver", count: 6,
+    insight: "Is your liver under stress from diet, alcohol, or medication?",
+    markers: [
+      { label: "Liver enzymes", clinical: "ALT, AST" },
+      { label: "Bile duct health", clinical: "ALP, GGT" },
+      { label: "Waste processing", clinical: "Bilirubin" },
+      { label: "Protein production", clinical: "Albumin" },
+    ],
+  },
+  {
+    name: "Kidney Function", short: "Kidney", count: 8,
+    insight: "How well are your kidneys filtering waste and balancing minerals?",
+    markers: [
+      { label: "Kidney filtration", clinical: "Creatinine, BUN, eGFR" },
+      { label: "Joint & gout risk", clinical: "Uric Acid" },
+      { label: "Mineral balance", clinical: "Na, K, Cl, Calcium, Phosphate" },
+      { label: "Acid-base balance", clinical: "CO2" },
+    ],
+  },
+  {
+    name: "Metabolic & Diabetes", short: "Metabolic", count: 6,
+    insight: "Is your body managing blood sugar properly \u2014 or heading toward diabetes?",
+    markers: [
+      { label: "Blood sugar right now", clinical: "Fasting Glucose" },
+      { label: "3-month sugar average", clinical: "HbA1c" },
+      { label: "Insulin resistance", clinical: "Insulin, HOMA-IR" },
+      { label: "Pancreas function", clinical: "C-Peptide" },
+      { label: "Short-term sugar control", clinical: "Fructosamine" },
+    ],
+  },
+  {
+    name: "Hormones", short: "Hormones", count: 10,
+    insight: "Are your hormones balanced \u2014 energy, mood, fertility, and stress?",
+    markers: [
+      { label: "Male & female hormones", clinical: "Testosterone, Estradiol, Progesterone" },
+      { label: "Adrenal & stress hormones", clinical: "DHEA-S, Cortisol" },
+      { label: "Fertility hormones", clinical: "FSH, LH, Prolactin" },
+      { label: "Hormone binding", clinical: "SHBG" },
+    ],
+  },
+  {
+    name: "Nutrients & Vitamins", short: "Nutrients", count: 8,
+    insight: "Are you getting enough of the nutrients your body needs to thrive?",
+    markers: [
+      { label: "Bone & immune vitamin", clinical: "Vitamin D" },
+      { label: "Energy & nerve vitamins", clinical: "Vitamin B12, Folate" },
+      { label: "Iron stores", clinical: "Iron, Ferritin, TIBC" },
+      { label: "Essential minerals", clinical: "Zinc, Magnesium, Selenium" },
+    ],
+  },
+  {
+    name: "Blood Health", short: "Blood", count: 14,
+    insight: "Is your blood healthy \u2014 enough red cells, white cells, and clotting power?",
+    markers: [
+      { label: "Complete blood picture", clinical: "CBC (Full Blood Count)" },
+      { label: "Oxygen-carrying capacity", clinical: "Hemoglobin, Hematocrit" },
+      { label: "Immune cell breakdown", clinical: "WBC Differential" },
+      { label: "Clotting ability", clinical: "Platelet Count" },
+      { label: "Inflammation rate", clinical: "ESR" },
+      { label: "New red blood cells", clinical: "Reticulocytes" },
+      { label: "Sickle cell check", clinical: "Sickle Cell Screen" },
+    ],
+  },
+  {
+    name: "Thyroid", short: "Thyroid", count: 5,
+    insight: "Is your thyroid controlling your metabolism, weight, and energy properly?",
+    markers: [
+      { label: "Thyroid control signal", clinical: "TSH" },
+      { label: "Active thyroid hormones", clinical: "Free T3, Free T4" },
+      { label: "Autoimmune thyroid check", clinical: "TPO Antibodies, Thyroglobulin Ab" },
+    ],
+  },
 ];
 
 export const comparisonRows = [

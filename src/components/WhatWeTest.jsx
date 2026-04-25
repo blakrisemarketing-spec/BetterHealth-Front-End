@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart, FlaskConical, Shield, BarChart3 } from "lucide-react";
+import { Heart, FlaskConical, Shield, BarChart3, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "./ui/Reveal";
 import { testCategories } from "../data/content";
@@ -67,7 +67,7 @@ export default function WhatWeTest() {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="flex items-center gap-3 mb-5">
+                <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-xl bg-primary-bg flex items-center justify-center">
                     <Icon size={22} className="text-primary" />
                   </div>
@@ -79,14 +79,28 @@ export default function WhatWeTest() {
                   </span>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <p className="text-text-secondary text-[15px] mb-6 ml-[52px]">
+                  {cat.insight}
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {cat.markers.map((marker, i) => (
-                    <span
+                    <div
                       key={i}
-                      className="px-4 py-2 rounded-lg text-sm font-medium bg-section-alt border border-border text-text-primary font-mono hover:border-primary/30 transition-colors"
+                      className="flex items-start gap-3 p-3 rounded-lg bg-section-alt border border-border"
                     >
-                      {marker}
-                    </span>
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={13} className="text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-[15px] font-semibold text-text-primary leading-snug">
+                          {marker.label}
+                        </p>
+                        <p className="text-[13px] text-text-secondary font-mono mt-0.5">
+                          {marker.clinical}
+                        </p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </motion.div>
