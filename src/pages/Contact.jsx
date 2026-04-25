@@ -148,8 +148,10 @@ function ContactForm() {
     <form onSubmit={handleSubmit} className="bg-white border border-border rounded-card p-4 sm:p-8 shadow-sm flex flex-col gap-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-[13px] font-semibold text-text-primary mb-1.5">Full Name *</label>
+          <label htmlFor="contact-name" className="block text-[13px] font-semibold text-text-primary mb-1.5">Full Name *</label>
           <input
+            id="contact-name"
+            name="name"
             required
             type="text"
             placeholder="Your full name"
@@ -159,8 +161,10 @@ function ContactForm() {
           />
         </div>
         <div>
-          <label className="block text-[13px] font-semibold text-text-primary mb-1.5">Email *</label>
+          <label htmlFor="contact-email" className="block text-[13px] font-semibold text-text-primary mb-1.5">Email *</label>
           <input
+            id="contact-email"
+            name="email"
             required
             type="email"
             placeholder="your@email.com"
@@ -171,8 +175,10 @@ function ContactForm() {
         </div>
       </div>
       <div>
-        <label className="block text-[13px] font-semibold text-text-primary mb-1.5">Phone <span className="text-text-muted font-normal">(optional)</span></label>
+        <label htmlFor="contact-phone" className="block text-[13px] font-semibold text-text-primary mb-1.5">Phone <span className="text-text-muted font-normal">(optional)</span></label>
         <input
+          id="contact-phone"
+          name="phone"
           type="tel"
           placeholder="+233 30 396 0000"
           value={form.phone}
@@ -181,8 +187,10 @@ function ContactForm() {
         />
       </div>
       <div>
-        <label className="block text-[13px] font-semibold text-text-primary mb-1.5">Subject *</label>
+        <label htmlFor="contact-subject" className="block text-[13px] font-semibold text-text-primary mb-1.5">Subject *</label>
         <select
+          id="contact-subject"
+          name="subject"
           required
           value={form.subject}
           onChange={e => setForm({ ...form, subject: e.target.value })}
@@ -193,8 +201,10 @@ function ContactForm() {
         </select>
       </div>
       <div>
-        <label className="block text-[13px] font-semibold text-text-primary mb-1.5">Message *</label>
+        <label htmlFor="contact-message" className="block text-[13px] font-semibold text-text-primary mb-1.5">Message *</label>
         <textarea
+          id="contact-message"
+          name="message"
           required
           rows={5}
           placeholder="Tell us how we can help..."
