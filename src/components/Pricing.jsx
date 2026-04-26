@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import { plans } from "../data/content";
 
@@ -138,6 +138,10 @@ export default function Pricing() {
                 {badge.label}
               </span>
             ))}
+            <span className="text-[14px] text-primary font-medium flex items-center gap-2 px-4 py-2 rounded-pill border border-primary/25 bg-primary-bg">
+              <ShieldCheck size={16} />
+              GDPC Certified
+            </span>
           </div>
         </Reveal>
       </div>

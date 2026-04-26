@@ -7,6 +7,7 @@ import GradientOrb from "./ui/GradientOrb";
 import Badge from "./ui/Badge";
 import PhoneFrame from "./ui/PhoneFrame";
 import { heroStats, trustedPartners } from "../data/content";
+import GDPCBadge from "./ui/GDPCBadge";
 
 const heroScreens = [
   { src: `${import.meta.env.BASE_URL}screenshots/mobile-healthscore.webp`, alt: "Health Score 83/100 with organ system breakdown" },
@@ -79,6 +80,13 @@ export default function Hero() {
               <Link to="/what-we-test" className="bg-transparent text-text-primary border-2 border-border hover:border-primary hover:text-primary rounded-btn px-7 py-4 text-base font-semibold font-heading transition-all cursor-pointer no-underline">
                 See What We Test
               </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.35}>
+            <div className="flex items-center gap-3 mb-6">
+              <GDPCBadge />
+              <span className="text-[13px] text-text-muted font-body">Your health data is protected by law</span>
             </div>
           </Reveal>
 

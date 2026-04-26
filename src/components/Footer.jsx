@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ShieldCheck } from "lucide-react";
 import { footerColumns } from "../data/content";
 import logo from "../assets/logo.png";
 
@@ -121,6 +122,14 @@ export default function Footer() {
               })}
             </div>
           ))}
+        </div>
+
+        {/* Compliance */}
+        <div className="border-t border-border-dark pt-6 pb-6 flex items-center gap-3 flex-wrap">
+          <ShieldCheck size={16} className="text-primary-light shrink-0" />
+          <span className="text-[13px] text-text-muted-dark font-body">
+            Certified by the Ghana Data Protection Commission under Act 843
+          </span>
         </div>
 
         {/* Bottom */}

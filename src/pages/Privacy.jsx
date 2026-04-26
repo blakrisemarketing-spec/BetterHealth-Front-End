@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
+import { ShieldCheck } from "lucide-react";
 
 const SECTIONS = [
   {
@@ -113,6 +114,26 @@ export default function PrivacyPage() {
             <p className="text-[15px] text-text-secondary leading-relaxed mb-2">
               BetterHealth Africa takes your privacy seriously. This policy explains what data we collect, why we collect it, how we protect it, and what rights you have. We have written it in plain language — no legal jargon.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="px-6 pb-8">
+        <div className="max-w-[760px] mx-auto">
+          <Reveal delay={0.05}>
+            <div className="flex items-start gap-4 p-6 rounded-card bg-primary-bg border border-primary/20">
+              <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center shrink-0 mt-0.5">
+                <ShieldCheck size={20} className="text-primary" />
+              </div>
+              <div>
+                <p className="text-[16px] font-bold text-text-primary font-heading mb-1">
+                  Certified by the Ghana Data Protection Commission
+                </p>
+                <p className="text-[14px] text-text-secondary leading-relaxed font-body">
+                  BetterHealth Africa is registered and certified under the Ghana Data Protection Act, 2012 (Act 843). This means your personal and health data is handled in compliance with Ghana&apos;s highest data protection standards.
+                </p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
