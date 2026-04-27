@@ -26,7 +26,7 @@ function LoadingSpinner() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/BetterHealth-Front-End">
+    <BrowserRouter>
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
