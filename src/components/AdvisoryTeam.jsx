@@ -12,6 +12,7 @@ const team = [
     name: "Dr. Delasy Gbekor",
     role: "Founder, Twelve in Twelve Foundation",
     org: "LuccaHealth Medical Specialty Center",
+    photo: "/team/dr-delasy.jpg",
   },
   {
     initials: "AA",
@@ -44,10 +45,14 @@ export default function AdvisoryTeam() {
             <Reveal key={i} delay={i * 0.15}>
               <div className="flex flex-col items-center text-center p-5 sm:p-8 rounded-card bg-card border border-border hover:border-primary/30 hover:-translate-y-1 hover:shadow-glow-green transition-all duration-300 shadow-card">
                 {/* Circular avatar with teal ring */}
-                <div className="w-[96px] h-[96px] rounded-full ring-4 ring-primary/40 ring-offset-2 ring-offset-card bg-primary-bg flex items-center justify-center mb-5">
-                  <span className="text-primary text-2xl font-extrabold font-heading">
-                    {member.initials}
-                  </span>
+                <div className="w-[96px] h-[96px] rounded-full ring-4 ring-primary/40 ring-offset-2 ring-offset-card bg-primary-bg flex items-center justify-center mb-5 overflow-hidden">
+                  {member.photo ? (
+                    <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-primary text-2xl font-extrabold font-heading">
+                      {member.initials}
+                    </span>
+                  )}
                 </div>
 
                 <h3 className="text-[17px] font-bold text-text-primary font-heading mb-1">
