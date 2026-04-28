@@ -6,6 +6,7 @@ const team = [
     name: "Dr. Jumana Sfarjilani",
     role: "Physician Specialist, Chronic Kidney Disease",
     org: "Trust Specialist Hospital",
+    photo: "/team/dr-jumana.jpg",
   },
   {
     initials: "DG",
