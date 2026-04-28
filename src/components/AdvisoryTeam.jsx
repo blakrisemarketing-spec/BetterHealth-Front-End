@@ -2,22 +2,22 @@ import Reveal from "./ui/Reveal";
 
 const team = [
   {
-    initials: "KA",
-    name: "Dr. Kofi Asante",
-    role: "Medical Director",
-    org: "University of Ghana Medical School",
+    initials: "JS",
+    name: "Dr. Jumana Sfarjilani",
+    role: "Physician Specialist, Chronic Kidney Disease",
+    org: "Trust Specialist Hospital",
+  },
+  {
+    initials: "DG",
+    name: "Dr. Delasy Gbekor",
+    role: "Founder, Twelve in Twelve Foundation",
+    org: "LuccaHealth Medical Specialty Center",
   },
   {
     initials: "AA",
-    name: "Abena Acheampong, MSc",
-    role: "Laboratory Scientist",
-    org: "Lab Access Ghana",
-  },
-  {
-    initials: "ES",
-    name: "Dr. Efua Sarpong",
-    role: "Public Health Advisor",
-    org: "Ghana Health Service",
+    name: "Dr. Afia Agyinsam Amponsah",
+    role: "MBBS, MSc (International Public Health), Dip. Aesthetic Medicine",
+    org: "Founder, Doctor Next Door Network",
   },
 ];
 
@@ -31,9 +31,9 @@ export default function AdvisoryTeam() {
               Backed by Medical Experts
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
-              Your results, reviewed by{" "}
+              Meet our{" "}
               <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal">
-                qualified professionals
+                Medical Advisory Board
               </span>
             </h2>
           </div>
