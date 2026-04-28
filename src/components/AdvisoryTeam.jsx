@@ -19,6 +19,7 @@ const team = [
     name: "Dr. Afia Agyinsam Amponsah",
     role: "MBBS, MSc (International Public Health), Dip. Aesthetic Medicine",
     org: "Founder, Doctor Next Door Network",
+    photo: "/team/dr-afia.jpg",
   },
 ];
 
