@@ -16,6 +16,8 @@ const ROUTE_MAP = {
   "Contact": "/contact",
   "Privacy Policy": "/privacy",
   "Terms of Service": "/terms",
+  "For Labs": "/for-labs",
+  "For Doctors": "/for-doctors",
 };
 
 // External links — open in a new tab

@@ -14,6 +14,8 @@ const TermsPage = lazy(() => import("./pages/Terms"));
 const BlogPage = lazy(() => import("./pages/Blog"));
 const CareersPage = lazy(() => import("./pages/Careers"));
 const DownloadAppPage = lazy(() => import("./pages/DownloadApp"));
+const ForLabsPage = lazy(() => import("./pages/ForLabs"));
+const ForDoctorsPage = lazy(() => import("./pages/ForDoctors"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
 
 function LoadingSpinner() {
@@ -42,6 +44,8 @@ export default function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/download-app" element={<DownloadAppPage />} />
+          <Route path="/for-labs" element={<ForLabsPage />} />
+          <Route path="/for-doctors" element={<ForDoctorsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

@@ -14,11 +14,14 @@ import AdvisoryTeam from "../components/AdvisoryTeam";
 import FAQ from "../components/FAQ";
 import FinalCTA from "../components/FinalCTA";
 import Footer from "../components/Footer";
+import WaitlistSection from "../components/WaitlistSection";
 import Reveal from "../components/ui/Reveal";
 import GDPCBadge from "../components/ui/GDPCBadge";
+import { WaitlistProvider } from "../context/WaitlistContext";
 
 export default function Home() {
   return (
+    <WaitlistProvider>
     <div className="bg-base min-h-screen overflow-x-hidden">
       <Helmet>
         <title>BetterHealth Africa — Know Your Health Before Symptoms Appear</title>
@@ -45,6 +48,7 @@ export default function Home() {
 
         <Testimonials />
         <Pricing />
+        <WaitlistSection />
         <FounderStory />
         <AdvisoryTeam />
         <FAQ />
@@ -52,5 +56,6 @@ export default function Home() {
       </main>
       <Footer />
     </div>
+    </WaitlistProvider>
   );
 }

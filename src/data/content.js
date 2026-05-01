@@ -268,7 +268,7 @@ export const founderStory = [
 
 export const footerColumns = [
   { title: "Product", links: ["How It Works", "What We Test", "Pricing", "Download App"] },
-  { title: "Company", links: ["About Us", "Stories", "Blog", "Careers"] },
+  { title: "Partners", links: ["For Labs", "For Doctors", "About Us", "Careers"] },
   { title: "Support", links: ["FAQ", "Contact", "WhatsApp", "Privacy Policy", "Terms of Service"] },
 ];
 
@@ -1032,4 +1032,13 @@ export const pricingPage = {
     body: "Choose the plan that fits your life. Every plan gives you more insight in one visit than most people get in a decade of doctor visits.",
     cta: "Get Started",
   },
+};
+
+export const waitlist = {
+  placeholder: "Enter your email address",
+  buttonText: "Join the Waitlist",
+  successMessage: "You\u2019re on the list! We\u2019ll notify you when BetterHealth Africa launches.",
+  duplicateMessage: "You\u2019re already on the list! We\u2019ll be in touch soon.",
+  errorMessage: "Something went wrong. Please try again.",
+  privacyNote: "We\u2019ll only email you about launch updates. No spam, ever.",
 };

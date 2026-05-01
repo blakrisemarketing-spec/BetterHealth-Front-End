@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Reveal from "./ui/Reveal";
 import GradientOrb from "./ui/GradientOrb";
 import Badge from "./ui/Badge";
 import PhoneFrame from "./ui/PhoneFrame";
-import { heroStats, trustedPartners } from "../data/content";
+import { heroStats, trustedPartners, waitlist } from "../data/content";
+import { useWaitlist } from "../context/WaitlistContext";
 import GDPCBadge from "./ui/GDPCBadge";
 
 const heroScreens = [
@@ -39,9 +40,104 @@ function CountUp({ end, duration = 1800 }) {
   return <span ref={ref}>{count}</span>;
 }
 
+function HeroEmailForm() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle"); // idle | loading | success | duplicate | error
+  const { submitted, markSubmitted } = useWaitlist();
+
+  const apiUrl = import.meta.env.VITE_WAITLIST_API_URL;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (status === "loading") return;
+
+    setStatus("loading");
+
+    try {
+      const res = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+          name: "",
+          email: email.trim().toLowerCase(),
+          whatsapp: "",
+          healthInterest: "",
+          source: "hero-inline",
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.result === "duplicate") {
+        setStatus("duplicate");
+        markSubmitted();
+      } else if (data.result === "success") {
+        setStatus("success");
+        markSubmitted();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  if (status === "success" || status === "duplicate" || submitted) {
+    return (
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-green-100">
+          <CheckCircle2 size={22} className="text-green-600" />
+        </div>
+        <p className="text-[15px] font-medium leading-snug text-text-primary">
+          {status === "duplicate" ? waitlist.duplicateMessage : waitlist.successMessage}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-4">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+        <input
+          type="email"
+          required
+          placeholder="Enter your email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          disabled={status === "loading"}
+          className={`flex-1 rounded-btn px-4 py-3.5 text-[14px] bg-section-alt border border-border text-text-primary placeholder:text-text-muted transition-all focus:outline-none focus:ring-2 focus:ring-teal-600 ${
+            status === "loading" ? "opacity-60" : ""
+          }`}
+        />
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className={`rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap ${
+            status === "loading" ? "opacity-80 cursor-not-allowed" : ""
+          }`}
+        >
+          {status === "loading" ? (
+            <>
+              <Loader2 size={18} className="animate-spin" />
+              Joining...
+            </>
+          ) : (
+            <>
+              Get Early Access <ArrowRight size={18} />
+            </>
+          )}
+        </button>
+      </form>
+      {status === "error" && (
+        <p className="mt-2 text-sm text-red-500">{waitlist.errorMessage}</p>
+      )}
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center pt-[100px] pb-16 px-6 bg-base relative overflow-hidden">
+    <section id="waitlist" className="min-h-screen flex items-center pt-[100px] pb-16 px-6 bg-base relative overflow-hidden">
       {/* Subtle background orbs */}
       <GradientOrb color="green" size="700px" className="top-[-20%] right-[-15%]" />
       <GradientOrb color="blue" size="500px" className="bottom-[-15%] left-[-10%]" />
@@ -51,8 +147,8 @@ export default function Hero() {
         <div className="flex-1 w-full md:w-[480px] md:min-w-[300px]">
           <Reveal>
             <Badge variant="primary" className="mb-6">
-              <div className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-dot" />
-              Now available in Ghana
+              <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse-dot" />
+              Launching Soon in Ghana
             </Badge>
           </Reveal>
 
@@ -73,14 +169,10 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.3}>
-            <div className="flex flex-wrap gap-3 mb-10">
-              <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-8 py-4 text-base font-bold font-heading transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow-green cursor-pointer flex items-center gap-2 no-underline">
-                Start Your Health Check <ArrowRight size={18} />
-              </a>
-              <Link to="/what-we-test" className="bg-transparent text-text-primary border-2 border-border hover:border-primary hover:text-primary rounded-btn px-7 py-4 text-base font-semibold font-heading transition-all cursor-pointer no-underline">
-                See What We Test
-              </Link>
-            </div>
+            <HeroEmailForm />
+            <Link to="/what-we-test" className="inline-block text-sm font-medium text-text-secondary hover:text-primary transition-colors mb-6 no-underline">
+              See What We Test &rarr;
+            </Link>
           </Reveal>
 
           <Reveal delay={0.35}>

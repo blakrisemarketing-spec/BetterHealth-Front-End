@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import GradientOrb from "./ui/GradientOrb";
+import WaitlistForm from "./WaitlistForm";
 
 export default function FinalCTA() {
   return (
@@ -27,18 +27,19 @@ export default function FinalCTA() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="text-lg leading-relaxed text-text-muted-dark mb-10 max-w-[480px] mx-auto font-body">
+          <p className="text-lg leading-relaxed text-text-muted-dark mb-4 max-w-[480px] mx-auto font-body">
             Your body is speaking. BetterHealth Africa helps you listen — before it&apos;s too late.
           </p>
         </Reveal>
 
-        <Reveal delay={0.2}>
-          <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-primary to-primary-light text-white border-none rounded-[14px] px-10 py-[18px] min-h-[44px] text-[17px] font-bold font-heading cursor-pointer shadow-[0_4px_30px_rgba(13,148,136,0.35)] hover:shadow-[0_8px_40px_rgba(13,148,136,0.5)] transition-all hover:-translate-y-1 hover:scale-[1.02] inline-flex items-center gap-2.5 no-underline">
-            Start Your Health Check <ArrowRight size={20} />
-          </a>
-          <p className="mt-4 text-sm text-text-muted-dark">
-            Results in 48 – 72 hours. Cancel anytime. Mobile Money accepted.
+        <Reveal delay={0.15}>
+          <p className="text-sm text-text-muted-dark mb-8 max-w-[400px] mx-auto font-body">
+            Be the first to know when we launch. No spam, ever.
           </p>
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <WaitlistForm variant="dark" source="final-cta" className="max-w-[520px] mx-auto" />
         </Reveal>
       </div>
     </section>

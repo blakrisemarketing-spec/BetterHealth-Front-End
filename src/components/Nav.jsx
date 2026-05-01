@@ -96,11 +96,11 @@ export default function Nav({ dark = false }) {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
-              Log in
-            </a>
-            <a href="https://app.betterhealth.africa/" target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
-              Get Started
+            <Link to="/how-it-works" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
+              Learn More
+            </Link>
+            <a href="#waitlist" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
+              Join Waitlist
             </a>
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
@@ -123,23 +123,19 @@ export default function Nav({ dark = false }) {
           {navLinks.map((link) => renderLink(link, true))}
           <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
             <a
-              href="https://app.betterhealth.africa/"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileMenu(false)}
+              href="#waitlist"
+              onClick={(e) => { e.preventDefault(); setMobileMenu(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               className="w-full text-center bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-4 text-base font-bold font-heading transition-all no-underline"
             >
-              Get Started
+              Join Waitlist
             </a>
-            <a
-              href="https://app.betterhealth.africa/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/how-it-works"
               onClick={() => setMobileMenu(false)}
               className="w-full text-center text-text-secondary text-base font-medium hover:text-primary transition-colors py-2 no-underline"
             >
-              Log in
-            </a>
+              Learn More
+            </Link>
           </div>
         </div>
       )}
