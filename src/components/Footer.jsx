@@ -22,7 +22,7 @@ const ROUTE_MAP = {
 
 // External links — open in a new tab
 const EXTERNAL_MAP = {
-  "Download App": "https://app.betterhealth.africa",
+  "Download App": "https://app.betterhealth.africa/join",
   "WhatsApp": "https://wa.me/message/MJ3HXLS2NDQEJ1",
 };
 
@@ -132,6 +132,14 @@ export default function Footer() {
           <span className="text-[13px] text-text-muted-dark font-body">
             Certified by the Ghana Data Protection Commission under Act 843
           </span>
+          <a
+            href="https://app.dataprotection.org.gh/company/dpdZwcRth19j7oQFxmwoDj1ELCOABE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[12px] text-primary-light hover:text-white font-semibold no-underline transition-colors"
+          >
+            Verify →
+          </a>
         </div>
 
         {/* Bottom */}

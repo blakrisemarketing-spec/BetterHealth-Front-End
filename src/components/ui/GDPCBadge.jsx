@@ -14,6 +14,14 @@ export default function GDPCBadge({ variant = "inline", className = "" }) {
           <p className="text-[13px] sm:text-[14px] text-text-muted-dark leading-relaxed font-body">
             BetterHealth Africa is certified under the Data Protection Act, 2012 (Act 843). Your results are encrypted, never sold, and only accessible to you.
           </p>
+          <a
+            href="https://app.dataprotection.org.gh/company/dpdZwcRth19j7oQFxmwoDj1ELCOABE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[12px] sm:text-[13px] text-primary-light hover:text-white font-semibold font-heading mt-1.5 no-underline transition-colors"
+          >
+            Verify our certification →
+          </a>
         </div>
       </div>
     );

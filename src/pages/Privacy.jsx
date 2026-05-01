@@ -132,6 +132,14 @@ export default function PrivacyPage() {
                 <p className="text-[14px] text-text-secondary leading-relaxed font-body">
                   BetterHealth Africa is registered and certified under the Ghana Data Protection Act, 2012 (Act 843). This means your personal and health data is handled in compliance with Ghana&apos;s highest data protection standards.
                 </p>
+                <a
+                  href="https://app.dataprotection.org.gh/company/dpdZwcRth19j7oQFxmwoDj1ELCOABE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[13px] text-primary hover:text-primary-dark font-semibold font-heading mt-2 no-underline transition-colors"
+                >
+                  Verify our certification →
+                </a>
               </div>
             </div>
           </Reveal>

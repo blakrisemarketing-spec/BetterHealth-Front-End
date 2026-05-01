@@ -171,7 +171,7 @@ export default function WhatWeTestPage() {
           </Reveal>
           <Reveal delay={0.3}>
             <a
-              href="https://app.betterhealth.africa/"
+              href="https://app.betterhealth.africa/join"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
@@ -222,14 +222,17 @@ export default function WhatWeTestPage() {
                     <th className="text-center px-4 py-4 font-bold text-text-primary font-heading border-b border-border">
                       <div className="text-[11px] text-text-muted font-normal mb-0.5">FROM</div>
                       Essential
+                      <div className="text-[11px] text-text-muted font-normal mt-0.5">1× per year</div>
                     </th>
-                    <th className="text-center px-4 py-4 font-bold text-primary font-heading border-b border-border bg-primary-bg/50">
-                      <div className="text-[11px] text-primary/70 font-normal mb-0.5">MOST POPULAR</div>
+                    <th className="text-center px-4 py-4 font-bold text-white font-heading border-b border-border bg-primary">
+                      <div className="text-[11px] text-white/80 font-normal mb-0.5">MOST POPULAR</div>
                       Complete
+                      <div className="text-[11px] text-white/80 font-normal mt-0.5">2× per year</div>
                     </th>
                     <th className="text-center px-4 py-4 font-bold text-text-primary font-heading border-b border-border">
                       <div className="text-[11px] text-text-muted font-normal mb-0.5">DEEPEST</div>
                       Premium
+                      <div className="text-[11px] text-text-muted font-normal mt-0.5">2× per year</div>
                     </th>
                   </tr>
                 </thead>
@@ -238,7 +241,7 @@ export default function WhatWeTestPage() {
                     <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-section-alt/50"}>
                       <td className="px-5 py-3.5 font-semibold text-text-primary border-b border-border/60">{row.system}</td>
                       <td className="px-4 py-3.5 text-center text-text-secondary border-b border-border/60">{row.essential}</td>
-                      <td className="px-4 py-3.5 text-center font-semibold text-primary border-b border-border/60 bg-primary-bg/30">{row.complete}</td>
+                      <td className="px-4 py-3.5 text-center font-semibold text-primary border-b border-border/60">{row.complete}</td>
                       <td className="px-4 py-3.5 text-center text-text-secondary border-b border-border/60">{row.premium}</td>
                     </tr>
                   ))}
@@ -249,7 +252,7 @@ export default function WhatWeTestPage() {
           <Reveal delay={0.15}>
             <div className="text-center mt-8">
               <a
-                href="https://app.betterhealth.africa/"
+                href="https://app.betterhealth.africa/join"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
@@ -277,7 +280,7 @@ export default function WhatWeTestPage() {
           </Reveal>
           <Reveal delay={0.2}>
             <a
-              href="https://app.betterhealth.africa/"
+              href="https://app.betterhealth.africa/join"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
