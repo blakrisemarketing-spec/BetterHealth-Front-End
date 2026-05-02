@@ -43,14 +43,14 @@ function SystemCard({ system, index }) {
 
   return (
     <Reveal delay={index * 0.05}>
-      <div className={`rounded-card border bg-gradient-to-br ${SYSTEM_COLORS[index % SYSTEM_COLORS.length]} overflow-hidden`}>
+      <div className={`rounded-card border bg-primary-bg ${SYSTEM_COLORS[index % SYSTEM_COLORS.length]} overflow-hidden`}>
         {/* Header — always visible */}
         <button
           className="w-full text-left p-6 flex items-start gap-4 cursor-pointer bg-transparent border-none"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
         >
-          <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 mt-0.5 ${ICON_COLORS[index % ICON_COLORS.length]}`}>
+          <div className={`w-12 h-12 rounded-card flex items-center justify-center shrink-0 mt-0.5 ${ICON_COLORS[index % ICON_COLORS.length]}`}>
             <Icon size={24} />
           </div>
           <div className="flex-1 min-w-0">
@@ -109,7 +109,7 @@ function SystemCard({ system, index }) {
 
                 {/* Callout */}
                 {system.callout && (
-                  <div className="bg-white/70 backdrop-blur-sm border border-primary/15 rounded-xl p-4 flex gap-3">
+                  <div className="bg-white border border-primary/15 rounded-card p-4 flex gap-3">
                     <Lightbulb size={18} className="text-primary shrink-0 mt-0.5" />
                     <p className="text-[13px] text-text-secondary leading-relaxed m-0">{system.callout}</p>
                   </div>
@@ -152,7 +152,7 @@ export default function WhatWeTestPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+              <span className="text-primary">
                 127+ biomarkers.
               </span>{" "}
               8 body systems.{" "}
@@ -265,7 +265,7 @@ export default function WhatWeTestPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-20 lg:py-[100px] px-6 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+      <section className="py-20 lg:py-[100px] px-6 bg-primary relative overflow-hidden">
         <GradientOrb color="green" size="500px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[640px] mx-auto text-center relative z-10">
           <Reveal>

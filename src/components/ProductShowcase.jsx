@@ -26,7 +26,7 @@ export default function ProductShowcase() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight mb-5 leading-[1.1]">
               Your health,{" "}
-              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal pr-[0.12em]">
+              <span className="italic text-primary tracking-normal pr-[0.12em]">
                 in one place
               </span>
             </h2>
@@ -38,7 +38,7 @@ export default function ProductShowcase() {
           <div className="flex flex-col gap-4">
             {showcaseFeatures.map((item, i) => (
               <Reveal key={i} delay={i * 0.1}>
-                <div className="flex gap-3.5 p-4 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-200">
+                <div className="flex gap-3.5 p-4 rounded-card bg-card border border-border hover:border-primary/30 transition-all duration-200">
                   <div className="w-9 h-9 rounded-[10px] bg-primary-bg flex items-center justify-center shrink-0">
                     <CheckCircle size={20} className="text-primary" />
                   </div>

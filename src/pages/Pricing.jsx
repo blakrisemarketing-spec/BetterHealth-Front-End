@@ -23,7 +23,7 @@ function CellValue({ val }) {
 function FaqItem({ item, index, open, onToggle }) {
   return (
     <Reveal delay={index * 0.04}>
-      <div className="border border-border rounded-xl overflow-hidden">
+      <div className="border border-border rounded-card overflow-hidden">
         <button
           onClick={onToggle}
           className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left bg-white hover:bg-section-alt transition-colors"
@@ -84,8 +84,8 @@ function PlanCard({ plan, index }) {
     <Reveal delay={index * 0.08}>
       <div className={`relative flex flex-col rounded-card border h-full transition-all duration-300 hover:-translate-y-1 ${
         plan.popular
-          ? "border-primary shadow-[0_0_0_2px_#0D9488,0_8px_32px_rgba(13,148,136,0.18)] bg-white"
-          : "border-border bg-white/60 backdrop-blur-sm hover:shadow-card hover:border-primary/20"
+          ? "border-primary shadow-[0_0_0_2px_theme(colors.primary),0_8px_32px_rgba(107,142,127,0.18)] bg-white"
+          : "border-border bg-white hover:shadow-card hover:border-primary/20"
       }`}>
         {plan.popular && (
           <div className="absolute -top-3.5 left-0 right-0 flex justify-center">
@@ -189,7 +189,7 @@ export default function PricingPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               Invest in knowing —{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
+              <span className="text-primary italic tracking-normal">
                 not in guessing.
               </span>
             </h1>
@@ -201,7 +201,7 @@ export default function PricingPage() {
           </Reveal>
           {/* Value anchor banner */}
           <Reveal delay={0.3}>
-            <div className="bg-primary-bg border border-primary/20 rounded-xl px-4 sm:px-6 py-4 text-[13px] sm:text-[14px] text-text-primary font-medium break-words">
+            <div className="bg-primary-bg border border-primary/20 rounded-card px-4 sm:px-6 py-4 text-[13px] sm:text-[14px] text-text-primary font-medium break-words">
               💡 {valueAnchor}
             </div>
           </Reveal>
@@ -217,7 +217,7 @@ export default function PricingPage() {
 
           {/* Trust badges */}
           <Reveal delay={0.2}>
-            <div className="mt-10 bg-white/60 backdrop-blur-sm border border-border rounded-xl px-6 py-5">
+            <div className="mt-10 bg-white border border-border rounded-card px-6 py-5">
               <div className="flex flex-wrap justify-center gap-4 mb-4">
                 {trustBadges.map((badge, i) => {
                   const Icon = TRUST_ICONS[i];
@@ -322,7 +322,7 @@ export default function PricingPage() {
           <Reveal delay={0.1}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
               {singleTests.examples.map((test, i) => (
-                <div key={i} className="flex items-center justify-between bg-section-alt border border-border rounded-xl px-4 py-3">
+                <div key={i} className="flex items-center justify-between bg-section-alt border border-border rounded-card px-4 py-3">
                   <span className="text-[13px] text-text-secondary text-left">{test.name}</span>
                   <span className="text-[13px] font-bold text-primary shrink-0 ml-3">{test.price}</span>
                 </div>
@@ -342,7 +342,7 @@ export default function PricingPage() {
       <FaqSection faqs={faqs} />
 
       {/* ── Bottom CTA ── */}
-      <section className="py-20 lg:py-[100px] px-6 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+      <section className="py-20 lg:py-[100px] px-6 bg-primary relative overflow-hidden">
         <GradientOrb color="green" size="500px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[580px] mx-auto text-center relative z-10">
           <Reveal>

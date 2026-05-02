@@ -20,7 +20,7 @@ export default function HowItWorks() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               Four simple steps to{" "}
-              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal">
+              <span className="italic text-primary tracking-normal">
                 knowing your health
               </span>
             </h2>
@@ -36,7 +36,7 @@ export default function HowItWorks() {
                   <span className="absolute top-4 right-5 text-[64px] font-extrabold text-text-primary/[0.04] font-heading leading-none">
                     {step.num}
                   </span>
-                  <div className="w-12 h-12 rounded-xl bg-primary-bg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-card bg-primary-bg flex items-center justify-center mb-4">
                     <Icon size={24} className="text-primary" />
                   </div>
                   <h3 className="text-xl font-bold text-text-primary font-heading mb-2">

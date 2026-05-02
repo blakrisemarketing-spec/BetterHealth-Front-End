@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Reveal from "./ui/Reveal";
 import GradientOrb from "./ui/GradientOrb";
 import Badge from "./ui/Badge";
 import PhoneFrame from "./ui/PhoneFrame";
-import { heroStats, trustedPartners, waitlist } from "../data/content";
-import { useWaitlist } from "../context/WaitlistContext";
+import { heroStats, trustedPartners } from "../data/content";
 import GDPCBadge from "./ui/GDPCBadge";
 
 const heroScreens = [
@@ -40,104 +39,9 @@ function CountUp({ end, duration = 1800 }) {
   return <span ref={ref}>{count}</span>;
 }
 
-function HeroEmailForm() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | loading | success | duplicate | error
-  const { submitted, markSubmitted } = useWaitlist();
-
-  const apiUrl = import.meta.env.VITE_WAITLIST_API_URL;
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (status === "loading") return;
-
-    setStatus("loading");
-
-    try {
-      const res = await fetch(apiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({
-          name: "",
-          email: email.trim().toLowerCase(),
-          whatsapp: "",
-          healthInterest: "",
-          source: "hero-inline",
-        }),
-      });
-
-      const data = await res.json();
-
-      if (data.result === "duplicate") {
-        setStatus("duplicate");
-        markSubmitted();
-      } else if (data.result === "success") {
-        setStatus("success");
-        markSubmitted();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  };
-
-  if (status === "success" || status === "duplicate" || submitted) {
-    return (
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-green-100">
-          <CheckCircle2 size={22} className="text-green-600" />
-        </div>
-        <p className="text-[15px] font-medium leading-snug text-text-primary">
-          {status === "duplicate" ? waitlist.duplicateMessage : waitlist.successMessage}
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="mb-4">
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-        <input
-          type="email"
-          required
-          placeholder="Enter your email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          disabled={status === "loading"}
-          className={`flex-1 rounded-btn px-4 py-3.5 text-[14px] bg-section-alt border border-border text-text-primary placeholder:text-text-muted transition-all focus:outline-none focus:ring-2 focus:ring-teal-600 ${
-            status === "loading" ? "opacity-60" : ""
-          }`}
-        />
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className={`rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap ${
-            status === "loading" ? "opacity-80 cursor-not-allowed" : ""
-          }`}
-        >
-          {status === "loading" ? (
-            <>
-              <Loader2 size={18} className="animate-spin" />
-              Joining...
-            </>
-          ) : (
-            <>
-              Get Early Access <ArrowRight size={18} />
-            </>
-          )}
-        </button>
-      </form>
-      {status === "error" && (
-        <p className="mt-2 text-sm text-red-500">{waitlist.errorMessage}</p>
-      )}
-    </div>
-  );
-}
-
 export default function Hero() {
   return (
-    <section id="waitlist" className="min-h-screen flex items-center pt-[100px] pb-16 px-6 bg-base relative overflow-hidden">
+    <section className="min-h-screen flex items-center pt-[100px] pb-16 px-6 bg-base relative overflow-hidden">
       {/* Subtle background orbs */}
       <GradientOrb color="green" size="700px" className="top-[-20%] right-[-15%]" />
       <GradientOrb color="blue" size="500px" className="bottom-[-15%] left-[-10%]" />
@@ -155,7 +59,7 @@ export default function Hero() {
           <Reveal delay={0.1}>
             <h1 className="text-h1 font-extrabold leading-[1.1] font-heading text-text-primary mb-6">
               Know what&apos;s happening{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal pr-[0.15em]">
+              <span className="text-primary italic tracking-normal pr-[0.15em]">
                 inside
               </span>{" "}
               your body.
@@ -169,10 +73,20 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.3}>
-            <HeroEmailForm />
-            <Link to="/what-we-test" className="inline-block text-sm font-medium text-text-secondary hover:text-primary transition-colors mb-6 no-underline">
-              See What We Test &rarr;
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3 mb-6">
+              <Link
+                to="/how-it-works"
+                className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-white border border-border text-text-primary hover:-translate-y-0.5 hover:shadow-md transition-all no-underline"
+              >
+                See How It Works
+              </Link>
+              <Link
+                to="/waitlist"
+                className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
+              >
+                Join Waitlist <ArrowRight size={18} />
+              </Link>
+            </div>
           </Reveal>
 
           <Reveal delay={0.35}>

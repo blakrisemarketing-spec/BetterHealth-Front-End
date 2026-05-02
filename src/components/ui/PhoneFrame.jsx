@@ -288,7 +288,7 @@ export default function PhoneFrame({ src, alt, screens, interval = 3500, classNa
                 width: i === active ? "20px" : "6px",
                 height: "6px",
                 borderRadius: "9999px",
-                background: i === active ? "#0D9488" : "rgba(0,0,0,0.2)",
+                background: i === active ? "#6B8E7F" : "rgba(0,0,0,0.2)",
                 border: "none",
                 padding: 0,
                 cursor: "pointer",

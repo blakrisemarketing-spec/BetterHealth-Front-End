@@ -30,7 +30,7 @@ export default function WhatWeTest() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               127+ biomarkers across{" "}
-              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal">
+              <span className="italic text-primary tracking-normal">
                 8 body systems
               </span>
             </h2>
@@ -68,7 +68,7 @@ export default function WhatWeTest() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary-bg flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-card bg-primary-bg flex items-center justify-center">
                     <Icon size={22} className="text-primary" />
                   </div>
                   <h3 className="text-[22px] font-bold text-text-primary font-heading">

@@ -1,45 +1,45 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         // Page & Layout
-        base: "#FAFAF9",
-        "section-alt": "#F3F4F6",
+        base: "#F5F3EE",
+        "section-alt": "#EBE9E3",
         "bg-dark": "#0F1724",
         "bg-dark-card": "#1A2537",
         card: "#FFFFFF",
-        "card-hover": "#F8FFFE",
-        border: "#E5E7EB",
+        "card-hover": "#F5F3EE",
+        border: "#E0DCD5",
         "border-dark": "rgba(255,255,255,0.08)",
-        // Brand
-        primary: "#0D9488",
-        "primary-light": "#14B8A6",
-        "primary-dark": "#0F766E",
-        "primary-glow": "rgba(13,148,136,0.15)",
-        "primary-bg": "rgba(13,148,136,0.08)",
+        // Brand — Sage green
+        primary: "#6B8E7F",
+        "primary-light": "#7BA898",
+        "primary-dark": "#5F8070",
+        "primary-glow": "rgba(107,142,127,0.15)",
+        "primary-bg": "rgba(107,142,127,0.08)",
         // Text
-        "text-primary": "#111827",
-        "text-secondary": "#4B5563",
+        "text-primary": "#2B3A3A",
+        "text-secondary": "#6B7979",
         "text-muted": "#9CA3AF",
         "text-on-dark": "#F1F5F9",
         "text-muted-dark": "#94A3B8",
-        // Status
-        success: "#22C55E",
-        warning: "#F59E0B",
-        danger: "#EF4444",
+        // Status — Apple system triplet
+        success: "#30D158",
+        warning: "#FFD60A",
+        danger: "#FF453A",
       },
       fontFamily: {
-        heading: ['"Plus Jakarta Sans"', "sans-serif"],
-        body: ['"DM Sans"', "sans-serif"],
-        mono: ['"JetBrains Mono"', "monospace"],
+        heading: ["Quicksand", "system-ui", "-apple-system", "sans-serif"],
+        body: ["Quicksand", "system-ui", "-apple-system", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       borderRadius: {
-        card: "24px",
-        btn: "12px",
-        pill: "100px",
-        input: "10px",
+        card: "12px",
+        btn: "8px",
+        pill: "9999px",
+        input: "8px",
       },
       fontSize: {
         display: "clamp(44px, 6vw, 72px)",
@@ -48,17 +48,19 @@ export default {
         h3: "24px",
       },
       boxShadow: {
-        "glow-green": "0 0 40px rgba(13,148,136,0.2)",
-        "glow-blue": "0 0 40px rgba(14,165,233,0.15)",
-        card: "0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04)",
+        card: "0 1px 2px 0 rgba(0,0,0,0.05)",
+        popover: "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)",
+        dialog: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)",
+      },
+      transitionTimingFunction: {
+        apple: "cubic-bezier(0.4, 0, 0.2, 1)",
       },
       animation: {
         "marquee-left": "marquee-left 45s linear infinite",
         "marquee-right": "marquee-right 40s linear infinite",
         float: "float 6s ease-in-out infinite",
         "pulse-dot": "pulse-dot 2s ease-in-out infinite",
-        "orb-drift": "orb-drift 12s ease-in-out infinite",
-        "orb-scale": "orb-scale 8s ease-in-out infinite",
+        "organ-pulse": "organ-pulse 3s cubic-bezier(0.4, 0, 0.2, 1) infinite",
       },
       keyframes: {
         "marquee-left": {
@@ -77,14 +79,9 @@ export default {
           "0%, 100%": { opacity: 1 },
           "50%": { opacity: 0.4 },
         },
-        "orb-drift": {
-          "0%, 100%": { transform: "translate(0, 0)" },
-          "33%": { transform: "translate(20px, -15px)" },
-          "66%": { transform: "translate(-20px, 15px)" },
-        },
-        "orb-scale": {
-          "0%, 100%": { transform: "scale(1)", opacity: 0.6 },
-          "50%": { transform: "scale(1.1)", opacity: 0.8 },
+        "organ-pulse": {
+          "0%, 100%": { transform: "scale(1)", opacity: 1 },
+          "50%": { transform: "scale(1.03)", opacity: 0.92 },
         },
       },
     },

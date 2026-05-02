@@ -180,7 +180,7 @@ const FAQ_SECTIONS = [
 function FaqItem({ item }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-border rounded-xl overflow-hidden">
+    <div className="border border-border rounded-card overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left bg-white hover:bg-section-alt transition-colors"
@@ -247,7 +247,7 @@ export default function FAQPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
               Everything you{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
+              <span className="text-primary italic tracking-normal">
                 need to know.
               </span>
             </h1>
@@ -269,7 +269,7 @@ export default function FAQPage() {
       </section>
 
       {/* Category filter pills */}
-      <section className="py-4 sm:py-6 px-4 sm:px-6 bg-section-alt border-y border-border sticky top-[64px] z-20 backdrop-blur-md bg-section-alt/90">
+      <section className="py-4 sm:py-6 px-4 sm:px-6 bg-section-alt border-y border-border sticky top-[64px] z-20">
         <div className="max-w-[860px] mx-auto flex flex-wrap gap-2 justify-center">
           <button
             onClick={() => setActiveCategory(null)}
@@ -375,7 +375,7 @@ export default function FAQPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 px-6 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+      <section className="py-16 px-6 bg-primary relative overflow-hidden">
         <GradientOrb color="green" size="400px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[520px] mx-auto text-center relative z-10">
           <Reveal>

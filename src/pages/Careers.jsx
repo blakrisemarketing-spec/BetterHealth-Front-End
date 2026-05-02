@@ -38,7 +38,7 @@ export default function CareersPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
               Build the future of{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
+              <span className="text-primary italic tracking-normal">
                 African healthcare.
               </span>
             </h1>
@@ -60,7 +60,7 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {VALUES.map((v, i) => (
               <Reveal key={i} delay={i * 0.08}>
-                <div className="bg-white/70 backdrop-blur-sm border border-border rounded-card p-7 hover:-translate-y-1 transition-all duration-300 hover:shadow-card">
+                <div className="bg-white border border-border rounded-card p-7 hover:-translate-y-1 transition-all duration-300 hover:shadow-card">
                   <h3 className="text-[17px] font-bold text-text-primary font-heading mb-2">{v.title}</h3>
                   <p className="text-[14px] text-text-secondary leading-relaxed">{v.body}</p>
                 </div>
@@ -80,7 +80,7 @@ export default function CareersPage() {
           {OPEN_ROLES.length === 0 ? (
             <Reveal delay={0.1}>
               <div className="bg-section-alt border border-border rounded-card p-10 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-primary-bg border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 rounded-card bg-primary-bg border border-primary/20 flex items-center justify-center mx-auto mb-4">
                   <Briefcase size={24} className="text-primary" />
                 </div>
                 <h3 className="text-[18px] font-bold text-text-primary font-heading mb-2">No open roles right now</h3>
@@ -100,7 +100,7 @@ export default function CareersPage() {
             <div className="flex flex-col gap-4">
               {OPEN_ROLES.map((role, i) => (
                 <Reveal key={i} delay={i * 0.06}>
-                  <div className="bg-white border border-border rounded-xl px-4 sm:px-6 py-5 flex items-center justify-between gap-4 hover:border-primary/30 hover:shadow-sm transition-all cursor-pointer">
+                  <div className="bg-white border border-border rounded-card px-4 sm:px-6 py-5 flex items-center justify-between gap-4 hover:border-primary/30 hover:shadow-sm transition-all cursor-pointer">
                     <div className="min-w-0">
                       <h3 className="text-[16px] font-bold text-text-primary font-heading">{role.title}</h3>
                       <div className="flex items-center gap-3 mt-1 text-[13px] text-text-muted flex-wrap">
@@ -118,7 +118,7 @@ export default function CareersPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 px-6 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+      <section className="py-16 px-6 bg-primary relative overflow-hidden">
         <GradientOrb color="green" size="400px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[520px] mx-auto text-center relative z-10">
           <Reveal>

@@ -251,7 +251,7 @@ export default function ContactPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-4">
               We are here when{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal pb-2 inline-block">
+              <span className="text-primary italic tracking-normal pb-2 inline-block">
                 you need us.
               </span>
             </h1>
@@ -272,13 +272,13 @@ export default function ContactPage() {
               const Icon = ch.icon;
               return (
                 <Reveal key={i} delay={i * 0.07}>
-                  <div className={`relative flex flex-col bg-white border rounded-card p-4 sm:p-6 h-full transition-all duration-300 hover:-translate-y-1 ${ch.primary ? "border-primary shadow-[0_0_0_2px_#0D9488,0_8px_24px_rgba(13,148,136,0.12)]" : "border-border hover:shadow-card hover:border-primary/20"}`}>
+                  <div className={`relative flex flex-col bg-white border rounded-card p-4 sm:p-6 h-full transition-all duration-300 hover:-translate-y-1 ${ch.primary ? "border-primary shadow-[0_0_0_2px_theme(colors.primary),0_8px_24px_rgba(107,142,127,0.12)]" : "border-border hover:shadow-card hover:border-primary/20"}`}>
                     {ch.primary && (
                       <span className="absolute -top-3 left-5 bg-primary text-white text-[10px] font-extrabold tracking-[0.12em] px-3 py-0.5 rounded-pill font-heading">
                         FASTEST
                       </span>
                     )}
-                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${ch.color} flex items-center justify-center mb-4`}>
+                    <div className="w-10 h-10 rounded-card bg-primary/10 flex items-center justify-center mb-4">
                       <Icon size={18} className="text-white" />
                     </div>
                     <h3 className="text-[15px] font-bold text-text-primary font-heading mb-2">{ch.label}</h3>
@@ -330,7 +330,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {ENQUIRY_TYPES.map((e, i) => (
               <Reveal key={i} delay={i * 0.06}>
-                <div className="bg-white/70 backdrop-blur-sm border border-border rounded-xl p-5 hover:border-primary/25 hover:shadow-sm transition-all">
+                <div className="bg-white border border-border rounded-card p-5 hover:border-primary/25 hover:shadow-sm transition-all">
                   <h3 className="text-[15px] font-bold text-text-primary font-heading mb-1.5">{e.title}</h3>
                   <p className="text-[13px] text-text-secondary leading-relaxed mb-2">{e.body}</p>
                   <a href={`mailto:${e.email}`} className="text-[13px] text-primary font-semibold hover:underline underline-offset-2 no-underline">
@@ -341,7 +341,7 @@ export default function ContactPage() {
             ))}
             {/* Careers card */}
             <Reveal delay={0.24}>
-              <div className="bg-white/70 backdrop-blur-sm border border-border rounded-xl p-5 hover:border-primary/25 hover:shadow-sm transition-all">
+              <div className="bg-white border border-border rounded-card p-5 hover:border-primary/25 hover:shadow-sm transition-all">
                 <h3 className="text-[15px] font-bold text-text-primary font-heading mb-1.5">Careers</h3>
                 <p className="text-[13px] text-text-secondary leading-relaxed mb-2">
                   Want to join the team building the future of African healthcare?
@@ -395,7 +395,7 @@ export default function ContactPage() {
       </Reveal>
 
       {/* Bottom CTA */}
-      <section className="py-20 lg:py-[100px] px-6 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+      <section className="py-20 lg:py-[100px] px-6 bg-primary relative overflow-hidden">
         <GradientOrb color="green" size="500px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[560px] mx-auto text-center relative z-10">
           <Reveal>

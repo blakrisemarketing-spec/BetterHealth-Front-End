@@ -14,7 +14,7 @@ export default function Testimonials() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               Discoveries that{" "}
-              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal">
+              <span className="italic text-primary tracking-normal">
                 changed lives
               </span>
             </h2>
@@ -40,7 +40,7 @@ export default function Testimonials() {
                 </p>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-primary-light flex items-center justify-center text-white font-bold text-base font-heading">
+                  <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-white font-bold text-base font-heading">
                     {t.name[0]}
                   </div>
                   <div>

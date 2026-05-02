@@ -369,7 +369,7 @@ export default function ForDoctorsPage() {
             <Reveal delay={0.1}>
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-4">
                 Partner with{" "}
-                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal pb-2 inline-block">
+                <span className="text-primary italic tracking-normal pb-2 inline-block">
                   BetterHealth Africa
                 </span>
               </h1>
@@ -402,8 +402,8 @@ export default function ForDoctorsPage() {
                 const Icon = b.icon;
                 return (
                   <Reveal key={i} delay={i * 0.07}>
-                    <div className="bg-white/70 backdrop-blur-sm border border-border rounded-xl p-5 hover:border-primary/25 hover:shadow-sm transition-all h-full">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center mb-4">
+                    <div className="bg-white border border-border rounded-card p-5 hover:border-primary/25 hover:shadow-sm transition-all h-full">
+                      <div className="w-10 h-10 rounded-card bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center mb-4">
                         <Icon size={18} className="text-white" />
                       </div>
                       <h3 className="text-[15px] font-bold text-text-primary font-heading mb-1.5">
@@ -439,7 +439,7 @@ export default function ForDoctorsPage() {
         </section>
 
         {/* ──────────── Bottom CTA ──────────── */}
-        <section className="py-20 lg:py-[100px] px-6 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+        <section className="py-20 lg:py-[100px] px-6 bg-primary relative overflow-hidden">
           <GradientOrb
             color="green"
             size="500px"

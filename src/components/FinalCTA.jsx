@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import GradientOrb from "./ui/GradientOrb";
-import WaitlistForm from "./WaitlistForm";
 
 export default function FinalCTA() {
   return (
@@ -39,7 +40,12 @@ export default function FinalCTA() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <WaitlistForm variant="dark" source="final-cta" className="max-w-[520px] mx-auto" />
+          <Link
+            to="/waitlist"
+            className="inline-flex items-center justify-center gap-2 rounded-btn px-8 py-4 text-[15px] font-bold font-heading bg-gradient-to-r from-primary to-primary-light text-white shadow-[0_4px_30px_rgba(13,148,136,0.35)] hover:shadow-[0_8px_40px_rgba(13,148,136,0.5)] hover:-translate-y-1 hover:scale-[1.02] transition-all no-underline"
+          >
+            Join the Waitlist <ArrowRight size={18} />
+          </Link>
         </Reveal>
       </div>
     </section>

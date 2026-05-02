@@ -19,7 +19,7 @@ export default function Pricing() {
 
         {/* Value anchor — DEFECT 6 */}
         <Reveal delay={0.05}>
-          <div className="text-center mb-8 px-4 py-5 rounded-2xl bg-primary-bg border border-primary/20 max-w-[640px] mx-auto">
+          <div className="text-center mb-8 px-4 py-5 rounded-card bg-primary-bg border border-primary/20 max-w-[640px] mx-auto">
             <p className="text-[16px] md:text-[18px] font-semibold text-text-primary leading-snug font-heading">
               What would cost{" "}
               <span className="text-primary font-extrabold">GHS 15,000+</span> at a private hospital is{" "}

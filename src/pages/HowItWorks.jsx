@@ -37,7 +37,7 @@ function DashboardCarousel() {
   return (
     <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <Reveal delay={0.15}>
-        <div className="rounded-2xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.5)] border border-white/[0.06]">
+        <div className="rounded-card overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.5)] border border-white/[0.06]">
           {/* Browser chrome */}
           <div className="bg-[#E8EAED] px-4 py-3 flex items-center gap-3">
             <div className="flex gap-1.5">
@@ -161,7 +161,7 @@ function StepBlock({ step, index }) {
           <div className="flex-1 min-w-0">
             {/* Step badge */}
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center shrink-0">
+              <div className="w-11 h-11 rounded-card bg-primary flex items-center justify-center shrink-0">
                 <Icon size={22} className="text-white" />
               </div>
               <span className="text-sm font-bold text-primary font-heading tracking-widest uppercase">
@@ -194,7 +194,7 @@ function StepBlock({ step, index }) {
 
             {/* Sub-section glassmorphism card */}
             {step.subSection && (
-              <div className="bg-white/60 backdrop-blur-sm border border-border rounded-2xl p-6">
+              <div className="bg-white border border-border rounded-card p-6">
                 <h3 className="text-[17px] font-bold text-text-primary font-heading mb-2">
                   {step.subSection.heading}
                 </h3>
@@ -214,11 +214,11 @@ function StepBlock({ step, index }) {
           </div>
 
           {/* Visual side — decorative step number card */}
-          <div className="flex-shrink-0 w-full max-w-[260px] aspect-square md:max-w-[300px] rounded-3xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15 flex items-center justify-center relative overflow-hidden">
+          <div className="flex-shrink-0 w-full max-w-[260px] aspect-square md:max-w-[300px] rounded-card bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15 flex items-center justify-center relative overflow-hidden">
             <span className="text-[110px] font-extrabold text-primary/20 font-heading leading-none select-none">
               {step.num}
             </span>
-            <div className="absolute bottom-6 right-6 w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+            <div className="absolute bottom-6 right-6 w-12 h-12 rounded-card bg-primary/20 flex items-center justify-center">
               <Icon size={24} className="text-primary" />
             </div>
           </div>
@@ -260,7 +260,7 @@ export default function HowItWorksPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[2.2rem] md:text-[3.6rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               From sign-up to results in{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
+              <span className="text-primary italic tracking-normal">
                 72 hours.
               </span>
             </h1>
@@ -298,7 +298,7 @@ export default function HowItWorksPage() {
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">Your Health, Visualised</p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight">
                 Everything you need to{" "}
-                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
+                <span className="text-primary italic tracking-normal">
                   understand your health.
                 </span>
               </h2>
@@ -321,7 +321,7 @@ export default function HowItWorksPage() {
               </p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-text-primary font-heading tracking-tight">
                 Accredited labs. Certified collectors.{" "}
-                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+                <span className="text-primary">
                   Encrypted data.
                 </span>
               </h2>
@@ -332,8 +332,8 @@ export default function HowItWorksPage() {
               const Icon = SAFETY_ICONS[card.icon] || ShieldCheck;
               return (
                 <Reveal key={i} delay={i * 0.08}>
-                  <div className="bg-white/60 backdrop-blur-sm border border-border rounded-card p-7 hover:-translate-y-1 transition-all duration-300 hover:shadow-card hover:border-primary/20">
-                    <div className="w-11 h-11 rounded-xl bg-primary-bg border border-primary/20 flex items-center justify-center mb-4">
+                  <div className="bg-white border border-border rounded-card p-7 hover:-translate-y-1 transition-all duration-300 hover:shadow-card hover:border-primary/20">
+                    <div className="w-11 h-11 rounded-card bg-primary-bg border border-primary/20 flex items-center justify-center mb-4">
                       <Icon size={22} className="text-primary" />
                     </div>
                     <h3 className="text-[17px] font-bold text-text-primary font-heading mb-2">{card.title}</h3>
@@ -354,7 +354,7 @@ export default function HowItWorksPage() {
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">FAQ</p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight">
                 Questions?{" "}
-                <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal">
+                <span className="italic text-primary tracking-normal">
                   Answered.
                 </span>
               </h2>
@@ -377,7 +377,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-20 lg:py-[100px] px-6 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+      <section className="py-20 lg:py-[100px] px-6 bg-primary relative overflow-hidden">
         <GradientOrb color="green" size="500px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[640px] mx-auto text-center relative z-10">
           <Reveal>

@@ -13,7 +13,7 @@ export default function ComparisonTable() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               Not your average{" "}
-              <span className="italic bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent tracking-normal">
+              <span className="italic text-primary tracking-normal">
                 hospital checkup
               </span>
             </h2>
@@ -22,7 +22,7 @@ export default function ComparisonTable() {
 
         {/* Value Anchor — DEFECT 5 */}
         <Reveal delay={0.05}>
-          <div className="text-center mb-10 px-4 py-5 rounded-2xl bg-primary-bg border border-primary/20">
+          <div className="text-center mb-10 px-4 py-5 rounded-card bg-primary-bg border border-primary/20">
             <p className="text-[17px] md:text-[20px] font-semibold text-text-primary leading-snug font-heading">
               What would cost{" "}
               <span className="text-primary font-extrabold">GHS 15,000+</span> at a private hospital is{" "}

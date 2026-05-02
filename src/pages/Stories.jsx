@@ -65,7 +65,7 @@ function StoryCard({ story, index }) {
         <div className="p-4 sm:p-6 pb-4">
           <div className="flex items-start gap-3 sm:gap-4 mb-4">
             {/* Avatar */}
-            <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${avatarGrad} flex items-center justify-center shrink-0`}>
+            <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-card bg-gradient-to-br ${avatarGrad} flex items-center justify-center shrink-0`}>
               <span className="text-white font-bold text-base sm:text-lg font-heading">{initials}</span>
             </div>
             <div className="flex-1 min-w-0">
@@ -110,7 +110,7 @@ function StoryCard({ story, index }) {
                 ))}
 
                 {/* The numbers */}
-                <div className="bg-section-alt rounded-xl p-4 mt-1">
+                <div className="bg-section-alt rounded-card p-4 mt-1">
                   <p className="text-[11px] font-bold text-text-muted uppercase tracking-[0.12em] mb-2">The numbers</p>
                   {story.numbers.map((n, i) => <NumberRow key={i} item={n} />)}
                 </div>
@@ -170,7 +170,7 @@ export default function StoriesPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               The tests their doctors{" "}
-              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent italic tracking-normal">
+              <span className="text-primary italic tracking-normal">
                 never ordered.
               </span>
             </h1>
@@ -198,8 +198,8 @@ export default function StoriesPage() {
       <Reveal>
         <section className="py-16 px-6 bg-base">
           <div className="max-w-[640px] mx-auto text-center">
-            <div className="bg-white/70 backdrop-blur-sm border border-border rounded-card p-10 shadow-sm">
-              <div className="w-12 h-12 rounded-2xl bg-primary-bg border border-primary/20 flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white border border-border rounded-card p-10 shadow-sm">
+              <div className="w-12 h-12 rounded-card bg-primary-bg border border-primary/20 flex items-center justify-center mx-auto mb-4">
                 <Quote size={22} className="text-primary" />
               </div>
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-3">
@@ -220,7 +220,7 @@ export default function StoriesPage() {
       </Reveal>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-20 lg:py-[100px] px-6 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
+      <section className="py-20 lg:py-[100px] px-6 bg-primary relative overflow-hidden">
         <GradientOrb color="green" size="500px" className="top-[-20%] right-[-10%] opacity-30" />
         <div className="max-w-[600px] mx-auto text-center relative z-10">
           <Reveal>

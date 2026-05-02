@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <div className="inline-block bg-white rounded-xl px-3 py-1.5">
+              <div className="inline-block bg-white rounded-card px-3 py-1.5">
                 <img
                   src={logo}
                   alt="BetterHealth Africa"
