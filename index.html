@@ -8,9 +8,6 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="BetterHealth Africa — Comprehensive health screening with 127+ biomarkers, home sample collection, and results in 48 hours. Know your health before symptoms appear." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
     <title>BetterHealth Africa — Know Your Health</title>
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -27,12 +24,15 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <script>
+      // Handle SPA redirect from 404.html
       (function(l){
-        if (l.search[1] === "/" ) {
-          var decoded = l.search.slice(1).split("&").map(function(s) {
-            return s.replace(/~and~/g, "&")
+        if (l.search.length > 1) {
+          var path = l.search.slice(1).split("&").map(function(s) {
+            return s.replace(/%26/g, "&")
           }).join("?");
-          window.history.replaceState(null, null, l.pathname.slice(0,-1) + decoded + l.hash);
+          if (path && !path.startsWith("=")) {
+            window.history.replaceState(null, null, "/" + path + l.hash);
+          }
         }
       }(window.location))
     </script>
