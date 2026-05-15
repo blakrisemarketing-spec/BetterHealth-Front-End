@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BetterHealth Africa</title>
+<script>
+  // SPA redirect for GitHub Pages with custom domain
+  // Redirects all 404s back to index.html with the path preserved
+  var l = window.location;
+  l.replace(
+    l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+    "/?" + l.pathname.slice(1).replace(/&/g, "%26") +
+    (l.search ? "&" + l.search.slice(1).replace(/&/g, "%26") : "") +
+    l.hash
+  );
+</script>
+</head>
+</html>

@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.env
+.env.*
+!.env.example
+
+# Credentials — never commit
+credentials.md
+
+# Allow hyperframes project dist (generated videos)
+!hyperframes-project/dist/
+!hyperframes-project/dist/**
+
+# Allow GitHub Pages hyperframes gallery
+!dist/hyperframes/
+!dist/hyperframes/**

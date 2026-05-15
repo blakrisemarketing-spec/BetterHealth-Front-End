@@ -1,0 +1,1 @@
+var e=`/assets/founder-DlH61_ow.webp`;export{e as t};
