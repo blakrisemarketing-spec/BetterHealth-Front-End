@@ -1,5 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import StructuredData from "./components/StructuredData";
+import { getOrganizationSchema } from "./components/structured-data";
 
 const Home = lazy(() => import("./pages/Home"));
 const HowItWorksPage = lazy(() => import("./pages/HowItWorks"));
@@ -17,6 +19,7 @@ const DownloadAppPage = lazy(() => import("./pages/DownloadApp"));
 const ForLabsPage = lazy(() => import("./pages/ForLabs"));
 const ForDoctorsPage = lazy(() => import("./pages/ForDoctors"));
 const WaitlistPage = lazy(() => import("./pages/Waitlist"));
+const DeleteMePage = lazy(() => import("./pages/DeleteMe"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
 
 function LoadingSpinner() {
@@ -30,6 +33,7 @@ function LoadingSpinner() {
 export default function App() {
   return (
     <BrowserRouter>
+      <StructuredData data={getOrganizationSchema()} />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -48,6 +52,7 @@ export default function App() {
           <Route path="/for-labs" element={<ForLabsPage />} />
           <Route path="/for-doctors" element={<ForDoctorsPage />} />
           <Route path="/waitlist" element={<WaitlistPage />} />
+          <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
