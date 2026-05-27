@@ -22,7 +22,7 @@ export default function Pricing() {
           <div className="text-center mb-8 px-4 py-5 rounded-card bg-primary-bg border border-primary/20 max-w-[640px] mx-auto">
             <p className="text-[16px] md:text-[18px] font-semibold text-text-primary leading-snug font-heading">
               What would cost{" "}
-              <span className="text-primary font-extrabold">GHS 15,000+</span> at a private hospital is{" "}
+              <span className="text-primary font-extrabold">GHS 6,250+</span> at a private hospital is{" "}
               <span className="text-primary font-extrabold">GHS 61/month</span> with BetterHealth Africa
             </p>
           </div>
