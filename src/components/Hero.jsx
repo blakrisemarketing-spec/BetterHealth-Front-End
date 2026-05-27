@@ -101,8 +101,8 @@ export default function Hero() {
               {heroStats.map((stat, i) => (
                 <div key={i} className="flex flex-col">
                   <span className="text-xl sm:text-[28px] font-extrabold text-text-primary font-heading tracking-tight">
-                    {stat.value === "127+" ? (
-                      <><CountUp end={127} />+</>
+                    {stat.value === "155" ? (
+                      <CountUp end={155} />
                     ) : (
                       stat.value
                     )}

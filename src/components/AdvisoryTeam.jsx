@@ -39,6 +39,12 @@ export default function AdvisoryTeam() {
                 Medical Advisory Board
               </span>
             </h2>
+            <p className="text-[15px] text-text-secondary leading-relaxed max-w-[620px] mx-auto mt-5 font-body">
+              BetterHealth’s testing protocols, reference ranges, and health
+              recommendations are developed in consultation with doctors and
+              laboratory scientists who understand both international standards
+              and the specific health landscape of West Africa.
+            </p>
           </div>
         </Reveal>
 

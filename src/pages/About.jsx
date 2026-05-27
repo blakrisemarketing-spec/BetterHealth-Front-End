@@ -5,6 +5,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
+import AdvisoryTeam from "../components/AdvisoryTeam";
 import { aboutPage } from "../data/content";
 import founderPhoto from "../assets/founder.webp";
 
@@ -16,27 +17,8 @@ const YEAR_COLORS = {
   "2028": "bg-primary/40 text-white",
 };
 
-// Initials avatar for advisors (no photos yet)
-function AdvisorCard({ advisor, index }) {
-  const initials = advisor.name.replace(/Dr\.|PhD|BSc|MSc|MBChB|FWACP|,/g, "").trim().split(" ").filter(Boolean).map(w => w[0]).join("").slice(0, 2).toUpperCase();
-  const colors = ["from-teal-400 to-emerald-500", "from-blue-400 to-cyan-500", "from-purple-400 to-violet-500"];
-  return (
-    <Reveal delay={index * 0.08}>
-      <div className="bg-white border border-border rounded-card p-6 text-center hover:-translate-y-1 transition-all duration-300 hover:shadow-card">
-        <div className="w-16 h-16 rounded-card bg-primary/10 flex items-center justify-center mx-auto mb-4">
-          <span className="text-white font-bold text-xl font-heading">{initials || "?"}</span>
-        </div>
-        <p className="text-[15px] font-bold text-text-primary font-heading">{advisor.name}</p>
-        <p className="text-[13px] text-primary font-semibold mt-0.5">{advisor.title}</p>
-        <p className="text-[12px] text-text-muted mt-0.5">{advisor.institution}</p>
-        <p className="text-[13px] text-text-secondary mt-2 leading-relaxed">{advisor.bio}</p>
-      </div>
-    </Reveal>
-  );
-}
-
 export default function AboutPage() {
-  const { hero, problem, founder, values, howWeWork, partners, advisory, roadmap, joinUs, bottomCta } = aboutPage;
+  const { hero, problem, founder, values, howWeWork, partners, roadmap, joinUs, bottomCta } = aboutPage;
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
@@ -135,13 +117,22 @@ export default function AboutPage() {
               <Reveal>
                 <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">{founder.sectionLabel}</p>
               </Reveal>
-              {founder.narrative.map((para, i) => (
-                <Reveal key={i} delay={i * 0.06}>
-                  <p className={`leading-relaxed mb-5 font-body ${para === "BetterHealth was born from that gap." || para === "We are just getting started." ? "text-[17px] font-bold text-text-primary italic" : "text-[16px] text-text-secondary"}`}>
-                    {para}
-                  </p>
-                </Reveal>
-              ))}
+              {founder.narrative.map((para, i) => {
+                const isPivot = para.startsWith("I was the first");
+                const isClosing = para.startsWith("BetterHealth Africa exists so that");
+                const emphasisCls = isPivot
+                  ? "text-[18px] font-bold text-text-primary italic"
+                  : isClosing
+                  ? "text-[17px] font-semibold text-text-primary"
+                  : "text-[16px] text-text-secondary";
+                return (
+                  <Reveal key={i} delay={i * 0.06}>
+                    <p className={`leading-relaxed mb-5 font-body ${emphasisCls}`}>
+                      {para}
+                    </p>
+                  </Reveal>
+                );
+              })}
               <Reveal delay={0.3}>
                 <div className="border-l-4 border-primary pl-5 mt-6">
                   <p className="text-[15px] font-bold text-text-primary">— {founder.attribution}</p>
@@ -231,23 +222,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Medical Advisory ── */}
-      <section className="py-20 lg:py-[100px] px-6 bg-base">
-        <div className="max-w-[1000px] mx-auto">
-          <Reveal>
-            <div className="text-center mb-4">
-              <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">Medical Advisory</p>
-              <h2 className="text-[1.9rem] md:text-[2.3rem] font-extrabold text-text-primary font-heading tracking-tight mb-3">
-                {advisory.headline}
-              </h2>
-              <p className="text-[15px] text-text-secondary max-w-[600px] mx-auto">{advisory.body}</p>
-            </div>
-          </Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-            {advisory.advisors.map((a, i) => <AdvisorCard key={i} advisor={a} index={i} />)}
-          </div>
-        </div>
-      </section>
+      {/* ── Medical Advisory (mirrors the homepage advisory section) ── */}
+      <AdvisoryTeam />
 
       {/* ── Roadmap ── */}
       <section className="py-20 lg:py-[100px] px-6 bg-bg-dark">

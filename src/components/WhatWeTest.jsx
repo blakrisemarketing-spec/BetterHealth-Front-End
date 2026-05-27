@@ -1,18 +1,46 @@
 import { useState } from "react";
-import { Heart, FlaskConical, Shield, BarChart3, Check } from "lucide-react";
+import {
+  Heart,
+  FlaskConical,
+  BarChart3,
+  Check,
+  Activity,
+  Droplets,
+  Filter,
+  Hexagon,
+  Baby,
+  Apple,
+  Zap,
+  Flame,
+  Bug,
+  TestTube,
+  Microscope,
+  Sprout,
+  ShieldCheck,
+  Wind,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "./ui/Reveal";
 import { testCategories } from "../data/content";
 
 const iconMap = {
-  "Heart & Cardiovascular": Heart,
-  "Liver Function": FlaskConical,
-  "Kidney Function": Shield,
+  "Heart & Blood Vessels": Heart,
+  "Cholesterol & Lipids": Activity,
   "Metabolic & Diabetes": BarChart3,
-  "Hormones": Heart,
-  "Nutrients & Vitamins": FlaskConical,
-  "Blood Health": Heart,
-  "Thyroid": Shield,
+  "Blood Health": Droplets,
+  "Liver Function": FlaskConical,
+  "Kidney Function": Filter,
+  "Thyroid Function": Hexagon,
+  "Reproductive Hormones": Baby,
+  "Nutrients & Vitamins": Apple,
+  "Electrolytes & Minerals": Zap,
+  "Inflammation Markers": Flame,
+  "Infectious Diseases": Bug,
+  "Urine Analysis": TestTube,
+  "Stool & Parasites": Microscope,
+  "Sperm & Semen Health": Sprout,
+  "Autoimmune Screening": ShieldCheck,
+  "Respiratory Health": Wind,
 };
 
 export default function WhatWeTest() {
@@ -29,9 +57,9 @@ export default function WhatWeTest() {
               What We Test
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
-              127+ biomarkers across{" "}
+              155 biomarkers across{" "}
               <span className="italic text-primary tracking-normal">
-                8 body systems
+                17 body systems
               </span>
             </h2>
           </div>
