@@ -18,6 +18,7 @@ const ROUTE_MAP = {
   "Terms of Service": "/terms",
   "For Labs": "/for-labs",
   "For Doctors": "/for-doctors",
+  "For Nutritionists": "/for-nutritionists",
 };
 
 // External links — open in a new tab

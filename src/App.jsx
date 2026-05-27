@@ -18,6 +18,7 @@ const CareersPage = lazy(() => import("./pages/Careers"));
 const DownloadAppPage = lazy(() => import("./pages/DownloadApp"));
 const ForLabsPage = lazy(() => import("./pages/ForLabs"));
 const ForDoctorsPage = lazy(() => import("./pages/ForDoctors"));
+const ForNutritionistsPage = lazy(() => import("./pages/ForNutritionists"));
 const WaitlistPage = lazy(() => import("./pages/Waitlist"));
 const DeleteMePage = lazy(() => import("./pages/DeleteMe"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
@@ -51,6 +52,7 @@ export default function App() {
           <Route path="/download-app" element={<DownloadAppPage />} />
           <Route path="/for-labs" element={<ForLabsPage />} />
           <Route path="/for-doctors" element={<ForDoctorsPage />} />
+          <Route path="/for-nutritionists" element={<ForNutritionistsPage />} />
           <Route path="/waitlist" element={<WaitlistPage />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="*" element={<NotFoundPage />} />

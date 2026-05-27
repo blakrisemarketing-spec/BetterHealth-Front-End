@@ -1,12 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, Stethoscope, Apple, FlaskConical } from "lucide-react";
 import { navLinks } from "../data/content";
 import logo from "../assets/logo.png";
+
+const PARTNER_LINKS = [
+  { label: "For Doctors", route: "/for-doctors", icon: Stethoscope },
+  { label: "For Nutritionists & Dieticians", route: "/for-nutritionists", icon: Apple },
+  { label: "For Lab Owners", route: "/for-labs", icon: FlaskConical },
+];
 
 export default function Nav({ dark = false }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [partnersOpen, setPartnersOpen] = useState(false);
+  const [partnersMobileOpen, setPartnersMobileOpen] = useState(false);
+  const partnersRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -18,6 +27,25 @@ export default function Nav({ dark = false }) {
     document.body.style.overflow = mobileMenu ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenu]);
+
+  // Close desktop dropdown on click-outside or Esc
+  useEffect(() => {
+    if (!partnersOpen) return;
+    const onPointer = (e) => {
+      if (partnersRef.current && !partnersRef.current.contains(e.target)) {
+        setPartnersOpen(false);
+      }
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") setPartnersOpen(false);
+    };
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [partnersOpen]);
 
   // When mobile menu is open, treat nav as "scrolled" so it stays opaque/visible
   const navActive = scrolled || mobileMenu;
@@ -92,6 +120,61 @@ export default function Nav({ dark = false }) {
           {/* Desktop links */}
           <div className="hidden md:flex gap-8 items-center">
             {navLinks.map((link) => renderLink(link))}
+
+            {/* For Partners dropdown */}
+            <div
+              ref={partnersRef}
+              className="relative"
+              onMouseEnter={() => setPartnersOpen(true)}
+              onMouseLeave={() => setPartnersOpen(false)}
+            >
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={partnersOpen}
+                onClick={() => setPartnersOpen((v) => !v)}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") setPartnersOpen(false);
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setPartnersOpen((v) => !v);
+                  }
+                }}
+                className={`${desktopLinkClass} inline-flex items-center gap-1 cursor-pointer bg-transparent border-none p-0`}
+              >
+                For Partners
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${partnersOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {partnersOpen && (
+                <div
+                  role="menu"
+                  aria-label="Partner options"
+                  className="absolute right-0 top-full mt-2 w-[260px] bg-white border border-border rounded-card shadow-lg overflow-hidden z-50"
+                >
+                  {PARTNER_LINKS.map((p) => {
+                    const Icon = p.icon;
+                    return (
+                      <Link
+                        key={p.route}
+                        to={p.route}
+                        role="menuitem"
+                        onClick={() => setPartnersOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 text-sm text-text-primary font-medium hover:bg-section-alt hover:text-primary transition-colors no-underline border-b border-border last:border-b-0"
+                      >
+                        <span className="w-8 h-8 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
+                          <Icon size={16} className="text-primary" />
+                        </span>
+                        {p.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Right side */}
@@ -121,6 +204,46 @@ export default function Nav({ dark = false }) {
           style={{ backgroundColor: "#ffffff" }}
         >
           {navLinks.map((link) => renderLink(link, true))}
+
+          {/* For Partners accordion */}
+          <div className="border-b border-border">
+            <button
+              type="button"
+              aria-expanded={partnersMobileOpen}
+              onClick={() => setPartnersMobileOpen((v) => !v)}
+              className="w-full flex items-center justify-between py-4 text-text-primary text-base sm:text-xl font-semibold font-heading bg-transparent border-none cursor-pointer"
+            >
+              For Partners
+              <ChevronDown
+                size={18}
+                className={`transition-transform duration-200 ${partnersMobileOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            {partnersMobileOpen && (
+              <div className="flex flex-col pb-3 pl-2">
+                {PARTNER_LINKS.map((p) => {
+                  const Icon = p.icon;
+                  return (
+                    <Link
+                      key={p.route}
+                      to={p.route}
+                      onClick={() => {
+                        setMobileMenu(false);
+                        setPartnersMobileOpen(false);
+                      }}
+                      className="flex items-center gap-3 py-3 text-text-secondary text-[15px] font-medium hover:text-primary transition-colors no-underline"
+                    >
+                      <span className="w-7 h-7 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
+                        <Icon size={14} className="text-primary" />
+                      </span>
+                      {p.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
             <Link
               to="/waitlist"
