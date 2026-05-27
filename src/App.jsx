@@ -22,6 +22,7 @@ const ForDoctorsPage = lazy(() => import("./pages/ForDoctors"));
 const ForNutritionistsPage = lazy(() => import("./pages/ForNutritionists"));
 const WaitlistPage = lazy(() => import("./pages/Waitlist"));
 const DeleteMePage = lazy(() => import("./pages/DeleteMe"));
+const ReferralRedirectPage = lazy(() => import("./pages/ReferralRedirect"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
 
 function LoadingSpinner() {
@@ -72,6 +73,7 @@ export default function App() {
           <Route path="/for-nutritionists" element={<ForNutritionistsPage />} />
           <Route path="/waitlist" element={<WaitlistPage />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
+          <Route path="/ref/:code" element={<ReferralRedirectPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
