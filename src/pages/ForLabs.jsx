@@ -20,7 +20,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
-import { submitPartnerSignup } from "../lib/partner-signup";
+import { submitPartnerSignup, HEARD_ABOUT_OPTIONS } from "../lib/partner-signup";
 
 const WHATSAPP_URL = "https://wa.me/message/MJ3HXLS2NDQEJ1";
 const WHATSAPP_NUMBER = "+233 268 596 410";
@@ -165,6 +165,7 @@ function RegistrationForm() {
     location: "",
     staffCount: "",
     currentSystem: "",
+    heardAbout: "",
     notes: "",
   });
 
@@ -186,6 +187,7 @@ function RegistrationForm() {
       location: form.location.trim(),
       staffCount: form.staffCount,
       currentSystem: form.currentSystem,
+      heardAbout: form.heardAbout,
       notes: form.notes.trim(),
     });
 
@@ -356,6 +358,27 @@ function RegistrationForm() {
             ))}
           </select>
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="lab-heard-about" className={labelCls}>
+          How did you hear about us?{" "}
+          <span className="text-text-muted font-normal">(optional)</span>
+        </label>
+        <select
+          id="lab-heard-about"
+          name="heardAbout"
+          value={form.heardAbout}
+          onChange={set("heardAbout")}
+          className={`${inputCls} appearance-none`}
+        >
+          <option value="">Select an option</option>
+          {HEARD_ABOUT_OPTIONS.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div>

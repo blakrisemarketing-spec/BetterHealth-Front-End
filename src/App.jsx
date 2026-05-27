@@ -1,7 +1,8 @@
-import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import StructuredData from "./components/StructuredData";
 import { getOrganizationSchema } from "./components/structured-data";
+import { captureReferralFromUrl } from "./lib/partner-signup";
 
 const Home = lazy(() => import("./pages/Home"));
 const HowItWorksPage = lazy(() => import("./pages/HowItWorks"));
@@ -31,9 +32,25 @@ function LoadingSpinner() {
   );
 }
 
+/**
+ * Silently captures `?ref=<code>` from the URL on every navigation and
+ * stores it in sessionStorage. The code is read by submitPartnerSignup()
+ * and silently included with any partner form submission for the rest of
+ * the session — survives in-site navigation away from the referral link,
+ * doesn't survive closing the tab.
+ */
+function ReferralCapture() {
+  const location = useLocation();
+  useEffect(() => {
+    captureReferralFromUrl(location.search);
+  }, [location.search]);
+  return null;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
+      <ReferralCapture />
       <StructuredData data={getOrganizationSchema()} />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>

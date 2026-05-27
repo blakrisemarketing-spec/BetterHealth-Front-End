@@ -17,7 +17,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
-import { submitPartnerSignup } from "../lib/partner-signup";
+import { submitPartnerSignup, HEARD_ABOUT_OPTIONS } from "../lib/partner-signup";
 
 const WHATSAPP_URL = "https://wa.me/message/MJ3HXLS2NDQEJ1";
 const WHATSAPP_NUMBER = "+233 268 596 410";
@@ -90,6 +90,7 @@ const INITIAL_FORM = {
   license: "",
   experience: "",
   partnership: "",
+  heardAbout: "",
   notes: "",
 };
 
@@ -117,6 +118,7 @@ function RegistrationForm() {
       license: form.license.trim(),
       experience: form.experience,
       partnership: form.partnership,
+      heardAbout: form.heardAbout,
       notes: form.notes.trim(),
     });
 
@@ -316,7 +318,29 @@ function RegistrationForm() {
         </select>
       </div>
 
-      {/* Row 6: Notes */}
+      {/* Row 6: How did you hear about us */}
+      <div>
+        <label htmlFor="nut-heard-about" className={labelCls}>
+          How did you hear about us?{" "}
+          <span className="text-text-muted font-normal">(optional)</span>
+        </label>
+        <select
+          id="nut-heard-about"
+          name="heardAbout"
+          value={form.heardAbout}
+          onChange={set("heardAbout")}
+          className={selectCls}
+        >
+          <option value="">Select an option</option>
+          {HEARD_ABOUT_OPTIONS.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Row 7: Notes */}
       <div>
         <label htmlFor="nut-notes" className={labelCls}>
           Additional Notes{" "}
