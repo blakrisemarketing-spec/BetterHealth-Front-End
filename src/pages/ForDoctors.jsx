@@ -13,11 +13,17 @@ import {
   Banknote,
   ClipboardList,
   ChevronDown,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
+import { submitPartnerSignup } from "../lib/partner-signup";
+
+const WHATSAPP_URL = "https://wa.me/message/MJ3HXLS2NDQEJ1";
+const WHATSAPP_NUMBER = "+233 268 596 410";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -163,38 +169,40 @@ const INITIAL_FORM = {
 };
 
 function RegistrationForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [errorMessage, setErrorMessage] = useState("");
   const [form, setForm] = useState(INITIAL_FORM);
 
   const set = (field) => (e) => setForm({ ...form, [field]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status === "loading") return;
 
-    const lines = [
-      "Hi BetterHealth Africa! I would like to register as a medical partner.",
-      "",
-      `Name: ${form.name}`,
-      `Specialty: ${form.specialty}`,
-      `Hospital / Clinic: ${form.clinic}`,
-      `Email: ${form.email}`,
-      `WhatsApp: ${form.whatsapp}`,
-      form.license ? `License #: ${form.license}` : null,
-      `Partnership type: ${form.partnership}`,
-      form.notes ? `\nAdditional notes:\n${form.notes}` : null,
-    ]
-      .filter(Boolean)
-      .join("\n");
+    setStatus("loading");
+    setErrorMessage("");
 
-    const encoded = encodeURIComponent(lines);
-    window.open(
-      `https://wa.me/message/MJ3HXLS2NDQEJ1?text=${encoded}`,
-      "_blank",
-    );
-    setSubmitted(true);
+    const result = await submitPartnerSignup({
+      partnerType: "doctor",
+      name: form.name.trim(),
+      specialty: form.specialty,
+      clinic: form.clinic.trim(),
+      email: form.email.trim().toLowerCase(),
+      whatsapp: form.whatsapp.trim(),
+      license: form.license.trim(),
+      partnership: form.partnership,
+      notes: form.notes.trim(),
+    });
+
+    if (result.ok) {
+      setStatus("success");
+    } else {
+      setStatus("error");
+      setErrorMessage(result.error || "Submission failed.");
+    }
   };
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div className="bg-green-50 border border-green-200 rounded-card p-8 text-center">
         <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
@@ -207,11 +215,12 @@ function RegistrationForm() {
           Our partnerships team will review your application and be in touch
           within 48 hours. For anything urgent, WhatsApp us directly at{" "}
           <a
-            href="https://wa.me/message/MJ3HXLS2NDQEJ1"
+            href={WHATSAPP_URL}
+            target="_blank"
             rel="noopener noreferrer"
             className="text-primary font-semibold underline-offset-2 hover:underline no-underline"
           >
-            +233 268 596 410
+            {WHATSAPP_NUMBER}
           </a>
           .
         </p>
@@ -370,12 +379,56 @@ function RegistrationForm() {
         />
       </div>
 
-      <button
-        type="submit"
-        className="self-start inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5"
-      >
-        Submit Application <ArrowRight size={15} />
-      </button>
+      {/* Error banner */}
+      {status === "error" && (
+        <div className="flex items-start gap-3 rounded-btn border border-red-200 bg-red-50 px-4 py-3">
+          <AlertCircle size={18} className="text-red-600 shrink-0 mt-0.5" />
+          <p className="text-[13px] text-red-700 leading-relaxed">
+            We couldn&rsquo;t submit your application
+            {errorMessage ? ` (${errorMessage})` : ""}. Please try again, or
+            WhatsApp us directly at{" "}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold underline underline-offset-2"
+            >
+              {WHATSAPP_NUMBER}
+            </a>{" "}
+            and we&rsquo;ll get you onboarded.
+          </p>
+        </div>
+      )}
+
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="self-start inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+        >
+          {status === "loading" ? (
+            <>
+              <Loader2 size={15} className="animate-spin" /> Submitting&hellip;
+            </>
+          ) : (
+            <>
+              Submit Application <ArrowRight size={15} />
+            </>
+          )}
+        </button>
+        <p className="text-[13px] text-text-muted">
+          Prefer to chat?{" "}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary font-semibold hover:underline no-underline"
+          >
+            WhatsApp us
+          </a>
+          .
+        </p>
+      </div>
     </form>
   );
 }
