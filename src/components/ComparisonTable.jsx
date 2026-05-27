@@ -25,7 +25,7 @@ export default function ComparisonTable() {
           <div className="text-center mb-10 px-4 py-5 rounded-card bg-primary-bg border border-primary/20">
             <p className="text-[17px] md:text-[20px] font-semibold text-text-primary leading-snug font-heading">
               What would cost{" "}
-              <span className="text-primary font-extrabold">GHS 15,000+</span> at a private hospital is{" "}
+              <span className="text-primary font-extrabold">GHS 6,250+</span> at a private hospital is{" "}
               <span className="text-primary font-extrabold">GHS 61/month</span> with BetterHealth Africa
             </p>
           </div>
