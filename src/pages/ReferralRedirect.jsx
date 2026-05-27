@@ -3,30 +3,34 @@ import { useParams, useNavigate } from "react-router-dom";
 import { captureReferralFromUrl } from "../lib/partner-signup";
 
 /**
- * Vanity referral route: /ref/:code
+ * Vanity referral routes:
+ *   /ref/:code           → captures code, redirects to /for-doctors (default)
+ *   /ref/:code/doctors   → captures code, redirects to /for-doctors
+ *   /ref/:code/labs      → captures code, redirects to /for-labs
+ *   /ref/:code/nutritionists → captures code, redirects to /for-nutritionists
  *
- * Captures the referral code from the URL path, stores it in sessionStorage
- * (via captureReferralFromUrl), then redirects to the homepage.
- *
- * This lets doctors share clean links like:
+ * Examples:
  *   betterhealth.africa/ref/DR-AMA-001
- *   betterhealth.africa/ref/Miracle
- *
- * The code persists for the session — if the visitor later navigates to
- * /for-doctors or /for-labs and submits the partner form, the referral
- * code is silently included in the submission.
+ *   betterhealth.africa/ref/Miracle/labs
  */
+
+const TARGETS = {
+  doctors: "/for-doctors",
+  labs: "/for-labs",
+  nutritionists: "/for-nutritionists",
+};
+
 export default function ReferralRedirect() {
-  const { code } = useParams();
+  const { code, partnerType } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (code) {
-      // Synthesise a query string so captureReferralFromUrl can parse it
       captureReferralFromUrl(`?ref=${encodeURIComponent(code)}`);
     }
-    navigate("/", { replace: true });
-  }, [code, navigate]);
+    const target = TARGETS[partnerType] || "/for-doctors";
+    navigate(target, { replace: true });
+  }, [code, partnerType, navigate]);
 
   return null;
 }

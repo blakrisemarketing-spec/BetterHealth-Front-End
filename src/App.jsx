@@ -74,6 +74,7 @@ export default function App() {
           <Route path="/waitlist" element={<WaitlistPage />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="/ref/:code" element={<ReferralRedirectPage />} />
+          <Route path="/ref/:code/:partnerType" element={<ReferralRedirectPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
