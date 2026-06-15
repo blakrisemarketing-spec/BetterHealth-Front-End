@@ -91,13 +91,14 @@ On failure the form shows an error with a `mailto:hello@betterhealth.africa` fal
 ## SEO / social sharing
 
 This is an SPA served by Hostinger/LiteSpeed, so crawlers/social scrapers that don't run JS only
-see `index.html`'s (main-site) meta. To fix that for `/foundation`, `vite.config.js` has a
-`prerender-route-seo` plugin that writes `dist/foundation/index.html` at build time with the
-foundation-specific `<title>`, description, Open Graph/Twitter tags, canonical, and NGO JSON-LD
-baked in. LiteSpeed serves that file as the directory index for `/foundation/` (the `.htaccess`
-SPA rewrite skips it because the directory exists). The share image is `public/foundation-og.jpg`
-(1200×630). Client-side, `Foundation.jsx`'s Helmet sets the same tags. To add another route's SEO,
-append to the `PRERENDER` array in `vite.config.js`.
+see `index.html`'s (main-site) meta. The `prerender-route-seo` plugin in `vite.config.js` fixes
+this for **every** route in `src/data/seo.js` (`ROUTE_SEO`): at build time it writes
+`dist/<route>/index.html` with that route's `<title>`, description, Open Graph/Twitter tags,
+canonical, and (foundation only) NGO JSON-LD baked in. LiteSpeed serves each as the directory
+index (the `.htaccess` SPA rewrite skips it because the directory exists). The foundation share
+image is `public/foundation-og.jpg` (1200×630); other pages use the default `og-image.png`.
+Client-side, each page's `<Helmet>` sets the same tags. To add/adjust a route's SEO, edit
+`src/data/seo.js` — keep it in sync with that page's `<Helmet>`.
 
 ## Remaining TODO integration points
 

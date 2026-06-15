@@ -2,42 +2,17 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import fs from 'node:fs'
 import path from 'node:path'
+import { ROUTE_SEO, SITE_URL, DEFAULT_OG_IMAGE } from './src/data/seo.js'
 
-const SITE = 'https://www.betterhealth.africa'
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;')
 
-// Routes that need their own static <head> SEO. This is a single-page app served
-// by Hostinger/LiteSpeed (which serves dist/<route>/index.html as a directory
-// index), so without a real per-route HTML file, crawlers and social scrapers
-// (which don't run JS) only ever see index.html's main-site meta tags. This
-// plugin writes dist/<route>/index.html with the correct title/description/
-// Open Graph/canonical/JSON-LD baked in, so shares and search show the right card.
-const PRERENDER = [
-  {
-    route: 'foundation',
-    title: '100 Healthy Years Foundation — Free Health Screening in Ghana',
-    description:
-      'The 100 Healthy Years Foundation runs free community health screenings across Ghana, catching preventable conditions early. Volunteer, partner, or request a free screening for your community.',
-    image: `${SITE}/foundation-og.jpg`,
-    jsonld: {
-      '@context': 'https://schema.org',
-      '@type': 'NGO',
-      name: '100 Healthy Years Foundation',
-      alternateName: 'BetterHealth Africa Foundation',
-      url: `${SITE}/foundation`,
-      logo: `${SITE}/foundation-og.jpg`,
-      description:
-        'Free community health screening for working-age adults in underserved communities across Ghana.',
-      areaServed: { '@type': 'Country', name: 'Ghana' },
-      sameAs: [
-        'https://www.facebook.com/betterhealth.africa',
-        'https://www.instagram.com/betterhealth.africa',
-        'https://www.x.com/BetterHealthAfrica',
-        'https://www.tiktok.com/@betterhealth.africa',
-      ],
-    },
-  },
-]
-
+// This is a single-page app served by Hostinger/LiteSpeed (which serves
+// dist/<route>/index.html as a directory index). Without a real per-route HTML
+// file, crawlers and social scrapers (which don't run JS) only ever see
+// index.html's homepage meta tags on every route. This plugin writes
+// dist/<route>/index.html for every route in ROUTE_SEO (src/data/seo.js) with
+// the correct title/description/Open Graph/Twitter/canonical/JSON-LD baked in,
+// so search results and shares show the right card per page.
 function prerenderSeoPlugin() {
   return {
     name: 'prerender-route-seo',
@@ -50,32 +25,38 @@ function prerenderSeoPlugin() {
 
       const setMeta = (html, attr, key, value) => {
         const re = new RegExp(`(<meta\\s+${attr}="${key}"\\s+content=")[^"]*(")`, 'i')
-        return re.test(html) ? html.replace(re, `$1${value}$2`) : html
+        return re.test(html) ? html.replace(re, `$1${esc(value)}$2`) : html
       }
 
-      for (const page of PRERENDER) {
-        const url = `${SITE}/${page.route}`
+      for (const [route, page] of Object.entries(ROUTE_SEO)) {
+        const url = `${SITE_URL}/${route}`
+        const image = page.image || DEFAULT_OG_IMAGE
         let html = base
-        html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${page.title}</title>`)
+        html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(page.title)}</title>`)
         html = setMeta(html, 'name', 'description', page.description)
         html = setMeta(html, 'property', 'og:url', url)
         html = setMeta(html, 'property', 'og:title', page.title)
         html = setMeta(html, 'property', 'og:description', page.description)
-        html = setMeta(html, 'property', 'og:image', page.image)
+        html = setMeta(html, 'property', 'og:image', image)
         html = setMeta(html, 'property', 'twitter:title', page.title)
         html = setMeta(html, 'property', 'twitter:description', page.description)
-        html = setMeta(html, 'property', 'twitter:image', page.image)
+        html = setMeta(html, 'property', 'twitter:image', image)
+        // canonical: replace if present, else inject
+        if (/<link\s+rel="canonical"/i.test(html)) {
+          html = html.replace(/(<link\s+rel="canonical"\s+href=")[^"]*(")/i, `$1${url}$2`)
+        } else {
+          html = html.replace('</head>', `    <link rel="canonical" href="${url}" />\n  </head>`)
+        }
 
-        const headExtra =
-          `    <link rel="canonical" href="${url}" />\n` +
-          `    <meta property="og:site_name" content="100 Healthy Years Foundation" />\n` +
-          `    <meta property="og:image:width" content="1200" />\n` +
-          `    <meta property="og:image:height" content="630" />\n` +
-          `    <meta property="og:image:alt" content="A volunteer runs a free health screening for a smiling community member in Ghana." />\n` +
-          `    <script type="application/ld+json">${JSON.stringify(page.jsonld)}</script>\n  </head>`
-        html = html.replace('</head>', headExtra)
+        const extra = [
+          `    <meta property="og:image:alt" content="${esc(page.imageAlt || page.title)}" />`,
+          page.jsonld
+            ? `    <script type="application/ld+json">${JSON.stringify(page.jsonld)}</script>`
+            : '',
+        ].filter(Boolean).join('\n')
+        html = html.replace('</head>', `${extra}\n  </head>`)
 
-        const outDir = path.join(distDir, page.route)
+        const outDir = path.join(distDir, route)
         fs.mkdirSync(outDir, { recursive: true })
         fs.writeFileSync(path.join(outDir, 'index.html'), html)
       }
