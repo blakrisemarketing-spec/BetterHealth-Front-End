@@ -19,6 +19,17 @@ export default {
         "primary-dark": "#5F8070",
         "primary-glow": "rgba(107,142,127,0.15)",
         "primary-bg": "rgba(107,142,127,0.08)",
+        // Foundation accent — warm amber/gold (proposed, not yet locked brand-wide)
+        accent: "#D4A24E",
+        "accent-light": "#E0B66E",
+        "accent-soft": "#E9CE97",
+        "accent-dark": "#B9883A",
+        // accent-ink: deep gold for amber-coloured TEXT/icons on light backgrounds.
+        // Passes WCAG AA (>=4.5:1) on cream (#F5F3EE) and section-alt (#EBE9E3),
+        // where the brighter accent shades do not.
+        "accent-ink": "#8A5A0A",
+        "accent-glow": "rgba(212,162,78,0.18)",
+        "accent-bg": "rgba(212,162,78,0.10)",
         // Text
         "text-primary": "#2B3A3A",
         "text-secondary": "#6B7979",
@@ -33,6 +44,8 @@ export default {
       fontFamily: {
         heading: ["Quicksand", "system-ui", "-apple-system", "sans-serif"],
         body: ["Quicksand", "system-ui", "-apple-system", "sans-serif"],
+        // Inter — body face for the foundation landing page (per its brand spec)
+        inter: ["Inter", "system-ui", "-apple-system", "sans-serif"],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       borderRadius: {

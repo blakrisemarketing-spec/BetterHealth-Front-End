@@ -20,6 +20,7 @@ const DownloadAppPage = lazy(() => import("./pages/DownloadApp"));
 const ForLabsPage = lazy(() => import("./pages/ForLabs"));
 const ForDoctorsPage = lazy(() => import("./pages/ForDoctors"));
 const ForNutritionistsPage = lazy(() => import("./pages/ForNutritionists"));
+const FoundationPage = lazy(() => import("./pages/Foundation"));
 const WaitlistPage = lazy(() => import("./pages/Waitlist"));
 const DeleteMePage = lazy(() => import("./pages/DeleteMe"));
 const ReferralRedirectPage = lazy(() => import("./pages/ReferralRedirect"));
@@ -71,6 +72,7 @@ export default function App() {
           <Route path="/for-labs" element={<ForLabsPage />} />
           <Route path="/for-doctors" element={<ForDoctorsPage />} />
           <Route path="/for-nutritionists" element={<ForNutritionistsPage />} />
+          <Route path="/foundation" element={<FoundationPage />} />
           <Route path="/waitlist" element={<WaitlistPage />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="/ref/:code" element={<ReferralRedirectPage />} />

@@ -19,6 +19,7 @@ const ROUTE_MAP = {
   "For Labs": "/for-labs",
   "For Doctors": "/for-doctors",
   "For Nutritionists": "/for-nutritionists",
+  "Foundation": "/foundation",
 };
 
 // External links — open in a new tab

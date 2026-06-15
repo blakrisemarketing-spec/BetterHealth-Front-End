@@ -3,6 +3,7 @@ export default function GradientOrb({ color = "green", size = "600px", className
     green: "rgba(13,148,136,0.12)",
     blue: "rgba(14,165,233,0.08)",
     mixed: "rgba(13,148,136,0.08)",
+    gold: "rgba(212,162,78,0.16)",
   };
 
   return (

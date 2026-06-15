@@ -357,7 +357,7 @@ export const founderStory = [
 
 export const footerColumns = [
   { title: "Product", links: ["How It Works", "What We Test", "Pricing", "Download App"] },
-  { title: "Partners", links: ["For Doctors", "For Nutritionists", "For Labs", "About Us", "Careers"] },
+  { title: "Partners", links: ["For Doctors", "For Nutritionists", "For Labs", "Foundation", "About Us", "Careers"] },
   { title: "Support", links: ["FAQ", "Contact", "WhatsApp", "Privacy Policy", "Terms of Service"] },
 ];
 

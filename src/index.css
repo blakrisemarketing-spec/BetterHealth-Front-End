@@ -36,3 +36,23 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Foundation landing page — IntersectionObserver scroll reveals (no JS animation library) */
+.fdn-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.fdn-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fdn-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
