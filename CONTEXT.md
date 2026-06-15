@@ -14,7 +14,7 @@ The project has undergone a major design system alignment (May 2026) and now ref
 - **Animations:** Framer Motion (Apple-style cubic-bezier, 300ms standard)
 - **SEO:** react-helmet-async
 - **Backend:** Supabase (waitlist signups)
-- **Deployment:** GitHub Pages with custom domain `betterhealth.africa`
+- **Deployment:** Hostinger (LiteSpeed) at `betterhealth.africa`. Hostinger builds the repo and serves `dist/`; SPA routing via `public/.htaccess`. Auto-deploys on push to `main`. (The `.github/workflows/deploy.yml` GitHub Pages workflow and the `npm run deploy` gh-pages script are legacy/dead from the pre-Hostinger era.)
 - **Repository:** `blakrisemarketing-spec/BetterHealth-Front-End`
 
 ---
@@ -114,9 +114,10 @@ The project has undergone a major design system alignment (May 2026) and now ref
 ### Design System Alignment
 - Full visual overhaul to match official BetterHealth Africa Design System (see Design System section above)
 
-### SPA Routing Fix
-- Fixed `404.html` and `index.html` redirect logic for GitHub Pages with custom domain
-- All routes now work on direct navigation
+### SPA Routing
+- SPA fallback on Hostinger/LiteSpeed is handled by `public/.htaccess` (serve real files/dirs, else `index.html`)
+- All routes work on direct navigation
+- `public/404.html` is a leftover GitHub Pages fallback and is unused on Hostinger
 
 ### Medical Advisory Board
 - Added real doctor photos: Dr. Delasy Gbekor, Dr. Afia Agyinsam Amponsah, Dr. Jumana

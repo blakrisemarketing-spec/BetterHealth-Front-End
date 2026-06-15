@@ -90,13 +90,14 @@ On failure the form shows an error with a `mailto:hello@betterhealth.africa` fal
 
 ## SEO / social sharing
 
-This is an SPA on GitHub Pages, so crawlers/social scrapers that don't run JS only see
-`index.html`'s (main-site) meta. To fix that for `/foundation`, `vite.config.js` has a
+This is an SPA served by Hostinger/LiteSpeed, so crawlers/social scrapers that don't run JS only
+see `index.html`'s (main-site) meta. To fix that for `/foundation`, `vite.config.js` has a
 `prerender-route-seo` plugin that writes `dist/foundation/index.html` at build time with the
 foundation-specific `<title>`, description, Open Graph/Twitter tags, canonical, and NGO JSON-LD
-baked in. GitHub Pages serves that file for `/foundation`. The share image is
-`public/foundation-og.jpg` (1200×630). Client-side, `Foundation.jsx`'s Helmet sets the same tags.
-To add another route's SEO, append to the `PRERENDER` array in `vite.config.js`.
+baked in. LiteSpeed serves that file as the directory index for `/foundation/` (the `.htaccess`
+SPA rewrite skips it because the directory exists). The share image is `public/foundation-og.jpg`
+(1200×630). Client-side, `Foundation.jsx`'s Helmet sets the same tags. To add another route's SEO,
+append to the `PRERENDER` array in `vite.config.js`.
 
 ## Remaining TODO integration points
 

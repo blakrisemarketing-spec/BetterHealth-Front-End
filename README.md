@@ -60,4 +60,4 @@ BetterHealth-Front-End/
 `blakrisemarketing-spec/BetterHealth-Front-End`
 
 **Live site:** [betterhealth.africa](https://betterhealth.africa)
-**Deployed via:** GitHub Pages with custom domain
+**Deployed via:** Hostinger (LiteSpeed) — auto-builds and serves `dist/` on push to `main`; SPA routing via `public/.htaccess`

@@ -5,10 +5,11 @@ import path from 'node:path'
 
 const SITE = 'https://www.betterhealth.africa'
 
-// Routes that need their own static <head> SEO. This is a single-page app on
-// GitHub Pages, so without a real per-route HTML file, crawlers and social
-// scrapers (which don't run JS) only ever see index.html's main-site meta tags.
-// This plugin writes dist/<route>/index.html with the correct title/description/
+// Routes that need their own static <head> SEO. This is a single-page app served
+// by Hostinger/LiteSpeed (which serves dist/<route>/index.html as a directory
+// index), so without a real per-route HTML file, crawlers and social scrapers
+// (which don't run JS) only ever see index.html's main-site meta tags. This
+// plugin writes dist/<route>/index.html with the correct title/description/
 // Open Graph/canonical/JSON-LD baked in, so shares and search show the right card.
 const PRERENDER = [
   {
