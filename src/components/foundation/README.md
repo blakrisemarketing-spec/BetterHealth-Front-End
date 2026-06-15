@@ -88,12 +88,21 @@ same backend the For Doctors / For Labs forms use (`VITE_PARTNER_API_URL`), whic
 
 On failure the form shows an error with a `mailto:hello@betterhealth.africa` fallback.
 
+## SEO / social sharing
+
+This is an SPA on GitHub Pages, so crawlers/social scrapers that don't run JS only see
+`index.html`'s (main-site) meta. To fix that for `/foundation`, `vite.config.js` has a
+`prerender-route-seo` plugin that writes `dist/foundation/index.html` at build time with the
+foundation-specific `<title>`, description, Open Graph/Twitter tags, canonical, and NGO JSON-LD
+baked in. GitHub Pages serves that file for `/foundation`. The share image is
+`public/foundation-og.jpg` (1200×630). Client-side, `Foundation.jsx`'s Helmet sets the same tags.
+To add another route's SEO, append to the `PRERENDER` array in `vite.config.js`.
+
 ## Remaining TODO integration points
 
 | File | What to connect |
 |---|---|
 | `forms.jsx` (SupportContent) | Donation provider (Paystack) for the "Donate" button |
-| `Foundation.jsx` (Helmet) | Real Open Graph image |
 
 Logo, contact email, phone, WhatsApp, social links, and the three forms are wired to the same
 infrastructure as the main BetterHealth Africa site — no placeholders.

@@ -84,22 +84,24 @@ export default function FoundationPage() {
   return (
     <div id="top" className="bg-base min-h-screen overflow-x-hidden font-inter text-text-primary">
       <Helmet>
-        <title>100 Healthy Years Foundation</title>
+        <title>100 Healthy Years Foundation — Free Health Screening in Ghana</title>
         <meta
           name="description"
-          content="The 100 Healthy Years Foundation brings free health screening to communities across Ghana, so the conditions that quietly steal good years get caught early. A BetterHealth Africa Foundation."
+          content="The 100 Healthy Years Foundation runs free community health screenings across Ghana, catching preventable conditions early. Volunteer, partner, or request a free screening for your community."
         />
         <link rel="canonical" href={FOUNDATION_URL} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={FOUNDATION_URL} />
-        <meta property="og:title" content="100 Healthy Years Foundation" />
+        <meta property="og:title" content="100 Healthy Years Foundation — Free Health Screening in Ghana" />
         <meta
           property="og:description"
-          content="Free health screening for communities across Ghana. We look early, so families don't pay later."
+          content="Free community health screening across Ghana. Volunteer, partner, or request a free screening for your community."
         />
-        {/* TODO: replace with a real foundation Open Graph image */}
-        <meta property="og:image" content="https://www.betterhealth.africa/foundation-og.png" />
+        <meta property="og:image" content="https://www.betterhealth.africa/foundation-og.jpg" />
         <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="100 Healthy Years Foundation — Free Health Screening in Ghana" />
+        <meta property="twitter:description" content="Free community health screening across Ghana. Volunteer, partner, or request a free screening for your community." />
+        <meta property="twitter:image" content="https://www.betterhealth.africa/foundation-og.jpg" />
       </Helmet>
       <StructuredData
         data={getMedicalWebPageSchema({
