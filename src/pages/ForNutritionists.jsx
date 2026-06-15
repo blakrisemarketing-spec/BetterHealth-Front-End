@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import {
   Apple,
   Activity,
@@ -419,29 +419,7 @@ function RegistrationForm() {
 export default function ForNutritionistsPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>For Nutritionists &amp; Dieticians — Partner with BetterHealth Africa</title>
-        <meta
-          name="description"
-          content="Register as a BetterHealth Africa nutrition partner. Receive client lab results digitally, refer clients for testing, earn from every referral, and build data-driven meal plans."
-        />
-        <link
-          rel="canonical"
-          href="https://www.betterhealth.africa/for-nutritionists"
-        />
-        <meta
-          property="og:url"
-          content="https://www.betterhealth.africa/for-nutritionists"
-        />
-        <meta
-          property="og:title"
-          content="For Nutritionists & Dieticians — Partner with BetterHealth Africa"
-        />
-        <meta
-          property="og:description"
-          content="Register as a BetterHealth Africa nutrition partner. Receive client lab results digitally, refer clients for testing, earn from every referral, and build data-driven meal plans."
-        />
-      </Helmet>
+      <Seo route="for-nutritionists" />
 
       <Nav />
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import {
   ArrowRight,
   HandHeart,
@@ -24,14 +24,11 @@ import {
   ScreeningRequestForm,
   ScreeningPartnerForm,
 } from "../components/foundation/forms";
-import StructuredData from "../components/StructuredData";
-import { getMedicalWebPageSchema } from "../components/structured-data";
 import heroScreening from "../assets/foundation/hero-screening.webp";
 import whatWeDoPhoto from "../assets/foundation/what-we-do.webp";
 import getInvolvedPhoto from "../assets/foundation/get-involved.webp";
 import proofScreening from "../assets/foundation/proof-screening.webp";
 
-const FOUNDATION_URL = "https://www.betterhealth.africa/foundation";
 
 const PILLARS = [
   {
@@ -83,35 +80,7 @@ export default function FoundationPage() {
 
   return (
     <div id="top" className="bg-base min-h-screen overflow-x-hidden font-inter text-text-primary">
-      <Helmet>
-        <title>100 Healthy Years Foundation — Free Health Screening in Ghana</title>
-        <meta
-          name="description"
-          content="The 100 Healthy Years Foundation runs free community health screenings across Ghana, catching preventable conditions early. Volunteer, partner, or request a free screening for your community."
-        />
-        <link rel="canonical" href={FOUNDATION_URL} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={FOUNDATION_URL} />
-        <meta property="og:title" content="100 Healthy Years Foundation — Free Health Screening in Ghana" />
-        <meta
-          property="og:description"
-          content="Free community health screening across Ghana. Volunteer, partner, or request a free screening for your community."
-        />
-        <meta property="og:image" content="https://www.betterhealth.africa/foundation-og.jpg" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="100 Healthy Years Foundation — Free Health Screening in Ghana" />
-        <meta property="twitter:description" content="Free community health screening across Ghana. Volunteer, partner, or request a free screening for your community." />
-        <meta property="twitter:image" content="https://www.betterhealth.africa/foundation-og.jpg" />
-      </Helmet>
-      <StructuredData
-        data={getMedicalWebPageSchema({
-          url: FOUNDATION_URL,
-          name: "100 Healthy Years Foundation",
-          description:
-            "The 100 Healthy Years Foundation brings free health screening to underserved communities across Ghana.",
-        })}
-      />
-
+      <Seo route="foundation" />
       <FoundationNav onSupport={openSupport} />
 
       <main>

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -145,14 +145,7 @@ export default function StoriesPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>Member Stories — BetterHealth Africa</title>
-        <meta name="description" content="Real stories from BetterHealth Africa members. See how early health screening helped Ghanaians take control of their health before symptoms appeared." />
-        <link rel="canonical" href="https://www.betterhealth.africa/stories" />
-        <meta property="og:url" content="https://www.betterhealth.africa/stories" />
-        <meta property="og:title" content="Member Stories — BetterHealth Africa" />
-        <meta property="og:description" content="Real stories from BetterHealth Africa members. See how early health screening helped Ghanaians take control of their health before symptoms appeared." />
-      </Helmet>
+      <Seo route="stories" />
       <Nav />
       <main>
 

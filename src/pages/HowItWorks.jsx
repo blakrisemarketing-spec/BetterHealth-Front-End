@@ -6,7 +6,7 @@ import {
   UserPlus, CalendarDays, BarChart3, Zap,
   FlaskConical, UserCheck, ShieldCheck, PackageCheck,
 } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
@@ -235,14 +235,7 @@ export default function HowItWorksPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>How It Works — BetterHealth Africa</title>
-        <meta name="description" content="Sign up, book a collection, and get your results in 48 hours. Learn how BetterHealth Africa makes comprehensive health screening simple and accessible." />
-        <link rel="canonical" href="https://www.betterhealth.africa/how-it-works" />
-        <meta property="og:url" content="https://www.betterhealth.africa/how-it-works" />
-        <meta property="og:title" content="How It Works — BetterHealth Africa" />
-        <meta property="og:description" content="Sign up, book a collection, and get your results in 48 hours. Learn how BetterHealth Africa makes comprehensive health screening simple and accessible." />
-      </Helmet>
+      <Seo route="how-it-works" />
       <Nav />
       <main>
 

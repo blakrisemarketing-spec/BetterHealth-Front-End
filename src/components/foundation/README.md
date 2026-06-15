@@ -91,14 +91,21 @@ On failure the form shows an error with a `mailto:hello@betterhealth.africa` fal
 ## SEO / social sharing
 
 This is an SPA served by Hostinger/LiteSpeed, so crawlers/social scrapers that don't run JS only
-see `index.html`'s (main-site) meta. The `prerender-route-seo` plugin in `vite.config.js` fixes
-this for **every** route in `src/data/seo.js` (`ROUTE_SEO`): at build time it writes
-`dist/<route>/index.html` with that route's `<title>`, description, Open Graph/Twitter tags,
-canonical, and (foundation only) NGO JSON-LD baked in. LiteSpeed serves each as the directory
-index (the `.htaccess` SPA rewrite skips it because the directory exists). The foundation share
-image is `public/foundation-og.jpg` (1200×630); other pages use the default `og-image.png`.
-Client-side, each page's `<Helmet>` sets the same tags. To add/adjust a route's SEO, edit
-`src/data/seo.js` — keep it in sync with that page's `<Helmet>`.
+see `index.html`'s (main-site) meta. **`src/data/seo.js` (`ROUTE_SEO`) is the single source of
+per-route SEO**, consumed by two things so they can never drift:
+
+- **Build time** — the `prerender-route-seo` plugin in `vite.config.js` writes
+  `dist/<route>/index.html` for every route with that route's `<title>`, description, Open
+  Graph/Twitter tags, canonical, and JSON-LD baked in. LiteSpeed serves each as the directory
+  index (the `.htaccess` SPA rewrite skips it because the directory exists).
+- **Client side** — every page renders `<Seo route="…" />` (`src/components/Seo.jsx`), which reads
+  the same `ROUTE_SEO` entry into its `<Helmet>`.
+
+To add/adjust a route's SEO, edit `src/data/seo.js` only. Structured data lives there too: FAQ
+(`FAQPage`, built from `faqSections` in `content.js`), Pricing (`Product`/`AggregateOffer` from
+`plans`), and Foundation (`NGO`). Per-page share images are `public/<route>-og.jpg` (1200×630, the
+six commercial pages + foundation); everything else uses `og-image.png`. `sitemap.xml` and
+`robots.txt` are in `public/`.
 
 ## Remaining TODO integration points
 

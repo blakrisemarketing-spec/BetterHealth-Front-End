@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import {
   FlaskConical,
   ClipboardCheck,
@@ -458,23 +458,7 @@ function RegistrationForm() {
 export default function ForLabsPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>For Labs — Free Lab Management Software | BetterHealth Africa</title>
-        <meta
-          name="description"
-          content="Replace your paper logs and spreadsheets with a full LIMS — free, forever. Instrument interfaces, automated QC, digital reporting, and access to the BetterHealth patient network."
-        />
-        <link rel="canonical" href="https://www.betterhealth.africa/for-labs" />
-        <meta property="og:url" content="https://www.betterhealth.africa/for-labs" />
-        <meta
-          property="og:title"
-          content="For Labs — Free Lab Management Software | BetterHealth Africa"
-        />
-        <meta
-          property="og:description"
-          content="Replace your paper logs and spreadsheets with a full LIMS — free, forever. Instrument interfaces, automated QC, digital reporting, and access to the BetterHealth patient network."
-        />
-      </Helmet>
+      <Seo route="for-labs" />
       <Nav />
       <main>
 

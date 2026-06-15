@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import {
   Stethoscope,
   Activity,
@@ -463,29 +463,7 @@ function RegistrationForm() {
 export default function ForDoctorsPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>For Doctors — Partner with BetterHealth Africa</title>
-        <meta
-          name="description"
-          content="Stop chasing lab results. BetterHealth delivers validated results directly to your dashboard, with full patient history, AI clinical notes, and referral income. Free to partner."
-        />
-        <link
-          rel="canonical"
-          href="https://www.betterhealth.africa/for-doctors"
-        />
-        <meta
-          property="og:url"
-          content="https://www.betterhealth.africa/for-doctors"
-        />
-        <meta
-          property="og:title"
-          content="For Doctors — Partner with BetterHealth Africa"
-        />
-        <meta
-          property="og:description"
-          content="Stop chasing lab results. BetterHealth delivers validated results directly to your dashboard, with full patient history, AI clinical notes, and referral income. Free to partner."
-        />
-      </Helmet>
+      <Seo route="for-doctors" />
 
       <Nav />
 

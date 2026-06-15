@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import { Link } from "react-router-dom";
 import { ArrowRight, ShieldCheck, Eye, Globe, ExternalLink } from "lucide-react";
 import Nav from "../components/Nav";
@@ -22,14 +22,7 @@ export default function AboutPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>About Us — BetterHealth Africa</title>
-        <meta name="description" content="Meet the team behind BetterHealth Africa. Our mission is to make proactive health screening accessible and affordable for every Ghanaian." />
-        <link rel="canonical" href="https://www.betterhealth.africa/about" />
-        <meta property="og:url" content="https://www.betterhealth.africa/about" />
-        <meta property="og:title" content="About Us — BetterHealth Africa" />
-        <meta property="og:description" content="Meet the team behind BetterHealth Africa. Our mission is to make proactive health screening accessible and affordable for every Ghanaian." />
-      </Helmet>
+      <Seo route="about" />
       <Nav />
       <main>
 

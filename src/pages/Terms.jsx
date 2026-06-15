@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
@@ -92,14 +92,7 @@ Violation of these terms may result in immediate account termination.`,
 export default function TermsPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>Terms of Service — BetterHealth Africa</title>
-        <meta name="description" content="Read BetterHealth Africa's Terms of Service. Understand your rights, our service commitments, and how we operate." />
-        <link rel="canonical" href="https://www.betterhealth.africa/terms" />
-        <meta property="og:url" content="https://www.betterhealth.africa/terms" />
-        <meta property="og:title" content="Terms of Service — BetterHealth Africa" />
-        <meta property="og:description" content="Read BetterHealth Africa's Terms of Service. Understand your rights, our service commitments, and how we operate." />
-      </Helmet>
+      <Seo route="terms" />
       <Nav />
       <main>
 

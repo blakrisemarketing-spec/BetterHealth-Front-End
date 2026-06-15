@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, Mail, Phone, Camera, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
@@ -226,14 +226,7 @@ function ContactForm() {
 export default function ContactPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>Contact Us — BetterHealth Africa</title>
-        <meta name="description" content="Get in touch with BetterHealth Africa via WhatsApp, email, or phone. We respond to most enquiries within 24 hours." />
-        <link rel="canonical" href="https://www.betterhealth.africa/contact" />
-        <meta property="og:url" content="https://www.betterhealth.africa/contact" />
-        <meta property="og:title" content="Contact Us — BetterHealth Africa" />
-        <meta property="og:description" content="Get in touch with BetterHealth Africa via WhatsApp, email, or phone. We respond to most enquiries within 24 hours." />
-      </Helmet>
+      <Seo route="contact" />
       <Nav />
       <main>
 

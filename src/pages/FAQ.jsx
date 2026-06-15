@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,175 +7,8 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
+import { faqSections as FAQ_SECTIONS } from "../data/content";
 
-const FAQ_SECTIONS = [
-  {
-    category: "Getting Started",
-    items: [
-      {
-        q: "What is BetterHealth?",
-        a: "BetterHealth is a health technology platform that gives you access to comprehensive blood testing (100+ biomarkers), organized by body system, with plain-language explanations and trend tracking over time. We partner with accredited labs across Ghana to process your samples and deliver your results to a personal health dashboard within 48–72 hours.",
-      },
-      {
-        q: "Who is BetterHealth for?",
-        a: "Any adult (18+) in Ghana who wants to understand their health proactively — not just when something goes wrong. Our members include young professionals monitoring their baseline health, couples planning families, people with family histories of chronic disease, fitness enthusiasts tracking performance, and anyone who is tired of guessing about their health.",
-      },
-      {
-        q: "Do I need a doctor's referral to use BetterHealth?",
-        a: "No. BetterHealth is a direct-to-consumer platform. You sign up, choose your plan, book your collection, and receive your results — all without a referral. If you would like to discuss your results with a doctor, our Premium plan includes a consultation, or you can share your downloadable PDF report with any healthcare provider.",
-      },
-      {
-        q: "Is BetterHealth a hospital or laboratory?",
-        a: "No. BetterHealth is a health technology company. We do not run labs — we partner with established, accredited laboratories in Ghana to process your samples. Our role is the technology platform, the health dashboard, the explanations, the tracking, and the experience.",
-      },
-      {
-        q: "Where is BetterHealth available?",
-        a: "We currently serve Greater Accra, Kumasi, and Tema. We are expanding to more Ghanaian cities throughout 2026 and plan to launch in Nigeria and Kenya in 2027.",
-      },
-    ],
-  },
-  {
-    category: "Testing & Collection",
-    items: [
-      {
-        q: "How does the blood test work?",
-        a: "After you sign up and choose your plan, you book a collection — either at one of our partner labs or via home collection. A certified phlebotomist draws a small blood sample (about 15–25 mL across 3–5 tubes). The sample is transported to the lab, processed, and your results appear in your dashboard within 48–72 hours.",
-      },
-      {
-        q: "Can I get my blood drawn at home?",
-        a: "Yes. Home collection is included free with Complete and Premium plans. Essential plan members can add home collection for GHS 50 per visit. A certified phlebotomist from Lab Access Ghana comes to your home at your scheduled time. Available Monday–Saturday, 6:00 AM – 12:00 PM.",
-      },
-      {
-        q: "Where are the partner labs located?",
-        a: "Our partner labs are located across Greater Accra, Kumasi, and Tema. When you book an in-lab collection, we will show you the nearest locations with available appointment slots. All partner labs are accredited and follow Ghana Health Service standards.",
-      },
-      {
-        q: "Do I need to fast before my test?",
-        a: "Some biomarkers require fasting — no food or drink (except water) for 8–12 hours before collection. When you book, we will tell you exactly which tests require fasting and send you preparation instructions via SMS. If your plan includes fasting markers, we recommend booking a morning slot.",
-      },
-      {
-        q: "How much blood is taken?",
-        a: "A comprehensive panel requires about 15–25 mL of blood across 3–5 tubes. That is roughly 1–2 tablespoons. Most people feel no effects afterward. If you are prone to dizziness, let your phlebotomist know — they will have you sit or lie down during and after the draw.",
-      },
-      {
-        q: "What if I am afraid of needles?",
-        a: "You are not alone — many people are. Our phlebotomists are experienced and trained to make the process as comfortable as possible. The draw takes about 60 seconds. If you are particularly anxious, let us know when you book and we will pair you with a collector experienced in working with needle-shy patients. Some members find that the home collection option feels less clinical and more comfortable than visiting a lab.",
-      },
-      {
-        q: "How are my samples handled after collection?",
-        a: "Every sample is labelled with a unique accession number, stored in temperature-controlled packaging, and transported to the lab within 2 hours of collection. We maintain a full chain of custody — from the moment the tube is drawn to the moment the result is reported. You can track your sample's status in your dashboard.",
-      },
-    ],
-  },
-  {
-    category: "Results & Dashboard",
-    items: [
-      {
-        q: "How long until I get my results?",
-        a: "Most results are available within 48–72 hours after your sample is collected. Priority members (Complete and Premium plans) typically receive results within 48 hours. You will get an SMS and email notification the moment your results are ready.",
-      },
-      {
-        q: "How do I access my results?",
-        a: "Log into your BetterHealth dashboard at app.betterhealth.africa using the same email and password you signed up with. Your results are organized by body system (Heart, Liver, Kidneys, Thyroid, Metabolic, Hormones, Blood, Nutrients) with colour-coded indicators and plain-language explanations.",
-      },
-      {
-        q: "What do the colours in my dashboard mean?",
-        a: "Green = healthy/optimal range. Your biomarker is where it should be.\nAmber = watch zone. Your biomarker is outside the optimal range but not yet critical. Monitor and consider lifestyle changes.\nRed = needs attention. Your biomarker is significantly outside the normal range. We recommend discussing this with a healthcare provider.",
-      },
-      {
-        q: "Can I download my results?",
-        a: "Yes. Every member can download a complete PDF report with all biomarker values, reference ranges, and status indicators. You can share this PDF with your doctor, keep it for your records, or print it.",
-      },
-      {
-        q: "What is the difference between \"normal\" and \"optimal\" ranges?",
-        a: "\"Normal\" ranges are based on population averages — they tell you whether you are within the range of what is common, not necessarily what is healthy. \"Optimal\" ranges are tighter and based on the latest research on disease prevention. BetterHealth shows you both, because being \"normal\" and being \"optimal\" are often two different things.",
-      },
-      {
-        q: "Can I share my results with my doctor?",
-        a: "Absolutely. Download your PDF report and bring it to any appointment. Many of our members use their BetterHealth reports as a starting point for conversations with their doctors. The report includes all biomarker values, reference ranges, and explanations — everything a doctor needs to review your results.",
-      },
-      {
-        q: "What if a result is critically abnormal?",
-        a: "If any result falls into a critical range, you will receive an immediate notification via SMS and in-app alert. Our system flags these for priority review. We strongly recommend consulting a healthcare provider promptly. Premium members can use their included doctor consultation for this purpose.",
-      },
-    ],
-  },
-  {
-    category: "Payment & Billing",
-    items: [
-      {
-        q: "What payment methods do you accept?",
-        a: "We accept Mobile Money (MTN MoMo, Vodafone Cash, AirtelTigo Money), debit and credit cards (Visa, Mastercard), and bank transfers. All payments are processed securely through Paystack, Ghana's leading payment platform.",
-      },
-      {
-        q: "How is billing structured?",
-        a: "All plans are billed annually (once per year). When you sign up, you pay for the full year upfront. Your subscription renews automatically after 12 months. We will send you a reminder email 14 days before renewal.",
-      },
-      {
-        q: "Can I cancel my subscription?",
-        a: "Yes. You can cancel at any time through your account settings. Cancellation takes effect at the end of your current billing period — you will retain access to your dashboard and results until then. No penalties, no cancellation fees.",
-      },
-      {
-        q: "Is there a satisfaction guarantee?",
-        a: "Yes. If you sign up and decide BetterHealth is not right for you within the first 14 days, we will refund your payment in full — no questions asked. This applies to your first subscription only.",
-      },
-      {
-        q: "Can I upgrade or downgrade my plan?",
-        a: "Yes. You can upgrade at any time — you will only pay the difference for the remainder of your billing cycle. Downgrades take effect at your next renewal date.",
-      },
-      {
-        q: "Do you offer family or group pricing?",
-        a: "Premium plan members receive 20% off for each additional family member they add. For corporate or group enquiries (10+ people), contact us at hello@betterhealth.africa for custom pricing.",
-      },
-      {
-        q: "Can I buy a single test without subscribing?",
-        a: "Yes. BetterHealth also offers individual tests and disease-specific panels (e.g., Diabetes Panel, Thyroid Panel) as one-time purchases — no subscription required. Visit the Tests page to browse available options.",
-      },
-    ],
-  },
-  {
-    category: "Privacy & Security",
-    items: [
-      {
-        q: "Is my health data secure?",
-        a: "Yes. Your health data is encrypted at rest and in transit using industry-standard protocols. We use Supabase for our data infrastructure, which provides enterprise-grade security, row-level access control, and encrypted storage.",
-      },
-      {
-        q: "Who can see my results?",
-        a: "Only you can see your results. No one at BetterHealth — including our staff — can access your individual health data without your explicit authorization. If you choose to share your results (e.g., with a doctor), you control that process.",
-      },
-      {
-        q: "Do you sell my data?",
-        a: "No. We will never sell, share, or monetize your personal health data. Your information is used solely to deliver your results and improve your experience on the platform.",
-      },
-      {
-        q: "What happens to my data if I cancel?",
-        a: "Your data remains in your account and is accessible to you even after cancellation. If you want your data permanently deleted, contact us at privacy@betterhealth.africa and we will process your request within 30 days.",
-      },
-    ],
-  },
-  {
-    category: "Medical Questions",
-    items: [
-      {
-        q: "Is BetterHealth a substitute for seeing a doctor?",
-        a: "No. BetterHealth provides health screening and monitoring — not diagnosis or treatment. If your results show something concerning, we recommend consulting a healthcare provider. Our Premium plan includes a doctor consultation call, and your downloadable PDF report can be shared with any doctor.",
-      },
-      {
-        q: "Are your tests accurate?",
-        a: "Yes. All samples are processed at accredited laboratories using the same equipment and methodologies as hospitals. Our partner labs follow quality control protocols including daily calibration, control sample testing, and proficiency testing programmes.",
-      },
-      {
-        q: "Can BetterHealth diagnose diseases?",
-        a: "BetterHealth screens for early indicators and risk factors — it does not provide medical diagnoses. If your results flag potential concerns, a healthcare provider can use your BetterHealth data alongside clinical examination to make a diagnosis. Think of us as the early warning system, not the emergency room.",
-      },
-      {
-        q: "Can I use BetterHealth while pregnant?",
-        a: "Yes, with your doctor's knowledge. Many biomarkers change during pregnancy, and our reference ranges may not reflect pregnancy-specific norms. We recommend discussing your results with your obstetrician or midwife, who can interpret them in the context of your pregnancy.",
-      },
-    ],
-  },
-];
 
 function FaqItem({ item }) {
   const [open, setOpen] = useState(false);
@@ -222,14 +55,7 @@ export default function FAQPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>FAQ — BetterHealth Africa</title>
-        <meta name="description" content="Answers to the most common questions about BetterHealth Africa — how it works, what we test, pricing, sample collection, and your results." />
-        <link rel="canonical" href="https://www.betterhealth.africa/faq" />
-        <meta property="og:url" content="https://www.betterhealth.africa/faq" />
-        <meta property="og:title" content="FAQ — BetterHealth Africa" />
-        <meta property="og:description" content="Answers to the most common questions about BetterHealth Africa — how it works, what we test, pricing, sample collection, and your results." />
-      </Helmet>
+      <Seo route="faq" />
       <Nav />
       <main>
 

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import { Link } from "react-router-dom";
 import { ArrowRight, Briefcase, MapPin } from "lucide-react";
 import Nav from "../components/Nav";
@@ -19,10 +19,7 @@ const OPEN_ROLES = [
 export default function CareersPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>Careers — BetterHealth Africa</title>
-        <meta name="description" content="Join the BetterHealth Africa team. We're building the future of proactive healthcare in Ghana. See open roles and our company values." />
-      </Helmet>
+      <Seo route="careers" />
       <Nav />
 
       {/* Hero */}

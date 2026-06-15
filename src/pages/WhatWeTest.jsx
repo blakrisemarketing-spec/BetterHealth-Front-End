@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -128,14 +128,7 @@ export default function WhatWeTestPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Helmet>
-        <title>What We Test — BetterHealth Africa</title>
-        <meta name="description" content="Explore 155 biomarkers across 17 body systems — heart, liver, kidneys, hormones, blood, immunity, metabolism, fertility, urine, stool, and more. Know your full health picture." />
-        <link rel="canonical" href="https://www.betterhealth.africa/what-we-test" />
-        <meta property="og:url" content="https://www.betterhealth.africa/what-we-test" />
-        <meta property="og:title" content="What We Test — BetterHealth Africa" />
-        <meta property="og:description" content="Explore 155 biomarkers across 17 body systems — heart, liver, kidneys, hormones, blood, immunity, metabolism, fertility, urine, stool, and more. Know your full health picture." />
-      </Helmet>
+      <Seo route="what-we-test" />
       <Nav />
       <main>
 

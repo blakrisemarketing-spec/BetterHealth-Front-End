@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
@@ -40,13 +40,7 @@ const FEATURES = [
 export default function DownloadAppPage() {
   return (
     <>
-      <Helmet>
-        <title>Download the App — BetterHealth Africa</title>
-        <meta
-          name="description"
-          content="Download the BetterHealth app for iOS and Android. Track your biomarkers, book collections, and take control of your health — all from your phone."
-        />
-      </Helmet>
+      <Seo route="download-app" />
 
       <Nav dark />
 
