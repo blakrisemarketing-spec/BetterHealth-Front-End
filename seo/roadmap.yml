@@ -1,0 +1,225 @@
+# SEO content & technical backlog — patients-led, Ghana-first.
+#
+# The nightly routine processes the FIRST item with `status: todo` (top-to-bottom),
+# so order = priority. After publishing, it flips the item to `status: done` and
+# records the date. Add new items at the right priority; never reorder `done` items.
+#
+# Item shape:
+#   - id:        stable unique id (used as idempotency key)
+#     type:      article | programmatic | technical | offsite
+#     cluster:   topic cluster (hub-and-spoke grouping)
+#     slug:      target /blog/<slug> (articles) or route (programmatic)
+#     keyword:   primary target query
+#     intent:    informational | commercial | local | transactional
+#     title:     working title
+#     status:    todo | done | in_progress
+#     notes:     optional brief pointer / context
+#
+# Clusters (hubs):
+#   biomarkers  -> "understand your biomarkers" hub (/what-we-test is the pillar)
+#   screening   -> "preventive screening in Ghana" hub (pillar article below)
+#   conditions  -> "conditions we catch early" hub
+#   local       -> city/region landing intent
+#   decision    -> cost / comparison / how-to-choose intent
+
+meta:
+  market: Ghana
+  primary_language: en-GH
+  focus: patients-led
+  updated: 2026-06-20
+
+items:
+  # ---- Published (foundation PR) ----
+  - id: art-hba1c-explained
+    type: article
+    cluster: biomarkers
+    slug: hba1c-explained
+    keyword: what is HbA1c
+    intent: informational
+    title: "What Is HbA1c? Your 3-Month Blood Sugar Average, Explained"
+    status: done
+    completed: 2026-06-20
+
+  - id: art-preventive-screening-ghana
+    type: article
+    cluster: screening
+    slug: preventive-health-screening-ghana
+    keyword: health screening Ghana
+    intent: commercial
+    title: "Preventive Health Screening in Ghana: What to Test and How Often"
+    status: done
+    completed: 2026-06-19
+
+  # ---- Next up: high-volume biomarker explainers (spokes) ----
+  - id: art-fasting-blood-sugar
+    type: article
+    cluster: biomarkers
+    slug: fasting-blood-sugar-explained
+    keyword: fasting blood sugar normal range
+    intent: informational
+    title: "Fasting Blood Sugar: Normal Range and What Your Result Means"
+    status: todo
+
+  - id: art-cholesterol-ldl-hdl
+    type: article
+    cluster: biomarkers
+    slug: ldl-hdl-cholesterol-explained
+    keyword: LDL vs HDL cholesterol
+    intent: informational
+    title: "LDL vs HDL Cholesterol: The Good, the Bad, and Your Numbers"
+    status: todo
+
+  - id: art-creatinine-egfr
+    type: article
+    cluster: biomarkers
+    slug: creatinine-egfr-kidney-function
+    keyword: creatinine test meaning
+    intent: informational
+    title: "Creatinine and eGFR: How to Read Your Kidney Function Test"
+    status: todo
+
+  - id: art-liver-function-tests
+    type: article
+    cluster: biomarkers
+    slug: liver-function-tests-explained
+    keyword: liver function test results explained
+    intent: informational
+    title: "Liver Function Tests (ALT, AST): What the Numbers Mean"
+    status: todo
+
+  - id: art-full-blood-count
+    type: article
+    cluster: biomarkers
+    slug: full-blood-count-explained
+    keyword: full blood count explained
+    intent: informational
+    title: "Full Blood Count (FBC): A Plain-Language Guide to Your Results"
+    status: todo
+
+  - id: art-thyroid-tsh
+    type: article
+    cluster: biomarkers
+    slug: thyroid-tsh-test-explained
+    keyword: TSH test meaning
+    intent: informational
+    title: "Thyroid Function and TSH: What Your Result Is Telling You"
+    status: todo
+
+  - id: art-vitamin-d
+    type: article
+    cluster: biomarkers
+    slug: vitamin-d-deficiency
+    keyword: vitamin D deficiency symptoms
+    intent: informational
+    title: "Vitamin D Deficiency: Symptoms, Testing, and What to Do"
+    status: todo
+
+  # ---- Condition guides (spokes feeding /what-we-test + stories) ----
+  - id: art-prediabetes
+    type: article
+    cluster: conditions
+    slug: prediabetes-warning-signs
+    keyword: prediabetes symptoms
+    intent: informational
+    title: "Prediabetes: The Warning Window Before Diabetes — and How to Use It"
+    status: todo
+
+  - id: art-hypertension-silent
+    type: article
+    cluster: conditions
+    slug: high-blood-pressure-silent-killer
+    keyword: high blood pressure symptoms
+    intent: informational
+    title: "High Blood Pressure in Ghana: Why It's Called the Silent Killer"
+    status: todo
+
+  - id: art-fatty-liver
+    type: article
+    cluster: conditions
+    slug: fatty-liver-disease-explained
+    keyword: fatty liver disease
+    intent: informational
+    title: "Fatty Liver Disease: Causes, Tests, and Reversal"
+    status: todo
+
+  - id: art-sickle-cell-trait
+    type: article
+    cluster: conditions
+    slug: sickle-cell-trait-testing
+    keyword: sickle cell trait test
+    intent: informational
+    title: "Sickle Cell Trait: Why Testing Matters Before You Start a Family"
+    status: todo
+
+  - id: art-anaemia-iron
+    type: article
+    cluster: conditions
+    slug: anaemia-iron-deficiency
+    keyword: iron deficiency anaemia symptoms
+    intent: informational
+    title: "Iron-Deficiency Anaemia: Signs, Tests, and Treatment"
+    status: todo
+
+  # ---- Decision / commercial intent ----
+  - id: art-cost-of-screening
+    type: article
+    cluster: decision
+    slug: cost-of-health-screening-ghana
+    keyword: cost of health screening in Ghana
+    intent: commercial
+    title: "How Much Does a Full Health Check Cost in Ghana?"
+    status: todo
+
+  - id: art-home-vs-lab
+    type: article
+    cluster: decision
+    slug: home-vs-lab-blood-test
+    keyword: home blood test Ghana
+    intent: commercial
+    title: "Home vs In-Lab Blood Tests: Which Is Right for You?"
+    status: todo
+
+  - id: art-full-body-checkup
+    type: article
+    cluster: screening
+    slug: full-body-checkup-guide
+    keyword: full body checkup
+    intent: commercial
+    title: "Full Body Checkup: What's Included and Who Needs One"
+    status: todo
+
+  # ---- Local landing intent (city pages) ----
+  - id: local-accra
+    type: article
+    cluster: local
+    slug: blood-test-accra
+    keyword: blood test Accra
+    intent: local
+    title: "Blood Tests and Health Screening in Accra: Your Options"
+    status: todo
+
+  - id: local-kumasi
+    type: article
+    cluster: local
+    slug: blood-test-kumasi
+    keyword: blood test Kumasi
+    intent: local
+    title: "Blood Tests and Health Screening in Kumasi: Your Options"
+    status: todo
+
+  # ---- Technical / GEO tasks (interleaved by the weekly routine) ----
+  - id: tech-og-images-blog
+    type: technical
+    keyword: n/a
+    intent: n/a
+    title: "Generate custom OG/social images for each blog article (seo-image-gen)"
+    status: todo
+    notes: "Articles currently fall back to /og-image.png; replace with per-article cards."
+
+  - id: tech-programmatic-biomarkers
+    type: technical
+    keyword: n/a
+    intent: n/a
+    title: "Build programmatic /biomarkers/<slug> layer from src/data/content.js (155 pages)"
+    status: todo
+    notes: "Same ROUTE_SEO mechanism as blog; one registry + one template page."
