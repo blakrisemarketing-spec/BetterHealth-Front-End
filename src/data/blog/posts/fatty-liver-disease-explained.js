@@ -9,7 +9,7 @@ export default {
   description:
     "Fatty liver disease is usually silent and found by accident on a blood test. Learn what causes it, what ALT, AST and GGT show, and what the evidence says about reversal.",
   excerpt:
-    "Most people with fatty liver disease find out by accident, when a routine blood test flags a raised liver enzyme. Here is what the result means, what causes it, and what can actually reverse it.",
+    "Most people with fatty liver disease find out by accident, when a routine blood test flags a raised liver enzyme. What the result means, what causes it, and what can reverse it.",
   datePublished: "2026-06-21",
   dateModified: "2026-06-21",
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
@@ -27,7 +27,7 @@ export default {
     },
     {
       type: "p",
-      text: "Fatty liver disease is one of the most common liver conditions in the world, and most people who have it feel nothing unusual. The diagnosis typically comes as a surprise, turned up on a blood test taken for something else entirely. That is both good news and a challenge: the condition can be caught before serious damage sets in, but it is easy to set aside a result that comes with no warning signs at all.",
+      text: "Fatty liver disease is one of the most common liver conditions in the world, and most people who have it feel nothing unusual. The diagnosis typically comes as a surprise, turned up on a blood test taken for something else entirely. That cuts two ways: the condition can be caught before serious damage sets in, but a result that arrives with no warning signs is easy to set aside.",
     },
     {
       type: "h2",
