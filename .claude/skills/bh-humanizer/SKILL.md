@@ -34,6 +34,13 @@ full pattern list); the rules below are the BetterHealth-specific layer.
    be confirmed". "You" beats "people".
 5. **Vary the rhythm.** Mix short and long sentences. Do not stack three
    same-length sentences or end every paragraph on a punchy one-liner.
+6. **Every copy field, not just body paragraphs.** Apply all of the above to the
+   `title`, `description`, `excerpt`, `imageAlt`, image `caption`s, `callout` titles,
+   `list` items, and `faq` Q&As, not only the `body` prose. The `excerpt` and
+   `description` are where tells slip through most often (written last, skimmed
+   first) and they are the most visible: the `excerpt` is the blog-card teaser and
+   the `description` is the Google/AI search snippet. Treat them with the same rigor
+   as the article body.
 
 ## Health-content guardrails (where this differs from generic de-slopping)
 
@@ -66,6 +73,10 @@ These are NOT AI slop and must stay. Do not "humanise" them away:
 ## Fast check before shipping any article
 
 - `grep` the article file for em dashes: there should be zero ` — ` in prose.
+- Re-read the `description` and `excerpt` fields on their own, line by line, for the
+  tells below ("Here is what", "actually", balanced "both X and a Y" openers). These
+  two meta fields are the easiest to overlook and the most visible. The fatty-liver
+  nightly run (2026-06) slipped all three of its tells through here, not in the body.
 - No "Here's what / it turns out / the truth is" openers.
 - No "not X, it's Y" reversals.
 - Adverbs like "actually / simply / really / genuinely" gone.

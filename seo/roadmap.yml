@@ -55,7 +55,8 @@ items:
     secondary: ["fatty liver symptoms (210)", "fatty liver symptoms in females (170)", "fatty liver causes (110)", "fatty liver diet (20)"]
     intent: informational
     title: "Fatty Liver Disease: Symptoms, Causes, Tests, and Reversal"
-    status: todo
+    status: done
+    completed: 2026-06-21
     notes: "Highest-volume term in the set, plus a rich cluster. Cover symptoms (incl. in women), causes, the liver tests that catch it (ALT/AST/GGT), and diet/reversal."
 
   - id: art-fasting-blood-sugar
