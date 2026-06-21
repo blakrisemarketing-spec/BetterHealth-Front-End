@@ -1,0 +1,251 @@
+# SEO content & technical backlog — patients-led, Ghana-first.
+#
+# The nightly routine processes the FIRST item with `status: todo` (top-to-bottom),
+# so order = priority. After publishing, it flips the item to `status: done` and
+# records the date. Add new items at the right priority; never reorder `done` items.
+#
+# Priority order below is DataForSEO-informed (Ghana monthly search volume, 2026-06).
+# `volume` = Ghana monthly searches for the primary keyword (null = no/low Google data;
+# still worth pursuing for long-tail + AI-citation value, just not a volume leader).
+#
+# Item shape:
+#   - id / type / cluster / slug / keyword / intent / title / status
+#   - volume:  Ghana monthly searches (DataForSEO), or null
+#   - secondary: extra terms the article should also cover
+#   - notes: brief pointer / context
+#
+# Clusters: biomarkers | screening | conditions | local | decision
+
+meta:
+  market: Ghana
+  primary_language: en-GH
+  focus: patients-led
+  updated: 2026-06-21
+  keyword_data: "DataForSEO, Ghana, 2026-06 (see seo/reports/keyword-research-2026-06.md)"
+
+items:
+  # ---- Published (foundation PR) — never reorder ----
+  - id: art-hba1c-explained
+    type: article
+    cluster: biomarkers
+    slug: hba1c-explained
+    keyword: hba1c test            # 590/mo; "hba1c normal range" 320/mo (article ranks for both)
+    intent: informational
+    title: "What Is HbA1c? Your 3-Month Blood Sugar Average, Explained"
+    status: done
+    completed: 2026-06-20
+
+  - id: art-preventive-screening-ghana
+    type: article
+    cluster: screening
+    slug: preventive-health-screening-ghana
+    keyword: health screening Ghana
+    intent: commercial
+    title: "Preventive Health Screening in Ghana: What to Test and How Often"
+    status: done
+    completed: 2026-06-19
+
+  # ---- High-volume targets first (data-driven) ----
+  - id: art-fatty-liver
+    type: article
+    cluster: conditions
+    slug: fatty-liver-disease-explained
+    keyword: fatty liver disease
+    volume: 1600
+    secondary: ["fatty liver symptoms (210)", "fatty liver symptoms in females (170)", "fatty liver causes (110)", "fatty liver diet (20)"]
+    intent: informational
+    title: "Fatty Liver Disease: Symptoms, Causes, Tests, and Reversal"
+    status: todo
+    notes: "Highest-volume term in the set, plus a rich cluster. Cover symptoms (incl. in women), causes, the liver tests that catch it (ALT/AST/GGT), and diet/reversal."
+
+  - id: art-fasting-blood-sugar
+    type: article
+    cluster: biomarkers
+    slug: fasting-blood-sugar-explained
+    keyword: fasting blood sugar normal range
+    volume: 1300
+    secondary: ["blood sugar test (110)", "diabetes test (50)"]
+    intent: informational
+    title: "Fasting Blood Sugar: Normal Range and What Your Result Means"
+    status: todo
+
+  - id: art-cholesterol-lipids
+    type: article
+    cluster: biomarkers
+    slug: lipid-profile-cholesterol-test
+    keyword: lipid profile test
+    volume: 1000
+    secondary: ["cholesterol test (140)", "LDL vs HDL cholesterol (10)"]
+    intent: informational
+    title: "Lipid Profile (Cholesterol) Test: How to Read Your Results"
+    status: todo
+    notes: "Retargeted from 'LDL vs HDL' (10/mo) to 'lipid profile test' (1000/mo). Cover total/LDL/HDL/triglycerides, ratios, and what's a healthy range."
+
+  - id: art-full-blood-count
+    type: article
+    cluster: biomarkers
+    slug: full-blood-count-explained
+    keyword: fbc test
+    volume: 1000
+    secondary: ["full blood count", "complete blood count"]
+    intent: informational
+    title: "Full Blood Count (FBC): A Plain-Language Guide to Your Results"
+    status: todo
+
+  - id: art-hypertension-silent
+    type: article
+    cluster: conditions
+    slug: high-blood-pressure-silent-killer
+    keyword: hypertension symptoms
+    volume: 480
+    secondary: ["high blood pressure symptoms"]
+    intent: informational
+    title: "High Blood Pressure in Ghana: Why It's Called the Silent Killer"
+    status: todo
+
+  - id: art-prediabetes
+    type: article
+    cluster: conditions
+    slug: prediabetes-warning-signs
+    keyword: prediabetes symptoms
+    volume: 70
+    intent: informational
+    title: "Prediabetes: The Warning Window Before Diabetes Develops"
+    status: todo
+
+  # ---- Lower volume, but strong topical / local relevance ----
+  - id: art-anaemia-iron
+    type: article
+    cluster: biomarkers
+    slug: ferritin-iron-anaemia
+    keyword: ferritin test
+    volume: 50
+    secondary: ["iron deficiency anaemia symptoms", "anaemia symptoms"]
+    intent: informational
+    title: "Ferritin and Iron: How to Read Your Anaemia Blood Tests"
+    status: todo
+    notes: "Retargeted from 'iron deficiency anaemia symptoms' (no data) to 'ferritin test' (50/mo)."
+
+  - id: art-vitamin-d
+    type: article
+    cluster: biomarkers
+    slug: vitamin-d-deficiency
+    keyword: vitamin d test
+    volume: 20
+    secondary: ["vitamin D deficiency symptoms"]
+    intent: informational
+    title: "Vitamin D Deficiency: Symptoms, Testing, and What to Do"
+    status: todo
+
+  - id: art-creatinine-egfr
+    type: article
+    cluster: biomarkers
+    slug: creatinine-egfr-kidney-function
+    keyword: creatinine test meaning
+    volume: 10
+    secondary: ["kidney function test", "egfr test"]
+    intent: informational
+    title: "Creatinine and eGFR: How to Read Your Kidney Function Test"
+    status: todo
+
+  - id: art-thyroid-tsh
+    type: article
+    cluster: biomarkers
+    slug: thyroid-tsh-test-explained
+    keyword: TSH test meaning
+    volume: 10
+    secondary: ["thyroid function test"]
+    intent: informational
+    title: "Thyroid Function and TSH: What Your Result Is Telling You"
+    status: todo
+
+  - id: art-liver-function-tests
+    type: article
+    cluster: biomarkers
+    slug: liver-function-tests-explained
+    keyword: liver function test results explained
+    volume: null
+    intent: informational
+    title: "Liver Function Tests (ALT, AST): What the Numbers Mean"
+    status: todo
+    notes: "Low standalone volume; mostly absorbed by the fatty-liver article. Keep as the dedicated ALT/AST/GGT explainer and internal-link the two."
+
+  - id: art-sickle-cell-trait
+    type: article
+    cluster: conditions
+    slug: sickle-cell-trait-testing
+    keyword: sickle cell trait test
+    volume: null
+    intent: informational
+    title: "Sickle Cell Trait: Why Testing Matters Before You Start a Family"
+    status: todo
+    notes: "Low search volume but high local relevance (1 in 4 Ghanaians carry the trait) and low competition. Strong AI-citation candidate."
+
+  # ---- Commercial / decision intent (low volume, high business value) ----
+  - id: art-cost-of-screening
+    type: article
+    cluster: decision
+    slug: cost-of-health-screening-ghana
+    keyword: cost of health screening in Ghana
+    volume: null
+    intent: commercial
+    title: "How Much Does a Full Health Check Cost in Ghana?"
+    status: todo
+
+  - id: art-full-body-checkup
+    type: article
+    cluster: screening
+    slug: full-body-checkup-guide
+    keyword: full body checkup
+    volume: null
+    intent: commercial
+    title: "Full Body Checkup: What's Included and Who Needs One"
+    status: todo
+
+  - id: art-home-vs-lab
+    type: article
+    cluster: decision
+    slug: home-vs-lab-blood-test
+    keyword: home blood test Ghana
+    volume: null
+    intent: commercial
+    title: "Home vs In-Lab Blood Tests: Which Is Right for You?"
+    status: todo
+
+  # ---- Local landing intent (low volume, low competition) ----
+  - id: local-accra
+    type: article
+    cluster: local
+    slug: blood-test-accra
+    keyword: blood test Accra
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Accra: Your Options"
+    status: todo
+
+  - id: local-kumasi
+    type: article
+    cluster: local
+    slug: blood-test-kumasi
+    keyword: blood test Kumasi
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Kumasi: Your Options"
+    status: todo
+
+  # ---- Technical / GEO tasks (interleaved by the weekly routine) ----
+  - id: tech-og-images-blog
+    type: technical
+    keyword: n/a
+    intent: n/a
+    title: "Generate custom OG/social images for each blog article (seo-image-gen)"
+    status: todo
+    notes: "Articles currently fall back to /og-image.png; replace with per-article cards."
+
+  - id: tech-programmatic-biomarkers
+    type: technical
+    keyword: n/a
+    intent: n/a
+    title: "Build programmatic /biomarkers/<slug> layer from src/data/content.js (127 pages)"
+    status: todo
+    notes: "Same ROUTE_SEO mechanism as blog; one registry + one template page."

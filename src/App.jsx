@@ -1,7 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import StructuredData from "./components/StructuredData";
-import { getOrganizationSchema } from "./components/structured-data";
 import { captureReferralFromUrl } from "./lib/partner-signup";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -15,6 +13,7 @@ const ContactPage = lazy(() => import("./pages/Contact"));
 const PrivacyPage = lazy(() => import("./pages/Privacy"));
 const TermsPage = lazy(() => import("./pages/Terms"));
 const BlogPage = lazy(() => import("./pages/Blog"));
+const BlogPostPage = lazy(() => import("./pages/BlogPost"));
 const CareersPage = lazy(() => import("./pages/Careers"));
 const DownloadAppPage = lazy(() => import("./pages/DownloadApp"));
 const ForLabsPage = lazy(() => import("./pages/ForLabs"));
@@ -53,7 +52,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <ReferralCapture />
-      <StructuredData data={getOrganizationSchema()} />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -67,6 +65,7 @@ export default function App() {
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/download-app" element={<DownloadAppPage />} />
           <Route path="/for-labs" element={<ForLabsPage />} />

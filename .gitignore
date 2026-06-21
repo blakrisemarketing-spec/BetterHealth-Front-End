@@ -8,6 +8,12 @@ dist/
 
 # Credentials — never commit
 credentials.md
+# SEO automation secrets (service-account keys, API key dumps)
+*service-account*.json
+*-sa.json
+*.pem
+*.key
+seo/**/secrets*
 
 # Allow hyperframes project dist (generated videos)
 !hyperframes-project/dist/

@@ -28,6 +28,7 @@ export default function ComparisonTable() {
               <span className="text-primary font-extrabold">GHS 6,250+</span> at a private hospital is{" "}
               <span className="text-primary font-extrabold">GHS 61/month</span> with BetterHealth Africa
             </p>
+            <p className="text-[12px] text-text-muted mt-2">BetterHealth prices exclude VAT.</p>
           </div>
         </Reveal>
 

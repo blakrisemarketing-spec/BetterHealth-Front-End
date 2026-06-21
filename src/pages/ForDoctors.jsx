@@ -66,7 +66,7 @@ const HOW_IT_WORKS = [
   {
     step: "01",
     title: "Refer your patient",
-    body: "Prescribe a test from BetterHealth's 155+ biomarker menu. Your patient books sample collection from home, office, or clinic — no paper form, no lab visit required.",
+    body: "Prescribe a test from BetterHealth's 127 biomarker menu. Your patient books sample collection from home, office, or clinic — no paper form, no lab visit required.",
   },
   {
     step: "02",
@@ -100,7 +100,7 @@ const FAQS = [
 ];
 
 const TRUST_STATS = [
-  { value: "155+", label: "Biomarkers available" },
+  { value: "127", label: "Biomarkers available" },
   { value: "4-eyes", label: "Clinical review on every result" },
   { value: "24 hrs", label: "Average turnaround" },
   { value: "Free", label: "To partner, forever" },

@@ -25,6 +25,7 @@ export default function Pricing() {
               <span className="text-primary font-extrabold">GHS 6,250+</span> at a private hospital is{" "}
               <span className="text-primary font-extrabold">GHS 61/month</span> with BetterHealth Africa
             </p>
+            <p className="text-[12px] text-text-muted mt-1.5">BetterHealth prices exclude VAT.</p>
           </div>
         </Reveal>
 
@@ -59,6 +60,7 @@ export default function Pricing() {
                     GHS {plan.price}
                   </span>
                   <span className="text-[15px] text-text-muted">/month</span>
+                  <span className="text-[12px] text-text-muted ml-1.5">excl. VAT</span>
                 </div>
 
                 {/* Per-day equivalent — DEFECT 6 */}

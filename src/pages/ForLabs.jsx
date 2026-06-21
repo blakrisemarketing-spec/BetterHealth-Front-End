@@ -112,7 +112,7 @@ const FAQS = [
 ];
 
 const TRUST_STATS = [
-  { value: "155+", label: "Biomarkers supported" },
+  { value: "127", label: "Biomarkers supported" },
   { value: "Free", label: "Forever — not a trial" },
   { value: "24 hrs", label: "To get your lab set up" },
   { value: "HL7 / ASTM", label: "Instrument interfaces" },

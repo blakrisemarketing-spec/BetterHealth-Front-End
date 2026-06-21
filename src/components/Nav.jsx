@@ -16,6 +16,26 @@ export default function Nav({ dark = false }) {
   const [partnersOpen, setPartnersOpen] = useState(false);
   const [partnersMobileOpen, setPartnersMobileOpen] = useState(false);
   const partnersRef = useRef(null);
+  const partnersCloseTimer = useRef(null);
+
+  const openPartners = () => {
+    if (partnersCloseTimer.current) {
+      clearTimeout(partnersCloseTimer.current);
+      partnersCloseTimer.current = null;
+    }
+    setPartnersOpen(true);
+  };
+
+  // Close on a short delay so a brief cursor excursion (e.g. travelling from the
+  // trigger toward the submenu) doesn't dismiss the menu before it's reached.
+  const closePartnersSoon = () => {
+    if (partnersCloseTimer.current) clearTimeout(partnersCloseTimer.current);
+    partnersCloseTimer.current = setTimeout(() => setPartnersOpen(false), 140);
+  };
+
+  useEffect(() => () => {
+    if (partnersCloseTimer.current) clearTimeout(partnersCloseTimer.current);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -125,8 +145,8 @@ export default function Nav({ dark = false }) {
             <div
               ref={partnersRef}
               className="relative"
-              onMouseEnter={() => setPartnersOpen(true)}
-              onMouseLeave={() => setPartnersOpen(false)}
+              onMouseEnter={openPartners}
+              onMouseLeave={closePartnersSoon}
             >
               <button
                 type="button"
@@ -150,28 +170,33 @@ export default function Nav({ dark = false }) {
               </button>
 
               {partnersOpen && (
-                <div
-                  role="menu"
-                  aria-label="Partner options"
-                  className="absolute right-0 top-full mt-2 w-[260px] bg-white border border-border rounded-card shadow-lg overflow-hidden z-50"
-                >
-                  {PARTNER_LINKS.map((p) => {
-                    const Icon = p.icon;
-                    return (
-                      <Link
-                        key={p.route}
-                        to={p.route}
-                        role="menuitem"
-                        onClick={() => setPartnersOpen(false)}
-                        className="flex items-center gap-3 px-4 py-3 text-sm text-text-primary font-medium hover:bg-section-alt hover:text-primary transition-colors no-underline border-b border-border last:border-b-0"
-                      >
-                        <span className="w-8 h-8 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
-                          <Icon size={16} className="text-primary" />
-                        </span>
-                        {p.label}
-                      </Link>
-                    );
-                  })}
+                // top-full + pt-2 (padding, not a margin) keeps the panel's hover
+                // area touching the trigger, so the cursor never crosses a dead gap
+                // that would dismiss the menu before reaching an item.
+                <div className="absolute right-0 top-full pt-2 w-[260px] z-50">
+                  <div
+                    role="menu"
+                    aria-label="Partner options"
+                    className="bg-white border border-border rounded-card shadow-lg overflow-hidden"
+                  >
+                    {PARTNER_LINKS.map((p) => {
+                      const Icon = p.icon;
+                      return (
+                        <Link
+                          key={p.route}
+                          to={p.route}
+                          role="menuitem"
+                          onClick={() => setPartnersOpen(false)}
+                          className="flex items-center gap-3 px-4 py-3 text-sm text-text-primary font-medium hover:bg-section-alt hover:text-primary transition-colors no-underline border-b border-border last:border-b-0"
+                        >
+                          <span className="w-8 h-8 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
+                            <Icon size={16} className="text-primary" />
+                          </span>
+                          {p.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               )}
             </div>

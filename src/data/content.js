@@ -1,7 +1,7 @@
 export const navLinks = ["How It Works", "What We Test", "Pricing", "About", "Stories"];
 
 export const heroStats = [
-  { value: "155", label: "Biomarkers" },
+  { value: "127", label: "Biomarkers" },
   { value: "Home", label: "Collection" },
   { value: "GHS 2", label: "Per day" },
 ];
@@ -214,7 +214,7 @@ export const testCategories = [
 ];
 
 export const comparisonRows = [
-  { feature: "100+ biomarkers in one visit", bh: true, hosp: false },
+  { feature: "127 biomarkers in one visit", bh: true, hosp: false },
   { feature: "Home sample collection", bh: true, hosp: false },
   { feature: "Plain-language explanations", bh: true, hosp: false },
   { feature: "Detect and prevent diseases", bh: true, hosp: false },
@@ -500,8 +500,8 @@ export const howItWorksPage = {
 export const whatWeTestPage = {
   hero: {
     eyebrow: "What We Test",
-    headline: "155 biomarkers. 17 body systems. One clear picture.",
-    subheadline: "A typical hospital checkup tests 10–15 markers. BetterHealth tests 155 — covering your heart, liver, kidneys, thyroid, metabolism, hormones, blood health, nutrition, fertility, urine, stool, and more. Every result is explained in plain language and tracked over time.",
+    headline: "127 biomarkers. 17 body systems. One clear picture.",
+    subheadline: "A typical hospital checkup tests 10–15 markers. BetterHealth tests 127 — covering your heart, liver, kidneys, thyroid, metabolism, hormones, blood health, nutrition, fertility, urine, stool, and more. Every result is explained in plain language and tracked over time.",
     cta: "Start Testing",
     intro: "Below you will find every body system we test, why it matters for your health, and the specific biomarkers included. Each plan covers a different depth — see the plan comparison at the bottom to understand which markers are included in your package.",
   },
@@ -662,7 +662,7 @@ export const whatWeTestPage = {
   },
   bottomCta: {
     headline: "See the full picture. Not just a glimpse.",
-    body: "A hospital checkup tests 10–15 markers and calls it comprehensive. BetterHealth tests 155 because your body deserves better than a sample.",
+    body: "A hospital checkup tests 10–15 markers and calls it comprehensive. BetterHealth tests 127 because your body deserves better than a sample.",
     cta: "Start Your Health Check",
   },
 };
@@ -936,7 +936,7 @@ export const pricingPage = {
     headline: "Invest in knowing \u2014 not in guessing.",
     subheadline: "What would cost GHS 6,250+ at a private hospital is a fraction of that with BetterHealth. No referrals, no hidden fees, no surprises. All plans include your health dashboard, results, and intelligent health insights.",
   },
-  valueAnchor: "A comprehensive health screen at a private hospital in Ghana costs between GHS 2,970 and GHS 6,250 - if they even offer all the tests. BetterHealth starts at GHS 2 per day.",
+  valueAnchor: "A comprehensive health screen at a private hospital in Ghana costs between GHS 2,970 and GHS 6,250 - if they even offer all the tests. BetterHealth starts at GHS 2 per day. Prices exclude VAT.",
   plans: [
     {
       name: "Essential",
@@ -1034,11 +1034,11 @@ export const pricingPage = {
     "14-Day Satisfaction Guarantee",
     "Cancel Anytime Before Renewal",
   ],
-  finePrint: "All plans are billed annually. Your subscription begins the day you sign up and renews automatically after 12 months. You can cancel at any time before renewal \u2014 no penalties, no questions. If you\u2019re not satisfied within the first 14 days (before your first test), we\u2019ll refund you in full.",
+  finePrint: "Prices exclude VAT. All plans are billed annually. Your subscription begins the day you sign up and renews automatically after 12 months. You can cancel at any time before renewal \u2014 no penalties, no questions. If you\u2019re not satisfied within the first 14 days (before your first test), we\u2019ll refund you in full.",
   comparison: {
     headline: "Compare plans at a glance",
     rows: [
-      { feature: "Biomarkers tested", essential: "67+", complete: "100+", premium: "155" },
+      { feature: "Biomarkers tested", essential: "67+", complete: "100+", premium: "127" },
       { feature: "Screenings per year", essential: "2", complete: "2", premium: "3" },
       { feature: "Home collection", essential: "Add-on", complete: "Add-on", premium: "Included" },
       { feature: "Organ system dashboard", essential: true, complete: true, premium: true },
@@ -1074,7 +1074,7 @@ export const pricingPage = {
       { test: "Nutritional plan", hospital: "GHS 1,500\u20133,500", bh: "Offered twice" },
       { test: "Estimated total", hospital: "GHS 2,970\u20136,250", bh: "GHS 1,953/year", isTotals: true },
     ],
-    footnote: "BetterHealth gives you more health insights for a fraction of the cost from traditional hospitals.",
+    footnote: "BetterHealth gives you more health insights for a fraction of the cost from traditional hospitals. BetterHealth prices exclude VAT.",
   },
   singleTests: {
     headline: "Not ready for a subscription? Start with a disease panel.",
@@ -1088,7 +1088,7 @@ export const pricingPage = {
       { name: "PCOS Tracker", price: "Coming soon" },
     ],
     cta: "Browse All Tests",
-    note: "Individual test prices vary by location. Home collection is available as an add-on from GHS 150.",
+    note: "Prices exclude VAT. Individual test prices vary by location. Home collection is available as an add-on from GHS 150.",
   },
   faqs: [
     {
@@ -1138,7 +1138,7 @@ export const faqSections = [
     items: [
       {
         q: "What is BetterHealth?",
-        a: "BetterHealth is a health technology platform that gives you access to comprehensive blood testing (100+ biomarkers), organized by body system, with plain-language explanations and trend tracking over time. We partner with accredited labs across Ghana to process your samples and deliver your results to a personal health dashboard within 48–72 hours.",
+        a: "BetterHealth is a health technology platform that gives you access to comprehensive blood testing (127 biomarkers), organized by body system, with plain-language explanations and trend tracking over time. We partner with accredited labs across Ghana to process your samples and deliver your results to a personal health dashboard within 48–72 hours.",
       },
       {
         q: "Who is BetterHealth for?",

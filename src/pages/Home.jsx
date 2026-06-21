@@ -25,7 +25,7 @@ export default function Home() {
     <div className="bg-base min-h-screen overflow-x-hidden">
       <Helmet>
         <title>BetterHealth Africa — Know Your Health Before Symptoms Appear</title>
-        <meta name="description" content="Comprehensive lab testing with 100+ biomarkers, personalized health insights, and home sample collection across Ghana. Starting from GHS 8/day." />
+        <meta name="description" content="Comprehensive lab testing with 127 biomarkers, personalized health insights, and home sample collection across Ghana. Starting from GHS 2/day." />
       </Helmet>
       <Nav />
       <main>
