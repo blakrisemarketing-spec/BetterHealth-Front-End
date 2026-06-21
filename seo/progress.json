@@ -1,10 +1,13 @@
 {
-  "lastRunDate": "2026-06-20",
+  "lastRunDate": "2026-06-21",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana"
   ],
+  "manuallyPublished": [
+    "preventable-diseases-preventive-healthcare-ghana"
+  ],
   "inFlightPRs": [],
-  "publishedCount": 2,
-  "notes": "Foundation PR established the pipeline. Next todo item: art-fasting-blood-sugar."
+  "publishedCount": 3,
+  "notes": "Roadmap reprioritized 2026-06-21 from live DataForSEO Ghana volume (see seo/reports/keyword-research-2026-06.md). Next todo item: art-fatty-liver (fatty liver disease, 1600/mo). Brief ready at seo/briefs/fatty-liver-disease-explained.md."
 }
