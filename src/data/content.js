@@ -1,7 +1,7 @@
 export const navLinks = ["How It Works", "What We Test", "Pricing", "About", "Stories"];
 
 export const heroStats = [
-  { value: "155", label: "Biomarkers" },
+  { value: "127", label: "Biomarkers" },
   { value: "Home", label: "Collection" },
   { value: "GHS 2", label: "Per day" },
 ];
@@ -214,7 +214,7 @@ export const testCategories = [
 ];
 
 export const comparisonRows = [
-  { feature: "100+ biomarkers in one visit", bh: true, hosp: false },
+  { feature: "127 biomarkers in one visit", bh: true, hosp: false },
   { feature: "Home sample collection", bh: true, hosp: false },
   { feature: "Plain-language explanations", bh: true, hosp: false },
   { feature: "Detect and prevent diseases", bh: true, hosp: false },
@@ -500,8 +500,8 @@ export const howItWorksPage = {
 export const whatWeTestPage = {
   hero: {
     eyebrow: "What We Test",
-    headline: "155 biomarkers. 17 body systems. One clear picture.",
-    subheadline: "A typical hospital checkup tests 10–15 markers. BetterHealth tests 155 — covering your heart, liver, kidneys, thyroid, metabolism, hormones, blood health, nutrition, fertility, urine, stool, and more. Every result is explained in plain language and tracked over time.",
+    headline: "127 biomarkers. 17 body systems. One clear picture.",
+    subheadline: "A typical hospital checkup tests 10–15 markers. BetterHealth tests 127 — covering your heart, liver, kidneys, thyroid, metabolism, hormones, blood health, nutrition, fertility, urine, stool, and more. Every result is explained in plain language and tracked over time.",
     cta: "Start Testing",
     intro: "Below you will find every body system we test, why it matters for your health, and the specific biomarkers included. Each plan covers a different depth — see the plan comparison at the bottom to understand which markers are included in your package.",
   },
@@ -662,7 +662,7 @@ export const whatWeTestPage = {
   },
   bottomCta: {
     headline: "See the full picture. Not just a glimpse.",
-    body: "A hospital checkup tests 10–15 markers and calls it comprehensive. BetterHealth tests 155 because your body deserves better than a sample.",
+    body: "A hospital checkup tests 10–15 markers and calls it comprehensive. BetterHealth tests 127 because your body deserves better than a sample.",
     cta: "Start Your Health Check",
   },
 };
@@ -1038,7 +1038,7 @@ export const pricingPage = {
   comparison: {
     headline: "Compare plans at a glance",
     rows: [
-      { feature: "Biomarkers tested", essential: "67+", complete: "100+", premium: "155" },
+      { feature: "Biomarkers tested", essential: "67+", complete: "100+", premium: "127" },
       { feature: "Screenings per year", essential: "2", complete: "2", premium: "3" },
       { feature: "Home collection", essential: "Add-on", complete: "Add-on", premium: "Included" },
       { feature: "Organ system dashboard", essential: true, complete: true, premium: true },
@@ -1138,7 +1138,7 @@ export const faqSections = [
     items: [
       {
         q: "What is BetterHealth?",
-        a: "BetterHealth is a health technology platform that gives you access to comprehensive blood testing (100+ biomarkers), organized by body system, with plain-language explanations and trend tracking over time. We partner with accredited labs across Ghana to process your samples and deliver your results to a personal health dashboard within 48–72 hours.",
+        a: "BetterHealth is a health technology platform that gives you access to comprehensive blood testing (127 biomarkers), organized by body system, with plain-language explanations and trend tracking over time. We partner with accredited labs across Ghana to process your samples and deliver your results to a personal health dashboard within 48–72 hours.",
       },
       {
         q: "Who is BetterHealth for?",

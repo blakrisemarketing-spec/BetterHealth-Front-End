@@ -57,7 +57,7 @@ export default function WhatWeTest() {
               What We Test
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
-              155 biomarkers across{" "}
+              127 biomarkers across{" "}
               <span className="italic text-primary tracking-normal">
                 17 body systems
               </span>

@@ -104,7 +104,7 @@ export default {
     {
       type: "link-internal",
       to: "/what-we-test",
-      label: "See the 155 biomarkers BetterHealth tests",
+      label: "See the 127 biomarkers BetterHealth tests",
     },
     {
       type: "faq",

@@ -50,6 +50,6 @@ grow this substantially over the program.
 ## Known gaps / next priorities
 
 1. Per-article OG images (currently fall back to default) — `tech-og-images-blog`.
-2. Programmatic `/biomarkers/<slug>` layer (155 pages) — `tech-programmatic-biomarkers`.
+2. Programmatic `/biomarkers/<slug>` layer (127 pages) — `tech-programmatic-biomarkers`.
 3. Off-site authority: directory citations + digital PR (see `seo/offsite/`).
-4. Homepage meta says "127+ biomarkers" while content says 155 — align messaging.
+4. Resolved 2026-06-21: biomarker count standardized to **127** and pricing to **GHS 2/day** site-wide.

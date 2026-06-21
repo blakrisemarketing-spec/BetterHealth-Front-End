@@ -14,7 +14,7 @@ export default function Waitlist() {
       <div className="bg-base min-h-screen">
         <Helmet>
           <title>Join the Waitlist — BetterHealth Africa</title>
-          <meta name="description" content="Be the first to access comprehensive lab testing with 100+ biomarkers, personalized health insights, and home sample collection in Ghana." />
+          <meta name="description" content="Be the first to access comprehensive lab testing with 127 biomarkers, personalized health insights, and home sample collection in Ghana." />
         </Helmet>
         <Nav />
         <main>
@@ -32,7 +32,7 @@ export default function Waitlist() {
 
               <Reveal delay={0.1}>
                 <p className="text-lg leading-relaxed text-text-secondary mb-10 max-w-[480px] mx-auto font-body">
-                  Join 200+ Ghanaians already on the waitlist. Be the first to know when BetterHealth Africa launches — comprehensive lab testing with 100+ biomarkers, starting from GHS 2/day.
+                  Join 200+ Ghanaians already on the waitlist. Be the first to know when BetterHealth Africa launches — comprehensive lab testing with 127 biomarkers, starting from GHS 2/day.
                 </p>
               </Reveal>
 

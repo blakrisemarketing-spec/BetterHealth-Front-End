@@ -220,6 +220,6 @@ items:
     type: technical
     keyword: n/a
     intent: n/a
-    title: "Build programmatic /biomarkers/<slug> layer from src/data/content.js (155 pages)"
+    title: "Build programmatic /biomarkers/<slug> layer from src/data/content.js (127 pages)"
     status: todo
     notes: "Same ROUTE_SEO mechanism as blog; one registry + one template page."

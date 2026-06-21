@@ -16,7 +16,7 @@ const SECTIONS = [
     title: "3. Our Service",
     body: `BetterHealth Africa provides:
 
-- Comprehensive blood screening with 100+ biomarkers via accredited partner laboratories
+- Comprehensive blood screening with 127 biomarkers via accredited partner laboratories
 - A personal health dashboard showing your results, trends, and AI-assisted insights
 - Home sample collection scheduling and logistics
 - Health education content and personalised recommendations

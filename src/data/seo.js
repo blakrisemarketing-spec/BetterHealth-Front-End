@@ -101,7 +101,7 @@ const RAW_ROUTE_SEO = {
   "what-we-test": {
     title: "What We Test — BetterHealth Africa",
     description:
-      "Explore 155 biomarkers across 17 body systems — heart, liver, kidneys, hormones, blood, immunity, metabolism, fertility, urine, stool, and more. Know your full health picture.",
+      "Explore 127 biomarkers across 17 body systems — heart, liver, kidneys, hormones, blood, immunity, metabolism, fertility, urine, stool, and more. Know your full health picture.",
     image: `${SITE_URL}/what-we-test-og.jpg`,
   },
   stories: {
@@ -119,7 +119,7 @@ const RAW_ROUTE_SEO = {
   pricing: {
     title: "Pricing — BetterHealth Africa",
     description:
-      "Flexible health screening plans starting from GHS 8/day. Choose the right plan for your health goals — individual, family, or enterprise.",
+      "Flexible health screening plans starting from GHS 2/day. Choose the right plan for your health goals — individual, family, or enterprise.",
     image: `${SITE_URL}/pricing-og.jpg`,
     jsonld: [PRICING_JSONLD],
   },

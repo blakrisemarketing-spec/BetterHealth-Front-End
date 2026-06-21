@@ -68,7 +68,7 @@ export default function Hero() {
 
           <Reveal delay={0.2}>
             <p className="text-lg leading-[1.7] text-text-secondary max-w-[520px] mb-8 font-body">
-              Comprehensive lab testing with 100+ biomarkers, personalized health insights, and home sample collection. Starting from GHS 2/day.
+              Comprehensive lab testing with 127 biomarkers, personalized health insights, and home sample collection. Starting from GHS 2/day.
             </p>
           </Reveal>
 
@@ -101,8 +101,8 @@ export default function Hero() {
               {heroStats.map((stat, i) => (
                 <div key={i} className="flex flex-col">
                   <span className="text-xl sm:text-[28px] font-extrabold text-text-primary font-heading tracking-tight">
-                    {stat.value === "155" ? (
-                      <CountUp end={155} />
+                    {stat.value === "127" ? (
+                      <CountUp end={127} />
                     ) : (
                       stat.value
                     )}

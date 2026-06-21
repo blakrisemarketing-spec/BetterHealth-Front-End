@@ -146,7 +146,7 @@ export default function WhatWeTestPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               <span className="text-primary">
-                155 biomarkers.
+                127 biomarkers.
               </span>{" "}
               17 body systems.{" "}
               <span className="italic">One clear picture.</span>

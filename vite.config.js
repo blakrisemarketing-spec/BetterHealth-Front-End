@@ -52,7 +52,7 @@ function buildLlmsTxt() {
   return [
     '# BetterHealth Africa',
     '',
-    '> Affordable, comprehensive preventive health screening in Ghana — 155 biomarkers across 17 body systems, home or in-lab sample collection, and results in about 48 hours. BetterHealth helps Ghanaians catch conditions like diabetes, hypertension, kidney and liver disease before symptoms appear.',
+    '> Affordable, comprehensive preventive health screening in Ghana — 127 biomarkers across 17 body systems, home or in-lab sample collection, and results in about 48 hours. BetterHealth helps Ghanaians catch conditions like diabetes, hypertension, kidney and liver disease before symptoms appear.',
     '',
     '## Pages',
     ...pages.map(line),
@@ -70,7 +70,7 @@ function buildLlmsFullTxt() {
   const out = [
     '# BetterHealth Africa — Full Content',
     '',
-    'Affordable, comprehensive preventive health screening in Ghana. 155 biomarkers across 17 body systems, home or in-lab sample collection, results in about 48 hours.',
+    'Affordable, comprehensive preventive health screening in Ghana. 127 biomarkers across 17 body systems, home or in-lab sample collection, results in about 48 hours.',
     '',
     '## Site pages',
     '',
