@@ -2,12 +2,13 @@
   "lastRunDate": "2026-06-21",
   "completed": [
     "art-hba1c-explained",
-    "art-preventive-screening-ghana"
+    "art-preventive-screening-ghana",
+    "art-fatty-liver"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "inFlightPRs": [],
-  "publishedCount": 3,
-  "notes": "Roadmap reprioritized 2026-06-21 from live DataForSEO Ghana volume (see seo/reports/keyword-research-2026-06.md). Next todo item: art-fatty-liver (fatty liver disease, 1600/mo). Brief ready at seo/briefs/fatty-liver-disease-explained.md."
+  "publishedCount": 4,
+  "notes": "art-fatty-liver published 2026-06-21 (fatty liver disease, 1600/mo Ghana). Next todo item: art-fasting-blood-sugar (fasting blood sugar normal range, 1300/mo). Brief not yet written."
 }

@@ -6,11 +6,13 @@
 import hba1cExplained from "./posts/hba1c-explained.js";
 import preventiveHealthScreeningGhana from "./posts/preventive-health-screening-ghana.js";
 import preventableDiseasesGhana from "./posts/preventable-diseases-preventive-healthcare-ghana.js";
+import fattyLiverDiseaseExplained from "./posts/fatty-liver-disease-explained.js";
 
 const ALL = [
   hba1cExplained,
   preventiveHealthScreeningGhana,
   preventableDiseasesGhana,
+  fattyLiverDiseaseExplained,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically
