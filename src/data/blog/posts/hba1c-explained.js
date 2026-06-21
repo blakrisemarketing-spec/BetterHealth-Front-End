@@ -1,15 +1,14 @@
 // Patients-led biomarker explainer (cluster: "understand your biomarkers").
-// Citability note: each h2 section opens with a self-contained claim sentence so
-// AI engines can lift a single passage as an answer. Ranges are the
-// widely-accepted WHO/ADA thresholds; the Ghana-specific accuracy caveat
-// (haemoglobin variants) is what differentiates this from generic content.
+// Voice: plain, human, no em dashes (run through the bh-humanizer pass). Ranges
+// are the widely-accepted WHO/ADA thresholds; the Ghana-specific haemoglobin-variant
+// caveat is what sets this apart from generic content.
 export default {
   slug: "hba1c-explained",
   title: "What Is HbA1c? Your 3-Month Blood Sugar Average, Explained",
   description:
-    "HbA1c shows your average blood sugar over the past 2–3 months. Learn what the numbers mean — normal, prediabetes and diabetes ranges — and a caveat that matters in Ghana.",
+    "HbA1c shows your average blood sugar over the past two to three months. Learn what the normal, prediabetes and diabetes ranges mean, and a caveat that matters in Ghana.",
   excerpt:
-    "HbA1c is the single number that tells you how your blood sugar has behaved for the last 2–3 months — not just today. Here is what the result means, and one reason it can mislead in Ghana.",
+    "HbA1c is the one number that tells you how your blood sugar has behaved for the last two to three months, not just today. What your result means, and one reason it can mislead in Ghana.",
   datePublished: "2026-06-20",
   dateModified: "2026-06-20",
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
@@ -21,21 +20,26 @@ export default {
   readingMinutes: 6,
   body: [
     {
+      type: "image",
+      src: "/blog/hba1c-hero.svg",
+      alt: "HbA1c explained: your average blood sugar over about 90 days, not just today.",
+    },
+    {
       type: "p",
-      text: "HbA1c is one of the most useful numbers on a blood test, because it shows how your blood sugar has behaved over the past two to three months rather than at a single moment. If you have ever wondered whether your sugar levels are quietly drifting toward diabetes, this is the test that answers it.",
+      text: "HbA1c is one of the most useful numbers on a blood test. It shows how your blood sugar has behaved over the past two to three months, not just at the moment the needle goes in. If you want to know whether your sugar is creeping toward diabetes before you feel anything, this is the number to look at.",
     },
     {
       type: "h2",
       id: "what-it-measures",
-      text: "What HbA1c actually measures",
+      text: "What HbA1c measures",
     },
     {
       type: "p",
-      text: "HbA1c measures the percentage of your haemoglobin — the protein in red blood cells that carries oxygen — that has glucose attached to it. The more sugar circulating in your blood over time, the more of it sticks to your haemoglobin, so a higher HbA1c means a higher average blood sugar.",
+      text: "Haemoglobin is the protein in your red blood cells that carries oxygen. HbA1c measures how much of that haemoglobin has glucose stuck to it. The more sugar in your blood over time, the more of it sticks, so a higher HbA1c means a higher average blood sugar.",
     },
     {
       type: "p",
-      text: "Because red blood cells live for about three to four months, HbA1c reflects your average glucose over roughly that period. This is why it is not affected by what you ate this morning — and why you do not need to fast before the test.",
+      text: "Red blood cells live for about three to four months, so HbA1c reflects your average glucose over roughly that period. That is why breakfast this morning does not move the result, and why you do not need to fast before the test.",
     },
     {
       type: "h2",
@@ -44,20 +48,26 @@ export default {
     },
     {
       type: "p",
-      text: "Most laboratories and the World Health Organization use three bands to read an HbA1c result, reported as a percentage:",
+      text: "Labs and the World Health Organization read an HbA1c result, given as a percentage, in three bands:",
     },
     {
       type: "list",
       items: [
         "Normal: below 5.7%",
-        "Prediabetes: 5.7% to 6.4% — blood sugar is higher than ideal but not yet in the diabetes range",
+        "Prediabetes: 5.7% to 6.4%. Sugar is higher than ideal but not yet in the diabetes range.",
         "Diabetes: 6.5% or higher, usually confirmed on a second test",
       ],
     },
     {
+      type: "image",
+      src: "/blog/hba1c-ranges.svg",
+      alt: "HbA1c result bands: normal below 5.7%, prediabetes 5.7% to 6.4%, and diabetes 6.5% and above.",
+      caption: "The three HbA1c bands, using the WHO/ADA thresholds.",
+    },
+    {
       type: "callout",
-      title: "One high result is not a diagnosis",
-      text: "A single raised HbA1c should be confirmed with a repeat test, and interpreted alongside your symptoms and history by a clinician. Prediabetes in particular is a warning sign, not a sentence — it can often be improved with changes to diet, activity and weight.",
+      title: "One high result isn't a diagnosis",
+      text: "One raised HbA1c is not a diagnosis on its own. A clinician should confirm it with a repeat test and read it alongside your symptoms and history. Prediabetes is a warning worth acting on, and many people bring their numbers back down with changes to diet, activity and weight.",
     },
     {
       type: "h2",
@@ -66,7 +76,7 @@ export default {
     },
     {
       type: "p",
-      text: "A one-off fasting glucose test is a snapshot, while HbA1c is the trend. Your sugar can read normal on the morning of a test and still be high on most other days. Because diabetes often develops silently over years, the average that HbA1c captures is a far better early-warning signal than any single reading.",
+      text: "A single fasting glucose test is a snapshot. HbA1c is the trend. Your sugar can read fine on the morning of a test and still run high on most other days. Diabetes builds up over years without symptoms, so the average HbA1c captures gives you a better early warning than any one reading.",
     },
     {
       type: "h2",
@@ -75,11 +85,11 @@ export default {
     },
     {
       type: "p",
-      text: "HbA1c can read falsely high or low in people with certain blood conditions that are common in Ghana. Sickle cell trait, sickle cell disease, other haemoglobin variants and iron-deficiency anaemia all change how long red blood cells survive, which distorts the HbA1c calculation. Around one in four Ghanaians carries the sickle cell trait.",
+      text: "HbA1c can read falsely high or low in people with certain blood conditions that are common in Ghana. Sickle cell trait, sickle cell disease, other haemoglobin variants and iron-deficiency anaemia all change how long red blood cells survive, which throws off the HbA1c calculation. Around one in four Ghanaians carries the sickle cell trait.",
     },
     {
       type: "p",
-      text: "This does not make the test useless — it means the result should be interpreted by a clinician who knows your blood picture. Where HbA1c is unreliable, alternatives such as a fasting glucose test, an oral glucose tolerance test, or fructosamine can be used instead.",
+      text: "That does not make the test useless. It means a clinician who knows your blood picture should read the result. Where HbA1c is unreliable, a fasting glucose test, an oral glucose tolerance test, or a fructosamine test can stand in.",
     },
     {
       type: "h2",
@@ -90,23 +100,23 @@ export default {
       type: "list",
       ordered: true,
       items: [
-        "Write the number down and keep it — trends over time matter more than any single value.",
-        "If you are in the prediabetes or diabetes range, see a doctor to confirm and plan next steps.",
-        "Pair HbA1c with a full metabolic and lipid picture, since high sugar rarely travels alone.",
-        "Recheck on the schedule your clinician recommends so you can see whether your numbers are moving in the right direction.",
+        "Write the number down and keep it. Trends over time matter more than any single value.",
+        "If you are in the prediabetes or diabetes range, see a doctor to confirm it and plan next steps.",
+        "Pair HbA1c with a full metabolic and lipid panel, since high sugar rarely travels alone.",
+        "Recheck on the schedule your clinician sets, so you can see which way your numbers are moving.",
       ],
     },
     {
       type: "link-internal",
       to: "/what-we-test",
-      label: "See the full metabolic panel BetterHealth tests",
+      label: "See the metabolic panel BetterHealth tests",
     },
     {
       type: "faq",
       items: [
         {
           q: "Do I need to fast before an HbA1c test?",
-          a: "No. HbA1c reflects your average blood sugar over the past two to three months, so it is not affected by your most recent meal. You can take it at any time of day without fasting.",
+          a: "No. HbA1c reflects your average blood sugar over the past two to three months, so your most recent meal does not change it. You can take it at any time of day without fasting.",
         },
         {
           q: "How often should I check my HbA1c?",
@@ -114,7 +124,7 @@ export default {
         },
         {
           q: "Can a high HbA1c be reversed?",
-          a: "Prediabetes can often be improved, and sometimes returned to the normal range, through changes to diet, physical activity and weight — though results vary from person to person. Established diabetes is usually managed rather than cured. Discuss your specific situation with a doctor.",
+          a: "Prediabetes can often improve, and sometimes return to the normal range, through changes to diet, physical activity and weight, though results vary from person to person. Established diabetes is usually managed rather than cured. Talk to a doctor about your own situation.",
         },
       ],
     },

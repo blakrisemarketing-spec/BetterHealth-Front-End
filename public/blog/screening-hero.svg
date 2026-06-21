@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1020" cy="140" r="320" fill="url(#orb2)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">PREVENTIVE HEALTH IN GHANA</text>
+  <text x="86" y="262" font-size="62" font-weight="800" fill="#2B3A3A">Catch it before you feel it</text>
+  <text x="90" y="312" font-size="26" fill="#6B7979">A short list of routine tests can change the outcome.</text>
+
+  <!-- pulse / ECG line -->
+  <path d="M 110 400 H 470 l 40 -70 l 50 150 l 46 -150 l 40 70 H 1090"
+        fill="none" stroke="#6B8E7F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1090" cy="400" r="11" fill="#6B8E7F"/>
+</svg>

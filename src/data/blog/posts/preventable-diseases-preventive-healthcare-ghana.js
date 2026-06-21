@@ -8,9 +8,9 @@ export default {
   title:
     "The Heavy Price of Neglect: Preventable Diseases and the State of Preventive Healthcare in Ghana",
   description:
-    "Original BetterHealth Africa research: a survey of 351 Ghanaians finds 89.7% want preventive health testing, yet only 8.3% screen regularly — and what it would take to close the gap.",
+    "Original BetterHealth Africa research: a survey of 351 Ghanaians finds 89.7% want preventive health testing, yet only 8.3% screen regularly, and what it would take to close the gap.",
   excerpt:
-    "Non-communicable diseases now cause an estimated 43% of deaths in Ghana, yet our survey of 351 Ghanaians found only 8.3% screen regularly — while 89.7% say they want to. Inside the gap, and how to close it.",
+    "Non-communicable diseases now cause an estimated 43% of deaths in Ghana, yet our survey of 351 Ghanaians found only 8.3% screen regularly, while 89.7% say they want to. Inside the gap, and how to close it.",
   datePublished: "2026-06-21",
   dateModified: "2026-06-21",
   author: { name: "BetterHealth Africa Research Team", url: "/about" },
@@ -36,7 +36,7 @@ export default {
     },
     {
       type: "p",
-      text: "This study explores not only the scale of the problem but why it persists. Drawing on a primary survey of 351 Ghanaians conducted between January and March 2026, alongside supporting evidence from global health institutions, the findings reveal a striking paradox. While 89.7% of respondents expressed strong interest in regular preventive testing, only 8.3% actually engage in routine health screening. A full 71.5% only seek medical tests when they already feel sick — by which point diseases may have progressed beyond early intervention. Perhaps most alarming, 87.5% of respondents perceive themselves as healthy, yet the vast majority have no clinical evidence to support that belief. This gap is not driven by apathy or lack of awareness. It reflects a healthcare system that does not make preventive care accessible, routine, or easy to act upon. This report sets out both the human and economic consequences of that disconnect, and the case for shifting Ghana's healthcare model from one that reacts to illness to one that prevents it.",
+      text: "This study explores not only the scale of the problem but why it persists. Drawing on a primary survey of 351 Ghanaians conducted between January and March 2026, alongside supporting evidence from global health institutions, the findings reveal a striking paradox. While 89.7% of respondents expressed strong interest in regular preventive testing, only 8.3% actually engage in routine health screening. A full 71.5% only seek medical tests when they already feel sick, by which point diseases may have progressed beyond early intervention. Perhaps most alarming, 87.5% of respondents perceive themselves as healthy, yet the vast majority have no clinical evidence to support that belief. This gap is not driven by apathy or lack of awareness. It reflects a healthcare system that does not make preventive care accessible, routine, or easy to act upon. This report sets out both the human and economic consequences of that disconnect, and the case for shifting Ghana's healthcare model from one that reacts to illness to one that prevents it.",
     },
 
     { type: "h2", id: "introduction", text: "1. Introduction" },
@@ -46,7 +46,7 @@ export default {
     },
     {
       type: "p",
-      text: "Non-communicable diseases such as hypertension, diabetes, and cancers often develop without noticeable symptoms (WHO, 2024). Individuals may feel completely healthy while underlying risks silently progress. By the time symptoms appear, the disease has often advanced to a stage where treatment is more complex, more expensive, and less effective. Hypertension — often called 'the silent killer' — can be controlled with affordable medication, yet it causes strokes and heart attacks in people who never knew their blood pressure was elevated (Bosu, 2010). Type 2 diabetes can be managed through lifestyle changes and medication when detected early, but undiagnosed diabetes leads to kidney failure, amputations, and premature death (International Diabetes Federation, 2024). Cervical cancer, nearly 100% preventable with screening and vaccination, still kills thousands of African women annually (WHO, 2024). The common thread is not the absence of medical knowledge or treatment. It is the absence of early detection — the failure to test before symptoms appear, to screen populations systematically, and to build health systems around prevention rather than cure.",
+      text: "Non-communicable diseases such as hypertension, diabetes, and cancers often develop without noticeable symptoms (WHO, 2024). Individuals may feel completely healthy while underlying risks silently progress. By the time symptoms appear, the disease has often advanced to a stage where treatment is more complex, more expensive, and less effective. Hypertension, often called 'the silent killer', can be controlled with affordable medication, yet it causes strokes and heart attacks in people who never knew their blood pressure was elevated (Bosu, 2010). Type 2 diabetes can be managed through lifestyle changes and medication when detected early, but undiagnosed diabetes leads to kidney failure, amputations, and premature death (International Diabetes Federation, 2024). Cervical cancer, nearly 100% preventable with screening and vaccination, still kills thousands of African women annually (WHO, 2024). The common thread is not the absence of medical knowledge or treatment. It is the absence of early detection: the failure to test before symptoms appear, to screen populations systematically, and to build health systems around prevention rather than cure.",
     },
 
     { type: "h2", id: "literature-review", text: "2. Literature Review" },
@@ -61,17 +61,17 @@ export default {
     },
     {
       type: "p",
-      text: "Ghana is experiencing an epidemiological transition — the burden of disease is shifting from predominantly infectious to non-communicable, while infectious diseases persist (Agyei-Mensah & de-Graft Aikins, 2010). Infectious diseases still impose a heavy toll: Ghana recorded approximately 5.3 million confirmed malaria cases in 2023 (WHO, 2024), with the disease remaining a leading cause of outpatient visits and under-five mortality. Tuberculosis incidence is estimated at approximately 150 per 100,000 population (Ghana Health Service, 2024), with thousands of cases still undiagnosed annually — though TB is treatable and curable when caught early. While HIV/AIDS prevalence is relatively low (approximately 1.7% among adults), late diagnosis remains a challenge (WHO, 2024). The health system, designed primarily for acute and curative care, has not adequately adapted to this dual burden. Preventive health services remain underfunded, fragmented, and largely absent from most Ghanaians' healthcare experience (Ministry of Health, 2022).",
+      text: "Ghana is experiencing an epidemiological transition: the burden of disease is shifting from predominantly infectious to non-communicable, while infectious diseases persist (Agyei-Mensah & de-Graft Aikins, 2010). Infectious diseases still impose a heavy toll: Ghana recorded approximately 5.3 million confirmed malaria cases in 2023 (WHO, 2024), with the disease remaining a leading cause of outpatient visits and under-five mortality. Tuberculosis incidence is estimated at approximately 150 per 100,000 population (Ghana Health Service, 2024), with thousands of cases still undiagnosed annually, though TB is treatable and curable when caught early. While HIV/AIDS prevalence is relatively low (approximately 1.7% among adults), late diagnosis remains a challenge (WHO, 2024). The health system, designed primarily for acute and curative care, has not adequately adapted to this dual burden. Preventive health services remain underfunded, fragmented, and largely absent from most Ghanaians' healthcare experience (Ministry of Health, 2022).",
     },
     { type: "h3", id: "mortality", text: "2.2 Mortality statistics" },
     {
       type: "p",
-      text: "Ghana's crude death rate is approximately 8 per 1,000 population, translating to roughly 260,000–270,000 deaths per year (Ghana Health Service, 2024; WHO, 2024). Of these, an estimated 110,000–120,000 are attributable to non-communicable diseases (WHO, 2024). Malaria, lower respiratory infections, tuberculosis, and HIV/AIDS collectively account for another significant share of mortality. The probability of premature death (between ages 30 and 70) from the four major NCDs — cardiovascular disease, cancer, diabetes, and chronic respiratory disease — is approximately 22% in Ghana, compared to under 12% in high-income countries (WHO, 2024).",
+      text: "Ghana's crude death rate is approximately 8 per 1,000 population, translating to roughly 260,000–270,000 deaths per year (Ghana Health Service, 2024; WHO, 2024). Of these, an estimated 110,000–120,000 are attributable to non-communicable diseases (WHO, 2024). Malaria, lower respiratory infections, tuberculosis, and HIV/AIDS collectively account for another significant share of mortality. The probability of premature death (between ages 30 and 70) from the four major NCDs (cardiovascular disease, cancer, diabetes, and chronic respiratory disease) is approximately 22% in Ghana, compared to under 12% in high-income countries (WHO, 2024).",
     },
     { type: "h3", id: "economic-cost", text: "2.3 Economic cost" },
     {
       type: "p",
-      text: "The economic consequences of preventable deaths extend far beyond healthcare spending. The WHO estimates that NCDs cost low- and middle-income countries up to 6.77% of GDP through lost labour productivity (WHO, 2024). For Ghana, with a GDP of approximately US$76 billion (2024), this translates to billions of dollars annually (World Bank, 2024). Total health expenditure is approximately 3.4% of GDP (World Bank, 2024), with a significant share consumed by emergency and late-stage treatment that could have been avoided through earlier intervention. Out-of-pocket health spending represents approximately 37% of total health expenditure (World Bank, 2024), imposing catastrophic costs on families. Ghana loses an estimated 15–17 million Disability-Adjusted Life Years (DALYs) annually, with NCDs accounting for a growing share (WHO, 2020) — each DALY a year of healthy life lost.",
+      text: "The economic consequences of preventable deaths extend far beyond healthcare spending. The WHO estimates that NCDs cost low- and middle-income countries up to 6.77% of GDP through lost labour productivity (WHO, 2024). For Ghana, with a GDP of approximately US$76 billion (2024), this translates to billions of dollars annually (World Bank, 2024). Total health expenditure is approximately 3.4% of GDP (World Bank, 2024), with a significant share consumed by emergency and late-stage treatment that could have been avoided through earlier intervention. Out-of-pocket health spending represents approximately 37% of total health expenditure (World Bank, 2024), imposing catastrophic costs on families. Ghana loses an estimated 15–17 million Disability-Adjusted Life Years (DALYs) annually, with NCDs accounting for a growing share (WHO, 2020). Each DALY is a year of healthy life lost.",
     },
     {
       type: "h3",
@@ -80,7 +80,7 @@ export default {
     },
     {
       type: "p",
-      text: "Rural populations face greater barriers to accessing health facilities, laboratory services, and trained health professionals (Awoonor-Williams et al., 2013). The three northern regions — Northern, Upper East, and Upper West — have the lowest doctor-to-population ratios and the fewest diagnostic facilities (Ghana Health Service, 2024). Lower-income Ghanaians are less likely to access preventive services, more likely to delay seeking care, and more vulnerable to catastrophic health expenditure (World Bank, 2024). Yet our survey data shows cost is not the primary barrier — 95.2% of respondents are willing to pay for preventive services. Young adults (18–35) often perceive themselves as invulnerable, delaying screening until symptoms emerge, while the over-50 population that bears the heaviest NCD burden often lacks access to systematic screening programmes. Women face specific gaps in cervical and breast cancer screening, while men are less likely to seek routine health checks overall (WHO, 2024).",
+      text: "Rural populations face greater barriers to accessing health facilities, laboratory services, and trained health professionals (Awoonor-Williams et al., 2013). The three northern regions (Northern, Upper East, and Upper West) have the lowest doctor-to-population ratios and the fewest diagnostic facilities (Ghana Health Service, 2024). Lower-income Ghanaians are less likely to access preventive services, more likely to delay seeking care, and more vulnerable to catastrophic health expenditure (World Bank, 2024). Yet our survey data shows cost is not the primary barrier. Some 95.2% of respondents are willing to pay for preventive services. Young adults (18–35) often perceive themselves as invulnerable, delaying screening until symptoms emerge, while the over-50 population that bears the heaviest NCD burden often lacks access to systematic screening programmes. Women face specific gaps in cervical and breast cancer screening, while men are less likely to seek routine health checks overall (WHO, 2024).",
     },
 
     { type: "h2", id: "methods", text: "3. Methods" },
@@ -100,12 +100,12 @@ export default {
     { type: "h2", id: "results", text: "4. Results" },
     {
       type: "p",
-      text: "The findings reveal a healthcare system that is primarily engaged only when something goes wrong. A majority of respondents — 53.3% — reported that they only undergo medical tests when they feel unwell, while an additional 18.2% rarely or never get tested at all. That means a combined 71.5% rely on reactive healthcare, engaging with the system only after symptoms appear. By contrast, only 8.3% reported engaging in regular preventive testing, while 14.2% test once a year and 12.3% test more than twice annually. This pattern reflects a healthcare culture that is fundamentally reactive rather than preventive.",
+      text: "The findings reveal a healthcare system that is primarily engaged only when something goes wrong. A majority of respondents, 53.3%, reported that they only undergo medical tests when they feel unwell, while an additional 18.2% rarely or never get tested at all. That means a combined 71.5% rely on reactive healthcare, engaging with the system only after symptoms appear. By contrast, only 8.3% reported engaging in regular preventive testing, while 14.2% test once a year and 12.3% test more than twice annually. This pattern reflects a healthcare culture that is fundamentally reactive rather than preventive.",
     },
     {
       type: "image",
       src: "/blog/ghana-checkup-frequency.png",
-      alt: "Survey pie chart: how often 351 Ghanaians do medical tests or health checkups — 53.3% only when they feel unwell, 18.2% rarely or never, 14.2% once a year, 12.3% more than twice a year.",
+      alt: "Survey pie chart: how often 351 Ghanaians do medical tests or health checkups, 53.3% only when they feel unwell, 18.2% rarely or never, 14.2% once a year, 12.3% more than twice a year.",
       caption: "How often Ghanaians currently do medical tests or health checkups (351 responses).",
     },
     {
@@ -116,21 +116,21 @@ export default {
     },
     {
       type: "p",
-      text: "What makes this finding even more significant is the gap between intention and behaviour. The survey shows that 89.7% of respondents are interested in regular preventive health testing — 61.5% describing themselves as very interested and 28.2% as interested — yet only 8.3% actually follow through. This creates an 81.4 percentage-point gap between interest and action, suggesting that the barriers to preventive care are systemic rather than behavioural.",
+      text: "What makes this finding even more significant is the gap between intention and behaviour. The survey shows that 89.7% of respondents are interested in regular preventive health testing, 61.5% describing themselves as very interested and 28.2% as interested, yet only 8.3% follow through. This creates an 81.4 percentage-point gap between interest and action, suggesting that the barriers to preventive care are systemic rather than behavioural.",
     },
     {
       type: "image",
       src: "/blog/ghana-checkup-interest.png",
-      alt: "Survey chart: Ghanaians' interest in regular preventive testing — 89.7% interested overall, made up of 61.5% very interested and 28.2% interested.",
+      alt: "Survey chart: Ghanaians' interest in regular preventive testing, 89.7% interested overall, made up of 61.5% very interested and 28.2% interested.",
       caption: "Ghanaians' interest in regular preventive checkups (351 responses).",
     },
     {
       type: "p",
-      text: "Another important insight emerges from how individuals perceive their own health. A striking 87.5% of respondents consider themselves healthy or very healthy, yet the majority of these individuals do not engage in regular testing. Their confidence is therefore based on how they feel rather than on clinical evidence — and with 71.5% not testing regularly, the disconnect between perceived and actual health status is stark.",
+      text: "Another important insight emerges from how individuals perceive their own health. A striking 87.5% of respondents consider themselves healthy or very healthy, yet the majority of these individuals do not engage in regular testing. Their confidence is therefore based on how they feel rather than on clinical evidence. With 71.5% not testing regularly, the disconnect between perceived and actual health status is stark.",
     },
     {
       type: "p",
-      text: "Even among those who do get tested, significant gaps in health literacy undermine the value of results. Only 35.6% of respondents report being very confident in understanding their lab results, meaning nearly two-thirds are not fully confident; 29.9% are neutral — neither confident nor unconfident — and 6.9% are not very confident or not confident at all. After receiving results, 11.1% ignore them if they appear 'normal,' potentially missing early warning signs hidden in borderline values or trends; 17.7% Google their results themselves, relying on unfiltered internet information; and only 68.9% discuss results with a doctor, meaning nearly one-third of tested individuals receive no professional interpretation.",
+      text: "Even among those who do get tested, significant gaps in health literacy undermine the value of results. Only 35.6% of respondents report being very confident in understanding their lab results, meaning nearly two-thirds are not fully confident; 29.9% are neutral (neither confident nor unconfident), and 6.9% are not very confident or not confident at all. After receiving results, 11.1% ignore them if they appear 'normal,' potentially missing early warning signs hidden in borderline values or trends; 17.7% Google their results themselves, relying on unfiltered internet information; and only 68.9% discuss results with a doctor, meaning nearly one-third of tested individuals receive no professional interpretation.",
     },
     {
       type: "p",
@@ -139,7 +139,7 @@ export default {
     {
       type: "image",
       src: "/blog/ghana-willingness-to-pay-prevention.png",
-      alt: "Survey chart: willingness to pay for preventive health services — 95.2% willing to pay, with 48.7% up to GH₵100 per month and 34.5% around GH₵200 per month; only 4.8% unwilling.",
+      alt: "Survey chart: willingness to pay for preventive health services, 95.2% willing to pay, with 48.7% up to GH₵100 per month and 34.5% around GH₵200 per month; only 4.8% unwilling.",
       caption: "Willingness to pay for preventive healthcare services (351 responses).",
     },
     {
@@ -152,7 +152,7 @@ export default {
     },
     {
       type: "p",
-      text: "Taken together, the survey data tell a story that is simultaneously alarming and hopeful. The alarm is a population flying blind — confident in health statuses they have never verified, caught in a health system that only engages them after disease has taken hold. The hope is a population that overwhelmingly wants better, is ready for digital solutions, and is willing to invest its own money in prevention. The gap between these two realities is where policy, innovation, and investment must converge.",
+      text: "Taken together, the survey data tell a story that is simultaneously alarming and hopeful. The alarm is a population flying blind, confident in health statuses they have never verified, caught in a health system that only engages them after disease has taken hold. The hope is a population that overwhelmingly wants better, is ready for digital solutions, and is willing to invest its own money in prevention. The gap between these two realities is where policy, innovation, and investment must converge.",
     },
 
     { type: "h2", id: "discussion", text: "5. Discussion" },
@@ -162,11 +162,11 @@ export default {
     },
     {
       type: "p",
-      text: "Ghana's NHIS, established under the National Health Insurance Act of 2003 (Act 650) and revised under Act 852 of 2012, was a landmark achievement in healthcare financing. It covers outpatient and inpatient services, maternity care, emergencies, and a defined list of medications, and approximately 40–45% of the population has active membership. However, the NHIS was designed primarily as a curative-care financing mechanism. Its benefits package does not include routine preventive screening for the general adult population — there is no provision for annual blood work, cancer screening, cardiovascular risk assessment, or metabolic panels for asymptomatic individuals. A Ghanaian who feels well has no NHIS-covered pathway to verify that wellness through clinical testing. This structural gap means the health system effectively waits for people to get sick before engaging with them — precisely the pattern reflected in the survey data.",
+      text: "Ghana's NHIS, established under the National Health Insurance Act of 2003 (Act 650) and revised under Act 852 of 2012, was a landmark achievement in healthcare financing. It covers outpatient and inpatient services, maternity care, emergencies, and a defined list of medications, and approximately 40–45% of the population has active membership. However, the NHIS was designed primarily as a curative-care financing mechanism. Its benefits package does not include routine preventive screening for the general adult population. There is no provision for annual blood work, cancer screening, cardiovascular risk assessment, or metabolic panels for asymptomatic individuals. A Ghanaian who feels well has no NHIS-covered pathway to verify that wellness through clinical testing. This structural gap means the health system effectively waits for people to get sick before engaging with them, precisely the pattern reflected in the survey data.",
     },
     {
       type: "p",
-      text: "Ghana's CHPS compounds represent the front line of healthcare delivery, particularly in rural areas, with over 7,000 CHP zones nationwide staffed by community health nurses and officers. These facilities excel at immunisation, maternal health, and health education, but are generally not equipped for laboratory-based preventive screening: they lack the blood analysers, specimen-handling capacity, and trained laboratory technicians needed for routine NCD screening. District and regional hospitals have laboratory capacity, but accessing them requires travel, waiting times, and out-of-pocket payments that deter asymptomatic individuals from testing. The system remains largely reactive — structured to respond to illness, manage symptoms, and treat complications, with preventive care not consistently integrated into routine services.",
+      text: "Ghana's CHPS compounds represent the front line of healthcare delivery, particularly in rural areas, with over 7,000 CHP zones nationwide staffed by community health nurses and officers. These facilities excel at immunisation, maternal health, and health education, but are generally not equipped for laboratory-based preventive screening: they lack the blood analysers, specimen-handling capacity, and trained laboratory technicians needed for routine NCD screening. District and regional hospitals have laboratory capacity, but accessing them requires travel, waiting times, and out-of-pocket payments that deter asymptomatic individuals from testing. The system remains largely reactive, structured to respond to illness, manage symptoms, and treat complications, with preventive care not consistently integrated into routine services.",
     },
     {
       type: "p",
@@ -174,7 +174,7 @@ export default {
     },
     {
       type: "p",
-      text: "The study also highlights a clear opportunity for technology. With 76.3% of respondents comfortable using digital platforms and 88.9% valuing lifetime health tracking, digital tools could help individuals track their health over time, receive reminders, and better understand their results — bridging the gap between intention and action.",
+      text: "The study also highlights a clear opportunity for technology. With 76.3% of respondents comfortable using digital platforms and 88.9% valuing lifetime health tracking, digital tools could help individuals track their health over time, receive reminders, and better understand their results, bridging the gap between intention and action.",
     },
     {
       type: "p",
@@ -185,7 +185,7 @@ export default {
     { type: "p", text: "The data presented in this report tell two stories simultaneously." },
     {
       type: "p",
-      text: "The first is a story of neglect: a health system oriented around crisis rather than prevention, a population that overwhelmingly tests only after symptoms appear, and preventable diseases quietly progressing in the bodies of people who believe themselves to be well. This neglect carries a heavy price — tens of thousands of premature deaths each year, billions of cedis in avoidable healthcare costs, and immeasurable human suffering in families who lose members to conditions that routine testing could have caught in time.",
+      text: "The first is a story of neglect: a health system oriented around crisis rather than prevention, a population that overwhelmingly tests only after symptoms appear, and preventable diseases quietly progressing in the bodies of people who believe themselves to be well. This neglect carries a heavy price, tens of thousands of premature deaths each year, billions of cedis in avoidable healthcare costs, and immeasurable human suffering in families who lose members to conditions that routine testing could have caught in time.",
     },
     {
       type: "p",
@@ -193,7 +193,7 @@ export default {
     },
     {
       type: "p",
-      text: "The gap between these two stories is the gap between what is and what could be. It represents both Ghana's greatest public health vulnerability and its greatest public health opportunity. Closing it does not require medical breakthroughs or prohibitive investment. It requires political will, policy reform, infrastructure expansion, and the strategic deployment of digital technology to connect a willing population to the preventive services it is asking for. Every year of inaction is a year in which the intent–action gap — 89.7% wanting, 8.3% doing — persists as a monument to systemic failure. The evidence is clear. The demand is proven. The time to act is now.",
+      text: "The gap between these two stories is the gap between what is and what could be. It represents both Ghana's greatest public health vulnerability and its greatest public health opportunity. Closing it does not require medical breakthroughs or prohibitive investment. It requires political will, policy reform, infrastructure expansion, and the strategic deployment of digital technology to connect a willing population to the preventive services it is asking for. Every year of inaction is a year in which the gap between intent and action (89.7% wanting, 8.3% doing) persists as a monument to systemic failure. The evidence is clear. The demand is proven. The time to act is now.",
     },
 
     { type: "h2", id: "recommendations", text: "7. Recommendations" },
@@ -208,7 +208,7 @@ export default {
     },
     {
       type: "p",
-      text: "The Government of Ghana, through the Ministry of Health and Ghana Health Service, should establish a structured national screening programme offering, at a minimum, an annual health assessment for all adults aged 18 and above. The core panel should include blood pressure measurement, fasting blood glucose, lipid profile, BMI assessment, and age-appropriate cancer screening (cervical, breast, and prostate). The programme should set coverage targets — for example, 30% of adults within three years and 60% within seven years — and be integrated into existing CHPS and district health infrastructure.",
+      text: "The Government of Ghana, through the Ministry of Health and Ghana Health Service, should establish a structured national screening programme offering, at a minimum, an annual health assessment for all adults aged 18 and above. The core panel should include blood pressure measurement, fasting blood glucose, lipid profile, BMI assessment, and age-appropriate cancer screening (cervical, breast, and prostate). The programme should set coverage targets, for example, 30% of adults within three years and 60% within seven years, and be integrated into existing CHPS and district health infrastructure.",
     },
     {
       type: "h3",
@@ -244,7 +244,7 @@ export default {
     },
     {
       type: "p",
-      text: "Building on the CHPS infrastructure, Ghana should train and equip community health workers to conduct point-of-care testing for key indicators — blood pressure, blood glucose, malaria rapid tests, and BMI — during routine community visits and at designated community health days. This brings testing to the population rather than requiring the population to seek out facilities, directly addressing the access barriers that sustain the reactive health culture. Rwanda's community health worker model provides a proven template.",
+      text: "Building on the CHPS infrastructure, Ghana should train and equip community health workers to conduct point-of-care testing for key indicators (blood pressure, blood glucose, malaria rapid tests, and BMI) during routine community visits and at designated community health days. This brings testing to the population rather than requiring the population to seek out facilities, directly addressing the access barriers that sustain the reactive health culture. Rwanda's community health worker model provides a proven template.",
     },
     {
       type: "h3",
@@ -253,7 +253,7 @@ export default {
     },
     {
       type: "p",
-      text: "Public health campaigns should address the specific behavioural patterns revealed by the survey. They should counter the 'I feel fine' fallacy — educating Ghanaians that the most dangerous diseases, such as hypertension, diabetes, and early-stage cancer, often produce no symptoms until they are advanced; feeling healthy is not the same as being healthy. They should shift the cultural narrative from 'testing means something is wrong' to 'testing means you're taking control,' and partner with laboratories and digital platforms to provide clear, accessible explanations of common lab values and when to seek follow-up care.",
+      text: "Public health campaigns should address the specific behavioural patterns revealed by the survey. They should counter the 'I feel fine' fallacy by educating Ghanaians that the most dangerous diseases, such as hypertension, diabetes, and early-stage cancer, often produce no symptoms until they are advanced. Feeling healthy is not the same as being healthy. They should shift the cultural narrative from 'testing means something is wrong' to 'testing means you're taking control,' and partner with laboratories and digital platforms to provide clear, accessible explanations of common lab values and when to seek follow-up care.",
     },
     {
       type: "h3",
@@ -262,7 +262,7 @@ export default {
     },
     {
       type: "p",
-      text: "Financial and non-financial incentives can bridge the intent–action gap. Possible models include NHIS premium discounts for members who complete annual screening; mobile money credits for individuals who complete recommended health checks; employer-based rewards such as additional leave days, insurance premium reductions, or wellness bonuses; and gamification through digital platforms — health streaks, completion badges, and social sharing features that make preventive health visible and aspirational. The intent is there — 89.7% want regular testing — and incentives provide the final nudge to convert desire into action.",
+      text: "Financial and non-financial incentives can bridge the gap between intent and action. Possible models include NHIS premium discounts for members who complete annual screening; mobile money credits for individuals who complete recommended health checks; employer-based rewards such as additional leave days, insurance premium reductions, or wellness bonuses; and gamification through digital platforms, health streaks, completion badges, and social sharing features that make preventive health visible and aspirational. The intent is there. 89.7% want regular testing, and incentives provide the final nudge to convert desire into action.",
     },
 
     {
@@ -270,15 +270,15 @@ export default {
       items: [
         {
           q: "How many Ghanaians get regular preventive health screening?",
-          a: "In this 2026 survey of 351 Ghanaians, only 8.3% engaged in regular preventive testing, while 71.5% only get tested when they already feel unwell — a reactive pattern that often means disease is detected late.",
+          a: "In this 2026 survey of 351 Ghanaians, only 8.3% engaged in regular preventive testing, while 71.5% only get tested when they already feel unwell, a reactive pattern that often means disease is detected late.",
         },
         {
           q: "Do Ghanaians actually want preventive health testing?",
-          a: "Yes. 89.7% of respondents said they were interested in regular preventive testing and 95.2% were willing to pay for it. The barrier is access and systems, not demand — there is an 81.4 percentage-point gap between interest (89.7%) and action (8.3%).",
+          a: "Yes. 89.7% of respondents said they were interested in regular preventive testing and 95.2% were willing to pay for it. The barrier is access and systems, not demand. There is an 81.4 percentage-point gap between interest (89.7%) and action (8.3%).",
         },
         {
           q: "What share of deaths in Ghana are caused by non-communicable diseases?",
-          a: "Non-communicable diseases account for an estimated 43% of all deaths in Ghana (WHO, 2024) — roughly 110,000–120,000 of the 260,000–270,000 deaths recorded each year.",
+          a: "Non-communicable diseases account for an estimated 43% of all deaths in Ghana (WHO, 2024), roughly 110,000–120,000 of the 260,000–270,000 deaths recorded each year.",
         },
         {
           q: "Does Ghana's NHIS cover preventive health screening?",
@@ -290,7 +290,7 @@ export default {
     {
       type: "callout",
       title: "Where BetterHealth fits",
-      text: "BetterHealth Africa exists to close exactly this gap — making comprehensive, affordable preventive screening accessible to every Ghanaian, with a digital health record that explains your results in plain language and tracks them over time.",
+      text: "BetterHealth Africa exists to close exactly this gap, making comprehensive, affordable preventive screening accessible to every Ghanaian, with a digital health record that explains your results in plain language and tracks them over time.",
     },
     {
       type: "link-internal",
@@ -300,7 +300,7 @@ export default {
     {
       type: "link-internal",
       to: "/blog/preventive-health-screening-ghana",
-      label: "Read next: preventive health screening in Ghana — what to test and how often",
+      label: "Read next: preventive health screening in Ghana, what to test and how often",
     },
 
     { type: "h2", id: "references", text: "8. References" },
@@ -308,11 +308,11 @@ export default {
       type: "list",
       ordered: true,
       items: [
-        "Preventive Health Assessment Survey — Ghana (16 January – 25 March 2026). Primary survey of 351 Ghanaian respondents on health-testing behaviours, attitudes, health literacy, digital readiness, and willingness to pay for preventive health services.",
-        "World Health Organization. Global Health Observatory — Ghana Country Profile. WHO, 2024. https://www.who.int/data/gho",
+        "Preventive Health Assessment Survey, Ghana (16 January – 25 March 2026). Primary survey of 351 Ghanaian respondents on health-testing behaviours, attitudes, health literacy, digital readiness, and willingness to pay for preventive health services.",
+        "World Health Organization. Global Health Observatory, Ghana Country Profile. WHO, 2024. https://www.who.int/data/gho",
         "World Health Organization. Noncommunicable Diseases Country Profiles: Ghana. WHO, 2024.",
         "Ghana Health Service. Annual Report 2023. Accra: Ghana Health Service, 2024.",
-        "World Bank. World Development Indicators — Ghana. Washington, DC: World Bank Group, 2024. https://data.worldbank.org/country/ghana",
+        "World Bank. World Development Indicators, Ghana. Washington, DC: World Bank Group, 2024. https://data.worldbank.org/country/ghana",
         "National Health Insurance Authority, Ghana. Annual Report 2023. Accra: NHIA, 2024.",
         "International Diabetes Federation. IDF Diabetes Atlas, 10th Edition. Brussels: IDF, 2024.",
         "World Health Organization. World Malaria Report 2024. Geneva: WHO, 2024.",

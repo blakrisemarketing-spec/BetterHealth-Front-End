@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+  <text x="86" y="262" font-size="62" font-weight="800" fill="#2B3A3A">HbA1c, in plain language</text>
+  <text x="90" y="312" font-size="26" fill="#6B7979">Your average blood sugar over about 90 days, not just today.</text>
+
+  <!-- rising trend curve with marker -->
+  <path d="M 110 410 C 360 405, 470 370, 640 350 S 940 300, 1090 230" fill="none" stroke="#6B8E7F" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="1090" cy="230" r="12" fill="#6B8E7F"/>
+  <circle cx="1090" cy="230" r="22" fill="none" stroke="#6B8E7F" stroke-width="3" stroke-opacity="0.4"/>
+</svg>

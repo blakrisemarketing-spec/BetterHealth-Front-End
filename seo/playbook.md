@@ -40,16 +40,22 @@ scheduled cloud agent invokes. Keep the two in sync.
      `/what-we-test` or `/pricing`.
    - Include a `faq` block (answer-first) and a `disclaimer` block.
    - Ghana-specific framing where relevant (epidemiology, mobile money, local labs).
+   - At least one relevant `image` block. Prefer on-brand SVG data-graphics or hero
+     cards in `public/blog/` over stock photos (crisp, tiny on 3G, no AI-image look).
 6. **Register.** Add the import + array entry in `src/data/blog/index.js`.
-7. **Clinical-safety gate.** Run `clinical-safety-review` on the new content. Fix or
+7. **Humanise.** Run the `bh-humanizer` skill (built on `stop-slop`) over the draft:
+   zero em dashes in prose, no AI phrasing tells, while keeping clinical caution,
+   factual lists, numbers, and the disclaimer.
+8. **Clinical-safety gate.** Run `clinical-safety-review` on the new content. Fix or
    stop if it flags anything.
-8. **Build & verify.** `npm run build`. Confirm:
+9. **Build & verify.** `npm run build`. Confirm:
    - `dist/blog/<slug>/index.html` exists with the right `<title>`, `og:type=article`,
      canonical, and Article + BreadcrumbList (+ FAQPage) JSON-LD.
    - `dist/sitemap.xml` and `dist/llms.txt` include the new route.
-9. **Update state.** Flip the roadmap item to `status: done` with `completed` date;
-   bump `seo/progress.json` (`lastRunDate`, `completed[]`, `publishedCount`).
-10. **PR.** Commit and open a PR titled `SEO: <article title>` summarizing the target
+   - The article file has zero spaced em dashes in prose.
+10. **Update state.** Flip the roadmap item to `status: done` with `completed` date;
+    bump `seo/progress.json` (`lastRunDate`, `completed[]`, `publishedCount`).
+11. **PR.** Commit and open a PR titled `SEO: <article title>` summarizing the target
     keyword, the schema added, and the verification output.
 
 ## Maintenance pass (when no `todo` content items remain, or on the weekly run)

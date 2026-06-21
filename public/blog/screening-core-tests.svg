@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 770" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="770" fill="#FFFFFF"/>
+  <text x="80" y="66" font-size="34" font-weight="700" fill="#2B3A3A">A core screening panel for adults</text>
+  <text x="80" y="100" font-size="20" fill="#6B7979">What most adults benefit from checking, before symptoms appear</text>
+
+  <g>
+    <!-- row 1 -->
+    <g transform="translate(80,140)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Blood pressure</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">The cheapest, highest-value check</text>
+    </g>
+    <g transform="translate(640,140)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Blood sugar (HbA1c)</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Catches prediabetes early</text>
+    </g>
+    <!-- row 2 -->
+    <g transform="translate(80,284)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Cholesterol (lipids)</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Heart and stroke risk</text>
+    </g>
+    <g transform="translate(640,284)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Kidney function (eGFR)</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Silent and common in Ghana</text>
+    </g>
+    <!-- row 3 -->
+    <g transform="translate(80,428)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Liver function tests</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Fatty liver and hepatitis</text>
+    </g>
+    <g transform="translate(640,428)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Full blood count</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Anaemia and infection</text>
+    </g>
+    <!-- row 4 -->
+    <g transform="translate(80,572)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Weight and waist</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Simple metabolic markers</text>
+    </g>
+    <g transform="translate(640,572)">
+      <rect width="520" height="120" rx="16" fill="#EFEDE7"/>
+      <text x="40" y="72" font-size="20" fill="#9AA6A6">Match the panel to your age, history and risk.</text>
+    </g>
+  </g>
+  <text x="80" y="744" font-size="15" fill="#9AA6A6">General guidance, not a prescription. A clinician should tailor screening to you.</text>
+</svg>

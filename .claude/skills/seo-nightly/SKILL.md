@@ -61,8 +61,8 @@ This skill is the executable checklist.
   H2 will open with.
 - Create `src/data/blog/posts/<slug>.js` matching the shape of the existing posts
   (`hba1c-explained.js` is the reference). Requirements:
-  - `body` is an array of typed blocks: `p`, `h2` (with `id`), `callout`, `list`,
-    `link-internal`, `faq`, `disclaimer`.
+  - `body` is an array of typed blocks: `p`, `h2`/`h3` (with `id`), `callout`,
+    `list`, `link-internal`, `image` (figure + caption), `faq`, `disclaimer`.
   - **Citability:** every `h2` section opens with a self-contained claim sentence an
     AI engine can lift as a standalone answer.
   - 2–4 `link-internal` blocks to related articles and to `/what-we-test` or
@@ -73,6 +73,12 @@ This skill is the executable checklist.
   - Use the `seo-content` and `seo-content-brief` skills for quality; `seo-schema`
     is already automatic via `seo.js` (Article + Breadcrumb + FAQ derive themselves).
 - Register it: add the `import` + array entry in `src/data/blog/index.js`.
+- **Images (required):** every article ships with at least one relevant image.
+  Prefer on-brand SVG data-graphics or hero cards saved in `public/blog/` (crisp,
+  tiny on 3G, no generic stock-photo look), referenced with `image` blocks.
+- **Humanise (required):** run the `bh-humanizer` skill (it builds on `stop-slop`)
+  over the draft before review. Zero em dashes in prose, no AI phrasing tells, but
+  keep clinical caution, factual lists, numbers, and the disclaimer.
 
 ### 5. Clinical-safety gate
 - Run the `clinical-safety-review` skill against the new article. Resolve every flag
@@ -87,6 +93,8 @@ This skill is the executable checklist.
 - `npm run lint` — your new files must not add errors (pre-existing errors in
   `scripts/google-apps-script.js` and `src/context/WaitlistContext.jsx` are not
   yours; ignore them).
+- Humanise check: the article file must contain zero spaced em dashes in prose
+  (`grep -n " — " src/data/blog/posts/<slug>.js` returns nothing).
 
 ### 7. Advance state
 - Flip the roadmap item to `status: done` and add `completed: <YYYY-MM-DD>`.
