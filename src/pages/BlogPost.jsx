@@ -36,6 +36,31 @@ function Block({ block }) {
           {block.text}
         </h2>
       );
+    case "h3":
+      return (
+        <h3
+          id={block.id}
+          className="scroll-mt-28 text-[1.2rem] font-bold font-heading text-text-primary mt-9 mb-3 leading-tight"
+        >
+          {block.text}
+        </h3>
+      );
+    case "image":
+      return (
+        <figure className="my-8">
+          <img
+            src={block.src}
+            alt={block.alt || ""}
+            loading="lazy"
+            className="w-full rounded-card border border-border bg-white"
+          />
+          {block.caption && (
+            <figcaption className="mt-2.5 text-[13px] text-text-secondary/80 font-body text-center italic">
+              {block.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
     case "list":
       return block.ordered ? (
         <ol className="list-decimal pl-6 mb-6 space-y-2 text-[1.05rem] leading-[1.7] text-text-secondary font-body marker:text-primary marker:font-bold">

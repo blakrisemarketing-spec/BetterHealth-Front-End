@@ -5,8 +5,13 @@
 // index card — is derived from this list automatically.
 import hba1cExplained from "./posts/hba1c-explained.js";
 import preventiveHealthScreeningGhana from "./posts/preventive-health-screening-ghana.js";
+import preventableDiseasesGhana from "./posts/preventable-diseases-preventive-healthcare-ghana.js";
 
-const ALL = [hba1cExplained, preventiveHealthScreeningGhana];
+const ALL = [
+  hba1cExplained,
+  preventiveHealthScreeningGhana,
+  preventableDiseasesGhana,
+];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically
 // without Date.now()/new Date(), keeping this module pure and build-safe.
@@ -24,6 +29,12 @@ export function articleToPlainText(article) {
     switch (block.type) {
       case "h2":
         lines.push("", `## ${block.text}`, "");
+        break;
+      case "h3":
+        lines.push("", `### ${block.text}`, "");
+        break;
+      case "image":
+        if (block.caption) lines.push(`[Figure: ${block.caption}]`, "");
         break;
       case "p":
         lines.push(block.text, "");
