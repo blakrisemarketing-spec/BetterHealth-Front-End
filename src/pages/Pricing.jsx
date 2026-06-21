@@ -107,6 +107,7 @@ function PlanCard({ plan, index }) {
             <div className="flex items-end gap-2 mb-1">
               <span className="text-[2.4rem] font-extrabold text-text-primary font-heading leading-none">{plan.monthly}</span>
               <span className="text-[14px] text-text-muted mb-1">/month</span>
+              <span className="text-[12px] text-text-muted mb-1">excl. VAT</span>
             </div>
             <p className="text-[12px] text-text-muted">Billed at {plan.annual}/year</p>
             <p className={`text-[12px] font-semibold mt-0.5 ${plan.popular ? "text-primary" : "text-text-secondary"}`}>

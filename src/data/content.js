@@ -936,7 +936,7 @@ export const pricingPage = {
     headline: "Invest in knowing \u2014 not in guessing.",
     subheadline: "What would cost GHS 6,250+ at a private hospital is a fraction of that with BetterHealth. No referrals, no hidden fees, no surprises. All plans include your health dashboard, results, and intelligent health insights.",
   },
-  valueAnchor: "A comprehensive health screen at a private hospital in Ghana costs between GHS 2,970 and GHS 6,250 - if they even offer all the tests. BetterHealth starts at GHS 2 per day.",
+  valueAnchor: "A comprehensive health screen at a private hospital in Ghana costs between GHS 2,970 and GHS 6,250 - if they even offer all the tests. BetterHealth starts at GHS 2 per day. Prices exclude VAT.",
   plans: [
     {
       name: "Essential",
@@ -1034,7 +1034,7 @@ export const pricingPage = {
     "14-Day Satisfaction Guarantee",
     "Cancel Anytime Before Renewal",
   ],
-  finePrint: "All plans are billed annually. Your subscription begins the day you sign up and renews automatically after 12 months. You can cancel at any time before renewal \u2014 no penalties, no questions. If you\u2019re not satisfied within the first 14 days (before your first test), we\u2019ll refund you in full.",
+  finePrint: "Prices exclude VAT. All plans are billed annually. Your subscription begins the day you sign up and renews automatically after 12 months. You can cancel at any time before renewal \u2014 no penalties, no questions. If you\u2019re not satisfied within the first 14 days (before your first test), we\u2019ll refund you in full.",
   comparison: {
     headline: "Compare plans at a glance",
     rows: [
@@ -1074,7 +1074,7 @@ export const pricingPage = {
       { test: "Nutritional plan", hospital: "GHS 1,500\u20133,500", bh: "Offered twice" },
       { test: "Estimated total", hospital: "GHS 2,970\u20136,250", bh: "GHS 1,953/year", isTotals: true },
     ],
-    footnote: "BetterHealth gives you more health insights for a fraction of the cost from traditional hospitals.",
+    footnote: "BetterHealth gives you more health insights for a fraction of the cost from traditional hospitals. BetterHealth prices exclude VAT.",
   },
   singleTests: {
     headline: "Not ready for a subscription? Start with a disease panel.",
@@ -1088,7 +1088,7 @@ export const pricingPage = {
       { name: "PCOS Tracker", price: "Coming soon" },
     ],
     cta: "Browse All Tests",
-    note: "Individual test prices vary by location. Home collection is available as an add-on from GHS 150.",
+    note: "Prices exclude VAT. Individual test prices vary by location. Home collection is available as an add-on from GHS 150.",
   },
   faqs: [
     {
