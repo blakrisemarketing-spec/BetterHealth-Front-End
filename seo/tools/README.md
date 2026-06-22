@@ -47,6 +47,19 @@ Env: `BING_API_KEY`, `BING_SITE_URL`.
 **Setup:** Verify the site in Bing Webmaster Tools, then Settings → API Access →
 generate an API key.
 
+## notify.mjs (email, via Resend)
+
+Used by the weekly routine to email the finished report.
+
+```bash
+node seo/tools/notify.mjs "BetterHealth SEO weekly — 2026-W26" seo/reports/weekly-2026-W26.md
+```
+
+Env: `RESEND_API_KEY`, `REPORT_EMAIL_TO` (comma-separated allowed), optional
+`REPORT_EMAIL_FROM` (default `BetterHealth SEO <seo@betterhealth.africa>`; must be a
+verified Resend domain). Exits with a message (non-fatal) if creds are missing — the
+report still ships in the PR.
+
 ## Where secrets live
 
 For local/manual runs, put them in a git-ignored `.env` (see `.env.example`) and
