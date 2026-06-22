@@ -1,14 +1,15 @@
 {
-  "lastRunDate": "2026-06-21",
+  "lastRunDate": "2026-06-22",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
-    "art-fatty-liver"
+    "art-fatty-liver",
+    "art-fasting-blood-sugar"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "inFlightPRs": [],
-  "publishedCount": 4,
-  "notes": "art-fatty-liver published 2026-06-21 (fatty liver disease, 1600/mo Ghana). Next todo item: art-fasting-blood-sugar (fasting blood sugar normal range, 1300/mo). Brief not yet written."
+  "publishedCount": 5,
+  "notes": "art-fasting-blood-sugar published 2026-06-22 (fasting blood sugar normal range, 1300/mo Ghana). Next todo item: art-cholesterol-lipids (lipid profile test, 1000/mo). Brief not yet written."
 }

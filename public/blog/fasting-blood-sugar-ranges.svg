@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-label="Fasting blood sugar ranges chart: normal, prediabetes, and diabetes thresholds in mmol/L">
+  <title>Fasting Blood Sugar Ranges: Normal, Prediabetes, Diabetes</title>
+  <defs>
+    <linearGradient id="normalGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#16A34A"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="preGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="diabGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="280" fill="#F9FAFB" rx="12"/>
+
+  <!-- Title -->
+  <text x="360" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#111827">Fasting Blood Sugar Ranges</text>
+  <text x="360" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">Based on WHO / ADA thresholds — the standard used by Ghanaian labs</text>
+
+  <!-- Bar track background -->
+  <rect x="60" y="90" width="600" height="56" rx="28" fill="#E5E7EB"/>
+
+  <!-- Normal segment: 0 to 5.5 mmol/L = 0 to ~47% of bar (range 0–7.5 shown) -->
+  <!-- Scale: 0 to 10 mmol/L across 600px. 1 mmol/L = 60px -->
+  <!-- Normal: 0 – 5.6 mmol/L  = 336px -->
+  <rect x="60" y="90" width="336" height="56" rx="0" fill="url(#normalGrad)"/>
+  <rect x="60" y="90" width="28" height="56" rx="28 0 0 28" fill="url(#normalGrad)"/>
+
+  <!-- Prediabetes: 5.6 – 7.0 mmol/L = 84px -->
+  <rect x="396" y="90" width="84" height="56" fill="url(#preGrad)"/>
+
+  <!-- Diabetes: 7.0+ mmol/L = remaining 180px -->
+  <rect x="480" y="90" width="208" height="56" rx="0" fill="url(#diabGrad)"/>
+  <rect x="660" y="90" width="0" height="56" rx="0 28 28 0" fill="url(#diabGrad)"/>
+  <!-- Cap the right end -->
+  <rect x="632" y="90" width="28" height="56" rx="0 28 28 0" fill="url(#diabGrad)"/>
+
+  <!-- Segment labels inside bar -->
+  <text x="198" y="124" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">Normal</text>
+  <text x="438" y="124" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">Pre-</text>
+  <text x="438" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">diabetes</text>
+  <text x="555" y="124" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF">Diabetes</text>
+
+  <!-- Tick marks and mmol/L labels -->
+  <!-- 0 -->
+  <line x1="60" y1="148" x2="60" y2="162" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="60" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">0</text>
+
+  <!-- 2 -->
+  <line x1="180" y1="148" x2="180" y2="158" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="180" y="174" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#9CA3AF">2</text>
+
+  <!-- 4 -->
+  <line x1="300" y1="148" x2="300" y2="158" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="300" y="174" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#9CA3AF">4</text>
+
+  <!-- 5.6 threshold -->
+  <line x1="396" y1="82" x2="396" y2="162" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="396" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">5.6</text>
+
+  <!-- 6 -->
+  <line x1="420" y1="148" x2="420" y2="158" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+
+  <!-- 7.0 threshold -->
+  <line x1="480" y1="82" x2="480" y2="162" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="480" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">7.0</text>
+
+  <!-- 8 -->
+  <line x1="540" y1="148" x2="540" y2="158" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="540" y="174" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#9CA3AF">8</text>
+
+  <!-- 10+ label -->
+  <text x="660" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">10+</text>
+
+  <!-- Unit label -->
+  <text x="360" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">mmol/L (fasting plasma glucose)</text>
+
+  <!-- Detail rows -->
+  <!-- Normal -->
+  <rect x="60" y="216" width="14" height="14" rx="3" fill="#16A34A"/>
+  <text x="82" y="228" font-family="Arial, sans-serif" font-size="12" fill="#111827">Normal: below 5.6 mmol/L (below 100 mg/dL)</text>
+
+  <!-- Prediabetes -->
+  <rect x="60" y="238" width="14" height="14" rx="3" fill="#D97706"/>
+  <text x="82" y="250" font-family="Arial, sans-serif" font-size="12" fill="#111827">Prediabetes: 5.6 to 6.9 mmol/L (100 to 125 mg/dL)</text>
+
+  <!-- Diabetes -->
+  <rect x="380" y="216" width="14" height="14" rx="3" fill="#DC2626"/>
+  <text x="402" y="228" font-family="Arial, sans-serif" font-size="12" fill="#111827">Diabetes: 7.0 mmol/L or higher (126 mg/dL or higher)</text>
+
+  <!-- Source -->
+  <text x="360" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#9CA3AF">WHO 2006 / ADA 2024</text>
+</svg>
