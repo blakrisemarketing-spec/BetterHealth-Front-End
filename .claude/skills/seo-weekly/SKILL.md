@@ -69,17 +69,19 @@ roadmap at it. One run = one report + roadmap update, shipped as a PR for review
   for target keywords, week-over-week deltas, the GEO citation scoreboard, the quick
   wins and gaps identified, and the roadmap changes made this week.
 
-### 7. Email the report
-- Send the finished report to the team:
-  `node seo/tools/notify.mjs "BetterHealth SEO weekly — <YYYY-Www>" seo/reports/weekly-<YYYY-Www>.md`
-- This emails it via Resend (reads `RESEND_API_KEY` + `REPORT_EMAIL_TO` from the
-  Environment). If those env vars are missing, the tool exits with a message: note it
-  in the run summary and continue. The report is still in the PR either way.
-
-### 8. Open the PR
+### 7. Open the PR
 - Update `seo/progress.json` (`lastWeeklyRun`). Commit and open a PR titled
-  `SEO weekly: <YYYY-Www>` summarizing the headline movements and the roadmap changes.
+  `SEO weekly: <YYYY-Www>` with the report file + roadmap changes.
   Use a plain commit message. Do not add a Co-Authored-By trailer or any AI-attribution footer.
+
+### 8. Deliver the report in the chat (do NOT email)
+- Present the **complete report as your final message** of this run. The user reads
+  the weekly report directly in the Claude app / routine run (and its completion
+  notification), not by email. Put the PR link at the top, then the full report:
+  GSC top queries + pages, current SERP positions for the target keywords,
+  week-over-week movement, the GEO citation scoreboard, the quick wins and gaps, and
+  the roadmap changes you made. Keep it readable as a chat message (headings + short
+  tables), not a file dump.
 
 ## Notes
 - No `npm run build` is needed unless this pass edits files under `src/` (it usually
