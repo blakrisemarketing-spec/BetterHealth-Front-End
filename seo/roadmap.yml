@@ -65,10 +65,11 @@ items:
     slug: fasting-blood-sugar-explained
     keyword: fasting blood sugar normal range
     volume: 1300
-    secondary: ["blood sugar test (110)", "diabetes test (50)"]
+    secondary: ["blood sugar test (110)", "diabetes test (50)", "random blood sugar normal range (1300)", "normal blood sugar levels chart (1000)", "normal blood sugar levels for adults (720)", "what level of blood sugar is dangerous (590)"]
     intent: informational
     title: "Fasting Blood Sugar: Normal Range and What Your Result Means"
-    status: todo
+    status: done
+    completed: 2026-06-22
 
   - id: art-cholesterol-lipids
     type: article
