@@ -11,7 +11,7 @@ export default {
   datePublished: "2026-06-22",
   dateModified: "2026-06-22",
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
-  image: "/blog/fasting-blood-sugar-hero.svg",
+  image: "/og-image.png",
   imageAlt:
     "A glucose meter showing 5.2 mmol/L alongside the three fasting blood sugar ranges: normal, prediabetes, and diabetes.",
   tags: ["blood sugar", "diabetes", "fasting glucose", "biomarkers", "prediabetes"],

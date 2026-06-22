@@ -75,7 +75,11 @@ This skill is the executable checklist.
 - Register it: add the `import` + array entry in `src/data/blog/index.js`.
 - **Images (required):** every article ships with at least one relevant image.
   Prefer on-brand SVG data-graphics or hero cards saved in `public/blog/` (crisp,
-  tiny on 3G, no generic stock-photo look), referenced with `image` blocks.
+  tiny on 3G, no generic stock-photo look), referenced with `body` `image` blocks.
+  IMPORTANT: SVGs go in `image` blocks ONLY. The article's top-level `image` field is
+  the OG/social-share image and MUST be a raster (PNG/JPG) — social platforms do not
+  render SVG OG cards. Use `/og-image.png` for that field until a custom raster card
+  exists. Never set the top-level `image` to an `.svg`.
 - **Humanise (required):** run the `bh-humanizer` skill (it builds on `stop-slop`)
   over the draft before review. Zero em dashes in prose, no AI phrasing tells, but
   keep clinical caution, factual lists, numbers, and the disclaimer.
