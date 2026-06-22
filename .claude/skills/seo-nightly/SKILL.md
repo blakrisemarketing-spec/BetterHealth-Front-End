@@ -109,7 +109,7 @@ This skill is the executable checklist.
 - Commit (`SEO: <article title>`), push, and open a PR with `gh pr create`.
 - PR body: target keyword + intent, schema added, internal links added, and the
   build-verification output (the head tags + that sitemap/llms include the route).
-- End the commit message with the required Co-Authored-By trailer.
+- Use a plain commit message. Do not add a Co-Authored-By trailer or any AI-attribution footer.
 
 ## Maintenance pass (weekly, or when no todo content items remain)
 
