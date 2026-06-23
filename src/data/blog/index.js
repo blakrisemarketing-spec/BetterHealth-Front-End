@@ -8,6 +8,7 @@ import preventiveHealthScreeningGhana from "./posts/preventive-health-screening-
 import preventableDiseasesGhana from "./posts/preventable-diseases-preventive-healthcare-ghana.js";
 import fattyLiverDiseaseExplained from "./posts/fatty-liver-disease-explained.js";
 import fastingBloodSugarExplained from "./posts/fasting-blood-sugar-explained.js";
+import lipidProfileCholesterolTest from "./posts/lipid-profile-cholesterol-test.js";
 
 const ALL = [
   hba1cExplained,
@@ -15,6 +16,7 @@ const ALL = [
   preventableDiseasesGhana,
   fattyLiverDiseaseExplained,
   fastingBloodSugarExplained,
+  lipidProfileCholesterolTest,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically

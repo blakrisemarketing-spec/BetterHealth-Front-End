@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Lipid profile test explained: how to read your cholesterol results" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Lipid Profile Test: How to Read Your Cholesterol Results</title>
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1020" cy="160" r="320" fill="url(#orb)"/>
+
+  <!-- Category label -->
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+
+  <!-- Main title -->
+  <text x="86" y="262" font-size="62" font-weight="800" fill="#2B3A3A">Lipid Profile Test</text>
+
+  <!-- Subtitle -->
+  <text x="90" y="312" font-size="26" fill="#6B7979">How to read your cholesterol results</text>
+
+  <!-- Four marker pills: LDL / HDL / Triglycerides / Total -->
+  <!-- LDL pill -->
+  <rect x="90" y="350" width="130" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="155" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">LDL</text>
+
+  <!-- HDL pill -->
+  <rect x="234" y="350" width="130" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="299" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">HDL</text>
+
+  <!-- Triglycerides pill -->
+  <rect x="378" y="350" width="200" height="42" rx="21" fill="#A8C5B8"/>
+  <text x="478" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Triglycerides</text>
+
+  <!-- Total pill -->
+  <rect x="592" y="350" width="200" height="42" rx="21" fill="#E8E3DA"/>
+  <text x="692" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Total Cholesterol</text>
+
+  <!-- Decorative right-side graphic: stacked bars hint -->
+  <rect x="920" y="230" width="36" height="160" rx="6" fill="#6B8E7F" opacity="0.35"/>
+  <rect x="968" y="270" width="36" height="120" rx="6" fill="#6B8E7F" opacity="0.55"/>
+  <rect x="1016" y="200" width="36" height="190" rx="6" fill="#6B8E7F" opacity="0.75"/>
+  <rect x="1064" y="250" width="36" height="140" rx="6" fill="#6B8E7F" opacity="0.45"/>
+  <line x1="908" y1="390" x2="1112" y2="390" stroke="#6B8E7F" stroke-width="2" opacity="0.4"/>
+</svg>
