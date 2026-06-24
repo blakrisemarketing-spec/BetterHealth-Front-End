@@ -80,7 +80,8 @@ items:
     secondary: ["cholesterol test (140)", "LDL vs HDL cholesterol (10)"]
     intent: informational
     title: "Lipid Profile (Cholesterol) Test: How to Read Your Results"
-    status: todo
+    status: done
+    completed: 2026-06-23
     notes: "Retargeted from 'LDL vs HDL' (10/mo) to 'lipid profile test' (1000/mo). Cover total/LDL/HDL/triglycerides, ratios, and what's a healthy range."
 
   - id: art-full-blood-count
