@@ -57,7 +57,7 @@ export default {
     },
     {
       type: "p",
-      text: "Most Ghanaian labs report results in millimoles per litre (mmol/L). Some international reports use milligrams per decilitre (mg/dL). Both measure the same thing at different scales; to convert from mmol/L to mg/dL, multiply by 38.7.",
+      text: "Most Ghanaian labs report results in millimoles per litre (mmol/L). Some international reports use milligrams per decilitre (mg/dL). Both measure the same thing at different scales. To convert cholesterol values from mmol/L to mg/dL, multiply by 38.7. Triglycerides use a different factor: multiply by 88.6.",
     },
     {
       type: "h2",
@@ -222,8 +222,18 @@ export default {
     },
     {
       type: "link-internal",
+      to: "/blog/hba1c-explained",
+      label: "HbA1c: the blood sugar test that pairs with a lipid panel",
+    },
+    {
+      type: "link-internal",
       to: "/what-we-test",
       label: "See the lipid and metabolic panel BetterHealth Africa offers",
+    },
+    {
+      type: "link-internal",
+      to: "/pricing",
+      label: "View BetterHealth Africa test pricing",
     },
     {
       type: "faq",
