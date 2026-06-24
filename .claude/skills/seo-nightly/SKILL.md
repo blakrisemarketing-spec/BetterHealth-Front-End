@@ -110,6 +110,9 @@ This skill is the executable checklist.
 - PR body: target keyword + intent, schema added, internal links added, and the
   build-verification output (the head tags + that sitemap/llms include the route).
 - Use a plain commit message. Do not add a Co-Authored-By trailer or any AI-attribution footer.
+- **Mark the PR ready for review** right after creating it: `gh pr ready <number>`.
+  Claude Routines open PRs as drafts by default, and a draft that sits unmerged means
+  the next nightly run finds the same `status: todo` item and opens a duplicate PR.
 
 ## Maintenance pass (weekly, or when no todo content items remain)
 

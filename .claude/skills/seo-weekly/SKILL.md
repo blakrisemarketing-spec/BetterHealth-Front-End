@@ -73,6 +73,14 @@ roadmap at it. One run = one report + roadmap update, shipped as a PR for review
 - Update `seo/progress.json` (`lastWeeklyRun`). Commit and open a PR titled
   `SEO weekly: <YYYY-Www>` with the report file + roadmap changes.
   Use a plain commit message. Do not add a Co-Authored-By trailer or any AI-attribution footer.
+- **Mark the PR ready for review** right after creating it: `gh pr ready <number>`.
+  Claude Routines open PRs as drafts by default; mark it ready so it does not sit
+  unmerged.
+- Keep the `lastWeeklyRun` edit in `seo/progress.json` isolated from the
+  `lastRunDate`/`completed`/`publishedCount`/`notes` lines the nightly PR rewrites
+  (write weekly findings into the report file, not the `notes` field). Otherwise a
+  pending nightly PR and this PR collide on the same `progress.json` lines and the
+  second to merge hits a conflict.
 
 ### 8. Deliver the report in the chat (do NOT email)
 - Present the **complete report as your final message** of this run. The user reads
