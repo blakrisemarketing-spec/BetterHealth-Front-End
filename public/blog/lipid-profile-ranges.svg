@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-label="Lipid profile normal ranges chart for total cholesterol, LDL, HDL, and triglycerides">
+  <title>Lipid Profile Normal Ranges: Total Cholesterol, LDL, HDL, Triglycerides</title>
+
+  <!-- Background -->
+  <rect width="760" height="400" fill="#F9FAFB" rx="12"/>
+
+  <!-- Title -->
+  <text x="380" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="bold" fill="#111827">Lipid Profile: Normal Ranges at a Glance</text>
+  <text x="380" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">ACC/AHA 2018 guidelines — the thresholds used by most Ghanaian labs (mmol/L)</text>
+
+  <!-- Legend -->
+  <rect x="460" y="66" width="12" height="12" rx="2" fill="#16A34A"/>
+  <text x="478" y="77" font-family="Arial, sans-serif" font-size="11" fill="#374151">Desirable</text>
+  <rect x="545" y="66" width="12" height="12" rx="2" fill="#D97706"/>
+  <text x="563" y="77" font-family="Arial, sans-serif" font-size="11" fill="#374151">Borderline</text>
+  <rect x="642" y="66" width="12" height="12" rx="2" fill="#DC2626"/>
+  <text x="660" y="77" font-family="Arial, sans-serif" font-size="11" fill="#374151">High</text>
+
+  <!-- ===== Row 1: Total Cholesterol ===== -->
+  <text x="30" y="116" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827">Total</text>
+  <text x="30" y="132" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827">Cholesterol</text>
+
+  <!-- Bar track -->
+  <rect x="160" y="106" width="560" height="36" rx="18" fill="#E5E7EB"/>
+  <!-- Desirable: <5.2 mmol/L = 5.2/8 * 560 = 364px -->
+  <rect x="160" y="106" width="181" height="36" rx="18 0 0 18" fill="#16A34A"/>
+  <!-- Borderline: 5.2–6.2 = 1.0/8 * 560 = 70px -->
+  <rect x="341" y="106" width="70" height="36" fill="#D97706"/>
+  <!-- High: 6.2+ -->
+  <rect x="411" y="106" width="309" height="36" rx="0 18 18 0" fill="#DC2626"/>
+
+  <!-- Ticks -->
+  <line x1="341" y1="100" x2="341" y2="148" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="411" y1="100" x2="411" y2="148" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="341" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">5.2</text>
+  <text x="411" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">6.2</text>
+
+  <!-- Inside labels -->
+  <text x="250" y="129" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">below 5.2</text>
+  <text x="375" y="129" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">5.2–6.1</text>
+  <text x="560" y="129" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">6.2 or above</text>
+
+  <!-- ===== Row 2: LDL ===== -->
+  <text x="30" y="200" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827">LDL</text>
+  <text x="30" y="216" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">("bad")</text>
+
+  <rect x="160" y="192" width="560" height="36" rx="18" fill="#E5E7EB"/>
+  <!-- Optimal: <2.6 = 2.6/6 * 560 = 243px; scale 0–6 mmol/L -->
+  <rect x="160" y="192" width="243" height="36" rx="18 0 0 18" fill="#16A34A"/>
+  <!-- Borderline: 2.6–4.1 = 1.5/6*560 = 140px -->
+  <rect x="403" y="192" width="140" height="36" fill="#D97706"/>
+  <!-- High: 4.1+ -->
+  <rect x="543" y="192" width="177" height="36" rx="0 18 18 0" fill="#DC2626"/>
+
+  <line x1="403" y1="186" x2="403" y2="234" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="543" y1="186" x2="543" y2="234" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="403" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">2.6</text>
+  <text x="543" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">4.1</text>
+
+  <text x="281" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">below 2.6</text>
+  <text x="473" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">2.6–4.1</text>
+  <text x="622" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">4.1 or above</text>
+
+  <!-- ===== Row 3: HDL ===== -->
+  <text x="30" y="284" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827">HDL</text>
+  <text x="30" y="300" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">("good")</text>
+
+  <rect x="160" y="276" width="560" height="36" rx="18" fill="#E5E7EB"/>
+  <!-- Low risk (HDL higher is better): show low / adequate / high protective -->
+  <!-- Low: <1.0 for men = 1.0/2.5 * 560 = 224px; scale 0–2.5 mmol/L -->
+  <rect x="160" y="276" width="224" height="36" rx="18 0 0 18" fill="#DC2626"/>
+  <!-- Adequate: 1.0–1.6 = 0.6/2.5 * 560 = 134px -->
+  <rect x="384" y="276" width="134" height="36" fill="#D97706"/>
+  <!-- Protective: 1.6+ -->
+  <rect x="518" y="276" width="202" height="36" rx="0 18 18 0" fill="#16A34A"/>
+
+  <line x1="384" y1="270" x2="384" y2="318" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="518" y1="270" x2="518" y2="318" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="384" y="332" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">1.0</text>
+  <text x="518" y="332" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">1.6</text>
+
+  <text x="272" y="299" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">below 1.0 — low</text>
+  <text x="451" y="299" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">1.0–1.6</text>
+  <text x="609" y="299" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">1.6+ protective</text>
+
+  <!-- ===== Row 4: Triglycerides ===== -->
+  <text x="30" y="362" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827">Triglycer-</text>
+  <text x="30" y="378" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#111827">ides</text>
+
+  <rect x="160" y="352" width="560" height="36" rx="18" fill="#E5E7EB"/>
+  <!-- Normal: <1.7 = 1.7/5.6 * 560 = 170px; scale 0–5.6 -->
+  <rect x="160" y="352" width="170" height="36" rx="18 0 0 18" fill="#16A34A"/>
+  <!-- Borderline/High: 1.7–5.6 -->
+  <rect x="330" y="352" width="280" height="36" fill="#D97706"/>
+  <!-- Very high -->
+  <rect x="610" y="352" width="110" height="36" rx="0 18 18 0" fill="#DC2626"/>
+
+  <line x1="330" y1="346" x2="330" y2="394" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="610" y1="346" x2="610" y2="394" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="330" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">1.7</text>
+  <text x="610" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#374151">5.6</text>
+
+  <text x="245" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">below 1.7</text>
+  <text x="470" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">1.7–5.5 borderline/high</text>
+  <text x="655" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">very high</text>
+</svg>

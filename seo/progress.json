@@ -1,15 +1,16 @@
 {
-  "lastRunDate": "2026-06-22",
+  "lastRunDate": "2026-06-24",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
     "art-fatty-liver",
-    "art-fasting-blood-sugar"
+    "art-fasting-blood-sugar",
+    "art-cholesterol-lipids"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "inFlightPRs": [],
-  "publishedCount": 5,
-  "notes": "art-fasting-blood-sugar published 2026-06-22 (fasting blood sugar normal range, 1300/mo Ghana). Next todo item: art-cholesterol-lipids (lipid profile test, 1000/mo). Brief not yet written."
+  "publishedCount": 6,
+  "notes": "art-cholesterol-lipids published 2026-06-24 (lipid profile test, 1000/mo Ghana). Next todo item: art-full-blood-count (fbc test, 1000/mo)."
 }

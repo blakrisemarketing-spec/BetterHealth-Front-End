@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-label="Lipid profile test: the four numbers on a cholesterol blood test explained">
+  <title>Lipid Profile Test Explained</title>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#bgGrad)" rx="16"/>
+
+  <!-- Left: Report card -->
+  <rect x="40" y="40" width="320" height="340" rx="14" fill="#FFFFFF" opacity="0.92"/>
+  <text x="200" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="bold" fill="#1E3A5F">LIPID PROFILE REPORT</text>
+  <line x1="60" y1="88" x2="340" y2="88" stroke="#E5E7EB" stroke-width="1.5"/>
+
+  <!-- Column headers -->
+  <text x="68" y="110" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">TEST</text>
+  <text x="240" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">RESULT</text>
+  <text x="318" y="110" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">STATUS</text>
+  <line x1="60" y1="116" x2="340" y2="116" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Row 1: Total Cholesterol -->
+  <text x="68" y="142" font-family="Arial, sans-serif" font-size="13" fill="#111827">Total Cholesterol</text>
+  <text x="240" y="142" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" font-weight="bold" fill="#1D4ED8">4.8 mmol/L</text>
+  <rect x="289" y="130" width="42" height="18" rx="9" fill="#D1FAE5"/>
+  <text x="310" y="143" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#065F46">OK</text>
+
+  <!-- Row 2: LDL -->
+  <rect x="60" y="152" width="280" height="34" rx="4" fill="#FEF3C7" opacity="0.5"/>
+  <text x="68" y="174" font-family="Arial, sans-serif" font-size="13" fill="#111827">LDL ("bad")</text>
+  <text x="240" y="174" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" font-weight="bold" fill="#B45309">3.6 mmol/L</text>
+  <rect x="280" y="162" width="58" height="18" rx="9" fill="#FEF3C7"/>
+  <text x="309" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#92400E">BORDERLINE</text>
+
+  <!-- Row 3: HDL -->
+  <text x="68" y="206" font-family="Arial, sans-serif" font-size="13" fill="#111827">HDL ("good")</text>
+  <text x="240" y="206" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" font-weight="bold" fill="#1D4ED8">1.2 mmol/L</text>
+  <rect x="289" y="194" width="42" height="18" rx="9" fill="#D1FAE5"/>
+  <text x="310" y="207" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#065F46">OK</text>
+
+  <!-- Row 4: Triglycerides -->
+  <text x="68" y="238" font-family="Arial, sans-serif" font-size="13" fill="#111827">Triglycerides</text>
+  <text x="240" y="238" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" font-weight="bold" fill="#1D4ED8">1.4 mmol/L</text>
+  <rect x="289" y="226" width="42" height="18" rx="9" fill="#D1FAE5"/>
+  <text x="310" y="239" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#065F46">OK</text>
+
+  <line x1="60" y1="254" x2="340" y2="254" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="68" y="272" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">Fasting sample — 10 hours</text>
+  <text x="68" y="290" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">Ranges: ACC/AHA 2018 guidelines</text>
+
+  <!-- Right: Heading and key points -->
+  <g transform="translate(398, 40)">
+    <text x="0" y="44" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#1E3A5F">Lipid Profile</text>
+    <text x="0" y="76" font-family="Georgia, serif" font-size="20" fill="#2563EB">How to read your</text>
+    <text x="0" y="104" font-family="Georgia, serif" font-size="20" fill="#2563EB">cholesterol test</text>
+
+    <!-- 4 mini-cards -->
+    <rect x="0" y="130" width="170" height="70" rx="10" fill="#FFFFFF" opacity="0.85"/>
+    <text x="12" y="152" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1D4ED8">Total Cholesterol</text>
+    <text x="12" y="172" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E3A5F">below 5.2</text>
+    <text x="12" y="190" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">mmol/L desirable</text>
+
+    <rect x="185" y="130" width="170" height="70" rx="10" fill="#FFFFFF" opacity="0.85"/>
+    <text x="197" y="152" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#DC2626">LDL Cholesterol</text>
+    <text x="197" y="172" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E3A5F">below 3.4</text>
+    <text x="197" y="190" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">mmol/L desirable</text>
+
+    <rect x="0" y="218" width="170" height="70" rx="10" fill="#FFFFFF" opacity="0.85"/>
+    <text x="12" y="240" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#059669">HDL Cholesterol</text>
+    <text x="12" y="260" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E3A5F">above 1.0</text>
+    <text x="12" y="278" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">mmol/L (higher = better)</text>
+
+    <rect x="185" y="218" width="170" height="70" rx="10" fill="#FFFFFF" opacity="0.85"/>
+    <text x="197" y="240" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#D97706">Triglycerides</text>
+    <text x="197" y="260" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E3A5F">below 1.7</text>
+    <text x="197" y="278" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">mmol/L normal</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="400" y="406" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Sources: ACC/AHA 2018 Cholesterol Guidelines; WHO CVD Risk Assessment Guidelines 2007</text>
+</svg>
