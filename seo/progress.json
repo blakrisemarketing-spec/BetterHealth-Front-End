@@ -1,5 +1,6 @@
 {
   "lastRunDate": "2026-06-22",
+  "lastWeeklyRun": "2026-06-24",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -11,5 +12,5 @@
   ],
   "inFlightPRs": [],
   "publishedCount": 5,
-  "notes": "art-fasting-blood-sugar published 2026-06-22 (fasting blood sugar normal range, 1300/mo Ghana). Next todo item: art-cholesterol-lipids (lipid profile test, 1000/mo). Brief not yet written."
+  "notes": "art-fasting-blood-sugar published 2026-06-22 (fasting blood sugar normal range, 1300/mo Ghana). Next todo item: art-cholesterol-lipids (lipid profile test, 1000/mo). Brief not yet written. Weekly run 2026-W26: no articles yet indexed; GSC/Bing creds absent — set up urgently."
 }
