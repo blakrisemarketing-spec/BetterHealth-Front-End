@@ -90,10 +90,12 @@ items:
     slug: full-blood-count-explained
     keyword: fbc test
     volume: 1000
-    secondary: ["full blood count", "complete blood count"]
+    secondary: ["full blood count", "complete blood count", "full blood picture test", "full blood count interpretation", "what is tested in a full blood count"]
     intent: informational
     title: "Full Blood Count (FBC): A Plain-Language Guide to Your Results"
-    status: todo
+    status: done
+    completed: 2026-06-25
+    notes: "Published 2026-06-25. fbc test 1,000/mo Ghana, LOW competition. Covers haemoglobin, MCV, WBC differential, platelets, Ghana sickle-cell and malaria caveats. Article + BreadcrumbList + FAQPage schema. PR: SEO/nightly-2026-06-25."
 
   - id: art-hypertension-silent
     type: article
