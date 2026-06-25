@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="70" y="58" font-size="30" font-weight="700" fill="#2B3A3A">Key FBC reference ranges</text>
+  <text x="70" y="90" font-size="18" fill="#6B7979">Normal values used in Ghanaian clinical practice (WHO / standard clinical thresholds)</text>
+
+  <!-- ---- Row 1: Haemoglobin ---- -->
+  <text x="70" y="144" font-size="20" font-weight="700" fill="#2B3A3A">Haemoglobin</text>
+  <text x="70" y="166" font-size="15" fill="#6B7979">Oxygen-carrying protein in red cells</text>
+
+  <!-- Men bar -->
+  <text x="280" y="144" font-size="14" font-weight="600" fill="#6B7979">MEN</text>
+  <clipPath id="bar-hb-m"><rect x="280" y="148" width="420" height="28" rx="8"/></clipPath>
+  <g clip-path="url(#bar-hb-m)">
+    <rect x="280" y="148" width="80"  height="28" fill="#E8D5D3"/>
+    <rect x="360" y="148" width="260" height="28" fill="#6B8E7F"/>
+    <rect x="620" y="148" width="80"  height="28" fill="#E8D5D3"/>
+  </g>
+  <text x="400" y="183" font-size="13" fill="#6B7979" text-anchor="middle">Low</text>
+  <text x="490" y="183" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">130–175 g/L</text>
+  <text x="660" y="183" font-size="13" fill="#6B7979" text-anchor="middle">High</text>
+
+  <!-- Women bar -->
+  <text x="730" y="144" font-size="14" font-weight="600" fill="#6B7979">WOMEN</text>
+  <clipPath id="bar-hb-w"><rect x="730" y="148" width="400" height="28" rx="8"/></clipPath>
+  <g clip-path="url(#bar-hb-w)">
+    <rect x="730" y="148" width="80"  height="28" fill="#E8D5D3"/>
+    <rect x="810" y="148" width="240" height="28" fill="#6B8E7F"/>
+    <rect x="1050" y="148" width="80" height="28" fill="#E8D5D3"/>
+  </g>
+  <text x="840" y="183" font-size="13" fill="#6B7979" text-anchor="middle">Low</text>
+  <text x="930" y="183" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">120–155 g/L</text>
+  <text x="1090" y="183" font-size="13" fill="#6B7979" text-anchor="middle">High</text>
+
+  <!-- Divider -->
+  <line x1="70" y1="204" x2="1130" y2="204" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- ---- Row 2: WBC ---- -->
+  <text x="70" y="240" font-size="20" font-weight="700" fill="#2B3A3A">White Blood Cells (WBC)</text>
+  <text x="70" y="262" font-size="15" fill="#6B7979">Immune defence cells</text>
+
+  <clipPath id="bar-wbc"><rect x="280" y="244" width="560" height="28" rx="8"/></clipPath>
+  <g clip-path="url(#bar-wbc)">
+    <rect x="280" y="244" width="100" height="28" fill="#E8D5D3"/>
+    <rect x="380" y="244" width="320" height="28" fill="#6B8E7F"/>
+    <rect x="700" y="244" width="140" height="28" fill="#E8D5D3"/>
+  </g>
+  <text x="330" y="279" font-size="13" fill="#6B7979" text-anchor="middle">Low</text>
+  <text x="540" y="279" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">4.0–11.0 ×10⁹/L</text>
+  <text x="770" y="279" font-size="13" fill="#6B7979" text-anchor="middle">High</text>
+
+  <!-- Divider -->
+  <line x1="70" y1="300" x2="1130" y2="300" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- ---- Row 3: Platelets ---- -->
+  <text x="70" y="336" font-size="20" font-weight="700" fill="#2B3A3A">Platelets</text>
+  <text x="70" y="358" font-size="15" fill="#6B7979">Blood-clotting cells</text>
+
+  <clipPath id="bar-plt"><rect x="280" y="340" width="580" height="28" rx="8"/></clipPath>
+  <g clip-path="url(#bar-plt)">
+    <rect x="280" y="340" width="100" height="28" fill="#E8D5D3"/>
+    <rect x="380" y="340" width="340" height="28" fill="#6B8E7F"/>
+    <rect x="720" y="340" width="140" height="28" fill="#E8D5D3"/>
+  </g>
+  <text x="330" y="375" font-size="13" fill="#6B7979" text-anchor="middle">Low</text>
+  <text x="550" y="375" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">150–400 ×10⁹/L</text>
+  <text x="790" y="375" font-size="13" fill="#6B7979" text-anchor="middle">High</text>
+
+  <!-- ---- Row 4: MCV ---- -->
+  <line x1="70" y1="396" x2="1130" y2="396" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="430" font-size="20" font-weight="700" fill="#2B3A3A">MCV (red cell size)</text>
+
+  <clipPath id="bar-mcv"><rect x="280" y="412" width="540" height="28" rx="8"/></clipPath>
+  <g clip-path="url(#bar-mcv)">
+    <rect x="280" y="412" width="100" height="28" fill="#E0A23E" opacity="0.7"/>
+    <rect x="380" y="412" width="300" height="28" fill="#6B8E7F"/>
+    <rect x="680" y="412" width="140" height="28" fill="#E0A23E" opacity="0.7"/>
+  </g>
+  <text x="330" y="447" font-size="13" fill="#6B7979" text-anchor="middle">Micro</text>
+  <text x="530" y="447" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">80–100 fL</text>
+  <text x="750" y="447" font-size="13" fill="#6B7979" text-anchor="middle">Macro</text>
+
+  <text x="70" y="458" font-size="13" fill="#9AA6A6">Source: WHO (2011) haemoglobin reference values; standard clinical reference intervals. Confirm any result with a clinician.</text>
+</svg>

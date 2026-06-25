@@ -1,17 +1,18 @@
 {
-  "lastRunDate": "2026-06-23",
+  "lastRunDate": "2026-06-25",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
     "art-fatty-liver",
     "art-fasting-blood-sugar",
-    "art-cholesterol-lipids"
+    "art-cholesterol-lipids",
+    "art-full-blood-count"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-06-24",
   "inFlightPRs": [],
-  "publishedCount": 6,
-  "notes": "art-cholesterol-lipids published 2026-06-23 (lipid profile test, 1000/mo Ghana). Next todo item: art-full-blood-count (fbc test, 1000/mo). Brief not yet written."
+  "publishedCount": 7,
+  "notes": "art-full-blood-count published 2026-06-25 (fbc test, 1,000/mo Ghana). Next todo item: art-hypertension-silent (hypertension symptoms, 480/mo)."
 }

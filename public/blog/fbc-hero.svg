@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Full Blood Count (FBC) explained: red cells, white cells, and platelets measured in one blood draw" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Full Blood Count (FBC): A Plain-Language Guide to Your Results</title>
+  <defs>
+    <radialGradient id="orb-fbc" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1020" cy="160" r="320" fill="url(#orb-fbc)"/>
+
+  <!-- Category label -->
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+
+  <!-- Main title -->
+  <text x="86" y="262" font-size="62" font-weight="800" fill="#2B3A3A">Full Blood Count (FBC)</text>
+
+  <!-- Subtitle -->
+  <text x="90" y="312" font-size="26" fill="#6B7979">A plain-language guide to your results</text>
+
+  <!-- Three cell-type pills -->
+  <!-- Red Cells pill -->
+  <rect x="90" y="350" width="170" height="42" rx="21" fill="#C9594F"/>
+  <text x="175" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Red Cells</text>
+
+  <!-- White Cells pill -->
+  <rect x="274" y="350" width="180" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="364" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">White Cells</text>
+
+  <!-- Platelets pill -->
+  <rect x="468" y="350" width="160" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="548" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Platelets</text>
+
+  <!-- Haemoglobin pill -->
+  <rect x="642" y="350" width="200" height="42" rx="21" fill="#A8C5B8"/>
+  <text x="742" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Haemoglobin</text>
+
+  <!-- Decorative right-side graphic: three stacked circles suggesting blood cells -->
+  <circle cx="960" cy="240" r="70" fill="#C9594F" opacity="0.18"/>
+  <circle cx="1040" cy="200" r="50" fill="#6B8E7F" opacity="0.22"/>
+  <circle cx="1010" cy="300" r="40" fill="#2B3A3A" opacity="0.12"/>
+  <circle cx="1090" cy="260" r="30" fill="#A8C5B8" opacity="0.35"/>
+  <circle cx="960" cy="240" r="44" fill="none" stroke="#C9594F" stroke-width="2" opacity="0.30"/>
+  <circle cx="1040" cy="200" r="30" fill="none" stroke="#6B8E7F" stroke-width="2" opacity="0.35"/>
+</svg>
