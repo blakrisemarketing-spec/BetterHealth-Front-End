@@ -103,10 +103,12 @@ items:
     slug: high-blood-pressure-silent-killer
     keyword: hypertension symptoms
     volume: 480
-    secondary: ["high blood pressure symptoms"]
+    secondary: ["high blood pressure symptoms", "how to lower blood pressure (320/mo)", "prevention of hypertension (210/mo)", "treatment of hypertension (40/mo)", "stage 1 hypertension symptoms (30/mo)", "stage 2 hypertension symptoms (20/mo)"]
     intent: informational
     title: "High Blood Pressure in Ghana: Why It's Called the Silent Killer"
-    status: todo
+    status: done
+    completed: 2026-06-26
+    notes: "Published 2026-06-26. hypertension symptoms 480/mo Ghana, LOW competition. Covers stages 1 and 2, organ damage, lifestyle lowering, Ghana prevalence and late-diagnosis context. Article + BreadcrumbList + FAQPage schema. PR: seo/nightly-2026-06-26."
 
   - id: art-prediabetes
     type: article
