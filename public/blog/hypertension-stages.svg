@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="800" height="320" role="img" aria-label="Blood pressure stages chart: normal, elevated, stage 1, and stage 2 hypertension with mmHg thresholds">
+  <!-- Background -->
+  <rect width="800" height="320" fill="#F0F7FF" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="36" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#1A2F4E" text-anchor="middle">Blood Pressure Stages</text>
+  <text x="400" y="58" font-family="Arial, sans-serif" font-size="12" fill="#4A6A8A" text-anchor="middle">Systolic (top number) / Diastolic (bottom number) in mmHg — AHA/ACC 2017 &amp; WHO 2023</text>
+
+  <!-- Stage bars -->
+  <!-- Headers -->
+  <text x="90" y="92" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">Category</text>
+  <text x="330" y="92" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">Systolic (mmHg)</text>
+  <text x="530" y="92" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">Diastolic (mmHg)</text>
+  <text x="700" y="92" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#64748B" text-anchor="middle">Risk</text>
+
+  <!-- Row 1: Normal -->
+  <rect x="20" y="102" width="760" height="44" rx="6" fill="#F0FDF4"/>
+  <circle cx="38" cy="124" r="8" fill="#22C55E"/>
+  <text x="90" y="129" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#166534" text-anchor="middle">Normal</text>
+  <!-- Systolic bar -->
+  <rect x="190" y="112" width="168" height="24" rx="4" fill="#22C55E" opacity="0.25"/>
+  <rect x="190" y="112" width="168" height="24" rx="4" fill="none" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="274" y="129" font-family="Arial, sans-serif" font-size="12" fill="#166534" text-anchor="middle">Below 120</text>
+  <!-- Diastolic bar -->
+  <rect x="410" y="112" width="168" height="24" rx="4" fill="#22C55E" opacity="0.25"/>
+  <rect x="410" y="112" width="168" height="24" rx="4" fill="none" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="494" y="129" font-family="Arial, sans-serif" font-size="12" fill="#166534" text-anchor="middle">Below 80</text>
+  <text x="700" y="129" font-family="Arial, sans-serif" font-size="12" fill="#166534" text-anchor="middle">Low</text>
+
+  <!-- Row 2: Elevated -->
+  <rect x="20" y="152" width="760" height="44" rx="6" fill="#FEFCE8"/>
+  <circle cx="38" cy="174" r="8" fill="#EAB308"/>
+  <text x="90" y="179" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#854D0E" text-anchor="middle">Elevated</text>
+  <rect x="190" y="162" width="168" height="24" rx="4" fill="#EAB308" opacity="0.25"/>
+  <rect x="190" y="162" width="168" height="24" rx="4" fill="none" stroke="#EAB308" stroke-width="1.5"/>
+  <text x="274" y="179" font-family="Arial, sans-serif" font-size="12" fill="#854D0E" text-anchor="middle">120 to 129</text>
+  <rect x="410" y="162" width="168" height="24" rx="4" fill="#EAB308" opacity="0.25"/>
+  <rect x="410" y="162" width="168" height="24" rx="4" fill="none" stroke="#EAB308" stroke-width="1.5"/>
+  <text x="494" y="179" font-family="Arial, sans-serif" font-size="12" fill="#854D0E" text-anchor="middle">Below 80</text>
+  <text x="700" y="179" font-family="Arial, sans-serif" font-size="12" fill="#854D0E" text-anchor="middle">Moderate</text>
+
+  <!-- Row 3: Stage 1 -->
+  <rect x="20" y="202" width="760" height="44" rx="6" fill="#FFF7ED"/>
+  <circle cx="38" cy="224" r="8" fill="#F97316"/>
+  <text x="90" y="229" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#9A3412" text-anchor="middle">Stage 1</text>
+  <rect x="190" y="212" width="168" height="24" rx="4" fill="#F97316" opacity="0.25"/>
+  <rect x="190" y="212" width="168" height="24" rx="4" fill="none" stroke="#F97316" stroke-width="1.5"/>
+  <text x="274" y="229" font-family="Arial, sans-serif" font-size="12" fill="#9A3412" text-anchor="middle">130 to 139</text>
+  <rect x="410" y="212" width="168" height="24" rx="4" fill="#F97316" opacity="0.25"/>
+  <rect x="410" y="212" width="168" height="24" rx="4" fill="none" stroke="#F97316" stroke-width="1.5"/>
+  <text x="494" y="229" font-family="Arial, sans-serif" font-size="12" fill="#9A3412" text-anchor="middle">80 to 89</text>
+  <text x="700" y="229" font-family="Arial, sans-serif" font-size="12" fill="#9A3412" text-anchor="middle">High</text>
+
+  <!-- Row 4: Stage 2 -->
+  <rect x="20" y="252" width="760" height="44" rx="6" fill="#FEF2F2"/>
+  <circle cx="38" cy="274" r="8" fill="#EF4444"/>
+  <text x="90" y="279" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#991B1B" text-anchor="middle">Stage 2</text>
+  <rect x="190" y="262" width="168" height="24" rx="4" fill="#EF4444" opacity="0.25"/>
+  <rect x="190" y="262" width="168" height="24" rx="4" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="274" y="279" font-family="Arial, sans-serif" font-size="12" fill="#991B1B" text-anchor="middle">140 or above</text>
+  <rect x="410" y="262" width="168" height="24" rx="4" fill="#EF4444" opacity="0.25"/>
+  <rect x="410" y="262" width="168" height="24" rx="4" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="494" y="279" font-family="Arial, sans-serif" font-size="12" fill="#991B1B" text-anchor="middle">90 or above</text>
+  <text x="700" y="279" font-family="Arial, sans-serif" font-size="12" fill="#991B1B" text-anchor="middle">Very high</text>
+
+  <!-- Source note -->
+  <text x="400" y="310" font-family="Arial, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">AHA/ACC 2017 Hypertension Guidelines · WHO Global Hypertension Report 2023</text>
+</svg>
