@@ -11,6 +11,7 @@ import fastingBloodSugarExplained from "./posts/fasting-blood-sugar-explained.js
 import lipidProfileCholesterolTest from "./posts/lipid-profile-cholesterol-test.js";
 import fullBloodCountExplained from "./posts/full-blood-count-explained.js";
 import highBloodPressureSilentKiller from "./posts/high-blood-pressure-silent-killer.js";
+import prediabetesWarningSigns from "./posts/prediabetes-warning-signs.js";
 
 const ALL = [
   hba1cExplained,
@@ -21,6 +22,7 @@ const ALL = [
   lipidProfileCholesterolTest,
   fullBloodCountExplained,
   highBloodPressureSilentKiller,
+  prediabetesWarningSigns,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="Spectrum showing the prediabetes warning window between normal blood sugar and diabetes, with key facts about reversibility">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#F0F7FF" rx="16"/>
+
+  <!-- Card panel -->
+  <rect x="40" y="32" width="720" height="336" rx="12" fill="#FFFFFF" stroke="#E2ECF8" stroke-width="1.5"/>
+
+  <!-- Headline -->
+  <text x="400" y="74" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#1A2F4E" text-anchor="middle">Prediabetes</text>
+  <text x="400" y="100" font-family="Georgia, serif" font-size="15" fill="#4A6A8A" text-anchor="middle">The Warning Window Before Diabetes Develops</text>
+
+  <!-- Three-zone spectrum bar -->
+  <!-- Normal zone -->
+  <rect x="72" y="126" width="168" height="52" rx="10 0 0 10" fill="#16A34A"/>
+  <text x="156" y="157" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Normal</text>
+
+  <!-- Prediabetes zone (highlighted with amber, slightly taller) -->
+  <rect x="240" y="116" width="192" height="72" rx="0" fill="#D97706"/>
+  <rect x="240" y="116" width="8" height="72" fill="#D97706"/>
+  <text x="336" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Prediabetes</text>
+  <text x="336" y="170" font-family="Arial, sans-serif" font-size="11" fill="#FEF3C7" text-anchor="middle">The Warning Window</text>
+
+  <!-- Diabetes zone -->
+  <rect x="432" y="126" width="168" height="52" rx="0 10 10 0" fill="#DC2626"/>
+  <text x="516" y="157" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Diabetes</text>
+
+  <!-- Threshold labels -->
+  <line x1="240" y1="200" x2="240" y2="210" stroke="#6B7280" stroke-width="1.5"/>
+  <text x="240" y="226" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">HbA1c 5.7%</text>
+  <text x="240" y="240" font-family="Arial, sans-serif" font-size="10" fill="#6B7280" text-anchor="middle">FBG 5.6 mmol/L</text>
+
+  <line x1="432" y1="200" x2="432" y2="210" stroke="#6B7280" stroke-width="1.5"/>
+  <text x="432" y="226" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">HbA1c 6.5%</text>
+  <text x="432" y="240" font-family="Arial, sans-serif" font-size="10" fill="#6B7280" text-anchor="middle">FBG 7.0 mmol/L</text>
+
+  <!-- Arrow pointing to prediabetes: "Act here" -->
+  <polygon points="336,108 326,92 346,92" fill="#D97706"/>
+  <line x1="336" y1="92" x2="336" y2="76" stroke="#D97706" stroke-width="2"/>
+  <text x="336" y="68" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#D97706" text-anchor="middle">Act here. Still reversible.</text>
+
+  <!-- Right side: key facts panel -->
+  <rect x="626" y="118" width="110" height="150" rx="8" fill="#F8FAFD" stroke="#E2ECF8" stroke-width="1"/>
+  <text x="681" y="142" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#1A2F4E" text-anchor="middle">Key facts</text>
+
+  <circle cx="644" cy="162" r="3.5" fill="#D97706"/>
+  <text x="655" y="166" font-family="Arial, sans-serif" font-size="10" fill="#2D4A6B">Often no symptoms</text>
+
+  <circle cx="644" cy="184" r="3.5" fill="#D97706"/>
+  <text x="655" y="188" font-family="Arial, sans-serif" font-size="10" fill="#2D4A6B">Fully reversible</text>
+
+  <circle cx="644" cy="206" r="3.5" fill="#D97706"/>
+  <text x="655" y="210" font-family="Arial, sans-serif" font-size="10" fill="#2D4A6B">58% risk cut</text>
+  <text x="655" y="222" font-family="Arial, sans-serif" font-size="10" fill="#2D4A6B">with lifestyle change</text>
+
+  <circle cx="644" cy="244" r="3.5" fill="#D97706"/>
+  <text x="655" y="248" font-family="Arial, sans-serif" font-size="10" fill="#2D4A6B">Blood test diagnoses it</text>
+
+  <!-- Bottom note -->
+  <text x="400" y="306" font-family="Arial, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Sources: ADA Standards of Care 2024 · Diabetes Prevention Program, NEJM 2002</text>
+  <text x="400" y="326" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#0EA5E9" text-anchor="middle">BetterHealth Africa</text>
+  <text x="400" y="348" font-family="Arial, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Check your blood sugar before the window closes.</text>
+</svg>

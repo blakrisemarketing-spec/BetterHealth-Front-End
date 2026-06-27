@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-06-26",
+  "lastRunDate": "2026-06-27",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -7,13 +7,14 @@
     "art-fasting-blood-sugar",
     "art-cholesterol-lipids",
     "art-full-blood-count",
-    "art-hypertension-silent"
+    "art-hypertension-silent",
+    "art-prediabetes"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-06-24",
   "inFlightPRs": [],
-  "publishedCount": 8,
-  "notes": "art-hypertension-silent published 2026-06-26 (hypertension symptoms, 480/mo Ghana, LOW competition). Next todo item: art-prediabetes (prediabetes symptoms, 70/mo)."
+  "publishedCount": 9,
+  "notes": "art-prediabetes published 2026-06-27 (prediabetes symptoms, 70/mo Ghana, LOW competition). Also targets prediabetes range (90/mo), prediabetes treatment (40/mo), symptoms of prediabetes in females (30/mo). Next todo item: art-anaemia-iron (ferritin test, 50/mo)."
 }
