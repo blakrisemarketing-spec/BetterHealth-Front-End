@@ -118,7 +118,9 @@ items:
     volume: 70
     intent: informational
     title: "Prediabetes: The Warning Window Before Diabetes Develops"
-    status: todo
+    status: done
+    completed: 2026-06-27
+    notes: "Published 2026-06-27. prediabetes symptoms 70/mo Ghana, LOW competition. Also covers prediabetes range (90/mo), prediabetes treatment (40/mo), symptoms of prediabetes in females (30/mo), prediabetes diet (10/mo), prediabetes symptoms skin, prediabetes symptoms feet. Article + BreadcrumbList + FAQPage schema. PR: seo/nightly-2026-06-27."
 
   # ---- Lower volume, but strong topical / local relevance ----
   - id: art-anaemia-iron
