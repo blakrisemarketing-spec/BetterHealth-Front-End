@@ -20,7 +20,7 @@ meta:
   market: Ghana
   primary_language: en-GH
   focus: patients-led
-  updated: 2026-06-24
+  updated: 2026-06-28
   keyword_data: "DataForSEO, Ghana, 2026-06 (see seo/reports/keyword-research-2026-06.md); volumes re-confirmed 2026-06-24 weekly run"
 
 items:
@@ -147,6 +147,17 @@ items:
     title: "Vitamin D Deficiency: Symptoms, Testing, and What to Do"
     status: todo
 
+  - id: art-sickle-cell-trait
+    type: article
+    cluster: conditions
+    slug: sickle-cell-trait-testing
+    keyword: sickle cell trait test
+    volume: null
+    intent: informational
+    title: "Sickle Cell Trait: Why Testing Matters Before You Start a Family"
+    status: todo
+    notes: "Promoted to #3 todo (2026-06-28 weekly): near-zero SERP competition confirmed by DataForSEO; 1 in 4 Ghanaians carry the trait; strong AI-citation candidate. Low search volume but uniquely winnable and locally differentiated."
+
   - id: art-creatinine-egfr
     type: article
     cluster: biomarkers
@@ -179,17 +190,6 @@ items:
     title: "Liver Function Tests (ALT, AST): What the Numbers Mean"
     status: todo
     notes: "Low standalone volume; mostly absorbed by the fatty-liver article. Keep as the dedicated ALT/AST/GGT explainer and internal-link the two."
-
-  - id: art-sickle-cell-trait
-    type: article
-    cluster: conditions
-    slug: sickle-cell-trait-testing
-    keyword: sickle cell trait test
-    volume: null
-    intent: informational
-    title: "Sickle Cell Trait: Why Testing Matters Before You Start a Family"
-    status: todo
-    notes: "Low search volume but high local relevance (1 in 4 Ghanaians carry the trait) and low competition. Strong AI-citation candidate."
 
   # ---- Commercial / decision intent (low volume, high business value) ----
   - id: art-cost-of-screening
