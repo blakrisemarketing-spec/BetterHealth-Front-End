@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-06-27",
+  "lastRunDate": "2026-06-28",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -8,13 +8,14 @@
     "art-cholesterol-lipids",
     "art-full-blood-count",
     "art-hypertension-silent",
-    "art-prediabetes"
+    "art-prediabetes",
+    "art-anaemia-iron"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-06-24",
   "inFlightPRs": [],
-  "publishedCount": 9,
-  "notes": "art-prediabetes published 2026-06-27 (prediabetes symptoms, 70/mo Ghana, LOW competition). Also targets prediabetes range (90/mo), prediabetes treatment (40/mo), symptoms of prediabetes in females (30/mo). Next todo item: art-anaemia-iron (ferritin test, 50/mo)."
+  "publishedCount": 10,
+  "notes": "art-anaemia-iron published 2026-06-28 (ferritin test, 50/mo Ghana, LOW competition). Also targets iron deficiency anaemia symptoms, anaemia symptoms, serum ferritin high (10/mo), normal ferritin levels by age (10/mo), low ferritin treatment (10/mo). Next todo item: art-vitamin-d (vitamin d test, 20/mo)."
 }

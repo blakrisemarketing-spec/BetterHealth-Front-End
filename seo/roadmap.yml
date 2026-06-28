@@ -129,11 +129,12 @@ items:
     slug: ferritin-iron-anaemia
     keyword: ferritin test
     volume: 50
-    secondary: ["iron deficiency anaemia symptoms", "anaemia symptoms"]
+    secondary: ["iron deficiency anaemia symptoms", "anaemia symptoms", "serum ferritin high (10/mo)", "normal ferritin levels by age (10/mo)", "low ferritin treatment (10/mo)"]
     intent: informational
     title: "Ferritin and Iron: How to Read Your Anaemia Blood Tests"
-    status: todo
-    notes: "Retargeted from 'iron deficiency anaemia symptoms' (no data) to 'ferritin test' (50/mo)."
+    status: done
+    completed: 2026-06-28
+    notes: "Published 2026-06-28. ferritin test 50/mo Ghana, LOW competition. Also targets iron deficiency anaemia symptoms, anaemia symptoms, serum ferritin high (10/mo), normal ferritin levels by age (10/mo), low ferritin treatment (10/mo). Covers the 3-stage depletion model, full iron panel (ferritin/serum iron/TIBC/transferrin sat), Ghana malaria+ferritin interaction, fibroid context, sickle cell caveat. Article + BreadcrumbList + FAQPage schema. PR: seo/nightly-2026-06-28."
 
   - id: art-vitamin-d
     type: article
