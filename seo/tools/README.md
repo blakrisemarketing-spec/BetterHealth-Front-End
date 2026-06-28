@@ -26,14 +26,29 @@ node seo/tools/gsc.mjs queries 28   # top queries, last 28 days
 node seo/tools/gsc.mjs pages   28   # top pages
 ```
 
-Env: `GSC_SERVICE_ACCOUNT_JSON` (path to the service-account key file, or inline
-JSON), `GSC_SITE_URL` (the property, e.g. `https://www.betterhealth.africa/` or
+Env: `GSC_SERVICE_ACCOUNT_JSON` (the service-account key — see formats below),
+`GSC_SITE_URL` (the property, e.g. `https://www.betterhealth.africa/` or
 `sc-domain:betterhealth.africa`).
 
 **Setup:** In Google Cloud, create a service account and a JSON key. Enable the
 "Google Search Console API". In Search Console → Settings → Users and permissions,
 add the service account's `client_email` as a user with at least "Restricted"
 (read) access on the property.
+
+**Storing the key in an env var (base64 — recommended).** The downloaded key is
+pretty-printed JSON with real line breaks, and single-line env-var fields (the
+cloud Routine Environment, most CI UIs) truncate it at the first newline — which
+surfaces later as a JSON "parse error at position 1." Base64-encode it to one safe
+line instead, and the tool auto-decodes it:
+
+```bash
+base64 -i gsc-service-account.json | tr -d '\n'   # macOS/BSD
+base64 -w0 gsc-service-account.json               # GNU/Linux
+```
+
+Paste the single-line output as `GSC_SERVICE_ACCOUNT_JSON`. `gsc.mjs` accepts the
+key in three forms: **base64-of-JSON** (best for env vars), **inline raw JSON**
+(only if minified to one line), or a **file path** (local runs).
 
 ## bing.mjs (free)
 
