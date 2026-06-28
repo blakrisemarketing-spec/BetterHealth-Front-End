@@ -4,76 +4,102 @@ This is the human-readable specification of what the nightly routine does. The
 executable version lives in `.claude/skills/seo-nightly/SKILL.md`, which the
 scheduled cloud agent invokes. Keep the two in sync.
 
+**Scope: Africa-first.** Ghana is the home market, but the program now targets health
+keywords across Africa (Nigeria, Kenya, South Africa, and beyond). Content carries
+market-appropriate local framing, not reflexively Ghanaian.
+
+**Cadence: 5 articles per night, one PR.** Each nightly run publishes a batch of up
+to five patients-led articles in a single reviewable pull request.
+
 ## Invariants (never violate)
 
-1. **PR for review.** Every change ships as a pull request. Nothing is committed to
+1. **PR for review.** Every change ships as one pull request. Nothing is committed to
    `main` directly. A human merges.
-2. **Clinical safety gate.** Any content touching a health claim, reference range,
-   symptom, or treatment statement passes the `clinical-safety-review` discipline
-   before the PR opens. Wrong health information is worse than a delayed article.
-   Ranges/thresholds must cite an accepted source (WHO/ADA/etc.) and include the
-   educational disclaimer block. Never fabricate a clinician's review/byline.
-3. **Build must pass offline.** `npm run build` must succeed without any API. The
+2. **Clinical safety gate, per article.** Every article in the batch independently
+   passes the `clinical-safety-review` discipline before the PR opens. Wrong health
+   information is worse than a delayed article. Ranges/thresholds cite an accepted
+   source (WHO / ADA / national guideline) and include the educational disclaimer
+   block. Never fabricate a clinician's review/byline.
+3. **Quality is the floor, not the count.** Ship only the articles that fully clear
+   the gate and the build. Four correct articles beat five with one wrong range.
+4. **Build must pass offline.** `npm run build` must succeed without any API. The
    data tools inform *what* to write; they are never a build dependency.
-4. **Single source of truth.** New content = one file in `src/data/blog/posts/` +
-   one line in `src/data/blog/index.js`. Never hand-edit `dist/`, `sitemap.xml`, or
-   `llms.txt` — they are generated.
-5. **No secrets in the repo.** Tools read credentials from env only.
+5. **Single source of truth.** New content = one file in `src/data/blog/posts/` +
+   one line in `src/data/blog/index.js` per article. Never hand-edit `dist/`,
+   `sitemap.xml`, or `llms.txt` — they are generated.
+6. **One combined state update.** All articles in a batch share ONE `progress.json`
+   edit and ONE set of `roadmap.yml` flips, committed in the single PR. This keeps
+   the batch atomic and avoids the inter-PR state collision.
+7. **No secrets in the repo.** Tools read credentials from env only.
 
 ## Nightly procedure
 
 1. **Sync.** Fetch `origin/main`; create branch `seo/nightly-YYYY-MM-DD`.
-2. **Select task.** Read `seo/progress.json` and `seo/roadmap.yml`. Pick the first
-   item with `status: todo`. If none, run a maintenance pass instead (see below).
-3. **Refine target (if creds available).** Use `seo/tools/dataforseo.mjs` and
-   `seo/tools/gsc.mjs` to confirm the keyword still has volume / no better variant,
-   and to pull "questions people ask" for the FAQ block. Skip gracefully if creds
-   are absent.
-4. **Brief.** Write/update `seo/briefs/<slug>.md`: primary + secondary keywords,
-   search intent, the angle, an H2 outline, the internal links to include, and the
-   citable claim each H2 should open with.
-5. **Draft.** Create `src/data/blog/posts/<slug>.js` following the existing article
-   shape. Requirements:
-   - Each `h2` section opens with a self-contained claim sentence (passage-level
-     citability for AI engines).
-   - Include 2-4 internal links (`link-internal` blocks) to related articles and to
-     `/what-we-test` or `/pricing`.
-   - Include a `faq` block (answer-first) and a `disclaimer` block.
-   - Ghana-specific framing where relevant (epidemiology, mobile money, local labs).
-   - At least one relevant `image` block. Prefer on-brand SVG data-graphics or hero
-     cards in `public/blog/` over stock photos (crisp, tiny on 3G, no AI-image look).
-6. **Register.** Add the import + array entry in `src/data/blog/index.js`.
-7. **Humanise.** Run the `bh-humanizer` skill (built on `stop-slop`) over the draft:
-   zero em dashes in prose, no AI phrasing tells, while keeping clinical caution,
-   factual lists, numbers, and the disclaimer.
-8. **Clinical-safety gate.** Run `clinical-safety-review` on the new content. Fix or
-   stop if it flags anything.
-9. **Build & verify.** `npm run build`. Confirm:
-   - `dist/blog/<slug>/index.html` exists with the right `<title>`, `og:type=article`,
-     canonical, and Article + BreadcrumbList (+ FAQPage) JSON-LD.
-   - `dist/sitemap.xml` and `dist/llms.txt` include the new route.
-   - The article file has zero spaced em dashes in prose.
-10. **Update state.** Flip the roadmap item to `status: done` with `completed` date;
-    bump `seo/progress.json` (`lastRunDate`, `completed[]`, `publishedCount`).
-11. **PR.** Commit and open a PR titled `SEO: <article title>` summarizing the target
-    keyword, the schema added, and the verification output.
+2. **Select the batch.** Read `seo/progress.json` and `seo/roadmap.yml`. Take the
+   first **five** `status: todo` items of `type: article` (or `type: local`),
+   top-to-bottom; skip `tech-*` tasks. Record the ids in `progress.json.inFlightPRs`.
+   If fewer than five qualify, take what exists and run the queue-refill pass.
+3. **Refine targets (if creds available).** For each target use
+   `seo/tools/dataforseo.mjs` (with the market's `DFS_LOCATION_CODE`) and
+   `seo/tools/gsc.mjs` to confirm volume / better variants and pull "questions people
+   ask" for the FAQ. Skip gracefully if creds are absent.
+4. **For each article — brief.** Write/update `seo/briefs/<slug>.md`: primary +
+   secondary keywords, intent, angle, H2 outline, internal links, and the citable
+   claim each H2 opens with.
+5. **For each article — draft.** Create `src/data/blog/posts/<slug>.js` in the
+   existing shape:
+   - Each `h2` opens with a self-contained, citable claim sentence.
+   - 2–4 internal links (`link-internal`) to related articles (including other
+     articles in tonight's batch) and to `/what-we-test` or `/pricing`.
+   - A `faq` block (answer-first) and a `disclaimer` block.
+   - Market-appropriate local framing (epidemiology, labs, insurance, currency for
+     the target market). Ghana is the default only when the target is not
+     market-specific. Keep pan-African clinical caveats (sickle-cell / Hb variants).
+   - At least one relevant `image` block (on-brand SVG data-graphic / hero card in
+     `public/blog/`, not stock). Top-level `image` (OG card) must be a raster.
+6. **Register.** Add the import + array entry in `src/data/blog/index.js` per article.
+7. **Humanise.** Run `bh-humanizer` over each draft: zero em dashes, no AI tells,
+   keep clinical caution, numbers, and the disclaimer. Check excerpt/description too.
+8. **Clinical-safety gate.** Run `clinical-safety-review` on each article. Drop any
+   article that cannot be made safe (leave it `todo`); ship the rest.
+9. **Build & verify (once).** `npm run build`. For each shipped article confirm
+   `dist/blog/<slug>/index.html` (title, `og:type=article`, canonical, Article +
+   BreadcrumbList (+ FAQPage) JSON-LD) and that `sitemap.xml` + `llms.txt` include
+   the route. Zero spaced em dashes in each post file.
+10. **Update state (once).** Flip each shipped roadmap item to `status: done` with a
+    `completed` date; bump `seo/progress.json` once (`lastRunDate`, append all ids to
+    `completed[]`, `publishedCount += shipped`, clear `inFlightPRs`). Leave
+    `lastWeeklyRun` untouched.
+11. **One PR.** Commit (`SEO: nightly batch <date> (<N> articles)`) and open ONE PR
+    summarizing the batch (article table, schema, internal links, per-article gate
+    results, verification output, and anything dropped). `gh pr ready` it.
 
-## Maintenance pass (when no `todo` content items remain, or on the weekly run)
+## Queue-refill pass (keep the 5/day pipeline fed)
 
-- **Analytics & rank pulse:** pull GSC + DataForSEO + Bing; write
-  `seo/reports/YYYY-Www.md` with rank deltas for tracked keywords and GEO citation
-  checks (is BetterHealth cited by AI engines for target queries?). Re-prioritize
-  `roadmap.yml` based on what's gaining traction.
-- **Technical hygiene:** refresh aging articles (`dateModified`), check internal
-  links resolve, validate schema, and review Core Web Vitals.
-- **Off-site queue:** top up `seo/offsite/` with directory targets and PR angles for
-  human action.
+Trigger when fewer than 10 `todo` article items remain. Scope is all of Africa.
+
+- For each priority market (Ghana, Nigeria, Kenya, South Africa, …) run
+  `seo/tools/dataforseo.mjs ideas "<seed>"` with that market's `DFS_LOCATION_CODE` to
+  surface real patient queries. Seeds: malaria test, typhoid test, hepatitis B test,
+  genotype test, premarital screening, PSA test, pap smear, HIV test, full body
+  checkup, plus existing biomarker seeds.
+- Append new `status: todo` items at the right priority (never reorder `done`), each
+  with a DataForSEO-confirmed `volume` and the market in `notes` (or `volume: null` +
+  a "confirm" note if no data). Favour high-burden, low-competition African terms.
+
+## Maintenance pass (weekly routine; or when no `todo` content items remain)
+
+- **Analytics & rank pulse:** pull GSC + DataForSEO + Bing per market; write
+  `seo/reports/YYYY-Www.md` with rank deltas and GEO citation checks. Re-prioritize.
+- **Technical hygiene:** refresh aging articles (`dateModified`), check links, schema,
+  Core Web Vitals.
+- **Off-site queue:** top up `seo/offsite/` with directory targets and PR angles.
 
 ## Cadence
 
 | Routine | Schedule | Entry point |
 |---|---|---|
-| Content engine | Nightly | publish 1 item from `roadmap.yml` |
+| Content engine | Nightly | publish up to **5** items from `roadmap.yml` → one PR |
 | Analytics & rank pulse | Weekly (Mon) | maintenance pass → report |
 | Off-site authority | Weekly | top up `seo/offsite/` |
 | Technical audit & drift | Monthly | full `seo-audit` + `seo-drift` |
