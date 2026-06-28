@@ -6,7 +6,12 @@
 // "read" access to the GSC property first.
 //
 // Env:
-//   GSC_SERVICE_ACCOUNT_JSON  path to the service-account JSON key file (or inline JSON)
+//   GSC_SERVICE_ACCOUNT_JSON  the service-account key, in ANY of three forms:
+//                               1. base64 of the JSON  (RECOMMENDED for env vars —
+//                                  single line, nothing for the UI to truncate/mangle)
+//                               2. inline raw JSON      (must be single-line/minified;
+//                                  pretty-printed JSON breaks single-line env fields)
+//                               3. a filesystem path to the JSON key file (local runs)
 //   GSC_SITE_URL              the GSC property, e.g. "https://www.betterhealth.africa/"
 //                             or domain property "sc-domain:betterhealth.africa"
 //
@@ -32,9 +37,46 @@ function requireConfig() {
   }
 }
 
+// Accept the service account in three shapes so it survives env-var UIs that
+// mangle multi-line values: inline JSON, base64-of-JSON, or a key-file path.
 function loadServiceAccount() {
-  const raw = KEY.trim().startsWith("{") ? KEY : fs.readFileSync(KEY, "utf8");
-  return JSON.parse(raw);
+  const v = KEY.trim();
+
+  // 1. Inline JSON (raw). Pretty-printed JSON only reaches here intact on local
+  //    runs; in env vars it must be minified to a single line.
+  if (v.startsWith("{")) return parseOrDie(v, "inline JSON");
+
+  // 2. Base64 of the JSON. The robust env-var form: only [A-Za-z0-9+/=], so a
+  //    single-line field cannot truncate or re-quote it. Detect by charset and
+  //    confirm it decodes to a JSON object before committing to this branch.
+  if (/^[A-Za-z0-9+/=\s]+$/.test(v)) {
+    const decoded = Buffer.from(v, "base64").toString("utf8").trim();
+    if (decoded.startsWith("{")) return parseOrDie(decoded, "base64-encoded JSON");
+  }
+
+  // 3. Path to a key file (local/manual runs).
+  let fileContents;
+  try {
+    fileContents = fs.readFileSync(v, "utf8");
+  } catch {
+    console.error(
+      "[gsc] GSC_SERVICE_ACCOUNT_JSON is set but is not valid inline JSON, not valid\n" +
+        "base64-of-JSON, and not a readable file path. If you pasted the key into an\n" +
+        "env var, base64-encode it first: base64 -i key.json | tr -d '\\n'\n" +
+        "(pretty-printed multi-line JSON gets truncated by single-line env fields)."
+    );
+    process.exit(1);
+  }
+  return parseOrDie(fileContents, "key file");
+}
+
+function parseOrDie(raw, source) {
+  try {
+    return JSON.parse(raw);
+  } catch (e) {
+    console.error(`[gsc] GSC_SERVICE_ACCOUNT_JSON (${source}) is not valid JSON: ${e.message}`);
+    process.exit(1);
+  }
 }
 
 const b64url = (input) =>
