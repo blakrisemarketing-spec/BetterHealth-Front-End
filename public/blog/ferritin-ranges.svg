@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="440" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Iron panel reference ranges</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Standard clinical thresholds used in Ghanaian practice</text>
+
+  <!-- ---- Row 1: Ferritin ---- -->
+  <text x="70" y="138" font-size="20" font-weight="700" fill="#2B3A3A">Ferritin</text>
+  <text x="70" y="160" font-size="15" fill="#6B7979">Iron storage protein</text>
+
+  <!-- Men bar -->
+  <text x="280" y="138" font-size="14" font-weight="600" fill="#6B7979">MEN</text>
+  <clipPath id="bar-fer-m"><rect x="280" y="142" width="420" height="28" rx="8"/></clipPath>
+  <g clip-path="url(#bar-fer-m)">
+    <rect x="280" y="142" width="60"  height="28" fill="#E8D5D3"/>
+    <rect x="340" y="142" width="280" height="28" fill="#6B8E7F"/>
+    <rect x="620" y="142" width="80"  height="28" fill="#E8D5D3"/>
+  </g>
+  <text x="310" y="177" font-size="13" fill="#6B7979" text-anchor="middle">Low</text>
+  <text x="480" y="177" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">30–300 µg/L</text>
+  <text x="660" y="177" font-size="13" fill="#6B7979" text-anchor="middle">High</text>
+
+  <!-- Women bar -->
+  <text x="730" y="138" font-size="14" font-weight="600" fill="#6B7979">WOMEN</text>
+  <clipPath id="bar-fer-w"><rect x="730" y="142" width="400" height="28" rx="8"/></clipPath>
+  <g clip-path="url(#bar-fer-w)">
+    <rect x="730" y="142" width="50"  height="28" fill="#E8D5D3"/>
+    <rect x="780" y="142" width="240" height="28" fill="#6B8E7F"/>
+    <rect x="1020" y="142" width="110" height="28" fill="#E8D5D3"/>
+  </g>
+  <text x="755" y="177" font-size="13" fill="#6B7979" text-anchor="middle">Low</text>
+  <text x="900" y="177" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">12–150 µg/L</text>
+  <text x="1075" y="177" font-size="13" fill="#6B7979" text-anchor="middle">High</text>
+
+  <!-- Divider -->
+  <line x1="70" y1="198" x2="1130" y2="198" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- ---- Row 2: Serum Iron ---- -->
+  <text x="70" y="234" font-size="20" font-weight="700" fill="#2B3A3A">Serum Iron</text>
+  <text x="70" y="256" font-size="15" fill="#6B7979">Iron circulating in the blood right now</text>
+
+  <clipPath id="bar-si"><rect x="280" y="238" width="560" height="28" rx="8"/></clipPath>
+  <g clip-path="url(#bar-si)">
+    <rect x="280" y="238" width="90"  height="28" fill="#E8D5D3"/>
+    <rect x="370" y="238" width="330" height="28" fill="#6B8E7F"/>
+    <rect x="700" y="238" width="140" height="28" fill="#E8D5D3"/>
+  </g>
+  <text x="325" y="273" font-size="13" fill="#6B7979" text-anchor="middle">Low</text>
+  <text x="535" y="273" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">10.7–26.9 µmol/L</text>
+  <text x="770" y="273" font-size="13" fill="#6B7979" text-anchor="middle">High</text>
+
+  <!-- Divider -->
+  <line x1="70" y1="294" x2="1130" y2="294" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- ---- Row 3: Transferrin Saturation ---- -->
+  <text x="70" y="330" font-size="20" font-weight="700" fill="#2B3A3A">Transferrin Saturation</text>
+  <text x="70" y="352" font-size="15" fill="#6B7979">% of iron-binding sites occupied — rises when deficient falls below 20%; above 45% suggests excess</text>
+
+  <clipPath id="bar-tsat"><rect x="280" y="334" width="560" height="28" rx="8"/></clipPath>
+  <g clip-path="url(#bar-tsat)">
+    <rect x="280" y="334" width="100" height="28" fill="#E0A23E" opacity="0.7"/>
+    <rect x="380" y="334" width="280" height="28" fill="#6B8E7F"/>
+    <rect x="660" y="334" width="180" height="28" fill="#E8D5D3"/>
+  </g>
+  <text x="330" y="369" font-size="13" fill="#6B7979" text-anchor="middle">Low</text>
+  <text x="520" y="369" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">20–45%</text>
+  <text x="750" y="369" font-size="13" fill="#6B7979" text-anchor="middle">High (possible excess)</text>
+
+  <!-- Source note -->
+  <text x="70" y="428" font-size="13" fill="#9AA6A6">Source: Standard clinical reference intervals (British Society for Haematology; WHO). Confirm any result with a clinician.</text>
+</svg>

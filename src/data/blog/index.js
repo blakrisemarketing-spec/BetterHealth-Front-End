@@ -12,6 +12,7 @@ import lipidProfileCholesterolTest from "./posts/lipid-profile-cholesterol-test.
 import fullBloodCountExplained from "./posts/full-blood-count-explained.js";
 import highBloodPressureSilentKiller from "./posts/high-blood-pressure-silent-killer.js";
 import prediabetesWarningSigns from "./posts/prediabetes-warning-signs.js";
+import ferritinIronAnaemia from "./posts/ferritin-iron-anaemia.js";
 
 const ALL = [
   hba1cExplained,
@@ -23,6 +24,7 @@ const ALL = [
   fullBloodCountExplained,
   highBloodPressureSilentKiller,
   prediabetesWarningSigns,
+  ferritinIronAnaemia,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Ferritin and iron explained: the blood tests that reveal your iron stores and diagnose anaemia" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Ferritin and Iron: How to Read Your Anaemia Blood Tests</title>
+  <defs>
+    <radialGradient id="orb-ferritin" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9594F" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#C9594F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1030" cy="170" r="310" fill="url(#orb-ferritin)"/>
+
+  <!-- Category label -->
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+
+  <!-- Main title -->
+  <text x="86" y="258" font-size="60" font-weight="800" fill="#2B3A3A">Ferritin and Iron</text>
+
+  <!-- Subtitle -->
+  <text x="90" y="308" font-size="26" fill="#6B7979">How to read your anaemia blood tests</text>
+
+  <!-- Pill badges -->
+  <rect x="90" y="348" width="180" height="42" rx="21" fill="#C9594F"/>
+  <text x="180" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Low Ferritin</text>
+
+  <rect x="284" y="348" width="200" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="384" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Iron Deficiency</text>
+
+  <rect x="498" y="348" width="150" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="573" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Anaemia</text>
+
+  <rect x="662" y="348" width="210" height="42" rx="21" fill="#A8C5B8"/>
+  <text x="767" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Iron Panel Guide</text>
+
+  <!-- Decorative right: concentric circles suggesting iron atom / storage -->
+  <circle cx="980" cy="240" r="90" fill="none" stroke="#C9594F" stroke-width="3" opacity="0.18"/>
+  <circle cx="980" cy="240" r="62" fill="#C9594F" opacity="0.12"/>
+  <circle cx="980" cy="240" r="36" fill="#C9594F" opacity="0.22"/>
+  <circle cx="980" cy="240" r="14" fill="#C9594F" opacity="0.55"/>
+  <circle cx="1075" cy="170" r="40" fill="#6B8E7F" opacity="0.14"/>
+  <circle cx="1075" cy="170" r="20" fill="#6B8E7F" opacity="0.28"/>
+  <circle cx="1090" cy="320" r="28" fill="#2B3A3A" opacity="0.10"/>
+</svg>
