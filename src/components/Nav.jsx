@@ -80,6 +80,7 @@ export default function Nav({ dark = false }) {
     const routeMap = {
       "How It Works": "/how-it-works",
       "What We Test": "/what-we-test",
+      "Programs": "/programs",
       "Stories": "/stories",
       "About": "/about",
       "Pricing": "/pricing",

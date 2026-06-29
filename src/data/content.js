@@ -1,4 +1,4 @@
-export const navLinks = ["How It Works", "What We Test", "Pricing", "About", "Stories"];
+export const navLinks = ["How It Works", "What We Test", "Programs", "Pricing", "About", "Stories"];
 
 export const heroStats = [
   { value: "127", label: "Biomarkers" },
@@ -385,6 +385,115 @@ export const screeningBundles = {
   ],
   note: "Prices exclude VAT and vary by location \u2014 you\u2019ll see the exact price for your area before you pay. Home collection available as an add-on from GHS 150.",
   cta: "Book a bundle",
+};
+
+export const diseasePrograms = {
+  eyebrow: "Condition programs",
+  headline: "Manage a condition with a program built around it",
+  body: "Living with — or at risk of — a chronic condition? Each program combines the right tests, simple home monitoring, and clinician review, so you always know where you stand. Most people start with a single test, then join the program that fits their results.",
+  programs: [
+    {
+      slug: "diabetes",
+      icon: "Droplet",
+      name: "Diabetes Program",
+      tagline: "Know and control your blood sugar.",
+      forWho: "Diabetes, prediabetes, or family history.",
+      price: "from GHS 250",
+      includes: [
+        "HbA1c + fasting glucose",
+        "Kidney function (early damage)",
+        "Lipid / cholesterol panel",
+        "Home blood-sugar logging",
+        "Clinician review of every result",
+      ],
+      available: true,
+    },
+    {
+      slug: "hypertension",
+      icon: "Activity",
+      name: "Hypertension Program",
+      tagline: "Keep your blood pressure in a safe range.",
+      forWho: "High blood pressure or family history.",
+      price: "from GHS 250",
+      includes: [
+        "Blood pressure tracking",
+        "Kidney function",
+        "Lipid / cholesterol panel",
+        "Electrolytes",
+        "Clinician review + alerts",
+      ],
+      available: true,
+    },
+    {
+      slug: "kidney",
+      icon: "Droplets",
+      name: "Kidney Health Program",
+      tagline: "Catch kidney strain before it’s serious.",
+      forWho: "Diabetes, hypertension, or family history.",
+      price: "from GHS 250",
+      includes: [
+        "Creatinine + eGFR",
+        "Urea & electrolytes",
+        "Urinalysis (protein)",
+        "Blood pressure tracking",
+        "Clinician review",
+      ],
+      available: true,
+    },
+    {
+      slug: "heart",
+      icon: "HeartPulse",
+      name: "Heart Health Program",
+      tagline: "Stay ahead of cardiovascular risk.",
+      forWho: "High cholesterol, family history, or over 40.",
+      price: "from GHS 300",
+      includes: [
+        "Full lipid panel (incl. ApoB)",
+        "Blood sugar (HbA1c)",
+        "Blood pressure tracking",
+        "hs-CRP (inflammation)",
+        "Clinician review",
+      ],
+      available: true,
+    },
+    {
+      slug: "liver",
+      icon: "Shield",
+      name: "Liver Health Program",
+      tagline: "Monitor and protect your liver.",
+      forWho: "Fatty liver, hepatitis, or alcohol concerns.",
+      price: "from GHS 200",
+      includes: [
+        "Liver function tests (ALT / AST)",
+        "Hepatitis B screening",
+        "Lipid panel",
+        "Clinician review",
+      ],
+      available: true,
+    },
+    {
+      slug: "fertility",
+      icon: "Baby",
+      name: "Fertility Program",
+      tagline: "Understand your reproductive health.",
+      forWho: "Planning a family or tracking fertility.",
+      price: "Coming soon",
+      includes: [],
+      available: false,
+    },
+    {
+      slug: "pcos",
+      icon: "Venus",
+      name: "PCOS Program",
+      tagline: "Track and manage PCOS markers.",
+      forWho: "PCOS symptoms or diagnosis.",
+      price: "Coming soon",
+      includes: [],
+      available: false,
+    },
+  ],
+  note: "Programs combine one-off tests with optional ongoing monitoring. A clinician reviews every result. Prices exclude VAT and vary by location.",
+  cta: "Start this program",
 };
 
 export const faqs = [

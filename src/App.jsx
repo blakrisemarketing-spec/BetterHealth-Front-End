@@ -8,6 +8,7 @@ const WhatWeTestPage = lazy(() => import("./pages/WhatWeTest"));
 const StoriesPage = lazy(() => import("./pages/Stories"));
 const AboutPage = lazy(() => import("./pages/About"));
 const PricingPage = lazy(() => import("./pages/Pricing"));
+const ProgramsPage = lazy(() => import("./pages/Programs"));
 const FAQPage = lazy(() => import("./pages/FAQ"));
 const ContactPage = lazy(() => import("./pages/Contact"));
 const PrivacyPage = lazy(() => import("./pages/Privacy"));
@@ -59,6 +60,7 @@ export default function App() {
           <Route path="/stories" element={<StoriesPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/programs" element={<ProgramsPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />

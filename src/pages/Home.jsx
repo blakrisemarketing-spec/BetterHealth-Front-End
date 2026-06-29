@@ -10,6 +10,7 @@ import ComparisonTable from "../components/ComparisonTable";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
 import ScreeningBundles from "../components/ScreeningBundles";
+import DiseasePrograms from "../components/DiseasePrograms";
 import FounderStory from "../components/FounderStory";
 import AdvisoryTeam from "../components/AdvisoryTeam";
 import FAQ from "../components/FAQ";
@@ -49,6 +50,7 @@ export default function Home() {
         <Testimonials />
         <Pricing />
         <ScreeningBundles />
+        <DiseasePrograms compact />
         <FounderStory />
         <AdvisoryTeam />
         <FAQ />

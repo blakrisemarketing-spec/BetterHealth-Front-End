@@ -123,6 +123,12 @@ const RAW_ROUTE_SEO = {
     image: `${SITE_URL}/pricing-og.jpg`,
     jsonld: [PRICING_JSONLD],
   },
+  programs: {
+    title: "Condition Programs — Diabetes, Hypertension & More | BetterHealth Africa",
+    description:
+      "Manage a chronic condition with a program built around it. Diabetes, hypertension, kidney, heart, and liver programs combine the right tests, home monitoring, and clinician review — across Ghana.",
+    image: DEFAULT_OG_IMAGE,
+  },
   faq: {
     title: "FAQ — BetterHealth Africa",
     description:
