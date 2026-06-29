@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { pricingPage } from "../data/content";
+import { BOOK_TEST_URL } from "../lib/app-links";
 
 const TRUST_ICONS = [Smartphone, CreditCard, ShieldCheck, RotateCcw, Building2];
 
@@ -182,9 +183,9 @@ export default function PricingPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
-              Invest in knowing —{" "}
+              Start with a single test —{" "}
               <span className="text-primary italic tracking-normal">
-                not in guessing.
+                not a subscription.
               </span>
             </h1>
           </Reveal>
@@ -202,9 +203,52 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* ── Pricing Cards ── */}
+      {/* ── Single Tests (à la carte — the front door) ── */}
+      <section className="py-16 lg:py-20 px-6 bg-base border-t border-border">
+        <div className="max-w-[760px] mx-auto text-center">
+          <Reveal>
+            <span className="inline-block text-[12px] font-bold text-primary uppercase tracking-[0.12em] mb-2">Start here</span>
+            <h2 className="text-[1.7rem] md:text-[2rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">
+              {singleTests.headline}
+            </h2>
+            <p className="text-[15px] text-text-secondary mb-8 max-w-[560px] mx-auto">{singleTests.body}</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {singleTests.examples.map((test, i) => (
+                <div key={i} className="flex items-center justify-between bg-section-alt border border-border rounded-card px-4 py-3">
+                  <span className="text-[13px] text-text-secondary text-left">{test.name}</span>
+                  <span className="text-[13px] font-bold text-primary shrink-0 ml-3">{test.price}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <a
+              href={BOOK_TEST_URL}
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
+            >
+              {singleTests.cta} <ArrowRight size={16} />
+            </a>
+            <p className="text-[11px] text-text-muted mt-3">{singleTests.note}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Annual Plans (ongoing monitoring — demoted below single tests) ── */}
       <section className="py-16 lg:py-20 px-6 bg-section-alt">
         <div className="max-w-[1100px] mx-auto">
+          <Reveal>
+            <div className="text-center mb-10 max-w-[640px] mx-auto">
+              <span className="inline-block text-[12px] font-bold text-primary uppercase tracking-[0.12em] mb-2">Ongoing monitoring</span>
+              <h2 className="text-[1.7rem] md:text-[2rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">
+                Prefer year-round peace of mind? Subscribe and save
+              </h2>
+              <p className="text-[15px] text-text-secondary">
+                A comprehensive screen at a private hospital runs GHS 2,970–6,250. Our annual plans start at GHS 2/day — billed annually, cancel anytime.
+              </p>
+            </div>
+          </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-stretch">
             {plans.map((plan, i) => <PlanCard key={plan.name} plan={plan} index={i} />)}
           </div>
@@ -300,34 +344,6 @@ export default function PricingPage() {
               </table>
             </div>
             <p className="text-[11px] text-text-muted mt-3 leading-relaxed text-center">{hospitalComparison.footnote}</p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Single Tests ── */}
-      <section className="py-20 px-6 bg-base">
-        <div className="max-w-[760px] mx-auto text-center">
-          <Reveal>
-            <h2 className="text-[1.7rem] md:text-[2rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">
-              {singleTests.headline}
-            </h2>
-            <p className="text-[15px] text-text-secondary mb-8">{singleTests.body}</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              {singleTests.examples.map((test, i) => (
-                <div key={i} className="flex items-center justify-between bg-section-alt border border-border rounded-card px-4 py-3">
-                  <span className="text-[13px] text-text-secondary text-left">{test.name}</span>
-                  <span className="text-[13px] font-bold text-primary shrink-0 ml-3">{test.price}</span>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <button className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5">
-              {singleTests.cta} <ArrowRight size={16} />
-            </button>
-            <p className="text-[11px] text-text-muted mt-3">{singleTests.note}</p>
           </Reveal>
         </div>
       </section>

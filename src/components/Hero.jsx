@@ -69,7 +69,7 @@ export default function Hero() {
 
           <Reveal delay={0.2}>
             <p className="text-lg leading-[1.7] text-text-secondary max-w-[520px] mb-8 font-body">
-              Comprehensive lab testing with 127 biomarkers, personalized health insights, and home sample collection. Starting from GHS 2/day (excl. VAT).
+              Book a single lab test and get clinician-reviewed results you actually understand — no subscription needed. Home sample collection across Ghana. Ready for more? Subscribe for year-round monitoring across 127 biomarkers.
             </p>
           </Reveal>
 

@@ -1,7 +1,7 @@
 import { Check, ShieldCheck } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import { plans } from "../data/content";
-import { SIGN_UP_URL } from "../lib/app-links";
+import { BOOK_TEST_URL, SIGN_UP_URL } from "../lib/app-links";
 
 export default function Pricing() {
   return (
@@ -13,27 +13,41 @@ export default function Pricing() {
               Pricing
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
-              Plans for every Ghanaian
+              Pay as you go — or subscribe and save
             </h2>
           </div>
         </Reveal>
 
-        {/* Value anchor — DEFECT 6 */}
+        {/* Single-test-first lead */}
         <Reveal delay={0.05}>
-          <div className="text-center mb-8 px-4 py-5 rounded-card bg-primary-bg border border-primary/20 max-w-[640px] mx-auto">
-            <p className="text-[16px] md:text-[18px] font-semibold text-text-primary leading-snug font-heading">
-              What would cost{" "}
-              <span className="text-primary font-extrabold">GHS 6,250+</span> at a private hospital is{" "}
-              <span className="text-primary font-extrabold">GHS 61/month</span> with BetterHealth Africa
+          <div className="max-w-[760px] mx-auto mt-6 mb-12 rounded-card border-2 border-primary bg-card p-6 sm:p-8 text-center shadow-[0_20px_60px_rgba(13,148,136,0.10)]">
+            <span className="inline-block text-[11px] font-bold text-primary uppercase tracking-[0.12em] mb-2">Start here</span>
+            <h3 className="text-[22px] sm:text-[26px] font-extrabold text-text-primary font-heading mb-2 leading-snug">
+              Book a single test — pay for only what you need
+            </h3>
+            <p className="text-[15px] text-text-secondary mb-5 max-w-[520px] mx-auto leading-relaxed">
+              No subscription. Choose the test you need, get clinician-reviewed results, and decide your next step from there.
             </p>
-            <p className="text-[12px] text-text-muted mt-1.5">BetterHealth prices exclude VAT.</p>
+            <a
+              href={BOOK_TEST_URL}
+              className="inline-flex items-center justify-center gap-2 rounded-btn px-7 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
+            >
+              Book a Test
+            </a>
           </div>
         </Reveal>
 
+        {/* Subscription option — demoted beneath the single-test lead */}
         <Reveal delay={0.1}>
-          <p className="text-center text-[17px] text-text-secondary font-body mb-12 max-w-[560px] mx-auto">
-            Your health shouldn&apos;t depend on how much you can afford at a hospital. Choose the plan that works for you.
-          </p>
+          <div className="text-center mb-8 max-w-[640px] mx-auto">
+            <h3 className="text-[20px] sm:text-[24px] font-extrabold text-text-primary font-heading mb-2">
+              Prefer ongoing monitoring? Subscribe and save
+            </h3>
+            <p className="text-[15px] text-text-secondary font-body">
+              What would cost <span className="text-primary font-bold">GHS 6,250+</span> at a private hospital starts at{" "}
+              <span className="text-primary font-bold">GHS 61/month</span> — billed annually, cancel anytime. Prices exclude VAT.
+            </p>
+          </div>
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">

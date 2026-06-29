@@ -3,7 +3,7 @@ export const navLinks = ["How It Works", "What We Test", "Pricing", "About", "St
 export const heroStats = [
   { value: "127", label: "Biomarkers" },
   { value: "Home", label: "Collection" },
-  { value: "GHS 2", label: "Per day" },
+  { value: "48–72h", label: "Results" },
 ];
 
 export const trustedPartners = ["Lab Access Ghana", "Banita Laboratory", "Paystack"];
@@ -933,8 +933,8 @@ export const aboutPage = {
 export const pricingPage = {
   hero: {
     eyebrow: "Transparent Pricing",
-    headline: "Invest in knowing \u2014 not in guessing.",
-    subheadline: "What would cost GHS 6,250+ at a private hospital is a fraction of that with BetterHealth. No referrals, no hidden fees, no surprises. All plans include your health dashboard, results, and intelligent health insights.",
+    headline: "Start with a single test \u2014 not a subscription.",
+    subheadline: "Book the test you need today and pay for only that. Get clinician-reviewed results and clear, plain-language insights. When you\u2019re ready for year-round monitoring, subscribe and save \u2014 no referrals, no hidden fees, no surprises.",
   },
   valueAnchor: "A comprehensive health screen at a private hospital in Ghana costs between GHS 2,970 and GHS 6,250 - if they even offer all the tests. BetterHealth starts at GHS 2 per day. Prices exclude VAT.",
   plans: [
@@ -1077,18 +1077,18 @@ export const pricingPage = {
     footnote: "BetterHealth gives you more health insights for a fraction of the cost from traditional hospitals. BetterHealth prices exclude VAT.",
   },
   singleTests: {
-    headline: "Not ready for a subscription? Start with a disease panel.",
-    body: "Track a specific organ system and your chances of getting a disease. This package is built for those with a family history of a specific disease and want to prevent it or monitor it. No subscription required. Pay for only what you need to track.",
+    headline: "Pay only for what you need.",
+    body: "No subscription required. Book a single test or a focused panel, get clinician-reviewed results, and decide your next step from there. Most people start here — then subscribe once they know what to monitor.",
     examples: [
-      { name: "Kidney Disease Tracker", price: "GHS 250" },
-      { name: "Diabetes Tracker", price: "from GHS 250" },
-      { name: "Liver Disease Tracker", price: "GHS 200" },
-      { name: "Cardiovascular Disease Tracker", price: "GHS 300" },
-      { name: "Fertility Tracker", price: "Coming soon" },
-      { name: "PCOS Tracker", price: "Coming soon" },
+      { name: "Full Blood Count (FBC)", price: "from GHS 80" },
+      { name: "Blood Sugar (Fasting / HbA1c)", price: "from GHS 90" },
+      { name: "Lipid / Cholesterol Panel", price: "from GHS 120" },
+      { name: "Kidney Function Panel", price: "from GHS 150" },
+      { name: "Liver Function Panel", price: "from GHS 150" },
+      { name: "Thyroid Panel", price: "from GHS 180" },
     ],
-    cta: "Browse All Tests",
-    note: "Prices exclude VAT. Individual test prices vary by location. Home collection is available as an add-on from GHS 150.",
+    cta: "Browse all tests & book",
+    note: "Prices exclude VAT and vary by location — you’ll see the exact price for your area before you pay. Home collection is available as an add-on from GHS 150.",
   },
   faqs: [
     {
