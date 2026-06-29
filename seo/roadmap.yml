@@ -156,7 +156,9 @@ items:
     secondary: ["vitamin D deficiency symptoms"]
     intent: informational
     title: "Vitamin D Deficiency: Symptoms, Testing, and What to Do"
-    status: todo
+    status: done
+    completed: 2026-06-29
+    notes: "Published 2026-06-29. vitamin d test 20/mo Ghana, LOW competition. Covers the 25-OH D test, three result bands (deficient/insufficient/sufficient with nmol/L and ng/mL), the Ghana sunny-country paradox (melanin + indoor hours), who is at risk, supplementation dosing, and pregnancy context. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-sickle-cell-trait
     type: article

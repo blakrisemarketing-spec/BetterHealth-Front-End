@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Vitamin D deficiency explained: the 25-OH vitamin D blood test, symptoms, and what your result means" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Vitamin D Deficiency: Symptoms, Testing, and What to Do</title>
+  <defs>
+    <radialGradient id="orb-sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E0A23E" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#E0A23E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1050" cy="160" r="320" fill="url(#orb-sun)"/>
+
+  <!-- Category label -->
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+
+  <!-- Main title -->
+  <text x="86" y="258" font-size="58" font-weight="800" fill="#2B3A3A">Vitamin D Deficiency</text>
+
+  <!-- Subtitle -->
+  <text x="90" y="308" font-size="26" fill="#6B7979">Symptoms, testing, and what to do</text>
+
+  <!-- Pill badges -->
+  <rect x="90" y="348" width="190" height="42" rx="21" fill="#E0A23E"/>
+  <text x="185" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">25-OH Vitamin D</text>
+
+  <rect x="294" y="348" width="180" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="384" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Bone Health</text>
+
+  <rect x="488" y="348" width="170" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="573" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Immune System</text>
+
+  <rect x="672" y="348" width="200" height="42" rx="21" fill="#A8C5B8"/>
+  <text x="772" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Ghana Paradox</text>
+
+  <!-- Decorative right: sun rays + circle suggesting vitamin D synthesis -->
+  <circle cx="990" cy="240" r="80" fill="#E0A23E" opacity="0.22"/>
+  <circle cx="990" cy="240" r="52" fill="#E0A23E" opacity="0.35"/>
+  <circle cx="990" cy="240" r="28" fill="#E0A23E" opacity="0.65"/>
+
+  <!-- Sun ray lines -->
+  <line x1="990" y1="136" x2="990" y2="112" stroke="#E0A23E" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+  <line x1="990" y1="344" x2="990" y2="368" stroke="#E0A23E" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+  <line x1="886" y1="240" x2="862" y2="240" stroke="#E0A23E" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+  <line x1="1094" y1="240" x2="1118" y2="240" stroke="#E0A23E" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+  <line x1="916" y1="166" x2="898" y2="148" stroke="#E0A23E" stroke-width="3" stroke-linecap="round" opacity="0.40"/>
+  <line x1="1064" y1="166" x2="1082" y2="148" stroke="#E0A23E" stroke-width="3" stroke-linecap="round" opacity="0.40"/>
+  <line x1="916" y1="314" x2="898" y2="332" stroke="#E0A23E" stroke-width="3" stroke-linecap="round" opacity="0.40"/>
+  <line x1="1064" y1="314" x2="1082" y2="332" stroke="#E0A23E" stroke-width="3" stroke-linecap="round" opacity="0.40"/>
+</svg>
