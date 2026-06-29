@@ -7,6 +7,7 @@ import GradientOrb from "./ui/GradientOrb";
 import Badge from "./ui/Badge";
 import PhoneFrame from "./ui/PhoneFrame";
 import { heroStats, trustedPartners } from "../data/content";
+import { BOOK_TEST_URL } from "../lib/app-links";
 import GDPCBadge from "./ui/GDPCBadge";
 
 const heroScreens = [
@@ -51,8 +52,8 @@ export default function Hero() {
         <div className="flex-1 w-full md:w-[480px] md:min-w-[300px]">
           <Reveal>
             <Badge variant="primary" className="mb-6">
-              <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse-dot" />
-              Launching Soon in Ghana
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />
+              Now Open in Ghana
             </Badge>
           </Reveal>
 
@@ -80,12 +81,12 @@ export default function Hero() {
               >
                 See How It Works
               </Link>
-              <Link
-                to="/waitlist"
+              <a
+                href={BOOK_TEST_URL}
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
               >
-                Join Waitlist <ArrowRight size={18} />
-              </Link>
+                Book a Test <ArrowRight size={18} />
+              </a>
             </div>
           </Reveal>
 

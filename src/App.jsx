@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { captureReferralFromUrl } from "./lib/partner-signup";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -20,7 +20,6 @@ const ForLabsPage = lazy(() => import("./pages/ForLabs"));
 const ForDoctorsPage = lazy(() => import("./pages/ForDoctors"));
 const ForNutritionistsPage = lazy(() => import("./pages/ForNutritionists"));
 const FoundationPage = lazy(() => import("./pages/Foundation"));
-const WaitlistPage = lazy(() => import("./pages/Waitlist"));
 const DeleteMePage = lazy(() => import("./pages/DeleteMe"));
 const ReferralRedirectPage = lazy(() => import("./pages/ReferralRedirect"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
@@ -72,7 +71,9 @@ export default function App() {
           <Route path="/for-doctors" element={<ForDoctorsPage />} />
           <Route path="/for-nutritionists" element={<ForNutritionistsPage />} />
           <Route path="/foundation" element={<FoundationPage />} />
-          <Route path="/waitlist" element={<WaitlistPage />} />
+          {/* Waitlist retired (open registration) — redirect old inbound/SEO links home.
+              Waitlist.jsx + WaitlistForm/WaitlistContext kept dormant for reuse. */}
+          <Route path="/waitlist" element={<Navigate to="/" replace />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="/ref/:code" element={<ReferralRedirectPage />} />
           <Route path="/ref/:code/:partnerType" element={<ReferralRedirectPage />} />

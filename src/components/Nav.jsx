@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown, Stethoscope, Apple, FlaskConical } from "lucide-react";
 import { navLinks } from "../data/content";
+import { BOOK_TEST_URL } from "../lib/app-links";
 import logo from "../assets/logo.png";
 
 const PARTNER_LINKS = [
@@ -207,9 +208,9 @@ export default function Nav({ dark = false }) {
             <Link to="/how-it-works" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
               Learn More
             </Link>
-            <Link to="/waitlist" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
-              Join Waitlist
-            </Link>
+            <a href={BOOK_TEST_URL} className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
+              Book a Test
+            </a>
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
               aria-label={mobileMenu ? "Close menu" : "Open menu"}
@@ -270,13 +271,13 @@ export default function Nav({ dark = false }) {
           </div>
 
           <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
-            <Link
-              to="/waitlist"
+            <a
+              href={BOOK_TEST_URL}
               onClick={() => setMobileMenu(false)}
               className="w-full text-center bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-4 text-base font-bold font-heading transition-all no-underline"
             >
-              Join Waitlist
-            </Link>
+              Book a Test
+            </a>
             <Link
               to="/how-it-works"
               onClick={() => setMobileMenu(false)}
