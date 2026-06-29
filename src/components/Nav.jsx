@@ -206,9 +206,9 @@ export default function Nav({ dark = false }) {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <Link to="/how-it-works" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
-              Learn More
-            </Link>
+            <a href="https://app.betterhealth.africa" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
+              Sign In
+            </a>
             <a href={BOOK_TEST_URL} className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
               Book a Test
             </a>
@@ -279,13 +279,12 @@ export default function Nav({ dark = false }) {
             >
               Book a Test
             </a>
-            <Link
-              to="/how-it-works"
-              onClick={() => setMobileMenu(false)}
+            <a
+              href="https://app.betterhealth.africa"
               className="w-full text-center text-text-secondary text-base font-medium hover:text-primary transition-colors py-2 no-underline"
             >
-              Learn More
-            </Link>
+              Sign in with email, phone, or Google
+            </a>
           </div>
         </div>
       )}

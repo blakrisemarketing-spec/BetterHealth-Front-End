@@ -90,6 +90,18 @@ export default function Hero() {
             </div>
           </Reveal>
 
+          <Reveal delay={0.32}>
+            <p className="text-[14px] text-text-muted font-body mb-6">
+              Already have an account?{" "}
+              <a
+                href="https://app.betterhealth.africa"
+                className="text-primary font-semibold no-underline hover:text-primary-dark transition-colors"
+              >
+                Sign in with email, phone, or Google →
+              </a>
+            </p>
+          </Reveal>
+
           <Reveal delay={0.35}>
             <div className="flex items-center gap-3 mb-6">
               <GDPCBadge />
