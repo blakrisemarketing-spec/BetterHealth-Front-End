@@ -1,12 +1,12 @@
-import { Smartphone, Home, FlaskConical, BarChart3 } from "lucide-react";
+import { Home, FlaskConical, BarChart3, HeartPulse } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import { howItWorksSteps } from "../data/content";
 
 const iconMap = {
-  Smartphone: Smartphone,
   Home: Home,
   FlaskConical: FlaskConical,
   BarChart3: BarChart3,
+  HeartPulse: HeartPulse,
 };
 
 export default function HowItWorks() {
@@ -19,9 +19,9 @@ export default function HowItWorks() {
               How It Works
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
-              Four simple steps to{" "}
+              From a single test to{" "}
               <span className="italic text-primary tracking-normal">
-                knowing your health
+                taking control
               </span>
             </h2>
           </div>

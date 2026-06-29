@@ -24,10 +24,10 @@ export const conditions2 = [
 ];
 
 export const howItWorksSteps = [
-  { num: "01", icon: "Smartphone", title: "Sign Up", desc: "Create your account, choose your package, and pay with Mobile Money or card." },
-  { num: "02", icon: "Home", title: "Book Collection", desc: "Choose in-lab visit or book home collection and get tested in the comfort of your home." },
-  { num: "03", icon: "FlaskConical", title: "Get Results", desc: "Comprehensive results in your health dashboard within 48\u201372 hours. Every biomarker explained." },
-  { num: "04", icon: "BarChart3", title: "Take Action", desc: "Personalized insights and recommendations. Track changes over time." },
+  { num: "01", icon: "FlaskConical", title: "Book a Test", desc: "Choose a single test, a bundle, or a condition program. Pay with Mobile Money or card \u2014 no subscription needed." },
+  { num: "02", icon: "Home", title: "Get Tested", desc: "Visit a partner lab or book home sample collection across Ghana \u2014 done in about 15 minutes." },
+  { num: "03", icon: "BarChart3", title: "Understand Your Results", desc: "Clinician-reviewed results in your dashboard within 48\u201372 hours, with every biomarker explained in plain language." },
+  { num: "04", icon: "HeartPulse", title: "Manage What Matters", desc: "Based on your results, join the program that fits \u2014 Diabetes, Hypertension and more \u2014 or subscribe for year-round monitoring." },
 ];
 
 export const showcaseFeatures = [
