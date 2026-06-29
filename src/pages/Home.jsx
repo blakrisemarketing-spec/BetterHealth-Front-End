@@ -9,6 +9,7 @@ import WhatWeTest from "../components/WhatWeTest";
 import ComparisonTable from "../components/ComparisonTable";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
+import ScreeningBundles from "../components/ScreeningBundles";
 import FounderStory from "../components/FounderStory";
 import AdvisoryTeam from "../components/AdvisoryTeam";
 import FAQ from "../components/FAQ";
@@ -47,6 +48,7 @@ export default function Home() {
 
         <Testimonials />
         <Pricing />
+        <ScreeningBundles />
         <FounderStory />
         <AdvisoryTeam />
         <FAQ />

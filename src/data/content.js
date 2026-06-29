@@ -339,6 +339,54 @@ export const plans = [
   },
 ];
 
+export const screeningBundles = {
+  eyebrow: "Popular packages",
+  headline: "Screening bundles \u2014 more value than booking one by one",
+  body: "Curated combinations that give a complete picture in a single visit, at a bundle price. One booking, one sample collection.",
+  bundles: [
+    {
+      name: "Full Body Checkup",
+      tagline: "A complete snapshot of your core health.",
+      price: "from GHS 450",
+      popular: true,
+      includes: [
+        "Full blood count",
+        "Blood sugar (Fasting / HbA1c)",
+        "Lipid / cholesterol panel",
+        "Kidney function",
+        "Liver function",
+        "Urinalysis",
+      ],
+    },
+    {
+      name: "Men\u2019s Health",
+      tagline: "Heart, metabolic, and prostate essentials for men.",
+      price: "from GHS 400",
+      includes: [
+        "Lipid / cholesterol panel",
+        "Blood sugar (HbA1c)",
+        "Liver & kidney function",
+        "PSA (prostate)",
+        "Testosterone",
+      ],
+    },
+    {
+      name: "Women\u2019s Health",
+      tagline: "Hormone, iron, and metabolic essentials for women.",
+      price: "from GHS 400",
+      includes: [
+        "Full blood count + ferritin (iron)",
+        "Blood sugar (HbA1c)",
+        "Lipid / cholesterol panel",
+        "Thyroid panel",
+        "Vitamin D",
+      ],
+    },
+  ],
+  note: "Prices exclude VAT and vary by location \u2014 you\u2019ll see the exact price for your area before you pay. Home collection available as an add-on from GHS 150.",
+  cta: "Book a bundle",
+};
+
 export const faqs = [
   { q: "How does home sample collection work?", a: "A certified phlebotomist from our partner Lab Access Ghana comes to your home at your scheduled time. The entire process takes about 15 minutes. You\u2019ll receive a confirmation SMS with your collector\u2019s name and estimated arrival time." },
   { q: "How do I pay?", a: "We accept Mobile Money (MTN MoMo, Vodafone Cash, AirtelTigo Money), debit/credit cards, and bank transfers. All payments are processed securely through Paystack, Ghana\u2019s leading payment platform." },

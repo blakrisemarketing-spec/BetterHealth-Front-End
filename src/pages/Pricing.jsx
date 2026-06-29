@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import ScreeningBundles from "../components/ScreeningBundles";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { pricingPage } from "../data/content";
@@ -235,8 +236,11 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* ── Screening Bundles (offer-ladder bridge: single test → bundle → program) ── */}
+      <ScreeningBundles />
+
       {/* ── Annual Plans (ongoing monitoring — demoted below single tests) ── */}
-      <section className="py-16 lg:py-20 px-6 bg-section-alt">
+      <section className="py-16 lg:py-20 px-6 bg-base">
         <div className="max-w-[1100px] mx-auto">
           <Reveal>
             <div className="text-center mb-10 max-w-[640px] mx-auto">
