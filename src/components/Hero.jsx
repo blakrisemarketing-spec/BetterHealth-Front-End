@@ -52,7 +52,7 @@ export default function Hero() {
           <Reveal>
             <Badge variant="primary" className="mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse-dot" />
-              Launching Soon in Ghana
+              Now available in Ghana
             </Badge>
           </Reveal>
 
@@ -68,7 +68,7 @@ export default function Hero() {
 
           <Reveal delay={0.2}>
             <p className="text-lg leading-[1.7] text-text-secondary max-w-[520px] mb-8 font-body">
-              Comprehensive lab testing with 127 biomarkers, personalized health insights, and home sample collection. Starting from GHS 2/day (excl. VAT).
+              BetterHealth Africa is a digital health platform for comprehensive lab testing — 127 biomarkers, results reviewed by qualified clinicians, and personalized insights, all from your phone. Book a test and view your results at app.betterhealth.africa. Starting from GHS 2/day (excl. VAT).
             </p>
           </Reveal>
 
@@ -80,13 +80,25 @@ export default function Hero() {
               >
                 See How It Works
               </Link>
-              <Link
-                to="/waitlist"
+              <a
+                href="https://app.betterhealth.africa/join"
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
               >
-                Join Waitlist <ArrowRight size={18} />
-              </Link>
+                Create your account <ArrowRight size={18} />
+              </a>
             </div>
+          </Reveal>
+
+          <Reveal delay={0.32}>
+            <p className="text-[14px] text-text-muted font-body mb-6">
+              Already have an account?{" "}
+              <a
+                href="https://app.betterhealth.africa"
+                className="text-primary font-semibold no-underline hover:text-primary-dark transition-colors"
+              >
+                Sign in with email, phone, or Google →
+              </a>
+            </p>
           </Reveal>
 
           <Reveal delay={0.35}>

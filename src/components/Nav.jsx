@@ -204,12 +204,12 @@ export default function Nav({ dark = false }) {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <Link to="/how-it-works" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
-              Learn More
-            </Link>
-            <Link to="/waitlist" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
-              Join Waitlist
-            </Link>
+            <a href="https://app.betterhealth.africa" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
+              Sign In
+            </a>
+            <a href="https://app.betterhealth.africa/join" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
+              Create Account
+            </a>
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
               aria-label={mobileMenu ? "Close menu" : "Open menu"}
@@ -270,20 +270,18 @@ export default function Nav({ dark = false }) {
           </div>
 
           <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
-            <Link
-              to="/waitlist"
-              onClick={() => setMobileMenu(false)}
+            <a
+              href="https://app.betterhealth.africa/join"
               className="w-full text-center bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-4 text-base font-bold font-heading transition-all no-underline"
             >
-              Join Waitlist
-            </Link>
-            <Link
-              to="/how-it-works"
-              onClick={() => setMobileMenu(false)}
+              Create Account
+            </a>
+            <a
+              href="https://app.betterhealth.africa"
               className="w-full text-center text-text-secondary text-base font-medium hover:text-primary transition-colors py-2 no-underline"
             >
-              Learn More
-            </Link>
+              Sign in with email, phone, or Google
+            </a>
           </div>
         </div>
       )}

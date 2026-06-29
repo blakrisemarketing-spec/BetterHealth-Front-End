@@ -15,6 +15,8 @@ const SECTIONS = [
 
 **Account data:** Your name, email address, phone number, and date of birth when you register.
 
+**Sign-in data from Google:** If you choose to create your account or sign in using Google ("Continue with Google"), we receive your name and email address from your Google account to set up, identify, and secure your account. We do not receive your Google password, and we only request the basic profile information needed to authenticate you. This data is used in the same way as the account data you would otherwise enter yourself, and is governed by this policy.
+
 **Health data:** Biomarker results from your laboratory tests, including blood test values, organ health scores, and any health notes you add to your dashboard. This is sensitive personal data and is treated with the highest level of protection.
 
 **Payment data:** Transaction records processed via Paystack. We do not store your card or Mobile Money details — these are handled entirely by Paystack.
@@ -45,6 +47,8 @@ We do not sell your data. We do not use your health data for advertising. We do 
 **Paystack:** Transaction data is processed by Paystack under their own privacy policy. We receive only a payment confirmation.
 
 **Supabase:** Our database infrastructure provider. Your data is stored on Supabase with row-level security and encryption at rest.
+
+**Google (sign-in only):** If you use "Continue with Google", Google acts as your authentication provider. We receive your name and email from Google to verify your identity; we do not send Google your health data. Google's handling of your information is governed by Google's own privacy policy.
 
 We do not share your health data with insurers, employers, government agencies, or any third party without your explicit written consent.`,
   },
@@ -103,7 +107,7 @@ export default function PrivacyPage() {
             <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-3">
               Privacy Policy
             </h1>
-            <p className="text-[14px] text-text-muted mb-8">Last updated: April 2026</p>
+            <p className="text-[14px] text-text-muted mb-8">Last updated: June 2026</p>
             <p className="text-[15px] text-text-secondary leading-relaxed mb-2">
               BetterHealth Africa takes your privacy seriously. This policy explains what data we collect, why we collect it, how we protect it, and what rights you have. We have written it in plain language — no legal jargon.
             </p>
