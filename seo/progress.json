@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-06-28",
+  "lastRunDate": "2026-06-30",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -9,13 +9,14 @@
     "art-full-blood-count",
     "art-hypertension-silent",
     "art-prediabetes",
-    "art-anaemia-iron"
+    "art-anaemia-iron",
+    "art-vitamin-d"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-06-28",
   "inFlightPRs": [],
-  "publishedCount": 10,
-  "notes": "art-anaemia-iron published 2026-06-28 (ferritin test, 50/mo Ghana, LOW competition). Also targets iron deficiency anaemia symptoms, anaemia symptoms, serum ferritin high (10/mo), normal ferritin levels by age (10/mo), low ferritin treatment (10/mo). Next todo item: art-vitamin-d (vitamin d test, 20/mo)."
+  "publishedCount": 11,
+  "notes": "art-vitamin-d published 2026-06-30 (vitamin d test, 20/mo Ghana). Covers 25(OH)D test, Endocrine Society ranges (deficient <30, insufficient 30-49, sufficient ≥50 nmol/L), Ghana sun paradox, symptoms, and D3 supplementation. Next todo item: art-sickle-cell-trait (sickle cell trait test, volume null, HIGH AI-citation candidate)."
 }

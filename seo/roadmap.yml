@@ -156,7 +156,9 @@ items:
     secondary: ["vitamin D deficiency symptoms"]
     intent: informational
     title: "Vitamin D Deficiency: Symptoms, Testing, and What to Do"
-    status: todo
+    status: done
+    completed: 2026-06-30
+    notes: "Published 2026-06-30. vitamin d test 20/mo Ghana. Also targets vitamin D deficiency symptoms, vitamin D deficiency treatment, vitamin d normal range. Covers 25(OH)D test, Endocrine Society ranges, the Ghana sun paradox (Mogire et al. 2020: 30-60% deficiency), symptoms, who to test, D3 supplementation. Article + BreadcrumbList + FAQPage schema. PR: claude/hopeful-johnson-ketb8v."
 
   - id: art-sickle-cell-trait
     type: article

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="900" height="340" fill="#F5F3EE" rx="12"/>
+
+  <text x="44" y="48" font-size="18" font-weight="700" fill="#2B3A3A">25(OH)D Reference Ranges</text>
+  <text x="44" y="72" font-size="14" fill="#6B7979">Endocrine Society Clinical Practice Guideline thresholds</text>
+
+  <!-- Deficient bar -->
+  <rect x="44" y="100" width="200" height="52" rx="8" fill="#E05A4E" opacity="0.18"/>
+  <rect x="44" y="100" width="200" height="52" rx="8" fill="none" stroke="#E05A4E" stroke-width="2"/>
+  <text x="64" y="122" font-size="13" font-weight="700" fill="#E05A4E">DEFICIENT</text>
+  <text x="64" y="140" font-size="13" fill="#2B3A3A">below 30 nmol/L</text>
+  <text x="252" y="130" font-size="12" fill="#6B7979">(below 12 ng/mL)</text>
+
+  <!-- Insufficient bar -->
+  <rect x="44" y="172" width="200" height="52" rx="8" fill="#E8A020" opacity="0.15"/>
+  <rect x="44" y="172" width="200" height="52" rx="8" fill="none" stroke="#E8A020" stroke-width="2"/>
+  <text x="64" y="194" font-size="13" font-weight="700" fill="#C07010">INSUFFICIENT</text>
+  <text x="64" y="212" font-size="13" fill="#2B3A3A">30 to 49 nmol/L</text>
+  <text x="252" y="202" font-size="12" fill="#6B7979">(12 to 19 ng/mL)</text>
+
+  <!-- Sufficient bar -->
+  <rect x="44" y="244" width="200" height="52" rx="8" fill="#6B8E7F" opacity="0.15"/>
+  <rect x="44" y="244" width="200" height="52" rx="8" fill="none" stroke="#6B8E7F" stroke-width="2"/>
+  <text x="64" y="266" font-size="13" font-weight="700" fill="#6B8E7F">SUFFICIENT</text>
+  <text x="64" y="284" font-size="13" fill="#2B3A3A">50 nmol/L and above</text>
+  <text x="252" y="274" font-size="12" fill="#6B7979">(20 ng/mL and above)</text>
+
+  <!-- Notes column -->
+  <line x1="480" y1="88" x2="480" y2="310" stroke="#D0CEC9" stroke-width="1"/>
+
+  <text x="500" y="104" font-size="13" font-weight="600" fill="#2B3A3A">What this range means</text>
+
+  <text x="500" y="128" font-size="12" fill="#6B7979">Bone softening (osteomalacia) in adults;</text>
+  <text x="500" y="145" font-size="12" fill="#6B7979">rickets risk in children. Treatment needed.</text>
+
+  <text x="500" y="200" font-size="12" fill="#6B7979">Below optimal for bone and immune health.</text>
+  <text x="500" y="217" font-size="12" fill="#6B7979">Most clinicians recommend supplementing.</text>
+
+  <text x="500" y="272" font-size="12" fill="#6B7979">Adequate for bone health in most adults.</text>
+  <text x="500" y="289" font-size="12" fill="#6B7979">Maintenance supplement may still help.</text>
+
+  <text x="44" y="322" font-size="11" fill="#9B9990">Source: Endocrine Society Clinical Practice Guideline (Holick et al.). Confirm your result with your clinician.</text>
+</svg>
