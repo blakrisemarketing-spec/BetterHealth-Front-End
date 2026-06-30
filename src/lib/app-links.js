@@ -4,10 +4,9 @@
 
 export const APP_BASE = "https://app.betterhealth.africa";
 
-// Primary conversion CTA: deep-link into single-test booking. The app gates this
-// behind auth, so a logged-out visitor is routed through sign-up first and (ideally)
-// returned to booking afterwards.
-export const BOOK_TEST_URL = `${APP_BASE}/book-test`;
+// Primary conversion CTA: internal Book a Test page where users pick a panel.
+// Individual panel cards then link out to the app for sign-up/booking.
+export const BOOK_TEST_URL = "/book";
 
 // Open registration / onboarding entry (no invite code required).
 export const SIGN_UP_URL = `${APP_BASE}/join`;

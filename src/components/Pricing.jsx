@@ -1,7 +1,8 @@
 import { Check, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 import Reveal from "./ui/Reveal";
 import { plans } from "../data/content";
-import { BOOK_TEST_URL, SIGN_UP_URL } from "../lib/app-links";
+import { SIGN_UP_URL } from "../lib/app-links";
 
 export default function Pricing() {
   return (
@@ -28,12 +29,12 @@ export default function Pricing() {
             <p className="text-[15px] text-text-secondary mb-5 max-w-[520px] mx-auto leading-relaxed">
               No subscription. Choose the test you need, get clinician-reviewed results, and decide your next step from there.
             </p>
-            <a
-              href={BOOK_TEST_URL}
+            <Link
+              to="/book"
               className="inline-flex items-center justify-center gap-2 rounded-btn px-7 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
             >
               Book a Test
-            </a>
+            </Link>
           </div>
         </Reveal>
 

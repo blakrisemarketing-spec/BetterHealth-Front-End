@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight, FlaskConical, LineChart, Stethoscope } from "lucide-react";
 import Seo from "../components/Seo";
 import Nav from "../components/Nav";
@@ -7,7 +8,6 @@ import FinalCTA from "../components/FinalCTA";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { diseasePrograms } from "../data/content";
-import { BOOK_TEST_URL } from "../lib/app-links";
 
 const HOW_STEPS = [
   {
@@ -58,12 +58,12 @@ export default function ProgramsPage() {
               </p>
             </Reveal>
             <Reveal delay={0.3}>
-              <a
-                href={BOOK_TEST_URL}
+              <Link
+                to="/book"
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-7 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
               >
                 Book a Test <ArrowRight size={18} />
-              </a>
+              </Link>
             </Reveal>
           </div>
         </section>

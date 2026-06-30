@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Reveal from "./ui/Reveal";
 import GradientOrb from "./ui/GradientOrb";
-import { BOOK_TEST_URL } from "../lib/app-links";
 
 export default function FinalCTA() {
   return (
@@ -40,12 +40,12 @@ export default function FinalCTA() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <a
-            href={BOOK_TEST_URL}
+          <Link
+            to="/book"
             className="inline-flex items-center justify-center gap-2 rounded-btn px-8 py-4 text-[15px] font-bold font-heading bg-gradient-to-r from-primary to-primary-light text-white shadow-[0_4px_30px_rgba(13,148,136,0.35)] hover:shadow-[0_8px_40px_rgba(13,148,136,0.5)] hover:-translate-y-1 hover:scale-[1.02] transition-all no-underline"
           >
             Book a Test <ArrowRight size={18} />
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>

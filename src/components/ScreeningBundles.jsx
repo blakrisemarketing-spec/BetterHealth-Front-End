@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
+import { Link } from "react-router-dom";
 import Reveal from "./ui/Reveal";
 import { screeningBundles } from "../data/content";
-import { BOOK_TEST_URL } from "../lib/app-links";
 
 export default function ScreeningBundles() {
   const { eyebrow, headline, body, bundles, note, cta } = screeningBundles;
@@ -50,16 +50,16 @@ export default function ScreeningBundles() {
                   ))}
                 </ul>
 
-                <a
-                  href={BOOK_TEST_URL}
-                  className={`w-full py-3 rounded-btn text-[14px] font-bold font-heading text-center no-underline transition-all hover:-translate-y-0.5 ${
+                <Link
+                  to="/book"
+                  className={`w-full py-3 rounded-btn text-[14px] font-bold font-heading text-center no-underline transition-all hover:-translate-y-0.5 block ${
                     b.popular
                       ? "bg-primary hover:bg-primary-dark text-white"
                       : "bg-section-alt border border-border hover:border-primary/30 text-text-primary hover:text-primary"
                   }`}
                 >
                   {cta}
-                </a>
+                </Link>
               </div>
             </Reveal>
           ))}

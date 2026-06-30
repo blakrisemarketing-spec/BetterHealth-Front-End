@@ -123,6 +123,12 @@ const RAW_ROUTE_SEO = {
     image: `${SITE_URL}/pricing-og.jpg`,
     jsonld: [PRICING_JSONLD],
   },
+  book: {
+    title: "Book a Test — Comprehensive Health Panels | BetterHealth Africa",
+    description:
+      "Choose from 11 health test panels — Titan (diabetes), Stallion (heart), Panorama (full body) and more. Fixed prices, clinician-reviewed results, home sample collection across Ghana.",
+    image: DEFAULT_OG_IMAGE,
+  },
   programs: {
     title: "Condition Programs — Diabetes, Hypertension & More | BetterHealth Africa",
     description:

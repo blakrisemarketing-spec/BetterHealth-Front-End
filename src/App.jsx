@@ -9,6 +9,9 @@ const StoriesPage = lazy(() => import("./pages/Stories"));
 const AboutPage = lazy(() => import("./pages/About"));
 const PricingPage = lazy(() => import("./pages/Pricing"));
 const ProgramsPage = lazy(() => import("./pages/Programs"));
+const BookTestPage = lazy(() => import("./pages/BookTest"));
+const TestDetailPage = lazy(() => import("./pages/TestDetail"));
+const SingleTestDetailPage = lazy(() => import("./pages/SingleTestDetail"));
 const FAQPage = lazy(() => import("./pages/FAQ"));
 const ContactPage = lazy(() => import("./pages/Contact"));
 const PrivacyPage = lazy(() => import("./pages/Privacy"));
@@ -61,6 +64,9 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/programs" element={<ProgramsPage />} />
+          <Route path="/book" element={<BookTestPage />} />
+          <Route path="/book/:slug" element={<TestDetailPage />} />
+          <Route path="/test/:slug" element={<SingleTestDetailPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />

@@ -12,7 +12,7 @@ import ScreeningBundles from "../components/ScreeningBundles";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { pricingPage } from "../data/content";
-import { BOOK_TEST_URL } from "../lib/app-links";
+import { SIGN_UP_URL } from "../lib/app-links";
 
 const TRUST_ICONS = [Smartphone, CreditCard, ShieldCheck, RotateCcw, Building2];
 
@@ -225,12 +225,12 @@ export default function PricingPage() {
             </div>
           </Reveal>
           <Reveal delay={0.2}>
-            <a
-              href={BOOK_TEST_URL}
+            <Link
+              to="/book"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
             >
               {singleTests.cta} <ArrowRight size={16} />
-            </a>
+            </Link>
             <p className="text-[11px] text-text-muted mt-3">{singleTests.note}</p>
           </Reveal>
         </div>

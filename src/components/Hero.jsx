@@ -7,7 +7,6 @@ import GradientOrb from "./ui/GradientOrb";
 import Badge from "./ui/Badge";
 import PhoneFrame from "./ui/PhoneFrame";
 import { heroStats, trustedPartners } from "../data/content";
-import { BOOK_TEST_URL } from "../lib/app-links";
 import GDPCBadge from "./ui/GDPCBadge";
 
 const heroScreens = [
@@ -81,28 +80,16 @@ export default function Hero() {
               >
                 See How It Works
               </Link>
-              <a
-                href={BOOK_TEST_URL}
+              <Link
+                to="/book"
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
               >
                 Book a Test <ArrowRight size={18} />
-              </a>
+              </Link>
             </div>
           </Reveal>
 
           <Reveal delay={0.32}>
-            <p className="text-[14px] text-text-muted font-body mb-6">
-              Already have an account?{" "}
-              <a
-                href="https://app.betterhealth.africa"
-                className="text-primary font-semibold no-underline hover:text-primary-dark transition-colors"
-              >
-                Sign in with email, phone, or Google →
-              </a>
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.35}>
             <div className="flex items-center gap-3 mb-6">
               <GDPCBadge />
               <span className="text-[13px] text-text-muted font-body">Your health data is protected by law</span>

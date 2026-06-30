@@ -2,9 +2,9 @@ import {
   Check, ArrowRight,
   Droplet, Droplets, Activity, HeartPulse, Shield, Baby, Venus,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import Reveal from "./ui/Reveal";
 import { diseasePrograms } from "../data/content";
-import { BOOK_TEST_URL } from "../lib/app-links";
 
 const ICONS = { Droplet, Droplets, Activity, HeartPulse, Shield, Baby, Venus };
 
@@ -66,12 +66,12 @@ export default function DiseasePrograms({ showHeader = true, compact = false }) 
                   )}
 
                   {p.available ? (
-                    <a
-                      href={BOOK_TEST_URL}
+                    <Link
+                      to="/book"
                       className="mt-auto w-full py-3 rounded-btn text-[14px] font-bold font-heading text-center no-underline bg-primary hover:bg-primary-dark text-white transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2"
                     >
                       {cta} <ArrowRight size={15} />
-                    </a>
+                    </Link>
                   ) : (
                     <span className="mt-auto w-full py-3 rounded-btn text-[13px] font-bold font-heading text-center bg-section-alt text-text-muted border border-border">
                       Coming soon
