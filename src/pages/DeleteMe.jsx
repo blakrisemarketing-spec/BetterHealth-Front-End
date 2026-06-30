@@ -70,7 +70,7 @@ export default function DeleteMePage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
       <Helmet>
-        <title>Delete My Account — BetterHealth Africa</title>
+        <title>Delete My Account | BetterHealth Africa</title>
         <meta name="description" content="How to request deletion of your BetterHealth Africa account and personal health data." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>

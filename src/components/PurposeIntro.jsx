@@ -8,7 +8,7 @@ const valueProps = [
   {
     icon: FlaskConical,
     title: "Real lab results",
-    desc: "Tests are processed by accredited partner laboratories — not estimates or guesses.",
+    desc: "Accredited partner laboratories run your tests. These are real lab numbers, not estimates.",
   },
   {
     icon: Stethoscope,
@@ -17,8 +17,8 @@ const valueProps = [
   },
   {
     icon: Clock,
-    title: "Results in 48–72 hours",
-    desc: "Your full results land in your dashboard within 48–72 hours of collection.",
+    title: "Results in 48 to 72 hours",
+    desc: "Your full results show up in your dashboard within 48 to 72 hours of collection.",
   },
   {
     icon: ShieldCheck,
@@ -47,10 +47,10 @@ export default function PurposeIntro() {
 
         <Reveal delay={0.1}>
           <p className="text-lg leading-[1.75] text-text-secondary font-body max-w-[760px] mx-auto mb-4">
-            BetterHealth Africa is a digital health platform that makes quality diagnostic
-            testing and clinical guidance accessible across Africa. Patients can book lab
-            tests, securely receive results reviewed by qualified clinicians, and get
-            personalized guidance to understand and act on their health — all from their phone.
+            BetterHealth Africa is a digital health platform that brings quality diagnostic
+            testing and clinical guidance within reach across Africa. From their phone, patients
+            can book lab tests, receive results that a qualified clinician has reviewed, and get
+            guidance that helps them understand their health and decide what to do next.
           </p>
         </Reveal>
 

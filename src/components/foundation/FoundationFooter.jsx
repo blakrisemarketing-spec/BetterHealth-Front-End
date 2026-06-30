@@ -47,7 +47,7 @@ export default function FoundationFooter({ onVolunteer, onPartner, onSupport }) 
               </span>
             </div>
             <p className="text-[14px] text-text-secondary leading-relaxed font-inter max-w-[300px]">
-              Working to make prevention the default, not the privilege.
+              We want everyday people, not only those who can afford it, to catch health problems early.
             </p>
             <p className="flex items-center gap-2 text-[13px] text-text-muted font-inter mt-4">
               <MapPin size={15} className="text-primary" /> Registered in Ghana. Accra, Ghana.

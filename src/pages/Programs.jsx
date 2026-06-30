@@ -13,7 +13,7 @@ const HOW_STEPS = [
   {
     icon: FlaskConical,
     title: "Test",
-    desc: "Book the tests your condition needs — at a lab or with home collection. Clinician-reviewed results in 48–72 hours.",
+    desc: "Book the tests your condition needs, at a lab or with home collection. A clinician reviews your results, ready in 48 to 72 hours.",
   },
   {
     icon: LineChart,
@@ -23,7 +23,7 @@ const HOW_STEPS = [
   {
     icon: Stethoscope,
     title: "Stay on track",
-    desc: "A clinician reviews your results, flags anything that needs attention, and helps you adjust — before small problems grow.",
+    desc: "A clinician reviews your results, flags anything that needs attention, and helps you adjust, before a small problem turns into a big one.",
   },
 ];
 
@@ -52,9 +52,10 @@ export default function ProgramsPage() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-lg leading-relaxed text-text-secondary max-w-[600px] mx-auto font-body mb-8">
-                Don’t just get a result — get a plan. Each program combines the right tests, simple home
-                monitoring, and clinician review, built around one condition. Not sure where to start?
-                Book a single test first and we’ll point you to the program that fits.
+                A result on its own can leave you guessing. A program tells you what to do next. Each one
+                brings together the right tests, simple monitoring you do at home, and a clinician who keeps an
+                eye on your numbers, all built around one condition. Not sure where to start? Book a single
+                test first and we’ll point you to the program that fits.
               </p>
             </Reveal>
             <Reveal delay={0.3}>

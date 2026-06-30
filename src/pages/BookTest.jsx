@@ -79,14 +79,14 @@ export default function BookTestPage() {
                   <div className="flex-1">
                     <p className="text-[13px] text-primary font-bold uppercase tracking-wide mb-1">Not sure where to start?</p>
                     <h2 className="text-[22px] sm:text-[26px] font-extrabold text-text-primary font-heading leading-snug mb-2">
-                      Panorama — check everything
+                      Panorama: check everything
                     </h2>
                     <p className="text-[14px] text-text-secondary leading-relaxed mb-3">
-                      Blood sugar, heart, liver, kidneys, thyroid, and more — all in one visit. If you only do one test this year, this is the one.
+                      Blood sugar, heart, liver, kidneys, thyroid, and more, all in one visit. If you do only one test this year, make it this one.
                     </p>
                     <div className="flex flex-wrap gap-x-4 gap-y-1 mb-1">
                       <span className="text-[13px] text-text-muted">{panorama.tests.length} tests included</span>
-                      <span className="text-[13px] text-text-muted">Results in 48–72 hrs</span>
+                      <span className="text-[13px] text-text-muted">Results in 48 to 72 hours</span>
                       <span className="text-[13px] text-text-muted">Home collection available</span>
                     </div>
                   </div>
@@ -114,7 +114,7 @@ export default function BookTestPage() {
                   Or tell us what's on your mind
                 </h2>
                 <p className="text-[15px] text-text-secondary">
-                  Pick the one that fits and we'll show you the right test.
+                  Pick the one that sounds like you and we'll show you the right test.
                 </p>
               </div>
             </Reveal>
@@ -208,7 +208,7 @@ export default function BookTestPage() {
                   Know exactly what you need?
                 </h2>
                 <p className="text-[15px] text-text-secondary">
-                  Book a single test — no package required.
+                  Book a single test on its own. No package needed.
                 </p>
               </div>
             </Reveal>
@@ -256,7 +256,7 @@ export default function BookTestPage() {
                 {[
                   { num: "1", title: "Pick a test", desc: "Choose a package above or a single test." },
                   { num: "2", title: "Get tested", desc: "Visit a partner lab or book home collection." },
-                  { num: "3", title: "See results", desc: "Clinician-reviewed results in 48–72 hours." },
+                  { num: "3", title: "See results", desc: "A clinician reviews your results, ready in 48 to 72 hours." },
                 ].map((s) => (
                   <div key={s.num} className="flex gap-3 items-start bg-card border border-border rounded-card p-4">
                     <span className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shrink-0 text-white text-[12px] font-bold">
@@ -294,7 +294,7 @@ export default function BookTestPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-[16px] text-white/80 leading-relaxed font-body mb-6">
-                WhatsApp us and we'll help you pick the right test — no pressure, no charge.
+                Message us on WhatsApp and we'll help you pick the right test. No pressure, no charge.
               </p>
             </Reveal>
             <Reveal delay={0.2}>

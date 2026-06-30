@@ -113,7 +113,7 @@ function PlanCard({ plan, index }) {
             </div>
             <p className="text-[12px] text-text-muted">Billed at {plan.annual}/year</p>
             <p className={`text-[12px] font-semibold mt-0.5 ${plan.popular ? "text-primary" : "text-text-secondary"}`}>
-              That is just {plan.daily}/day
+              That works out to {plan.daily}/day
             </p>
           </div>
 
@@ -184,9 +184,9 @@ export default function PricingPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
-              Start with a single test —{" "}
+              Start with one test.{" "}
               <span className="text-primary italic tracking-normal">
-                not a subscription.
+                No subscription needed.
               </span>
             </h1>
           </Reveal>
@@ -246,10 +246,10 @@ export default function PricingPage() {
             <div className="text-center mb-10 max-w-[640px] mx-auto">
               <span className="inline-block text-[12px] font-bold text-primary uppercase tracking-[0.12em] mb-2">Ongoing monitoring</span>
               <h2 className="text-[1.7rem] md:text-[2rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">
-                Prefer year-round peace of mind? Subscribe and save
+                Want to keep an eye on things all year? Subscribe and save
               </h2>
               <p className="text-[15px] text-text-secondary">
-                A comprehensive screen at a private hospital runs GHS 2,970–6,250. Our annual plans start at GHS 2/day — billed annually, cancel anytime.
+                A full screen at a private hospital runs GHS 2,970 to 6,250. Our annual plans start at GHS 2 a day, billed once a year. Cancel whenever you like.
               </p>
             </div>
           </Reveal>

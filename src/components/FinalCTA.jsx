@@ -21,21 +21,21 @@ export default function FinalCTA() {
       <div className="max-w-[700px] mx-auto relative z-10">
         <Reveal>
           <h2 className="text-[clamp(32px,5vw,52px)] font-extrabold text-text-on-dark font-heading leading-[1.15] mb-5">
-            The test your{" "}
-            <span className="italic text-primary-light">family</span>{" "}
-            needs you to take.
+            Do it for the people who{" "}
+            <span className="italic text-primary-light">love</span>{" "}
+            you.
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <p className="text-lg leading-relaxed text-text-muted-dark mb-4 max-w-[480px] mx-auto font-body">
-            Your body is speaking. BetterHealth Africa helps you listen — before it&apos;s too late.
+            A simple test now can catch the things you cannot feel yet, while they are still easy to deal with.
           </p>
         </Reveal>
 
         <Reveal delay={0.15}>
           <p className="text-sm text-text-muted-dark mb-8 max-w-[400px] mx-auto font-body">
-            Now open across Ghana — book your first test in minutes.
+            We are open across Ghana. Booking your first test takes a few minutes.
           </p>
         </Reveal>
 

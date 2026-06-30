@@ -40,7 +40,7 @@ export default function TestDetailPage() {
         <Nav />
         <main className="pt-[120px] pb-20 px-6 text-center">
           <h1 className="text-[2rem] font-extrabold text-text-primary font-heading mb-4">Test not found</h1>
-          <p className="text-text-secondary mb-6">We couldn't find that test panel.</p>
+          <p className="text-text-secondary mb-6">We couldn't find that test panel. It may have moved, or the link might be off.</p>
           <Link to="/book" className="text-primary font-bold no-underline hover:text-primary-dark">
             &larr; Back to all tests
           </Link>
@@ -57,14 +57,14 @@ export default function TestDetailPage() {
   const relatedSingleTest = singleTests
     .find((t) => t.concerns.some((c) => panel.concerns.includes(c)));
 
-  const pageTitle = `${panel.name} — ${panel.subtitle} | BetterHealth Africa`;
+  const pageTitle = `${panel.name}: ${panel.subtitle} | BetterHealth Africa`;
   const pageDesc = panel.description;
   const pageUrl = `${SITE_URL}/book/${panel.slug}`;
 
   const jsonld = {
     "@context": "https://schema.org",
     "@type": "MedicalTest",
-    name: `${panel.name} Panel — ${panel.subtitle}`,
+    name: `${panel.name} Panel: ${panel.subtitle}`,
     description: panel.description,
     url: pageUrl,
     provider: {
@@ -255,7 +255,7 @@ export default function TestDetailPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { num: "1", title: "Book online", desc: "Sign up and select this panel. Choose a partner lab near you or book home sample collection." },
-                  { num: "2", title: "Get tested", desc: `A quick ${panel.sampleType.toLowerCase()} sample — done in about 15 minutes at a lab or at home.` },
+                  { num: "2", title: "Get tested", desc: `A quick ${panel.sampleType.toLowerCase()} sample. It takes about 15 minutes, at a lab or at home.` },
                   { num: "3", title: "See results", desc: `Clinician-reviewed results in ${panel.turnaround}, with every marker explained in plain language.` },
                 ].map((s) => (
                   <div key={s.num} className="flex gap-3 items-start bg-card border border-border rounded-card p-4">

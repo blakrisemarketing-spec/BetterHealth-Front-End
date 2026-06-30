@@ -68,7 +68,7 @@ export default function Hero() {
 
           <Reveal delay={0.2}>
             <p className="text-lg leading-[1.7] text-text-secondary max-w-[520px] mb-8 font-body">
-              Book a single lab test and get clinician-reviewed results you actually understand — no subscription needed. Home sample collection across Ghana. Ready for more? Subscribe for year-round monitoring across 127 biomarkers.
+              Book one lab test, no subscription, and get results a clinician has checked and explained in plain language. We collect your sample at home, anywhere in Ghana. When you want to keep an eye on things through the year, you can subscribe and track 127 biomarkers.
             </p>
           </Reveal>
 

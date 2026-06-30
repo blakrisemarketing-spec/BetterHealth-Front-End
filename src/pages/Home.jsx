@@ -26,7 +26,7 @@ export default function Home() {
     <WaitlistProvider>
     <div className="bg-base min-h-screen overflow-x-hidden">
       <Helmet>
-        <title>BetterHealth Africa — Know Your Health Before Symptoms Appear</title>
+        <title>BetterHealth Africa | Know Your Health Before Symptoms Appear</title>
         <meta name="description" content="BetterHealth Africa is a digital health platform that makes diagnostic testing and clinical guidance accessible across Africa. Book lab tests with 127 biomarkers, get results reviewed by qualified clinicians, and access them from your phone. Create an account or sign in with email, phone, or Google at app.betterhealth.africa." />
       </Helmet>
       <Nav />

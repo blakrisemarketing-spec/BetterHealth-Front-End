@@ -19,7 +19,7 @@ const SECTIONS = [
 
 **Health data:** Biomarker results from your laboratory tests, including blood test values, organ health scores, and any health notes you add to your dashboard. This is sensitive personal data and is treated with the highest level of protection.
 
-**Payment data:** Transaction records processed via Paystack. We do not store your card or Mobile Money details — these are handled entirely by Paystack.
+**Payment data:** Transaction records processed via Paystack. We do not store your card or Mobile Money details. Paystack handles those entirely.
 
 **Usage data:** How you interact with our platform (pages visited, features used, device type, browser, IP address). This helps us improve the product.
 
@@ -54,7 +54,7 @@ We do not share your health data with insurers, employers, government agencies, 
   },
   {
     title: "5. Data Security",
-    body: "Your health data is encrypted at rest and in transit. Access is restricted to authenticated users via row-level security. Our infrastructure (Supabase) meets international healthcare data standards. We conduct regular security reviews and access audits. No system is 100% secure — if you suspect your account has been compromised, contact us immediately at privacy@betterhealth.africa.",
+    body: "Your health data is encrypted at rest and in transit. Access is restricted to authenticated users via row-level security. Our infrastructure (Supabase) meets international healthcare data standards. We conduct regular security reviews and access audits. No system is 100% secure. If you suspect your account has been compromised, contact us immediately at privacy@betterhealth.africa.",
   },
   {
     title: "6. Your Rights",
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
             </h1>
             <p className="text-[14px] text-text-muted mb-8">Last updated: June 2026</p>
             <p className="text-[15px] text-text-secondary leading-relaxed mb-2">
-              BetterHealth Africa takes your privacy seriously. This policy explains what data we collect, why we collect it, how we protect it, and what rights you have. We have written it in plain language — no legal jargon.
+              BetterHealth Africa takes your privacy seriously. This policy explains what data we collect, why we collect it, how we protect it, and what rights you have. We have written it in plain language, with no legal jargon.
             </p>
           </Reveal>
         </div>

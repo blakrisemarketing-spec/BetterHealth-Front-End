@@ -87,8 +87,7 @@ export default function FAQPage() {
               or email{" "}
               <a href="mailto:hello@betterhealth.africa" className="text-primary font-semibold hover:underline underline-offset-2 no-underline">
                 hello@betterhealth.africa
-              </a>{" "}
-              — we respond within 24 hours.
+              </a>. We respond within 24 hours.
             </p>
           </Reveal>
         </div>
@@ -148,7 +147,7 @@ export default function FAQPage() {
               Did not find your answer?
             </h2>
             <p className="text-[15px] text-text-secondary mb-8">
-              We are here to help. Reach out through any of these channels and we will respond within 24 hours.
+              We are happy to help. Reach us on any of these and we will reply within 24 hours.
             </p>
           </Reveal>
           <Reveal delay={0.1}>

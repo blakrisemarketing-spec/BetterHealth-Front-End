@@ -12,7 +12,7 @@ export default function ComparisonTable() {
               Why BetterHealth Africa
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
-              Not your average{" "}
+              How we differ from a{" "}
               <span className="italic text-primary tracking-normal">
                 hospital checkup
               </span>

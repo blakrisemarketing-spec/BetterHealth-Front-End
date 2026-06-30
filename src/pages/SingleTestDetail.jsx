@@ -39,7 +39,7 @@ export default function SingleTestDetailPage() {
         <Nav />
         <main className="pt-[120px] pb-20 px-6 text-center">
           <h1 className="text-[2rem] font-extrabold text-text-primary font-heading mb-4">Test not found</h1>
-          <p className="text-text-secondary mb-6">We couldn't find that test.</p>
+          <p className="text-text-secondary mb-6">We couldn't find that test. It may have moved, or the link might be off.</p>
           <Link to="/book" className="text-primary font-bold no-underline hover:text-primary-dark">
             &larr; Back to all tests
           </Link>
@@ -49,7 +49,7 @@ export default function SingleTestDetailPage() {
     );
   }
 
-  const pageTitle = `${test.name} — ${test.subtitle} | BetterHealth Africa`;
+  const pageTitle = `${test.name}: ${test.subtitle} | BetterHealth Africa`;
   const pageDesc = test.description;
   const pageUrl = `${SITE_URL}/test/${test.slug}`;
 
@@ -240,7 +240,7 @@ export default function SingleTestDetailPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { num: "1", title: "Book online", desc: "Sign up and select this test. Choose a partner lab near you or book home collection." },
-                  { num: "2", title: "Give a sample", desc: `A quick ${test.sampleType.toLowerCase()} sample — done in a few minutes.` },
+                  { num: "2", title: "Give a sample", desc: `A quick ${test.sampleType.toLowerCase()} sample. It takes a few minutes.` },
                   { num: "3", title: "See results", desc: `Clinician-reviewed results in ${test.turnaround}, with every marker explained.` },
                 ].map((s) => (
                   <div key={s.num} className="flex gap-3 items-start bg-card border border-border rounded-card p-4">
@@ -287,7 +287,7 @@ export default function SingleTestDetailPage() {
                   Save with a panel
                 </h2>
                 <p className="text-[15px] text-text-secondary mb-6">
-                  This test is included in these comprehensive panels — get more markers for a better price.
+                  This test comes inside these fuller panels. You get more markers for a better price.
                 </p>
               </Reveal>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -29,33 +29,33 @@ const WHATSAPP_NUMBER = "+233 268 596 410";
 const BENEFITS = [
   {
     icon: Activity,
-    title: "Client Lab Results, Delivered Digitally",
-    body: "See your clients' biomarker results the moment they're released — no more chasing PDFs or waiting on patients to forward attachments.",
+    title: "Client lab results, delivered digitally",
+    body: "You see your clients' biomarker results the moment they're released. No more chasing PDFs or waiting on clients to forward an attachment.",
   },
   {
     icon: TrendingUp,
-    title: "Earn from Every Referral",
-    body: "A transparent commission for every client you refer for lab work, paid out monthly. Grow your income alongside your practice.",
+    title: "Earn from every referral",
+    body: "You earn a clear commission for every client you refer for lab work, paid out monthly. Your income grows alongside your practice.",
   },
   {
     icon: ClipboardList,
-    title: "Build Data-Driven Meal Plans",
-    body: "Move beyond guesswork. Use real biomarkers — vitamin D, iron stores, lipid panel, HbA1c — to design plans that actually work.",
+    title: "Build meal plans on real data",
+    body: "Stop guessing. Use real biomarkers, from vitamin D and iron stores to the lipid panel and HbA1c, to design plans that hold up.",
   },
   {
     icon: Users,
-    title: "Get New Client Referrals",
-    body: "Get listed in the BetterHealth nutritionist directory. Patients with results that need dietary guidance get sent directly to you.",
+    title: "Get new client referrals",
+    body: "Get listed in the BetterHealth nutritionist directory. Clients whose results call for dietary guidance come straight to you.",
   },
   {
     icon: ShieldCheck,
-    title: "Trusted & Certified Lab Partners",
-    body: "All samples are processed by CLIA/CAP compliant partner laboratories with rigorous quality controls — results you can stake your reputation on.",
+    title: "Trusted, certified lab partners",
+    body: "CLIA/CAP compliant partner laboratories process every sample under strict quality controls, so you get results you can stand behind.",
   },
   {
     icon: HeadphonesIcon,
-    title: "Priority Partner Support",
-    body: "Dedicated WhatsApp line for nutrition partners. Result questions, client onboarding, and pricing queries answered within the day.",
+    title: "Priority partner support",
+    body: "Nutrition partners get a dedicated WhatsApp line. We answer result questions, client onboarding, and pricing queries the same day.",
   },
 ];
 
@@ -456,7 +456,7 @@ export default function ForNutritionistsPage() {
               <p className="text-lg text-text-secondary font-body max-w-[540px] mx-auto">
                 Get your clients&rsquo; lab results digitally, design plans
                 backed by real biomarker data, earn from every referral, and
-                grow your client list — all without leaving your practice.
+                grow your client list, all without leaving your practice.
               </p>
             </Reveal>
           </div>
@@ -470,8 +470,8 @@ export default function ForNutritionistsPage() {
                 Why nutritionists partner with us
               </h2>
               <p className="text-[14px] text-text-muted mb-10 text-center max-w-[520px] mx-auto">
-                The tools you need to move from guesswork to data — and grow
-                your practice while you&rsquo;re at it.
+                The tools to move from guesswork to data, and to grow your
+                practice while you&rsquo;re at it.
               </p>
             </Reveal>
 
@@ -531,9 +531,9 @@ export default function ForNutritionistsPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-[16px] text-white/80 font-body mb-8">
-                Join a growing network of dieticians and nutritionists across
-                Africa who use BetterHealth to deliver data-driven care to
-                their clients.
+                Dieticians and nutritionists across Africa use BetterHealth to
+                give their clients care grounded in real data. You can join
+                them.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
