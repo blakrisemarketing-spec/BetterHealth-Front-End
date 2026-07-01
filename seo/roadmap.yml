@@ -166,8 +166,9 @@ items:
     volume: null
     intent: informational
     title: "Sickle Cell Trait: Why Testing Matters Before You Start a Family"
-    status: todo
-    notes: "Promoted to #3 todo (2026-06-28 weekly): near-zero SERP competition confirmed by DataForSEO; 1 in 4 Ghanaians carry the trait; strong AI-citation candidate. Low search volume but uniquely winnable and locally differentiated."
+    status: done
+    completed: 2026-07-01
+    notes: "Published 2026-07-01. sickle cell trait test: near-zero SERP competition confirmed by DataForSEO; 1 in 4 Ghanaians carry the trait; strong AI-citation candidate. Also targets genotype test (320/mo Ghana), sickle cell disease (1,600/mo Ghana, adjacent). Covers AS vs SS/SC genotype distinction, sickling test vs electrophoresis/HPLC, AS x AS inheritance odds (Punnett square), rare carrier risks (exertional sickling, renal medullary carcinoma), and the malaria-selection explanation for West African prevalence. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-creatinine-egfr
     type: article

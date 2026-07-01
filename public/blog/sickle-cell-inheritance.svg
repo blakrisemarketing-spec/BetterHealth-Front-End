@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="520" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">If both parents carry the trait (AS + AS)</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Each pregnancy carries the same odds, independent of earlier children</text>
+
+  <!-- Punnett square grid -->
+  <!-- Parent A labels across top -->
+  <text x="330" y="140" font-size="18" font-weight="700" fill="#6B7979" text-anchor="middle">Parent 1: A</text>
+  <text x="480" y="140" font-size="18" font-weight="700" fill="#6B7979" text-anchor="middle">Parent 1: S</text>
+
+  <!-- Parent B labels down left -->
+  <text x="150" y="200" font-size="18" font-weight="700" fill="#6B7979" text-anchor="middle">Parent 2: A</text>
+  <text x="150" y="330" font-size="18" font-weight="700" fill="#6B7979" text-anchor="middle">Parent 2: S</text>
+
+  <!-- Grid cells: x=260..400 (A col), 400..560 (S col); y=160..280 (A row), 280..400 (S row) -->
+  <!-- AA cell -->
+  <rect x="260" y="160" width="140" height="120" fill="#EAF1EC" stroke="#6B8E7F" stroke-width="2"/>
+  <text x="330" y="215" text-anchor="middle" font-size="28" font-weight="800" fill="#2B3A3A">AA</text>
+  <text x="330" y="240" text-anchor="middle" font-size="14" fill="#6B7979">unaffected</text>
+
+  <!-- AS cell (top right) -->
+  <rect x="400" y="160" width="140" height="120" fill="#F3EEDF" stroke="#E0A23E" stroke-width="2"/>
+  <text x="470" y="215" text-anchor="middle" font-size="28" font-weight="800" fill="#2B3A3A">AS</text>
+  <text x="470" y="240" text-anchor="middle" font-size="14" fill="#6B7979">carrier, trait</text>
+
+  <!-- AS cell (bottom left) -->
+  <rect x="260" y="280" width="140" height="120" fill="#F3EEDF" stroke="#E0A23E" stroke-width="2"/>
+  <text x="330" y="335" text-anchor="middle" font-size="28" font-weight="800" fill="#2B3A3A">AS</text>
+  <text x="330" y="360" text-anchor="middle" font-size="14" fill="#6B7979">carrier, trait</text>
+
+  <!-- SS cell -->
+  <rect x="400" y="280" width="140" height="120" fill="#F6E3E0" stroke="#C9594F" stroke-width="2"/>
+  <text x="470" y="335" text-anchor="middle" font-size="28" font-weight="800" fill="#2B3A3A">SS</text>
+  <text x="470" y="360" text-anchor="middle" font-size="14" fill="#6B7979">sickle cell disease</text>
+
+  <!-- Outcome legend / bar on the right -->
+  <text x="640" y="180" font-size="18" font-weight="700" fill="#2B3A3A">Chance per pregnancy</text>
+
+  <rect x="640" y="200" width="18" height="18" fill="#EAF1EC" stroke="#6B8E7F" stroke-width="2"/>
+  <text x="668" y="215" font-size="16" fill="#2B3A3A">25% — no sickle gene (AA)</text>
+
+  <rect x="640" y="234" width="18" height="18" fill="#F3EEDF" stroke="#E0A23E" stroke-width="2"/>
+  <text x="668" y="249" font-size="16" fill="#2B3A3A">50% — trait, carrier like the parents (AS)</text>
+
+  <rect x="640" y="268" width="18" height="18" fill="#F6E3E0" stroke="#C9594F" stroke-width="2"/>
+  <text x="668" y="283" font-size="16" fill="#2B3A3A">25% — sickle cell disease (SS)</text>
+
+  <text x="640" y="330" font-size="15" fill="#6B7979">These odds apply to every pregnancy the couple</text>
+  <text x="640" y="352" font-size="15" fill="#6B7979">has together, not just the first child.</text>
+
+  <!-- Divider -->
+  <line x1="70" y1="430" x2="1130" y2="430" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- Other combinations, compact -->
+  <text x="70" y="464" font-size="15" fill="#6B7979">Trait + unaffected (AS × AA): 50% AA, 50% AS — no child can have sickle cell disease.</text>
+  <text x="70" y="488" font-size="15" fill="#6B7979">Trait + disease (AS × SS): 50% AS, 50% SS — every child inherits at least one sickle gene.</text>
+  <text x="70" y="512" font-size="13" fill="#9AA6A6">Simplified for HbS only. HbC and other variants change the picture; a genotype test and counsellor confirm your specific risk.</text>
+</svg>
