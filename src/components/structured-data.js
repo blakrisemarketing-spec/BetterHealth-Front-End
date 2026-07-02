@@ -2,6 +2,14 @@ export const SITE_URL = "https://www.betterhealth.africa";
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
+// Canonical URL for a route path (no leading/trailing slashes, "" = homepage).
+// Always emits a trailing slash for sub-routes because that is what LiteSpeed
+// serves as 200 (dist/<route>/ is a directory); the no-slash form 301-redirects.
+// Using this everywhere keeps canonical tags, JSON-LD @ids, breadcrumbs, og:url
+// and the sitemap pointing at the actually-served URL instead of a redirect.
+export const pageUrl = (route) =>
+  route ? `${SITE_URL}/${String(route).replace(/^\/+|\/+$/g, "")}/` : `${SITE_URL}/`;
+
 // Turn a site-relative path ("/blog/x.jpg") into an absolute URL. Passes through
 // values that are already absolute. Schema.org image/url fields want absolute URLs.
 export const absUrl = (pathOrUrl) =>
@@ -38,6 +46,15 @@ export function getOrganizationSchema() {
       email: "hello@betterhealth.africa",
       availableLanguage: ["en", "tw"],
     },
+    // Entity disambiguation across the knowledge graph — one of the strongest
+    // signals for search sitelinks/knowledge-panel association and AI-engine
+    // citation. Kept in sync with the Foundation NGO sameAs in src/data/seo.js.
+    sameAs: [
+      "https://www.facebook.com/betterhealth.africa",
+      "https://www.instagram.com/betterhealth.africa",
+      "https://www.x.com/BetterHealthAfrica",
+      "https://www.tiktok.com/@betterhealth.africa",
+    ],
   };
 }
 
@@ -118,7 +135,7 @@ export function getBreadcrumbSchema(items) {
 // shared Organization node. mainEntityOfPage + dates + image give AI engines the
 // provenance signals they weight when deciding what to cite.
 export function getArticleSchema(article) {
-  const url = `${SITE_URL}/blog/${article.slug}`;
+  const url = pageUrl(`blog/${article.slug}`);
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -132,7 +149,7 @@ export function getArticleSchema(article) {
     author: {
       "@type": "Person",
       name: article.author?.name || "BetterHealth Africa",
-      url: absUrl(article.author?.url || "/about"),
+      url: absUrl(article.author?.url) || pageUrl("about"),
     },
     publisher: { "@id": ORGANIZATION_ID },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
@@ -153,8 +170,8 @@ export function getBlogSchema(articles) {
   return {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "@id": `${SITE_URL}/blog#blog`,
-    url: `${SITE_URL}/blog`,
+    "@id": `${pageUrl("blog")}#blog`,
+    url: pageUrl("blog"),
     name: "BetterHealth Africa Blog",
     description:
       "Plain-language health education for Ghanaians — biomarker explainers, screening guides, and what early detection can catch.",
@@ -163,8 +180,14 @@ export function getBlogSchema(articles) {
     blogPost: articles.map((a) => ({
       "@type": "BlogPosting",
       headline: a.title,
-      url: `${SITE_URL}/blog/${a.slug}`,
+      url: pageUrl(`blog/${a.slug}`),
       datePublished: a.datePublished,
+      dateModified: a.dateModified || a.datePublished,
+      image: absUrl(a.image),
+      author: {
+        "@type": "Person",
+        name: a.author?.name || "BetterHealth Africa",
+      },
     })),
   };
 }

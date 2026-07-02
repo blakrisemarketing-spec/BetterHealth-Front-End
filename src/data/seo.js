@@ -10,6 +10,7 @@ import {
   getArticleSchema,
   getBlogSchema,
   getFaqPageSchema,
+  pageUrl,
 } from "../components/structured-data.js";
 import { ARTICLES, articleFaqItems } from "./blog/index.js";
 
@@ -205,7 +206,7 @@ const STATIC_ROUTE_SEO = Object.fromEntries(
     ) {
       jsonld.unshift(
         getMedicalWebPageSchema({
-          url: `${SITE_URL}/${route}`,
+          url: pageUrl(route),
           name: shortName(page.title),
           description: page.description,
         })
@@ -215,8 +216,8 @@ const STATIC_ROUTE_SEO = Object.fromEntries(
     if (!jsonld.some((b) => b["@type"] === "BreadcrumbList")) {
       jsonld.push(
         getBreadcrumbSchema([
-          { name: "Home", url: SITE_URL },
-          { name: shortName(page.title), url: `${SITE_URL}/${route}` },
+          { name: "Home", url: pageUrl("") },
+          { name: shortName(page.title), url: pageUrl(route) },
         ])
       );
     }
@@ -231,13 +232,13 @@ const STATIC_ROUTE_SEO = Object.fromEntries(
 const BLOG_ROUTE_SEO = Object.fromEntries(
   ARTICLES.map((a) => {
     const route = `blog/${a.slug}`;
-    const url = `${SITE_URL}/${route}`;
+    const url = pageUrl(route);
     const faq = articleFaqItems(a);
     const jsonld = [
       getArticleSchema(a),
       getBreadcrumbSchema([
-        { name: "Home", url: SITE_URL },
-        { name: "Blog", url: `${SITE_URL}/blog` },
+        { name: "Home", url: pageUrl("") },
+        { name: "Blog", url: pageUrl("blog") },
         { name: a.title, url },
       ]),
       ...(faq.length

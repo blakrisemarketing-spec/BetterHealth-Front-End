@@ -9,9 +9,38 @@
   RewriteCond %{HTTP_HOST} ^betterhealth\.africa$ [NC]
   RewriteRule ^(.*)$ https://www.betterhealth.africa/$1 [L,R=301]
 
-  # SPA fallback
+  # Serve real files and directories as-is. Every route in ROUTE_SEO is
+  # prerendered to dist/<route>/index.html (a real directory), so legitimate
+  # pages match here and are served directly with a 200.
   RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Client-only routes with no prerendered file (they exist only in the React
+  # router): serve the SPA shell with a 200 so direct entry / hard refresh works.
+  # Keep this list in sync with the non-ROUTE_SEO <Route>s in src/App.jsx.
+  RewriteRule ^(waitlist|deleteme|ref/.*)/?$ /index.html [L]
+
+  # Everything else is genuinely not found. Return a real 404 status; the
+  # ErrorDocument below hands back the SPA shell so React Router still renders
+  # the NotFound view for humans. This kills the soft-404 where every unknown
+  # URL (mistypes, removed posts, /wp-admin and /.env scans) used to 200 with
+  # homepage content and an indexable canonical.
+  RewriteRule ^ - [R=404,L]
+</IfModule>
+
+# A 404 serves the SPA shell (index.html) but with a 404 HTTP status, so crawlers
+# get a correct 404 instead of a soft-200 duplicate of the homepage.
+ErrorDocument 404 /index.html
+
+# Baseline security headers (no SEO/routing impact; commonly checked in audits).
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # HSTS: browsers ignore this over plain HTTP, and all traffic is redirected to
+  # HTTPS, so setting it unconditionally is safe. Not preloaded yet.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
