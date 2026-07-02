@@ -178,7 +178,9 @@ items:
     secondary: ["kidney function test", "egfr test"]
     intent: informational
     title: "Creatinine and eGFR: How to Read Your Kidney Function Test"
-    status: todo
+    status: done
+    completed: 2026-07-02
+    notes: "Published 2026-07-02. creatinine test 110/mo Ghana, LOW competition (DataForSEO), stronger than the seed keyword creatinine test meaning at 10/mo. Also targets kidney function test, egfr test, normal creatinine levels by age. Covers creatinine + eGFR staging (KDIGO 2012), the Ghana hypertension/diabetes-as-CKD-driver link, and symptoms of reduced kidney function. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-thyroid-tsh
     type: article
