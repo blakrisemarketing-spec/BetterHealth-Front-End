@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-06-28",
+  "lastRunDate": "2026-07-02",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -9,13 +9,16 @@
     "art-full-blood-count",
     "art-hypertension-silent",
     "art-prediabetes",
-    "art-anaemia-iron"
+    "art-anaemia-iron",
+    "art-sickle-cell-trait",
+    "art-creatinine-egfr",
+    "art-vitamin-d"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-06-28",
   "inFlightPRs": [],
-  "publishedCount": 10,
-  "notes": "art-anaemia-iron published 2026-06-28 (ferritin test, 50/mo Ghana, LOW competition). Also targets iron deficiency anaemia symptoms, anaemia symptoms, serum ferritin high (10/mo), normal ferritin levels by age (10/mo), low ferritin treatment (10/mo). Next todo item: art-vitamin-d (vitamin d test, 20/mo)."
+  "publishedCount": 13,
+  "notes": "art-creatinine-egfr published 2026-07-02 (creatinine test, 110/mo Ghana, LOW competition; stronger than the seed keyword creatinine test meaning at 10/mo). Also targets kidney function test, egfr test, normal creatinine levels by age. Covers creatinine + eGFR staging (KDIGO 2012) and the Ghana hypertension/diabetes CKD-driver link. KNOWN ISSUE carried over from main: art-vitamin-d and art-sickle-cell-trait are still showing status: todo on main's roadmap.yml even though both already have unmerged open PRs against them (#19 seo/nightly-2026-06-29 and #22 claude/hopeful-johnson-ketb8v both publish the same vitamin-d-deficiency.js; #24 claude/hopeful-johnson-pdncvp publishes sickle-cell-trait-testing.js). This run deliberately skipped both and picked the next unclaimed item (art-creatinine-egfr) to avoid a third duplicate. A human should merge one of the two vitamin-d PRs and close the other, and merge or close the sickle-cell-trait PR, before the next nightly run reads roadmap.yml again. Next todo item after those are resolved: art-thyroid-tsh (TSH test meaning, 10/mo Ghana)."
 }

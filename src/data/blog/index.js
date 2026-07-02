@@ -13,6 +13,9 @@ import fullBloodCountExplained from "./posts/full-blood-count-explained.js";
 import highBloodPressureSilentKiller from "./posts/high-blood-pressure-silent-killer.js";
 import prediabetesWarningSigns from "./posts/prediabetes-warning-signs.js";
 import ferritinIronAnaemia from "./posts/ferritin-iron-anaemia.js";
+import vitaminDDeficiency from "./posts/vitamin-d-deficiency.js";
+import sickleCellTraitTesting from "./posts/sickle-cell-trait-testing.js";
+import creatinineEgfrKidneyFunction from "./posts/creatinine-egfr-kidney-function.js";
 
 const ALL = [
   hba1cExplained,
@@ -25,6 +28,9 @@ const ALL = [
   highBloodPressureSilentKiller,
   prediabetesWarningSigns,
   ferritinIronAnaemia,
+  vitaminDDeficiency,
+  sickleCellTraitTesting,
+  creatinineEgfrKidneyFunction,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically
