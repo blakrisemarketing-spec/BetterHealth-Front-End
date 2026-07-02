@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="sunOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8A020" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#E8A020" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+
+  <!-- Sun motif top right -->
+  <circle cx="1060" cy="100" r="280" fill="url(#sunOrb)"/>
+  <!-- Sun circle -->
+  <circle cx="1060" cy="100" r="68" fill="#E8A020" opacity="0.22"/>
+  <circle cx="1060" cy="100" r="46" fill="#E8A020" opacity="0.38"/>
+  <!-- Sun rays -->
+  <g stroke="#E8A020" stroke-width="4" stroke-linecap="round" opacity="0.5">
+    <line x1="1060" y1="20" x2="1060" y2="8"/>
+    <line x1="1060" y1="180" x2="1060" y2="192"/>
+    <line x1="980" y1="100" x2="968" y2="100"/>
+    <line x1="1140" y1="100" x2="1152" y2="100"/>
+    <line x1="1003" y1="43" x2="995" y2="35"/>
+    <line x1="1117" y1="157" x2="1125" y2="165"/>
+    <line x1="1117" y1="43" x2="1125" y2="35"/>
+    <line x1="1003" y1="157" x2="995" y2="165"/>
+  </g>
+
+  <!-- Green glow bottom left -->
+  <circle cx="180" cy="380" r="260" fill="url(#greenOrb)"/>
+
+  <!-- Label -->
+  <text x="90" y="172" font-size="21" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+
+  <!-- Headline -->
+  <text x="90" y="252" font-size="54" font-weight="800" fill="#2B3A3A">Vitamin D Deficiency</text>
+  <text x="90" y="314" font-size="54" font-weight="800" fill="#2B3A3A">in plain language</text>
+
+  <!-- Subline -->
+  <text x="90" y="366" font-size="24" fill="#6B7979">The test, the ranges, and why sunny Ghana is no guarantee.</text>
+
+  <!-- Range indicator strip -->
+  <rect x="90" y="410" width="160" height="14" rx="7" fill="#E05A4E" opacity="0.85"/>
+  <rect x="262" y="410" width="120" height="14" rx="7" fill="#E8A020" opacity="0.85"/>
+  <rect x="394" y="410" width="160" height="14" rx="7" fill="#6B8E7F" opacity="0.85"/>
+  <text x="90" y="444" font-size="14" fill="#6B7979">Deficient</text>
+  <text x="262" y="444" font-size="14" fill="#6B7979">Insufficient</text>
+  <text x="394" y="444" font-size="14" fill="#6B7979">Sufficient</text>
+</svg>

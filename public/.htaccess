@@ -1,6 +1,15 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Canonical host: 301 the bare domain to https://www. The sitemap, <link
+  # rel=canonical> tags, and robots.txt all use www, but the non-www host was
+  # serving 200 as well, splitting crawl/index signals across two hosts. This
+  # rule only matches the exact bare host, so it cannot loop on www requests.
+  RewriteCond %{HTTP_HOST} ^betterhealth\.africa$ [NC]
+  RewriteRule ^(.*)$ https://www.betterhealth.africa/$1 [L,R=301]
+
+  # SPA fallback
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
