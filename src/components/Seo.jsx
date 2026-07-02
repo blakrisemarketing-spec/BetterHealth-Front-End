@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { ROUTE_SEO, SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo";
+import { ROUTE_SEO, DEFAULT_OG_IMAGE } from "../data/seo";
+import { pageUrl } from "./structured-data.js";
 
 /**
  * Single source of per-route SEO. Reads ROUTE_SEO (src/data/seo.js) — the same
@@ -12,7 +13,7 @@ export default function Seo({ route }) {
   const page = ROUTE_SEO[route];
   if (!page) return null;
 
-  const url = `${SITE_URL}/${route}`;
+  const url = pageUrl(route);
   const image = page.image || DEFAULT_OG_IMAGE;
   const jsonld = page.jsonld
     ? Array.isArray(page.jsonld)
