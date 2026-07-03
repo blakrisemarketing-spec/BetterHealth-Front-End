@@ -16,6 +16,11 @@ import ferritinIronAnaemia from "./posts/ferritin-iron-anaemia.js";
 import vitaminDDeficiency from "./posts/vitamin-d-deficiency.js";
 import sickleCellTraitTesting from "./posts/sickle-cell-trait-testing.js";
 import creatinineEgfrKidneyFunction from "./posts/creatinine-egfr-kidney-function.js";
+import thyroidTshTestExplained from "./posts/thyroid-tsh-test-explained.js";
+import liverFunctionTestsExplained from "./posts/liver-function-tests-explained.js";
+import malariaTestExplained from "./posts/malaria-test-explained.js";
+import typhoidWidalTest from "./posts/typhoid-widal-test.js";
+import hepatitisBTest from "./posts/hepatitis-b-test.js";
 
 const ALL = [
   hba1cExplained,
@@ -31,6 +36,11 @@ const ALL = [
   vitaminDDeficiency,
   sickleCellTraitTesting,
   creatinineEgfrKidneyFunction,
+  thyroidTshTestExplained,
+  liverFunctionTestsExplained,
+  malariaTestExplained,
+  typhoidWidalTest,
+  hepatitisBTest,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Reading a Widal titer: one result vs a rising pair</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">A single titer is supportive at best. A rising pair, 7 to 14 days apart, means more.</text>
+
+  <rect x="70" y="118" width="510" height="230" rx="14" fill="#F5F3EE"/>
+  <text x="100" y="158" font-size="20" font-weight="700" fill="#2B3A3A">Single titer (e.g. 1:160)</text>
+  <text x="100" y="192" font-size="15" fill="#6B7979">Could reflect a current infection</text>
+  <text x="100" y="220" font-size="15" fill="#6B7979">Could reflect a past infection</text>
+  <text x="100" y="248" font-size="15" fill="#6B7979">Could reflect prior vaccination</text>
+  <text x="100" y="276" font-size="15" fill="#6B7979">Cutoff varies by local background level</text>
+  <text x="100" y="314" font-size="16" font-weight="700" fill="#D97B4F">Supportive evidence, not proof</text>
+
+  <rect x="620" y="118" width="510" height="230" rx="14" fill="#F5F3EE"/>
+  <text x="650" y="158" font-size="20" font-weight="700" fill="#2B3A3A">Paired, rising titer</text>
+  <text x="650" y="192" font-size="15" fill="#6B7979">Two samples, 7 to 14 days apart</text>
+  <text x="650" y="220" font-size="15" fill="#6B7979">Fourfold rise or more between samples</text>
+  <text x="650" y="248" font-size="15" fill="#6B7979">Much less affected by background exposure</text>
+  <text x="650" y="314" font-size="16" font-weight="700" fill="#6B8E7F">Stronger evidence of active infection</text>
+
+  <line x1="70" y1="374" x2="1130" y2="374" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="408" font-size="15" fill="#6B7979">Blood culture, when available, confirms the bacterium directly rather than an antibody response.</text>
+  <text x="70" y="436" font-size="13" fill="#9AA6A6">Standard clinical microbiology practice. Local lab baselines vary; ask your clinician how your result was interpreted.</text>
+</svg>

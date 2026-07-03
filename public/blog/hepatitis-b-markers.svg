@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Hepatitis B markers: what common combinations mean</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">A doctor reads these together, not as a single isolated result.</text>
+
+  <text x="70" y="132" font-size="15" font-weight="700" fill="#6B7979">HBSAG</text>
+  <text x="230" y="132" font-size="15" font-weight="700" fill="#6B7979">ANTI-HBS</text>
+  <text x="400" y="132" font-size="15" font-weight="700" fill="#6B7979">ANTI-HBC</text>
+  <text x="570" y="132" font-size="15" font-weight="700" fill="#6B7979">MEANING</text>
+  <line x1="70" y1="144" x2="1130" y2="144" stroke="#E8E3DA" stroke-width="1"/>
+
+  <text x="70" y="176" font-size="16" font-weight="700" fill="#C9594F">Positive</text>
+  <text x="230" y="176" font-size="16" fill="#6B7979">Negative</text>
+  <text x="400" y="176" font-size="16" fill="#6B7979">Positive</text>
+  <text x="570" y="176" font-size="16" fill="#2B3A3A">Current infection (acute or chronic)</text>
+
+  <text x="70" y="212" font-size="16" fill="#6B7979">Negative</text>
+  <text x="230" y="212" font-size="16" font-weight="700" fill="#6B8E7F">Positive</text>
+  <text x="400" y="212" font-size="16" fill="#6B7979">Negative</text>
+  <text x="570" y="212" font-size="16" fill="#2B3A3A">Vaccine protection</text>
+
+  <text x="70" y="248" font-size="16" fill="#6B7979">Negative</text>
+  <text x="230" y="248" font-size="16" font-weight="700" fill="#6B8E7F">Positive</text>
+  <text x="400" y="248" font-size="16" font-weight="700" fill="#E0A23E">Positive</text>
+  <text x="570" y="248" font-size="16" fill="#2B3A3A">Past infection, now resolved</text>
+
+  <text x="70" y="284" font-size="16" fill="#6B7979">Negative</text>
+  <text x="230" y="284" font-size="16" fill="#6B7979">Negative</text>
+  <text x="400" y="284" font-size="16" fill="#6B7979">Negative</text>
+  <text x="570" y="284" font-size="16" fill="#2B3A3A">No infection, no protection: vaccination recommended</text>
+
+  <line x1="70" y1="312" x2="1130" y2="312" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="348" font-size="15" fill="#6B7979">HBsAg positive for more than six months is classed as chronic hepatitis B.</text>
+  <text x="70" y="374" font-size="15" fill="#6B7979">HBeAg, when tested, indicates how actively the virus is replicating.</text>
+  <text x="70" y="410" font-size="13" fill="#9AA6A6">Source: WHO hepatitis B testing guidance. Always confirm interpretation with a clinician.</text>
+</svg>

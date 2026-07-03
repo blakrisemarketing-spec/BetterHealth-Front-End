@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">TSH moves opposite to thyroid hormone level</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">A high TSH means an underactive thyroid; a low TSH means an overactive thyroid.</text>
+
+  <!-- table header -->
+  <text x="70" y="132" font-size="15" font-weight="700" fill="#6B7979">PATTERN</text>
+  <text x="430" y="132" font-size="15" font-weight="700" fill="#6B7979">TSH</text>
+  <text x="590" y="132" font-size="15" font-weight="700" fill="#6B7979">FREE T4</text>
+  <line x1="70" y1="144" x2="1130" y2="144" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- rows -->
+  <rect x="70" y="160" width="14" height="14" rx="3" fill="#6B8E7F"/>
+  <text x="94" y="172" font-size="17" font-weight="700" fill="#2B3A3A">Normal</text>
+  <text x="430" y="172" font-size="16" fill="#2B3A3A">0.4 to 4.0 mIU/L</text>
+  <text x="590" y="172" font-size="16" fill="#2B3A3A">Normal</text>
+
+  <rect x="70" y="196" width="14" height="14" rx="3" fill="#9BB79E"/>
+  <text x="94" y="208" font-size="17" font-weight="700" fill="#2B3A3A">Subclinical hypothyroid</text>
+  <text x="430" y="208" font-size="16" fill="#2B3A3A">Mildly raised</text>
+  <text x="590" y="208" font-size="16" fill="#2B3A3A">Normal</text>
+
+  <rect x="70" y="232" width="14" height="14" rx="3" fill="#D97B4F"/>
+  <text x="94" y="244" font-size="17" font-weight="700" fill="#2B3A3A">Overt hypothyroid</text>
+  <text x="430" y="244" font-size="16" fill="#2B3A3A">Raised</text>
+  <text x="590" y="244" font-size="16" fill="#2B3A3A">Low</text>
+
+  <rect x="70" y="268" width="14" height="14" rx="3" fill="#E0A23E"/>
+  <text x="94" y="280" font-size="17" font-weight="700" fill="#2B3A3A">Subclinical hyperthyroid</text>
+  <text x="430" y="280" font-size="16" fill="#2B3A3A">Mildly low</text>
+  <text x="590" y="280" font-size="16" fill="#2B3A3A">Normal</text>
+
+  <rect x="70" y="304" width="14" height="14" rx="3" fill="#C9594F"/>
+  <text x="94" y="316" font-size="17" font-weight="700" fill="#2B3A3A">Overt hyperthyroid</text>
+  <text x="430" y="316" font-size="16" fill="#2B3A3A">Suppressed</text>
+  <text x="590" y="316" font-size="16" fill="#2B3A3A">High</text>
+
+  <line x1="70" y1="344" x2="1130" y2="344" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="380" font-size="15" fill="#6B7979">Common causes: Hashimoto's thyroiditis (hypothyroidism) and Graves' disease (hyperthyroidism), both autoimmune.</text>
+  <text x="70" y="406" font-size="15" fill="#6B7979">Pregnancy shifts TSH reference ranges lower by trimester; use trimester-specific ranges when pregnant.</text>
+  <text x="70" y="436" font-size="13" fill="#9AA6A6">Reference ranges vary by lab. Confirm the interval on your own report.</text>
+</svg>

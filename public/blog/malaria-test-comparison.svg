@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">RDT vs blood film: two ways to confirm malaria</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">WHO recommends confirming every suspected case before treatment, by either method.</text>
+
+  <!-- two columns -->
+  <rect x="70" y="118" width="510" height="290" rx="14" fill="#F5F3EE"/>
+  <rect x="620" y="118" width="510" height="290" rx="14" fill="#F5F3EE"/>
+
+  <text x="100" y="158" font-size="22" font-weight="700" fill="#2B3A3A">Rapid diagnostic test (RDT)</text>
+  <text x="100" y="192" font-size="15" fill="#6B7979">Result in about 15 to 20 minutes</text>
+  <text x="100" y="220" font-size="15" fill="#6B7979">Detects a malaria protein (HRP2)</text>
+  <text x="100" y="248" font-size="15" fill="#6B7979">No electricity or microscopist needed</text>
+  <text x="100" y="276" font-size="15" fill="#6B7979">Yes/no result only, no parasite count</text>
+  <text x="100" y="304" font-size="15" fill="#6B7979">Can miss HRP2-negative parasites</text>
+  <text x="100" y="360" font-size="15" font-weight="700" fill="#6B8E7F">Best for: fast, remote-clinic screening</text>
+
+  <text x="650" y="158" font-size="22" font-weight="700" fill="#2B3A3A">Blood film (microscopy)</text>
+  <text x="650" y="192" font-size="15" fill="#6B7979">Result usually same day</text>
+  <text x="650" y="220" font-size="15" fill="#6B7979">Direct view of parasites under a microscope</text>
+  <text x="650" y="248" font-size="15" fill="#6B7979">Identifies species and parasite count</text>
+  <text x="650" y="276" font-size="15" fill="#6B7979">Needs a trained technician and equipment</text>
+  <text x="650" y="304" font-size="15" fill="#6B7979">Can miss very low parasite counts</text>
+  <text x="650" y="360" font-size="15" font-weight="700" fill="#6B8E7F">Best for: species ID, tracking treatment response</text>
+
+  <text x="70" y="436" font-size="13" fill="#9AA6A6">Source: WHO malaria diagnostic testing guidance. Availability varies by facility.</text>
+</svg>

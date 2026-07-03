@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-02",
+  "lastRunDate": "2026-07-03",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -12,13 +12,18 @@
     "art-anaemia-iron",
     "art-sickle-cell-trait",
     "art-creatinine-egfr",
-    "art-vitamin-d"
+    "art-vitamin-d",
+    "art-thyroid-tsh",
+    "art-liver-function-tests",
+    "art-malaria-test",
+    "art-typhoid-widal",
+    "art-hepatitis-b"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-06-28",
   "inFlightPRs": [],
-  "publishedCount": 13,
-  "notes": "art-creatinine-egfr published 2026-07-02 (creatinine test, 110/mo Ghana, LOW competition; stronger than the seed keyword creatinine test meaning at 10/mo). Also targets kidney function test, egfr test, normal creatinine levels by age. Covers creatinine + eGFR staging (KDIGO 2012) and the Ghana hypertension/diabetes CKD-driver link. KNOWN ISSUE carried over from main: art-vitamin-d and art-sickle-cell-trait are still showing status: todo on main's roadmap.yml even though both already have unmerged open PRs against them (#19 seo/nightly-2026-06-29 and #22 claude/hopeful-johnson-ketb8v both publish the same vitamin-d-deficiency.js; #24 claude/hopeful-johnson-pdncvp publishes sickle-cell-trait-testing.js). This run deliberately skipped both and picked the next unclaimed item (art-creatinine-egfr) to avoid a third duplicate. A human should merge one of the two vitamin-d PRs and close the other, and merge or close the sickle-cell-trait PR, before the next nightly run reads roadmap.yml again. Next todo item after those are resolved: art-thyroid-tsh (TSH test meaning, 10/mo Ghana)."
+  "publishedCount": 18,
+  "notes": "Nightly batch published 2026-07-03 (5 articles): art-thyroid-tsh (thyroid test, 260/mo Ghana, retargeted from 'TSH test meaning' 10/mo), art-liver-function-tests (ALT/AST test, dedicated explainer cross-linked with fatty-liver and hepatitis-b), art-malaria-test (malaria test, 320/mo, pan-Africa), art-typhoid-widal (widal test, 1000/mo Ghana, retargeted from generic 'typhoid test', myth-busting single-titer angle), art-hepatitis-b (hepatitis B test, 110/mo; HBsAg 590/mo secondary, pan-Africa). All five cite WHO/standard clinical guidance, include the educational disclaimer, and passed the clinical-safety and humanizer gates (zero em dashes). Build verified: title/og:type/canonical/Article+BreadcrumbList+FAQPage schema present for each; sitemap.xml and llms.txt include all 5 routes. 24 todo article/local items remain in roadmap.yml (above the 10-item refill threshold), so no queue-refill pass was run. Next todo items: art-hiv-test, art-hepatitis-c, art-genotype-test (Nigeria), art-premarital-screening (Nigeria)."
 }
