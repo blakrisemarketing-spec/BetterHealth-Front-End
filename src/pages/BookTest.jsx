@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Sparkles } from "lucide-react";
 import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
@@ -28,6 +28,10 @@ function panelsForConcern(key) {
 }
 
 const panorama = testPanels.find((p) => p.slug === "panorama");
+const packageRows = [
+  testPanels.slice(0, Math.ceil(testPanels.length / 2)),
+  testPanels.slice(Math.ceil(testPanels.length / 2)),
+];
 
 export default function BookTestPage() {
   const [selected, setSelected] = useState(null);
@@ -324,54 +328,112 @@ export default function BookTestPage() {
 }
 
 function AllPackages() {
-  const [showAll, setShowAll] = useState(false);
-  const panels = testPanels.filter((p) => p.slug !== "panorama");
-
   return (
-    <section className="py-8 px-6 bg-base">
-      <div className="max-w-[720px] mx-auto">
-        <button
-          type="button"
-          onClick={() => setShowAll((v) => !v)}
-          className="w-full flex items-center justify-between py-4 px-5 rounded-card border border-border bg-card hover:bg-section-alt transition-colors cursor-pointer"
-        >
-          <div className="text-left">
-            <p className="text-[15px] font-bold text-text-primary font-heading">
-              View all {testPanels.length} test packages
-            </p>
-            <p className="text-[13px] text-text-muted">
-              Compare every panel side by side
-            </p>
-          </div>
-          <ChevronRight
-            size={18}
-            className={`text-text-muted transition-transform duration-200 shrink-0 ${showAll ? "rotate-90" : ""}`}
-          />
-        </button>
+    <section className="py-12 lg:py-14 bg-base overflow-hidden">
+      <Reveal>
+        <div className="max-w-[720px] mx-auto text-center px-6 mb-7">
+          <span className="inline-block text-[12px] font-bold text-primary uppercase tracking-[0.12em] mb-2">
+            Test packages
+          </span>
+          <h2 className="text-[1.4rem] sm:text-[1.7rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">
+            Compare every panel at a glance
+          </h2>
+          <p className="text-[15px] text-text-secondary">
+            Swipe the rows or tap any package to see what is included.
+          </p>
+        </div>
+      </Reveal>
 
-        {showAll && (
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {panels.map((panel) => (
-              <div
-                key={panel.slug}
-                className="rounded-card border border-border bg-card p-4 hover:border-primary/30 transition-colors"
-              >
-                <div className="mb-2">
-                  <h4 className="text-[16px] font-extrabold text-text-primary font-heading">{panel.name}</h4>
-                  <p className="text-[12px] text-text-muted">{panel.subtitle}</p>
-                </div>
-                <p className="text-[12px] text-text-secondary mb-3">{panel.tests.join(" · ")}</p>
-                <Link
-                  to={`/book/${panel.slug}`}
-                  className="w-full py-2 rounded-btn text-[13px] font-bold font-heading text-center no-underline bg-section-alt border border-border hover:border-primary/30 text-text-primary hover:text-primary transition-all block"
-                >
-                  Learn more
-                </Link>
-              </div>
-            ))}
-          </div>
-        )}
+      <div className="relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-24 bg-gradient-to-r from-base to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-24 bg-gradient-to-l from-base to-transparent" />
+        <div className="flex flex-col gap-2.5 sm:gap-3">
+          {packageRows.map((row, index) => (
+            <PackageMarqueeRow
+              key={index}
+              panels={row}
+              direction={index === 0 ? "left" : "right"}
+            />
+          ))}
+        </div>
       </div>
     </section>
+  );
+}
+
+function PackageMarqueeRow({ panels, direction = "left" }) {
+  return (
+    <div className="overflow-x-auto overscroll-x-contain scroll-smooth snap-x snap-mandatory px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:overflow-hidden sm:px-0 sm:snap-none">
+      <div
+        className={`flex w-max gap-2.5 pr-4 motion-reduce:animate-none sm:gap-3 sm:px-3 sm:pr-0 ${
+          direction === "left" ? "sm:animate-marquee-left" : "sm:animate-marquee-right"
+        } hover:[animation-play-state:paused] active:[animation-play-state:paused]`}
+        style={{ animationDuration: direction === "left" ? "52s" : "48s" }}
+      >
+        {panels.map((panel) => (
+          <PackageCard key={panel.slug} panel={panel} />
+        ))}
+        {panels.map((panel) => (
+          <PackageCard
+            key={`${panel.slug}-marquee-copy`}
+            panel={panel}
+            className="hidden sm:flex"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PackageCard({ panel, className = "" }) {
+  return (
+    <Link
+      to={`/book/${panel.slug}`}
+      className={`group flex h-[152px] w-[58vw] min-w-[208px] max-w-[232px] snap-start flex-col justify-between rounded-card border border-border bg-card p-4 text-left no-underline shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_40px_rgba(43,58,58,0.10)] sm:h-[168px] sm:w-[316px] sm:min-w-[316px] sm:max-w-none sm:snap-align-none sm:p-4 ${className}`}
+    >
+      <div>
+        <div className="mb-2 flex items-start justify-between gap-2.5 sm:gap-3">
+          <div className="min-w-0">
+            <h3 className="text-[17px] font-extrabold text-text-primary font-heading leading-tight sm:text-[18px]">
+              {panel.name}
+            </h3>
+            <p className="mt-1.5 text-[13px] text-text-muted leading-snug sm:mt-1 sm:text-[12px]">
+              {panel.subtitle}
+            </p>
+          </div>
+          {panel.popular && (
+            <span className="shrink-0 rounded-pill bg-primary-bg px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.06em] text-primary sm:px-2.5 sm:py-1 sm:text-[10px] sm:tracking-[0.08em]">
+              Popular
+            </span>
+          )}
+        </div>
+
+        <p className="text-[13px] font-bold text-primary sm:hidden">
+          {panel.tests.length} tests included
+        </p>
+
+        <div className="hidden flex-wrap gap-1.5 sm:flex">
+          {panel.tests.slice(0, 3).map((test) => (
+            <span
+              key={test}
+              className="rounded-pill border border-border/70 bg-section-alt/70 px-2 py-1 text-[11px] font-medium text-text-secondary"
+            >
+              {test}
+            </span>
+          ))}
+          {panel.tests.length > 3 && (
+            <span className="rounded-pill border border-primary/20 bg-primary-bg px-2 py-1 text-[11px] font-bold text-primary">
+              +{panel.tests.length - 3}
+            </span>
+          )}
+        </div>
+      </div>
+
+      <span className="inline-flex items-center gap-1.5 text-[14px] font-bold text-primary transition-colors group-hover:text-primary-dark sm:text-[13px]">
+        <span className="sm:hidden">View</span>
+        <span className="hidden sm:inline">Learn more</span>
+        <ArrowRight size={14} />
+      </span>
+    </Link>
   );
 }
