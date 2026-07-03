@@ -13,13 +13,13 @@ const CONCERNS = [
   { key: "everything", label: "Check everything", icon: "🔍" },
   { key: "diabetes",   label: "Blood sugar / diabetes", icon: "🩸" },
   { key: "heart",      label: "Heart & cholesterol", icon: "❤️" },
-  { key: "tired",      label: "Always tired", icon: "😴" },
+  { key: "general",    label: "General check-up", icon: "🩺" },
+  { key: "liver",      label: "Kidneys & liver", icon: "🫘" },
   { key: "fever",      label: "Fever / feeling unwell", icon: "🤒" },
   { key: "men",        label: "Men's health", icon: "♂️" },
   { key: "women",      label: "Women's health", icon: "♀️" },
+  { key: "fertility",  label: "Trying to conceive", icon: "👶" },
   { key: "sti",        label: "Sexual health (private)", icon: "🔒" },
-  { key: "liver",      label: "Liver & kidneys", icon: "🫘" },
-  { key: "thyroid",    label: "Thyroid / weight", icon: "⚡" },
 ];
 
 function panelsForConcern(key) {
@@ -81,12 +81,12 @@ export default function BookTestPage() {
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-5">
                   <div className="flex-1">
-                    <p className="text-[13px] text-primary font-bold uppercase tracking-wide mb-1">Not sure where to start?</p>
+                    <p className="text-[13px] text-primary font-bold uppercase tracking-wide mb-1">{panorama.name}</p>
                     <h2 className="text-[22px] sm:text-[26px] font-extrabold text-text-primary font-heading leading-snug mb-2">
-                      Panorama: check everything
+                      {panorama.displayName}
                     </h2>
                     <p className="text-[14px] text-text-secondary leading-relaxed mb-3">
-                      Blood sugar, heart, liver, kidneys, thyroid, and more, all in one visit. If you do only one test this year, make it this one.
+                      {panorama.why}
                     </p>
                     <div className="flex flex-wrap gap-x-4 gap-y-1 mb-1">
                       <span className="text-[13px] text-text-muted">{panorama.tests.length} tests included</span>
@@ -161,11 +161,13 @@ export default function BookTestPage() {
                     }`}>
                       <div className="flex flex-col sm:flex-row sm:items-start gap-4">
                         <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <h3 className="text-[20px] font-extrabold text-text-primary font-heading">
+                          <div className="mb-1.5">
+                            <span className="block text-[11px] font-bold text-primary uppercase tracking-[0.1em] mb-0.5">
                               {panel.name}
+                            </span>
+                            <h3 className="text-[20px] font-extrabold text-text-primary font-heading leading-tight">
+                              {panel.displayName}
                             </h3>
-                            <span className="text-[12px] text-text-muted">· {panel.subtitle}</span>
                           </div>
                           <p className="text-[14px] text-text-secondary leading-relaxed mb-3">
                             {panel.why}
@@ -394,12 +396,12 @@ function PackageCard({ panel, className = "" }) {
       <div>
         <div className="mb-2 flex items-start justify-between gap-2.5 sm:gap-3">
           <div className="min-w-0">
-            <h3 className="text-[17px] font-extrabold text-text-primary font-heading leading-tight sm:text-[18px]">
+            <span className="block text-[10px] font-bold text-primary uppercase tracking-[0.1em] mb-0.5 sm:text-[11px]">
               {panel.name}
+            </span>
+            <h3 className="text-[16px] font-extrabold text-text-primary font-heading leading-tight sm:text-[18px]">
+              {panel.displayName}
             </h3>
-            <p className="mt-1.5 text-[13px] text-text-muted leading-snug sm:mt-1 sm:text-[12px]">
-              {panel.subtitle}
-            </p>
           </div>
           {panel.popular && (
             <span className="shrink-0 rounded-pill bg-primary-bg px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.06em] text-primary sm:px-2.5 sm:py-1 sm:text-[10px] sm:tracking-[0.08em]">

@@ -57,14 +57,14 @@ export default function TestDetailPage() {
   const relatedSingleTest = singleTests
     .find((t) => t.concerns.some((c) => panel.concerns.includes(c)));
 
-  const pageTitle = `${panel.name}: ${panel.subtitle} | BetterHealth Africa`;
+  const pageTitle = `${panel.displayName} (${panel.name}) | BetterHealth Africa`;
   const pageDesc = panel.description;
   const pageUrl = `${SITE_URL}/book/${panel.slug}`;
 
   const jsonld = {
     "@context": "https://schema.org",
     "@type": "MedicalTest",
-    name: `${panel.name} Panel: ${panel.subtitle}`,
+    name: `${panel.displayName} (${panel.name} Panel)`,
     description: panel.description,
     url: pageUrl,
     provider: {
@@ -132,11 +132,13 @@ export default function TestDetailPage() {
               </Link>
             </Reveal>
             <Reveal delay={0.05}>
-              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
-                <h1 className="text-[2rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] text-text-primary">
+              <div className="mb-3">
+                <span className="block text-[13px] sm:text-[15px] font-bold text-primary uppercase tracking-[0.12em] mb-1.5">
                   {panel.name}
+                </span>
+                <h1 className="text-[2rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] text-text-primary">
+                  {panel.displayName}
                 </h1>
-                <span className="text-[16px] sm:text-[18px] text-text-muted font-medium">{panel.subtitle}</span>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
@@ -334,9 +336,9 @@ export default function TestDetailPage() {
                       to={`/book/${p.slug}`}
                       className="rounded-card border border-border bg-card p-4 hover:border-primary/30 transition-all no-underline block h-full"
                     >
-                      <span className="inline-block text-[10px] font-bold text-primary uppercase tracking-[0.1em] mb-2">Panel</span>
-                      <h3 className="text-[16px] font-extrabold text-text-primary font-heading mb-1">{p.name}</h3>
-                      <p className="text-[12px] text-text-muted mb-2">{p.subtitle}</p>
+                      <span className="inline-block text-[10px] font-bold text-primary uppercase tracking-[0.1em] mb-2">{p.name}</span>
+                      <h3 className="text-[16px] font-extrabold text-text-primary font-heading mb-1">{p.displayName}</h3>
+                      <p className="text-[12px] text-text-muted mb-2">{p.tests.length} tests</p>
                       <span className="text-[13px] text-primary font-semibold inline-flex items-center gap-1">
                         Learn more <ArrowRight size={12} />
                       </span>
