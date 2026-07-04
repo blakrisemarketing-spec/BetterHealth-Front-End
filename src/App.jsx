@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { captureReferralFromUrl } from "./lib/partner-signup";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home"));
 const HowItWorksPage = lazy(() => import("./pages/HowItWorks"));
@@ -51,6 +52,7 @@ function ReferralCapture() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <ReferralCapture />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
