@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+  <text x="86" y="252" font-size="56" font-weight="800" fill="#2B3A3A">TSH, decoded</text>
+  <text x="86" y="304" font-size="26" fill="#6B7979">A high result usually means an underactive thyroid, not an overactive one.</text>
+
+  <!-- feedback loop: pituitary -> thyroid -> hormone -> back to pituitary -->
+  <circle cx="230" cy="400" r="34" fill="#6B8E7F"/>
+  <text x="230" y="407" font-size="15" font-weight="700" fill="#F5F3EE" text-anchor="middle">TSH</text>
+  <path d="M 264 392 Q 400 340 540 392" fill="none" stroke="#6B8E7F" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <circle cx="574" cy="400" r="34" fill="#C28A2E"/>
+  <text x="574" y="407" font-size="14" font-weight="700" fill="#F5F3EE" text-anchor="middle">Thyroid</text>
+  <path d="M 608 392 Q 744 340 884 392" fill="none" stroke="#C28A2E" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <circle cx="918" cy="400" r="34" fill="#6B8E7F"/>
+  <text x="918" y="401" font-size="12" font-weight="700" fill="#F5F3EE" text-anchor="middle">T4 /</text>
+  <text x="918" y="414" font-size="12" font-weight="700" fill="#F5F3EE" text-anchor="middle">T3</text>
+
+  <path d="M 918 434 Q 700 470 264 424" fill="none" stroke="#9AA6A6" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" marker-end="url(#arrowgrey)"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6B8E7F"/>
+    </marker>
+    <marker id="arrowgrey" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#9AA6A6"/>
+    </marker>
+  </defs>
+</svg>

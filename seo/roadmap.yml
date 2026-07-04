@@ -194,7 +194,9 @@ items:
     secondary: ["thyroid function test"]
     intent: informational
     title: "Thyroid Function and TSH: What Your Result Is Telling You"
-    status: todo
+    status: done
+    completed: 2026-07-04
+    notes: "Published 2026-07-04. TSH test meaning 10/mo Ghana, LOW competition (DataForSEO). Also targets thyroid function test, thyroid function test normal values/interpretation. Covers the pituitary-thyroid feedback loop and why TSH moves opposite to thyroid hormone, the TSH reference range, the full panel (free T4/T3, anti-TPO antibodies), Ghana's 1996 salt iodization mandate and residual autoimmune/nodule causes, and hypo vs hyperthyroid symptoms. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-liver-function-tests
     type: article

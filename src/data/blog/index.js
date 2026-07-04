@@ -16,6 +16,7 @@ import ferritinIronAnaemia from "./posts/ferritin-iron-anaemia.js";
 import vitaminDDeficiency from "./posts/vitamin-d-deficiency.js";
 import sickleCellTraitTesting from "./posts/sickle-cell-trait-testing.js";
 import creatinineEgfrKidneyFunction from "./posts/creatinine-egfr-kidney-function.js";
+import thyroidTshTestExplained from "./posts/thyroid-tsh-test-explained.js";
 
 const ALL = [
   hba1cExplained,
@@ -31,6 +32,7 @@ const ALL = [
   vitaminDDeficiency,
   sickleCellTraitTesting,
   creatinineEgfrKidneyFunction,
+  thyroidTshTestExplained,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically
