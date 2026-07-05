@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR CONDITIONS</text>
+  <text x="86" y="252" font-size="56" font-weight="800" fill="#2B3A3A">HIV testing, explained</text>
+  <text x="90" y="292" font-size="26" fill="#6B7979">Window periods, test types, and what a reactive result means.</text>
+
+  <!-- three pill badges -->
+  <g font-size="19" font-weight="700" fill="#FFFFFF">
+    <rect x="90" y="340" width="176" height="52" rx="26" fill="#6B8E7F"/>
+    <text x="178" y="373" text-anchor="middle">Confidential</text>
+
+    <rect x="284" y="340" width="230" height="52" rx="26" fill="#6B8E7F"/>
+    <text x="399" y="373" text-anchor="middle">Private &amp; Free to Choose</text>
+
+    <rect x="532" y="340" width="212" height="52" rx="26" fill="#6B8E7F"/>
+    <text x="638" y="373" text-anchor="middle">No Wrong Time to Test</text>
+  </g>
+</svg>
