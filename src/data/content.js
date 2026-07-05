@@ -127,7 +127,7 @@ export const singleTests = [
   { slug: "kidney-function", name: "Kidney Function Test", price: "GHS 150", concerns: ["kidney"] },
   { slug: "thyroid-function", name: "Thyroid Function Test", price: "GHS 180", concerns: ["thyroid", "energy", "weight"] },
   { slug: "urine-re", name: "Urine Routine Examination", price: "GHS 60", concerns: ["kidney", "general"] },
-  { slug: "malaria-rdt", name: "Malaria RDT", price: "GHS 40", concerns: ["fever", "malaria"] },
+  { slug: "malaria-rdt", name: "Malaria RDT", price: "GHS 30", concerns: ["fever", "malaria"] },
   { slug: "hiv", name: "HIV Screening", price: "GHS 80", concerns: ["sti", "sexual"] },
   { slug: "hepatitis-b", name: "Hepatitis B (HBsAg)", price: "GHS 80", concerns: ["sti", "liver"] },
   { slug: "uric-acid", name: "Uric Acid", price: "GHS 60", concerns: ["metabolic", "kidney"] },
