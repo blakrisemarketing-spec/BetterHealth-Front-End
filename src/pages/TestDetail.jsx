@@ -84,7 +84,9 @@ export default function TestDetailPage() {
 
   const pageTitle = `${panel.displayName} (${panel.name}) | BetterHealth Africa`;
   const pageDesc = panel.description;
-  const pageUrl = `${SITE_URL}/book/${panel.slug}`;
+  // Trailing slash matches what LiteSpeed serves as 200 (the no-slash form
+  // 301-redirects), keeping canonical/og:url off a redirect — same as pageUrl().
+  const pageUrl = `${SITE_URL}/book/${panel.slug}/`;
 
   const jsonld = {
     "@context": "https://schema.org",

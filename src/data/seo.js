@@ -127,7 +127,7 @@ const RAW_ROUTE_SEO = {
   book: {
     title: "Book a Test | Comprehensive Health Panels | BetterHealth Africa",
     description:
-      "Choose from 11 health test panels: Titan (diabetes), Stallion (heart), Panorama (full body) and more. Fixed prices, clinician-reviewed results, home sample collection across Ghana.",
+      "Choose from 9 health test panels: Dialics (diabetes), Cardion (heart), Panorama (full body) and more. Fixed prices, clinician-reviewed results, home sample collection across Ghana.",
     image: DEFAULT_OG_IMAGE,
   },
   programs: {
