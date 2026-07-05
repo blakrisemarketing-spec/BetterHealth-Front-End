@@ -99,7 +99,7 @@ function SystemCard({ system, index }) {
                         <div>
                           <span className="text-[13px] font-semibold text-text-primary">{m.name}</span>
                           {m.note && (
-                            <span className="text-[12px] text-text-muted ml-1">— {m.note}</span>
+                            <span className="text-[12px] text-text-muted ml-1">({m.note})</span>
                           )}
                         </div>
                       </div>
@@ -146,10 +146,10 @@ export default function WhatWeTestPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               <span className="text-primary">
-                127 biomarkers.
+                127 biomarkers
               </span>{" "}
-              17 body systems.{" "}
-              <span className="italic">One clear picture.</span>
+              across 17 body systems, in{" "}
+              <span className="italic">one clear picture.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>

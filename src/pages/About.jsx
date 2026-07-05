@@ -39,9 +39,9 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="text-[2.4rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.1] text-text-primary mb-5">
-              We believe Africans deserve to know their health —{" "}
+              Every African deserves to know their health{" "}
               <span className="text-primary italic tracking-normal">
-                not after illness strikes, but before.
+                while there is still time to act on it.
               </span>
             </h1>
           </Reveal>
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 <div className="w-full max-w-[340px] mx-auto lg:mx-0 rounded-card overflow-hidden relative shadow-card">
                   <img
                     src={founderPhoto}
-                    alt={`${founder.attribution} — ${founder.title}`}
+                    alt={`${founder.attribution}, ${founder.title}`}
                     className="w-full aspect-square object-cover object-top"
                   />
                   <div className="absolute bottom-0 left-0 right-0 px-5 py-4 bg-gradient-to-t from-black/65 to-transparent">
@@ -256,7 +256,7 @@ export default function AboutPage() {
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-3">{joinUs.headline}</h2>
               <p className="text-[15px] text-text-secondary leading-relaxed mb-6 font-body">{joinUs.body}</p>
               <a
-                href="mailto:careers@betterhealth.africa?subject=I would love to join BetterHealth — [Your Role]&body=Hi,%0A%0AHere's the role I would love to own at BetterHealth:%0A%0A[Describe the position you would love to fill]%0A%0AHere's why I would be a great fit:%0A%0A[Your pitch]"
+                href="mailto:careers@betterhealth.africa?subject=I would love to join BetterHealth: [Your Role]&body=Hi,%0A%0AHere's the role I would love to own at BetterHealth:%0A%0A[Describe the position you would love to fill]%0A%0AHere's why I would be a great fit:%0A%0A[Your pitch]"
                 className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
               >
                 {joinUs.cta} <ExternalLink size={15} />

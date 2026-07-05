@@ -174,7 +174,7 @@ export function getBlogSchema(articles) {
     url: pageUrl("blog"),
     name: "BetterHealth Africa Blog",
     description:
-      "Plain-language health education for Ghanaians — biomarker explainers, screening guides, and what early detection can catch.",
+      "Plain-language health education for Ghanaians: biomarker explainers, screening guides, and what early detection can catch.",
     inLanguage: "en-GH",
     publisher: { "@id": ORGANIZATION_ID },
     blogPost: articles.map((a) => ({

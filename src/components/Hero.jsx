@@ -51,8 +51,8 @@ export default function Hero() {
         <div className="flex-1 w-full md:w-[480px] md:min-w-[300px]">
           <Reveal>
             <Badge variant="primary" className="mb-6">
-              <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse-dot" />
-              Launching Soon in Ghana
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />
+              Now Open in Ghana
             </Badge>
           </Reveal>
 
@@ -68,7 +68,7 @@ export default function Hero() {
 
           <Reveal delay={0.2}>
             <p className="text-lg leading-[1.7] text-text-secondary max-w-[520px] mb-8 font-body">
-              Comprehensive lab testing with 127 biomarkers, personalized health insights, and home sample collection. Starting from GHS 2/day (excl. VAT).
+              Book one lab test, no subscription, and get results a clinician has checked and explained in plain language. We collect your sample at home, anywhere in Ghana. When you want to keep an eye on things through the year, you can subscribe and track 127 biomarkers.
             </p>
           </Reveal>
 
@@ -81,15 +81,15 @@ export default function Hero() {
                 See How It Works
               </Link>
               <Link
-                to="/waitlist"
+                to="/book"
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
               >
-                Join Waitlist <ArrowRight size={18} />
+                Book a Test <ArrowRight size={18} />
               </Link>
             </div>
           </Reveal>
 
-          <Reveal delay={0.35}>
+          <Reveal delay={0.32}>
             <div className="flex items-center gap-3 mb-6">
               <GDPCBadge />
               <span className="text-[13px] text-text-muted font-body">Your health data is protected by law</span>

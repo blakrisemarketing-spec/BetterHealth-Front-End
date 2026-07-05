@@ -11,7 +11,7 @@ export default function FounderStory() {
           <div className="w-[260px] h-[320px] rounded-card overflow-hidden shadow-card relative">
             <img
               src={founderPhoto}
-              alt="Damzi — Founder & CEO, BetterHealth Africa"
+              alt="Damzi, Founder and CEO, BetterHealth Africa"
               className="w-full h-full object-cover object-top"
             />
             <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-black/60 to-transparent text-center">

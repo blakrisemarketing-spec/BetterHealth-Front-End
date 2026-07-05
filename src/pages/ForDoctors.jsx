@@ -32,33 +32,33 @@ const WHATSAPP_NUMBER = "+233 268 596 410";
 const BENEFITS = [
   {
     icon: Activity,
-    title: "Stop chasing results.",
-    body: "Lab results land in your dashboard the moment they're clinically validated — no WhatsApp threads, no phone calls, no paper slips. Out-of-range values are automatically flagged so nothing slips through.",
+    title: "Stop chasing results",
+    body: "Lab results land in your dashboard the moment a clinician validates them. No WhatsApp threads, no phone calls, no paper slips. Out-of-range values come flagged, so nothing slips past you.",
   },
   {
     icon: TrendingUp,
-    title: "See trends, not snapshots.",
-    body: "Every result is stored chronologically against the patient's profile. Watch HbA1c, kidney function, or lipid panels move over months or years — the kind of longitudinal context that changes clinical decisions.",
+    title: "See trends, not snapshots",
+    body: "Every result sits in order against the patient's profile. You can watch HbA1c, kidney function, or a lipid panel move over months or years. That kind of history is often what changes the decision.",
   },
   {
     icon: BrainCircuit,
-    title: "AI-generated clinical notes.",
-    body: "BetterHealth drafts structured clinical notes from each result set automatically. Review, edit, and sign off in seconds — not minutes. Spend your time on the patient, not the paperwork.",
+    title: "Clinical notes, drafted for you",
+    body: "BetterHealth drafts a structured note from each result set. You review it, edit what you want, and sign off in seconds. That leaves more of your time for the patient and less for the paperwork.",
   },
   {
     icon: Banknote,
-    title: "Earn from every referral.",
-    body: "A transparent commission on every test your patient books through BetterHealth. No invoicing, no chasing, no awkward conversations. Monthly payouts, automatically.",
+    title: "Earn from every referral",
+    body: "You earn a clear commission on every test your patient books through BetterHealth. No invoicing, no chasing, no awkward conversations. We pay out monthly.",
   },
   {
     icon: Home,
-    title: "Patients actually get tested.",
-    body: "Home or office sample collection means your patients follow through on your diagnostic plan — not just promise to. Compliance goes up. Gaps in your clinical picture go down.",
+    title: "Patients follow through",
+    body: "When a phlebotomist comes to the home or office, patients go through with the tests you ordered instead of putting them off. Compliance climbs, and the gaps in your clinical picture shrink.",
   },
   {
     icon: ShieldCheck,
-    title: "Results reviewed before they reach you.",
-    body: "Every result set goes through a four-eyes clinical review before release. You receive validated, quality-checked results — not raw lab output. Critical values are flagged and escalated automatically.",
+    title: "Results are reviewed before they reach you",
+    body: "Every result set passes a four-eyes clinical review before release. You get validated, quality-checked results, not raw lab output. Critical values are flagged and escalated for you.",
   },
 ];
 
@@ -66,32 +66,32 @@ const HOW_IT_WORKS = [
   {
     step: "01",
     title: "Refer your patient",
-    body: "Prescribe a test from BetterHealth's 127 biomarker menu. Your patient books sample collection from home, office, or clinic — no paper form, no lab visit required.",
+    body: "Prescribe a test from BetterHealth's 127 biomarker menu. Your patient books sample collection at home, at the office, or at a clinic. No paper form, no lab visit needed.",
   },
   {
     step: "02",
     title: "We handle everything in between",
-    body: "A phlebotomist collects the sample, the lab processes it, and a clinician reviews it before sign-off. Quality-controlled end to end.",
+    body: "A phlebotomist collects the sample, the lab processes it, and a clinician reviews it before sign-off. Quality control runs from start to finish.",
   },
   {
     step: "03",
     title: "Results in your dashboard",
-    body: "Structured, flagged, and linked to the patient's full history. Add a note, track trends, and act — all without leaving BetterHealth.",
+    body: "You get them structured, flagged, and linked to the patient's full history. Add a note, track trends, and act, all without leaving BetterHealth.",
   },
 ];
 
 const FAQS = [
   {
     q: "Do I need to install anything or pay a setup fee?",
-    a: "No. Your BetterHealth partner dashboard is fully web-based. Partnering is free — you earn commission on every patient referral. We never charge you.",
+    a: "No. Your BetterHealth partner dashboard runs in the browser. Partnering is free, and you earn commission on every patient referral. We never charge you.",
   },
   {
     q: "What happens if a result is critically abnormal?",
-    a: "Critical values are automatically flagged by the system before a result is released. The reviewing clinician is notified, and the flag is visible to you in your dashboard the moment the result lands.",
+    a: "The system flags critical values before a result is released. The reviewing clinician is notified, and you see the flag in your dashboard the moment the result lands.",
   },
   {
-    q: "Can I see my patient's full history — not just the latest results?",
-    a: "Yes. Every result ever run on a BetterHealth patient is stored chronologically. You can view trends across any biomarker over any time period, alongside their medications and allergies.",
+    q: "Can I see my patient's full history, not just the latest results?",
+    a: "Yes. Every result ever run on a BetterHealth patient is kept in order. You can view trends across any biomarker over any period, alongside their medications and allergies.",
   },
   {
     q: "How long does it take to get results back?",
@@ -215,7 +215,7 @@ function RegistrationForm() {
         </h3>
         <p className="text-[14px] text-text-secondary leading-relaxed">
           Our partnerships team will review your application and be in touch
-          within 48 hours. For anything urgent, WhatsApp us directly at{" "}
+          within 48 hours. For anything urgent, WhatsApp us at{" "}
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -395,7 +395,7 @@ function RegistrationForm() {
           id="doc-notes"
           name="notes"
           rows={4}
-          placeholder="Tell us anything else — patient volume, current lab setup, questions, etc."
+          placeholder="Anything else we should know: patient volume, current lab setup, questions."
           value={form.notes}
           onChange={set("notes")}
           className={`${inputCls} resize-none`}
@@ -490,18 +490,18 @@ export default function ForDoctorsPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-5">
-                Your patients' results.{" "}
+                Your patients' results,{" "}
                 <span className="text-primary italic tracking-normal pb-2 inline-block">
-                  In your hands.
+                  in your hands.
                 </span>{" "}
                 Not on a paper slip.
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-lg text-text-secondary font-body max-w-[560px] mx-auto mb-8">
-                BetterHealth gives you a structured, longitudinal view of every
-                patient's lab history — while we handle sample collection,
-                processing, and clinical review. You get to be the doctor.
+                BetterHealth gives you a clear, ordered view of every patient's
+                lab history while we handle sample collection, processing, and
+                clinical review. You get to be the doctor.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
@@ -539,8 +539,8 @@ export default function ForDoctorsPage() {
                 How it works
               </h2>
               <p className="text-[14px] text-text-muted mb-12 text-center max-w-[480px] mx-auto">
-                From referral to results in your dashboard — here's what the
-                experience looks like for you and your patients.
+                From referral to results in your dashboard. This is how it goes
+                for you and your patients.
               </p>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -568,11 +568,11 @@ export default function ForDoctorsPage() {
           <div className="max-w-[1100px] mx-auto">
             <Reveal>
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-2 text-center">
-                Built around how you actually practise
+                Built around how you practise
               </h2>
               <p className="text-[14px] text-text-muted mb-10 text-center max-w-[520px] mx-auto">
-                Every feature in BetterHealth exists to close the gap between
-                ordering a test and acting confidently on the result.
+                Every feature in BetterHealth is here to close the gap between
+                ordering a test and acting on the result with confidence.
               </p>
             </Reveal>
 
@@ -648,14 +648,14 @@ export default function ForDoctorsPage() {
           <div className="max-w-[580px] mx-auto text-center relative z-10">
             <Reveal>
               <h2 className="text-[1.7rem] sm:text-[2.2rem] md:text-[2.6rem] font-extrabold text-white font-heading tracking-tight mb-4">
-                Your patients deserve results that reach you — not a filing
+                Your patients deserve results that reach you, not a filing
                 cabinet.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-[16px] text-white/80 font-body mb-8">
-                Join doctors across Ghana who use BetterHealth to close the loop
-                between ordering a test and acting on the result.
+                Doctors across Ghana use BetterHealth to close the loop between
+                ordering a test and acting on the result. You can too.
               </p>
             </Reveal>
             <Reveal delay={0.2}>

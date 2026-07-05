@@ -10,8 +10,8 @@ import GradientOrb from "../components/ui/GradientOrb";
 const CHANNELS = [
   {
     icon: MessageCircle,
-    label: "WhatsApp — Fastest Response",
-    body: "Send us a message on WhatsApp for the fastest response. Our team typically replies within 1–2 hours during business hours. Available for general enquiries, account help, and booking support.",
+    label: "WhatsApp (fastest response)",
+    body: "Send us a message on WhatsApp and you will hear back quickly. We usually reply within one to two hours during business hours. Good for general questions, account help, and booking support.",
     details: [
       { key: "Number", val: "+233 268 596 410" },
       { key: "Hours", val: "Mon–Sat, 7:00 AM – 8:00 PM GMT" },
@@ -41,7 +41,7 @@ const CHANNELS = [
   {
     icon: Phone,
     label: "Phone",
-    body: "Prefer to speak to someone? Call us during business hours. If we cannot answer immediately, we will call you back within 4 hours.",
+    body: "Prefer to talk to a person? Call us during business hours. If we miss you, we will call you back within 4 hours.",
     details: [
       { key: "Number", val: "+233 268 596 410" },
       { key: "Hours", val: "Mon–Fri, 8:00 AM – 6:00 PM GMT" },
@@ -90,7 +90,7 @@ const ENQUIRY_TYPES = [
   },
   {
     title: "Healthcare Providers & Clinics",
-    body: "Are you a doctor, clinic, or hospital interested in partnering with BetterHealth? We would love to explore how we can work together.",
+    body: "Are you a doctor, clinic, or hospital that wants to partner with BetterHealth? We would love to talk about how we can work together.",
     email: "partners@betterhealth.africa",
   },
   {
@@ -133,8 +133,8 @@ function ContactForm() {
         </div>
         <h3 className="text-[18px] font-bold text-text-primary font-heading mb-2">Message sent!</h3>
         <p className="text-[14px] text-text-secondary leading-relaxed">
-          Thanks for reaching out! We have received your message and will get back to you within 24 hours.
-          If your matter is urgent, WhatsApp us at{" "}
+          Thanks for reaching out. We have your message and will get back to you within 24 hours.
+          If it is urgent, WhatsApp us at{" "}
           <a href="https://wa.me/233303960000" rel="noopener noreferrer" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
             +233 30 396 0000
           </a>{" "}
@@ -251,7 +251,7 @@ export default function ContactPage() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-lg text-text-secondary font-body max-w-[540px] mx-auto">
-              Whether you have a question about your results, need help with your account, or just want to learn more about BetterHealth — we would love to hear from you. Most enquiries are answered within 24 hours.
+              Maybe you have a question about your results, need help with your account, or want to learn more about BetterHealth. Whatever it is, we would love to hear from you. We answer most messages within 24 hours.
             </p>
           </Reveal>
         </div>
@@ -306,7 +306,7 @@ export default function ContactPage() {
         <div className="max-w-[760px] mx-auto">
           <Reveal>
             <h2 className="text-[1.8rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">Send us a message</h2>
-            <p className="text-[14px] text-text-muted mb-8">Prefer a form? We will get back to you within 24 hours.</p>
+            <p className="text-[14px] text-text-muted mb-8">Prefer a form? Fill this in and we will reply within 24 hours.</p>
           </Reveal>
           <Reveal delay={0.1}>
             <ContactForm />
@@ -337,7 +337,7 @@ export default function ContactPage() {
               <div className="bg-white border border-border rounded-card p-5 hover:border-primary/25 hover:shadow-sm transition-all">
                 <h3 className="text-[15px] font-bold text-text-primary font-heading mb-1.5">Careers</h3>
                 <p className="text-[13px] text-text-secondary leading-relaxed mb-2">
-                  Want to join the team building the future of African healthcare?
+                  Want to help us build better healthcare across Africa?
                 </p>
                 <div className="flex flex-col gap-1">
                   <Link to="/careers" className="text-[13px] text-primary font-semibold hover:underline underline-offset-2 no-underline">
@@ -370,7 +370,7 @@ export default function ContactPage() {
               ))}
             </div>
             <p className="text-[12px] text-text-muted mt-3 leading-relaxed">
-              We read every message. If something is urgent — especially if it relates to a critical health result — please WhatsApp or call us directly rather than using email or the contact form.
+              We read every message. If something is urgent, especially if it relates to a critical health result, please WhatsApp or call us directly rather than using email or the contact form.
             </p>
           </Reveal>
         </div>
@@ -381,7 +381,7 @@ export default function ContactPage() {
         <section className="py-10 px-6 bg-section-alt border-y border-border">
           <div className="max-w-[700px] mx-auto text-center">
             <p className="text-[14px] text-text-secondary leading-relaxed">
-              <span className="font-semibold text-text-primary">BetterHealth Africa is a digital-first company.</span> We do not have a walk-in office, but our team is available via WhatsApp, email, and phone throughout business hours.
+              <span className="font-semibold text-text-primary">BetterHealth Africa works online.</span> We do not have a walk-in office, but you can reach our team on WhatsApp, email, and phone throughout business hours.
             </p>
           </div>
         </section>
@@ -398,7 +398,7 @@ export default function ContactPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="text-[16px] text-white/80 font-body mb-8">
-              You do not need to contact us to get started. Sign up, choose your plan, and book your collection — all in under 3 minutes.
+              You do not need to contact us to begin. Sign up, choose your plan, and book your collection, all in under 3 minutes.
             </p>
           </Reveal>
           <Reveal delay={0.2}>

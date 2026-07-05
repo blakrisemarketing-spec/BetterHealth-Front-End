@@ -45,7 +45,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed max-w-[260px] font-body">
-              Comprehensive health screening, made accessible for Africa. Know your health before symptoms appear.
+              Health screening that more people across Africa can afford. Check how your body is doing before any symptoms show up.
             </p>
             <div className="flex gap-4 mt-4">
               {/* Gmail */}

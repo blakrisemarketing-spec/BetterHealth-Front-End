@@ -8,32 +8,32 @@ const FEATURES = [
   {
     icon: "📊",
     title: "Your health dashboard",
-    body: "All your biomarker results in one place — organised by organ system, colour-coded for clarity, and explained in plain language.",
+    body: "All your biomarker results in one place, sorted by organ system, colour-coded so you can see what matters, and explained in plain language.",
   },
   {
     icon: "📈",
     title: "Trend tracking",
-    body: "See how your numbers change over time. Spot improvements, catch regressions, and understand what your lifestyle changes are actually doing.",
+    body: "See how your numbers move over time. Notice what's getting better, catch what's slipping, and see whether the changes you're making are paying off.",
   },
   {
     icon: "🔔",
     title: "Smart alerts",
-    body: "Get notified the moment your results are ready, and receive priority alerts if anything falls into a critical range.",
+    body: "We let you know the moment your results are ready, and send a priority alert if anything falls into a critical range.",
   },
   {
     icon: "📄",
     title: "Shareable reports",
-    body: "Download and share a clean PDF report with your doctor, specialist, or family — whenever you need it.",
+    body: "Download a clean PDF report and share it with your doctor, a specialist, or your family, whenever you need it.",
   },
   {
     icon: "📅",
     title: "Booking & scheduling",
-    body: "Book your next home collection or lab visit directly from the app. Pick a date, pick a time — done.",
+    body: "Book your next home collection or lab visit from the app. Pick a date, pick a time, and you're set.",
   },
   {
     icon: "💬",
     title: "Doctor consultations",
-    body: "Premium members can book a video or phone consultation with a doctor directly through the app to review their results.",
+    body: "Premium members can book a video or phone call with a doctor through the app to talk through their results.",
   },
 ];
 
@@ -52,14 +52,14 @@ export default function DownloadAppPage() {
           <div className="max-w-[1280px] mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <Reveal>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold tracking-wide mb-6">
-                COMING SOON — iOS &amp; ANDROID
+COMING SOON ON iOS &amp; ANDROID
               </div>
               <h1 className="text-4xl sm:text-5xl font-bold font-heading leading-tight mb-6">
                 Your health,<br />
                 <span className="text-primary">in your pocket.</span>
               </h1>
               <p className="text-lg text-text-muted-dark leading-relaxed max-w-[480px] mb-10">
-                The BetterHealth app puts your biomarker results, trend tracking, booking, and doctor consultations all in one place — available for iOS and Android in 2026.
+                The BetterHealth app keeps your biomarker results, trend tracking, booking, and doctor consultations in one place. Coming to iOS and Android in 2026.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -93,7 +93,7 @@ export default function DownloadAppPage() {
               </div>
 
               <p className="text-xs text-text-muted-dark/60 mt-4">
-                App not yet live. Tap either button to register for early access.
+                The app isn't live yet. Tap either button to sign up for early access.
               </p>
             </Reveal>
 
@@ -119,10 +119,10 @@ export default function DownloadAppPage() {
           <div className="max-w-[1280px] mx-auto">
             <Reveal>
               <h2 className="text-3xl font-bold font-heading text-center mb-4">
-                Everything you need, one app.
+                Everything in one app
               </h2>
               <p className="text-center text-text-secondary max-w-[520px] mx-auto mb-14">
-                The BetterHealth app is built around your results — making it easy to understand, track, and act on your health data.
+                The app is built around your results, so it's easy to understand what your numbers mean, follow them over time, and know what to do next.
               </p>
             </Reveal>
 
@@ -149,7 +149,7 @@ export default function DownloadAppPage() {
                 Be first to know when we launch.
               </h2>
               <p className="text-text-secondary mb-8">
-                The app is launching on iOS and Android in 2026. Drop your email below and we will notify you the moment it is live — plus early access perks for subscribers.
+                The app lands on iOS and Android in 2026. Leave your email below and we'll tell you the moment it's live. Subscribers also get early access.
               </p>
               <form
                 onSubmit={(e) => { e.preventDefault(); const email = e.target.elements.email.value; window.open(`mailto:hello@betterhealth.africa?subject=App%20Early%20Access&body=Hi%2C%20please%20notify%20me%20at%20${encodeURIComponent(email)}%20when%20the%20app%20launches.`, "_blank"); }}

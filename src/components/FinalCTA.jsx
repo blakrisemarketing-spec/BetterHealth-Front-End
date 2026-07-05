@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Reveal from "./ui/Reveal";
 import GradientOrb from "./ui/GradientOrb";
 
@@ -21,30 +21,30 @@ export default function FinalCTA() {
       <div className="max-w-[700px] mx-auto relative z-10">
         <Reveal>
           <h2 className="text-[clamp(32px,5vw,52px)] font-extrabold text-text-on-dark font-heading leading-[1.15] mb-5">
-            The test your{" "}
-            <span className="italic text-primary-light">family</span>{" "}
-            needs you to take.
+            Do it for the people who{" "}
+            <span className="italic text-primary-light">love</span>{" "}
+            you.
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <p className="text-lg leading-relaxed text-text-muted-dark mb-4 max-w-[480px] mx-auto font-body">
-            Your body is speaking. BetterHealth Africa helps you listen — before it&apos;s too late.
+            A simple test now can catch the things you cannot feel yet, while they are still easy to deal with.
           </p>
         </Reveal>
 
         <Reveal delay={0.15}>
           <p className="text-sm text-text-muted-dark mb-8 max-w-[400px] mx-auto font-body">
-            Be the first to know when we launch. No spam, ever.
+            We are open across Ghana. Booking your first test takes a few minutes.
           </p>
         </Reveal>
 
         <Reveal delay={0.2}>
           <Link
-            to="/waitlist"
+            to="/book"
             className="inline-flex items-center justify-center gap-2 rounded-btn px-8 py-4 text-[15px] font-bold font-heading bg-gradient-to-r from-primary to-primary-light text-white shadow-[0_4px_30px_rgba(13,148,136,0.35)] hover:shadow-[0_8px_40px_rgba(13,148,136,0.5)] hover:-translate-y-1 hover:scale-[1.02] transition-all no-underline"
           >
-            Join the Waitlist <ArrowRight size={18} />
+            Book a Test <ArrowRight size={18} />
           </Link>
         </Reveal>
       </div>

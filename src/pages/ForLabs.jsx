@@ -40,33 +40,33 @@ const PAIN_POINTS = [
 const BENEFITS = [
   {
     icon: FlaskConical,
-    title: "Full LIMS. Zero cost.",
-    body: "Sample intake, chain of custody, result entry, QC management, reporting, and digital delivery — complete lab management software at no charge. Labs elsewhere pay thousands per year for less.",
+    title: "A full LIMS at no cost",
+    body: "Sample intake, chain of custody, result entry, QC management, reporting, and digital delivery: complete lab management software, free. Labs elsewhere pay thousands a year for less.",
   },
   {
     icon: Cpu,
-    title: "Connect your instruments directly.",
-    body: "BetterHealth interfaces with your analysers over HL7 v2, ASTM E1394, and LIS CSV. Results flow from instrument to patient report without manual re-entry — eliminating transcription errors at the source.",
+    title: "Connect your instruments directly",
+    body: "BetterHealth talks to your analysers over HL7 v2, ASTM E1394, and LIS CSV. Results move from the instrument to the patient report without manual re-entry, so transcription errors never get the chance to start.",
   },
   {
     icon: BarChart3,
-    title: "Automated QC with Westgard rules.",
-    body: "Every result run is checked against Westgard multi-rules before it can be released. Out-of-control QC flags surface to your team immediately — not after a patient complaint or a doctor query.",
+    title: "Automated QC with Westgard rules",
+    body: "Every result run is checked against Westgard multi-rules before it can be released. Out-of-control QC flags reach your team right away, well before a patient complains or a doctor calls.",
   },
   {
     icon: AlertTriangle,
-    title: "Critical value alerts, automatically.",
-    body: "When a result crosses a critical threshold, BetterHealth flags it before release and notifies the referring clinician. Your lab is protected. Your patients are safe.",
+    title: "Critical value alerts, handled for you",
+    body: "When a result crosses a critical threshold, BetterHealth flags it before release and notifies the referring clinician. Your lab is covered, and your patients stay safe.",
   },
   {
     icon: FileText,
-    title: "Results to doctors and patients in seconds.",
-    body: "Professional PDF reports generated instantly and delivered digitally. No printing, no calling, no chasing. Patients get results on their phone. Referring doctors get them in their dashboard.",
+    title: "Results to doctors and patients in seconds",
+    body: "BetterHealth generates clean PDF reports and delivers them digitally. No printing, no calling, no chasing. Patients get results on their phone, and referring doctors get them in their dashboard.",
   },
   {
     icon: Network,
-    title: "Get found by BetterHealth patients.",
-    body: "Partner labs are listed on BetterHealth.africa and eligible to receive home-service collection orders and referrals from doctors in the BetterHealth network — new revenue with zero marketing spend.",
+    title: "Get found by BetterHealth patients",
+    body: "Partner labs are listed on BetterHealth.africa and can receive home-service collection orders and referrals from doctors in the BetterHealth network. That is new revenue with no marketing spend.",
   },
 ];
 
@@ -74,46 +74,46 @@ const HOW_IT_WORKS = [
   {
     step: "01",
     title: "Register in minutes",
-    body: "Fill in the form below. Our lab partnerships team sets up your account within 24 hours — no IT team, no migration project, no setup fee.",
+    body: "Fill in the form below. Our lab partnerships team sets up your account within 24 hours. No IT team, no migration project, no setup fee.",
   },
   {
     step: "02",
-    title: "Process smarter from day one",
-    body: "Samples are tracked from collection to sign-off. Instruments feed results directly into the system. QC checks run automatically. Reports generate instantly.",
+    title: "Work smarter from day one",
+    body: "Samples are tracked from collection to sign-off. Instruments feed results straight into the system, QC checks run on their own, and reports generate as soon as they are ready.",
   },
   {
     step: "03",
     title: "Grow your client base",
-    body: "You're listed as a partner lab on BetterHealth.africa — accessed by patients and referring doctors across Ghana looking for a quality lab.",
+    body: "You're listed as a partner lab on BetterHealth.africa, where patients and referring doctors across Ghana go to find a lab they can trust.",
   },
 ];
 
 const FAQS = [
   {
     q: "Is this really free? What's the catch?",
-    a: "Yes, permanently free. BetterHealth earns from patient subscriptions and test bookings — not from labs. Your LIMS access is free today and free forever. We grow when your lab grows.",
+    a: "Yes, free for good. BetterHealth earns from patient subscriptions and test bookings, not from labs. Your LIMS access is free today and stays free. We grow when your lab grows.",
   },
   {
     q: "What if we already use a different LIMS?",
-    a: "You can migrate your data or run both systems in parallel during a transition. Our team handles onboarding at no charge and stays with you until you're comfortable.",
+    a: "You can migrate your data or run both systems side by side while you switch over. Our team handles onboarding at no charge and stays with you until you're comfortable.",
   },
   {
     q: "Which instruments are supported?",
-    a: "BetterHealth supports HL7 v2, ASTM E1394, and LIS CSV interfaces — covering the majority of haematology, chemistry, and immunoassay analysers used in Ghana. Contact us if you need to verify your specific model.",
+    a: "BetterHealth supports HL7 v2, ASTM E1394, and LIS CSV interfaces, which cover most of the haematology, chemistry, and immunoassay analysers used in Ghana. Contact us if you need to check your specific model.",
   },
   {
     q: "Do you take a commission on BetterHealth referrals?",
-    a: "No. Referral revenue flows to your lab. You set your pricing; we send you the patient.",
+    a: "No. Referral revenue stays with your lab. You set your pricing, and we send you the patient.",
   },
   {
     q: "What support do we get after signing up?",
-    a: "A dedicated lab partnerships manager, WhatsApp support, and free onboarding training for your team. You're not handed a manual and left alone.",
+    a: "You get a dedicated lab partnerships manager, WhatsApp support, and free onboarding training for your team. We don't hand you a manual and leave you to it.",
   },
 ];
 
 const TRUST_STATS = [
   { value: "127", label: "Biomarkers supported" },
-  { value: "Free", label: "Forever — not a trial" },
+  { value: "Free", label: "For good, not a trial" },
   { value: "24 hrs", label: "To get your lab set up" },
   { value: "HL7 / ASTM", label: "Instrument interfaces" },
 ];
@@ -211,7 +211,7 @@ function RegistrationForm() {
         <p className="text-[14px] text-text-secondary leading-relaxed">
           Our lab partnerships team will review your details and be in touch
           within 24 hours to get you set up. For anything urgent, WhatsApp us
-          directly at{" "}
+          at{" "}
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -477,15 +477,15 @@ export default function ForLabsPage() {
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-5">
                 Your lab, finally running on{" "}
                 <span className="text-primary italic tracking-normal pb-2 inline-block">
-                  software built for it.
+                  software made for it.
                 </span>
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-lg text-text-secondary font-body max-w-[560px] mx-auto mb-8">
                 BetterHealth LIMS replaces the spreadsheets, WhatsApp threads,
-                and paper logs that are quietly costing your lab time, accuracy,
-                and clients. Full-featured. Completely free.
+                and paper logs that quietly cost your lab time, accuracy, and
+                clients. Full-featured, and free.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
@@ -523,8 +523,8 @@ export default function ForLabsPage() {
                 Sound familiar?
               </h2>
               <p className="text-[14px] text-text-muted mb-10 text-center">
-                Most labs in Ghana are running on systems that weren't built for
-                them. Here's what BetterHealth replaces.
+                Most labs in Ghana run on systems that were never made for them.
+                BetterHealth takes these off your plate.
               </p>
             </Reveal>
             <div className="flex flex-col gap-3">
@@ -550,8 +550,8 @@ export default function ForLabsPage() {
                 How it works
               </h2>
               <p className="text-[14px] text-text-muted mb-12 text-center max-w-[480px] mx-auto">
-                Getting your lab onto BetterHealth is straightforward. No
-                lengthy contracts, no IT project, no disruption.
+                Getting your lab onto BetterHealth is simple. No long contracts,
+                no IT project, no disruption.
               </p>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -579,11 +579,11 @@ export default function ForLabsPage() {
           <div className="max-w-[1100px] mx-auto">
             <Reveal>
               <h2 className="text-[1.6rem] sm:text-[2rem] font-extrabold text-text-primary font-heading tracking-tight mb-3 text-center">
-                Everything your lab needs — free
+                Everything your lab needs, free
               </h2>
               <p className="text-[15px] text-text-secondary font-body max-w-[520px] mx-auto mb-10 text-center">
                 BetterHealth LIMS gives you the tools that large labs pay
-                thousands for, at absolutely no cost to you.
+                thousands for, at no cost to you.
               </p>
             </Reveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -659,9 +659,9 @@ export default function ForLabsPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-[16px] text-white/80 font-body mb-8">
-                Don't let manual processes slow you down. Join Ghana's growing
-                network of labs delivering faster, more reliable results with
-                BetterHealth.
+                Don't let manual work slow you down. Labs across Ghana are
+                delivering faster, steadier results with BetterHealth, and yours
+                can join them.
               </p>
             </Reveal>
             <Reveal delay={0.2}>

@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import { conditions, conditions2 } from "../data/content";
 
@@ -76,6 +78,17 @@ export default function ConditionMarquee() {
         <MarqueeRow items={conditions} direction="left" />
         <MarqueeRow items={conditions2} direction="right" />
       </div>
+
+      <Reveal>
+        <div className="text-center mt-12 px-6">
+          <Link
+            to="/programs"
+            className="inline-flex items-center gap-2 rounded-btn px-6 py-3 text-[14px] font-bold font-heading bg-white/[0.06] border border-white/[0.14] text-text-on-dark hover:border-primary/50 hover:text-primary-light transition-all no-underline"
+          >
+            Living with a condition? Explore our programs <ArrowRight size={16} />
+          </Link>
+        </div>
+      </Reveal>
     </section>
   );
 }

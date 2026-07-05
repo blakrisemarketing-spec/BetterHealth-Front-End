@@ -17,9 +17,9 @@ const STEP_ICONS = [UserPlus, CalendarDays, BarChart3, Zap];
 const SAFETY_ICONS = { FlaskConical, UserCheck, ShieldCheck, PackageCheck };
 
 const carouselSlides = [
-  { src: 'screenshots/desktop-dashboard.webp', title: 'Your Health Dashboard', sub: 'All biomarkers in one place' },
-  { src: 'screenshots/desktop-healthscore.webp', title: 'Track Every Biomarker', sub: 'Monitor 40+ health markers' },
-  { src: 'screenshots/desktop-results.webp', title: 'Deep-Dive Analytics', sub: 'Trends, ranges & AI insights' },
+  { src: 'screenshots/desktop-dashboard.webp', title: 'Your Health Dashboard', sub: 'All your biomarkers in one place' },
+  { src: 'screenshots/desktop-healthscore.webp', title: 'Track Every Biomarker', sub: 'Follow 40+ health markers over time' },
+  { src: 'screenshots/desktop-results.webp', title: 'A Closer Look', sub: 'Trends, ranges, and AI insights' },
 ];
 
 function DashboardCarousel() {
@@ -296,7 +296,7 @@ export default function HowItWorksPage() {
                 </span>
               </h2>
               <p className="mt-4 text-[16px] text-text-muted-dark font-body max-w-[540px] mx-auto">
-                From a 10,000-foot view of your overall health to a deep dive on any single biomarker — all in one place.
+                See the big picture of your health, then look closely at any single biomarker. It is all in one place.
               </p>
             </div>
           </Reveal>
@@ -346,9 +346,9 @@ export default function HowItWorksPage() {
             <div className="text-center mb-12">
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">FAQ</p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight">
-                Questions?{" "}
+                Your questions,{" "}
                 <span className="italic text-primary tracking-normal">
-                  Answered.
+                  answered.
                 </span>
               </h2>
             </div>

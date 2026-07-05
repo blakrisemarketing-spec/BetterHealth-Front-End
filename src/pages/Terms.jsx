@@ -43,7 +43,7 @@ We reserve the right to suspend accounts that provide false information or viola
   },
   {
     title: "6. Sample Collection & Lab Results",
-    body: "Results are typically delivered to your dashboard within 48–72 hours of sample collection. We partner with accredited laboratories in Ghana. In the event of a failed sample, we will reschedule collection at no charge. BetterHealth is not liable for delays caused by force majeure or laboratory processing issues outside our control.",
+    body: "Results are usually delivered to your dashboard within 48 to 72 hours of sample collection. We partner with accredited laboratories in Ghana. If a sample fails, we will reschedule collection at no charge. BetterHealth is not liable for delays caused by force majeure or laboratory processing issues outside our control.",
   },
   {
     title: "7. Health Data & Disclaimers",
@@ -57,7 +57,7 @@ We reserve the right to suspend accounts that provide false information or viola
   },
   {
     title: "8. Intellectual Property",
-    body: "All content on the BetterHealth platform — including the dashboard design, text, graphics, and software — is owned by or licensed to BetterHealth Africa. You may not reproduce, distribute, or create derivative works without our written permission.",
+    body: "All content on the BetterHealth platform, including the dashboard design, text, graphics, and software, is owned by or licensed to BetterHealth Africa. You may not reproduce, distribute, or create derivative works without our written permission.",
   },
   {
     title: "9. Prohibited Use",

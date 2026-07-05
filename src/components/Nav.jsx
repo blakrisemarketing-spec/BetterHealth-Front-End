@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown, Stethoscope, Apple, FlaskConical } from "lucide-react";
+import { Menu, X, ChevronDown, Stethoscope, Apple, FlaskConical, TestTubes, HeartPulse } from "lucide-react";
 import { navLinks } from "../data/content";
 import logo from "../assets/logo.png";
 
@@ -10,32 +10,131 @@ const PARTNER_LINKS = [
   { label: "For Lab Owners", route: "/for-labs", icon: FlaskConical },
 ];
 
+const PATHWAY_LINKS = [
+  { label: "Comprehensive Tests", route: "/book", icon: TestTubes },
+  { label: "Health Programs", route: "/programs", icon: HeartPulse },
+];
+
+function useDropdown() {
+  const ref = useRef(null);
+  const timer = useRef(null);
+  const [open, setOpen] = useState(false);
+
+  const enter = () => {
+    if (timer.current) { clearTimeout(timer.current); timer.current = null; }
+    setOpen(true);
+  };
+  const leaveSoon = () => {
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => setOpen(false), 140);
+  };
+
+  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointer = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => { document.removeEventListener("mousedown", onPointer); document.removeEventListener("keydown", onKey); };
+  }, [open]);
+
+  return { ref, open, setOpen, enter, leaveSoon };
+}
+
+function DesktopDropdown({ label, items, linkClass, dropdown }) {
+  return (
+    <div
+      ref={dropdown.ref}
+      className="relative"
+      onMouseEnter={dropdown.enter}
+      onMouseLeave={dropdown.leaveSoon}
+    >
+      <button
+        type="button"
+        aria-haspopup="menu"
+        aria-expanded={dropdown.open}
+        onClick={() => dropdown.setOpen((v) => !v)}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") dropdown.setOpen(false);
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); dropdown.setOpen((v) => !v); }
+        }}
+        className={`${linkClass} inline-flex items-center gap-1 cursor-pointer bg-transparent border-none p-0`}
+      >
+        {label}
+        <ChevronDown size={14} className={`transition-transform duration-200 ${dropdown.open ? "rotate-180" : ""}`} />
+      </button>
+
+      {dropdown.open && (
+        <div className="absolute right-0 top-full pt-2 w-[260px] z-50">
+          <div role="menu" aria-label={`${label} options`} className="bg-white border border-border rounded-card shadow-lg overflow-hidden">
+            {items.map((p) => {
+              const Icon = p.icon;
+              return (
+                <Link
+                  key={p.route}
+                  to={p.route}
+                  role="menuitem"
+                  onClick={() => dropdown.setOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 text-sm text-text-primary font-medium hover:bg-section-alt hover:text-primary transition-colors no-underline border-b border-border last:border-b-0"
+                >
+                  <span className="w-8 h-8 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
+                    <Icon size={16} className="text-primary" />
+                  </span>
+                  {p.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MobileAccordion({ label, items, onClose }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-border">
+      <button
+        type="button"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between py-4 text-text-primary text-base sm:text-xl font-semibold font-heading bg-transparent border-none cursor-pointer"
+      >
+        {label}
+        <ChevronDown size={18} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="flex flex-col pb-3 pl-2">
+          {items.map((p) => {
+            const Icon = p.icon;
+            return (
+              <Link
+                key={p.route}
+                to={p.route}
+                onClick={() => { onClose(); setOpen(false); }}
+                className="flex items-center gap-3 py-3 text-text-secondary text-[15px] font-medium hover:text-primary transition-colors no-underline"
+              >
+                <span className="w-7 h-7 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
+                  <Icon size={14} className="text-primary" />
+                </span>
+                {p.label}
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Nav({ dark = false }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [partnersOpen, setPartnersOpen] = useState(false);
-  const [partnersMobileOpen, setPartnersMobileOpen] = useState(false);
-  const partnersRef = useRef(null);
-  const partnersCloseTimer = useRef(null);
-
-  const openPartners = () => {
-    if (partnersCloseTimer.current) {
-      clearTimeout(partnersCloseTimer.current);
-      partnersCloseTimer.current = null;
-    }
-    setPartnersOpen(true);
-  };
-
-  // Close on a short delay so a brief cursor excursion (e.g. travelling from the
-  // trigger toward the submenu) doesn't dismiss the menu before it's reached.
-  const closePartnersSoon = () => {
-    if (partnersCloseTimer.current) clearTimeout(partnersCloseTimer.current);
-    partnersCloseTimer.current = setTimeout(() => setPartnersOpen(false), 140);
-  };
-
-  useEffect(() => () => {
-    if (partnersCloseTimer.current) clearTimeout(partnersCloseTimer.current);
-  }, []);
+  const pathways = useDropdown();
+  const partners = useDropdown();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -48,26 +147,6 @@ export default function Nav({ dark = false }) {
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenu]);
 
-  // Close desktop dropdown on click-outside or Esc
-  useEffect(() => {
-    if (!partnersOpen) return;
-    const onPointer = (e) => {
-      if (partnersRef.current && !partnersRef.current.contains(e.target)) {
-        setPartnersOpen(false);
-      }
-    };
-    const onKey = (e) => {
-      if (e.key === "Escape") setPartnersOpen(false);
-    };
-    document.addEventListener("mousedown", onPointer);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onPointer);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [partnersOpen]);
-
-  // When mobile menu is open, treat nav as "scrolled" so it stays opaque/visible
   const navActive = scrolled || mobileMenu;
 
   const desktopLinkClass =
@@ -75,14 +154,12 @@ export default function Nav({ dark = false }) {
       ? "text-white/90 text-sm font-medium hover:text-primary transition-colors"
       : "text-text-secondary text-sm font-medium hover:text-primary transition-colors";
 
+  const routeMap = {
+    "How It Works": "/how-it-works",
+    "About": "/about",
+  };
+
   const renderLink = (link, mobile = false) => {
-    const routeMap = {
-      "How It Works": "/how-it-works",
-      "What We Test": "/what-we-test",
-      "Stories": "/stories",
-      "About": "/about",
-      "Pricing": "/pricing",
-    };
     if (routeMap[link]) {
       return (
         <Link
@@ -99,20 +176,7 @@ export default function Nav({ dark = false }) {
         </Link>
       );
     }
-    return (
-      <a
-        key={link}
-        href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-        onClick={() => mobile && setMobileMenu(false)}
-        className={
-          mobile
-            ? "text-text-primary text-base sm:text-xl font-semibold font-heading py-4 border-b border-border no-underline hover:text-primary transition-colors"
-            : desktopLinkClass
-        }
-      >
-        {link}
-      </a>
-    );
+    return null;
   };
 
   return (
@@ -126,7 +190,6 @@ export default function Nav({ dark = false }) {
         style={navActive ? { background: "rgba(255,255,255,0.85)", backdropFilter: "blur(16px)" } : {}}
       >
         <div className="max-w-[1280px] mx-auto px-6 h-[72px] flex items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
               src={logo}
@@ -139,76 +202,22 @@ export default function Nav({ dark = false }) {
 
           {/* Desktop links */}
           <div className="hidden md:flex gap-8 items-center">
-            {navLinks.map((link) => renderLink(link))}
+            {renderLink("How It Works")}
 
-            {/* For Partners dropdown */}
-            <div
-              ref={partnersRef}
-              className="relative"
-              onMouseEnter={openPartners}
-              onMouseLeave={closePartnersSoon}
-            >
-              <button
-                type="button"
-                aria-haspopup="menu"
-                aria-expanded={partnersOpen}
-                onClick={() => setPartnersOpen((v) => !v)}
-                onKeyDown={(e) => {
-                  if (e.key === "Escape") setPartnersOpen(false);
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setPartnersOpen((v) => !v);
-                  }
-                }}
-                className={`${desktopLinkClass} inline-flex items-center gap-1 cursor-pointer bg-transparent border-none p-0`}
-              >
-                For Partners
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${partnersOpen ? "rotate-180" : ""}`}
-                />
-              </button>
+            <DesktopDropdown label="Pathways" items={PATHWAY_LINKS} linkClass={desktopLinkClass} dropdown={pathways} />
 
-              {partnersOpen && (
-                // top-full + pt-2 (padding, not a margin) keeps the panel's hover
-                // area touching the trigger, so the cursor never crosses a dead gap
-                // that would dismiss the menu before reaching an item.
-                <div className="absolute right-0 top-full pt-2 w-[260px] z-50">
-                  <div
-                    role="menu"
-                    aria-label="Partner options"
-                    className="bg-white border border-border rounded-card shadow-lg overflow-hidden"
-                  >
-                    {PARTNER_LINKS.map((p) => {
-                      const Icon = p.icon;
-                      return (
-                        <Link
-                          key={p.route}
-                          to={p.route}
-                          role="menuitem"
-                          onClick={() => setPartnersOpen(false)}
-                          className="flex items-center gap-3 px-4 py-3 text-sm text-text-primary font-medium hover:bg-section-alt hover:text-primary transition-colors no-underline border-b border-border last:border-b-0"
-                        >
-                          <span className="w-8 h-8 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
-                            <Icon size={16} className="text-primary" />
-                          </span>
-                          {p.label}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </div>
+            {renderLink("About")}
+
+            <DesktopDropdown label="For Partners" items={PARTNER_LINKS} linkClass={desktopLinkClass} dropdown={partners} />
           </div>
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <Link to="/how-it-works" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
-              Learn More
-            </Link>
-            <Link to="/waitlist" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
-              Join Waitlist
+            <a href="https://app.betterhealth.africa" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
+              Sign In
+            </a>
+            <Link to="/book" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
+              Book a Test
             </Link>
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
@@ -222,68 +231,34 @@ export default function Nav({ dark = false }) {
         </div>
       </nav>
 
-      {/* Mobile menu — rendered outside nav to avoid stacking context issues */}
+      {/* Mobile menu */}
       {mobileMenu && (
         <div
           className="fixed top-[72px] left-0 right-0 bottom-0 px-6 py-6 flex flex-col gap-2 md:hidden z-[9999] border-t border-border shadow-xl overflow-y-auto"
           style={{ backgroundColor: "#ffffff" }}
         >
-          {navLinks.map((link) => renderLink(link, true))}
+          {renderLink("How It Works", true)}
 
-          {/* For Partners accordion */}
-          <div className="border-b border-border">
-            <button
-              type="button"
-              aria-expanded={partnersMobileOpen}
-              onClick={() => setPartnersMobileOpen((v) => !v)}
-              className="w-full flex items-center justify-between py-4 text-text-primary text-base sm:text-xl font-semibold font-heading bg-transparent border-none cursor-pointer"
-            >
-              For Partners
-              <ChevronDown
-                size={18}
-                className={`transition-transform duration-200 ${partnersMobileOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            {partnersMobileOpen && (
-              <div className="flex flex-col pb-3 pl-2">
-                {PARTNER_LINKS.map((p) => {
-                  const Icon = p.icon;
-                  return (
-                    <Link
-                      key={p.route}
-                      to={p.route}
-                      onClick={() => {
-                        setMobileMenu(false);
-                        setPartnersMobileOpen(false);
-                      }}
-                      className="flex items-center gap-3 py-3 text-text-secondary text-[15px] font-medium hover:text-primary transition-colors no-underline"
-                    >
-                      <span className="w-7 h-7 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
-                        <Icon size={14} className="text-primary" />
-                      </span>
-                      {p.label}
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-          </div>
+          <MobileAccordion label="Pathways" items={PATHWAY_LINKS} onClose={() => setMobileMenu(false)} />
+
+          {renderLink("About", true)}
+
+          <MobileAccordion label="For Partners" items={PARTNER_LINKS} onClose={() => setMobileMenu(false)} />
 
           <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
             <Link
-              to="/waitlist"
+              to="/book"
               onClick={() => setMobileMenu(false)}
               className="w-full text-center bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-4 text-base font-bold font-heading transition-all no-underline"
             >
-              Join Waitlist
+              Book a Test
             </Link>
-            <Link
-              to="/how-it-works"
-              onClick={() => setMobileMenu(false)}
+            <a
+              href="https://app.betterhealth.africa"
               className="w-full text-center text-text-secondary text-base font-medium hover:text-primary transition-colors py-2 no-underline"
             >
-              Learn More
-            </Link>
+              Sign In
+            </a>
           </div>
         </div>
       )}
