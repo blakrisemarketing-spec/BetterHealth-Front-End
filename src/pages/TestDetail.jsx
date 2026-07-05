@@ -8,7 +8,8 @@ import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { getTestDetail } from "../data/test-details";
 import { testPanels, singleTests } from "../data/content";
-import { SIGN_UP_URL } from "../lib/app-links";
+import { joinUrl } from "../lib/app-links";
+import { panelCode } from "../data/app-catalogue";
 import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo";
 
 // Core vitals captured at every BetterHealth visit, on top of the panel's lab
@@ -193,7 +194,7 @@ export default function TestDetailPage() {
                   <span className="text-[12px] text-text-muted ml-2">Excl. VAT</span>
                 </div>
                 <a
-                  href={SIGN_UP_URL}
+                  href={joinUrl({ panel: panelCode(panel.slug) })}
                   className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-[15px] font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
                 >
                   Book {panel.name} <ArrowRight size={16} />
@@ -390,7 +391,7 @@ export default function TestDetailPage() {
             </Reveal>
             <Reveal delay={0.2}>
               <a
-                href={SIGN_UP_URL}
+                href={joinUrl({ panel: panelCode(panel.slug) })}
                 className="inline-flex items-center justify-center gap-2 bg-white text-primary rounded-btn px-8 py-3.5 text-[15px] font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
               >
                 Book {panel.name} <ArrowRight size={16} />

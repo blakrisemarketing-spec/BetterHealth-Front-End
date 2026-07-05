@@ -41,7 +41,7 @@ export function captureReferralFromUrl(search) {
   }
 }
 
-function getStoredReferralCode() {
+export function getStoredReferralCode() {
   try {
     const value = sessionStorage.getItem(REF_STORAGE_KEY);
     return value && value.trim() ? value.trim() : null;

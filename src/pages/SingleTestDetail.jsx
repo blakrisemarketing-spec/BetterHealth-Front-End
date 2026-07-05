@@ -7,7 +7,8 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { getSingleTestDetail } from "../data/single-test-details";
-import { SIGN_UP_URL } from "../lib/app-links";
+import { joinUrl } from "../lib/app-links";
+import { testCode } from "../data/app-catalogue";
 import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo";
 
 function FaqItem({ q, a }) {
@@ -155,7 +156,7 @@ export default function SingleTestDetailPage() {
                   <span className="text-[12px] text-text-muted ml-2">Excl. VAT</span>
                 </div>
                 <a
-                  href={SIGN_UP_URL}
+                  href={joinUrl({ test: testCode(test.slug) })}
                   className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-[15px] font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
                 >
                   Book this test <ArrowRight size={16} />
@@ -327,7 +328,7 @@ export default function SingleTestDetailPage() {
             </Reveal>
             <Reveal delay={0.2}>
               <a
-                href={SIGN_UP_URL}
+                href={joinUrl({ test: testCode(test.slug) })}
                 className="inline-flex items-center justify-center gap-2 bg-white text-primary rounded-btn px-8 py-3.5 text-[15px] font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
               >
                 Book {test.name} <ArrowRight size={16} />
