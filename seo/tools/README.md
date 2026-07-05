@@ -62,6 +62,33 @@ Env: `BING_API_KEY`, `BING_SITE_URL`.
 **Setup:** Verify the site in Bing Webmaster Tools, then Settings → API Access →
 generate an API key.
 
+## indexnow.mjs (free, no auth)
+
+Pings the IndexNow aggregator so **Bing, Yandex, Seznam, Naver and Yep** re-crawl
+changed URLs within minutes instead of waiting on organic discovery. Bing's index
+feeds ChatGPT and Copilot, so this doubles as a GEO signal. Google does **not**
+use IndexNow — it discovers via the sitemap + crawl, so this complements (doesn't
+replace) `sitemap.xml`.
+
+```bash
+npm run indexnow                                   # submit every sitemap URL
+node seo/tools/indexnow.mjs <url> [<url> ...]      # submit specific URLs
+node seo/tools/indexnow.mjs --dry-run [urls...]    # print payload, don't send
+```
+
+No env vars or secrets. Ownership is proven by a **public key file** served at the
+site root — `public/<key>.txt`, whose contents equal `<key>` (currently
+`fff4bd4d7f40b9b4888a2f1fd9a8f1a0`). The script auto-discovers it under `public/`,
+so the key can't drift. The key file ships with the normal build (it's in
+`public/`), so nothing extra is needed at deploy time. The tool refuses any URL
+not on `www.betterhealth.africa` (IndexNow rejects the whole batch otherwise) and
+exits non-zero on failure so the nightly routine can gate on it.
+
+**Nightly hook:** after a new article's PR merges and deploys, submit just the new
+post so it's crawled immediately, e.g.
+`node seo/tools/indexnow.mjs https://www.betterhealth.africa/blog/<new-slug>/`.
+(Run it *after* deploy — IndexNow validates the URL is reachable.)
+
 ## Where secrets live
 
 For local/manual runs, put them in a git-ignored `.env` (see `.env.example`) and
