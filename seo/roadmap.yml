@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-06-28
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya/South Africa expansion volumes pending per-market confirmation in nightly refine step)"
+  updated: 2026-07-05
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; South Africa still pending)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -185,6 +185,184 @@ items:
     completed: 2026-07-02
     notes: "Published 2026-07-02. creatinine test 110/mo Ghana, LOW competition (DataForSEO), stronger than the seed keyword creatinine test meaning at 10/mo. Also targets kidney function test, egfr test, normal creatinine levels by age. Covers creatinine + eGFR staging (KDIGO 2012), the Ghana hypertension/diabetes-as-CKD-driver link, and symptoms of reduced kidney function. Article + BreadcrumbList + FAQPage schema."
 
+  # ==========================================================================
+  # Reprioritized 2026-07-05 (weekly routine, W28): DataForSEO confirmed real
+  # volumes this week for the pan-African items added 2026-06-28 (previously
+  # volume: null). Several beat every remaining Ghana biomarker item — blood
+  # group (1,600/mo Nigeria), widal test (1,000/mo), genotype test (880/mo
+  # Nigeria) — all LOW competition. Todo order below is volume-descending
+  # with confirmed numbers first, then not-yet-quantified items in their
+  # prior relative order. See seo/reports/weekly-2026-W28.md for the pull.
+  # ==========================================================================
+
+  - id: art-blood-group
+    type: article
+    cluster: biomarkers
+    slug: blood-group-test
+    keyword: blood group test
+    market: pan-africa
+    volume: 1600
+    secondary: ["blood type test", "rhesus factor", "blood group compatibility", "what is rhesus negative"]
+    intent: informational
+    title: "Blood Group and Rhesus Factor: What Your Blood Type Means"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 1,600/mo (Nigeria), LOW competition — the highest-volume, lowest-competition item in the entire todo queue. Promoted to #1."
+
+  - id: art-typhoid-widal
+    type: article
+    cluster: conditions
+    slug: typhoid-widal-test
+    keyword: widal test
+    market: pan-africa
+    volume: 1000
+    secondary: ["typhoid test", "widal test interpretation", "typhoid fever diagnosis", "widal test positive meaning"]
+    intent: informational
+    title: "Typhoid and the Widal Test: What a Positive Result Really Means"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 1,000/mo, LOW competition — confirmed high-volume. Widal is widely over-interpreted across West/East Africa; high-value myth-busting + correct-diagnosis angle (culture vs Widal)."
+
+  - id: art-genotype-test
+    type: article
+    cluster: conditions
+    slug: genotype-test-aa-as-ss
+    keyword: genotype test
+    market: nigeria
+    volume: 880
+    secondary: ["AA AS SS genotype", "genotype compatibility", "sickle cell genotype", "what is my genotype"]
+    intent: informational
+    title: "Genotype Test (AA, AS, SS): What Your Result Means for Family Planning"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 880/mo (Nigeria), LOW competition — confirms the 'extremely high search volume in Nigeria' expectation. Cover haemoglobin genotypes, compatibility for couples, link to sickle-cell-trait article. Pair with premarital screening."
+
+  - id: art-psa-prostate
+    type: article
+    cluster: biomarkers
+    slug: psa-prostate-test
+    keyword: psa test
+    market: pan-africa
+    volume: 480
+    secondary: ["prostate cancer screening", "psa normal range", "raised psa causes", "prostate test for men"]
+    intent: informational
+    title: "PSA Test: Prostate Screening for Men, and What a Raised Result Means"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 480/mo, LOW competition. Prostate cancer incidence is high in men of African descent. Cover PSA ranges, false positives, and the screening-age conversation."
+
+  - id: art-g6pd
+    type: article
+    cluster: biomarkers
+    slug: g6pd-deficiency-test
+    keyword: g6pd test
+    market: pan-africa
+    volume: 390
+    secondary: ["g6pd deficiency", "favism", "g6pd and malaria drugs", "g6pd deficiency foods to avoid"]
+    intent: informational
+    title: "G6PD Deficiency: Why This Test Matters Before Some Medications"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 390/mo, LOW competition. Common across malaria-endemic Africa; relevant to antimalarial and some drug safety. Strong locally-specific AI-citation candidate."
+
+  - id: art-malaria-test
+    type: article
+    cluster: conditions
+    slug: malaria-test-explained
+    keyword: malaria test
+    market: pan-africa
+    volume: 320
+    secondary: ["malaria rapid diagnostic test", "malaria blood film", "malaria parasite count", "how is malaria diagnosed"]
+    intent: informational
+    title: "Malaria Testing: RDT vs Blood Film, and How to Read the Result"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 320/mo, LOW competition. Highest-burden infection across sub-Saharan Africa. Cover RDT vs microscopy, parasite density, false negatives, and when to retest."
+
+  - id: art-hiv-test
+    type: article
+    cluster: conditions
+    slug: hiv-test-explained
+    keyword: hiv test
+    market: pan-africa
+    volume: 320
+    secondary: ["hiv window period", "hiv self test", "hiv viral load", "how accurate is an hiv test"]
+    intent: informational
+    title: "HIV Testing: Window Period, Test Types, and Reading Your Result"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 320/mo, LOW competition. Handle with care + dignity. Cover window period, antibody vs antigen vs NAT, self-testing, confirmatory testing, confidentiality."
+
+  - id: art-uric-acid-gout
+    type: article
+    cluster: biomarkers
+    slug: uric-acid-gout-test
+    keyword: uric acid test
+    market: pan-africa
+    volume: 210
+    secondary: ["gout symptoms", "high uric acid", "uric acid normal range", "uric acid diet"]
+    intent: informational
+    title: "Uric Acid Test and Gout: Reading Your Result and Lowering It"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 210/mo, LOW competition."
+
+  - id: art-hepatitis-b
+    type: article
+    cluster: conditions
+    slug: hepatitis-b-test
+    keyword: hepatitis B test
+    market: pan-africa
+    volume: 110
+    secondary: ["HBsAg test", "hepatitis B symptoms", "hepatitis B vaccine", "hepatitis B treatment"]
+    intent: informational
+    title: "Hepatitis B Test (HBsAg): Screening, Results, and Next Steps"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 110/mo, LOW competition. High prevalence across sub-Saharan Africa, often asymptomatic. Cover HBsAg screening, what positive means, vaccination, and liver follow-up."
+
+  - id: art-urinalysis
+    type: article
+    cluster: biomarkers
+    slug: urinalysis-explained
+    keyword: urinalysis test
+    market: pan-africa
+    volume: 110
+    secondary: ["urine routine examination", "urine test results explained", "protein in urine", "leukocytes in urine"]
+    intent: informational
+    title: "Urinalysis: How to Read a Routine Urine Test"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 110/mo, LOW competition."
+
+  - id: art-premarital-screening
+    type: article
+    cluster: screening
+    slug: premarital-screening
+    keyword: premarital screening
+    market: nigeria
+    volume: 50
+    secondary: ["premarital test", "marriage blood test", "genotype and premarital screening", "what tests are done before marriage"]
+    intent: commercial
+    title: "Premarital Screening: The Tests Every Couple Should Do Before Marriage"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 50/mo (Nigeria), LOW competition. High intent across Nigeria + Ghana. Genotype, infectious (HIV/Hep B), blood group/Rh, fertility basics. Strong commercial + AI-citation overlap."
+
+  - id: local-nairobi
+    type: article
+    cluster: local
+    slug: blood-test-nairobi
+    keyword: blood test Nairobi
+    market: kenya
+    volume: 40
+    intent: local
+    title: "Blood Tests and Health Screening in Nairobi: Your Options"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 40/mo (Kenya), LOW competition."
+
+  - id: art-hepatitis-c
+    type: article
+    cluster: conditions
+    slug: hepatitis-c-test
+    keyword: hepatitis C test
+    market: pan-africa
+    volume: 20
+    secondary: ["anti-HCV test", "hepatitis C symptoms", "hepatitis C cure"]
+    intent: informational
+    title: "Hepatitis C Test: Who Should Screen and What the Result Means"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 20/mo, LOW competition."
+
   - id: art-thyroid-tsh
     type: article
     cluster: biomarkers
@@ -195,142 +373,58 @@ items:
     intent: informational
     title: "Thyroid Function and TSH: What Your Result Is Telling You"
     status: todo
+    notes: "Was #1 in the queue pre-W28; demoted on volume (10/mo) now that pan-African items above are DataForSEO-confirmed at 110-1,600/mo."
 
   - id: art-liver-function-tests
     type: article
     cluster: biomarkers
     slug: liver-function-tests-explained
     keyword: liver function test results explained
-    volume: null
+    volume: 10
     intent: informational
     title: "Liver Function Tests (ALT, AST): What the Numbers Mean"
     status: todo
-    notes: "Low standalone volume; mostly absorbed by the fatty-liver article. Keep as the dedicated ALT/AST/GGT explainer and internal-link the two."
+    notes: "DataForSEO 2026-07-05: 10/mo (was null, now confirmed low). Mostly absorbed by the fatty-liver article; keep as the dedicated ALT/AST/GGT explainer and internal-link the two."
 
-  # ==========================================================================
-  # Pan-African expansion (added 2026-06-28) — high disease burden + thin local
-  # editorial competition across Africa. volume: null pending per-market DataForSEO
-  # confirmation in the nightly refine step. These feed the 5/night batch.
-  # ==========================================================================
-
-  # ---- Infectious disease testing (very high African burden, strong AI-citation) ----
-  - id: art-malaria-test
+  - id: art-vitamin-b12
     type: article
-    cluster: conditions
-    slug: malaria-test-explained
-    keyword: malaria test
+    cluster: biomarkers
+    slug: vitamin-b12-folate-test
+    keyword: vitamin b12 test
     market: pan-africa
-    volume: null
-    secondary: ["malaria rapid diagnostic test", "malaria blood film", "malaria parasite count", "how is malaria diagnosed"]
+    volume: 10
+    secondary: ["b12 deficiency symptoms", "folate test", "megaloblastic anaemia", "low b12 treatment"]
     intent: informational
-    title: "Malaria Testing: RDT vs Blood Film, and How to Read the Result"
+    title: "Vitamin B12 and Folate: Testing for the Other Anaemias"
     status: todo
-    notes: "Highest-burden infection across sub-Saharan Africa. Cover RDT vs microscopy, parasite density, false negatives, and when to retest."
+    notes: "DataForSEO 2026-07-05: 10/mo, LOW competition. Internal-link to the ferritin/iron-anaemia article — together they cover the common anaemia work-up."
 
-  - id: art-typhoid-widal
-    type: article
-    cluster: conditions
-    slug: typhoid-widal-test
-    keyword: widal test
-    market: pan-africa
-    volume: null
-    secondary: ["typhoid test", "widal test interpretation", "typhoid fever diagnosis", "widal test positive meaning"]
-    intent: informational
-    title: "Typhoid and the Widal Test: What a Positive Result Really Means"
-    status: todo
-    notes: "Widal is widely over-interpreted across West/East Africa. High-value myth-busting + correct-diagnosis angle (culture vs Widal)."
-
-  - id: art-hepatitis-b
-    type: article
-    cluster: conditions
-    slug: hepatitis-b-test
-    keyword: hepatitis B test
-    market: pan-africa
-    volume: null
-    secondary: ["HBsAg test", "hepatitis B symptoms", "hepatitis B vaccine", "hepatitis B treatment"]
-    intent: informational
-    title: "Hepatitis B Test (HBsAg): Screening, Results, and Next Steps"
-    status: todo
-    notes: "High prevalence across sub-Saharan Africa, often asymptomatic. Cover HBsAg screening, what positive means, vaccination, and liver follow-up."
-
-  - id: art-hiv-test
-    type: article
-    cluster: conditions
-    slug: hiv-test-explained
-    keyword: hiv test
-    market: pan-africa
-    volume: null
-    secondary: ["hiv window period", "hiv self test", "hiv viral load", "how accurate is an hiv test"]
-    intent: informational
-    title: "HIV Testing: Window Period, Test Types, and Reading Your Result"
-    status: todo
-    notes: "Handle with care + dignity. Cover window period, antibody vs antigen vs NAT, self-testing, confirmatory testing, confidentiality."
-
-  - id: art-hepatitis-c
-    type: article
-    cluster: conditions
-    slug: hepatitis-c-test
-    keyword: hepatitis C test
-    market: pan-africa
-    volume: null
-    secondary: ["anti-HCV test", "hepatitis C symptoms", "hepatitis C cure"]
-    intent: informational
-    title: "Hepatitis C Test: Who Should Screen and What the Result Means"
-    status: todo
-
-  # ---- Inherited / pre-conception screening (huge volume in Nigeria) ----
-  - id: art-genotype-test
-    type: article
-    cluster: conditions
-    slug: genotype-test-aa-as-ss
-    keyword: genotype test
-    market: nigeria
-    volume: null
-    secondary: ["AA AS SS genotype", "genotype compatibility", "sickle cell genotype", "what is my genotype"]
-    intent: informational
-    title: "Genotype Test (AA, AS, SS): What Your Result Means for Family Planning"
-    status: todo
-    notes: "Extremely high search volume in Nigeria. Cover haemoglobin genotypes, compatibility for couples, link to sickle-cell-trait article. Pair with premarital screening."
-
-  - id: art-premarital-screening
+  - id: art-antenatal-tests
     type: article
     cluster: screening
-    slug: premarital-screening
-    keyword: premarital screening
+    slug: antenatal-blood-tests
+    keyword: antenatal blood tests
+    market: pan-africa
+    volume: 10
+    secondary: ["pregnancy blood tests", "booking bloods", "tests during pregnancy", "antenatal profile"]
+    intent: informational
+    title: "Antenatal Blood Tests: The Pregnancy Screening Panel Explained"
+    status: todo
+    notes: "DataForSEO 2026-07-05: 10/mo, LOW competition."
+
+  - id: local-lagos
+    type: article
+    cluster: local
+    slug: blood-test-lagos
+    keyword: blood test Lagos
     market: nigeria
-    volume: null
-    secondary: ["premarital test", "marriage blood test", "genotype and premarital screening", "what tests are done before marriage"]
-    intent: commercial
-    title: "Premarital Screening: The Tests Every Couple Should Do Before Marriage"
+    volume: 10
+    intent: local
+    title: "Blood Tests and Health Screening in Lagos: Your Options"
     status: todo
-    notes: "High intent across Nigeria + Ghana. Genotype, infectious (HIV/Hep B), blood group/Rh, fertility basics. Strong commercial + AI-citation overlap."
+    notes: "DataForSEO 2026-07-05: 10/mo (Nigeria), LOW competition."
 
-  - id: art-blood-group
-    type: article
-    cluster: biomarkers
-    slug: blood-group-test
-    keyword: blood group test
-    market: pan-africa
-    volume: null
-    secondary: ["blood type test", "rhesus factor", "blood group compatibility", "what is rhesus negative"]
-    intent: informational
-    title: "Blood Group and Rhesus Factor: What Your Blood Type Means"
-    status: todo
-
-  # ---- Cancer screening ----
-  - id: art-psa-prostate
-    type: article
-    cluster: biomarkers
-    slug: psa-prostate-test
-    keyword: psa test
-    market: pan-africa
-    volume: null
-    secondary: ["prostate cancer screening", "psa normal range", "raised psa causes", "prostate test for men"]
-    intent: informational
-    title: "PSA Test: Prostate Screening for Men, and What a Raised Result Means"
-    status: todo
-    notes: "Prostate cancer incidence is high in men of African descent. Cover PSA ranges, false positives, and the screening-age conversation."
-
+  # ---- Not yet volume-confirmed (DataForSEO returned no data 2026-07-05) ----
   - id: art-pap-smear
     type: article
     cluster: screening
@@ -343,19 +437,6 @@ items:
     title: "Pap Smear and HPV Testing: Cervical Cancer Screening Explained"
     status: todo
     notes: "Cervical cancer is a leading cancer in African women. Cover Pap vs HPV testing, screening intervals, and result categories."
-
-  # ---- Common biomarker / GI / metabolic explainers ----
-  - id: art-uric-acid-gout
-    type: article
-    cluster: biomarkers
-    slug: uric-acid-gout-test
-    keyword: uric acid test
-    market: pan-africa
-    volume: null
-    secondary: ["gout symptoms", "high uric acid", "uric acid normal range", "uric acid diet"]
-    intent: informational
-    title: "Uric Acid Test and Gout: Reading Your Result and Lowering It"
-    status: todo
 
   - id: art-h-pylori
     type: article
@@ -381,18 +462,6 @@ items:
     title: "Stool Test: What Ova, Parasites, and Occult Blood Reveal"
     status: todo
 
-  - id: art-urinalysis
-    type: article
-    cluster: biomarkers
-    slug: urinalysis-explained
-    keyword: urinalysis test
-    market: pan-africa
-    volume: null
-    secondary: ["urine routine examination", "urine test results explained", "protein in urine", "leukocytes in urine"]
-    intent: informational
-    title: "Urinalysis: How to Read a Routine Urine Test"
-    status: todo
-
   - id: art-crp-inflammation
     type: article
     cluster: biomarkers
@@ -405,45 +474,6 @@ items:
     title: "CRP and ESR: What Inflammation Markers Tell You"
     status: todo
 
-  - id: art-vitamin-b12
-    type: article
-    cluster: biomarkers
-    slug: vitamin-b12-folate-test
-    keyword: vitamin b12 test
-    market: pan-africa
-    volume: null
-    secondary: ["b12 deficiency symptoms", "folate test", "megaloblastic anaemia", "low b12 treatment"]
-    intent: informational
-    title: "Vitamin B12 and Folate: Testing for the Other Anaemias"
-    status: todo
-    notes: "Internal-link to the ferritin/iron-anaemia article — together they cover the common anaemia work-up."
-
-  - id: art-g6pd
-    type: article
-    cluster: biomarkers
-    slug: g6pd-deficiency-test
-    keyword: g6pd test
-    market: pan-africa
-    volume: null
-    secondary: ["g6pd deficiency", "favism", "g6pd and malaria drugs", "g6pd deficiency foods to avoid"]
-    intent: informational
-    title: "G6PD Deficiency: Why This Test Matters Before Some Medications"
-    status: todo
-    notes: "Common across malaria-endemic Africa; relevant to antimalarial and some drug safety. Strong locally-specific AI-citation candidate."
-
-  - id: art-antenatal-tests
-    type: article
-    cluster: screening
-    slug: antenatal-blood-tests
-    keyword: antenatal blood tests
-    market: pan-africa
-    volume: null
-    secondary: ["pregnancy blood tests", "booking bloods", "tests during pregnancy", "antenatal profile"]
-    intent: informational
-    title: "Antenatal Blood Tests: The Pregnancy Screening Panel Explained"
-    status: todo
-
-  # ---- Multi-market screening / local landing (Nigeria, Kenya, South Africa) ----
   - id: art-screening-nigeria
     type: article
     cluster: screening
@@ -466,29 +496,6 @@ items:
     title: "Health Screening in Kenya: What to Test and How Often"
     status: todo
 
-  - id: local-lagos
-    type: article
-    cluster: local
-    slug: blood-test-lagos
-    keyword: blood test Lagos
-    market: nigeria
-    volume: null
-    intent: local
-    title: "Blood Tests and Health Screening in Lagos: Your Options"
-    status: todo
-
-  - id: local-nairobi
-    type: article
-    cluster: local
-    slug: blood-test-nairobi
-    keyword: blood test Nairobi
-    market: kenya
-    volume: null
-    intent: local
-    title: "Blood Tests and Health Screening in Nairobi: Your Options"
-    status: todo
-
-  # ---- Commercial / decision intent (low volume, high business value) ----
   - id: art-cost-of-screening
     type: article
     cluster: decision
@@ -519,7 +526,6 @@ items:
     title: "Home vs In-Lab Blood Tests: Which Is Right for You?"
     status: todo
 
-  # ---- Local landing intent (low volume, low competition) ----
   - id: local-accra
     type: article
     cluster: local

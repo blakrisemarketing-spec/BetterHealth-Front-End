@@ -17,7 +17,7 @@
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
-  "lastWeeklyRun": "2026-06-28",
+  "lastWeeklyRun": "2026-07-05",
   "inFlightPRs": [],
   "publishedCount": 13,
   "notes": "art-creatinine-egfr published 2026-07-02 (creatinine test, 110/mo Ghana, LOW competition; stronger than the seed keyword creatinine test meaning at 10/mo). Also targets kidney function test, egfr test, normal creatinine levels by age. Covers creatinine + eGFR staging (KDIGO 2012) and the Ghana hypertension/diabetes CKD-driver link. KNOWN ISSUE carried over from main: art-vitamin-d and art-sickle-cell-trait are still showing status: todo on main's roadmap.yml even though both already have unmerged open PRs against them (#19 seo/nightly-2026-06-29 and #22 claude/hopeful-johnson-ketb8v both publish the same vitamin-d-deficiency.js; #24 claude/hopeful-johnson-pdncvp publishes sickle-cell-trait-testing.js). This run deliberately skipped both and picked the next unclaimed item (art-creatinine-egfr) to avoid a third duplicate. A human should merge one of the two vitamin-d PRs and close the other, and merge or close the sickle-cell-trait PR, before the next nightly run reads roadmap.yml again. Next todo item after those are resolved: art-thyroid-tsh (TSH test meaning, 10/mo Ghana)."
