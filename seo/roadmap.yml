@@ -265,12 +265,13 @@ items:
     slug: hiv-test-explained
     keyword: hiv test
     market: pan-africa
-    volume: null
+    volume: 320
     secondary: ["hiv window period", "hiv self test", "hiv viral load", "how accurate is an hiv test"]
     intent: informational
     title: "HIV Testing: Window Period, Test Types, and Reading Your Result"
-    status: todo
-    notes: "Handle with care + dignity. Cover window period, antibody vs antigen vs NAT, self-testing, confirmatory testing, confidentiality."
+    status: done
+    completed: 2026-07-05
+    notes: "Published 2026-07-05. hiv test 320/mo Ghana, LOW competition (DataForSEO, confirmed 2026-07-05). Covers the three test types (NAT/RNA, 4th-gen Ag/Ab combo, antibody-only) and why their window periods differ (10-33 days, 18-45 days, ~3 months), WHO's sequential confirmatory-testing strategy, HIV self-testing, viral load monitoring, and Ghana/Africa prevalence context (2024 National HIV Estimates: 1.49% adult prevalence). Handled with dignity throughout, no risk-group assumptions, confidentiality emphasised. Skipped art-thyroid-tsh, art-liver-function-tests, art-malaria-test, art-typhoid-widal, and art-hepatitis-b because they are already claimed by open, unmerged PRs (#29 batch and #31 duplicate thyroid) as of 2026-07-05; picked the next unclaimed todo item to avoid a third duplicate. A human should merge or close PR #29 and #31 (and the still-open vitamin-d/sickle-cell-trait PRs noted in a prior run) before the next nightly run reads roadmap.yml again."
 
   - id: art-hepatitis-c
     type: article

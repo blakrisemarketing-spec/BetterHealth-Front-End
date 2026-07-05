@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="480" fill="#FFFFFF"/>
+  <text x="70" y="60" font-size="32" font-weight="700" fill="#2B3A3A">HIV test window periods</text>
+  <text x="70" y="92" font-size="19" fill="#6B7979">How soon after exposure each test type becomes reliable</text>
+
+  <!-- row 1: NAT, reliable by 33 days -->
+  <text x="70" y="150" font-size="20" font-weight="700" fill="#2B3A3A">NAT (RNA) test</text>
+  <rect x="330" y="164" width="271" height="30" rx="15" fill="#6B8E7F"/>
+  <text x="615" y="185" font-size="18" font-weight="700" fill="#6B8E7F">10 to 33 days</text>
+  <text x="70" y="222" font-size="15" fill="#6B7979">Detects the virus's genetic material directly, the earliest of the three.</text>
+
+  <!-- row 2: 4th-gen combo, reliable by 45 days -->
+  <text x="70" y="272" font-size="20" font-weight="700" fill="#2B3A3A">4th-gen antigen/antibody</text>
+  <rect x="330" y="286" width="369" height="30" rx="15" fill="#C28A2E"/>
+  <text x="713" y="307" font-size="18" font-weight="700" fill="#C28A2E">18 to 45 days</text>
+  <text x="70" y="344" font-size="15" fill="#6B7979">Detects the p24 antigen plus antibodies. Most routine lab and clinic tests use this.</text>
+
+  <!-- row 3: antibody-only, reliable by ~90 days -->
+  <text x="70" y="394" font-size="20" font-weight="700" fill="#2B3A3A">Antibody-only rapid test</text>
+  <rect x="330" y="408" width="738" height="30" rx="15" fill="#C9594F"/>
+  <text x="1082" y="429" font-size="18" font-weight="700" fill="#C9594F">~3 months</text>
+  <text x="70" y="465" font-size="15" fill="#9AA6A6">Illustrative, not to scale. A negative result within the window period should be repeated later.</text>
+</svg>
