@@ -194,7 +194,9 @@ items:
     secondary: ["thyroid function test"]
     intent: informational
     title: "Thyroid Function and TSH: What Your Result Is Telling You"
-    status: todo
+    status: done
+    completed: 2026-07-03
+    notes: "Published 2026-07-03. Retargeted from 'TSH test meaning' (10/mo) to 'thyroid test' (260/mo Ghana, LOW competition, DataForSEO) and 'TSH' (210/mo). Covers TSH/free T4 feedback loop, normal ranges, hypo/hyperthyroidism (Hashimoto's/Graves'), why women are affected more often, and the Ghana iodine/pregnancy context. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-liver-function-tests
     type: article
@@ -204,8 +206,9 @@ items:
     volume: null
     intent: informational
     title: "Liver Function Tests (ALT, AST): What the Numbers Mean"
-    status: todo
-    notes: "Low standalone volume; mostly absorbed by the fatty-liver article. Keep as the dedicated ALT/AST/GGT explainer and internal-link the two."
+    status: done
+    completed: 2026-07-03
+    notes: "Published 2026-07-03. liver function test results explained 10/mo Ghana; ALT test (20/mo) and AST test (30/mo) carry more of the standalone volume (DataForSEO). Dedicated ALT/AST/GGT explainer, cross-linked with fatty-liver-disease-explained and the new hepatitis-b-test article. Article + BreadcrumbList + FAQPage schema."
 
   # ==========================================================================
   # Pan-African expansion (added 2026-06-28) — high disease burden + thin local
@@ -224,8 +227,9 @@ items:
     secondary: ["malaria rapid diagnostic test", "malaria blood film", "malaria parasite count", "how is malaria diagnosed"]
     intent: informational
     title: "Malaria Testing: RDT vs Blood Film, and How to Read the Result"
-    status: todo
-    notes: "Highest-burden infection across sub-Saharan Africa. Cover RDT vs microscopy, parasite density, false negatives, and when to retest."
+    status: done
+    completed: 2026-07-03
+    notes: "Published 2026-07-03. malaria test 320/mo Ghana, LOW competition (DataForSEO); also targets malaria test kit (590/mo), malaria rapid diagnostic test (140/mo), malaria blood film (70/mo). Covers RDT vs microscopy, parasitaemia, HRP2 false negatives, P. falciparum dominance in Africa, and the malaria-vs-typhoid fever overlap (cross-linked to typhoid-widal-test). Article + BreadcrumbList + FAQPage schema."
 
   - id: art-typhoid-widal
     type: article
@@ -237,8 +241,9 @@ items:
     secondary: ["typhoid test", "widal test interpretation", "typhoid fever diagnosis", "widal test positive meaning"]
     intent: informational
     title: "Typhoid and the Widal Test: What a Positive Result Really Means"
-    status: todo
-    notes: "Widal is widely over-interpreted across West/East Africa. High-value myth-busting + correct-diagnosis angle (culture vs Widal)."
+    status: done
+    completed: 2026-07-03
+    notes: "Published 2026-07-03. widal test 1000/mo Ghana, LOW competition (DataForSEO), retargeted up from the generic seed 'typhoid test'. Also targets widal test positive means (70/mo), widal test 1:80/1:160 means (70/30 per mo). Myth-busts single-titer diagnosis (background-titer variation, no universal cutoff), covers blood culture as the confirmatory alternative, and cross-links the malaria article for the fever-overlap angle. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-hepatitis-b
     type: article
@@ -250,8 +255,9 @@ items:
     secondary: ["HBsAg test", "hepatitis B symptoms", "hepatitis B vaccine", "hepatitis B treatment"]
     intent: informational
     title: "Hepatitis B Test (HBsAg): Screening, Results, and Next Steps"
-    status: todo
-    notes: "High prevalence across sub-Saharan Africa, often asymptomatic. Cover HBsAg screening, what positive means, vaccination, and liver follow-up."
+    status: done
+    completed: 2026-07-03
+    notes: "Published 2026-07-03. hepatitis B test 110/mo Ghana, LOW competition (DataForSEO); hepatitis b surface antigen/HBsAg tests stronger at 590/mo. Covers HBsAg/anti-HBs/anti-HBc marker interpretation, the silent-infection framing, mother-to-child transmission and the birth-dose vaccine, and next steps if positive. Cross-linked with the new liver-function-tests-explained article. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-hiv-test
     type: article

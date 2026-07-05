@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Malaria testing explained: RDT versus blood film, and how to read the result" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Malaria Testing: RDT vs Blood Film, and How to Read the Result</title>
+  <defs>
+    <radialGradient id="orb-malaria" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1020" cy="150" r="320" fill="url(#orb-malaria)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">TESTING FOR CONDITIONS</text>
+  <text x="86" y="252" font-size="54" font-weight="800" fill="#2B3A3A">Malaria Testing</text>
+  <text x="90" y="304" font-size="26" fill="#6B7979">RDT vs blood film, and reading the result</text>
+
+  <rect x="90" y="344" width="90" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="135" y="371" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">RDT</text>
+
+  <rect x="194" y="344" width="200" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="294" y="371" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Blood film</text>
+
+  <rect x="408" y="344" width="230" height="42" rx="21" fill="#E0A23E"/>
+  <text x="523" y="371" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">P. falciparum</text>
+
+  <!-- decorative test-strip suggestion -->
+  <rect x="960" y="140" width="60" height="200" rx="10" fill="#FFFFFF" opacity="0.7"/>
+  <rect x="972" y="160" width="36" height="8" rx="4" fill="#C9594F" opacity="0.7"/>
+  <rect x="972" y="200" width="36" height="8" rx="4" fill="#2B3A3A" opacity="0.4"/>
+  <circle cx="990" cy="300" r="14" fill="#6B8E7F" opacity="0.4"/>
+  <circle cx="1090" cy="200" r="6" fill="#2B3A3A" opacity="0.2"/>
+  <circle cx="1130" cy="260" r="5" fill="#2B3A3A" opacity="0.16"/>
+</svg>
