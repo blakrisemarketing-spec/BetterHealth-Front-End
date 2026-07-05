@@ -23,7 +23,7 @@
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
-  "lastWeeklyRun": "2026-06-28",
+  "lastWeeklyRun": "2026-07-05",
   "inFlightPRs": [],
   "publishedCount": 19,
   "notes": "Deploy wave 2026-07-05 merged the nightly 5-article batch (#29: art-thyroid-tsh, art-liver-function-tests, art-malaria-test, art-typhoid-widal, art-hepatitis-b) together with art-hiv-test (#32); all six are now published on main and flipped to done in roadmap.yml, and the duplicate thyroid PR #31 was closed. All cite WHO/standard clinical guidance, carry the educational disclaimer, and passed the clinical-safety + humanizer gates. Next unclaimed todo: art-hepatitis-c (hepatitis C test, volume unconfirmed), then art-genotype-test / art-premarital-screening (Nigeria)."
