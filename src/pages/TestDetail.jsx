@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, ArrowLeft, Check, Clock, Droplets, FlaskConical, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight, ArrowLeft, Check, Clock, Droplets, FlaskConical, ChevronDown, ChevronUp, LineChart, TrendingUp, HeartPulse } from "lucide-react";
 import { useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
@@ -10,6 +10,30 @@ import { getTestDetail } from "../data/test-details";
 import { testPanels, singleTests } from "../data/content";
 import { SIGN_UP_URL } from "../lib/app-links";
 import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo";
+
+// Core vitals captured at every BetterHealth visit, on top of the panel's lab
+// tests. Shared across all panels, so they live here rather than per-panel.
+const VITALS = ["Blood Pressure", "Weight", "Height", "Waist Circumference", "BMI"];
+
+// How results live on in the app after the visit — grounds the "track over
+// time" story in what the dashboard actually does.
+const TRACKING = [
+  {
+    icon: LineChart,
+    title: "One clear dashboard",
+    desc: "Your results are organised by body system and colour-coded, with every marker explained in plain language.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Trends over time",
+    desc: "Watch how your markers move from one screening to the next, so you catch a worrying trend early and see your progress.",
+  },
+  {
+    icon: HeartPulse,
+    title: "Alerts that reach you",
+    desc: "Get an SMS and in-app alert the moment your results are ready, and a priority flag if anything falls into a critical range.",
+  },
+];
 
 function FaqItem({ q, a }) {
   const [open, setOpen] = useState(false);
@@ -231,6 +255,33 @@ export default function TestDetailPage() {
           </div>
         </section>
 
+        {/* ── Included with every test: core vitals ── */}
+        <section className="py-10 px-6 bg-base border-t border-border">
+          <div className="max-w-[720px] mx-auto">
+            <Reveal>
+              <h2 className="text-[1.3rem] sm:text-[1.5rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">
+                Included with every test
+              </h2>
+              <p className="text-[15px] text-text-secondary mb-6">
+                Every visit also captures your core vitals at no extra cost, so your lab results are read in the full context of your body.
+              </p>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <div className="flex flex-wrap gap-2.5">
+                {VITALS.map((v) => (
+                  <span
+                    key={v}
+                    className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-text-primary bg-card rounded-pill px-4 py-2 border border-border"
+                  >
+                    <Check size={14} className="text-primary shrink-0" />
+                    {v}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ── Preparation ── */}
         <section className="py-10 px-6 bg-section-alt border-t border-border">
           <div className="max-w-[720px] mx-auto">
@@ -268,6 +319,34 @@ export default function TestDetailPage() {
                       <p className="text-[14px] font-bold text-text-primary mb-0.5">{s.title}</p>
                       <p className="text-[13px] text-text-secondary leading-snug">{s.desc}</p>
                     </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ── Track your results in the app ── */}
+        <section className="py-12 px-6 bg-section-alt border-t border-border">
+          <div className="max-w-[720px] mx-auto">
+            <Reveal>
+              <span className="inline-block text-[12px] font-bold text-primary uppercase tracking-[0.12em] mb-2">
+                After your test
+              </span>
+              <h2 className="text-[1.3rem] sm:text-[1.5rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">
+                Track your results in the app
+              </h2>
+              <p className="text-[15px] text-text-secondary leading-relaxed mb-6 max-w-[560px]">
+                Your results don't just arrive once and disappear. They live in your BetterHealth dashboard, so you can follow your health over time, not just today.
+              </p>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {TRACKING.map((t) => (
+                  <div key={t.title} className="bg-card border border-border rounded-card p-5">
+                    <t.icon size={22} className="text-primary mb-3" />
+                    <p className="text-[15px] font-bold text-text-primary font-heading mb-1.5">{t.title}</p>
+                    <p className="text-[13px] text-text-secondary leading-snug">{t.desc}</p>
                   </div>
                 ))}
               </div>
