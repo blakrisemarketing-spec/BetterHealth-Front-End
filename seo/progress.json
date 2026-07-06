@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-05",
+  "lastRunDate": "2026-07-06",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -18,13 +18,14 @@
     "art-malaria-test",
     "art-typhoid-widal",
     "art-hepatitis-b",
-    "art-hiv-test"
+    "art-hiv-test",
+    "art-hepatitis-c"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-05",
   "inFlightPRs": [],
-  "publishedCount": 19,
-  "notes": "Deploy wave 2026-07-05 merged the nightly 5-article batch (#29: art-thyroid-tsh, art-liver-function-tests, art-malaria-test, art-typhoid-widal, art-hepatitis-b) together with art-hiv-test (#32); all six are now published on main and flipped to done in roadmap.yml, and the duplicate thyroid PR #31 was closed. All cite WHO/standard clinical guidance, carry the educational disclaimer, and passed the clinical-safety + humanizer gates. Next unclaimed todo: art-hepatitis-c (hepatitis C test, volume unconfirmed), then art-genotype-test / art-premarital-screening (Nigeria)."
+  "publishedCount": 20,
+  "notes": "Nightly run 2026-07-06 published art-hepatitis-c (hepatitis C test, 20/mo Ghana, LOW competition, DataForSEO confirmed 2026-07-06) as a single-article PR. Cites WHO hepatitis C testing/treatment guidance, carries the educational disclaimer, and passed the clinical-safety + humanizer gates. Next unclaimed todos: art-genotype-test / art-premarital-screening (Nigeria), art-blood-group, art-psa-prostate, art-pap-smear."
 }

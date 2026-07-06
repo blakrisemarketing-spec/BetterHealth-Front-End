@@ -283,7 +283,9 @@ items:
     secondary: ["anti-HCV test", "hepatitis C symptoms", "hepatitis C cure"]
     intent: informational
     title: "Hepatitis C Test: Who Should Screen and What the Result Means"
-    status: todo
+    status: done
+    completed: 2026-07-06
+    notes: "Published 2026-07-06. hepatitis C test 20/mo Ghana, LOW competition (DataForSEO, confirmed 2026-07-06); broader 'hepatitis C' term carries 1,300/mo. Also targets hepatitis C symptoms (170/mo), is hep C curable (90/mo), anti-HCV test (10/mo). Covers the two-step anti-HCV antibody plus HCV RNA confirmatory testing path, at-risk groups to screen, hepatitis B vs C comparison, and direct-acting antiviral cure rates (WHO 2030 elimination goal). Cross-linked with hepatitis-b-test and liver-function-tests-explained. Article + BreadcrumbList + FAQPage schema."
 
   # ---- Inherited / pre-conception screening (huge volume in Nigeria) ----
   - id: art-genotype-test
