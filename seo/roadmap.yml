@@ -279,11 +279,13 @@ items:
     slug: hepatitis-c-test
     keyword: hepatitis C test
     market: pan-africa
-    volume: null
-    secondary: ["anti-HCV test", "hepatitis C symptoms", "hepatitis C cure"]
+    volume: 20
+    secondary: ["anti-HCV test", "hepatitis C symptoms", "hepatitis C cure", "is hep C curable", "hep C symptoms female", "hep C symptoms male"]
     intent: informational
     title: "Hepatitis C Test: Who Should Screen and What the Result Means"
-    status: todo
+    status: done
+    completed: 2026-07-07
+    notes: "Published 2026-07-07. hepatitis C test 20/mo pan-Africa, LOW competition (DataForSEO, confirmed 2026-07-07); anti-HCV test 10/mo. Covers the two-step anti-HCV/RNA testing algorithm, why hepatitis C is usually asymptomatic for years, African-relevant risk factors (unscreened blood products, reused injection/tattoo/scarification equipment, needle-stick, dialysis), and leads with the cure message (direct-acting antivirals, 8-12 weeks) as the key differentiator from hepatitis B. Cross-links to art-hepatitis-b and the liver-function-tests article. Passed clinical-safety and humanizer gates."
 
   # ---- Inherited / pre-conception screening (huge volume in Nigeria) ----
   - id: art-genotype-test

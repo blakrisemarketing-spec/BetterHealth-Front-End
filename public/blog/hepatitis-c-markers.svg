@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="400" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Hepatitis C testing pathway</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Two steps: an antibody test first, then an RNA test to confirm active infection.</text>
+
+  <text x="70" y="132" font-size="15" font-weight="700" fill="#6B7979">ANTI-HCV</text>
+  <text x="300" y="132" font-size="15" font-weight="700" fill="#6B7979">HCV RNA</text>
+  <text x="520" y="132" font-size="15" font-weight="700" fill="#6B7979">MEANING</text>
+  <line x1="70" y1="144" x2="1130" y2="144" stroke="#E8E3DA" stroke-width="1"/>
+
+  <text x="70" y="176" font-size="16" fill="#6B7979">Negative</text>
+  <text x="300" y="176" font-size="16" fill="#9AA6A6">Not needed</text>
+  <text x="520" y="176" font-size="16" fill="#2B3A3A">No evidence of hepatitis C infection, past or present</text>
+
+  <text x="70" y="212" font-size="16" font-weight="700" fill="#E0A23E">Positive</text>
+  <text x="300" y="212" font-size="16" fill="#6B8E7F" font-weight="700">Negative</text>
+  <text x="520" y="212" font-size="16" fill="#2B3A3A">Past exposure, cleared on its own or successfully treated</text>
+
+  <text x="70" y="248" font-size="16" font-weight="700" fill="#E0A23E">Positive</text>
+  <text x="300" y="248" font-size="16" fill="#C9594F" font-weight="700">Positive</text>
+  <text x="520" y="248" font-size="16" fill="#2B3A3A">Current, active infection: needs a treatment plan</text>
+
+  <line x1="70" y1="276" x2="1130" y2="276" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="312" font-size="15" fill="#6B7979">Direct-acting antivirals cure the large majority of active infections in 8 to 12 weeks.</text>
+  <text x="70" y="338" font-size="15" fill="#6B7979">There is no vaccine for hepatitis C, unlike hepatitis B, which makes testing the main defence.</text>
+  <text x="70" y="374" font-size="13" fill="#9AA6A6">Source: WHO hepatitis C testing and treatment guidance. Always confirm interpretation with a clinician.</text>
+</svg>
