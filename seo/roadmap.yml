@@ -292,12 +292,13 @@ items:
     slug: genotype-test-aa-as-ss
     keyword: genotype test
     market: nigeria
-    volume: null
-    secondary: ["AA AS SS genotype", "genotype compatibility", "sickle cell genotype", "what is my genotype"]
+    volume: 880
+    secondary: ["AA AS SS genotype (50)", "genotype compatibility (1000)", "what is my genotype (210)", "how to do genotype test in the lab (170)", "genotype test kit (140)", "genotype test procedure pdf (110)", "genotype test price (70)"]
     intent: informational
     title: "Genotype Test (AA, AS, SS): What Your Result Means for Family Planning"
-    status: todo
-    notes: "Extremely high search volume in Nigeria. Cover haemoglobin genotypes, compatibility for couples, link to sickle-cell-trait article. Pair with premarital screening."
+    status: done
+    completed: 2026-07-08
+    notes: "Published 2026-07-08. genotype test 880/mo Nigeria, LOW competition (DataForSEO confirmed 2026-07-08). Skipped art-hepatitis-c: two open unmerged draft PRs (#36, #37) already claim it as of 2026-07-08; a human should merge/close one of those before the next run re-reads roadmap.yml. Covers AA/AS/SS/SC/AC/CC genotype codes, genotype vs blood group distinction, lab test procedure (electrophoresis/HPLC) with a caution against informal home kits, genotype compatibility odds per pairing, and Nigeria's sickle cell disease burden and trait prevalence. Cross-linked with sickle-cell-trait-testing. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-premarital-screening
     type: article

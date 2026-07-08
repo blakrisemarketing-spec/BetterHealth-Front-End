@@ -22,6 +22,7 @@ import malariaTestExplained from "./posts/malaria-test-explained.js";
 import typhoidWidalTest from "./posts/typhoid-widal-test.js";
 import hepatitisBTest from "./posts/hepatitis-b-test.js";
 import hivTestExplained from "./posts/hiv-test-explained.js";
+import genotypeTestAaAsSs from "./posts/genotype-test-aa-as-ss.js";
 
 const ALL = [
   hba1cExplained,
@@ -43,6 +44,7 @@ const ALL = [
   typhoidWidalTest,
   hepatitisBTest,
   hivTestExplained,
+  genotypeTestAaAsSs,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically
