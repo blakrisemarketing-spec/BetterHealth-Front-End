@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-05",
+  "lastRunDate": "2026-07-09",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -18,13 +18,18 @@
     "art-malaria-test",
     "art-typhoid-widal",
     "art-hepatitis-b",
-    "art-hiv-test"
+    "art-hiv-test",
+    "art-premarital-screening",
+    "art-blood-group",
+    "art-psa-prostate",
+    "art-pap-smear",
+    "art-uric-acid-gout"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-05",
   "inFlightPRs": [],
-  "publishedCount": 19,
-  "notes": "Deploy wave 2026-07-05 merged the nightly 5-article batch (#29: art-thyroid-tsh, art-liver-function-tests, art-malaria-test, art-typhoid-widal, art-hepatitis-b) together with art-hiv-test (#32); all six are now published on main and flipped to done in roadmap.yml, and the duplicate thyroid PR #31 was closed. All cite WHO/standard clinical guidance, carry the educational disclaimer, and passed the clinical-safety + humanizer gates. Next unclaimed todo: art-hepatitis-c (hepatitis C test, volume unconfirmed), then art-genotype-test / art-premarital-screening (Nigeria)."
+  "publishedCount": 24,
+  "notes": "2026-07-09 nightly batch (this PR): art-premarital-screening (Nigeria), art-blood-group, art-psa-prostate, art-pap-smear, art-uric-acid-gout, all flipped to done. Skipped art-hepatitis-c and art-genotype-test in this run because they are already claimed by THREE open, unmerged draft PRs (#36 and #37 for hepatitis-c-test, #38 for genotype-test-aa-as-ss) dating back to 2026-07-06/07/08 that a human has not yet merged or closed; opening a 3rd/2nd duplicate would waste review effort. A human should merge or close #36, #37, and #38 (keep at most one of #36/#37) before the next nightly run, otherwise it will hit the same fork again and skip further down the queue. Next unclaimed todo after those three are resolved: art-hepatitis-c or art-genotype-test, then art-h-pylori / art-stool-test / art-urinalysis / art-crp-inflammation / art-vitamin-b12. 18 todo article/local items remain in roadmap.yml, so the queue-refill pass is not yet triggered (threshold is under 10)."
 }

@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-05
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; South Africa still pending)"
+  updated: 2026-07-09
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; blood group/PSA/pap smear/uric acid/premarital volumes reconfirmed 2026-07-09; South Africa still pending)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -305,12 +305,13 @@ items:
     slug: premarital-screening
     keyword: premarital screening
     market: nigeria
-    volume: null
-    secondary: ["premarital test", "marriage blood test", "genotype and premarital screening", "what tests are done before marriage"]
+    volume: 50
+    secondary: ["premarital test (110/mo)", "marriage blood test (10/mo)", "genotype and premarital screening", "what tests are done before marriage (10/mo)"]
     intent: commercial
     title: "Premarital Screening: The Tests Every Couple Should Do Before Marriage"
-    status: todo
-    notes: "High intent across Nigeria + Ghana. Genotype, infectious (HIV/Hep B), blood group/Rh, fertility basics. Strong commercial + AI-citation overlap."
+    status: done
+    completed: 2026-07-09
+    notes: "Published 2026-07-09 (nightly batch). premarital screening 50/mo Nigeria, LOW competition (DataForSEO). Covers the core panel (genotype, blood group/Rh, infectious disease, optional fertility basics), genotype-compatibility odds, Rh-incompatibility pregnancy angle, and non-stigmatizing infectious-disease framing. Cross-links sickle-cell-trait-testing, blood-group-test, hiv-test-explained, hepatitis-b-test. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-blood-group
     type: article
@@ -318,11 +319,13 @@ items:
     slug: blood-group-test
     keyword: blood group test
     market: pan-africa
-    volume: null
-    secondary: ["blood type test", "rhesus factor", "blood group compatibility", "what is rhesus negative"]
+    volume: 260
+    secondary: ["blood type test (10/mo)", "rhesus factor (1000/mo)", "blood group compatibility (320/mo)", "what is rhesus negative (10/mo)"]
     intent: informational
     title: "Blood Group and Rhesus Factor: What Your Blood Type Means"
-    status: todo
+    status: done
+    completed: 2026-07-09
+    notes: "Published 2026-07-09 (nightly batch). blood group test 260/mo Ghana, LOW competition (DataForSEO). Covers ABO/Rh basics, universal donor/recipient, Rh-incompatibility pregnancy angle, and Ghana/African blood-donation context tied to sickle cell transfusion need. Article + BreadcrumbList + FAQPage schema."
 
   # ---- Cancer screening ----
   - id: art-psa-prostate
@@ -331,25 +334,27 @@ items:
     slug: psa-prostate-test
     keyword: psa test
     market: pan-africa
-    volume: null
-    secondary: ["prostate cancer screening", "psa normal range", "raised psa causes", "prostate test for men"]
+    volume: 480
+    secondary: ["prostate cancer screening (40/mo)", "psa normal range (140/mo)", "raised psa causes (10/mo)", "psa broad term (1300/mo)"]
     intent: informational
     title: "PSA Test: Prostate Screening for Men, and What a Raised Result Means"
-    status: todo
-    notes: "Prostate cancer incidence is high in men of African descent. Cover PSA ranges, false positives, and the screening-age conversation."
+    status: done
+    completed: 2026-07-09
+    notes: "Published 2026-07-09 (nightly batch). psa test 480/mo Ghana, LOW competition (DataForSEO). Deliberately avoids claiming a raised PSA equals cancer and avoids recommending universal screening; carries the overdiagnosis/shared-decision caveat matching mainstream guideline caution, plus the African-descent prostate cancer risk context stated qualitatively (no invented stat). Article + BreadcrumbList + FAQPage schema."
 
   - id: art-pap-smear
     type: article
     cluster: screening
     slug: pap-smear-cervical-screening
-    keyword: pap smear test
+    keyword: pap smear
     market: pan-africa
-    volume: null
-    secondary: ["cervical cancer screening", "HPV test", "pap smear results explained", "how often pap smear"]
+    volume: 1900
+    secondary: ["cervical cancer screening (90/mo)", "how often pap smear (10/mo)", "HPV test", "pap smear results explained"]
     intent: informational
     title: "Pap Smear and HPV Testing: Cervical Cancer Screening Explained"
-    status: todo
-    notes: "Cervical cancer is a leading cancer in African women. Cover Pap vs HPV testing, screening intervals, and result categories."
+    status: done
+    completed: 2026-07-09
+    notes: "Published 2026-07-09 (nightly batch). pap smear 1900/mo Ghana, LOW competition (DataForSEO); retargeted up from the seed 'pap smear test'. Covers Pap vs HPV distinction, co-testing, general screening-interval guidance (no single universal protocol asserted), the sub-Saharan Africa cervical cancer burden (sourced qualitatively to WHO/global registries), result categories with abnormal-does-not-mean-cancer caveat, and the HPV vaccine. Handled with dignity, no stigmatizing language. Article + BreadcrumbList + FAQPage schema."
 
   # ---- Common biomarker / GI / metabolic explainers ----
   - id: art-uric-acid-gout
@@ -358,11 +363,13 @@ items:
     slug: uric-acid-gout-test
     keyword: uric acid test
     market: pan-africa
-    volume: null
-    secondary: ["gout symptoms", "high uric acid", "uric acid normal range", "uric acid diet"]
+    volume: 210
+    secondary: ["gout symptoms (210/mo)", "uric acid diet (10/mo)", "high uric acid", "uric acid normal range"]
     intent: informational
     title: "Uric Acid Test and Gout: Reading Your Result and Lowering It"
-    status: todo
+    status: done
+    completed: 2026-07-09
+    notes: "Published 2026-07-09 (nightly batch). uric acid test 210/mo Ghana, LOW competition (DataForSEO). Covers hyperuricaemia, gout and kidney stone risk, causes, diet/lifestyle steps, and when to see a doctor. Deliberately avoids asserting one universal numeric reference range (varies by lab/sex); points readers to their own lab report. Cross-links creatinine-egfr-kidney-function and fatty-liver-disease-explained. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-h-pylori
     type: article

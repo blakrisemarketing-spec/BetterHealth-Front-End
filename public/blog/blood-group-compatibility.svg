@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="480" fill="#FFFFFF"/>
+  <text x="70" y="60" font-size="32" font-weight="700" fill="#2B3A3A">Who can donate to whom</text>
+  <text x="70" y="92" font-size="19" fill="#6B7979">A simplified view of ABO and Rh transfusion compatibility</text>
+
+  <!-- Universal donor card -->
+  <rect x="70" y="130" width="500" height="150" rx="18" fill="#F5F3EE" stroke="#6B8E7F" stroke-width="2"/>
+  <circle cx="150" cy="205" r="46" fill="#6B8E7F"/>
+  <text x="150" y="216" font-size="26" font-weight="800" fill="#F5F3EE" text-anchor="middle">O-</text>
+  <text x="222" y="180" font-size="22" font-weight="700" fill="#2B3A3A">Universal donor</text>
+  <text x="222" y="210" font-size="17" fill="#6B7979">O-negative red cells carry no A, B</text>
+  <text x="222" y="232" font-size="17" fill="#6B7979">or Rh(D) markers, so most recipients'</text>
+  <text x="222" y="254" font-size="17" fill="#6B7979">immune systems accept them.</text>
+
+  <!-- Universal recipient card -->
+  <rect x="630" y="130" width="500" height="150" rx="18" fill="#F5F3EE" stroke="#C28A2E" stroke-width="2"/>
+  <circle cx="710" cy="205" r="46" fill="#C28A2E"/>
+  <text x="710" y="216" font-size="22" font-weight="800" fill="#FFFFFF" text-anchor="middle">AB+</text>
+  <text x="782" y="180" font-size="22" font-weight="700" fill="#2B3A3A">Universal recipient</text>
+  <text x="782" y="210" font-size="17" fill="#6B7979">AB-positive people already carry A,</text>
+  <text x="782" y="232" font-size="17" fill="#6B7979">B and Rh(D) markers, so they can</text>
+  <text x="782" y="254" font-size="17" fill="#6B7979">receive any ABO/Rh blood type.</text>
+
+  <!-- compatibility grid row -->
+  <text x="70" y="330" font-size="20" font-weight="700" fill="#2B3A3A">Every donation is still matched and tested before use</text>
+  <g font-size="16" fill="#6B7979">
+    <circle cx="90" cy="368" r="8" fill="#6B8E7F"/>
+    <text x="110" y="373">A can donate to A and AB</text>
+    <circle cx="90" cy="398" r="8" fill="#6B8E7F"/>
+    <text x="110" y="403">B can donate to B and AB</text>
+    <circle cx="470" cy="368" r="8" fill="#6B8E7F"/>
+    <text x="490" y="373">AB can donate to AB only</text>
+    <circle cx="470" cy="398" r="8" fill="#6B8E7F"/>
+    <text x="490" y="403">O can donate to A, B, AB and O</text>
+  </g>
+  <text x="70" y="450" font-size="15" fill="#9AA6A6">Simplified for the ABO and Rh(D) markers only. Labs cross-match every unit before transfusion regardless of stated type.</text>
+</svg>
