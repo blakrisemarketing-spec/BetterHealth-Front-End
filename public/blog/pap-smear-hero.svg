@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">CERVICAL CANCER SCREENING</text>
+  <text x="86" y="252" font-size="56" font-weight="800" fill="#2B3A3A">Pap smear and HPV testing,</text>
+  <text x="86" y="312" font-size="56" font-weight="800" fill="#2B3A3A">explained</text>
+  <text x="90" y="358" font-size="24" fill="#6B7979">Two tests, one goal: catching changes early, long before they become cancer.</text>
+
+  <!-- two pill badges representing the two tests -->
+  <g>
+    <rect x="90" y="392" width="200" height="46" rx="23" fill="#FFFFFF" stroke="#6B8E7F" stroke-width="2"/>
+    <text x="190" y="421" font-size="18" font-weight="700" fill="#2B3A3A" text-anchor="middle">Pap smear</text>
+  </g>
+  <g>
+    <rect x="304" y="392" width="180" height="46" rx="23" fill="#6B8E7F"/>
+    <text x="394" y="421" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">HPV test</text>
+  </g>
+
+  <!-- simple cell motif, abstract circles suggesting cells under a microscope -->
+  <circle cx="1030" cy="330" r="34" fill="none" stroke="#6B8E7F" stroke-width="3" stroke-opacity="0.55"/>
+  <circle cx="1030" cy="330" r="10" fill="#6B8E7F" fill-opacity="0.55"/>
+  <circle cx="1110" cy="290" r="22" fill="none" stroke="#6B8E7F" stroke-width="3" stroke-opacity="0.4"/>
+  <circle cx="1110" cy="290" r="6" fill="#6B8E7F" fill-opacity="0.4"/>
+  <circle cx="1105" cy="390" r="26" fill="none" stroke="#6B8E7F" stroke-width="3" stroke-opacity="0.35"/>
+  <circle cx="1105" cy="390" r="7" fill="#6B8E7F" fill-opacity="0.35"/>
+</svg>

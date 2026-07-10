@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">What a standard premarital screening panel covers</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Four groups of tests. Clinics vary in exactly what they bundle together.</text>
+
+  <!-- Row 1: Genotype -->
+  <circle cx="88" cy="140" r="10" fill="#6B8E7F"/>
+  <text x="112" y="146" font-size="19" font-weight="700" fill="#2B3A3A">Haemoglobin genotype</text>
+  <text x="112" y="172" font-size="15" fill="#6B7979">Electrophoresis or HPLC identifies AA, AS, SS, SC and other combinations.</text>
+  <line x1="70" y1="196" x2="1130" y2="196" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- Row 2: Blood group / Rh -->
+  <circle cx="88" cy="228" r="10" fill="#6B8E7F"/>
+  <text x="112" y="234" font-size="19" font-weight="700" fill="#2B3A3A">Blood group and Rh factor</text>
+  <text x="112" y="260" font-size="15" fill="#6B7979">ABO group plus Rh status, relevant to pregnancy planning and transfusion.</text>
+  <line x1="70" y1="284" x2="1130" y2="284" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- Row 3: Infectious disease -->
+  <circle cx="88" cy="316" r="10" fill="#6B8E7F"/>
+  <text x="112" y="322" font-size="19" font-weight="700" fill="#2B3A3A">Infectious disease screening</text>
+  <text x="112" y="348" font-size="15" fill="#6B7979">HIV, hepatitis B, hepatitis C and syphilis, usually a shared panel for both partners.</text>
+  <line x1="70" y1="372" x2="1130" y2="372" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- Row 4: Fertility basics -->
+  <circle cx="88" cy="404" r="10" fill="#6B8E7F"/>
+  <text x="112" y="410" font-size="19" font-weight="700" fill="#2B3A3A">Fertility basics (optional add-on)</text>
+  <text x="112" y="436" font-size="15" fill="#6B7979">A basic hormone or semen-analysis check some clinics offer alongside the panel.</text>
+
+  <text x="850" y="436" font-size="13" fill="#9AA6A6" text-anchor="end">Confirm the exact panel with your clinic before booking.</text>
+</svg>

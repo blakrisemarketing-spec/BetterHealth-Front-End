@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="150" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+  <text x="86" y="238" font-size="56" font-weight="800" fill="#2B3A3A">Blood group and Rh factor</text>
+  <text x="90" y="288" font-size="26" fill="#6B7979">What your ABO group and Rh factor mean, in plain language.</text>
+
+  <!-- four blood-drop badges: A, B, AB, O -->
+  <g>
+    <circle cx="196" cy="392" r="52" fill="#FFFFFF" stroke="#6B8E7F" stroke-width="3"/>
+    <text x="196" y="405" font-size="34" font-weight="800" fill="#6B8E7F" text-anchor="middle">A</text>
+  </g>
+  <g>
+    <circle cx="352" cy="392" r="52" fill="#FFFFFF" stroke="#6B8E7F" stroke-width="3"/>
+    <text x="352" y="405" font-size="34" font-weight="800" fill="#6B8E7F" text-anchor="middle">B</text>
+  </g>
+  <g>
+    <circle cx="508" cy="392" r="52" fill="#6B8E7F"/>
+    <text x="508" y="405" font-size="30" font-weight="800" fill="#F5F3EE" text-anchor="middle">AB</text>
+  </g>
+  <g>
+    <circle cx="664" cy="392" r="52" fill="#FFFFFF" stroke="#6B8E7F" stroke-width="3"/>
+    <text x="664" y="405" font-size="34" font-weight="800" fill="#6B8E7F" text-anchor="middle">O</text>
+  </g>
+
+  <!-- Rh +/- marker -->
+  <circle cx="850" cy="392" r="52" fill="none" stroke="#C28A2E" stroke-width="3" stroke-dasharray="6 6"/>
+  <text x="850" y="405" font-size="30" font-weight="800" fill="#C28A2E" text-anchor="middle">Rh</text>
+  <text x="960" y="380" font-size="30" font-weight="800" fill="#2B3A3A">+ / -</text>
+  <text x="960" y="410" font-size="17" fill="#6B7979">Rh positive or negative</text>
+</svg>
