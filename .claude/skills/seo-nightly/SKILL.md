@@ -58,17 +58,33 @@ This skill is the executable checklist.
 
 ### 2. Select the batch
 - Read `seo/progress.json` and `seo/roadmap.yml`.
+- **Dedup against open PRs FIRST — this is the load-bearing step.** Because every run
+  branches fresh from `origin/main`, `progress.json.inFlightPRs` written on a previous
+  run's *unmerged* branch is invisible here (main still shows `[]`). So the only
+  reliable claim signal is GitHub itself. Before selecting, list open SEO PRs and
+  collect the slugs they already ship:
+  ```
+  gh pr list --state open --json number,headRefName,files \
+    --jq '.[] | select(.headRefName|test("seo/|nightly")) | .files[].path' \
+    | grep '^src/data/blog/posts/' | sed 's#.*/##; s#\.js$##' | sort -u
+  ```
+  Treat every slug printed as **already claimed**. (Equivalently: scan each open PR's
+  `roadmap.yml` diff for items it flips to `done`.)
 - Select the **first five** `items` entries with `status: todo` and `type: article`
-  (or `type: local` location pages), top-to-bottom. That ordered list is tonight's
-  batch. **Skip pure tech tasks** (`tech-*`) — those are handled deliberately, not
-  in the article batch.
-- Track the selected ids **in memory for this run** — do not rely on merged state to
-  avoid re-picking. (The PR is not merged until a human acts, so the next run still
-  sees these as `todo`; that is fine because each run picks the current top five and
-  in-flight ids are recorded in `progress.json.inFlightPRs`.)
-- Record the batch ids in `progress.json.inFlightPRs` so an overlapping run does not
-  duplicate them.
-- If fewer than five qualify, take what exists and flag the queue-refill pass.
+  (or `type: local` location pages), top-to-bottom, **skipping any whose `slug` is
+  already claimed by an open PR** and skipping pure tech tasks (`tech-*`). Walk further
+  down the queue as needed to reach five unclaimed items — do not open a 2nd/3rd PR for
+  a slug that already has one waiting for review. (This is exactly what the 2026-07-09
+  run did correctly and the 2026-07-10 run failed to do, causing PRs #36–#40 to pile up
+  five deep on the same seven articles.)
+- If open PRs have grown to a backlog (roughly 3+ unmerged SEO PRs), **do not add more**:
+  publish nothing new this run, and instead leave a `progress.json` note asking a human
+  to merge or close the backlog first. More unreviewed drafts do not help the program.
+- Track the selected ids **in memory for this run**, and record them in
+  `progress.json.inFlightPRs` on this branch (belt-and-suspenders for a concurrent run
+  in the same session — but the `gh pr list` scan above is the primary guard, since
+  `inFlightPRs` does not survive to the next run's fresh branch).
+- If fewer than five qualify after dedup, take what exists and flag the queue-refill pass.
 
 ### 3. Refine each target (skip gracefully if creds absent)
 - If DataForSEO creds are set, for each target: `node seo/tools/dataforseo.mjs volume
