@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="560" fill="#FFFFFF"/>
+
+  <text x="70" y="56" font-size="28" font-weight="700" fill="#2B3A3A">Genotype compatibility for couples</text>
+  <text x="70" y="86" font-size="17" fill="#6B7979">Chance a child inherits sickle cell disease, by combined parent genotypes</text>
+
+  <!-- Row 1: AA + AA -->
+  <rect x="70" y="118" width="1060" height="66" rx="10" fill="#EAF1EC" stroke="#6B8E7F" stroke-width="2"/>
+  <text x="96" y="158" font-size="22" font-weight="800" fill="#2B3A3A">AA + AA</text>
+  <text x="330" y="158" font-size="17" fill="#2B3A3A">No risk. No child can inherit sickle cell disease.</text>
+
+  <!-- Row 2: AA + AS -->
+  <rect x="70" y="196" width="1060" height="66" rx="10" fill="#EAF1EC" stroke="#6B8E7F" stroke-width="2"/>
+  <text x="96" y="236" font-size="22" font-weight="800" fill="#2B3A3A">AA + AS</text>
+  <text x="330" y="236" font-size="17" fill="#2B3A3A">No risk of disease, but half of children may inherit the trait (AS).</text>
+
+  <!-- Row 3: AS + AS -->
+  <rect x="70" y="274" width="1060" height="66" rx="10" fill="#F3EEDF" stroke="#E0A23E" stroke-width="2"/>
+  <text x="96" y="314" font-size="22" font-weight="800" fill="#2B3A3A">AS + AS</text>
+  <text x="330" y="314" font-size="17" fill="#2B3A3A">25% chance of sickle cell disease (SS) with every pregnancy.</text>
+
+  <!-- Row 4: AS + SS -->
+  <rect x="70" y="352" width="1060" height="66" rx="10" fill="#F6E3E0" stroke="#C9594F" stroke-width="2"/>
+  <text x="96" y="392" font-size="22" font-weight="800" fill="#2B3A3A">AS + SS</text>
+  <text x="330" y="392" font-size="17" fill="#2B3A3A">Every child inherits a sickle gene; about 50% will have the disease.</text>
+
+  <!-- Row 5: SS + SS -->
+  <rect x="70" y="430" width="1060" height="66" rx="10" fill="#F6E3E0" stroke="#C9594F" stroke-width="2"/>
+  <text x="96" y="470" font-size="22" font-weight="800" fill="#2B3A3A">SS + SS</text>
+  <text x="330" y="470" font-size="17" fill="#2B3A3A">Every child inherits sickle cell disease.</text>
+
+  <line x1="70" y1="512" x2="1130" y2="512" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="540" font-size="14" fill="#9AA6A6">Simplified for haemoglobin S only. Haemoglobin C (AC, SC) and other variants change the picture; a lab-confirmed genotype test and a genetic counsellor can give the exact odds for your combination.</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Hepatitis C: the two-step testing path</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">An antibody screen is only the first step. Confirmation needs a second test.</text>
+
+  <!-- Step 1 -->
+  <rect x="70" y="130" width="300" height="120" rx="14" fill="#F5F3EE" stroke="#E8E3DA"/>
+  <text x="94" y="164" font-size="15" font-weight="700" letter-spacing="2" fill="#6B8E7F">STEP 1</text>
+  <text x="94" y="196" font-size="20" font-weight="700" fill="#2B3A3A">Anti-HCV antibody test</text>
+  <text x="94" y="224" font-size="15" fill="#6B7979">Checks for past exposure</text>
+
+  <path d="M 380 190 L 430 190" stroke="#2B3A3A" stroke-width="2" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2B3A3A"/>
+    </marker>
+  </defs>
+
+  <!-- Step 2 -->
+  <rect x="440" y="130" width="300" height="120" rx="14" fill="#F5F3EE" stroke="#E8E3DA"/>
+  <text x="464" y="164" font-size="15" font-weight="700" letter-spacing="2" fill="#D97B4F">STEP 2 (if positive)</text>
+  <text x="464" y="196" font-size="20" font-weight="700" fill="#2B3A3A">HCV RNA (PCR) test</text>
+  <text x="464" y="224" font-size="15" fill="#6B7979">Confirms if virus is active now</text>
+
+  <path d="M 750 190 L 800 190" stroke="#2B3A3A" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Two outcomes -->
+  <rect x="810" y="90" width="320" height="80" rx="14" fill="#FBEFEA" stroke="#E8D9CE"/>
+  <text x="834" y="122" font-size="17" font-weight="700" fill="#C9594F">RNA positive</text>
+  <text x="834" y="148" font-size="15" fill="#6B7979">Active infection: discuss curative treatment</text>
+
+  <rect x="810" y="200" width="320" height="80" rx="14" fill="#EEF3EF" stroke="#DCE6E0"/>
+  <text x="834" y="232" font-size="17" font-weight="700" fill="#6B8E7F">RNA negative</text>
+  <text x="834" y="258" font-size="15" fill="#6B7979">Past exposure only, or infection already cleared</text>
+
+  <line x1="70" y1="320" x2="1130" y2="320" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="356" font-size="15" fill="#6B7979">A positive antibody test alone never confirms current infection. Only HCV RNA does.</text>
+  <text x="70" y="382" font-size="15" fill="#6B7979">Direct-acting antivirals cure more than 95% of confirmed cases in 8 to 12 weeks.</text>
+  <text x="70" y="418" font-size="13" fill="#9AA6A6">Source: WHO hepatitis C testing and treatment guidance. Always confirm interpretation with a clinician.</text>
+</svg>

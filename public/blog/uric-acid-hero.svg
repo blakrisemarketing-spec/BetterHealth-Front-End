@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+  <text x="86" y="252" font-size="58" font-weight="800" fill="#2B3A3A">Uric acid and gout,</text>
+  <text x="86" y="316" font-size="58" font-weight="800" fill="#2B3A3A">in plain language</text>
+  <text x="90" y="360" font-size="26" fill="#6B7979">A waste product your kidneys clear. When it builds up, it can cause gout.</text>
+
+  <!-- simple joint illustration: swollen big toe joint marker -->
+  <g transform="translate(90,395)">
+    <circle cx="30" cy="18" r="16" fill="none" stroke="#6B8E7F" stroke-width="4"/>
+    <circle cx="30" cy="18" r="26" fill="#C9594F" fill-opacity="0.18"/>
+    <circle cx="30" cy="18" r="26" fill="none" stroke="#C9594F" stroke-width="3" stroke-dasharray="4 5"/>
+    <text x="76" y="12" font-size="17" font-weight="700" fill="#2B3A3A">A raised uric acid level</text>
+    <text x="76" y="34" font-size="17" fill="#6B7979">can trigger gout, classically in the big toe.</text>
+  </g>
+</svg>

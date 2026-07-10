@@ -279,11 +279,12 @@ items:
     slug: hepatitis-c-test
     keyword: hepatitis C test
     market: pan-africa
-    volume: null
+    volume: 20
     secondary: ["anti-HCV test", "hepatitis C symptoms", "hepatitis C cure"]
     intent: informational
     title: "Hepatitis C Test: Who Should Screen and What the Result Means"
-    status: todo
+    status: done
+    completed: 2026-07-06
 
   # ---- Inherited / pre-conception screening (huge volume in Nigeria) ----
   - id: art-genotype-test
@@ -292,11 +293,12 @@ items:
     slug: genotype-test-aa-as-ss
     keyword: genotype test
     market: nigeria
-    volume: null
+    volume: 880
     secondary: ["AA AS SS genotype", "genotype compatibility", "sickle cell genotype", "what is my genotype"]
     intent: informational
     title: "Genotype Test (AA, AS, SS): What Your Result Means for Family Planning"
-    status: todo
+    status: done
+    completed: 2026-07-08
     notes: "Extremely high search volume in Nigeria. Cover haemoglobin genotypes, compatibility for couples, link to sickle-cell-trait article. Pair with premarital screening."
 
   - id: art-premarital-screening
@@ -305,11 +307,12 @@ items:
     slug: premarital-screening
     keyword: premarital screening
     market: nigeria
-    volume: null
+    volume: 50
     secondary: ["premarital test", "marriage blood test", "genotype and premarital screening", "what tests are done before marriage"]
     intent: commercial
     title: "Premarital Screening: The Tests Every Couple Should Do Before Marriage"
-    status: todo
+    status: done
+    completed: 2026-07-09
     notes: "High intent across Nigeria + Ghana. Genotype, infectious (HIV/Hep B), blood group/Rh, fertility basics. Strong commercial + AI-citation overlap."
 
   - id: art-blood-group
@@ -318,11 +321,12 @@ items:
     slug: blood-group-test
     keyword: blood group test
     market: pan-africa
-    volume: null
+    volume: 260
     secondary: ["blood type test", "rhesus factor", "blood group compatibility", "what is rhesus negative"]
     intent: informational
     title: "Blood Group and Rhesus Factor: What Your Blood Type Means"
-    status: todo
+    status: done
+    completed: 2026-07-09
 
   # ---- Cancer screening ----
   - id: art-psa-prostate
@@ -331,11 +335,12 @@ items:
     slug: psa-prostate-test
     keyword: psa test
     market: pan-africa
-    volume: null
+    volume: 480
     secondary: ["prostate cancer screening", "psa normal range", "raised psa causes", "prostate test for men"]
     intent: informational
     title: "PSA Test: Prostate Screening for Men, and What a Raised Result Means"
-    status: todo
+    status: done
+    completed: 2026-07-10
     notes: "Prostate cancer incidence is high in men of African descent. Cover PSA ranges, false positives, and the screening-age conversation."
 
   - id: art-pap-smear
@@ -348,7 +353,8 @@ items:
     secondary: ["cervical cancer screening", "HPV test", "pap smear results explained", "how often pap smear"]
     intent: informational
     title: "Pap Smear and HPV Testing: Cervical Cancer Screening Explained"
-    status: todo
+    status: done
+    completed: 2026-07-09
     notes: "Cervical cancer is a leading cancer in African women. Cover Pap vs HPV testing, screening intervals, and result categories."
 
   # ---- Common biomarker / GI / metabolic explainers ----
@@ -362,7 +368,8 @@ items:
     secondary: ["gout symptoms", "high uric acid", "uric acid normal range", "uric acid diet"]
     intent: informational
     title: "Uric Acid Test and Gout: Reading Your Result and Lowering It"
-    status: todo
+    status: done
+    completed: 2026-07-09
 
   - id: art-h-pylori
     type: article
