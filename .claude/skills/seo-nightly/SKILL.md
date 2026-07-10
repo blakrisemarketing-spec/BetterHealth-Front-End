@@ -32,6 +32,34 @@ This skill is the executable checklist.
 - If fewer than five `todo` article items exist, publish what remains, then run the
   **queue-refill pass** (below) so the next run has runway.
 
+### The measurable quality floor (per article — enforce, don't eyeball)
+
+Batching five articles into one drafting pass historically thinned the later ones
+(fewer words, one image, two links, less citable structure) versus dedicated
+single-topic runs. Two mechanisms prevent that regression:
+
+1. **Draft each article in its own sub-agent** (see step 4) so every article gets a
+   full, dedicated context budget instead of competing for attention inside one pass.
+2. **Every shipped article must clear ALL of these before the PR opens.** If a draft
+   misses any, send it back to its sub-agent to expand (cover the roadmap `secondary`
+   keywords, add the missing image/link/FAQ), then re-check. If it still cannot clear
+   the floor, **drop it from the batch** (leave `todo`) exactly as with the clinical
+   gate — never ship a thin article to hit five.
+   - **Depth:** ~1,100+ words of body prose. This is a signal, not a target to pad to
+     — reach it by fully answering the query and covering the `secondary` keywords, not
+     with filler. The `bh-humanizer`/`stop-slop` gate still applies; padding fails it.
+   - **Images:** at least **2** body `image` blocks (a hero card + one data graphic),
+     not just a hero.
+   - **Internal links:** **3–4** `link-internal` blocks — at least **2 blog
+     cross-links** (related articles, including tonight's batch mates where topical)
+     plus `/what-we-test` and/or `/pricing`. Every blog `to:` must resolve in the
+     merged set.
+   - **Citability:** **every** `h2` opens with a self-contained claim sentence an AI
+     engine can lift as a standalone answer.
+   - **FAQ:** one `faq` block with **≥5** answer-first Q&As, seeded from real
+     "questions people ask" (DataForSEO `ideas`) where creds exist.
+   - **Local framing:** market-appropriate context present (not reflexively Ghana).
+
 ## Hard rules (never break)
 
 1. **PR for review only.** Never commit to `main`. Open one PR; a human merges.
@@ -97,8 +125,20 @@ This skill is the executable checklist.
 - Each tool exits cleanly if its env vars are missing — never let that block the run.
 
 ### 4. For EACH article in the batch: brief, then draft
-Run this loop once per selected target. Keep articles independent (separate files,
-separate slugs); they only converge at the single state update and PR.
+
+**Draft each article in its own sub-agent, in parallel — do NOT draft all five inline
+in this one context.** Drafting five articles sequentially in a single pass is what
+thinned the later ones (that is the exact regression the quality floor above targets).
+Instead, spawn one `Task` sub-agent per selected target (send them in one message so
+they run concurrently); each sub-agent owns a single article end-to-end and returns its
+finished `src/data/blog/posts/<slug>.js` plus any `public/blog/*.svg` it created. Give
+each sub-agent: the roadmap item (keyword, `secondary`, market, intent), the confirmed
+DataForSEO volume/ideas, the slugs of the OTHER batch articles (for cross-links), the
+quality floor above, and the instruction to self-check against it before returning. The
+articles stay independent (separate files, separate slugs); they only converge here at
+registration, the single state update, and the PR.
+
+Each sub-agent performs this loop for its one article:
 
 - Write `seo/briefs/<slug>.md`: primary + secondary keywords, intent, the angle, an
   H2 outline, the internal links to include, and the one-sentence citable claim each
@@ -122,7 +162,9 @@ separate slugs); they only converge at the single state update and PR.
     those apply across much of sub-Saharan Africa, not just Ghana.
   - Use the `seo-content` and `seo-content-brief` skills for quality; `seo-schema`
     is automatic via `seo.js` (Article + Breadcrumb + FAQ derive themselves).
-- Register it: add the `import` + array entry in `src/data/blog/index.js`.
+- Registration is done by the MAIN run, not the sub-agent: once all sub-agents return,
+  add one `import` + one array entry per shipped article in `src/data/blog/index.js`
+  (keeping the single-append-point invariant), then run the floor + build checks below.
 - **Images (required):** every article ships with at least one relevant image.
   Prefer on-brand SVG data-graphics or hero cards saved in `public/blog/` (crisp,
   tiny on 3G, no generic stock-photo look), referenced with `body` `image` blocks.
@@ -153,6 +195,18 @@ separate slugs); they only converge at the single state update and PR.
   yours; ignore them).
 - Humanise check per article: `grep -n " — " src/data/blog/posts/<slug>.js` returns
   nothing (zero spaced em dashes in prose).
+- **Quality-floor check per article** (the anti-thinness gate — enforce, don't eyeball):
+  ```
+  f=src/data/blog/posts/<slug>.js
+  echo "images:   $(grep -c 'type: "image"' $f)   (need >=2)"
+  echo "links:    $(grep -c 'type: "link-internal"' $f)   (need 3-4)"
+  echo "faq Qs:   $(grep -c '        q:' $f)   (need >=5)"
+  echo "h2s:      $(grep -c 'type: "h2"' $f)"
+  ```
+  Confirm images >=2, link-internal 3-4 (>=2 of them blog cross-links that resolve),
+  faq >=5, and that every `h2` opens a citable claim. Any shipped article that misses
+  the floor after its sub-agent's expansion pass is **dropped from the batch** (left
+  `todo`), never shipped thin — same disposition as a failed clinical gate.
 
 ### 7. Advance state (ONE combined edit)
 - For every article that shipped: flip its roadmap item to `status: done` and add
