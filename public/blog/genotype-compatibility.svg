@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="520" fill="#F5F3EE"/>
+  <text x="90" y="70" font-size="30" font-weight="800" fill="#2B3A3A">Genotype compatibility for couples</text>
+  <text x="90" y="102" font-size="19" fill="#6B7979">Each pregnancy is an independent chance, the odds reset every time.</text>
+
+  <g font-size="18" font-weight="700" fill="#2B3A3A">
+    <text x="90" y="160">AA + AA</text>
+    <text x="90" y="188" font-size="16" font-weight="400" fill="#6B7979">All children AA. No sickle-related risk.</text>
+    <rect x="90" y="205" width="380" height="14" rx="7" fill="#6B8E7F"/>
+
+    <text x="90" y="255">AA + AS</text>
+    <text x="90" y="283" font-size="16" font-weight="400" fill="#6B7979">50% AA, 50% AS. No child with sickle cell disease.</text>
+    <rect x="90" y="300" width="190" height="14" rx="7" fill="#6B8E7F"/>
+    <rect x="284" y="300" width="190" height="14" rx="7" fill="#D9A85C"/>
+
+    <text x="90" y="350">AS + AS</text>
+    <text x="90" y="378" font-size="16" font-weight="400" fill="#6B7979">25% AA, 50% AS, 25% SS per pregnancy.</text>
+    <rect x="90" y="395" width="95" height="14" rx="7" fill="#6B8E7F"/>
+    <rect x="189" y="395" width="190" height="14" rx="7" fill="#D9A85C"/>
+    <rect x="383" y="395" width="95" height="14" rx="7" fill="#B0555A"/>
+
+    <text x="90" y="445">AS + SS</text>
+    <text x="90" y="473" font-size="16" font-weight="400" fill="#6B7979">50% AS, 50% SS. High-risk pairing.</text>
+    <rect x="90" y="490" width="190" height="14" rx="7" fill="#D9A85C"/>
+    <rect x="284" y="490" width="190" height="14" rx="7" fill="#B0555A"/>
+  </g>
+
+  <g font-size="15" fill="#6B7979" transform="translate(700,150)">
+    <rect x="0" y="0" width="16" height="16" rx="4" fill="#6B8E7F"/>
+    <text x="24" y="13">AA (no sickle gene)</text>
+    <rect x="0" y="34" width="16" height="16" rx="4" fill="#D9A85C"/>
+    <text x="24" y="47">AS (carrier, healthy)</text>
+    <rect x="0" y="68" width="16" height="16" rx="4" fill="#B0555A"/>
+    <text x="24" y="81">SS (sickle cell disease)</text>
+  </g>
+</svg>

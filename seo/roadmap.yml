@@ -31,7 +31,7 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-05
+  updated: 2026-07-10
   keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; South Africa still pending)"
 
 items:
@@ -283,7 +283,8 @@ items:
     secondary: ["anti-HCV test", "hepatitis C symptoms", "hepatitis C cure"]
     intent: informational
     title: "Hepatitis C Test: Who Should Screen and What the Result Means"
-    status: todo
+    status: done
+    completed: 2026-07-10
 
   # ---- Inherited / pre-conception screening (huge volume in Nigeria) ----
   - id: art-genotype-test
@@ -296,8 +297,9 @@ items:
     secondary: ["AA AS SS genotype", "genotype compatibility", "sickle cell genotype", "what is my genotype"]
     intent: informational
     title: "Genotype Test (AA, AS, SS): What Your Result Means for Family Planning"
-    status: todo
-    notes: "Extremely high search volume in Nigeria. Cover haemoglobin genotypes, compatibility for couples, link to sickle-cell-trait article. Pair with premarital screening."
+    status: done
+    completed: 2026-07-10
+    notes: "Published 2026-07-10. genotype test 880/mo Nigeria, LOW competition (DataForSEO). Also targets genotype test kit (140/mo), how to do genotype test in the lab (170/mo), genotype test price (70/mo), genotype compatibility (1000/mo). Covers electrophoresis/HPLC vs sickling test, AA/AS/SS/AC/SC nomenclature, per-pregnancy inheritance odds, cross-linked with sickle-cell-trait-testing and premarital-screening. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-premarital-screening
     type: article
@@ -309,8 +311,9 @@ items:
     secondary: ["premarital test", "marriage blood test", "genotype and premarital screening", "what tests are done before marriage"]
     intent: commercial
     title: "Premarital Screening: The Tests Every Couple Should Do Before Marriage"
-    status: todo
-    notes: "High intent across Nigeria + Ghana. Genotype, infectious (HIV/Hep B), blood group/Rh, fertility basics. Strong commercial + AI-citation overlap."
+    status: done
+    completed: 2026-07-10
+    notes: "Published 2026-07-10. premarital screening 50/mo Nigeria (DataForSEO); also targets pre marriage medical test cost (50/mo), pre marriage blood test list (10/mo). Roll-up article naming the full panel (genotype, blood group/Rh, HIV, hepatitis B/C, syphilis) and cross-linking the deeper explainers, including genotype-test-aa-as-ss and blood-group-test in this batch. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-blood-group
     type: article
@@ -322,7 +325,9 @@ items:
     secondary: ["blood type test", "rhesus factor", "blood group compatibility", "what is rhesus negative"]
     intent: informational
     title: "Blood Group and Rhesus Factor: What Your Blood Type Means"
-    status: todo
+    status: done
+    completed: 2026-07-10
+    notes: "Published 2026-07-10. blood group test 260/mo Ghana, LOW competition (DataForSEO); also targets rhesus factor (1000/mo). Covers ABO + Rh system, universal donor/recipient framing for red cells vs plasma, Rh sensitisation and anti-D prophylaxis, and a regional note on lower Rh-negative prevalence in African populations. Article + BreadcrumbList + FAQPage schema."
 
   # ---- Cancer screening ----
   - id: art-psa-prostate
@@ -335,8 +340,9 @@ items:
     secondary: ["prostate cancer screening", "psa normal range", "raised psa causes", "prostate test for men"]
     intent: informational
     title: "PSA Test: Prostate Screening for Men, and What a Raised Result Means"
-    status: todo
-    notes: "Prostate cancer incidence is high in men of African descent. Cover PSA ranges, false positives, and the screening-age conversation."
+    status: done
+    completed: 2026-07-10
+    notes: "Published 2026-07-10. psa test 480/mo Ghana, LOW competition (DataForSEO); also targets psa test normal range (70/mo), prostate cancer screening (40/mo). Covers non-cancer causes of a raised PSA, the shared-decision-making screening-age conversation, and the higher/earlier prostate cancer incidence in men of African descent. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-pap-smear
     type: article
