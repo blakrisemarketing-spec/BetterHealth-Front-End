@@ -13,7 +13,7 @@ export default {
   description:
     "A c-reactive protein test and an ESR test both flag inflammation somewhere in the body, but neither says where or why. Learn the normal range, what a high result means, common causes, and how hs-CRP fits into heart disease risk.",
   excerpt:
-    "CRP and ESR are two of the most commonly ordered blood tests in medicine, and two of the most misunderstood. Neither one diagnoses a disease on its own. Here is what a result actually tells you, and what it does not.",
+    "CRP and ESR are two of the most commonly ordered blood tests in medicine, and two of the most misunderstood. Neither one diagnoses a disease on its own. This guide covers what a result tells you, and what it leaves out.",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
@@ -61,7 +61,7 @@ export default {
       items: [
         "Speed: CRP starts rising within 6 to 8 hours of an inflammatory trigger and can climb a thousandfold in severe infection. It also falls back down quickly once the trigger resolves, often within days.",
         "ESR moves more slowly in both directions. It can take several days to rise and can stay elevated for weeks after the underlying problem has settled, which makes it a poorer choice for tracking a fast-changing illness.",
-        "Specificity: CRP is a more direct measure of active inflammation. ESR is affected by other factors unrelated to inflammation, including age, anaemia, and pregnancy, which can push it up or down independent of what is actually happening in the body.",
+        "Specificity: CRP is a more direct measure of active inflammation. ESR is affected by other factors unrelated to inflammation, including age, anaemia, and pregnancy, which can push it up or down regardless of what is happening in the body.",
         "Clinical use: CRP is generally preferred for tracking how quickly an infection or flare is responding to treatment. ESR is still useful for some chronic conditions, including certain autoimmune and rheumatic diseases, where its slower trend adds information CRP alone can miss.",
         "Cost and availability: ESR is an older, simpler, and typically cheaper test, which is part of why it remains widely used across African labs and clinics alongside newer CRP testing.",
       ],
@@ -87,7 +87,7 @@ export default {
     {
       type: "callout",
       title: "A c-reactive protein level chart is a guide, not a diagnosis",
-      text: "These bands describe how CRP tends to behave, not what caused it. Two people with the same CRP level can have completely different underlying problems, from a common cold to a flare of rheumatoid arthritis. Your own lab's reference range, read by a clinician alongside your symptoms, is what actually matters for your result.",
+      text: "These bands describe how CRP tends to behave, not what caused it. Two people with the same CRP level can have completely different underlying problems, from a common cold to a flare of rheumatoid arthritis. Your own lab's reference range, read by a clinician alongside your symptoms, is what matters for your result.",
     },
     {
       type: "h2",

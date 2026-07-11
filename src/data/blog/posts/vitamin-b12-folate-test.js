@@ -13,7 +13,7 @@ export default {
   description:
     "A vitamin B12 test checks the nutrient your nerves and red blood cells depend on. Learn the symptoms of B12 deficiency, what causes it, how it differs from folate deficiency, and how it is treated.",
   excerpt:
-    "Not every anaemia is about iron. Vitamin B12 and folate deficiency produce a different pattern on a blood test and a different set of symptoms, including nerve problems that iron deficiency does not cause. Here is what a B12 and folate test checks, and what to do with a low result.",
+    "Not every anaemia is about iron. Vitamin B12 and folate deficiency produce a different pattern on a blood test and a different set of symptoms, including nerve problems that iron deficiency does not cause. What a B12 and folate test checks, and what to do with a low result.",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
@@ -228,7 +228,7 @@ export default {
         },
         {
           q: "What are the symptoms of B12 deficiency?",
-          a: "Early symptoms are fatigue, pale skin, and breathlessness, similar to other forms of anaemia. As deficiency progresses it can also cause tingling or numbness in the hands and feet, poor balance, memory trouble, and a sore or smooth tongue. If severe deficiency goes untreated for a long time, some nerve damage can become permanent, which is why nerve symptoms are worth getting checked promptly rather than fear-inducingly, since the condition is detectable and treatable.",
+          a: "Early symptoms are fatigue, pale skin, and breathlessness, similar to other forms of anaemia. As deficiency progresses it can also cause tingling or numbness in the hands and feet, poor balance, memory trouble, and a sore or smooth tongue. If severe deficiency goes untreated for a long time, some nerve damage can become permanent, so nerve symptoms are worth getting checked promptly. The condition is straightforward to detect on a blood test and, once caught, treatable.",
         },
         {
           q: "What causes vitamin B12 deficiency?",
