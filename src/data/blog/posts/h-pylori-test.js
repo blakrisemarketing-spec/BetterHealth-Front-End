@@ -153,7 +153,7 @@ export default {
     },
     {
       type: "p",
-      text: "That classification sits alongside a reassuring reality: most infections cause no complications at all, or at worst contribute to an ulcer that responds well to treatment. Stomach cancer develops in a small minority of people with H. pylori, usually after decades of untreated infection and often alongside other risk factors such as smoking, a diet very high in salted or preserved foods, or a family history of stomach cancer. The classification is a statement about population-level risk, not a prediction about any one person.",
+      text: "That classification is worth reading alongside a reassuring fact: most infections cause no complications at all, or at worst contribute to an ulcer that responds well to treatment. Stomach cancer develops in a small minority of people with H. pylori, usually after decades of untreated infection and often alongside other risk factors such as smoking, a diet very high in salted or preserved foods, or a family history of stomach cancer. The classification describes population-level risk, not a forecast for any one person.",
     },
     {
       type: "p",
