@@ -43,7 +43,7 @@ export default {
     },
     {
       type: "p",
-      text: "This matters across Africa for a simple reason: diets vary enormously. Some populations eat little animal-source food, which is the only natural source of B12. Others rely heavily on it and are more likely to run short on folate or run into an absorption problem instead. Either way, a B12 or folate test is one of the more useful, and more overlooked, checks in a full anaemia work-up.",
+      text: "This matters across Africa for a simple reason: diets vary enormously. Some populations eat little animal-source food, the only natural source of B12, which raises the risk of low B12. Folate deficiency runs on a different track, tied more to low intake of leafy greens, legumes and fortified foods, alcohol use, or pregnancy's higher demand, and absorption problems such as pernicious anaemia or H. pylori gastritis can affect anyone regardless of what they eat. Either way, a B12 or folate test is one of the more useful, and more overlooked, checks in a full anaemia work-up.",
     },
     {
       type: "h2",

@@ -102,7 +102,7 @@ export default {
       type: "list",
       items: [
         "Infection: bacterial infections tend to push CRP up sharply and to a higher level than viral ones, which is part of why doctors use the test to help judge how likely a bacterial cause is.",
-        "Autoimmune and rheumatic conditions: rheumatoid arthritis, lupus, and similar conditions where the immune system attacks the body's own tissue commonly produce a persistently raised CRP, and the test is often used to track disease activity over time.",
+        "Autoimmune and rheumatic conditions: rheumatoid arthritis and similar conditions where the immune system attacks the body's own tissue commonly produce a persistently raised CRP, and the test is often used to track disease activity over time. Lupus is a notable exception. CRP often stays normal or only mildly raised even during an active flare, so doctors usually lean on ESR instead, and a sharply raised CRP in someone with lupus more often points to a separate infection than to the lupus itself.",
         "Obesity: fat tissue itself produces low-grade inflammatory signals, so CRP tends to run mildly higher in people carrying more body fat, even without any illness.",
         "Smoking: tobacco use is consistently linked with a mildly raised CRP, reflecting ongoing low-grade inflammation in the airways and blood vessels.",
         "Recent injury or surgery: any tissue damage, including a scheduled operation, triggers a normal, expected inflammatory response and a temporary CRP rise that settles as healing progresses.",
@@ -190,7 +190,7 @@ export default {
         },
         {
           q: "What causes high CRP?",
-          a: "The most common causes of a raised CRP include infection, especially bacterial infection, autoimmune and rheumatic conditions such as rheumatoid arthritis and lupus, obesity, smoking, and recent injury or surgery. Several chronic conditions can also keep CRP mildly elevated on an ongoing basis.",
+          a: "The most common causes of a raised CRP include infection, especially bacterial infection, autoimmune and rheumatic conditions such as rheumatoid arthritis, obesity, smoking, and recent injury or surgery. Several chronic conditions can also keep CRP mildly elevated on an ongoing basis. Lupus is an exception worth knowing: CRP often stays normal even during a flare, so ESR is usually the more useful marker there.",
         },
         {
           q: "What is hs-CRP and how is it used for heart disease risk?",

@@ -78,7 +78,7 @@ export default {
         "Bloating and excessive burping",
         "Nausea, and sometimes vomiting",
         "Loss of appetite or feeling full quickly after small meals",
-        "Unintentional weight loss over time, in more advanced cases",
+        "Reduced appetite and mild, gradual weight loss in some cases (rapid or significant weight loss is not routine and needs urgent review, covered below)",
       ],
     },
     {
@@ -115,7 +115,7 @@ export default {
     },
     {
       type: "p",
-      text: "Four main tests can detect H. pylori: a stool antigen test, a urea breath test, a blood antibody test, and biopsy taken during an endoscopy, and only the first two plus biopsy can confirm an active, current infection.",
+      text: "Four main tests can detect H. pylori: a stool antigen test, a urea breath test, a blood antibody test, and biopsy taken during an endoscopy, and only the first two plus biopsy can confirm an active, current infection. Your doctor reads any of these results alongside your symptoms and history, not in isolation.",
     },
     {
       type: "list",

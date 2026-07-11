@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-05
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; South Africa still pending)"
+  updated: 2026-07-11
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; South Africa still pending; Ghana volumes for h pylori/stool/urine/CRP/B12 cluster confirmed 2026-07-11)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -381,7 +381,9 @@ items:
     secondary: ["stomach ulcer test", "h pylori symptoms", "h pylori treatment", "h pylori stool antigen"]
     intent: informational
     title: "H. pylori Test: The Bacterium Behind Most Stomach Ulcers"
-    status: todo
+    status: done
+    completed: 2026-07-11
+    notes: "Published 2026-07-11. h pylori test: no confirmed DataForSEO Ghana volume; h pylori cancer symptoms 320/mo Ghana (DataForSEO, confirmed 2026-07-11). Covers the four test types (stool antigen/breath/blood antibody/biopsy) with the antibody-can't-confirm-current-infection caveat, WHO/IARC Group 1 classification handled with reassurance, and the B12-absorption mechanism cross-linked to the new B12/folate article. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-stool-test
     type: article
@@ -393,7 +395,9 @@ items:
     secondary: ["ova and parasites test", "stool routine examination", "stool test for infection"]
     intent: informational
     title: "Stool Test: What Ova, Parasites, and Occult Blood Reveal"
-    status: todo
+    status: done
+    completed: 2026-07-11
+    notes: "Published 2026-07-11. stool test: broad term has no confirmed monthly volume; stool test results/types of stool tests for adults/stool test name list each 10/mo Ghana (DataForSEO, confirmed 2026-07-11). Covers O&P, occult blood (framed as a screening flag, not a diagnosis), stool culture, and the H. pylori stool antigen test, cross-linked to the new h-pylori-test and existing malaria/typhoid articles. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-urinalysis
     type: article
@@ -401,11 +405,13 @@ items:
     slug: urinalysis-explained
     keyword: urinalysis test
     market: pan-africa
-    volume: null
+    volume: 110
     secondary: ["urine routine examination", "urine test results explained", "protein in urine", "leukocytes in urine"]
     intent: informational
     title: "Urinalysis: How to Read a Routine Urine Test"
-    status: todo
+    status: done
+    completed: 2026-07-11
+    notes: "Published 2026-07-11. urinalysis test 110/mo Ghana; retargeted SEO-primary to the stronger 'urine test' at 320/mo Ghana (DataForSEO, confirmed 2026-07-11), with urine test results explained (70/mo) and urine test normal range (40/mo) as secondaries. Covers the full panel (protein/glucose/blood/leukocytes/nitrites/pH/specific gravity) and the antenatal preeclampsia/gestational-diabetes screening angle, cross-linked to creatinine-egfr and the new crp-inflammation-test article. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-crp-inflammation
     type: article
@@ -413,11 +419,13 @@ items:
     slug: crp-inflammation-test
     keyword: crp test
     market: pan-africa
-    volume: null
+    volume: 480
     secondary: ["c-reactive protein", "esr test", "inflammation blood test", "high crp causes"]
     intent: informational
     title: "CRP and ESR: What Inflammation Markers Tell You"
-    status: todo
+    status: done
+    completed: 2026-07-11
+    notes: "Published 2026-07-11. crp test had no confirmed volume; retargeted SEO-primary to c-reactive protein test at 480/mo Ghana (c reactive protein itself 880/mo, DataForSEO confirmed 2026-07-11). Covers CRP vs ESR, the normal-range chart, common causes, and hs-CRP cardiovascular risk bands (attributed and heavily hedged as one input among several, not a standalone cutoff), cross-linked to lipid-profile and hypertension articles. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-vitamin-b12
     type: article
@@ -425,12 +433,13 @@ items:
     slug: vitamin-b12-folate-test
     keyword: vitamin b12 test
     market: pan-africa
-    volume: null
-    secondary: ["b12 deficiency symptoms", "folate test", "megaloblastic anaemia", "low b12 treatment"]
+    volume: 10
+    secondary: ["b12 deficiency symptoms", "folate test", "megaloblastic anaemia", "low b12 treatment", "vitamin b12 deficiency (720/mo)", "vitamin b12 foods (480/mo)"]
     intent: informational
     title: "Vitamin B12 and Folate: Testing for the Other Anaemias"
-    status: todo
-    notes: "Internal-link to the ferritin/iron-anaemia article — together they cover the common anaemia work-up."
+    status: done
+    completed: 2026-07-11
+    notes: "Published 2026-07-11. vitamin b12 test 10/mo Ghana; vitamin b12 deficiency 720/mo and vitamin b12 foods 480/mo carry more of the standalone volume (DataForSEO, confirmed 2026-07-11). Internal-linked to ferritin-iron-anaemia and full-blood-count-explained for the anaemia work-up, and to the new h-pylori-test article for the intrinsic-factor/B12-absorption mechanism. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-g6pd
     type: article

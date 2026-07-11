@@ -29,6 +29,11 @@ import bloodGroupTest from "./posts/blood-group-test.js";
 import psaProstateTest from "./posts/psa-prostate-test.js";
 import papSmearCervicalScreening from "./posts/pap-smear-cervical-screening.js";
 import uricAcidGoutTest from "./posts/uric-acid-gout-test.js";
+import hPyloriTest from "./posts/h-pylori-test.js";
+import stoolTestExplained from "./posts/stool-test-explained.js";
+import urinalysisExplained from "./posts/urinalysis-explained.js";
+import crpInflammationTest from "./posts/crp-inflammation-test.js";
+import vitaminB12FolateTest from "./posts/vitamin-b12-folate-test.js";
 
 const ALL = [
   hba1cExplained,
@@ -57,6 +62,11 @@ const ALL = [
   psaProstateTest,
   papSmearCervicalScreening,
   uricAcidGoutTest,
+  hPyloriTest,
+  stoolTestExplained,
+  urinalysisExplained,
+  crpInflammationTest,
+  vitaminB12FolateTest,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically
