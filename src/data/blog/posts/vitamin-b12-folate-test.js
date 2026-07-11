@@ -160,7 +160,7 @@ export default {
     {
       type: "h2",
       id: "vitamin-b12-foods",
-      text: "Vitamin B12 foods: where B12 actually comes from",
+      text: "Vitamin B12 foods: where B12 comes from",
     },
     {
       type: "p",
@@ -209,7 +209,7 @@ export default {
       items: [
         "If you have persistent fatigue, tingling in your hands or feet, or balance problems, ask for a B12 and folate test alongside a full blood count rather than assuming it is only about iron.",
         "If you are on long-term metformin, over 60, follow a diet with little or no animal-source food, or have a known digestive condition, mention this to your doctor when discussing testing, since each raises the likelihood of B12 deficiency.",
-        "If your B12 or folate comes back low, let your doctor investigate the cause rather than starting supplements on your own. Pernicious anaemia and H. pylori infection both need their own follow-up, separate from simply replacing the vitamin.",
+        "If your B12 or folate comes back low, let your doctor investigate the cause rather than starting supplements on your own. Pernicious anaemia and H. pylori infection both need their own follow-up, beyond replacing the vitamin.",
         "If you are prescribed tablets or injections, complete the course your doctor sets and expect blood tests to be repeated to confirm the level has recovered.",
         "If nerve symptoms such as numbness or balance problems are present, treat the test as reasonably urgent. Earlier treatment gives a better chance of full recovery.",
       ],
