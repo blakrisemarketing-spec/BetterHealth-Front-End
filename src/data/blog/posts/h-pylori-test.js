@@ -15,7 +15,7 @@ export default {
   description:
     "H. pylori is a common stomach bacterium and the leading cause of stomach ulcers. Learn the symptoms, how it spreads, the four ways to test for it, and what treatment involves.",
   excerpt:
-    "H. pylori is a spiral-shaped bacterium that lives in the stomach lining and causes most stomach and duodenal ulcers. What it is, how it spreads, the test options that actually confirm an active infection, and what treatment looks like.",
+    "H. pylori is a spiral-shaped bacterium that lives in the stomach lining and causes most stomach and duodenal ulcers. What it is, how it spreads, the test options that confirm an active infection, and what treatment looks like.",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
@@ -190,7 +190,7 @@ export default {
     },
     {
       type: "p",
-      text: "Treatment does not always work on the first attempt, and reinfection, though less common in adults than in childhood exposure, is possible. For that reason, doctors usually recommend a follow-up stool antigen or breath test around four weeks after finishing treatment, once you are off acid-suppressing medication for the required window, to confirm the infection has actually cleared rather than assuming it has because symptoms improved.",
+      text: "Treatment does not always work on the first attempt, and reinfection, though less common in adults than in childhood exposure, is possible. For that reason, doctors usually recommend a follow-up stool antigen or breath test around four weeks after finishing treatment, once you are off acid-suppressing medication for the required window, to confirm the infection has cleared rather than assuming it has because symptoms improved.",
     },
     {
       type: "h2",
@@ -240,7 +240,7 @@ export default {
         },
         {
           q: "How is H. pylori treated?",
-          a: "Doctors typically prescribe a combination of two or more antibiotics together with an acid-suppressing medication, taken for one to two weeks. The exact regimen depends on local antibiotic resistance patterns and your medical history, so it should be prescribed and supervised by a doctor rather than self-managed. A follow-up stool antigen or breath test, usually about four weeks after finishing treatment, confirms whether the infection has actually cleared.",
+          a: "Doctors typically prescribe a combination of two or more antibiotics together with an acid-suppressing medication, taken for one to two weeks. The exact regimen depends on local antibiotic resistance patterns and your medical history, so it should be prescribed and supervised by a doctor rather than self-managed. A follow-up stool antigen or breath test, usually about four weeks after finishing treatment, confirms whether the infection has cleared.",
         },
         {
           q: "Does H. pylori cause stomach cancer?",

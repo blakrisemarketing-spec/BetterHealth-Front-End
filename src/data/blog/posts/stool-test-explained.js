@@ -18,7 +18,7 @@ export default {
   description:
     "A stool test can check for parasites, hidden blood, and infection in a few different ways. Learn the main types of stool tests, how to collect a sample properly, and what a positive occult blood result really means.",
   excerpt:
-    "Told to \"bring a stool sample\" with no explanation of why? Here is what a stool test actually looks for, the main types you might be given, and how to collect one so the result can be trusted.",
+    "Told to \"bring a stool sample\" with no explanation of why? What a stool test looks for, the main types you might be given, and how to collect one so the result can be trusted.",
   datePublished: "2026-07-11",
   dateModified: "2026-07-11",
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
@@ -173,7 +173,7 @@ export default {
     },
     {
       type: "p",
-      text: "A basic ova and parasites exam or occult blood test is often ready within a day, sometimes within hours if the lab is not backed up. A stool culture takes longer, typically two to five days, because it depends on bacteria actually growing under lab conditions before they can be identified. Antigen tests, including the H. pylori stool antigen test, usually sit somewhere in between, often ready within a day or two. If your symptoms are severe or ongoing, ask your lab or clinic for an expected timeline when you drop off the sample.",
+      text: "A basic ova and parasites exam or occult blood test is often ready within a day, sometimes within hours if the lab is not backed up. A stool culture takes longer, typically two to five days, because it depends on bacteria growing under lab conditions before they can be identified. Antigen tests, including the H. pylori stool antigen test, usually sit somewhere in between, often ready within a day or two. If your symptoms are severe or ongoing, ask your lab or clinic for an expected timeline when you drop off the sample.",
     },
     {
       type: "h2",
