@@ -57,7 +57,7 @@ export default function WhatWeTest() {
               What We Test
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
-              127 biomarkers across{" "}
+              127 health indicators across{" "}
               <span className="italic text-primary tracking-normal">
                 17 body systems
               </span>
@@ -103,7 +103,7 @@ export default function WhatWeTest() {
                     {cat.name}
                   </h3>
                   <span className="bg-primary-bg text-primary px-3 py-1 rounded-pill text-[13px] font-semibold">
-                    {cat.count} biomarkers
+                    {cat.count} indicators
                   </span>
                 </div>
 

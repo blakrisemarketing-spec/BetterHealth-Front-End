@@ -9,17 +9,49 @@ import {
 import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import TrustBar from "../components/TrustBar";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { howItWorksPage } from "../data/content";
+import alphaBundle from "../assets/screening-bundles/alpha-bundle.webp";
+import stepChooseTest from "../assets/how-it-works/step-1-choose-test.jpg";
+import stepDashboard from "../assets/how-it-works/step-3-dashboard.jpg";
+import stepNextSteps from "../assets/how-it-works/step-4-next-steps.jpg";
 
 const STEP_ICONS = [UserPlus, CalendarDays, BarChart3, Zap];
 const SAFETY_ICONS = { FlaskConical, UserCheck, ShieldCheck, PackageCheck };
 
 const carouselSlides = [
-  { src: 'screenshots/desktop-dashboard.webp', title: 'Your Health Dashboard', sub: 'All your biomarkers in one place' },
-  { src: 'screenshots/desktop-healthscore.webp', title: 'Track Every Biomarker', sub: 'Follow 40+ health markers over time' },
-  { src: 'screenshots/desktop-results.webp', title: 'A Closer Look', sub: 'Trends, ranges, and AI insights' },
+  { src: 'screenshots/desktop-dashboard.webp', title: 'Your Health Dashboard', sub: 'Body-system views in one place' },
+  { src: 'screenshots/desktop-healthscore.webp', title: 'Track Your Health Indicators', sub: 'Follow important numbers over time' },
+  { src: 'screenshots/desktop-results.webp', title: 'A Closer Look', sub: 'Ranges, explanations, and review notes' },
+];
+
+const stepVisuals = [
+  {
+    src: stepChooseTest,
+    alt: "A BetterHealth customer choosing the right health test on their phone",
+    label: "Find the right starting point",
+    objectPosition: "center center",
+  },
+  {
+    src: alphaBundle,
+    alt: "A BetterHealth health worker taking measurements during a screening",
+    label: "Testing made calm",
+    objectPosition: "center center",
+  },
+  {
+    src: stepDashboard,
+    alt: "A BetterHealth customer reviewing their patient dashboard on a tablet",
+    label: "Results you can understand",
+    objectPosition: "center center",
+  },
+  {
+    src: stepNextSteps,
+    alt: "A BetterHealth customer discussing clear next steps after a test",
+    label: "Confidence for the next move",
+    objectPosition: "center center",
+  },
 ];
 
 function DashboardCarousel() {
@@ -138,6 +170,7 @@ function FAQItem({ q, a, isOpen, onToggle }) {
 function StepBlock({ step, index }) {
   const Icon = STEP_ICONS[index];
   const isOdd = index % 2 === 0;
+  const visual = stepVisuals[index];
 
   return (
     <Reveal>
@@ -177,9 +210,9 @@ function StepBlock({ step, index }) {
               {step.body}
             </p>
 
-            {/* What to expect */}
+            {/* Step outcomes */}
             <div className="mb-6">
-              <p className="text-xs font-bold text-text-muted uppercase tracking-[0.12em] mb-3">What to expect</p>
+              <p className="text-xs font-bold text-text-muted uppercase tracking-[0.12em] mb-3">What you get</p>
               <ul className="flex flex-col gap-2.5">
                 {step.expects.map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5">
@@ -213,13 +246,29 @@ function StepBlock({ step, index }) {
             )}
           </div>
 
-          {/* Visual side — decorative step number card */}
-          <div className="flex-shrink-0 w-full max-w-[260px] aspect-square md:max-w-[300px] rounded-card bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15 flex items-center justify-center relative overflow-hidden">
-            <span className="text-[110px] font-extrabold text-primary/20 font-heading leading-none select-none">
-              {step.num}
-            </span>
-            <div className="absolute bottom-6 right-6 w-12 h-12 rounded-card bg-primary/20 flex items-center justify-center">
-              <Icon size={24} className="text-primary" />
+          <div className="flex-shrink-0 w-full max-w-[430px]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-card border border-border bg-white shadow-[0_24px_70px_rgba(17,24,39,0.12)]">
+              <img
+                src={visual.src}
+                alt={visual.alt}
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: visual.objectPosition }}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#10241f]/70 via-[#10241f]/10 to-transparent" />
+              <div className="absolute top-4 left-4 rounded-pill bg-white/90 px-3 py-1 text-[12px] font-bold text-primary font-heading tracking-[0.12em] uppercase shadow-sm">
+                Step {step.num}
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <div className="flex items-end justify-between gap-4">
+                  <p className="max-w-[250px] text-white text-[1.15rem] font-bold font-heading leading-tight m-0">
+                    {visual.label}
+                  </p>
+                  <div className="w-12 h-12 rounded-card bg-white/90 flex items-center justify-center shrink-0 shadow-sm">
+                    <Icon size={24} className="text-primary" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -252,9 +301,9 @@ export default function HowItWorksPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="text-[2.2rem] md:text-[3.6rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
-              From sign-up to results in{" "}
+              {hero.headline}{" "}
               <span className="text-primary italic tracking-normal">
-                72 hours.
+                {hero.highlight}
               </span>
             </h1>
           </Reveal>
@@ -264,17 +313,30 @@ export default function HowItWorksPage() {
             </p>
           </Reveal>
           <Reveal delay={0.3}>
-            <a
-              href="https://app.betterhealth.africa/join"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/book-tests"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
             >
               {hero.cta} <ArrowRight size={18} />
-            </a>
+            </Link>
+          </Reveal>
+          <Reveal delay={0.4}>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              {hero.proofPoints.map((point) => (
+                <span
+                  key={point}
+                  className="inline-flex items-center gap-2 rounded-pill border border-primary/20 bg-white/80 px-4 py-2 text-[13px] font-semibold text-text-secondary shadow-sm"
+                >
+                  <Check size={14} className="text-primary" strokeWidth={3} />
+                  {point}
+                </span>
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>
+
+      <TrustBar />
 
       {/* ── 4 Steps ── */}
       <div>
@@ -290,13 +352,13 @@ export default function HowItWorksPage() {
             <div className="text-center mb-12">
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">Your Health, Visualised</p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight">
-                Everything you need to{" "}
+                Health intelligence you can{" "}
                 <span className="text-primary italic tracking-normal">
-                  understand your health.
+                  use after the test.
                 </span>
               </h2>
               <p className="mt-4 text-[16px] text-text-muted-dark font-body max-w-[540px] mx-auto">
-                See the big picture of your health, then look closely at any single biomarker. It is all in one place.
+                See your numbers, what they mean, and how they change when you test again. That is the practical layer between a lab result and your next conversation with a doctor.
               </p>
             </div>
           </Reveal>
@@ -313,9 +375,9 @@ export default function HowItWorksPage() {
                 Your safety matters
               </p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-text-primary font-heading tracking-tight">
-                Accredited labs. Certified collectors.{" "}
+                Lab testing, review, and privacy{" "}
                 <span className="text-primary">
-                  Encrypted data.
+                  built into the flow.
                 </span>
               </h2>
             </div>
@@ -384,14 +446,12 @@ export default function HowItWorksPage() {
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <a
-              href="https://app.betterhealth.africa/join"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/book-tests"
               className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
             >
               {bottomCta.cta} <ArrowRight size={18} />
-            </a>
+            </Link>
           </Reveal>
         </div>
       </section>

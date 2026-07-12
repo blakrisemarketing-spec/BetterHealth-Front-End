@@ -10,6 +10,11 @@ import { getSingleTestDetail } from "../data/single-test-details";
 import { joinUrl } from "../lib/app-links";
 import { testCode } from "../data/app-catalogue";
 import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo";
+import {
+  usePricingCatalogue,
+  withBackendPanelPrices,
+  withBackendSingleTestPrice,
+} from "../lib/pricing-catalogue";
 
 function FaqItem({ q, a }) {
   const [open, setOpen] = useState(false);
@@ -32,7 +37,9 @@ function FaqItem({ q, a }) {
 
 export default function SingleTestDetailPage() {
   const { slug } = useParams();
-  const test = getSingleTestDetail(slug);
+  const backendPrices = usePricingCatalogue();
+  const staticTest = getSingleTestDetail(slug);
+  const test = withBackendSingleTestPrice(staticTest, backendPrices);
 
   if (!test) {
     return (
@@ -41,7 +48,7 @@ export default function SingleTestDetailPage() {
         <main className="pt-[120px] pb-20 px-6 text-center">
           <h1 className="text-[2rem] font-extrabold text-text-primary font-heading mb-4">Test not found</h1>
           <p className="text-text-secondary mb-6">We couldn't find that test. It may have moved, or the link might be off.</p>
-          <Link to="/book" className="text-primary font-bold no-underline hover:text-primary-dark">
+          <Link to="/book-tests" className="text-primary font-bold no-underline hover:text-primary-dark">
             &larr; Back to all tests
           </Link>
         </main>
@@ -52,6 +59,7 @@ export default function SingleTestDetailPage() {
 
   const pageTitle = `${test.name}: ${test.subtitle} | BetterHealth Africa`;
   const pageDesc = test.description;
+  const includedInPanels = withBackendPanelPrices(test.includedInPanels || [], backendPrices);
   // Trailing slash matches what LiteSpeed serves as 200 (the no-slash form
   // 301-redirects), keeping canonical/og:url off a redirect — same as pageUrl().
   const pageUrl = `${SITE_URL}/test/${test.slug}/`;
@@ -119,7 +127,7 @@ export default function SingleTestDetailPage() {
           <GradientOrb color="blue" size="360px" className="bottom-[-10%] left-[-5%]" />
           <div className="max-w-[720px] mx-auto relative z-10">
             <Reveal>
-              <Link to="/book" className="inline-flex items-center gap-1.5 text-[13px] text-primary font-semibold no-underline hover:text-primary-dark transition-colors mb-6">
+              <Link to="/book-tests" className="inline-flex items-center gap-1.5 text-[13px] text-primary font-semibold no-underline hover:text-primary-dark transition-colors mb-6">
                 <ArrowLeft size={14} /> All tests
               </Link>
             </Reveal>
@@ -244,7 +252,7 @@ export default function SingleTestDetailPage() {
                 {[
                   { num: "1", title: "Book online", desc: "Sign up and select this test. Choose a partner lab near you or book home collection." },
                   { num: "2", title: "Give a sample", desc: `A quick ${test.sampleType.toLowerCase()} sample. It takes a few minutes.` },
-                  { num: "3", title: "See results", desc: `Clinician-reviewed results in ${test.turnaround}, with every marker explained.` },
+                  { num: "3", title: "See results", desc: `Doctor-reviewed results in ${test.turnaround}, with every marker explained.` },
                 ].map((s) => (
                   <div key={s.num} className="flex gap-3 items-start bg-card border border-border rounded-card p-4">
                     <span className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shrink-0 text-white text-[12px] font-bold">
@@ -282,7 +290,7 @@ export default function SingleTestDetailPage() {
         )}
 
         {/* ── Included in these panels ── */}
-        {test.includedInPanels?.length > 0 && (
+        {includedInPanels.length > 0 && (
           <section className="py-12 px-6 bg-section-alt border-t border-border">
             <div className="max-w-[720px] mx-auto">
               <Reveal>
@@ -294,10 +302,10 @@ export default function SingleTestDetailPage() {
                 </p>
               </Reveal>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {test.includedInPanels.map((p, i) => (
+                {includedInPanels.map((p, i) => (
                   <Reveal key={p.slug} delay={i * 0.05}>
                     <Link
-                      to={`/book/${p.slug}`}
+                      to={`/book-tests/${p.slug}`}
                       className="rounded-card border border-border bg-card p-4 hover:border-primary/30 transition-all no-underline block"
                     >
                       <h3 className="text-[16px] font-extrabold text-text-primary font-heading mb-1">{p.name}</h3>

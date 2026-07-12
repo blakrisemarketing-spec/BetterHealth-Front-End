@@ -123,7 +123,7 @@ const details = {
       { name: "Gonorrhoea", measures: "Neisseria gonorrhoeae DNA", why: "Harder to treat as it grows more antibiotic-resistant. Finding it early means treatment can work before complications set in." },
     ],
     faqs: [
-      { q: "Is this really confidential?", a: "Yes, completely. Your results show only in your personal BetterHealth dashboard. We don't share them with anyone: not partners, not employers, not family. Your login is your key." },
+      { q: "Is this confidential?", a: "Yes. Your results show only in your personal BetterHealth dashboard. We don't share them with partners, employers, family, or anyone else without your permission. Your login is your key." },
       { q: "What if I test positive for something?", a: "Most STIs can be treated or managed with today's medicine. Your clinician review will lay out clear next steps and treatment recommendations." },
       { q: "Can I do this test at home?", a: "The blood tests can be done with home collection. The swab tests for chlamydia and gonorrhoea are best done at a partner lab for accuracy." },
       { q: "How soon after exposure should I test?", a: "Most infections can be picked up 2 to 4 weeks after exposure. For HIV, the window can be up to three months for the most accurate result." },
@@ -230,7 +230,7 @@ const details = {
     ],
     faqs: [
       { q: "Can I test if I'm already on treatment?", a: "Yes, though the results may be affected. A blood film can still pick up parasites during treatment. Let your clinician know what medication you're taking." },
-      { q: "Why test for typhoid and malaria together?", a: "Their symptoms overlap a lot: fever, headache, body aches. In Ghana, many people get treated for malaria when they actually have typhoid, or the other way around. Testing both points to the right treatment." },
+      { q: "Why test for typhoid and malaria together?", a: "Their symptoms overlap: fever, headache, body aches. In Ghana, many people get treated for malaria when they have typhoid, or the other way around. Testing both points to the right treatment." },
       { q: "How quickly can I get results?", a: "The malaria rapid test result is ready the same day. The blood film, typhoid, CRP, and full blood count results come within 24 to 48 hours." },
     ],
   },

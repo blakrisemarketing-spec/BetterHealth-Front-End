@@ -13,7 +13,7 @@ const HOW_STEPS = [
   {
     icon: FlaskConical,
     title: "Test",
-    desc: "Book the tests your condition needs, at a lab or with home collection. A clinician reviews your results, ready in 48 to 72 hours.",
+    desc: "The program will help you book the tests your condition needs, at a lab or with home collection where available. A doctor reviews your results.",
   },
   {
     icon: LineChart,
@@ -23,7 +23,7 @@ const HOW_STEPS = [
   {
     icon: Stethoscope,
     title: "Stay on track",
-    desc: "A clinician reviews your results, flags anything that needs attention, and helps you adjust, before a small problem turns into a big one.",
+    desc: "A doctor, personal nutritionist coach, and wellness coach help you understand what to adjust and what to keep watching.",
   },
 ];
 
@@ -53,17 +53,17 @@ export default function ProgramsPage() {
             <Reveal delay={0.2}>
               <p className="text-lg leading-relaxed text-text-secondary max-w-[600px] mx-auto font-body mb-8">
                 A result on its own can leave you guessing. A program tells you what to do next. Each one
-                brings together the right tests, simple monitoring you do at home, and a clinician who keeps an
-                eye on your numbers, all built around one condition. Not sure where to start? Book a single
-                test first and we’ll point you to the program that fits.
+                brings together the right tests, simple monitoring you do at home, doctor review, a personal
+                nutritionist coach, and a wellness coach. These programs are coming soon. Join the waitlist
+                and tell us which one you want first.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
               <Link
-                to="/book"
+                to="/waitlist"
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-7 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
               >
-                Book a Test <ArrowRight size={18} />
+                Join the program waitlist <ArrowRight size={18} />
               </Link>
             </Reveal>
           </div>

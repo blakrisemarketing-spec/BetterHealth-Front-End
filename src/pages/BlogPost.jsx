@@ -241,13 +241,13 @@ export default function BlogPostPage() {
               Know your numbers
             </h2>
             <p className="text-[14px] text-text-secondary mb-6 font-body">
-              BetterHealth makes comprehensive screening affordable, with home or in-lab collection across Ghana.
+              BetterHealth helps you book the right test, understand doctor-reviewed results, and track health indicators over time.
             </p>
             <Link
-              to="/pricing"
+              to="/book-tests"
               className="inline-block bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-3 min-h-[44px] text-sm font-bold font-heading transition-all hover:-translate-y-0.5"
             >
-              See screening plans
+              Book a test
             </Link>
           </div>
         </section>

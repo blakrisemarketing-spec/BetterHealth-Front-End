@@ -11,6 +11,12 @@ import { testPanels, singleTests } from "../data/content";
 import { joinUrl } from "../lib/app-links";
 import { panelCode } from "../data/app-catalogue";
 import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo";
+import {
+  usePricingCatalogue,
+  withBackendPanelPrice,
+  withBackendPanelPrices,
+  withBackendSingleTestPrice,
+} from "../lib/pricing-catalogue";
 
 // Core vitals captured at every BetterHealth visit, on top of the panel's lab
 // tests. Shared across all panels, so they live here rather than per-panel.
@@ -57,7 +63,8 @@ function FaqItem({ q, a }) {
 
 export default function TestDetailPage() {
   const { slug } = useParams();
-  const panel = getTestDetail(slug);
+  const backendPrices = usePricingCatalogue();
+  const panel = withBackendPanelPrice(getTestDetail(slug), backendPrices);
 
   if (!panel) {
     return (
@@ -66,7 +73,7 @@ export default function TestDetailPage() {
         <main className="pt-[120px] pb-20 px-6 text-center">
           <h1 className="text-[2rem] font-extrabold text-text-primary font-heading mb-4">Test not found</h1>
           <p className="text-text-secondary mb-6">We couldn't find that test panel. It may have moved, or the link might be off.</p>
-          <Link to="/book" className="text-primary font-bold no-underline hover:text-primary-dark">
+          <Link to="/book-tests" className="text-primary font-bold no-underline hover:text-primary-dark">
             &larr; Back to all tests
           </Link>
         </main>
@@ -75,18 +82,23 @@ export default function TestDetailPage() {
     );
   }
 
-  const relatedPanels = testPanels
-    .filter((p) => p.slug !== panel.slug && p.concerns.some((c) => panel.concerns.includes(c)))
-    .slice(0, 2);
+  const relatedPanels = withBackendPanelPrices(
+    testPanels
+      .filter((p) => p.slug !== panel.slug && p.concerns.some((c) => panel.concerns.includes(c)))
+      .slice(0, 2),
+    backendPrices,
+  );
 
-  const relatedSingleTest = singleTests
-    .find((t) => t.concerns.some((c) => panel.concerns.includes(c)));
+  const relatedSingleTest = withBackendSingleTestPrice(
+    singleTests.find((t) => t.concerns.some((c) => panel.concerns.includes(c))),
+    backendPrices,
+  );
 
   const pageTitle = `${panel.displayName} (${panel.name}) | BetterHealth Africa`;
   const pageDesc = panel.description;
   // Trailing slash matches what LiteSpeed serves as 200 (the no-slash form
   // 301-redirects), keeping canonical/og:url off a redirect — same as pageUrl().
-  const pageUrl = `${SITE_URL}/book/${panel.slug}/`;
+  const pageUrl = `${SITE_URL}/book-tests/${panel.slug}/`;
 
   const jsonld = {
     "@context": "https://schema.org",
@@ -154,7 +166,7 @@ export default function TestDetailPage() {
           <GradientOrb color="blue" size="360px" className="bottom-[-10%] left-[-5%]" />
           <div className="max-w-[720px] mx-auto relative z-10">
             <Reveal>
-              <Link to="/book" className="inline-flex items-center gap-1.5 text-[13px] text-primary font-semibold no-underline hover:text-primary-dark transition-colors mb-6">
+              <Link to="/book-tests" className="inline-flex items-center gap-1.5 text-[13px] text-primary font-semibold no-underline hover:text-primary-dark transition-colors mb-6">
                 <ArrowLeft size={14} /> All tests
               </Link>
             </Reveal>
@@ -312,7 +324,7 @@ export default function TestDetailPage() {
                 {[
                   { num: "1", title: "Book online", desc: "Sign up and select this panel. Choose a partner lab near you or book home sample collection." },
                   { num: "2", title: "Get tested", desc: `A quick ${panel.sampleType.toLowerCase()} sample. It takes about 15 minutes, at a lab or at home.` },
-                  { num: "3", title: "See results", desc: `Clinician-reviewed results in ${panel.turnaround}, with every marker explained in plain language.` },
+                  { num: "3", title: "See results", desc: `Doctor-reviewed results in ${panel.turnaround}, with every marker explained in plain language.` },
                 ].map((s) => (
                   <div key={s.num} className="flex gap-3 items-start bg-card border border-border rounded-card p-4">
                     <span className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shrink-0 text-white text-[12px] font-bold">
@@ -415,7 +427,7 @@ export default function TestDetailPage() {
                 {relatedPanels.map((p, i) => (
                   <Reveal key={p.slug} delay={i * 0.05}>
                     <Link
-                      to={`/book/${p.slug}`}
+                      to={`/book-tests/${p.slug}`}
                       className="rounded-card border border-border bg-card p-4 hover:border-primary/30 transition-all no-underline block h-full"
                     >
                       <span className="inline-block text-[10px] font-bold text-primary uppercase tracking-[0.1em] mb-2">{p.name}</span>

@@ -8,7 +8,7 @@ const FEATURES = [
   {
     icon: "📊",
     title: "Your health dashboard",
-    body: "All your biomarker results in one place, sorted by organ system, colour-coded so you can see what matters, and explained in plain language.",
+    body: "All your health results in one place, sorted by organ system, colour-coded so you can see what matters, and explained in plain language.",
   },
   {
     icon: "📈",
@@ -28,7 +28,7 @@ const FEATURES = [
   {
     icon: "📅",
     title: "Booking & scheduling",
-    body: "Book your next home collection or lab visit from the app. Pick a date, pick a time, and you're set.",
+    body: "Book your next test, home collection, or lab visit from the app. Pick a date, pick a time, and you're set.",
   },
   {
     icon: "💬",
@@ -55,11 +55,11 @@ export default function DownloadAppPage() {
 COMING SOON ON iOS &amp; ANDROID
               </div>
               <h1 className="text-4xl sm:text-5xl font-bold font-heading leading-tight mb-6">
-                Your health,<br />
+                Health intelligence,<br />
                 <span className="text-primary">in your pocket.</span>
               </h1>
               <p className="text-lg text-text-muted-dark leading-relaxed max-w-[480px] mb-10">
-                The BetterHealth app keeps your biomarker results, trend tracking, booking, and doctor consultations in one place. Coming to iOS and Android in 2026.
+                The BetterHealth app keeps your test bookings, doctor-reviewed results, plain explanations, and trend tracking in one place. Coming to iOS and Android in 2026.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -149,7 +149,7 @@ COMING SOON ON iOS &amp; ANDROID
                 Be first to know when we launch.
               </h2>
               <p className="text-text-secondary mb-8">
-                The app lands on iOS and Android in 2026. Leave your email below and we'll tell you the moment it's live. Subscribers also get early access.
+                The app lands on iOS and Android in 2026. Leave your email below and we'll tell you the moment it's live.
               </p>
               <form
                 onSubmit={(e) => { e.preventDefault(); const email = e.target.elements.email.value; window.open(`mailto:hello@betterhealth.africa?subject=App%20Early%20Access&body=Hi%2C%20please%20notify%20me%20at%20${encodeURIComponent(email)}%20when%20the%20app%20launches.`, "_blank"); }}

@@ -4,10 +4,8 @@
 // SOURCE OF TRUTH: the App's public catalogue —
 //   GET https://app.betterhealth.africa/api/public/disease-panels?country=Ghana
 //   GET https://app.betterhealth.africa/api/public/diagnostic-tests?country=Ghana
-// As of 2026-07-05 those endpoints return HTTP 404 (not deployed yet), so the
-// codes below are maintained by hand against the App team's reference list.
-// Once the endpoints are live, run `node scripts/sync-app-catalogue.mjs` to
-// verify/refresh them (it flags any code here that no longer exists upstream).
+// The marketing site also reads those endpoints at runtime for prices, with a
+// localStorage fallback so rendering never depends on the App being reachable.
 //
 // The App matches codes case-insensitively and silently ignores unknown codes,
 // so a wrong/missing code degrades to the normal chooser — it never errors.
@@ -39,23 +37,20 @@ export const PROGRAM_TO_PANEL = {
 };
 
 // Marketing single-test slug (src/data/content.js#singleTests) → App test code
-// (from /api/public/diagnostic-tests). Only codes confirmed against the App are
-// filled; the rest stay null until the catalogue endpoint is live and fall back
-// to the plain chooser (no ?test=) rather than shipping a guessed code.
-// TODO(app-catalogue): fill the nulls from /api/public/diagnostic-tests.
+// from /api/public/diagnostic-tests.
 export const SINGLE_TEST_CODES = {
-  "malaria-rdt": "MALARIA_RDT", // confirmed
-  fbc: null,
-  "fasting-blood-sugar": null,
-  hba1c: null,
-  "lipid-panel": null,
-  "liver-function": null,
-  "kidney-function": null,
-  "thyroid-function": null,
-  "urine-re": null,
-  hiv: null,
-  "hepatitis-b": null,
-  "uric-acid": null,
+  fbc: "FBC",
+  "fasting-blood-sugar": "BG_FASTING",
+  hba1c: "HBA1C",
+  "lipid-panel": "LIPID",
+  "liver-function": "LFT",
+  "kidney-function": "RFT",
+  "thyroid-function": "TFT",
+  "urine-re": "URINE_RE",
+  "malaria-rdt": "MALARIA_RDT",
+  hiv: "RETROSCREEN",
+  "hepatitis-b": "HBSAG",
+  "uric-acid": "URIC_ACID",
 };
 
 // Panel code for a marketing panel slug (falls back to the slug itself).

@@ -7,7 +7,7 @@ import { pageUrl } from "./structured-data.js";
  * data the build-time pre-render in vite.config.js uses — so the client-side
  * <head> and the static pre-rendered HTML never drift apart.
  *
- * Usage: <Seo route="pricing" />
+ * Usage: <Seo route="book-tests" />
  */
 export default function Seo({ route }) {
   const page = ROUTE_SEO[route];

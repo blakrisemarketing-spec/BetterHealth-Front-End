@@ -172,7 +172,7 @@ export default function FAQPage() {
                 {
                   icon: Phone,
                   label: "Phone",
-                  sub: "Mon–Fri, 8 AM – 6 PM",
+                  sub: "Mon-Fri, 8 AM - 6 PM",
                   href: "tel:+233XXXXXXXXX",
                   cta: "Call us",
                   primary: false,
@@ -205,13 +205,13 @@ export default function FAQPage() {
         <div className="max-w-[520px] mx-auto text-center relative z-10">
           <Reveal>
             <h2 className="text-[1.6rem] sm:text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight mb-4">
-              Ready to check your health?
+              Ready to book your first test?
             </h2>
             <Link
-              to="/pricing"
+              to="/book-tests"
               className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-7 py-4 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
             >
-              View Plans <ArrowRight size={16} />
+              Book a test <ArrowRight size={16} />
             </Link>
           </Reveal>
         </div>

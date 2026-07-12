@@ -16,7 +16,7 @@ const SECTIONS = [
     title: "3. Our Service",
     body: `BetterHealth Africa provides:
 
-- Comprehensive blood screening with 127 biomarkers via accredited partner laboratories
+- Comprehensive blood screening with 127 health indicators via accredited partner laboratories
 - A personal health dashboard showing your results, trends, and AI-assisted insights
 - Home sample collection scheduling and logistics
 - Health education content and personalised recommendations
@@ -34,12 +34,11 @@ const SECTIONS = [
 We reserve the right to suspend accounts that provide false information or violate these terms.`,
   },
   {
-    title: "5. Payments & Subscriptions",
-    body: `All payments are processed securely by Paystack. By subscribing, you authorise Paystack to charge your selected payment method on a recurring basis for the plan you have chosen.
+    title: "5. Payments",
+    body: `All payments are processed securely by Paystack. You will see the test price and any available add-ons before you pay.
 
 **Refunds:** If your sample cannot be processed due to a fault on our end, you are entitled to a full refund or a repeat test at no charge. Refunds for change-of-mind after sample collection are not available.
-
-**Cancellation:** You may cancel your subscription at any time. Your access continues until the end of the current billing period.`,
+`,
   },
   {
     title: "6. Sample Collection & Lab Results",
@@ -47,7 +46,7 @@ We reserve the right to suspend accounts that provide false information or viola
   },
   {
     title: "7. Health Data & Disclaimers",
-    body: `Your biomarker results are for informational purposes only. BetterHealth does not:
+    body: `Your health indicator results are for informational purposes only. BetterHealth does not:
 
 - Diagnose any disease or medical condition
 - Recommend specific treatments or medications
@@ -73,7 +72,7 @@ Violation of these terms may result in immediate account termination.`,
   },
   {
     title: "10. Limitation of Liability",
-    body: "To the maximum extent permitted by Ghanaian law, BetterHealth Africa is not liable for any indirect, incidental, or consequential damages arising from your use of the platform. Our total liability for any claim is limited to the amount you paid for the subscription in the 3 months preceding the claim.",
+    body: "To the maximum extent permitted by Ghanaian law, BetterHealth Africa is not liable for any indirect, incidental, or consequential damages arising from your use of the platform. Our total liability for any claim is limited to the amount you paid for the relevant booking in the 3 months preceding the claim.",
   },
   {
     title: "11. Changes to These Terms",

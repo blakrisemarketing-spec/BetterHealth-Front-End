@@ -3,7 +3,7 @@
 // so the static HTML that crawlers/social scrapers see and the live <head> can
 // never drift apart. The homepage ('/') uses index.html directly.
 
-import { faqSections, plans } from "./content.js";
+import { faqSections, testPanels } from "./content.js";
 import {
   getMedicalWebPageSchema,
   getBreadcrumbSchema,
@@ -35,24 +35,24 @@ const FAQ_JSONLD = {
     })),
 };
 
-// Pricing schema — built from the same plans the /pricing page renders (monthly GHS).
-const PLAN_PRICES = plans
+// Test panel schema — built from the same public prices the /book-tests page renders.
+const PANEL_PRICES = testPanels
   .map((p) => Number(String(p.price).replace(/[^\d.]/g, "")))
   .filter((n) => n > 0);
 const PRICING_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "BetterHealth Africa health screening plans",
+  name: "BetterHealth Africa health tests",
   description:
-    "Comprehensive health screening plans with home or in-lab sample collection in Ghana.",
+    "Single health tests and focused panels with home or in-lab sample collection in Ghana.",
   brand: { "@type": "Brand", name: "BetterHealth Africa" },
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "GHS",
-    lowPrice: String(Math.min(...PLAN_PRICES)),
-    highPrice: String(Math.max(...PLAN_PRICES)),
-    offerCount: PLAN_PRICES.length,
-    url: `${SITE_URL}/pricing`,
+    lowPrice: String(Math.min(...PANEL_PRICES)),
+    highPrice: String(Math.max(...PANEL_PRICES)),
+    offerCount: PANEL_PRICES.length,
+    url: `${SITE_URL}/book-tests`,
   },
 };
 
@@ -78,7 +78,7 @@ const FOUNDATION_JSONLD = {
 const shortName = (title) => title.split(/[—|]/)[0].trim();
 
 // Routes that are primarily medical/health content get a MedicalWebPage node.
-const MEDICAL_ROUTES = new Set(["how-it-works", "what-we-test", "stories"]);
+const MEDICAL_ROUTES = new Set(["how-it-works", "what-we-test", "stories", "book-tests"]);
 
 // Per-route SEO before auto-derived schema is layered on. Only the page-unique
 // schema (NGO/Product/FAQ/Blog) is declared here; MedicalWebPage and
@@ -94,46 +94,40 @@ const RAW_ROUTE_SEO = {
     jsonld: [FOUNDATION_JSONLD],
   },
   "how-it-works": {
-    title: "How It Works | BetterHealth Africa",
+    title: "How BetterHealth Works | Health Intelligence Platform in Ghana",
     description:
-      "Sign up, book a collection, and get your results in 48 hours. Learn how BetterHealth Africa makes comprehensive health screening simple and accessible.",
+      "Start with a health concern, book a relevant test in Ghana, get doctor-reviewed results in 48 to 72 hours, and track the indicators that matter over time.",
     image: `${SITE_URL}/how-it-works-og.jpg`,
   },
   "what-we-test": {
-    title: "What We Test | BetterHealth Africa",
+    title: "What We Test | Health Indicators & Intelligence | BetterHealth Africa",
     description:
-      "Explore 127 biomarkers across 17 body systems: heart, liver, kidneys, hormones, blood, immunity, metabolism, fertility, urine, stool, and more. Know your full health picture.",
+      "Explore the health indicators behind BetterHealth Africa's health intelligence platform: blood sugar, heart risk, liver, kidneys, hormones, fertility, nutrition, blood health, urine, stool, and more.",
     image: `${SITE_URL}/what-we-test-og.jpg`,
   },
   stories: {
     title: "Member Stories | BetterHealth Africa",
     description:
-      "Real stories from BetterHealth Africa members. See how early health screening helped Ghanaians take control of their health before symptoms appeared.",
+      "Anonymised BetterHealth stories showing how Ghanaians used lab tests, doctor-reviewed results, and clear explanations to move from health worry to clarity.",
     image: DEFAULT_OG_IMAGE,
   },
   about: {
     title: "About Us | BetterHealth Africa",
     description:
-      "Meet the team behind BetterHealth Africa. Our mission is to make proactive health screening accessible and affordable for every Ghanaian.",
+      "Meet the team building Ghana's first health intelligence platform for lab testing, doctor-reviewed results, clear explanations, and trend tracking.",
     image: DEFAULT_OG_IMAGE,
   },
-  pricing: {
-    title: "Pricing | BetterHealth Africa",
+  "book-tests": {
+    title: "Book Tests | Comprehensive Health Panels | BetterHealth Africa",
     description:
-      "Flexible health screening plans starting from GHS 2/day. Choose the right plan for your health goals: individual, family, or enterprise.",
-    image: `${SITE_URL}/pricing-og.jpg`,
+      "Choose from 9 health test panels: Dialics (diabetes), Cardion (heart), Panorama (full body) and more. Fixed prices, doctor-reviewed results, home sample collection across Ghana.",
+    image: DEFAULT_OG_IMAGE,
     jsonld: [PRICING_JSONLD],
-  },
-  book: {
-    title: "Book a Test | Comprehensive Health Panels | BetterHealth Africa",
-    description:
-      "Choose from 9 health test panels: Dialics (diabetes), Cardion (heart), Panorama (full body) and more. Fixed prices, clinician-reviewed results, home sample collection across Ghana.",
-    image: DEFAULT_OG_IMAGE,
   },
   programs: {
     title: "Condition Programs: Diabetes, Hypertension & More | BetterHealth Africa",
     description:
-      "Manage a chronic condition with a program built around it. Diabetes, hypertension, kidney, heart, and liver programs combine the right tests, home monitoring, and clinician review across Ghana.",
+      "Join the waitlist for chronic-condition programs built around diabetes, hypertension, kidney, heart, liver, fertility, and PCOS, with doctor review and coaching.",
     image: DEFAULT_OG_IMAGE,
   },
   faq: {
@@ -146,26 +140,26 @@ const RAW_ROUTE_SEO = {
   contact: {
     title: "Contact Us | BetterHealth Africa",
     description:
-      "Get in touch with BetterHealth Africa via WhatsApp, email, or phone. We respond to most enquiries within 24 hours.",
+      "Contact BetterHealth Africa for booking help, results questions, partnerships, privacy requests, or support by WhatsApp, email, or phone.",
     image: DEFAULT_OG_IMAGE,
   },
   blog: {
     title: "Blog | BetterHealth Africa",
     description:
-      "Plain-language health education for Ghanaians: biomarker explainers, screening guides, and what early detection can catch before symptoms appear.",
+      "Plain-language health education for Ghanaians: result explainers, screening guides, and what early detection can catch before symptoms appear.",
     image: DEFAULT_OG_IMAGE,
     jsonld: [getBlogSchema(ARTICLES)],
   },
   careers: {
     title: "Careers | BetterHealth Africa",
     description:
-      "Join the BetterHealth Africa team. We're building the future of proactive healthcare in Ghana. See open roles and our company values.",
+      "Join the BetterHealth Africa team building Ghana's health intelligence platform for earlier testing, clearer results, and better health tracking.",
     image: DEFAULT_OG_IMAGE,
   },
   "download-app": {
     title: "Download the App | BetterHealth Africa",
     description:
-      "Download the BetterHealth app for iOS and Android. Track your biomarkers, book collections, and take control of your health, all from your phone.",
+      "Get notified when the BetterHealth app launches for iOS and Android. Track health indicators, book tests, and review results from your phone.",
     image: DEFAULT_OG_IMAGE,
   },
   "for-labs": {

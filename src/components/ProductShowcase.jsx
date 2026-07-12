@@ -6,7 +6,7 @@ import { showcaseFeatures } from "../data/content";
 const phoneScreens = [
   { src: `${import.meta.env.BASE_URL}screenshots/mobile-healthscore.webp`, alt: "Health Score 83/100 with organ system breakdown" },
   { src: `${import.meta.env.BASE_URL}screenshots/mobile-focus.webp`, alt: "Today's Focus and Celebrate Your Wins" },
-  { src: `${import.meta.env.BASE_URL}screenshots/mobile-biomarker.webp`, alt: "Blood Urea Nitrogen biomarker detail with trend chart" },
+  { src: `${import.meta.env.BASE_URL}screenshots/mobile-biomarker.webp`, alt: "Blood Urea Nitrogen health indicator detail with trend chart" },
 ];
 
 export default function ProductShowcase() {
@@ -31,7 +31,7 @@ export default function ProductShowcase() {
               </span>
             </h2>
             <p className="text-[17px] leading-[1.7] text-text-secondary font-body mb-8">
-              Track every biomarker. Understand every result. See how your body changes over time with color-coded insights and personalized recommendations.
+              Track the numbers that matter. Understand every result. See how your body changes over time with color-coded insights and personalized recommendations.
             </p>
           </Reveal>
 

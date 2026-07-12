@@ -59,7 +59,7 @@ const STEPS = [
     num: "02",
     icon: Stethoscope,
     title: "We check what matters.",
-    body: "Our clinicians run quick, essential health checks and talk you through every result.",
+    body: "Our health workers run quick, essential health checks and talk you through every result.",
   },
   {
     num: "03",

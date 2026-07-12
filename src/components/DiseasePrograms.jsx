@@ -2,16 +2,15 @@ import {
   Check, ArrowRight,
   Droplet, Droplets, Activity, HeartPulse, Shield, Baby, Venus,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import Reveal from "./ui/Reveal";
 import { diseasePrograms } from "../data/content";
-import { joinUrl } from "../lib/app-links";
-import { programPanelCode } from "../data/app-catalogue";
 
 const ICONS = { Droplet, Droplets, Activity, HeartPulse, Shield, Baby, Venus };
 
 export default function DiseasePrograms({ showHeader = true, compact = false }) {
   const { eyebrow, headline, body, programs, note, cta } = diseasePrograms;
-  const list = compact ? programs.filter((p) => p.available) : programs;
+  const list = compact ? programs.slice(0, 3) : programs;
 
   return (
     <section id="programs" className="py-16 lg:py-20 px-6 bg-base border-t border-border">
@@ -36,24 +35,22 @@ export default function DiseasePrograms({ showHeader = true, compact = false }) 
             return (
               <Reveal key={p.slug} delay={i * 0.06}>
                 <div
-                  className={`relative flex flex-col h-full rounded-card bg-card p-6 border transition-all duration-300 ${
-                    p.available
-                      ? "border-border hover:border-primary/30 hover:-translate-y-1 shadow-card"
-                      : "border-border/60 opacity-75"
-                  }`}
+                  className="relative flex flex-col h-full rounded-card bg-card p-6 border border-border transition-all duration-300 hover:border-primary/30 hover:-translate-y-1 shadow-card"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="w-10 h-10 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
-                      <Icon size={20} className="text-primary" />
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <span className="w-10 h-10 rounded-card bg-primary-bg flex items-center justify-center shrink-0">
+                        <Icon size={20} className="text-primary" />
+                      </span>
+                      <h3 className="text-[18px] font-extrabold text-text-primary font-heading leading-tight">{p.name}</h3>
+                    </div>
+                    <span className="shrink-0 rounded-pill bg-primary-bg border border-primary/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-primary leading-none">
+                      Coming soon
                     </span>
-                    <h3 className="text-[18px] font-extrabold text-text-primary font-heading leading-tight">{p.name}</h3>
                   </div>
 
                   <p className="text-[13px] text-text-secondary mb-1">{p.tagline}</p>
                   <p className="text-[12px] text-text-muted mb-3">{p.forWho}</p>
-                  <p className={`text-[18px] font-extrabold font-heading mb-4 ${p.available ? "text-primary" : "text-text-muted"}`}>
-                    {p.price}
-                  </p>
 
                   {p.includes.length > 0 && (
                     <ul className="flex flex-col gap-2 flex-1 mb-5">
@@ -66,18 +63,12 @@ export default function DiseasePrograms({ showHeader = true, compact = false }) 
                     </ul>
                   )}
 
-                  {p.available ? (
-                    <a
-                      href={joinUrl({ panel: programPanelCode(p.slug) })}
-                      className="mt-auto w-full py-3 rounded-btn text-[14px] font-bold font-heading text-center no-underline bg-primary hover:bg-primary-dark text-white transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2"
-                    >
-                      {cta} <ArrowRight size={15} />
-                    </a>
-                  ) : (
-                    <span className="mt-auto w-full py-3 rounded-btn text-[13px] font-bold font-heading text-center bg-section-alt text-text-muted border border-border">
-                      Coming soon
-                    </span>
-                  )}
+                  <Link
+                    to={`/waitlist?program=${encodeURIComponent(p.slug)}`}
+                    className="mt-auto w-full py-3 rounded-btn text-[14px] font-bold font-heading text-center no-underline bg-primary hover:bg-primary-dark text-white transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2"
+                  >
+                    {cta} <ArrowRight size={15} />
+                  </Link>
                 </div>
               </Reveal>
             );

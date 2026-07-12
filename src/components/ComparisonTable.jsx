@@ -24,9 +24,7 @@ export default function ComparisonTable() {
         <Reveal delay={0.05}>
           <div className="text-center mb-10 px-4 py-5 rounded-card bg-primary-bg border border-primary/20">
             <p className="text-[17px] md:text-[20px] font-semibold text-text-primary leading-snug font-heading">
-              What would cost{" "}
-              <span className="text-primary font-extrabold">GHS 6,250+</span> at a private hospital is{" "}
-              <span className="text-primary font-extrabold">GHS 61/month</span> with BetterHealth Africa
+              Compare a broad private-hospital checkup with a BetterHealth full-body test before you pay.
             </p>
             <p className="text-[12px] text-text-muted mt-2">BetterHealth prices exclude VAT.</p>
           </div>

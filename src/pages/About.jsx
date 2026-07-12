@@ -39,9 +39,9 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="text-[2.4rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.1] text-text-primary mb-5">
-              Every African deserves to know their health{" "}
+              Africans deserve to know what is happening{" "}
               <span className="text-primary italic tracking-normal">
-                while there is still time to act on it.
+                inside their bodies.
               </span>
             </h1>
           </Reveal>
@@ -128,7 +128,7 @@ export default function AboutPage() {
               })}
               <Reveal delay={0.3}>
                 <div className="border-l-4 border-primary pl-5 mt-6">
-                  <p className="text-[15px] font-bold text-text-primary">— {founder.attribution}</p>
+                  <p className="text-[15px] font-bold text-text-primary">{founder.attribution}</p>
                   <p className="text-[13px] text-text-muted">{founder.title}</p>
                 </div>
               </Reveal>
@@ -256,7 +256,7 @@ export default function AboutPage() {
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-3">{joinUs.headline}</h2>
               <p className="text-[15px] text-text-secondary leading-relaxed mb-6 font-body">{joinUs.body}</p>
               <a
-                href="mailto:careers@betterhealth.africa?subject=I would love to join BetterHealth: [Your Role]&body=Hi,%0A%0AHere's the role I would love to own at BetterHealth:%0A%0A[Describe the position you would love to fill]%0A%0AHere's why I would be a great fit:%0A%0A[Your pitch]"
+                href="mailto:careers@betterhealth.africa?subject=I would love to join BetterHealth: [Your Role]&body=Hi,%0A%0AThe role I would love to own at BetterHealth:%0A%0A[Describe the position you would love to fill]%0A%0AWhy I would be a great fit:%0A%0A[Your pitch]"
                 className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
               >
                 {joinUs.cta} <ExternalLink size={15} />
@@ -280,14 +280,12 @@ export default function AboutPage() {
             <p className="text-[17px] text-white/80 leading-relaxed font-body mb-8">{bottomCta.body}</p>
           </Reveal>
           <Reveal delay={0.2}>
-            <a
-              href="https://app.betterhealth.africa/join"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
-            >
-              {bottomCta.cta} <ArrowRight size={18} />
-            </a>
+              <Link
+                to="/book-tests"
+                className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
+              >
+                {bottomCta.cta} <ArrowRight size={18} />
+              </Link>
           </Reveal>
         </div>
       </section>

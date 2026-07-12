@@ -8,6 +8,11 @@ import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { testPanels, singleTests } from "../data/content";
 import { SIGN_UP_URL } from "../lib/app-links";
+import {
+  usePricingCatalogue,
+  withBackendPanelPrices,
+  withBackendSingleTestPrices,
+} from "../lib/pricing-catalogue";
 
 const CONCERNS = [
   { key: "everything", label: "Check everything", icon: "🔍" },
@@ -22,20 +27,22 @@ const CONCERNS = [
   { key: "sti",        label: "Sexual health (private)", icon: "🔒" },
 ];
 
-function panelsForConcern(key) {
+function panelsForConcern(key, panels) {
   if (!key) return [];
-  return testPanels.filter((p) => p.concerns.includes(key));
+  return panels.filter((p) => p.concerns.includes(key));
 }
-
-const panorama = testPanels.find((p) => p.slug === "panorama");
-const packageRows = [
-  testPanels.slice(0, Math.ceil(testPanels.length / 2)),
-  testPanels.slice(Math.ceil(testPanels.length / 2)),
-];
 
 export default function BookTestPage() {
   const [selected, setSelected] = useState(null);
   const resultRef = useRef(null);
+  const backendPrices = usePricingCatalogue();
+  const pricedPanels = withBackendPanelPrices(testPanels, backendPrices);
+  const pricedSingleTests = withBackendSingleTestPrices(singleTests, backendPrices);
+  const panorama = pricedPanels.find((p) => p.slug === "panorama");
+  const packageRows = [
+    pricedPanels.slice(0, Math.ceil(pricedPanels.length / 2)),
+    pricedPanels.slice(Math.ceil(pricedPanels.length / 2)),
+  ];
 
   const handleConcern = (key) => {
     setSelected(key);
@@ -44,11 +51,11 @@ export default function BookTestPage() {
     }, 80);
   };
 
-  const recommended = panelsForConcern(selected);
+  const recommended = panelsForConcern(selected, pricedPanels);
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Seo route="book" />
+      <Seo route="book-tests" />
       <Nav />
       <main>
 
@@ -97,7 +104,7 @@ export default function BookTestPage() {
 
                   <div className="flex flex-col items-start sm:items-center gap-2 sm:min-w-[160px]">
                     <Link
-                      to="/book/panorama"
+                      to="/book-tests/panorama"
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-3 text-[14px] font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
                     >
                       Learn more <ArrowRight size={16} />
@@ -184,7 +191,7 @@ export default function BookTestPage() {
 
                         <div className="flex items-center sm:min-w-[140px]">
                           <Link
-                            to={`/book/${panel.slug}`}
+                            to={`/book-tests/${panel.slug}`}
                             className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-5 py-2.5 text-[13px] font-bold font-heading transition-all hover:-translate-y-0.5 no-underline whitespace-nowrap"
                           >
                             Learn more <ArrowRight size={14} />
@@ -200,7 +207,7 @@ export default function BookTestPage() {
         )}
 
         {/* ── All packages (collapsed by default) ── */}
-        <AllPackages />
+        <AllPackages packageRows={packageRows} />
 
         {/* ── Single tests ── */}
         <section className="py-12 lg:py-16 px-6 bg-base border-t border-border">
@@ -221,7 +228,7 @@ export default function BookTestPage() {
 
             <Reveal delay={0.05}>
               <div className="rounded-card border border-border overflow-hidden">
-                {singleTests.map((test, i) => (
+                {pricedSingleTests.map((test, i) => (
                   <Link
                     key={test.slug}
                     to={`/test/${test.slug}`}
@@ -229,8 +236,11 @@ export default function BookTestPage() {
                       i % 2 === 0 ? "bg-card" : "bg-section-alt/50"
                     } ${i < singleTests.length - 1 ? "border-b border-border/50" : ""}`}
                   >
-                    <span className="text-[14px] text-text-primary font-medium group-hover:text-primary transition-colors">{test.name}</span>
-                    <ArrowRight size={14} className="text-text-muted group-hover:text-primary transition-colors shrink-0" />
+                    <span className="min-w-0 pr-2 text-[14px] text-text-primary font-medium group-hover:text-primary transition-colors">{test.name}</span>
+                    <span className="ml-3 inline-flex shrink-0 items-center gap-2">
+                      <span className="text-[13px] font-bold text-primary">{test.price}</span>
+                      <ArrowRight size={14} className="text-text-muted group-hover:text-primary transition-colors shrink-0" />
+                    </span>
                   </Link>
                 ))}
               </div>
@@ -262,7 +272,7 @@ export default function BookTestPage() {
                 {[
                   { num: "1", title: "Pick a test", desc: "Choose a package above or a single test." },
                   { num: "2", title: "Get tested", desc: "Visit a partner lab or book home collection." },
-                  { num: "3", title: "See results", desc: "A clinician reviews your results, ready in 48 to 72 hours." },
+                  { num: "3", title: "See results", desc: "A doctor reviews your results, ready in 48 to 72 hours." },
                 ].map((s) => (
                   <div key={s.num} className="flex gap-3 items-start bg-card border border-border rounded-card p-4">
                     <span className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shrink-0 text-white text-[12px] font-bold">
@@ -329,7 +339,7 @@ export default function BookTestPage() {
   );
 }
 
-function AllPackages() {
+function AllPackages({ packageRows }) {
   return (
     <section className="py-12 lg:py-14 bg-base overflow-hidden">
       <Reveal>
@@ -390,7 +400,7 @@ function PackageMarqueeRow({ panels, direction = "left" }) {
 function PackageCard({ panel, className = "" }) {
   return (
     <Link
-      to={`/book/${panel.slug}`}
+      to={`/book-tests/${panel.slug}`}
       className={`group flex h-[152px] w-[58vw] min-w-[208px] max-w-[232px] snap-start flex-col justify-between rounded-card border border-border bg-card p-4 text-left no-underline shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_40px_rgba(43,58,58,0.10)] sm:h-[168px] sm:w-[316px] sm:min-w-[316px] sm:max-w-none sm:snap-align-none sm:p-4 ${className}`}
     >
       <div>
@@ -411,7 +421,7 @@ function PackageCard({ panel, className = "" }) {
         </div>
 
         <p className="text-[13px] font-bold text-primary sm:hidden">
-          {panel.tests.length} tests included
+          {panel.price} · {panel.tests.length} tests included
         </p>
 
         <div className="hidden flex-wrap gap-1.5 sm:flex">
@@ -433,6 +443,8 @@ function PackageCard({ panel, className = "" }) {
 
       <span className="inline-flex items-center gap-1.5 text-[14px] font-bold text-primary transition-colors group-hover:text-primary-dark sm:text-[13px]">
         <span className="sm:hidden">View</span>
+        <span className="hidden sm:inline">{panel.price}</span>
+        <span className="hidden sm:inline text-text-muted">·</span>
         <span className="hidden sm:inline">Learn more</span>
         <ArrowRight size={14} />
       </span>

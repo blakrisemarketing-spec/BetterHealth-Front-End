@@ -89,7 +89,7 @@ function SystemCard({ system, index }) {
 
                 {/* Markers list */}
                 <div>
-                  <p className="text-[11px] font-bold text-text-muted uppercase tracking-[0.12em] mb-3">Biomarkers tested</p>
+                  <p className="text-[11px] font-bold text-text-muted uppercase tracking-[0.12em] mb-3">Health indicators tested</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {system.markers.map((m, i) => (
                       <div key={i} className="flex items-start gap-2">
@@ -124,7 +124,7 @@ function SystemCard({ system, index }) {
 }
 
 export default function WhatWeTestPage() {
-  const { hero, systems, planTable, bottomCta } = whatWeTestPage;
+  const { hero, systems, bottomCta } = whatWeTestPage;
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
@@ -146,7 +146,7 @@ export default function WhatWeTestPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               <span className="text-primary">
-                127 biomarkers
+                127 health indicators
               </span>{" "}
               across 17 body systems, in{" "}
               <span className="italic">one clear picture.</span>
@@ -163,14 +163,12 @@ export default function WhatWeTestPage() {
             </p>
           </Reveal>
           <Reveal delay={0.3}>
-            <a
-              href="https://app.betterhealth.africa/join"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/book-tests"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
             >
               {hero.cta} <ArrowRight size={18} />
-            </a>
+            </Link>
           </Reveal>
         </div>
       </section>
@@ -182,7 +180,7 @@ export default function WhatWeTestPage() {
             <div className="text-center mb-10">
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-2">8 Body Systems</p>
               <h2 className="text-[1.8rem] md:text-[2.2rem] font-extrabold text-text-primary font-heading tracking-tight">
-                Click any system to see every biomarker
+                Click any system to see every health indicator
               </h2>
             </div>
           </Reveal>
@@ -191,69 +189,6 @@ export default function WhatWeTestPage() {
               <SystemCard key={system.name} system={system} index={i} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Plan Comparison Table ── */}
-      <section className="py-20 lg:py-[100px] px-6 bg-base">
-        <div className="max-w-[900px] mx-auto">
-          <Reveal>
-            <div className="text-center mb-10">
-              <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-2">Plan Comparison</p>
-              <h2 className="text-[1.8rem] md:text-[2.2rem] font-extrabold text-text-primary font-heading tracking-tight mb-2">
-                {planTable.headline}
-              </h2>
-              <p className="text-[15px] text-text-secondary">{planTable.subheadline}</p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="overflow-x-auto rounded-card border border-border shadow-sm">
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr className="bg-section-alt">
-                    <th className="text-left px-5 py-4 font-bold text-text-primary font-heading border-b border-border">Body System</th>
-                    <th className="text-center px-4 py-4 font-bold text-text-primary font-heading border-b border-border">
-                      <div className="text-[11px] text-text-muted font-normal mb-0.5">FROM</div>
-                      Essential
-                      <div className="text-[11px] text-text-muted font-normal mt-0.5">1× per year</div>
-                    </th>
-                    <th className="text-center px-4 py-4 font-bold text-white font-heading border-b border-border bg-primary">
-                      <div className="text-[11px] text-white/80 font-normal mb-0.5">MOST POPULAR</div>
-                      Complete
-                      <div className="text-[11px] text-white/80 font-normal mt-0.5">2× per year</div>
-                    </th>
-                    <th className="text-center px-4 py-4 font-bold text-text-primary font-heading border-b border-border">
-                      <div className="text-[11px] text-text-muted font-normal mb-0.5">DEEPEST</div>
-                      Premium
-                      <div className="text-[11px] text-text-muted font-normal mt-0.5">2× per year</div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {planTable.rows.map((row, i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-section-alt/50"}>
-                      <td className="px-5 py-3.5 font-semibold text-text-primary border-b border-border/60">{row.system}</td>
-                      <td className="px-4 py-3.5 text-center text-text-secondary border-b border-border/60">{row.essential}</td>
-                      <td className="px-4 py-3.5 text-center font-semibold text-primary border-b border-border/60">{row.complete}</td>
-                      <td className="px-4 py-3.5 text-center text-text-secondary border-b border-border/60">{row.premium}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="text-center mt-8">
-              <a
-                href="https://app.betterhealth.africa/join"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
-              >
-                {planTable.cta} <ArrowRight size={16} />
-              </a>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -272,14 +207,12 @@ export default function WhatWeTestPage() {
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <a
-              href="https://app.betterhealth.africa/join"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/book-tests"
               className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
             >
               {bottomCta.cta} <ArrowRight size={18} />
-            </a>
+            </Link>
           </Reveal>
         </div>
       </section>
