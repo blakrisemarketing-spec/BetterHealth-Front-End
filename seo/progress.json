@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-10",
+  "lastRunDate": "2026-07-12",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -25,13 +25,18 @@
     "art-blood-group",
     "art-psa-prostate",
     "art-pap-smear",
-    "art-uric-acid-gout"
+    "art-uric-acid-gout",
+    "art-g6pd",
+    "art-antenatal-tests",
+    "art-screening-nigeria",
+    "art-screening-kenya",
+    "local-lagos"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-05",
   "inFlightPRs": [],
-  "publishedCount": 26,
-  "notes": "2026-07-10 CONSOLIDATION PR (seo/consolidated-2026-07-10): resolves the duplicate-PR pileup from nightly runs #36-#40, which had re-generated the same 7 articles into 5 overlapping PRs (dedup via inFlightPRs was never written; #40 also failed to scan open PRs). This single PR ships the best-reviewed version of each: art-hepatitis-c (from #36, 20/mo Ghana), art-genotype-test (from #38, 880/mo Nigeria + 'genotype compatibility' 1000/mo low-competition), art-premarital-screening (from #39, 50/mo Nigeria), art-blood-group (from #39, 260/mo Ghana), art-psa-prostate (from #40, 480/mo Ghana), art-pap-smear (from #39), art-uric-acid-gout (from #39). All passed the per-article clinical-safety + humanizer gates; pap-smear got two clinical fixes on merge (screening now age-anchored per WHO 30/national 25, plus the women-living-with-HIV note: start 25, rescreen 3-5y), and psa gained the 'a normal PSA does not fully exclude cancer' nuance. PRs #36-#40 to be closed once this merges. Next unclaimed todo: art-h-pylori, art-stool-test, art-urinalysis, art-crp-inflammation, art-vitamin-b12. Remaining todo article/local items stay above the 10-item queue-refill threshold, so no refill pass is needed."
+  "publishedCount": 31,
+  "notes": "2026-07-12 NIGHTLY BATCH (seo/nightly-2026-07-12, 5 articles): the top 5 todo items (art-h-pylori, art-stool-test, art-urinalysis, art-crp-inflammation, art-vitamin-b12) were already claimed by open PR #44 (seo/nightly-2026-07-11, unmerged) per a gh pr list file-scan dedup check, so this run skipped them and walked down the queue. Published: art-g6pd (g6pd test, 390/mo Ghana LOW competition), art-antenatal-tests (antenatal blood tests, 10/mo Ghana, pan-African hub), art-screening-nigeria (health screening Nigeria, Nigeria market-entry hub), art-screening-kenya (health screening Kenya, Kenya market-entry hub), local-lagos (blood test Lagos, 10/mo Nigeria LOW competition). Each drafted by an independent sub-agent (own context budget), each passed an independent clinical-safety and quality-floor review before shipping: 2+ images, 3-4 resolving internal links (incl. cross-links between health-screening-nigeria and blood-test-lagos in this same batch), 5-6 FAQ Qs, every h2 opens with a citable claim, zero em dashes, no medicallyReviewedBy fabrication. Build, lint and prerender (dist/blog/<slug>, sitemap.xml, llms.txt) all verified green. PRs #36-#40 (superseded by the 2026-07-10 consolidation) and #44 remain open and unmerged; a human should merge or close the backlog soon. Next unclaimed todo once #44 merges: art-h-pylori, art-stool-test, art-urinalysis, art-crp-inflammation, art-vitamin-b12. Remaining todo article/local items (11) stay above the 10-item queue-refill threshold, so no refill pass was run."
 }

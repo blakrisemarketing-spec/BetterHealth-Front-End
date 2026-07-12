@@ -382,6 +382,7 @@ items:
     intent: informational
     title: "H. pylori Test: The Bacterium Behind Most Stomach Ulcers"
     status: todo
+    notes: "Claimed by open PR #44 (seo/nightly-2026-07-11, unmerged as of 2026-07-12); skip in nightly selection until that PR merges or closes."
 
   - id: art-stool-test
     type: article
@@ -394,6 +395,7 @@ items:
     intent: informational
     title: "Stool Test: What Ova, Parasites, and Occult Blood Reveal"
     status: todo
+    notes: "Claimed by open PR #44 (seo/nightly-2026-07-11, unmerged as of 2026-07-12); skip in nightly selection until that PR merges or closes."
 
   - id: art-urinalysis
     type: article
@@ -406,6 +408,7 @@ items:
     intent: informational
     title: "Urinalysis: How to Read a Routine Urine Test"
     status: todo
+    notes: "Claimed by open PR #44 (seo/nightly-2026-07-11, unmerged as of 2026-07-12); skip in nightly selection until that PR merges or closes."
 
   - id: art-crp-inflammation
     type: article
@@ -418,6 +421,7 @@ items:
     intent: informational
     title: "CRP and ESR: What Inflammation Markers Tell You"
     status: todo
+    notes: "Claimed by open PR #44 (seo/nightly-2026-07-11, unmerged as of 2026-07-12); skip in nightly selection until that PR merges or closes."
 
   - id: art-vitamin-b12
     type: article
@@ -430,7 +434,7 @@ items:
     intent: informational
     title: "Vitamin B12 and Folate: Testing for the Other Anaemias"
     status: todo
-    notes: "Internal-link to the ferritin/iron-anaemia article — together they cover the common anaemia work-up."
+    notes: "Internal-link to the ferritin/iron-anaemia article — together they cover the common anaemia work-up. Claimed by open PR #44 (seo/nightly-2026-07-11, unmerged as of 2026-07-12); skip in nightly selection until that PR merges or closes."
 
   - id: art-g6pd
     type: article
@@ -438,12 +442,13 @@ items:
     slug: g6pd-deficiency-test
     keyword: g6pd test
     market: pan-africa
-    volume: null
-    secondary: ["g6pd deficiency", "favism", "g6pd and malaria drugs", "g6pd deficiency foods to avoid"]
+    volume: 390
+    secondary: ["g6pd deficiency", "favism", "g6pd and malaria drugs", "g6pd deficiency foods to avoid", "g6pd test procedure (90/mo)", "g6pd test in pregnancy (10/mo)"]
     intent: informational
     title: "G6PD Deficiency: Why This Test Matters Before Some Medications"
-    status: todo
-    notes: "Common across malaria-endemic Africa; relevant to antimalarial and some drug safety. Strong locally-specific AI-citation candidate."
+    status: done
+    completed: 2026-07-12
+    notes: "Published 2026-07-12. g6pd test 390/mo Ghana, LOW competition (DataForSEO). Covers X-linked mechanism, primaquine/tafenoquine malaria-drug testing gate, favism, testing timing caveat, pregnancy/newborn relevance. Article + BreadcrumbList + FAQPage schema. PR: seo/nightly-2026-07-12."
 
   - id: art-antenatal-tests
     type: article
@@ -451,11 +456,13 @@ items:
     slug: antenatal-blood-tests
     keyword: antenatal blood tests
     market: pan-africa
-    volume: null
-    secondary: ["pregnancy blood tests", "booking bloods", "tests during pregnancy", "antenatal profile"]
+    volume: 10
+    secondary: ["pregnancy blood tests", "booking bloods", "tests during pregnancy", "antenatal profile (10/mo)"]
     intent: informational
     title: "Antenatal Blood Tests: The Pregnancy Screening Panel Explained"
-    status: todo
+    status: done
+    completed: 2026-07-12
+    notes: "Published 2026-07-12. antenatal blood tests 10/mo Ghana (DataForSEO); low volume but a strong hub/AI-citation page. Covers blood group/Rh, FBC/anaemia, HIV + hepatitis B, genotype, gestational diabetes, and timing. Cross-links to blood-group-test, hiv-test-explained, genotype-test-aa-as-ss. Article + BreadcrumbList + FAQPage schema. PR: seo/nightly-2026-07-12."
 
   # ---- Multi-market screening / local landing (Nigeria, Kenya, South Africa) ----
   - id: art-screening-nigeria
@@ -467,7 +474,9 @@ items:
     volume: null
     intent: commercial
     title: "Health Screening in Nigeria: What to Test and How Often"
-    status: todo
+    status: done
+    completed: 2026-07-12
+    notes: "Published 2026-07-12. No confirmed DataForSEO volume (checked 2026-07-12); targeted for commercial intent and AI-citation as a Nigeria market-entry hub. Nigeria's equivalent of preventive-health-screening-ghana.js, with genuinely Nigerian disease-burden framing (sickle cell, hypertension, hepatitis B) and honest NHIS/HMO hedging. Cross-links to genotype-test-aa-as-ss and blood-test-lagos (same batch). Article + BreadcrumbList + FAQPage schema. PR: seo/nightly-2026-07-12."
 
   - id: art-screening-kenya
     type: article
@@ -478,7 +487,9 @@ items:
     volume: null
     intent: commercial
     title: "Health Screening in Kenya: What to Test and How Often"
-    status: todo
+    status: done
+    completed: 2026-07-12
+    notes: "Published 2026-07-12. No confirmed DataForSEO volume (checked 2026-07-12); targeted for commercial intent and AI-citation as a Kenya market-entry hub. Covers Kenya's double disease burden (NCDs rising alongside malaria/HIV/cervical cancer), honest NHIF/SHA hedging. Cross-links to malaria-test-explained, hiv-test-explained, pap-smear-cervical-screening. Article + BreadcrumbList + FAQPage schema. PR: seo/nightly-2026-07-12."
 
   - id: local-lagos
     type: article
@@ -486,10 +497,12 @@ items:
     slug: blood-test-lagos
     keyword: blood test Lagos
     market: nigeria
-    volume: null
+    volume: 10
     intent: local
     title: "Blood Tests and Health Screening in Lagos: Your Options"
-    status: todo
+    status: done
+    completed: 2026-07-12
+    notes: "Published 2026-07-12. blood test Lagos 10/mo Nigeria, LOW competition (DataForSEO). Local-intent landing page: Lagos traffic/home-collection angle, standard panel, genotype/sickle cell local relevance. Cross-links to health-screening-nigeria (same batch) and genotype-test-aa-as-ss. Article + BreadcrumbList + FAQPage schema. PR: seo/nightly-2026-07-12."
 
   - id: local-nairobi
     type: article

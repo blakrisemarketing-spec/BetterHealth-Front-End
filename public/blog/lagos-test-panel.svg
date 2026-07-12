@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="850" fill="#FFFFFF"/>
+  <text x="80" y="66" font-size="34" font-weight="700" fill="#2B3A3A">A standard full checkup panel in Lagos</text>
+  <text x="80" y="100" font-size="20" fill="#6B7979">The tests most commonly bundled into a general blood test request</text>
+
+  <g>
+    <!-- row 1: cardiometabolic (sage) -->
+    <g transform="translate(80,140)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Full blood count</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Anaemia, infection, general health</text>
+    </g>
+    <g transform="translate(640,140)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Fasting blood sugar</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Checks for prediabetes and diabetes</text>
+    </g>
+    <!-- row 2: cardiometabolic (sage) -->
+    <g transform="translate(80,284)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Lipid profile</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Cholesterol and heart risk</text>
+    </g>
+    <g transform="translate(640,284)">
+      <rect width="520" height="120" rx="16" fill="#EDEAF6"/>
+      <rect width="8" height="120" rx="4" fill="#8E7FC9"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Genotype</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">AA, AS, SS: relevant before marriage</text>
+    </g>
+    <!-- row 3: identity + infectious disease -->
+    <g transform="translate(80,428)">
+      <rect width="520" height="120" rx="16" fill="#EDEAF6"/>
+      <rect width="8" height="120" rx="4" fill="#8E7FC9"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Blood group</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">ABO and Rhesus factor</text>
+    </g>
+    <g transform="translate(640,428)">
+      <rect width="520" height="120" rx="16" fill="#FBF0EE"/>
+      <rect width="8" height="120" rx="4" fill="#C9594F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Hepatitis B</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Common pre-employment and antenatal ask</text>
+    </g>
+    <!-- row 4: infectious disease -->
+    <g transform="translate(80,572)">
+      <rect width="520" height="120" rx="16" fill="#FBF0EE"/>
+      <rect width="8" height="120" rx="4" fill="#C9594F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">HIV test</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Routine, private, worth repeating</text>
+    </g>
+    <g transform="translate(640,572)">
+      <rect width="520" height="120" rx="16" fill="#FBF0EE"/>
+      <rect width="8" height="120" rx="4" fill="#C9594F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Malaria and typhoid</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Added when symptoms point that way</text>
+    </g>
+    <!-- row 5: note -->
+    <g transform="translate(80,716)">
+      <rect width="1080" height="90" rx="16" fill="#F3EEDF"/>
+      <rect width="8" height="90" rx="4" fill="#E0A23E"/>
+      <text x="40" y="42" font-size="20" font-weight="700" fill="#2B3A3A">Not every test applies to every visit</text>
+      <text x="40" y="70" font-size="18" fill="#6B7979">Your reason for testing (checkup, symptom, antenatal, marriage) shapes the exact list</text>
+    </g>
+  </g>
+  <text x="80" y="822" font-size="15" fill="#9AA6A6">General guidance, not a prescription. A clinician or lab can confirm what applies to you.</text>
+</svg>
