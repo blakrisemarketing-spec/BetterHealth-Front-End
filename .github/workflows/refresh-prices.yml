@@ -1,0 +1,54 @@
+name: Refresh prices
+
+# Fetches the latest prices from the App's public catalogue once a day and bakes
+# them into src/data/pricing-snapshot.json. When a price has changed, it commits
+# to main — which Hostinger (LiteSpeed) auto-builds and serves, so the new prices
+# ship to the live site. When nothing changed, no commit and no deploy.
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 00:00 UTC daily = midnight Ghana (UTC+0)
+  workflow_dispatch: {} # manual "Run workflow" button
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-prices
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch latest prices (retry on transient failures)
+        run: |
+          for attempt in 1 2 3 4 5; do
+            echo "Attempt $attempt…"
+            if node scripts/build-pricing-snapshot.mjs; then
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "::error::Catalogue unreachable after 5 attempts — snapshot left unchanged."
+          exit 1
+
+      - name: Commit if prices changed
+        run: |
+          if git diff --quiet -- src/data/pricing-snapshot.json; then
+            echo "No price changes — nothing to deploy."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/pricing-snapshot.json
+          git commit -m "chore(prices): refresh daily price snapshot from backend catalogue"
+          git push

@@ -1,5 +1,18 @@
 import { useSyncExternalStore } from "react";
 import { PANEL_CODES, SINGLE_TEST_CODES } from "../data/app-catalogue";
+import { normalisePanelPrices, normaliseTestPrices } from "./pricing-normalize";
+import pricingSnapshot from "../data/pricing-snapshot.json";
+
+// Prices baked at build time by the nightly refresh job
+// (scripts/build-pricing-snapshot.mjs). Used as the initial store value so the
+// first paint shows real backend prices with no API round-trip and no flash of
+// the hardcoded fallbacks. The live background refresh below still runs to catch
+// any intra-day changes.
+const STATIC_SNAPSHOT = {
+  fetchedAt: 0,
+  panelsByCode: pricingSnapshot?.panelsByCode || {},
+  testsByCode: pricingSnapshot?.testsByCode || {},
+};
 
 const DEFAULT_CATALOGUE_BASE = "https://app.betterhealth.africa/api/public";
 const CATALOGUE_BASE = (
@@ -12,7 +25,7 @@ const REFRESH_AFTER_MS = 24 * 60 * 60 * 1000;
 const MAX_CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 const API_TIMEOUT_MS = 10000;
 
-let snapshot = readCachedCatalogue();
+let snapshot = readCachedCatalogue() || STATIC_SNAPSHOT;
 let refreshPromise = null;
 let refreshQueued = false;
 const listeners = new Set();
@@ -141,50 +154,6 @@ async function fetchPricingCatalogue() {
         ? normaliseTestPrices(testsResult.value)
         : snapshot?.testsByCode || {},
   };
-}
-
-function normalisePanelPrices(data) {
-  return Object.fromEntries(
-    (data?.panels || [])
-      .map((panel) => [
-        String(panel.panelCode || "").toLowerCase(),
-        normalisePrice(panel.price, panel.currency),
-      ])
-      .filter(([code, price]) => code && price),
-  );
-}
-
-function normaliseTestPrices(data) {
-  return Object.fromEntries(
-    (data?.categories || [])
-      .flatMap((category) => category.tests || [])
-      .map((test) => [
-        String(test.code || "").toUpperCase(),
-        normalisePrice(test.price, test.currency),
-      ])
-      .filter(([code, price]) => code && price),
-  );
-}
-
-function normalisePrice(value, currency = "GHS") {
-  const amount = Number(value);
-  if (!Number.isFinite(amount) || amount <= 0) return null;
-
-  return {
-    amount,
-    currency,
-    formatted: formatPrice(amount, currency),
-  };
-}
-
-function formatPrice(amount, currency = "GHS") {
-  const hasPesewas = !Number.isInteger(amount);
-  const formattedAmount = new Intl.NumberFormat("en-GH", {
-    minimumFractionDigits: hasPesewas ? 2 : 0,
-    maximumFractionDigits: hasPesewas ? 2 : 0,
-  }).format(amount);
-
-  return `${currency} ${formattedAmount}`;
 }
 
 export function usePricingCatalogue() {

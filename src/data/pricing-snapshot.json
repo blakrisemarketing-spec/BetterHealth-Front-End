@@ -1,0 +1,481 @@
+{
+  "panelsByCode": {
+    "alpha": {
+      "amount": 995,
+      "currency": "GHS",
+      "formatted": "GHS 995"
+    },
+    "cardion": {
+      "amount": 475,
+      "currency": "GHS",
+      "formatted": "GHS 475"
+    },
+    "dialics": {
+      "amount": 350,
+      "currency": "GHS",
+      "formatted": "GHS 350"
+    },
+    "empress": {
+      "amount": 995,
+      "currency": "GHS",
+      "formatted": "GHS 995"
+    },
+    "metabolix": {
+      "amount": 697,
+      "currency": "GHS",
+      "formatted": "GHS 697"
+    },
+    "panorama": {
+      "amount": 1100,
+      "currency": "GHS",
+      "formatted": "GHS 1,100"
+    },
+    "privara": {
+      "amount": 897,
+      "currency": "GHS",
+      "formatted": "GHS 897"
+    },
+    "shield": {
+      "amount": 497,
+      "currency": "GHS",
+      "formatted": "GHS 497"
+    },
+    "spark": {
+      "amount": 1500,
+      "currency": "GHS",
+      "formatted": "GHS 1,500"
+    }
+  },
+  "testsByCode": {
+    "ANA": {
+      "amount": 900,
+      "currency": "GHS",
+      "formatted": "GHS 900"
+    },
+    "B_HCG": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "BF_MALARIA": {
+      "amount": 45,
+      "currency": "GHS",
+      "formatted": "GHS 45"
+    },
+    "BG_FASTING": {
+      "amount": 35,
+      "currency": "GHS",
+      "formatted": "GHS 35"
+    },
+    "BLOOD_GROUP": {
+      "amount": 50,
+      "currency": "GHS",
+      "formatted": "GHS 50"
+    },
+    "BNP": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "CALCIUM": {
+      "amount": 55,
+      "currency": "GHS",
+      "formatted": "GHS 55"
+    },
+    "CARDIAC_ENZYMES": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "CBC": {
+      "amount": 100,
+      "currency": "GHS",
+      "formatted": "GHS 100"
+    },
+    "CHLAMYDIA": {
+      "amount": 180,
+      "currency": "GHS",
+      "formatted": "GHS 180"
+    },
+    "COAGULATION": {
+      "amount": 80,
+      "currency": "GHS",
+      "formatted": "GHS 80"
+    },
+    "CORTISOL": {
+      "amount": 120,
+      "currency": "GHS",
+      "formatted": "GHS 120"
+    },
+    "CREATININE_CLEARANCE": {
+      "amount": 300,
+      "currency": "GHS",
+      "formatted": "GHS 300"
+    },
+    "CRP": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "CS_HVS": {
+      "amount": 225,
+      "currency": "GHS",
+      "formatted": "GHS 225"
+    },
+    "CS_SPUTUM": {
+      "amount": 225,
+      "currency": "GHS",
+      "formatted": "GHS 225"
+    },
+    "CS_STOOL": {
+      "amount": 225,
+      "currency": "GHS",
+      "formatted": "GHS 225"
+    },
+    "CS_THROAT": {
+      "amount": 225,
+      "currency": "GHS",
+      "formatted": "GHS 225"
+    },
+    "CS_URETHRAL": {
+      "amount": 225,
+      "currency": "GHS",
+      "formatted": "GHS 225"
+    },
+    "CS_URINE": {
+      "amount": 225,
+      "currency": "GHS",
+      "formatted": "GHS 225"
+    },
+    "CS_WOUND": {
+      "amount": 225,
+      "currency": "GHS",
+      "formatted": "GHS 225"
+    },
+    "CULTURE_SENS": {
+      "amount": 160,
+      "currency": "GHS",
+      "formatted": "GHS 160"
+    },
+    "EGFR": {
+      "amount": 100,
+      "currency": "GHS",
+      "formatted": "GHS 100"
+    },
+    "ENDOMETRIAL_BIOPSY": {
+      "amount": 450,
+      "currency": "GHS",
+      "formatted": "GHS 450"
+    },
+    "ESR": {
+      "amount": 75,
+      "currency": "GHS",
+      "formatted": "GHS 75"
+    },
+    "ESTRADIOL": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "FBC": {
+      "amount": 100,
+      "currency": "GHS",
+      "formatted": "GHS 100"
+    },
+    "FOLATE": {
+      "amount": 110,
+      "currency": "GHS",
+      "formatted": "GHS 110"
+    },
+    "FSH": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "G6PD": {
+      "amount": 85,
+      "currency": "GHS",
+      "formatted": "GHS 85"
+    },
+    "GGT": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "GONORRHOEA": {
+      "amount": 180,
+      "currency": "GHS",
+      "formatted": "GHS 180"
+    },
+    "H_PYLORI": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "HAV_IGG": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "HAV_IGM": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "HB": {
+      "amount": 45,
+      "currency": "GHS",
+      "formatted": "GHS 45"
+    },
+    "HB_ELECTRO": {
+      "amount": 170,
+      "currency": "GHS",
+      "formatted": "GHS 170"
+    },
+    "HBA1C": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "HBSAG": {
+      "amount": 75,
+      "currency": "GHS",
+      "formatted": "GHS 75"
+    },
+    "HCV": {
+      "amount": 100,
+      "currency": "GHS",
+      "formatted": "GHS 100"
+    },
+    "HEP_B_PROFILE": {
+      "amount": 300,
+      "currency": "GHS",
+      "formatted": "GHS 300"
+    },
+    "HIV_CONFIRM": {
+      "amount": 450,
+      "currency": "GHS",
+      "formatted": "GHS 450"
+    },
+    "HSV_PANEL": {
+      "amount": 975,
+      "currency": "GHS",
+      "formatted": "GHS 975"
+    },
+    "HVS_RE": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "LFT": {
+      "amount": 170,
+      "currency": "GHS",
+      "formatted": "GHS 170"
+    },
+    "LH": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "LIPID": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "MALARIA_RDT": {
+      "amount": 30,
+      "currency": "GHS",
+      "formatted": "GHS 30"
+    },
+    "MALARIA_RDT_BF": {
+      "amount": 70,
+      "currency": "GHS",
+      "formatted": "GHS 70"
+    },
+    "OCCULT_BLOOD": {
+      "amount": 100,
+      "currency": "GHS",
+      "formatted": "GHS 100"
+    },
+    "OGTT_2HR": {
+      "amount": 70,
+      "currency": "GHS",
+      "formatted": "GHS 70"
+    },
+    "OGTT_75G": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "PREG_TEST": {
+      "amount": 50,
+      "currency": "GHS",
+      "formatted": "GHS 50"
+    },
+    "PROGESTERONE": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "PROLACTIN": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "PSA": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "RETROSCREEN": {
+      "amount": 75,
+      "currency": "GHS",
+      "formatted": "GHS 75"
+    },
+    "RFT": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "SCAN_ABDOMINAL": {
+      "amount": 160,
+      "currency": "GHS",
+      "formatted": "GHS 160"
+    },
+    "SCAN_ANOMALY": {
+      "amount": 160,
+      "currency": "GHS",
+      "formatted": "GHS 160"
+    },
+    "SCAN_AP_FEMALE": {
+      "amount": 200,
+      "currency": "GHS",
+      "formatted": "GHS 200"
+    },
+    "SCAN_AP_MALE": {
+      "amount": 220,
+      "currency": "GHS",
+      "formatted": "GHS 220"
+    },
+    "SCAN_OBSTETRIC": {
+      "amount": 100,
+      "currency": "GHS",
+      "formatted": "GHS 100"
+    },
+    "SCAN_PELVIC": {
+      "amount": 100,
+      "currency": "GHS",
+      "formatted": "GHS 100"
+    },
+    "SCAN_PROSTATE": {
+      "amount": 160,
+      "currency": "GHS",
+      "formatted": "GHS 160"
+    },
+    "SEMEN_ANALYSIS": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "SICKLING": {
+      "amount": 50,
+      "currency": "GHS",
+      "formatted": "GHS 50"
+    },
+    "STOOL_RE": {
+      "amount": 65,
+      "currency": "GHS",
+      "formatted": "GHS 65"
+    },
+    "T3": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "T4": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "TESTOSTERONE": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "TFT": {
+      "amount": 300,
+      "currency": "GHS",
+      "formatted": "GHS 300"
+    },
+    "TOXOPLASMA": {
+      "amount": 225,
+      "currency": "GHS",
+      "formatted": "GHS 225"
+    },
+    "TPHA": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "TSH": {
+      "amount": 130,
+      "currency": "GHS",
+      "formatted": "GHS 130"
+    },
+    "TYPHOID_AB": {
+      "amount": 60,
+      "currency": "GHS",
+      "formatted": "GHS 60"
+    },
+    "TYPHOID_TEST": {
+      "amount": 90,
+      "currency": "GHS",
+      "formatted": "GHS 90"
+    },
+    "URIC_ACID": {
+      "amount": 55,
+      "currency": "GHS",
+      "formatted": "GHS 55"
+    },
+    "URINALYSIS": {
+      "amount": 100,
+      "currency": "GHS",
+      "formatted": "GHS 100"
+    },
+    "URINE_GLUC": {
+      "amount": 32,
+      "currency": "GHS",
+      "formatted": "GHS 32"
+    },
+    "URINE_MICROALBUMIN": {
+      "amount": 150,
+      "currency": "GHS",
+      "formatted": "GHS 150"
+    },
+    "URINE_RE": {
+      "amount": 65,
+      "currency": "GHS",
+      "formatted": "GHS 65"
+    },
+    "VDRL": {
+      "amount": 75,
+      "currency": "GHS",
+      "formatted": "GHS 75"
+    },
+    "VITAMIN_B12": {
+      "amount": 110,
+      "currency": "GHS",
+      "formatted": "GHS 110"
+    },
+    "VITAMIN_D": {
+      "amount": 110,
+      "currency": "GHS",
+      "formatted": "GHS 110"
+    },
+    "WBC": {
+      "amount": 15,
+      "currency": "GHS",
+      "formatted": "GHS 15"
+    }
+  }
+}
