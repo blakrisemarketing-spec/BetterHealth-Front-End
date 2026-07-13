@@ -10,7 +10,7 @@ export default {
   slug: "cost-of-health-screening-ghana",
   title: "How Much Does a Full Health Check Cost in Ghana?",
   description:
-    "What actually decides the price of a health check in Ghana: bundle vs single tests, public vs private, lab vs home draw. Learn what drives cost before you book, and where to find current pricing.",
+    "What decides the price of a health check in Ghana: bundle vs single tests, public vs private, lab vs home draw. See what drives cost before you book, and where to find current pricing.",
   excerpt:
     "There is no single answer to what a full health check costs in Ghana, because the honest answer depends on four things you control: the panel size, the provider type, the collection method, and how you compare your options.",
   datePublished: "2026-07-13",
@@ -31,7 +31,7 @@ export default {
     },
     {
       type: "p",
-      text: "There is no single, honest answer to what a full health check costs in Ghana, and any article that gives you one flat figure is guessing or already out of date. What you can learn, and what actually helps you budget, is the small set of choices that move the price up or down: how many tests you bundle together, whether you go public or private, and whether the sample is drawn at home or in a lab. Once you understand those levers, any quote you receive makes sense, and you can compare providers properly instead of anchoring on a number you saw once online.",
+      text: "There is no single, honest answer to what a full health check costs in Ghana, and any article that gives you one flat figure is guessing or already out of date. What you can learn, and what helps you budget, is the small set of choices that move the price up or down: how many tests you bundle together, whether you go public or private, and whether the sample is drawn at home or in a lab. Once you understand those levers, any quote you receive makes sense, and you can compare providers properly instead of anchoring on a number you saw once online.",
     },
     {
       type: "h2",
@@ -92,7 +92,7 @@ export default {
     {
       type: "h2",
       id: "what-drives-price",
-      text: "Four variables mostly decide what a health check costs in Ghana: whether you buy a bundle or single tests, whether the provider is public or private, whether the sample is drawn at home or in a lab, and how many biomarkers the panel actually covers.",
+      text: "Four variables mostly decide what a health check costs in Ghana: whether you buy a bundle or single tests, whether the provider is public or private, whether the sample is drawn at home or in a lab, and how many biomarkers the panel covers.",
     },
     {
       type: "p",
@@ -136,7 +136,7 @@ export default {
     },
     {
       type: "p",
-      text: "A low price on a test that comes back inaccurate, late, or unexplained is not actually cheap, because you may end up paying for a repeat test anyway, or making a decision on bad information. Before comparing numbers across providers, it is worth checking a few things that do not show up on a price list.",
+      text: "A low price on a test that comes back inaccurate, late, or unexplained is not cheap in the end, because you may end up paying for a repeat test anyway, or making a decision on bad information. Before comparing numbers across providers, it is worth checking a few things that do not show up on a price list.",
     },
     {
       type: "list",
@@ -151,7 +151,7 @@ export default {
     {
       type: "link-internal",
       to: "/blog/lipid-profile-cholesterol-test",
-      label: "Example: what a single lipid profile test actually measures",
+      label: "Example: what a single lipid profile test measures",
     },
     {
       type: "h2",
@@ -206,7 +206,7 @@ export default {
         },
         {
           q: "Is a bundled panel cheaper than ordering the same tests individually?",
-          a: "Usually, yes, per test. Bundling spreads a lab's fixed processing costs, such as staff time and sample handling, across more results, so a package is typically priced below what the same tests would cost booked one at a time. A bundle is only good value, though, if you actually need most of the tests in it.",
+          a: "Usually, yes, per test. Bundling spreads a lab's fixed processing costs, such as staff time and sample handling, across more results, so a package is typically priced below what the same tests would cost booked one at a time. A bundle is only good value, though, if you need most of the tests in it.",
         },
         {
           q: "Does NHIS or private health insurance cover routine health screening?",

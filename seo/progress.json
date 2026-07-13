@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-10",
+  "lastRunDate": "2026-07-13",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -25,13 +25,18 @@
     "art-blood-group",
     "art-psa-prostate",
     "art-pap-smear",
-    "art-uric-acid-gout"
+    "art-uric-acid-gout",
+    "local-nairobi",
+    "art-cost-of-screening",
+    "art-full-body-checkup",
+    "art-home-vs-lab",
+    "local-accra"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-05",
   "inFlightPRs": [],
-  "publishedCount": 26,
-  "notes": "2026-07-10 CONSOLIDATION PR (seo/consolidated-2026-07-10): resolves the duplicate-PR pileup from nightly runs #36-#40, which had re-generated the same 7 articles into 5 overlapping PRs (dedup via inFlightPRs was never written; #40 also failed to scan open PRs). This single PR ships the best-reviewed version of each: art-hepatitis-c (from #36, 20/mo Ghana), art-genotype-test (from #38, 880/mo Nigeria + 'genotype compatibility' 1000/mo low-competition), art-premarital-screening (from #39, 50/mo Nigeria), art-blood-group (from #39, 260/mo Ghana), art-psa-prostate (from #40, 480/mo Ghana), art-pap-smear (from #39), art-uric-acid-gout (from #39). All passed the per-article clinical-safety + humanizer gates; pap-smear got two clinical fixes on merge (screening now age-anchored per WHO 30/national 25, plus the women-living-with-HIV note: start 25, rescreen 3-5y), and psa gained the 'a normal PSA does not fully exclude cancer' nuance. PRs #36-#40 to be closed once this merges. Next unclaimed todo: art-h-pylori, art-stool-test, art-urinalysis, art-crp-inflammation, art-vitamin-b12. Remaining todo article/local items stay above the 10-item queue-refill threshold, so no refill pass is needed."
+  "publishedCount": 31,
+  "notes": "2026-07-13 nightly batch: PRs #44 (seo/nightly-2026-07-11: h-pylori-test, stool-test-explained, urinalysis-explained, crp-inflammation-test, vitamin-b12-folate-test) and #45 (seo/nightly-2026-07-12: g6pd-deficiency-test, antenatal-blood-tests, health-screening-nigeria, health-screening-kenya, blood-test-lagos) were both open 1-2 nights but stuck as GitHub drafts (never marked ready for review), making 10 already-drafted articles invisible to review. This run marked both ready for review (gh pr ready equivalent) before doing anything else — no code changes to either. With those slugs claimed and only local-nairobi/art-cost-of-screening/art-full-body-checkup/art-home-vs-lab/local-accra unclaimed, this run published exactly those 5 (matching the roadmap top-to-bottom order) as one new PR. local-kumasi is now the only fully unclaimed todo article/local item left in the queue; h-pylori/stool/urinalysis/crp/vitamin-b12/g6pd/antenatal/screening-nigeria/screening-kenya/blood-test-lagos remain status:todo in roadmap.yml pending the merge of #44/#45 (do not re-publish those slugs — check open PRs first). Raw todo count is 11 (>=10) so the mechanical queue-refill threshold isn't tripped, but only 1 of those 11 is actually unclaimed — a human should merge or close #44/#45 (and this run's new PR) soon so the next nightly run has real unclaimed runway; if not, the next run should treat the queue as effectively starved and run the refill pass early despite the raw count."
 }

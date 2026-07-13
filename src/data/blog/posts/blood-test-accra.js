@@ -12,7 +12,7 @@ export default {
   description:
     "Where to get a blood test in Accra: public hospital lab, private diagnostic lab, or a home blood draw. What to expect, how to choose, and why routine screening matters in Ghana.",
   excerpt:
-    "Public hospital lab, private lab, or a phlebotomist who comes to you. Here is how blood testing actually works in Accra, what to expect on the day, and how to pick the option that fits your situation.",
+    "Public hospital lab, private lab, or a phlebotomist who comes to you. This is how blood testing works in Accra, what to expect on the day, and how to pick the option that fits your situation.",
   datePublished: "2026-07-13",
   dateModified: "2026-07-13",
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
@@ -89,7 +89,7 @@ export default {
     {
       type: "link-internal",
       to: "/blog/full-blood-count-explained",
-      label: "What a full blood count actually measures, explained in plain language",
+      label: "What a full blood count measures, explained in plain language",
     },
     {
       type: "h2",
@@ -102,7 +102,7 @@ export default {
     },
     {
       type: "p",
-      text: "A home draw suits people who cannot easily take time off work to sit in a queue, who want to test a whole household in one visit, or who simply prefer not to spend an hour in a waiting room for a routine panel. It is generally not the right route for an urgent symptom that needs a doctor's assessment on the same visit. If you are unwell and need clinical evaluation, not just a blood sample, a hospital or clinic visit is more appropriate.",
+      text: "A home draw suits people who cannot easily take time off work to sit in a queue, who want to test a whole household in one visit, or who prefer not to spend an hour in a waiting room for a routine panel. It is generally not the right route for an urgent symptom that needs a doctor's assessment on the same visit. If you are unwell and need clinical evaluation, a hospital or clinic visit is more appropriate.",
     },
     {
       type: "link-internal",

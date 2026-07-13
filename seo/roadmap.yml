@@ -456,6 +456,7 @@ items:
     intent: informational
     title: "Antenatal Blood Tests: The Pregnancy Screening Panel Explained"
     status: todo
+    notes: "Claimed by open PR #45 (seo/nightly batch 2026-07-12) as of 2026-07-13; not re-published here."
 
   # ---- Multi-market screening / local landing (Nigeria, Kenya, South Africa) ----
   - id: art-screening-nigeria
@@ -468,6 +469,7 @@ items:
     intent: commercial
     title: "Health Screening in Nigeria: What to Test and How Often"
     status: todo
+    notes: "Claimed by open PR #45 (seo/nightly batch 2026-07-12) as of 2026-07-13; not re-published here."
 
   - id: art-screening-kenya
     type: article
@@ -479,6 +481,7 @@ items:
     intent: commercial
     title: "Health Screening in Kenya: What to Test and How Often"
     status: todo
+    notes: "Claimed by open PR #45 (seo/nightly batch 2026-07-12) as of 2026-07-13; not re-published here."
 
   - id: local-lagos
     type: article
@@ -490,6 +493,7 @@ items:
     intent: local
     title: "Blood Tests and Health Screening in Lagos: Your Options"
     status: todo
+    notes: "Claimed by open PR #45 (seo/nightly batch 2026-07-12) as of 2026-07-13; not re-published here."
 
   - id: local-nairobi
     type: article
@@ -497,10 +501,12 @@ items:
     slug: blood-test-nairobi
     keyword: blood test Nairobi
     market: kenya
-    volume: null
+    volume: 40
     intent: local
     title: "Blood Tests and Health Screening in Nairobi: Your Options"
-    status: todo
+    status: done
+    completed: 2026-07-13
+    notes: "Published 2026-07-13. blood test Nairobi 40/mo Kenya, LOW competition (DataForSEO location 2404); also targets full body checkup Nairobi (20/mo). First Kenya-specific local landing article; NHIF/SHA transition and lab-sector regulation kept general/hedged, no invented prices or named private facilities. Article + BreadcrumbList + FAQPage schema."
 
   # ---- Commercial / decision intent (low volume, high business value) ----
   - id: art-cost-of-screening
@@ -511,7 +517,9 @@ items:
     volume: null
     intent: commercial
     title: "How Much Does a Full Health Check Cost in Ghana?"
-    status: todo
+    status: done
+    completed: 2026-07-13
+    notes: "Published 2026-07-13. cost of health screening in Ghana: no confirmed DataForSEO volume, long-tail/AI-citation value keyword. Deliberately states no cedi figures or price ranges; covers general cost drivers (bundle vs single test, public vs private, lab vs home draw) and routes readers to /pricing for current numbers. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-full-body-checkup
     type: article
@@ -519,9 +527,12 @@ items:
     slug: full-body-checkup-guide
     keyword: full body checkup
     volume: null
+    secondary: ["full medical checkup (10/mo Ghana)"]
     intent: commercial
     title: "Full Body Checkup: What's Included and Who Needs One"
-    status: todo
+    status: done
+    completed: 2026-07-13
+    notes: "Published 2026-07-13. full body checkup: no confirmed exact-phrase volume; close variant full medical checkup 10/mo Ghana (DataForSEO). Buyer's-guide framing distinct from preventive-health-screening-ghana (schedule/cadence article); covers what a comprehensive panel bundles and who should consider one, no invented prices. Article + BreadcrumbList + FAQPage schema."
 
   - id: art-home-vs-lab
     type: article
@@ -531,7 +542,9 @@ items:
     volume: null
     intent: commercial
     title: "Home vs In-Lab Blood Tests: Which Is Right for You?"
-    status: todo
+    status: done
+    completed: 2026-07-13
+    notes: "Published 2026-07-13. home blood test Ghana: no confirmed volume, decision-intent keyword. Covers accuracy (same accredited lab regardless of draw location), which tests suit home draw, and convenience/privacy tradeoffs; no invented prices. Article + BreadcrumbList + FAQPage schema."
 
   # ---- Local landing intent (low volume, low competition) ----
   - id: local-accra
@@ -542,7 +555,9 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Accra: Your Options"
-    status: todo
+    status: done
+    completed: 2026-07-13
+    notes: "Published 2026-07-13. blood test Accra: no confirmed volume, low-competition local-intent term. Covers public hospital lab, private lab, and home draw options plus a choosing framework; NHIS coverage kept general/hedged, no invented prices or named competitor facilities. Article + BreadcrumbList + FAQPage schema."
 
   - id: local-kumasi
     type: article

@@ -13,9 +13,9 @@ export default {
   slug: "full-body-checkup-guide",
   title: "Full Body Checkup: What's Included and Who Needs One",
   description:
-    "A full body checkup bundles blood, urine and sometimes imaging tests into one visit. Here is what a typical panel includes, how basic and comprehensive packages differ, and who should consider booking one.",
+    "A full body checkup bundles blood, urine and sometimes imaging tests into one visit. This guide covers what a typical panel includes, how basic and comprehensive packages differ, and who should consider booking one.",
   excerpt:
-    "Book a full body checkup and you are buying a bundle, not a single test. This guide breaks down what a typical panel actually contains, how basic and comprehensive packages differ, and who tends to benefit from one.",
+    "Book a full body checkup and you are buying a bundle, not a single test. This guide breaks down what a typical panel contains, how basic and comprehensive packages differ, and who tends to benefit from one.",
   datePublished: "2026-07-13",
   dateModified: "2026-07-13",
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
@@ -35,11 +35,11 @@ export default {
     {
       type: "image",
       src: "/blog/full-body-checkup-guide-hero.svg",
-      alt: "Full body checkup explained: what's actually in the bundle, and a buyer's guide to who should book one.",
+      alt: "Full body checkup explained: what's in the bundle, and a buyer's guide to who should book one.",
     },
     {
       type: "p",
-      text: "A full body checkup is one of the most searched health terms in Ghana and across the continent, yet most people who book one could not tell you what they are actually paying for. The phrase gets used loosely, by hospitals, private labs, and wellness clinics, to describe packages that can differ enormously in what they test, how many samples they take, and what they cost.",
+      text: "A full body checkup is one of the most searched health terms in Ghana and across the continent, yet most people who book one could not tell you what they are paying for. The phrase gets used loosely, by hospitals, private labs, and wellness clinics, to describe packages that can differ enormously in what they test, how many samples they take, and what they cost. Some cover seven or eight organ systems in one panel; others cover three and still use the same marketing language.",
     },
     {
       type: "p",
@@ -48,7 +48,7 @@ export default {
     {
       type: "h2",
       id: "what-it-means",
-      text: "What a full body checkup actually is",
+      text: "What a full body checkup is",
     },
     {
       type: "p",
@@ -110,7 +110,7 @@ export default {
     },
     {
       type: "p",
-      text: "A basic checkup usually covers blood count, blood sugar and blood pressure, while a comprehensive package adds a lipid profile, liver and kidney panels, thyroid testing and urinalysis. The gap between the two tiers is not marketing spin. A basic package can miss a rising cholesterol level or an early kidney problem simply because it never tests for either.",
+      text: "A basic checkup usually covers blood count, blood sugar and blood pressure, while a comprehensive package adds a lipid profile, liver and kidney panels, thyroid testing and urinalysis. The gap between the two tiers is not marketing spin. A basic package can miss a rising cholesterol level or an early kidney problem, because it never tests for either.",
     },
     {
       type: "callout",
@@ -119,7 +119,7 @@ export default {
     },
     {
       type: "p",
-      text: "Some providers also sell a middle tier that adds one or two extra tests, commonly thyroid function or a basic urinalysis, without going as far as a full comprehensive panel. There is no industry-wide standard for what counts as basic, standard or comprehensive, so treat these labels as a starting point for a conversation rather than a guarantee of contents.",
+      text: "Some providers also sell a middle tier that adds one or two extra tests, commonly thyroid function or a basic urinalysis, without going as far as a full comprehensive panel. There is no industry-wide standard for what counts as basic, standard or comprehensive, so treat these labels as a starting point for a conversation rather than a guarantee of contents. Two packages priced identically can still differ in what they test, which is why comparing the test list matters more than comparing the package name.",
     },
     {
       type: "h2",
@@ -135,7 +135,7 @@ export default {
       items: [
         "Adults with no symptoms and no strong family history often start with a baseline comprehensive checkup in their twenties or thirties, then repeat every one to three years.",
         "Adults over 40, or anyone with a family history of diabetes, hypertension, heart disease or kidney disease, often benefit from checking more frequently, guided by a clinician.",
-        "Anyone starting a new job, applying for insurance, planning a pregnancy, or simply wanting a baseline of their own numbers is a reasonable candidate for a one-off comprehensive checkup, regardless of age.",
+        "Anyone starting a new job, applying for insurance, planning a pregnancy, or wanting a baseline of their own numbers is a reasonable candidate for a one-off comprehensive checkup, regardless of age.",
         "People already being monitored for a known condition usually follow the specific testing schedule their doctor has set, rather than a generic checkup package.",
       ],
     },
@@ -151,7 +151,7 @@ export default {
     },
     {
       type: "p",
-      text: "A full body checkup catches many silent metabolic and organ-function problems early, but it is not a substitute for targeted cancer screening such as a pap smear, PSA test, or colonoscopy. The tests in a standard panel are built to flag common, slow-building conditions: prediabetes, high cholesterol, early kidney decline, fatty liver, thyroid imbalance, and anaemia. These are exactly the conditions that tend to cause no symptoms until they are advanced, which is why routine screening matters more than waiting to feel unwell.",
+      text: "A full body checkup catches many silent metabolic and organ-function problems early, but it is not a substitute for targeted cancer screening such as a pap smear, PSA test, or colonoscopy. The tests in a standard panel are built to flag common, slow-building conditions: prediabetes, high cholesterol, early kidney decline, fatty liver, thyroid imbalance, and anaemia. These are exactly the conditions that tend to cause no symptoms until they are advanced, which is why routine screening matters more than waiting to feel unwell. Across Ghana and much of sub-Saharan Africa, this group of conditions, rather than any single dramatic illness, accounts for a large and growing share of preventable disease burden.",
     },
     {
       type: "p",
@@ -184,7 +184,7 @@ export default {
     },
     {
       type: "p",
-      text: "We keep specific prices out of this guide because they change and vary by provider and package tier. The current BetterHealth Africa pricing and panel options are listed on our pricing page, along with the exact biomarkers included in each package.",
+      text: "We keep specific prices out of this guide because they change and vary by provider and package tier. The current BetterHealth Africa pricing and panel options are listed on our pricing page, along with the exact biomarkers included in each package, so you can compare contents rather than guess from a package name.",
     },
     {
       type: "link-internal",
