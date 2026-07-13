@@ -316,7 +316,7 @@ export default function BookTestPage() {
             <Reveal delay={0.2}>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="https://wa.me/233209876543"
+                  href="https://wa.me/233268596410"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-white text-primary rounded-btn px-7 py-3.5 text-[15px] font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"

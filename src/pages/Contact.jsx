@@ -135,8 +135,8 @@ function ContactForm() {
         <p className="text-[14px] text-text-secondary leading-relaxed">
           Thanks for reaching out. We have your message and will get back to you within 24 hours.
           If it is urgent, WhatsApp us at{" "}
-          <a href="https://wa.me/233303960000" rel="noopener noreferrer" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
-            +233 30 396 0000
+          <a href="https://wa.me/233268596410" rel="noopener noreferrer" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
+            +233 268 596 410
           </a>{" "}
           for the fastest response.
         </p>
