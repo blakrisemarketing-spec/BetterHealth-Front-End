@@ -70,23 +70,34 @@ async function main() {
     process.exit(1);
   }
 
-  const serialised = JSON.stringify({ panelsByCode, testsByCode }, sortKeys, 2) + "\n";
+  // Change detection compares PRICES only (not generatedAt), so an unchanged
+  // night produces no diff and the job commits/redeploys nothing. generatedAt is
+  // refreshed only when a price actually changes — the frontend uses it to decide
+  // whether the baked snapshot is newer than a visitor's localStorage cache.
+  const nextPrices = JSON.stringify({ panelsByCode, testsByCode }, sortKeys);
 
-  let current = "";
+  let currentPrices = null;
   try {
-    current = readFileSync(OUT, "utf8");
+    const parsed = JSON.parse(readFileSync(OUT, "utf8"));
+    currentPrices = JSON.stringify(
+      { panelsByCode: parsed.panelsByCode || {}, testsByCode: parsed.testsByCode || {} },
+      sortKeys,
+    );
   } catch {
-    // First run — file does not exist yet.
+    // First run — file missing or unparseable.
   }
 
-  if (current === serialised) {
+  if (currentPrices === nextPrices) {
     console.log("✔ Prices unchanged — snapshot already up to date.");
     return;
   }
 
+  const generatedAt = new Date().toISOString();
+  const serialised =
+    JSON.stringify({ generatedAt, panelsByCode, testsByCode }, sortKeys, 2) + "\n";
   writeFileSync(OUT, serialised);
   console.log(
-    `✔ Wrote ${Object.keys(panelsByCode).length} panel + ${Object.keys(testsByCode).length} test prices to src/data/pricing-snapshot.json`,
+    `✔ Wrote ${Object.keys(panelsByCode).length} panel + ${Object.keys(testsByCode).length} test prices (generatedAt ${generatedAt}) to src/data/pricing-snapshot.json`,
   );
 }
 

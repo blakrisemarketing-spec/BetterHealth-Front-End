@@ -8,8 +8,13 @@ import pricingSnapshot from "../data/pricing-snapshot.json";
 // first paint shows real backend prices with no API round-trip and no flash of
 // the hardcoded fallbacks. The live background refresh below still runs to catch
 // any intra-day changes.
+//
+// fetchedAt comes from the snapshot's generatedAt (the last time a price actually
+// changed), so it can be compared against a returning visitor's localStorage
+// cache — a stale cache from before a price change must NOT override newer baked
+// prices (that was the "still shows old price for 24h" bug).
 const STATIC_SNAPSHOT = {
-  fetchedAt: 0,
+  fetchedAt: Date.parse(pricingSnapshot?.generatedAt) || 0,
   panelsByCode: pricingSnapshot?.panelsByCode || {},
   testsByCode: pricingSnapshot?.testsByCode || {},
 };
@@ -25,7 +30,7 @@ const REFRESH_AFTER_MS = 24 * 60 * 60 * 1000;
 const MAX_CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 const API_TIMEOUT_MS = 10000;
 
-let snapshot = readCachedCatalogue() || STATIC_SNAPSHOT;
+let snapshot = mostRecentSnapshot(readCachedCatalogue(), STATIC_SNAPSHOT);
 let refreshPromise = null;
 let refreshQueued = false;
 const listeners = new Set();
@@ -46,6 +51,16 @@ function readCachedCatalogue() {
   } catch {
     return null;
   }
+}
+
+// Pick the snapshot that reflects the more recent reality. A visitor's cache and
+// the baked snapshot can each be newer than the other: the cache wins after an
+// intra-day live fetch; the baked snapshot wins when the visitor cached a price
+// from before it changed. Higher fetchedAt === saw-the-newer-price.
+function mostRecentSnapshot(cached, baked) {
+  if (!cached) return baked;
+  if (!baked) return cached;
+  return (cached.fetchedAt || 0) >= (baked.fetchedAt || 0) ? cached : baked;
 }
 
 function writeCachedCatalogue(nextSnapshot) {
