@@ -28,7 +28,7 @@ export function getOrganizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/favicon-512x512.png`,
     description:
-      "BetterHealth Africa is a health technology company making proactive lab testing and preventive care accessible across Ghana.",
+      "BetterHealth Africa is Ghana's first health intelligence platform, helping people book lab tests, understand doctor-reviewed results, and track health indicators over time.",
     areaServed: {
       "@type": "Country",
       name: "Ghana",
@@ -174,7 +174,7 @@ export function getBlogSchema(articles) {
     url: pageUrl("blog"),
     name: "BetterHealth Africa Blog",
     description:
-      "Plain-language health education for Ghanaians: biomarker explainers, screening guides, and what early detection can catch.",
+      "Plain-language health education for Ghanaians: result explainers, testing guides, and what earlier health checks can reveal.",
     inLanguage: "en-GH",
     publisher: { "@id": ORGANIZATION_ID },
     blogPost: articles.map((a) => ({

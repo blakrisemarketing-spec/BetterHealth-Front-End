@@ -21,15 +21,14 @@ export default function FinalCTA() {
       <div className="max-w-[700px] mx-auto relative z-10">
         <Reveal>
           <h2 className="text-[clamp(32px,5vw,52px)] font-extrabold text-text-on-dark font-heading leading-[1.15] mb-5">
-            Do it for the people who{" "}
-            <span className="italic text-primary-light">love</span>{" "}
-            you.
+            Check what your body may be{" "}
+            <span className="italic text-primary-light">hiding</span>.
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <p className="text-lg leading-relaxed text-text-muted-dark mb-4 max-w-[480px] mx-auto font-body">
-            A simple test now can catch the things you cannot feel yet, while they are still easy to deal with.
+            Start with the concern on your mind. We will help you choose the right test, understand the result, and know what to discuss next.
           </p>
         </Reveal>
 
@@ -41,10 +40,10 @@ export default function FinalCTA() {
 
         <Reveal delay={0.2}>
           <Link
-            to="/book"
+            to="/book-tests"
             className="inline-flex items-center justify-center gap-2 rounded-btn px-8 py-4 text-[15px] font-bold font-heading bg-gradient-to-r from-primary to-primary-light text-white shadow-[0_4px_30px_rgba(13,148,136,0.35)] hover:shadow-[0_8px_40px_rgba(13,148,136,0.5)] hover:-translate-y-1 hover:scale-[1.02] transition-all no-underline"
           >
-            Book a Test <ArrowRight size={18} />
+            Book a test <ArrowRight size={18} />
           </Link>
         </Reveal>
       </div>

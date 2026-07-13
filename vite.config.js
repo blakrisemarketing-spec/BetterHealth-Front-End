@@ -96,8 +96,9 @@ const FALLBACK_NAV =
   [
     ['/', 'Home'],
     ['/how-it-works', 'How It Works'],
+    ['/book-tests', 'Tests'],
     ['/what-we-test', 'What We Test'],
-    ['/pricing', 'Pricing'],
+    ['/about', 'About'],
     ['/blog', 'Blog'],
     ['/contact', 'Contact'],
   ]
@@ -218,6 +219,15 @@ function prerenderSeoPlugin() {
 export default defineConfig({
   plugins: [react(), prerenderSeoPlugin()],
   base: '/',
+  server: {
+    proxy: {
+      '/api/public': {
+        target: 'https://app.betterhealth.africa',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
   build: {
     rollupOptions: {
       output: {

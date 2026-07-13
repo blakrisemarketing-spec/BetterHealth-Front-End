@@ -56,7 +56,7 @@ const BENEFITS = [
   {
     icon: AlertTriangle,
     title: "Critical value alerts, handled for you",
-    body: "When a result crosses a critical threshold, BetterHealth flags it before release and notifies the referring clinician. Your lab is covered, and your patients stay safe.",
+    body: "When a result crosses a critical threshold, BetterHealth flags it before release and notifies the referring doctor. Your lab is covered, and your patients stay safe.",
   },
   {
     icon: FileText,
@@ -90,12 +90,12 @@ const HOW_IT_WORKS = [
 
 const FAQS = [
   {
-    q: "Is this really free? What's the catch?",
-    a: "Yes, free for good. BetterHealth earns from patient subscriptions and test bookings, not from labs. Your LIMS access is free today and stays free. We grow when your lab grows.",
+    q: "Is this free? What's the catch?",
+    a: "Yes, free for good. BetterHealth earns from patient test bookings, not from labs. Your LIMS access is free today and stays free. We grow when your lab grows.",
   },
   {
     q: "What if we already use a different LIMS?",
-    a: "You can migrate your data or run both systems side by side while you switch over. Our team handles onboarding at no charge and stays with you until you're comfortable.",
+    a: "You can migrate your data or run both systems side by side while you switch. Our team handles onboarding at no charge and stays with you until you're comfortable.",
   },
   {
     q: "Which instruments are supported?",
@@ -112,7 +112,7 @@ const FAQS = [
 ];
 
 const TRUST_STATS = [
-  { value: "127", label: "Biomarkers supported" },
+  { value: "127", label: "Health indicators supported" },
   { value: "Free", label: "For good, not a trial" },
   { value: "24 hrs", label: "To get your lab set up" },
   { value: "HL7 / ASTM", label: "Instrument interfaces" },

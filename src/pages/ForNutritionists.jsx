@@ -30,7 +30,7 @@ const BENEFITS = [
   {
     icon: Activity,
     title: "Client lab results, delivered digitally",
-    body: "You see your clients' biomarker results the moment they're released. No more chasing PDFs or waiting on clients to forward an attachment.",
+    body: "You see your clients' health indicator results the moment they're released. No more chasing PDFs or waiting on clients to forward an attachment.",
   },
   {
     icon: TrendingUp,
@@ -40,7 +40,7 @@ const BENEFITS = [
   {
     icon: ClipboardList,
     title: "Build meal plans on real data",
-    body: "Stop guessing. Use real biomarkers, from vitamin D and iron stores to the lipid panel and HbA1c, to design plans that hold up.",
+    body: "Stop guessing. Use real health data, from vitamin D and iron stores to the lipid panel and HbA1c, to design plans that hold up.",
   },
   {
     icon: Users,
@@ -455,7 +455,7 @@ export default function ForNutritionistsPage() {
             <Reveal delay={0.2}>
               <p className="text-lg text-text-secondary font-body max-w-[540px] mx-auto">
                 Get your clients&rsquo; lab results digitally, design plans
-                backed by real biomarker data, earn from every referral, and
+                backed by real health data, earn from every referral, and
                 grow your client list, all without leaving your practice.
               </p>
             </Reveal>

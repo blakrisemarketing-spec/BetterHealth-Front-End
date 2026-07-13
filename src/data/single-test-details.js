@@ -247,7 +247,7 @@ const details = {
     sampleType: "Blood",
     turnaround: "Same-day rapid result available; confirmatory test within 48 hours",
     faqs: [
-      { q: "Is this really confidential?", a: "Yes, completely. Your results show only in your personal BetterHealth dashboard, protected by your login. We don't share them with anyone: not partners, employers, or family." },
+      { q: "Is this confidential?", a: "Yes. Your results show only in your personal BetterHealth dashboard, protected by your login. We don't share them with partners, employers, family, or anyone else without your permission." },
       { q: "How soon after exposure can I test?", a: "Fourth-generation tests, which detect both antibodies and antigens, can pick up HIV as early as 2 to 4 weeks after exposure. To be fully sure, test again at three months if the first result is negative." },
       { q: "What if I test positive?", a: "Today's HIV treatment, called ART, works very well. People who start early and take it consistently have a normal life expectancy and can reach 'undetectable' status, which means they cannot pass the virus to partners." },
     ],

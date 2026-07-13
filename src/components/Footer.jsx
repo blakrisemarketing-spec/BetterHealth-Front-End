@@ -6,10 +6,10 @@ import logo from "../assets/logo.png";
 // Map footer link labels to internal routes
 const ROUTE_MAP = {
   "How It Works": "/how-it-works",
+  "Tests": "/book-tests",
   "What We Test": "/what-we-test",
-  "Pricing": "/pricing",
-  "About Us": "/about",
   "Stories": "/stories",
+  "About Us": "/about",
   "Blog": "/blog",
   "Careers": "/careers",
   "FAQ": "/faq",
@@ -45,7 +45,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed max-w-[260px] font-body">
-              Health screening that more people across Africa can afford. Check how your body is doing before any symptoms show up.
+              Ghana's first health intelligence platform. Book tests, understand your health indicators, and track what matters over time.
             </p>
             <div className="flex gap-4 mt-4">
               {/* Gmail */}

@@ -28,8 +28,8 @@ async function main() {
       getJson(`${BASE}/diagnostic-tests?country=${encodeURIComponent(country)}`),
     ]);
   } catch (err) {
-    console.error(`✖ Catalogue not reachable yet: ${err.message}`);
-    console.error("  (As of 2026-07-05 these endpoints return 404. Re-run once the App team deploys them.)");
+    console.error(`✖ Catalogue not reachable: ${err.message}`);
+    console.error("  Check VITE_PUBLIC_CATALOGUE_API_BASE / app deployment status, then re-run.");
     process.exit(1);
   }
 

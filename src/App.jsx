@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from "react-router-dom";
 import { captureReferralFromUrl } from "./lib/partner-signup";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -8,7 +8,6 @@ const HowItWorksPage = lazy(() => import("./pages/HowItWorks"));
 const WhatWeTestPage = lazy(() => import("./pages/WhatWeTest"));
 const StoriesPage = lazy(() => import("./pages/Stories"));
 const AboutPage = lazy(() => import("./pages/About"));
-const PricingPage = lazy(() => import("./pages/Pricing"));
 const ProgramsPage = lazy(() => import("./pages/Programs"));
 const BookTestPage = lazy(() => import("./pages/BookTest"));
 const TestDetailPage = lazy(() => import("./pages/TestDetail"));
@@ -21,6 +20,7 @@ const BlogPage = lazy(() => import("./pages/Blog"));
 const BlogPostPage = lazy(() => import("./pages/BlogPost"));
 const CareersPage = lazy(() => import("./pages/Careers"));
 const DownloadAppPage = lazy(() => import("./pages/DownloadApp"));
+const WaitlistPage = lazy(() => import("./pages/Waitlist"));
 const ForLabsPage = lazy(() => import("./pages/ForLabs"));
 const ForDoctorsPage = lazy(() => import("./pages/ForDoctors"));
 const ForNutritionistsPage = lazy(() => import("./pages/ForNutritionists"));
@@ -52,6 +52,17 @@ function ReferralCapture() {
   return null;
 }
 
+function RedirectWithSearch({ to }) {
+  const location = useLocation();
+  return <Navigate to={`${to}${location.search}`} replace />;
+}
+
+function LegacyBookDetailRedirect() {
+  const { slug } = useParams();
+  const location = useLocation();
+  return <Navigate to={`/book-tests/${slug}${location.search}`} replace />;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -64,10 +75,12 @@ export default function App() {
           <Route path="/what-we-test" element={<WhatWeTestPage />} />
           <Route path="/stories" element={<StoriesPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/pricing" element={<RedirectWithSearch to="/book-tests" />} />
           <Route path="/programs" element={<ProgramsPage />} />
-          <Route path="/book" element={<BookTestPage />} />
-          <Route path="/book/:slug" element={<TestDetailPage />} />
+          <Route path="/book-tests" element={<BookTestPage />} />
+          <Route path="/book-tests/:slug" element={<TestDetailPage />} />
+          <Route path="/book" element={<RedirectWithSearch to="/book-tests" />} />
+          <Route path="/book/:slug" element={<LegacyBookDetailRedirect />} />
           <Route path="/test/:slug" element={<SingleTestDetailPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
@@ -81,9 +94,7 @@ export default function App() {
           <Route path="/for-doctors" element={<ForDoctorsPage />} />
           <Route path="/for-nutritionists" element={<ForNutritionistsPage />} />
           <Route path="/foundation" element={<FoundationPage />} />
-          {/* Waitlist retired (open registration) — redirect old inbound/SEO links home.
-              Waitlist.jsx + WaitlistForm/WaitlistContext kept dormant for reuse. */}
-          <Route path="/waitlist" element={<Navigate to="/" replace />} />
+          <Route path="/waitlist" element={<WaitlistPage />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="/ref/:code" element={<ReferralRedirectPage />} />
           <Route path="/ref/:code/:partnerType" element={<ReferralRedirectPage />} />

@@ -14,7 +14,7 @@ const IMAGES = [
   { src: g02, alt: "A young child stands at a height board during a free community health check." },
   { src: g03, alt: "A volunteer talks a smiling older woman through her screening results." },
   { src: g04, alt: "A BetterHealth Africa Foundation volunteer explains a check to a participant." },
-  { src: g05, alt: "A clinician measures a young patient's blood pressure at a community screening." },
+  { src: g05, alt: "A health worker measures a young patient's blood pressure at a community screening." },
   { src: g06, alt: "A community member smiles during her free health screening." },
   { src: g07, alt: "Volunteers run free health checks for residents at a screening day." },
   { src: g08, alt: "A volunteer and a participant share a moment at the screening table." },

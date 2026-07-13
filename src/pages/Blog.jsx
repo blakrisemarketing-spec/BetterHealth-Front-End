@@ -42,7 +42,7 @@ export default function BlogPage() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-lg text-text-secondary font-body max-w-[540px] mx-auto">
-              Plain-language health education for Ghanaians. What your biomarkers mean, what gets missed, and what you can do about it.
+              Plain-language health education for Ghanaians. What your health numbers mean, what gets missed, and what you can do about it.
             </p>
           </Reveal>
         </div>
@@ -57,7 +57,7 @@ export default function BlogPage() {
                 <div className="text-5xl mb-6">✍️</div>
                 <h2 className="text-2xl font-bold font-heading text-text-primary mb-3">Articles coming soon</h2>
                 <p className="text-text-secondary text-[15px] leading-relaxed mb-8">
-                  We are working on health guides, biomarker explainers, and stories from our community. Subscribe below to be notified when the first articles go live.
+                  We are working on health guides, result explainers, and stories from our community. Subscribe below to be notified when the first articles go live.
                 </p>
               </Reveal>
             </div>

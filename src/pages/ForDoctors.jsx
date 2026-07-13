@@ -33,7 +33,7 @@ const BENEFITS = [
   {
     icon: Activity,
     title: "Stop chasing results",
-    body: "Lab results land in your dashboard the moment a clinician validates them. No WhatsApp threads, no phone calls, no paper slips. Out-of-range values come flagged, so nothing slips past you.",
+    body: "Lab results land in your dashboard the moment a doctor validates them. No WhatsApp threads, no phone calls, no paper slips. Out-of-range values come flagged, so nothing slips past you.",
   },
   {
     icon: TrendingUp,
@@ -66,12 +66,12 @@ const HOW_IT_WORKS = [
   {
     step: "01",
     title: "Refer your patient",
-    body: "Prescribe a test from BetterHealth's 127 biomarker menu. Your patient books sample collection at home, at the office, or at a clinic. No paper form, no lab visit needed.",
+    body: "Prescribe a test from BetterHealth's 127 health indicator menu. Your patient books sample collection at home, at the office, or at a clinic. No paper form, no lab visit needed.",
   },
   {
     step: "02",
     title: "We handle everything in between",
-    body: "A phlebotomist collects the sample, the lab processes it, and a clinician reviews it before sign-off. Quality control runs from start to finish.",
+    body: "A phlebotomist collects the sample, the lab processes it, and a doctor reviews it before sign-off. Quality control runs from start to finish.",
   },
   {
     step: "03",
@@ -87,11 +87,11 @@ const FAQS = [
   },
   {
     q: "What happens if a result is critically abnormal?",
-    a: "The system flags critical values before a result is released. The reviewing clinician is notified, and you see the flag in your dashboard the moment the result lands.",
+    a: "The system flags critical values before a result is released. The reviewing doctor is notified, and you see the flag in your dashboard the moment the result lands.",
   },
   {
     q: "Can I see my patient's full history, not just the latest results?",
-    a: "Yes. Every result ever run on a BetterHealth patient is kept in order. You can view trends across any biomarker over any period, alongside their medications and allergies.",
+    a: "Yes. Every result ever run on a BetterHealth patient is kept in order. You can view trends across any health indicator over any period, alongside their medications and allergies.",
   },
   {
     q: "How long does it take to get results back?",
@@ -100,7 +100,7 @@ const FAQS = [
 ];
 
 const TRUST_STATS = [
-  { value: "127", label: "Biomarkers available" },
+  { value: "127", label: "Health indicators available" },
   { value: "4-eyes", label: "Clinical review on every result" },
   { value: "24 hrs", label: "Average turnaround" },
   { value: "Free", label: "To partner, forever" },

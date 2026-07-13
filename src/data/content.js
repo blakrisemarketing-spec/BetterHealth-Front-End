@@ -38,7 +38,7 @@ export const testPanels = [
     displayName: "Heart Health Check",
     subtitle: "Heart & circulation",
     concern: "Check my heart health",
-    why: "The key numbers behind your heart and circulation. Whether you're checking your risk or living with a heart condition, it shows you exactly where you stand.",
+    why: "The key numbers behind your heart and circulation. Whether you're checking your risk or living with a heart condition, it shows where you stand.",
     internal: "Cardiovascular",
     price: "GHS 475",
     tests: ["Full Blood Count", "Fasting/Random Blood Sugar", "Uric Acid", "CRP"],
@@ -62,7 +62,7 @@ export const testPanels = [
     displayName: "Private STI Check",
     subtitle: "Confidential STI screen",
     concern: "Get a confidential STI check",
-    why: "A confidential screen for the most common sexually transmitted infections. Get tested, or confirm you're in the clear after treatment. Private results, no judgment.",
+    why: "A confidential screen for common sexually transmitted infections. Get tested, or confirm you're clear after treatment. Private results, no judgment.",
     internal: "Sexual Health / STI",
     price: "GHS 897",
     tests: ["HIV", "Syphilis (VDRL)", "Hepatitis B (HBsAg)", "Hepatitis C", "Chlamydia", "Gonorrhoea"],
@@ -74,7 +74,7 @@ export const testPanels = [
     displayName: "Men's Health Check",
     subtitle: "Men's health markers",
     concern: "Check my health as a man",
-    why: "A full men's screen across prostate, hormones, heart and general wellbeing. Made to catch problems early and to help you stay on top of any you're already treating.",
+    why: "A full men's screen across prostate, hormones, heart, and general wellbeing. Made to catch problems early and help you stay on top of anything you're already treating.",
     internal: "Men's Health",
     price: "GHS 995",
     tests: ["PSA", "Testosterone", "Lipid Profile", "Full Blood Count", "HbA1c", "Urine R/E", "ESR", "Calcium"],
@@ -134,12 +134,12 @@ export const singleTests = [
 ];
 
 export const heroStats = [
-  { value: "127", label: "Biomarkers" },
-  { value: "Home", label: "Collection" },
-  { value: "48–72h", label: "Results" },
+  { value: "127", label: "Health indicators" },
+  { value: "Home", label: "Or lab collection" },
+  { value: "48-72h", label: "Results" },
 ];
 
-export const trustedPartners = ["Lab Access Ghana", "Banita Laboratory", "Paystack"];
+export const trustedPartners = ["Lab Access Ghana", "M&G Medical Lab", "Paystack"];
 
 export const conditions = [
   "Diabetes", "Hypertension", "Sickle Cell Trait", "Hepatitis B", "Thyroid Disorders",
@@ -157,15 +157,15 @@ export const conditions2 = [
 ];
 
 export const howItWorksSteps = [
-  { num: "01", icon: "FlaskConical", title: "Book a Test", desc: "Choose a single test, a bundle, or a condition program. Pay with Mobile Money or card. No subscription needed." },
+  { num: "01", icon: "FlaskConical", title: "Book a test", desc: "Choose a single test, a bundle, or a condition program. Pay with Mobile Money or card." },
   { num: "02", icon: "Home", title: "Get Tested", desc: "Visit a partner lab or book home sample collection anywhere in Ghana. It takes about 15 minutes." },
-  { num: "03", icon: "BarChart3", title: "Understand Your Results", desc: "A clinician reviews your results and they land in your dashboard within 48 to 72 hours, with every biomarker explained in plain language." },
-  { num: "04", icon: "HeartPulse", title: "Manage What Matters", desc: "Based on your results, join the program that fits, like Diabetes or Hypertension, or subscribe for year-round monitoring." },
+  { num: "03", icon: "BarChart3", title: "Understand Your Results", desc: "A doctor reviews your results and they land in your dashboard within 48 to 72 hours, with each health indicator explained in plain language." },
+  { num: "04", icon: "HeartPulse", title: "Manage What Matters", desc: "Use your results to choose the right next step, from a Diabetes or Hypertension program to a follow-up conversation with your doctor." },
 ];
 
 export const showcaseFeatures = [
-  { title: "Organ System Health View", desc: "See your heart, liver, kidney, and metabolic health at a glance with intuitive scores." },
-  { title: "Biomarker Trend Tracking", desc: "Watch how your markers change over months and years, so you can catch a worrying trend early." },
+  { title: "Organ System Health View", desc: "See your heart, liver, kidney, and metabolic health at a glance with clear scores." },
+  { title: "Health Indicator Tracking", desc: "Watch how your key numbers change over months and years, so you can catch a worrying trend early." },
   { title: "Plain-Language Explanations", desc: "Every result comes with clear explanations." },
 ];
 
@@ -191,7 +191,7 @@ export const testCategories = [
   },
   {
     name: "Metabolic & Diabetes", short: "Metabolic", count: 5,
-    insight: "Is your body managing blood sugar well, or quietly heading toward diabetes?",
+    insight: "Is your body managing blood sugar well, or moving toward diabetes without obvious symptoms?",
     markers: [
       { label: "Blood sugar right now", clinical: "Fasting Glucose, Random Glucose" },
       { label: "3-month sugar average", clinical: "HbA1c" },
@@ -274,7 +274,7 @@ export const testCategories = [
   },
   {
     name: "Inflammation Markers", short: "Inflammation", count: 2,
-    insight: "Is hidden inflammation silently driving disease in your body?",
+    insight: "Is hidden inflammation adding strain inside your body?",
     markers: [
       { label: "Hidden inflammation", clinical: "hs-CRP" },
       { label: "Inflammation rate", clinical: "ESR" },
@@ -347,11 +347,11 @@ export const testCategories = [
 ];
 
 export const comparisonRows = [
-  { feature: "127 biomarkers in one visit", bh: true, hosp: false },
+  { feature: "127 health indicators in one visit", bh: true, hosp: false },
   { feature: "Home sample collection", bh: true, hosp: false },
   { feature: "Plain-language explanations", bh: true, hosp: false },
   { feature: "Detect and prevent diseases", bh: true, hosp: false },
-  { feature: "Track biomarkers over your life time", bh: true, hosp: false },
+  { feature: "Track health indicators over time", bh: true, hosp: false },
   { feature: "Digital health dashboard", bh: true, hosp: false },
   { feature: "Personalized recommendations", bh: true, hosp: false },
   { feature: "No referral needed", bh: true, hosp: false },
@@ -361,7 +361,7 @@ export const comparisonRows = [
 ];
 
 export const testimonials = [
-  { name: "Ama K.", age: 34, location: "Accra", quote: "My doctor tested glucose. BetterHealth tested HbA1c, and caught what she missed. I\u2019m not angry. I\u2019m just glad I checked.", discovery: "Pre-diabetes" },
+  { name: "Ama K.", age: 34, location: "Accra", quote: "My doctor tested glucose. BetterHealth tested HbA1c and caught what she missed. I\u2019m glad I checked.", discovery: "Pre-diabetes" },
   { name: "Kofi A.", age: 45, location: "Tema", quote: "My father had a stroke before he turned 63. I was on the same path and didn\u2019t know it. The test caught me in time.", discovery: "Hypertension" },
   { name: "Maxwell A.", age: 34, location: "Cape Coast", quote: "My cholesterol number was fine. It just wasn\u2019t the right number to be looking at. ApoB caught what nobody had thought to check.", discovery: "Cardiovascular risk" },
 ];
@@ -478,6 +478,7 @@ export const screeningBundles = {
   body: "Combinations that give you a full picture in a single visit, at a bundle price. One booking, one sample collection.",
   bundles: [
     {
+      slug: "panorama",
       name: "Full Body Checkup",
       tagline: "A complete snapshot of your core health.",
       price: "from GHS 450",
@@ -492,6 +493,7 @@ export const screeningBundles = {
       ],
     },
     {
+      slug: "alpha",
       name: "Men\u2019s Health",
       tagline: "Heart, metabolic, and prostate essentials for men.",
       price: "from GHS 400",
@@ -504,6 +506,7 @@ export const screeningBundles = {
       ],
     },
     {
+      slug: "empress",
       name: "Women\u2019s Health",
       tagline: "Hormone, iron, and metabolic essentials for women.",
       price: "from GHS 400",
@@ -522,8 +525,8 @@ export const screeningBundles = {
 
 export const diseasePrograms = {
   eyebrow: "Condition programs",
-  headline: "Manage a condition with a program built around it",
-  body: "Living with a chronic condition, or at risk of one? Each program combines the right tests, simple home monitoring, and clinician review, so you always know where you stand. Most people start with a single test, then join the program that fits their results.",
+  headline: "Monitor the condition risk you cannot afford to guess about",
+  body: "Living with a chronic condition, or worried because of family history? Each program will combine the right tests, simple home monitoring, doctor review, a personal nutritionist coach, and a wellness coach.",
   programs: [
     {
       slug: "diabetes",
@@ -531,15 +534,17 @@ export const diseasePrograms = {
       name: "Diabetes Program",
       tagline: "Know and control your blood sugar.",
       forWho: "Diabetes, prediabetes, or family history.",
-      price: "from GHS 250",
+      price: "Coming soon",
       includes: [
         "HbA1c + fasting glucose",
         "Kidney function (early damage)",
         "Lipid / cholesterol panel",
         "Home blood-sugar logging",
-        "Clinician review of every result",
+        "Doctor review of every result",
+        "Personal nutritionist coach",
+        "Wellness coach",
       ],
-      available: true,
+      available: false,
     },
     {
       slug: "hypertension",
@@ -547,15 +552,17 @@ export const diseasePrograms = {
       name: "Hypertension Program",
       tagline: "Keep your blood pressure in a safe range.",
       forWho: "High blood pressure or family history.",
-      price: "from GHS 250",
+      price: "Coming soon",
       includes: [
         "Blood pressure tracking",
         "Kidney function",
         "Lipid / cholesterol panel",
         "Electrolytes",
-        "Clinician review + alerts",
+        "Doctor review + alerts",
+        "Personal nutritionist coach",
+        "Wellness coach",
       ],
-      available: true,
+      available: false,
     },
     {
       slug: "kidney",
@@ -563,15 +570,17 @@ export const diseasePrograms = {
       name: "Kidney Health Program",
       tagline: "Catch kidney strain before it’s serious.",
       forWho: "Diabetes, hypertension, or family history.",
-      price: "from GHS 250",
+      price: "Coming soon",
       includes: [
         "Creatinine + eGFR",
         "Urea & electrolytes",
         "Urinalysis (protein)",
         "Blood pressure tracking",
-        "Clinician review",
+        "Doctor review",
+        "Personal nutritionist coach",
+        "Wellness coach",
       ],
-      available: true,
+      available: false,
     },
     {
       slug: "heart",
@@ -579,15 +588,17 @@ export const diseasePrograms = {
       name: "Heart Health Program",
       tagline: "Stay ahead of cardiovascular risk.",
       forWho: "High cholesterol, family history, or over 40.",
-      price: "from GHS 300",
+      price: "Coming soon",
       includes: [
         "Full lipid panel (incl. ApoB)",
         "Blood sugar (HbA1c)",
         "Blood pressure tracking",
         "hs-CRP (inflammation)",
-        "Clinician review",
+        "Doctor review",
+        "Personal nutritionist coach",
+        "Wellness coach",
       ],
-      available: true,
+      available: false,
     },
     {
       slug: "liver",
@@ -595,14 +606,16 @@ export const diseasePrograms = {
       name: "Liver Health Program",
       tagline: "Monitor and protect your liver.",
       forWho: "Fatty liver, hepatitis, or alcohol concerns.",
-      price: "from GHS 200",
+      price: "Coming soon",
       includes: [
         "Liver function tests (ALT / AST)",
         "Hepatitis B screening",
         "Lipid panel",
-        "Clinician review",
+        "Doctor review",
+        "Personal nutritionist coach",
+        "Wellness coach",
       ],
-      available: true,
+      available: false,
     },
     {
       slug: "fertility",
@@ -611,7 +624,12 @@ export const diseasePrograms = {
       tagline: "Understand your reproductive health.",
       forWho: "Planning a family or tracking fertility.",
       price: "Coming soon",
-      includes: [],
+      includes: [
+        "Fertility and hormone testing",
+        "Doctor review",
+        "Personal nutritionist coach",
+        "Wellness coach",
+      ],
       available: false,
     },
     {
@@ -621,34 +639,39 @@ export const diseasePrograms = {
       tagline: "Track and manage PCOS markers.",
       forWho: "PCOS symptoms or diagnosis.",
       price: "Coming soon",
-      includes: [],
+      includes: [
+        "Hormone and metabolic testing",
+        "Doctor review",
+        "Personal nutritionist coach",
+        "Wellness coach",
+      ],
       available: false,
     },
   ],
-  note: "Programs combine one-off tests with optional ongoing monitoring. A clinician reviews every result. Prices exclude VAT and vary by location.",
-  cta: "Start this program",
+  note: "Programs are coming soon. Join the waitlist and tell us which condition program you want first.",
+  cta: "Join the program waitlist",
 };
 
 export const faqs = [
-  { q: "How does home sample collection work?", a: "A certified phlebotomist from our partner Lab Access Ghana comes to your home at your scheduled time. The entire process takes about 15 minutes. You\u2019ll receive a confirmation SMS with your collector\u2019s name and estimated arrival time." },
+  { q: "How does home sample collection work?", a: "A certified phlebotomist from our partner Lab Access Ghana comes to your home at your scheduled time. The process takes about 15 minutes. You\u2019ll receive a confirmation SMS with your collector\u2019s name and estimated arrival time." },
   { q: "How do I pay?", a: "We accept Mobile Money (MTN MoMo, Vodafone Cash, AirtelTigo Money), debit/credit cards, and bank transfers. All payments are processed securely through Paystack, Ghana\u2019s leading payment platform." },
   { q: "How long until I get my results?", a: "Most results are available within 48 to 72 hours after your sample is collected. You\u2019ll receive an SMS and email notification when your results are ready to view in your health dashboard." },
-  { q: "Is my health data private and secure?", a: "Absolutely. BetterHealth Africa is certified by the Ghana Data Protection Commission (GDPC) under the Data Protection Act, 2012 (Act 843). You can verify our certification at https://app.dataprotection.org.gh/company/dpdZwcRth19j7oQFxmwoDj1ELCOABE. Your data is encrypted at rest and in transit. Only you and your authorized healthcare providers can access your results. We never sell your data." },
-  { q: "Do I need a doctor\u2019s referral?", a: "No referral needed. BetterHealth Africa is a direct-to-consumer health platform. You can sign up, choose your package, and book your collection independently." },
-  { q: "What if my results show something concerning?", a: "Our platform flags any results outside the normal range. For critical findings, you\u2019ll receive immediate notification. We recommend discussing any concerning results with a healthcare provider, and our Premium plan includes a doctor consultation." },
+  { q: "Is my health data private and secure?", a: "Yes. BetterHealth Africa is certified by the Ghana Data Protection Commission (GDPC) under the Data Protection Act, 2012 (Act 843). You can verify our certification at https://app.dataprotection.org.gh/company/dpdZwcRth19j7oQFxmwoDj1ELCOABE. Your data is encrypted at rest and in transit. Only you and the healthcare providers you authorize can access your results. We never sell your data." },
+  { q: "Do I need a doctor\u2019s referral?", a: "No referral needed. BetterHealth Africa is a direct-to-consumer health platform. You can choose a single test, a focused panel, or a condition program and book independently." },
+  { q: "What if my results show something concerning?", a: "Our platform flags results outside the normal range. For critical findings, you\u2019ll receive an immediate notification. We recommend discussing concerning results with a healthcare provider, and our Premium plan includes a doctor consultation." },
 ];
 
-export const founderQuote = "After watching diabetes and kidney disease kill all my beloved Aunties and Uncles, when it finally came for my parents - I knew things needed to change";
+export const founderQuote = "After watching diabetes and kidney disease take so many beloved aunties and uncles, then come for my parents, I knew things had to change.";
 
 export const founderStory = [
-  "In Ghana, comprehensive health screening has been a privilege of the rich few; it\u2019s expensive, fragmented, and available only in a few facilities. Most people only see a doctor when something is already wrong. We\u2019re changing that.",
-  "BetterHealth Africa makes proactive health monitoring accessible, affordable, and simple. Your health shouldn\u2019t be a mystery. The things you don\u2019t know about your body are often the ones that hurt you, so it pays to find out early.",
+  "In Ghana, comprehensive health screening has mostly been a privilege for the few who can afford it. It is expensive, fragmented, and available in limited facilities. Most people only see a doctor when something is already wrong. We\u2019re changing that.",
+  "BetterHealth Africa makes lab testing, result explanations, and health tracking easier to access and understand. Your health should not be a mystery. The things you do not know about your body are often the ones that hurt you, so it pays to find out early.",
 ];
 
 export const footerColumns = [
-  { title: "Product", links: ["How It Works", "What We Test", "Pricing", "Download App"] },
-  { title: "Partners", links: ["For Doctors", "For Nutritionists", "For Labs", "Foundation", "About Us", "Careers"] },
-  { title: "Support", links: ["FAQ", "Contact", "WhatsApp", "Privacy Policy", "Terms of Service"] },
+  { title: "Product", links: ["Tests", "How It Works", "What We Test", "Stories", "Download App"] },
+  { title: "Partners", links: ["For Doctors", "For Nutritionists", "For Labs", "Foundation"] },
+  { title: "Company", links: ["About Us", "Careers", "FAQ", "Contact", "WhatsApp", "Privacy Policy", "Terms of Service"] },
 ];
 
 export const phoneScreens = [
@@ -675,7 +698,7 @@ export const phoneScreens = [
     ],
   },
   {
-    title: "Biomarker Trends",
+    title: "Health Trends",
     score: null,
     label: null,
     items: [],
@@ -686,102 +709,109 @@ export const phoneScreens = [
 
 export const howItWorksPage = {
   hero: {
-    eyebrow: "How It Works",
-    headline: "From sign-up to results in 72 hours.",
-    subheadline: "No referrals. No long queues. No confusing lab reports. BetterHealth makes a full health check as simple to book as a ride, and just as convenient.",
-    cta: "Get Started",
+    eyebrow: "Ghana's first health intelligence platform",
+    headline: "Turn a health worry into a clear next step.",
+    highlight: "No guessing.",
+    subheadline: "Book the right test, get results reviewed by a doctor, and see what your numbers mean in plain language, so you can move with confidence instead of carrying quiet questions around.",
+    cta: "Book your first test",
+    proofPoints: [
+      "Partner labs",
+      "Doctor-reviewed results",
+      "Results in 48 to 72 hours",
+      "GDPC data protection",
+    ],
   },
   steps: [
     {
       num: "01",
-      heading: "Sign up in under 3 minutes",
-      body: "Create your BetterHealth account with your email or phone number. Tell us a few basics, like your age, sex, and any health concerns you want to focus on. Then choose the plan that fits your needs.",
+      heading: "Tell us what you want answers on",
+      body: "Maybe diabetes runs in your family. Maybe your blood pressure has been creeping up. Maybe something feels off and you want to stop wondering. Start with the concern on your mind, and BetterHealth points you toward the tests that can give you a clearer picture.",
       expects: [
-        "Account creation takes less than 3 minutes",
-        "Choose from Essential, Complete, or Premium packages",
-        "Pay securely with Mobile Money (MTN MoMo, Vodafone Cash, AirtelTigo Money), debit/credit card, or bank transfer via Paystack",
-        "You will receive a confirmation email and SMS immediately",
+        "Choose the concern closest to what you want clarity on",
+        "See the exact tests inside each panel before you book",
+        "Know the price upfront, with no subscription required",
+        "Book without needing a doctor's referral",
+        "Pay securely with Mobile Money, card, or bank transfer",
+        "Get confirmation and preparation instructions by email and SMS",
       ],
     },
     {
       num: "02",
-      heading: "Choose how and where you test",
-      body: "You decide what works for you. Visit one of our accredited partner labs across Ghana, or book home collection and get tested in the comfort of your home. Either way, the blood draw takes about 10 minutes.",
+      heading: "Get tested without the hospital runaround",
+      body: "Choose a partner lab visit or home sample collection where available. We tell you how to prepare, where to go, who to expect, and whether you need to fast, so the test feels calm before it even happens.",
       expects: [
-        "In-lab option: Walk into any BetterHealth partner lab during opening hours. No appointment needed for Essential plans.",
-        "Home collection: Pick a date and time that works for you, and our phlebotomist will be at your doorstep.",
-        "You will receive an SMS confirmation with your collector's name and expected arrival time",
-        "The blood draw takes 5 to 10 minutes",
-        "Some tests need fasting first. We will tell you which ones when you book.",
+        "Pick a lab visit or home collection when available",
+        "Know exactly whether fasting is needed",
+        "Receive your appointment or collector details by SMS",
+        "Complete a simple blood draw in about 5 to 10 minutes",
+        "Your sample moves through BetterHealth partner lab workflows",
       ],
       subSection: {
-        heading: "How home collection works",
-        body: "Our home collection service is provided through our partnership with Lab Access Ghana, one of the most established phlebotomy networks in the country. Every collector is certified, trained in venipuncture, and follows strict sample handling protocols.",
+        heading: "Home collection, handled properly",
+        body: "When home collection is available, a trained collector comes with the supplies needed to take, label, and package your sample properly. You do not have to improvise your way through the process.",
         details: [
-          "Available in Greater Accra, Kumasi, and Tema (expanding to more cities)",
-          "Collection window: Monday to Saturday, 6:00 AM to 12:00 PM (fasting-friendly morning slots)",
-          "The collector brings everything: tubes, labels, and cold chain packaging",
-          "Your sample is transported to the lab within 2 hours of collection",
-          "Home collection is included free with Premium plans",
-          "Available as an add-on for Essential and Complete plan members",
+          "Choose an available date and time during booking",
+          "The collector brings tubes, labels, and sample packaging",
+          "Your sample is labelled and moved through a documented handling process",
+          "Morning slots are used when fasting is required",
+          "Availability depends on your location and selected test",
         ],
       },
     },
     {
       num: "03",
-      heading: "Clear, visual results in 48 to 72 hours",
-      body: "No more waiting weeks. No more printouts you can't read. Your results appear in your personal health dashboard, organised by organ system, colour-coded for clarity, and explained in language you understand.",
+      heading: "See what your numbers mean",
+      body: "Your dashboard does more than show a lab report. It explains your numbers, highlights what may need attention, and gives you doctor-reviewed context so you can understand what is happening inside your body.",
       expects: [
-        "Results are usually ready within 48 to 72 hours (Priority members: 48 hours)",
-        "You will receive an SMS and email notification the moment your results are ready",
-        "Log into your dashboard to see results organised by: Heart, Liver, Kidneys, Thyroid, Metabolic, Hormones, Blood Health, and Nutrients",
-        "Every biomarker shows: your value, the reference range, a colour-coded status (green/amber/red), and a plain-language explanation",
-        "Download a complete PDF report for your records or to share with your doctor",
-        "Standard and Premium members receive a doctor's written report interpreting your results",
+        "Results are usually ready within 48 to 72 hours",
+        "Get notified the moment your dashboard is ready",
+        "See your health indicators grouped by body system where relevant",
+        "Understand your value, reference range, status, and explanation",
+        "Download a PDF report to keep or share with your doctor",
       ],
       subSection: {
-        heading: "Your results, explained like a human would",
-        body: "Most lab reports hand you a wall of numbers and abbreviations. BetterHealth turns every result into something you can understand and act on. You will see:",
+        heading: "This is the health intelligence layer",
+        body: "A raw result can leave you with more questions than answers. BetterHealth turns those numbers into something you can understand, track, and discuss with a qualified healthcare provider when needed.",
         details: [
-          "Organ System Scores: an at-a-glance view of how each body system is doing",
-          "Colour-Coded Indicators: green (healthy), amber (watch), red (needs attention)",
-          "Trend Charts that show how each biomarker has changed since your last test",
-          "Personalised Insights based on your results, age, sex, and health goals",
-          "Critical Alerts that reach you straight away if any result needs urgent attention",
+          "Plain explanations that translate medical terms into everyday language",
+          "Body-system views for heart, liver, kidney, metabolic, hormone, blood, and nutrient health",
+          "Trend charts when you test again over time",
+          "Doctor-reviewed notes where available",
+          "Clear prompts when a result should be discussed with a healthcare provider",
         ],
       },
     },
     {
       num: "04",
-      heading: "Know what to do next",
-      body: "A list of numbers doesn't help much on its own. BetterHealth tells you what to change, what to keep an eye on, and when to test again. Track your progress over time and watch your health improve.",
+      heading: "Leave with a next move",
+      body: "The point is not to collect numbers. It is to know what deserves attention, what can be watched, and what you may need to discuss with a doctor. From there, you can recheck, track trends, or join a focused condition program when ongoing monitoring matters.",
       expects: [
-        "Personalized recommendations based on your specific results",
-        "Dietary and lifestyle suggestions tailored to your biomarker profile",
-        "Alerts for any markers that need medical attention",
-        "Premium members: schedule a consultation call with a doctor or nutritionist to discuss your results",
-        "Set a reminder for your next screening (recommended every 6 months)",
-        "Compare results across screenings to see improvement over time",
+        "Know which indicators deserve attention",
+        "Track changes across future tests",
+        "Use condition programs for diabetes, hypertension, kidney, liver, or heart risk",
+        "Share your report with a healthcare provider",
+        "Set reminders so important checks do not disappear from your life",
       ],
     },
   ],
   safetyCards: [
-    { icon: "FlaskConical", title: "Accredited Partner Labs", body: "Every sample is processed at labs that meet Ghana Health Service standards. We do not run our own labs. We partner with established, accredited facilities, so you get hospital-quality testing without the hospital experience." },
-    { icon: "UserCheck", title: "Certified Phlebotomists", body: "Every home collector is trained, certified, and background-checked through our partnership with Lab Access Ghana. They follow strict venipuncture and cold-chain protocols to ensure sample integrity." },
-    { icon: "ShieldCheck", title: "Data Encryption & Privacy", body: "Your health data is encrypted at rest and in transit using industry-standard protocols. We never sell your data. Only you and healthcare providers you explicitly authorize can access your results." },
-    { icon: "PackageCheck", title: "Chain of Custody", body: "We track every sample from collection to result. Each one is timestamped, labelled with a unique accession number, and moved in temperature-controlled packaging. You can see the status of your sample in your dashboard." },
+    { icon: "FlaskConical", title: "Partner lab processing", body: "Real samples, real lab workflows, and a clearer customer experience around the test." },
+    { icon: "UserCheck", title: "Doctor-reviewed results", body: "Your result is reviewed before it reaches your dashboard, so you are not left alone with confusing numbers." },
+    { icon: "ShieldCheck", title: "GDPC and data protection", body: "Your health data is handled with privacy in mind, with secure systems and access controls around your results." },
+    { icon: "PackageCheck", title: "Documented sample handling", body: "Samples are labelled and tracked through the testing process so each result connects back to the right booking." },
   ],
   faqs: [
-    { q: "Do I need to fast before my blood test?", a: "Some biomarkers need fasting, meaning no food or drink except water for 8 to 12 hours before collection. When you book, we will tell you exactly which tests need fasting and send you clear preparation instructions by SMS." },
+    { q: "Do I need to fast before my blood test?", a: "Some tests need fasting, meaning no food or drink except water for 8 to 12 hours before collection. When you book, we will tell you exactly which tests need fasting and send you clear preparation instructions by SMS." },
     { q: "How much blood is taken?", a: "A full panel usually needs 3 to 5 tubes of blood, about 15 to 25 mL in total. That is roughly one to two tablespoons. Most people feel no effects afterward." },
-    { q: "What if I am afraid of needles?", a: "Our phlebotomists are experienced and gentle, and many patients tell us it was the most comfortable blood draw they have had. If you are anxious about it, let us know when you book and we will pair you with a collector who is used to working with needle-shy patients." },
-    { q: "Can I use my results to visit my doctor?", a: "Absolutely. You can download a complete PDF report with all your results, reference ranges, and interpretations. Many of our members share their BetterHealth reports with their doctors as part of their ongoing care." },
-    { q: "What happens if a result is critically abnormal?", a: "If any result falls into a critical range, you will receive an immediate notification via SMS and in-app alert. Our system flags these results for priority review, and we recommend you consult a healthcare provider promptly. Premium members can use their included doctor consultation for this." },
+    { q: "Can I book just one test?", a: "Yes. The first step can be a single test or a focused panel. You can come back later when you want to keep tracking specific health indicators over time." },
+    { q: "What makes this different from collecting a lab report?", a: "A normal lab report gives you numbers. BetterHealth adds the health intelligence layer: plain explanations, body-system grouping, doctor review, and trend tracking when you test again." },
+    { q: "Can I use my results with my doctor?", a: "Yes. You can download a PDF report with your results, reference ranges, and explanations. Many people use this when speaking with their doctor or another healthcare provider." },
+    { q: "What happens if a result looks concerning?", a: "Your dashboard makes concerning results easier to spot, and doctor-reviewed notes may guide what to discuss next. If a result worries you or symptoms are present, speak with a qualified healthcare provider promptly." },
   ],
   bottomCta: {
-    headline: "Ready to know your health?",
-    body: "It takes less than 3 minutes to start. Choose your plan, book your collection, and get results in 48 to 72 hours.",
-    cta: "Start Your Health Check",
+    headline: "Get the clarity your body has been asking for.",
+    body: "Book the test that matches your concern, understand the result, and take the next step with more confidence.",
+    cta: "Book your first test",
   },
 };
 
@@ -789,11 +819,11 @@ export const howItWorksPage = {
 
 export const whatWeTestPage = {
   hero: {
-    eyebrow: "What We Test",
-    headline: "127 biomarkers. 17 body systems. One clear picture.",
-    subheadline: "A typical hospital checkup tests 10 to 15 markers. BetterHealth tests 127, covering your heart, liver, kidneys, thyroid, metabolism, hormones, blood health, nutrition, fertility, urine, stool, and more. Every result is explained in plain language and tracked over time.",
-    cta: "Start Testing",
-    intro: "Below you will find every body system we test, why it matters for your health, and the specific biomarkers included. Each plan goes to a different depth, so check the plan comparison at the bottom to see which markers come with your package.",
+    eyebrow: "Health intelligence starts with the right health indicators",
+    headline: "127 health indicators. 17 body systems. One clear picture.",
+    subheadline: "BetterHealth tests the markers behind blood sugar, heart risk, liver, kidneys, hormones, fertility, nutrition, blood health, urine, stool, and more. Every result is explained in plain language and can be tracked over time.",
+    cta: "Book a test",
+    intro: "Start with the concern on your mind, then choose the test or panel that fits. If a number needs ongoing attention, you can book another check when it is time to follow the trend.",
   },
   systems: [
     {
@@ -847,7 +877,7 @@ export const whatWeTestPage = {
         { name: "Phosphate", note: "managed by kidneys; important for bone health" },
         { name: "CO2 (Bicarbonate)", note: "measures acid-base balance, regulated by kidneys" },
       ],
-      callout: "High blood pressure, which affects 1 in 3 Ghanaian adults, is the leading cause of kidney disease. If you have hypertension, please check your kidneys regularly. It really does matter.",
+      callout: "High blood pressure, which affects 1 in 3 Ghanaian adults, is the leading cause of kidney disease. If you have hypertension, regular kidney checks are worth taking seriously.",
     },
     {
       icon: "Gauge",
@@ -935,25 +965,10 @@ export const whatWeTestPage = {
       callout: "Up to 15% of people with thyroid symptoms have a 'normal' TSH. Free T3, Free T4, and antibody tests show the full picture, which is why BetterHealth tests all five, not just TSH.",
     },
   ],
-  planTable: {
-    headline: "Which biomarkers are included in each plan?",
-    subheadline: "Every plan gives you meaningful insight. Higher tiers go deeper.",
-    rows: [
-      { system: "Hematology", essential: "All 29", complete: "All 29", premium: "All 29" },
-      { system: "Urinalysis", essential: "All 20", complete: "All 20", premium: "All 20" },
-      { system: "Liver Function", essential: "All 12", complete: "All 12", premium: "All 12" },
-      { system: "Lipids", essential: "All 8", complete: "All 8", premium: "All 8" },
-      { system: "Renal Function", essential: "All 8", complete: "All 8", premium: "All 8" },
-      { system: "Metabolic", essential: "1", complete: "1", premium: "1" },
-      { system: "Uric Acid", essential: "—", complete: "✓", premium: "✓" },
-      { system: "Cardiovascular", essential: "—", complete: "—", premium: "All 3" },
-    ],
-    cta: "Choose Your Plan",
-  },
   bottomCta: {
-    headline: "See your whole health, not a small slice of it.",
-    body: "A hospital checkup tests 10 to 15 markers and calls it comprehensive. BetterHealth tests 127, so you get the whole story in one visit.",
-    cta: "Start Your Health Check",
+    headline: "Start with the markers that match your concern.",
+    body: "Book a single test or a focused panel, get doctor-reviewed results, then decide what to do next.",
+    cta: "Book a test",
   },
 };
 
@@ -961,9 +976,11 @@ export const whatWeTestPage = {
 
 export const storiesPage = {
   hero: {
-    eyebrow: "BetterHealth Stories",
-    headline: "The tests their doctors never ordered.",
-    subheadline: "Real people, real results. These are Ghanaians who tested early and found something worth catching while there was still time to do something about it.",
+    eyebrow: "Member stories",
+    headline: "Confidence starts when the guessing",
+    highlight: "stops.",
+    subheadline: "Most people delay testing because they are afraid of what the results might say. These stories show what changes when a concern becomes a clear result, a doctor-reviewed explanation, and a next step.",
+    disclaimer: "To protect privacy, these stories have been anonymised. Names, identifying details, and some circumstances have been changed while preserving the health journey behind each story.",
   },
   stories: [
     {
@@ -972,21 +989,21 @@ export const storiesPage = {
       name: "Ama",
       age: 34,
       city: "Accra",
-      headline: "“I felt completely fine. My HbA1c said otherwise.”",
+      headline: "“I was scared of the result. Then it gave me something to work with.”",
       narrative: [
-        "Ama is 34, runs a small marketing agency out of East Legon, and has the kind of relationship with her doctor where she only shows up when something hurts. She didn’t sign up for BetterHealth. Her older sister did, then nagged her about it at a family lunch until she gave in.",
-        "Her sister had run her own panel and was on a self-improvement kick. “She kept saying, you have nothing to lose, you’ll see your numbers, it’s a few hundred cedis.” Ama agreed mostly to end the argument. She booked a Saturday morning collection and forgot about it for nearly two weeks until the email landed in her inbox.",
-        "The dashboard was mostly green. Then she got to the metabolic section. Her HbA1c was 6.1%, flagged amber, labelled pre-diabetic. She’d had a fasting glucose at the polyclinic six months earlier; it came back 5.4, which her doctor had called normal. “I remember thinking, wait, what is HbA1c? Why didn’t anyone test this?” She googled it that night, then again the next morning.",
-        "What hit her wasn’t the result itself but the timeline. HbA1c is a three-month average. So for at least three months, probably longer, her body had been quietly struggling with sugar and she hadn’t felt a thing. Her grandmother had died of complications from Type 2. Her uncle was on insulin. “I always thought I’d get tested in my forties. Not now.”",
-        "Ama didn’t go scorched-earth. She cut sugary drinks, started walking after dinner, mostly with her sister on FaceTime, and got bored of strict diet tracking after about a week. Six months later, on a follow-up panel, her HbA1c was 5.6%. Just inside normal range. Her insulin was still something her doctor wanted to keep watching. “I’m not ‘cured.’ I’m paying attention. That’s the difference.”",
+        "Ama had a family history of diabetes, but she kept putting off a proper blood sugar check. She told herself she felt fine. Underneath that, she was afraid the test would confirm what she had been quietly worrying about.",
+        "She booked BetterHealth after her sister pushed her to stop guessing. The sample collection was simple, but waiting for the result made her nervous. “I almost did not open the email,” she said. “I thought once I saw the number, my life would change.”",
+        "Her dashboard showed an HbA1c of 6.1%, in the pre-diabetic range. It was not the answer she wanted, but the explanation helped. BetterHealth showed what HbA1c measures, why it can reveal a longer blood sugar pattern than a one-off fasting glucose, and what to discuss with a doctor.",
+        "That turned the result from a scare into a plan. Ama spoke to a clinician, reduced sugary drinks, started walking after dinner, and decided to retest instead of pretending nothing had happened.",
+        "Six months later, her HbA1c had moved to 5.6%. Her doctor still wanted her to monitor her insulin and blood sugar, but Ama no longer felt helpless. “It was not the number that gave me confidence,” she said. “It was finally knowing what the number meant.”",
       ],
       numbers: [
         { label: "HbA1c", before: "6.1%", after: "5.6%", status: "pre-diabetic → normal range" },
-        { label: "Fasting Glucose", before: "5.4 mmol/L", after: null, status: "“normal”, missed the signal entirely" },
-        { label: "Insulin", before: "14.2 mIU/L", after: null, status: "elevated, still being monitored" },
-        { label: "HOMA-IR", before: "3.4", after: null, status: "insulin resistant" },
+        { label: "Fasting Glucose", before: "5.4 mmol/L", after: null, status: "normal on a single-day reading" },
+        { label: "Insulin", before: "14.2 mIU/L", after: null, status: "worth discussing and monitoring" },
+        { label: "HOMA-IR", before: "3.4", after: null, status: "suggested insulin resistance" },
       ],
-      quote: "“My doctor tested glucose. That’s what she’d been taught to test. I’m not angry at her. I’m just glad I tested the other thing.”",
+      quote: "“I thought the result would make me panic. Instead, it helped me know where to start.”",
     },
     {
       tag: "Hypertension",
@@ -994,20 +1011,20 @@ export const storiesPage = {
       name: "Kofi",
       age: 45,
       city: "Tema",
-      headline: "“My blood pressure had been at stroke level for years. I felt nothing.”",
+      headline: "“I stopped treating my blood pressure like a guess.”",
       narrative: [
-        "Kofi is 45, teaches mathematics at a secondary school in Tema, and is the kind of man who eats well by Ghanaian standards: not too much red meat, no smoking, a beer maybe twice a month. His father collapsed at 62 from a stroke and spent his final two years unable to speak. That sat somewhere in the back of Kofi’s mind. Not urgently. Just there.",
-        "He’d had his blood pressure checked at a pharmacy kiosk a few years back. The reading was 138/88. The pharmacist said it was a bit high and told him to ease up on salt. Kofi cut saltfish from his diet for about three weeks and considered the matter resolved.",
-        "His wife signed them both up for BetterHealth as a shared resolution after the new year. Kofi agreed without much enthusiasm. When the results arrived, the first thing the dashboard flagged was his blood pressure: 162/98 mmHg. Stage 2 hypertension. The plain-language explanation used the phrase ‘significantly elevated stroke risk’ and listed his father’s profile, male, age 60s, family history, as exactly the pattern that should not go unmanaged.",
-        "He went to a doctor he hadn’t seen in four years. The doctor confirmed the reading on two separate visits and started him on a low-dose antihypertensive. She also ordered a kidney function panel, since hypertension and kidneys are linked in ways Kofi hadn’t known about. His creatinine came back at the upper edge of normal. “She said my kidneys were compensating. That I’d probably had this for years without knowing.”",
-        "Three months in, his BP was 126/80. Six months in, it was 122/78. He takes a small white tablet every morning with his tea. He jokes that it is the most important thing he does before 7 a.m. His father never had the option. “I think about that every time I take it. He didn’t have a test. He had a stroke. That’s the only difference between us.”",
+        "Kofi knew high blood pressure ran in his family, but he had never treated it as urgent. A pharmacy reading years earlier was “a bit high,” so he reduced salt for a few weeks and moved on.",
+        "His wife booked them both for a BetterHealth check after a family conversation about health. Kofi agreed, mostly because he wanted peace at home. He expected the results to be ordinary.",
+        "The dashboard showed a blood pressure reading of 162/98 mmHg and explained why that deserved medical attention. It also connected the reading to kidney checks, cholesterol, and family history in plain language. For the first time, Kofi understood that blood pressure was not just one number at a kiosk.",
+        "He took the report to a doctor, who confirmed the reading across follow-up visits and helped him start treatment. The kidney panel gave them a baseline to keep watching, which made the whole conversation feel more complete.",
+        "Within months, his blood pressure was controlled. The biggest change was emotional: Kofi no longer felt like he was waiting for something bad to happen. He had a number, a doctor, and a routine he could follow.",
       ],
       numbers: [
         { label: "Systolic BP", before: "162 mmHg", after: "122 mmHg", status: "Stage 2 hypertension → normal" },
         { label: "Diastolic BP", before: "98 mmHg", after: "78 mmHg", status: "elevated → normal" },
-        { label: "Creatinine", before: "106 µmol/L", after: null, status: "upper normal, kidneys under pressure" },
+        { label: "Creatinine", before: "106 µmol/L", after: null, status: "baseline for kidney monitoring" },
       ],
-      quote: "“My father had a stroke before he turned 63. I was on the same path and didn’t know it. The test caught me in time.”",
+      quote: "“Before, I only had fear because of my family history. Now I have a reading, a doctor, and a plan.”",
     },
     {
       tag: "Cardiovascular risk",
@@ -1015,21 +1032,21 @@ export const storiesPage = {
       name: "Maxwell",
       age: 34,
       city: "Cape Coast",
-      headline: "“My cholesterol was ‘fine.’ My real risk was hiding underneath.”",
+      headline: "“I wanted reassurance. I got a clearer picture.”",
       narrative: [
-        "Maxwell is 34, works in procurement for a state corporation in Cape Coast, and has two kids under six. He’d never thought much about heart disease until his cousin Yaw collapsed at a wedding in December. Yaw was 38. He survived, but barely. The cardiologist told the family it had been building silently for years.",
-        "Maxwell booked a panel the following week. He half-expected to be told he was fine. He wasn’t overweight, his blood pressure had been normal at his last check-up, and his cholesterol had always come back inside the lines on the standard tests. “I went in to get reassured,” he says. “That’s not what happened.”",
-        "His total cholesterol was 5.1 mmol/L, borderline-but-okay by GP standards. His ApoB, though, was 1.12 g/L. Elevated. His Lp(a) was 78 nmol/L. High. The dashboard explained that ApoB counts the actual number of harmful particles in his blood, and that you can have ‘normal’ cholesterol while ApoB is high, because the particles are smaller and more numerous than a basic test can see. Lp(a) was the one that scared him most: genetic, set for life, not changeable by diet.",
-        "His doctor was sceptical at first. “She said, your cholesterol is fine, why are you here.” Maxwell brought the dashboard printout, asked her to look at ApoB specifically, asked about Yaw. She referred him to a cardiologist. The cardiologist started him on a low-dose statin and walked him through Mediterranean-style eating: more fish, more vegetables, less red meat, less alcohol on the weekends with his old schoolmates.",
-        "Six months in, his ApoB had dropped to 0.78, well inside healthy. His Lp(a) didn’t budge; it can’t, that’s the point. But knowing his number means his cardiologist now monitors him closely, and his kids will get tested earlier than he ever was. “I think about Yaw every time I take that pill,” he says. “I’m here because he wasn’t.”",
+        "Maxwell booked a heart-risk panel after a younger relative had a serious cardiac event. He was not looking for drama. He wanted someone to tell him he was fine so he could stop thinking about it.",
+        "His basic cholesterol numbers did not look alarming on their own. But the BetterHealth dashboard also showed ApoB and Lp(a), then explained why those markers can give a more detailed view of cardiovascular risk than total cholesterol alone.",
+        "That context mattered. Instead of staring at unfamiliar abbreviations, Maxwell could see what each marker measured, what was outside range, and which questions to ask his doctor.",
+        "He brought the report to a clinician, who referred him for a more focused review. Together they discussed medication, food changes, alcohol, exercise, and what to monitor next. The plan was practical, not dramatic.",
+        "On a later check, his ApoB had improved. His Lp(a), a largely genetic marker, became something to watch over time rather than something to panic about. “I did not leave with a perfect result,” he said. “I left knowing what mattered.”",
       ],
       numbers: [
-        { label: "Total Cholesterol", before: "5.1 mmol/L", after: null, status: "borderline, missed the real issue" },
+        { label: "Total Cholesterol", before: "5.1 mmol/L", after: null, status: "borderline" },
         { label: "ApoB", before: "1.12 g/L", after: "0.78 g/L", status: "elevated → healthy" },
-        { label: "Lp(a)", before: "78 nmol/L", after: null, status: "high, genetic, lifelong monitoring" },
+        { label: "Lp(a)", before: "78 nmol/L", after: null, status: "high, useful for long-term monitoring" },
         { label: "LDL Cholesterol", before: "3.2 mmol/L", after: "2.1 mmol/L", status: "borderline → optimal" },
       ],
-      quote: "“My cholesterol number was fine. It just wasn’t the right number to be looking at.”",
+      quote: "“The dashboard helped me ask better questions. That was the confidence I needed.”",
     },
     {
       tag: "Fatty liver",
@@ -1037,13 +1054,13 @@ export const storiesPage = {
       name: "Nana",
       age: 42,
       city: "Accra",
-      headline: "“I don’t drink. My liver was still in trouble.”",
+      headline: "“The test helped me take my liver seriously without panicking.”",
       narrative: [
-        "Nana runs a small import business out of Spintex, has three kids, and just turned 42. He doesn’t drink, never has, not even socially, and stays active because he plays five-a-side football most Sundays. When he signed up for BetterHealth, he genuinely expected nothing useful to come of it. “I thought of it like a yearly car service. I take care of myself; I just wanted the printout to confirm it.”",
-        "His ALT came back at 68 U/L. His GGT was 85. Both flagged amber. The dashboard pointed him toward non-alcoholic fatty liver, which he laughed at, briefly, then stopped laughing when he read that around a quarter of adults globally have it and most don’t know.",
-        "His doctor sent him for an ultrasound. The radiologist confirmed mild fatty infiltration. “Nobody used the word ‘cirrhosis’ or anything frightening,” Nana says, “but he was clear: if I ignored it for ten years it could get worse.” The driver, the doctor said, was almost certainly his diet: heavy on starches, takeaways three or four times a week, plenty of fruit juice he’d been telling himself was healthy.",
-        "Nana didn’t go on a punishing diet. He cut fruit juice entirely, which was the single biggest change, switched white rice for brown most days, and started bringing lunch to work instead of buying it. He still has waakye on Saturdays because he refuses to give that up. His football kept going.",
-        "After about eight months his ALT was at 34, GGT at 41. Both inside normal. His liver isn’t perfect, the ultrasound still shows mild fat, but the inflammation is gone and the trajectory is the right way. “The thing that stays with me is that I felt nothing. No pain, no symptom, no warning. If I’d waited for my body to tell me something was wrong, it would have been too late.”",
+        "Nana did not drink, played football on Sundays, and thought of himself as reasonably healthy. When he booked a BetterHealth panel, he expected the results to confirm what he already believed.",
+        "His liver enzymes came back elevated. At first, that confused him. BetterHealth’s explanation helped him understand that liver strain can be connected to many things, including diet, weight, metabolic health, and medication history, not only alcohol.",
+        "That distinction lowered the fear. He took the report to a doctor, who recommended an ultrasound and walked him through possible causes. The result gave the conversation a starting point.",
+        "Nana made changes he could live with: less fruit juice, fewer takeaways, more home-packed lunches, and regular follow-up. He did not try to become a different person overnight.",
+        "Months later, his liver markers had moved back into range. He still checks because he wants to keep the trend moving in the right direction. “The test did not shame me,” he said. “It showed me what to pay attention to.”",
       ],
       numbers: [
         { label: "ALT", before: "68 U/L", after: "34 U/L", status: "elevated → normal" },
@@ -1051,7 +1068,7 @@ export const storiesPage = {
         { label: "AST", before: "42 U/L", after: "27 U/L", status: "elevated → normal" },
         { label: "Triglycerides", before: "2.4 mmol/L", after: "1.5 mmol/L", status: "high → normal" },
       ],
-      quote: "“I assumed liver problems meant alcohol. The dashboard taught me they often mean rice and fruit juice.”",
+      quote: "“I thought liver results would be frightening. The explanation made them useful.”",
     },
     {
       tag: "Stroke risk",
@@ -1059,21 +1076,21 @@ export const storiesPage = {
       name: "Abena",
       age: 50,
       city: "Kumasi",
-      headline: "“My doctor said I was fine. My arteries told a different story.”",
+      headline: "“My daughter was worried. BetterHealth helped us have the right conversation.”",
       narrative: [
-        "Abena is 50, works as a senior administrator at a polytechnic in Kumasi, and has spent thirty years looking after everyone else’s paperwork and almost none of her own health. She is the person colleagues call when something needs organising. She is not the person who books her own appointments.",
-        "She had a brief dizzy spell at her desk in February. Nothing dramatic, just a moment where the room tilted slightly and then righted itself. A colleague made her go to the clinic. The nurse took her BP: 148/94. She was told to rest and come back if symptoms returned. She rested. She didn’t go back.",
-        "Her daughter, a nurse herself, signed Abena up for a BetterHealth panel in April and told her not to argue about it. The results arrived on a Tuesday. Her blood pressure reading on the panel was 156/96. Her C-Reactive Protein, a marker of arterial inflammation, was 8.4 mg/L, nearly triple the upper safe limit. Her fibrinogen, a clotting protein that raises stroke risk when elevated, was at 5.1 g/L. Her total cholesterol was 6.4 mmol/L. The dashboard laid it out in plain language: she had three independent risk factors for stroke, and they were all elevated at the same time.",
-        "Her daughter took her to a specialist. The cardiologist ordered a carotid ultrasound. It found early plaque forming in the left carotid artery, the artery that feeds the brain. “That dizzy spell wasn’t nothing,” the cardiologist told her. “That was your body sending a message.” Abena went on antihypertensives, a statin, and low-dose aspirin. She came back to the clinic every six weeks for the first three months.",
-        "At six months, her BP was 128/82. Her CRP had dropped to 2.1. Her cholesterol was 4.8. The plaque has not progressed. “My daughter saved my life by nagging me,” Abena says. “She knew what the numbers meant. I didn’t. Now I do. And I will not stop checking them.”",
+        "Abena had been meaning to check her blood pressure for months. A brief dizzy spell made her daughter worry, but Abena did what many busy parents do: she rested, felt better, and carried on.",
+        "Her daughter booked a BetterHealth panel so they could stop arguing from fear and start talking from facts. When the results arrived, the dashboard showed elevated blood pressure and several heart-risk markers that deserved clinical review.",
+        "The value was not just the flags. It was the way the results were grouped and explained. Abena could see how blood pressure, cholesterol, inflammation, and clotting markers might relate to each other, then take that full picture to a specialist.",
+        "Her doctor reviewed the report, ordered follow-up checks, and helped her start a plan. Instead of one vague warning to “take it easy,” Abena had a set of numbers to track.",
+        "Six months later, her blood pressure and cholesterol had improved. She still sees her clinician, but now she understands why each check matters. “My daughter was worried for me,” Abena said. “BetterHealth gave us language for the worry.”",
       ],
       numbers: [
         { label: "Systolic BP", before: "156 mmHg", after: "128 mmHg", status: "hypertensive → controlled" },
         { label: "C-Reactive Protein", before: "8.4 mg/L", after: "2.1 mg/L", status: "high inflammation → normal" },
-        { label: "Fibrinogen", before: "5.1 g/L", after: null, status: "elevated, clot risk marker" },
+        { label: "Fibrinogen", before: "5.1 g/L", after: null, status: "elevated, discussed with clinician" },
         { label: "Total Cholesterol", before: "6.4 mmol/L", after: "4.8 mmol/L", status: "high → healthy" },
       ],
-      quote: "“I had a dizzy spell and dismissed it. The scan found plaque in my carotid artery. That dizzy spell was a warning I nearly ignored.”",
+      quote: "“I did not need more fear. I needed to understand what to do next.”",
     },
     {
       tag: "H. pylori infection",
@@ -1081,30 +1098,30 @@ export const storiesPage = {
       name: "Akua",
       age: 36,
       city: "Accra",
-      headline: "“I’d been treating stomach pain for five years. The cause was bacterial.”",
+      headline: "“For years I called it stress. The test gave it a name.”",
       narrative: [
-        "Akua is 36, works as a branch manager at a bank in Accra, and had been buying antacids in bulk for nearly five years. She’d see a doctor once a year, sometimes less. They’d press on her stomach, ask about stress, prescribe omeprazole. It would work for a few weeks, then the burning would come back.",
-        "Her mother had died of stomach cancer at 58, but no one in the family had connected the dots. “My mother had stomach problems for years too. I just thought it was stress, like everyone said.” Her younger brother eventually persuaded her to do a BetterHealth panel. He’d done one. He kept calling her about it. She agreed, mostly to make him stop calling.",
-        "Her H. pylori antibody came back positive. The dashboard explained it plainly: this is a bacterium that infects the stomach lining, causes ulcers, and if left untreated for decades can sharply raise stomach cancer risk. In the same paragraph it said that treatment is a 14-day course of antibiotics, and that most patients are clear after one course.",
-        "She took the result to her doctor, who confirmed with a follow-up test and started her on the triple-therapy course. Two of the antibiotics made her nauseous for the first three days. She finished the course anyway. The burning, which she’d taken as a normal part of her life, was gone within a month.",
-        "A retest at three months confirmed she was clear. Her mother’s diagnosis still haunts her. There’s no way to know whether the same infection had been quietly working on her mother’s stomach for years before the cancer appeared. “My brothers are all testing now. We grew up in the same house, eating from the same pot. If one of us has it, we probably all do.”",
+        "Akua had lived with recurring stomach burning for years. She blamed stress, late meals, and long workdays. Antacids helped for a while, then the discomfort came back.",
+        "She avoided deeper testing because she was afraid of discovering something serious. A BetterHealth panel felt easier because it gave her a private place to start before deciding what to discuss with a doctor.",
+        "Her result suggested H. pylori exposure. The dashboard explained, in plain language, that H. pylori is a bacterium linked to ulcers and stomach irritation, and that a clinician should confirm and treat it appropriately.",
+        "Akua took the result to her doctor, who confirmed the infection and started treatment. The process was not glamorous, but it was clear: finish the medication, retest, and watch the symptoms.",
+        "When her follow-up test came back negative, Akua felt relief she had not felt in years. “I kept calling it stress because stress was easier to understand,” she said. “Now I know what was actually going on.”",
       ],
       numbers: [
         { label: "H. pylori Antibody", before: "Positive", after: "Negative", status: "active infection → cleared" },
         { label: "Stomach pain", before: "Weekly", after: "None", status: "5 years → resolved" },
       ],
-      quote: "“Five years of antacids didn’t fix it. Two weeks of antibiotics did. I wish my mother had known.”",
+      quote: "“The relief was not only that treatment worked. It was finally having an explanation.”",
     },
   ],
   callForStories: {
     headline: "Have a BetterHealth story?",
-    body: "If BetterHealth revealed something important about your health, we\u2019d love to hear about it. Your story could help someone else take the step to get tested. All stories are shared with your explicit consent, and you can choose to remain anonymous.",
+    body: "If BetterHealth helped you move from worry to clarity, we would love to hear about it. Your story could help someone else take the step to get tested. Stories are only shared with consent, and identifying details can be changed to protect your privacy.",
     cta: "Share Your Story",
   },
   bottomCta: {
-    headline: "Your story starts with a test.",
-    body: "Every discovery above started the same way: someone decided to check. Don\u2019t have to wait for symptoms or assume you\u2019re fine. You can know for sure.",
-    cta: "Start Your Health Check",
+    headline: "The first step is not bravery. It is clarity.",
+    body: "If a symptom, family history, or quiet worry is sitting at the back of your mind, start with the test that helps you understand what is happening inside your body.",
+    cta: "Book a test",
   },
 };
 
@@ -1113,15 +1130,15 @@ export const storiesPage = {
 export const aboutPage = {
   hero: {
     eyebrow: "About BetterHealth",
-    headline: "Africans deserve to know their health before illness strikes, not after.",
-    subheadline: "BetterHealth Africa is a health technology company on a mission to make proactive health monitoring accessible, affordable, and beautifully simple for every African.",
+    headline: "Africans deserve to know what is happening inside their bodies before illness strikes.",
+    subheadline: "BetterHealth Africa is Ghana's first health intelligence platform. We combine lab testing, doctor-reviewed results, simple explanations, and trend tracking so people can make earlier health decisions.",
   },
   problem: {
-    headline: "Healthcare in Africa is built for treatment. We\u2019re building it for prevention.",
+    headline: "Healthcare in Africa is built for treatment. We are building the layer that helps people test earlier.",
     body: [
       "In Ghana, most people only see a doctor when something is wrong: a headache that will not go away, unexplained weight loss, fatigue that does not lift. By then, conditions that were once treatable have often progressed. Prevention is not part of the culture, and it is not because Africans do not value their health. The infrastructure for routine screening barely exists.",
-      "Comprehensive health screening has been a privilege reserved for the wealthy few who can afford private hospitals charging GHS 6,250 or more. For everyone else, healthcare means waiting until you\u2019re sick, queuing at an overcrowded facility, and hoping for the best.",
-      "We\u2019re changing that equation.",
+      "Comprehensive health screening has been a privilege reserved for the wealthy few who can afford private hospitals charging GHS 6,250 or more. For everyone else, healthcare means waiting until you are sick, queuing at an overcrowded facility, and hoping for the best.",
+      "BetterHealth changes the starting point: choose a test, understand the result, and decide what to monitor next.",
     ],
     stats: [
       { value: "70%", label: "of diabetes cases in Africa are undiagnosed" },
@@ -1139,7 +1156,7 @@ export const aboutPage = {
       "In 2019, the disease finally came for my father. He fought for two years. He lost his leg. But, against every precedent in our family, he kept his life, becoming the only man in my extended family to survive what had killed all his brothers. The relief was short-lived. After 2020, we began to notice something far more frightening: the disease was no longer waiting for 50. It was reaching the younger generation. Cousins in their thirties. Relatives barely into their forties. The pattern was accelerating.",
       "In 2022, I moved to the UK. A year later, in 2023, the disease came for me. I spent two weeks in hospital, fighting for my life against diabetic ketoacidosis. The NHS pulled me back from the edge. And then something happened that no one in my family had ever seen: within 18 months of my diagnosis, my doctors told me my diabetes was in reversal.",
       "I was the first. Not just to survive it, but to defeat it.",
-      "That lit a fire in me I haven\u2019t been able to put out since. Through the NHS, I learned what my family had never been told: diabetes can be prevented through regular health testing, and reversed when caught early. The science wasn\u2019t missing. The infrastructure was. The knowledge that saved my life simply had not reached the people I came from.",
+      "That lit a fire in me I haven\u2019t been able to put out since. Through the NHS, I learned what my family had never been told: diabetes can be prevented through regular health testing, and reversed when caught early. The science wasn\u2019t missing. The infrastructure was. The knowledge that saved my life had not reached the people I came from.",
       "I founded BetterHealth Africa to change that. We are building a platform that makes preventive health testing and tracking accessible and affordable for Africa\u2019s 1.2 billion people, the population most at risk of developing these diseases and the least equipped to detect them early.",
       "The scale of the problem is staggering. Over 70% of diabetic patients across Africa are currently undiagnosed. Non-communicable diseases have overtaken infectious diseases as the leading cause of death across the continent. Entire families like mine are being quietly decimated by conditions the world already knows how to prevent.",
       "BetterHealth Africa exists so that no other child has to grow up watching their family disappear, generation by generation, to a disease we already know how to stop.",
@@ -1152,18 +1169,18 @@ export const aboutPage = {
     items: [
       {
         icon: "ShieldCheck",
-        title: "Prevention Over Treatment",
-        body: "The healthcare system waits for you to get sick. We do not. BetterHealth gives you the information to act before symptoms appear, so prevention comes first.",
+        title: "Earlier testing over guesswork",
+        body: "The healthcare system often meets people after symptoms appear. BetterHealth helps you check the markers behind a concern before it becomes harder to manage.",
       },
       {
         icon: "Eye",
-        title: "Transparency Over Complexity",
-        body: "No confusing lab reports. No hidden fees. Everything we do is built to be understood, from your biomarker results to your subscription price. If it is not clear, we have not done our job.",
+        title: "Clarity over lab-report confusion",
+        body: "Your results should make sense. We explain key health indicators in plain language, show ranges clearly, and keep pricing visible before you pay.",
       },
       {
         icon: "Globe",
-        title: "Access Over Exclusivity",
-        body: "A full health screen should not cost GHS 6,250 and need a referral. We have built a platform that puts quality lab testing within reach of every Ghanaian, not just the privileged few.",
+        title: "Access over exclusivity",
+        body: "A useful health test should not need a referral or a private-hospital budget. We make quality lab testing easier to book and easier to understand.",
       },
     ],
   },
@@ -1171,8 +1188,8 @@ export const aboutPage = {
     headline: "We are a health technology company, not a lab.",
     body: [
       "BetterHealth does not run laboratories. We partner with accredited, established labs across Ghana to process your samples. Our role is the technology, the experience, and the intelligence layer on top.",
-      "We build the dashboard that organises your results by organ system. We write the explanations that make your numbers meaningful. We track your biomarkers over time so you can see trends. And we connect you with doctors and nutritionists who can help you act on what the data reveals.",
-      "We sit between the lab and you, turning raw results into something you can understand and use.",
+      "We build the dashboard that organises your results by organ system. We write the explanations that make your numbers meaningful. We track your health indicators over time so you can see trends. And we connect you with doctors and nutritionists who can help you act on what the data reveals.",
+      "We sit between the lab and you, turning raw results into health intelligence you can understand and discuss with a doctor.",
     ],
   },
   partners: {
@@ -1203,7 +1220,7 @@ export const aboutPage = {
       { year: "2027", text: "Introduce AI-powered health insights" },
       { year: "2028", text: "Pan-African availability across 10+ countries" },
     ],
-    closing: "Our goal is to make BetterHealth the default health screening platform for Africa, the way Africans take control of their own health data and their own health outcomes.",
+    closing: "Our goal is to make BetterHealth the health intelligence layer for Africa, the place people use to test early, understand their data, and track the markers that matter.",
   },
   joinUs: {
     headline: "Help us build the future of African healthcare",
@@ -1212,9 +1229,9 @@ export const aboutPage = {
     fallback: "Email us at careers@betterhealth.africa with your CV and the position you\u2019d love to fill.",
   },
   bottomCta: {
-    headline: "We started BetterHealth for the people who never get tested.",
-    body: "If that\u2019s you, or someone you love, this is the place to start.",
-    cta: "Start Your Health Check",
+    headline: "We started BetterHealth for the people who keep postponing the test.",
+    body: "If that is you, or someone you love, start with the concern on your mind.",
+    cta: "Book a test",
   },
 };
 
@@ -1223,132 +1240,13 @@ export const aboutPage = {
 export const pricingPage = {
   hero: {
     eyebrow: "Transparent Pricing",
-    headline: "Start with a single test, not a subscription.",
-    subheadline: "Book the test you need today and pay for only that. A clinician reviews your results and you get clear, plain-language insights. When you\u2019re ready for year-round monitoring, subscribe and save. No referrals, no hidden fees, no surprises.",
+    headline: "Start with the test you need.",
+    subheadline: "Book a single test or a focused panel, get doctor-reviewed results, and see clear explanations in the app. No referrals, no hidden fees, no surprises.",
   },
-  valueAnchor: "A comprehensive health screen at a private hospital in Ghana costs between GHS 2,970 and GHS 6,250, if they even offer all the tests. BetterHealth starts at GHS 2 per day. Prices exclude VAT.",
-  plans: [
-    {
-      name: "Essential",
-      tagline: "For individuals who want to know where their health stands.",
-      monthly: "GHS 61",
-      annual: "GHS 730",
-      daily: "GHS 2",
-      popular: false,
-      includes: [
-        "Physical Health:",
-        "Height",
-        "Weight",
-        "Body Mass Index (BMI)",
-        "Waist-to-height ratio",
-        "Blood Pressure",
-        "Biological Health:",
-        "Full blood count",
-        "Blood sugar",
-        "Kidney function test",
-        "Liver function test",
-        "Urine routine examination",
-        "Heart health test",
-        "Biological Age*",
-      ],
-      excludes: [],
-      cta: "Get Started with Essential",
-    },
-    {
-      name: "Complete",
-      badge: "MOST POPULAR",
-      tagline: "For individuals who want clear medical guidance alongside their results.",
-      monthly: "GHS 163",
-      annual: "GHS 1,953",
-      daily: "GHS 5",
-      popular: true,
-      includes: [
-        "Physical Health:",
-        "Height",
-        "Weight",
-        "Body Mass Index (BMI)",
-        "Waist-to-height ratio",
-        "Blood Pressure",
-        "Biological Health:",
-        "Full blood count",
-        "Blood sugar",
-        "Kidney function test",
-        "Liver function test",
-        "Urine routine examination",
-        "Heart health test",
-        "Uric acid",
-        "Biological Age*",
-        "Doctor\u2019s written report",
-        "Standard nutritional plan",
-      ],
-      excludes: [],
-      cta: "Get Started with Complete",
-    },
-    {
-      name: "Premium",
-      tagline: "For individuals with elevated risk, a family history of chronic disease, or who want the most comprehensive monitoring available.",
-      monthly: "GHS 414",
-      annual: "GHS 4,957",
-      daily: "GHS 19",
-      popular: false,
-      includes: [
-        "Physical Health:",
-        "Height",
-        "Weight",
-        "Body Mass Index (BMI)",
-        "Waist-to-height ratio",
-        "Blood Pressure",
-        "Biological Health:",
-        "Full blood count",
-        "Blood sugar",
-        "Kidney function test",
-        "Liver function test",
-        "Urine routine examination",
-        "Heart health test",
-        "Uric acid",
-        "Cardiac troponins I & T",
-        "C-Reactive Protein",
-        "Additional tests worth GHC 300",
-        "Free home or office sample collection",
-        "Biological Age*",
-        "Virtual Dr. Consultation",
-        "Customised nutritional plan",
-      ],
-      excludes: [],
-      cta: "Get Started with Premium",
-    },
-  ],
-  trustBadges: [
-    "Mobile Money Accepted (MTN MoMo, Vodafone Cash, AirtelTigo)",
-    "Card Payments via Paystack (Visa, Mastercard)",
-    "14-Day Satisfaction Guarantee",
-    "Cancel Anytime Before Renewal",
-  ],
-  finePrint: "Prices exclude VAT. All plans are billed annually. Your subscription begins the day you sign up and renews automatically after 12 months. You can cancel at any time before renewal, with no penalties and no questions. If you\u2019re not satisfied within the first 14 days (before your first test), we\u2019ll refund you in full.",
-  comparison: {
-    headline: "Compare plans at a glance",
-    rows: [
-      { feature: "Biomarkers tested", essential: "67+", complete: "100+", premium: "127" },
-      { feature: "Screenings per year", essential: "2", complete: "2", premium: "3" },
-      { feature: "Home collection", essential: "Add-on", complete: "Add-on", premium: "Included" },
-      { feature: "Organ system dashboard", essential: true, complete: true, premium: true },
-      { feature: "Plain-language explanations", essential: true, complete: true, premium: true },
-      { feature: "PDF report", essential: true, complete: true, premium: true },
-      { feature: "Biomarker trend tracking", essential: false, complete: true, premium: true },
-      { feature: "Personalized recommendations", essential: false, complete: true, premium: true },
-      { feature: "Doctor\u2019s written report", essential: false, complete: true, premium: true },
-      { feature: "Priority results (48hr)", essential: false, complete: true, premium: true },
-      { feature: "Advanced cardio markers (ApoB, Lp(a))", essential: false, complete: true, premium: true },
-      { feature: "Doctor consultation call", essential: false, complete: false, premium: true },
-      { feature: "Nutritionist consultation", essential: false, complete: false, premium: true },
-      { feature: "Customised screening", essential: false, complete: false, premium: "1/year" },
-      { feature: "Family discount", essential: false, complete: false, premium: "20% off" },
-      { feature: "Support level", essential: "Standard", complete: "Standard", premium: "Priority + dedicated" },
-    ],
-  },
+  valueAnchor: "Panorama is the BetterHealth full-body check. Use it as the benchmark when comparing the cost of a broad private-hospital checkup. Prices exclude VAT.",
   hospitalComparison: {
-    headline: "What this would cost you elsewhere",
-    body: "We surveyed private hospitals and diagnostic centres across Accra. Here is how the cost of blood testing at a typical hospital compares with BetterHealth (BH):",
+    headline: "Compare Panorama with a broad hospital checkup",
+    body: "A broad private-hospital checkup can cost several thousand cedis once the individual tests, review, and nutrition support are added. Panorama gives you a full-body BetterHealth check in one booking.",
     rows: [
       { test: "Full Blood Count (CBC)", hospital: "GHS 200-300", bh: "Offered twice" },
       { test: "Lipid Panel (Cholesterol)", hospital: "GHS 200-400", bh: "Offered twice" },
@@ -1362,23 +1260,23 @@ export const pricingPage = {
       { test: "Personalised health insights", hospital: "Not Offered", bh: "Offered twice" },
       { test: "Doctor\u2019s result review", hospital: "GHS 300-500", bh: "Offered twice" },
       { test: "Nutritional plan", hospital: "GHS 1,500-3,500", bh: "Offered twice" },
-      { test: "Estimated total", hospital: "GHS 2,970-6,250", bh: "GHS 1,953/year", isTotals: true },
+      { test: "BetterHealth Panorama", hospital: "GHS 2,970-6,250", bh: "Panorama price", isTotals: true },
     ],
-    footnote: "BetterHealth gives you more health insights for a fraction of the cost from traditional hospitals. BetterHealth prices exclude VAT.",
+    footnote: "Panorama pricing updates from the live catalogue where available. BetterHealth prices exclude VAT.",
   },
   singleTests: {
     headline: "Pay only for what you need.",
-    body: "No subscription required. Book a single test or a focused panel, get clinician-reviewed results, and decide your next step from there. Most people start here, then subscribe once they know what to monitor.",
+    body: "Book a single test or a focused panel, get doctor-reviewed results, and decide your next step from there.",
     examples: [
-      { name: "Full Blood Count (FBC)", price: "from GHS 80" },
-      { name: "Blood Sugar (Fasting / HbA1c)", price: "from GHS 90" },
-      { name: "Lipid / Cholesterol Panel", price: "from GHS 120" },
-      { name: "Kidney Function Panel", price: "from GHS 150" },
-      { name: "Liver Function Panel", price: "from GHS 150" },
-      { name: "Thyroid Panel", price: "from GHS 180" },
+      { slug: "fbc", name: "Full Blood Count (FBC)", price: "from GHS 80" },
+      { slug: "fasting-blood-sugar", name: "Blood Sugar (Fasting / HbA1c)", price: "from GHS 90" },
+      { slug: "lipid-panel", name: "Lipid / Cholesterol Panel", price: "from GHS 120" },
+      { slug: "kidney-function", name: "Kidney Function Panel", price: "from GHS 150" },
+      { slug: "liver-function", name: "Liver Function Panel", price: "from GHS 150" },
+      { slug: "thyroid-function", name: "Thyroid Panel", price: "from GHS 180" },
     ],
     cta: "Browse all tests & book",
-    note: "Prices exclude VAT and vary by location. You’ll see the exact price for your area before you pay. Home collection is available as an add-on from GHS 150.",
+    note: "Prices exclude VAT and vary by location. You’ll see the exact price for your area before you pay. Home collection may be available as an add-on.",
   },
   faqs: [
     {
@@ -1386,12 +1284,12 @@ export const pricingPage = {
       a: "Yes. We accept MTN MoMo, Vodafone Cash, and AirtelTigo Money. You can also pay with Visa, Mastercard, or bank transfer. All payments are processed securely through Paystack.",
     },
     {
-      q: "Can I switch plans later?",
-      a: "Yes. You can upgrade to a higher plan at any time, and you\u2019ll only pay the difference for the remainder of your billing cycle. Downgrades take effect at your next renewal.",
+      q: "Can I book another test later?",
+      a: "Yes. You can book another test or panel whenever you need one. Your results stay in your BetterHealth dashboard so you can compare changes over time.",
     },
     {
-      q: "What\u2019s the 14-day satisfaction guarantee?",
-      a: "If you sign up and decide BetterHealth isn\u2019t right for you within the first 14 days, we\u2019ll refund your payment in full, no questions asked. This applies to your first subscription only.",
+      q: "Do I pay before booking?",
+      a: "Yes. You choose the test, see the price, and pay securely before your booking is confirmed.",
     },
     {
       q: "Do you offer family or group pricing?",
@@ -1399,17 +1297,17 @@ export const pricingPage = {
     },
     {
       q: "Is this a recurring charge?",
-      a: "Yes. All plans are billed annually and renew automatically. You\u2019ll receive a reminder email 14 days before renewal. You can cancel at any time through your account settings, with no penalties and no questions.",
+      a: "No. Single tests and panels are one-time purchases. If BetterHealth introduces a recurring product later, the billing terms will be shown before you pay.",
     },
     {
       q: "Are there any hidden fees?",
-      a: "None. Your subscription price covers everything listed in your plan. The only optional add-on is home collection for Essential and Complete plan members. Premium plan includes home collection at no extra charge.",
+      a: "None. You see the test price before you pay. The only optional add-on is home collection where it is available.",
     },
   ],
   bottomCta: {
     headline: "Your health is worth more than the price of a test.",
-    body: "Choose the plan that fits your life. Every plan gives you more insight in one visit than most people get in a decade of doctor visits.",
-    cta: "Get Started",
+    body: "Start with the test that matches the concern on your mind.",
+    cta: "Book a test",
   },
 };
 
@@ -1428,7 +1326,7 @@ export const faqSections = [
     items: [
       {
         q: "What is BetterHealth?",
-        a: "BetterHealth is a health technology platform that gives you comprehensive blood testing (127 biomarkers), organized by body system, with plain-language explanations and trend tracking over time. We partner with accredited labs across Ghana to process your samples and deliver your results to a personal health dashboard within 48 to 72 hours.",
+        a: "BetterHealth is Ghana's first health intelligence platform. You can book lab tests, get doctor-reviewed results, understand your health indicators in plain language, and track the numbers that matter over time. We partner with accredited labs across Ghana to process samples and deliver results to your dashboard within 48 to 72 hours.",
       },
       {
         q: "Who is BetterHealth for?",
@@ -1436,7 +1334,7 @@ export const faqSections = [
       },
       {
         q: "Do I need a doctor's referral to use BetterHealth?",
-        a: "No. BetterHealth is a direct-to-consumer platform. You sign up, choose your plan, book your collection, and receive your results, all without a referral. If you would like to discuss your results with a doctor, our Premium plan includes a consultation, or you can share your downloadable PDF report with any healthcare provider.",
+        a: "No. BetterHealth is a direct-to-consumer platform. You can choose a single test, a focused panel, or a condition program without a referral. If you want to discuss your results with a doctor, you can share your downloadable PDF report with any healthcare provider.",
       },
       {
         q: "Is BetterHealth a hospital or laboratory?",
@@ -1453,11 +1351,11 @@ export const faqSections = [
     items: [
       {
         q: "How does the blood test work?",
-        a: "After you sign up and choose your plan, you book a collection, either at one of our partner labs or at home. A certified phlebotomist draws a small blood sample (about 15 to 25 mL across 3 to 5 tubes). The sample goes to the lab, gets processed, and your results appear in your dashboard within 48 to 72 hours.",
+        a: "After you choose a test or panel, you book collection at one of our partner labs or at home where available. A certified phlebotomist draws a small blood sample, usually about 15 to 25 mL across 3 to 5 tubes. The sample goes to the lab, gets processed, and your results appear in your dashboard within 48 to 72 hours.",
       },
       {
         q: "Can I get my blood drawn at home?",
-        a: "Yes. Home collection is included free with Complete and Premium plans. Essential plan members can add home collection for GHS 50 per visit. A certified phlebotomist from Lab Access Ghana comes to your home at your scheduled time. Available Monday to Saturday, 6:00 AM to 12:00 PM.",
+        a: "Home collection may be available depending on your area and selected test. If it is available for your booking, you will see it before you pay and a certified phlebotomist from Lab Access Ghana will come to your home at the scheduled time.",
       },
       {
         q: "Where are the partner labs located?",
@@ -1465,7 +1363,7 @@ export const faqSections = [
       },
       {
         q: "Do I need to fast before my test?",
-        a: "Some biomarkers need fasting, which means no food or drink (except water) for 8 to 12 hours before collection. When you book, we will tell you exactly which tests need fasting and send you preparation instructions by SMS. If your plan includes fasting markers, we recommend booking a morning slot.",
+        a: "Some tests need fasting, which means no food or drink except water for 8 to 12 hours before collection. When you book, we will tell you exactly which tests need fasting and send you preparation instructions by SMS. If your test includes fasting checks, we recommend booking a morning slot.",
       },
       {
         q: "How much blood is taken?",
@@ -1486,7 +1384,7 @@ export const faqSections = [
     items: [
       {
         q: "How long until I get my results?",
-        a: "Most results are available within 48 to 72 hours after your sample is collected. Priority members (Complete and Premium plans) usually receive results within 48 hours. You will get an SMS and email notification the moment your results are ready.",
+        a: "Most results are available within 48 to 72 hours after your sample is collected. You will get an SMS and email notification when your results are ready.",
       },
       {
         q: "How do I access my results?",
@@ -1494,11 +1392,11 @@ export const faqSections = [
       },
       {
         q: "What do the colours in my dashboard mean?",
-        a: "Green = healthy/optimal range. Your biomarker is where it should be.\nAmber = watch zone. Your biomarker is outside the optimal range but not yet critical. Monitor and consider lifestyle changes.\nRed = needs attention. Your biomarker is significantly outside the normal range. We recommend discussing this with a healthcare provider.",
+        a: "Green = healthy or optimal range. The health indicator is where it should be.\nAmber = watch zone. The number is outside the optimal range but not yet critical. Monitor it and consider lifestyle changes.\nRed = needs attention. The number is significantly outside the normal range. We recommend discussing this with a healthcare provider.",
       },
       {
         q: "Can I download my results?",
-        a: "Yes. Every member can download a complete PDF report with all biomarker values, reference ranges, and status indicators. You can share this PDF with your doctor, keep it for your records, or print it.",
+        a: "Yes. Every member can download a complete PDF report with all health indicator values, reference ranges, and status indicators. You can share this PDF with your doctor, keep it for your records, or print it.",
       },
       {
         q: "What is the difference between \"normal\" and \"optimal\" ranges?",
@@ -1506,11 +1404,11 @@ export const faqSections = [
       },
       {
         q: "Can I share my results with my doctor?",
-        a: "Absolutely. Download your PDF report and bring it to any appointment. Many of our members use their BetterHealth reports as a starting point for conversations with their doctors. The report includes all biomarker values, reference ranges, and explanations, so a doctor has everything needed to review your results.",
+        a: "Yes. Download your PDF report and bring it to any appointment. Many of our members use their BetterHealth reports as a starting point for conversations with their doctors. The report includes your values, reference ranges, and explanations, so a doctor has what they need to review your results.",
       },
       {
         q: "What if a result is critically abnormal?",
-        a: "If any result falls into a critical range, you will receive an immediate notification via SMS and in-app alert. Our system flags these for priority review. We strongly recommend consulting a healthcare provider promptly. Premium members can use their included doctor consultation for this purpose.",
+        a: "If any result falls into a critical range, you will receive an immediate notification via SMS and in-app alert. Our system flags these for priority review. We strongly recommend consulting a healthcare provider promptly.",
       },
     ],
   },
@@ -1523,27 +1421,27 @@ export const faqSections = [
       },
       {
         q: "How is billing structured?",
-        a: "All plans are billed annually (once per year). When you sign up, you pay for the full year upfront. Your subscription renews automatically after 12 months. We will send you a reminder email 14 days before renewal.",
+        a: "Single tests and focused panels are paid for once at booking. You choose the test, see the price, and pay securely before your booking is confirmed.",
       },
       {
-        q: "Can I cancel my subscription?",
-        a: "Yes. You can cancel at any time through your account settings. Cancellation takes effect at the end of your current billing period, and you keep access to your dashboard and results until then. No penalties, no cancellation fees.",
+        q: "Is this a recurring charge?",
+        a: "No. Single tests and focused panels are one-time purchases. If BetterHealth introduces a recurring product later, the billing terms will be shown clearly before you pay.",
       },
       {
         q: "Is there a satisfaction guarantee?",
-        a: "Yes. If you sign up and decide BetterHealth is not right for you within the first 14 days, we will refund your payment in full, no questions asked. This applies to your first subscription only.",
+        a: "If something goes wrong with your booking or collection, contact us and we will help resolve it. Any refund eligibility will be handled according to the payment and booking terms shown at checkout.",
       },
       {
-        q: "Can I upgrade or downgrade my plan?",
-        a: "Yes. You can upgrade at any time, and you will only pay the difference for the remainder of your billing cycle. Downgrades take effect at your next renewal date.",
+        q: "Can I book another test later?",
+        a: "Yes. You can book another test or panel whenever you need one. Your results stay in your BetterHealth dashboard so you can compare changes over time.",
       },
       {
         q: "Do you offer family or group pricing?",
-        a: "Premium plan members receive 20% off for each additional family member they add. For corporate or group enquiries (10+ people), contact us at hello@betterhealth.africa for custom pricing.",
+        a: "For corporate or group enquiries of 10 or more people, contact us at hello@betterhealth.africa for custom pricing.",
       },
       {
-        q: "Can I buy a single test without subscribing?",
-        a: "Yes. BetterHealth also offers individual tests and disease-specific panels (e.g., Diabetes Panel, Thyroid Panel) as one-time purchases, with no subscription required. Visit the Tests page to browse available options.",
+        q: "Can I buy a single test?",
+        a: "Yes. BetterHealth offers individual tests and focused panels as one-time purchases. Visit the Tests page to browse available options.",
       },
     ],
   },
@@ -1573,7 +1471,7 @@ export const faqSections = [
     items: [
       {
         q: "Is BetterHealth a substitute for seeing a doctor?",
-        a: "No. BetterHealth provides health screening and monitoring, not diagnosis or treatment. If your results show something concerning, we recommend consulting a healthcare provider. Our Premium plan includes a doctor consultation call, and your downloadable PDF report can be shared with any doctor.",
+        a: "No. BetterHealth provides testing, results explanations, and monitoring support, not diagnosis or treatment. If your results show something concerning, we recommend consulting a healthcare provider. Your downloadable PDF report can be shared with any doctor.",
       },
       {
         q: "Are your tests accurate?",
@@ -1581,11 +1479,11 @@ export const faqSections = [
       },
       {
         q: "Can BetterHealth diagnose diseases?",
-        a: "BetterHealth screens for early indicators and risk factors. It does not provide medical diagnoses. If your results flag potential concerns, a healthcare provider can use your BetterHealth data alongside a clinical examination to make a diagnosis. We are an early warning system, not the place you go once you are already in trouble.",
+        a: "BetterHealth screens for early indicators and risk factors. It does not provide medical diagnoses. If your results flag potential concerns, a healthcare provider can use your BetterHealth data alongside a clinical examination and any follow-up tests needed.",
       },
       {
         q: "Can I use BetterHealth while pregnant?",
-        a: "Yes, with your doctor's knowledge. Many biomarkers change during pregnancy, and our reference ranges may not reflect pregnancy-specific norms. We recommend discussing your results with your obstetrician or midwife, who can interpret them in the context of your pregnancy.",
+        a: "Yes, with your doctor's knowledge. Many health indicators change during pregnancy, and our reference ranges may not reflect pregnancy-specific norms. We recommend discussing your results with your obstetrician or midwife, who can interpret them in the context of your pregnancy.",
       },
     ],
   },

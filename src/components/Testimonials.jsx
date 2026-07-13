@@ -10,7 +10,7 @@ export default function Testimonials() {
         <Reveal>
           <div className="text-center mb-12">
             <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">
-              Real Stories
+              Member stories
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               Discoveries that{" "}
@@ -18,6 +18,9 @@ export default function Testimonials() {
                 changed lives
               </span>
             </h2>
+            <p className="mt-3 text-[13px] text-text-muted max-w-[620px] mx-auto">
+              Names are shortened to protect privacy. The lesson is the same: silent risks are easier to handle when you find them early.
+            </p>
           </div>
         </Reveal>
 

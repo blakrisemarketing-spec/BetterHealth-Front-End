@@ -14,7 +14,7 @@ const CHANNELS = [
     body: "Send us a message on WhatsApp and you will hear back quickly. We usually reply within one to two hours during business hours. Good for general questions, account help, and booking support.",
     details: [
       { key: "Number", val: "+233 268 596 410" },
-      { key: "Hours", val: "Mon–Sat, 7:00 AM – 8:00 PM GMT" },
+      { key: "Hours", val: "Mon-Sat, 7:00 AM - 8:00 PM GMT" },
       { key: "Avg. response", val: "Under 2 hours" },
     ],
     cta: "Chat on WhatsApp",
@@ -44,7 +44,7 @@ const CHANNELS = [
     body: "Prefer to talk to a person? Call us during business hours. If we miss you, we will call you back within 4 hours.",
     details: [
       { key: "Number", val: "+233 268 596 410" },
-      { key: "Hours", val: "Mon–Fri, 8:00 AM – 6:00 PM GMT" },
+      { key: "Hours", val: "Mon-Fri, 8:00 AM - 6:00 PM GMT" },
     ],
     cta: "Call Us",
     href: "tel:+233268596410",
@@ -73,7 +73,7 @@ const SUBJECT_OPTIONS = [
   "General enquiry",
   "I need help with my account",
   "I have a question about my results",
-  "I am interested in subscribing",
+  "I am interested in a condition program",
   "I would like to book a collection",
   "Partnership or business enquiry",
   "Media or press enquiry",
@@ -85,7 +85,7 @@ const SUBJECT_OPTIONS = [
 const ENQUIRY_TYPES = [
   {
     title: "Corporate & Group Screening",
-    body: "Interested in BetterHealth for your team or organisation? We offer custom corporate screening packages for groups of 10+.",
+    body: "Interested in BetterHealth for your team or organisation? We offer custom group testing options for teams of 10+.",
     email: "partners@betterhealth.africa",
   },
   {
@@ -393,23 +393,21 @@ export default function ContactPage() {
         <div className="max-w-[560px] mx-auto text-center relative z-10">
           <Reveal>
             <h2 className="text-[1.7rem] sm:text-[2.2rem] md:text-[2.6rem] font-extrabold text-white font-heading tracking-tight mb-4">
-              Ready to take the first step?
+              Ready to book your first test?
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="text-[16px] text-white/80 font-body mb-8">
-              You do not need to contact us to begin. Sign up, choose your plan, and book your collection, all in under 3 minutes.
+              You do not need to contact us to begin. Choose the test that matches your concern and book online.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <a
-              href="https://app.betterhealth.africa/join"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/book-tests"
               className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
             >
-              Start Your Health Check <ArrowRight size={18} />
-            </a>
+              Book a test <ArrowRight size={18} />
+            </Link>
           </Reveal>
         </div>
       </section>

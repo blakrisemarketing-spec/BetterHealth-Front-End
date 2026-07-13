@@ -17,7 +17,7 @@ const SECTIONS = [
 
 **Sign-in data from Google:** If you choose to create your account or sign in using Google ("Continue with Google"), we receive your name and email address from your Google account to set up, identify, and secure your account. We do not receive your Google password, and we only request the basic profile information needed to authenticate you. This data is used in the same way as the account data you would otherwise enter yourself, and is governed by this policy.
 
-**Health data:** Biomarker results from your laboratory tests, including blood test values, organ health scores, and any health notes you add to your dashboard. This is sensitive personal data and is treated with the highest level of protection.
+**Health data:** Health indicator results from your laboratory tests, including blood test values, organ health scores, and any health notes you add to your dashboard. This is sensitive personal data and is treated with the highest level of protection.
 
 **Payment data:** Transaction records processed via Paystack. We do not store your card or Mobile Money details. Paystack handles those entirely.
 

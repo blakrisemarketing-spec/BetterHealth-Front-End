@@ -12,7 +12,7 @@ import GDPCBadge from "./ui/GDPCBadge";
 const heroScreens = [
   { src: `${import.meta.env.BASE_URL}screenshots/mobile-healthscore.webp`, alt: "Health Score 83/100 with organ system breakdown" },
   { src: `${import.meta.env.BASE_URL}screenshots/mobile-focus.webp`, alt: "Today's Focus and Celebrate Your Wins" },
-  { src: `${import.meta.env.BASE_URL}screenshots/mobile-biomarker.webp`, alt: "Blood Urea Nitrogen biomarker detail" },
+  { src: `${import.meta.env.BASE_URL}screenshots/mobile-biomarker.webp`, alt: "Blood Urea Nitrogen health indicator detail" },
 ];
 
 function CountUp({ end, duration = 1800 }) {
@@ -52,7 +52,7 @@ export default function Hero() {
           <Reveal>
             <Badge variant="primary" className="mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />
-              Now Open in Ghana
+              Ghana&apos;s first health intelligence platform
             </Badge>
           </Reveal>
 
@@ -68,7 +68,7 @@ export default function Hero() {
 
           <Reveal delay={0.2}>
             <p className="text-lg leading-[1.7] text-text-secondary max-w-[520px] mb-8 font-body">
-              Book one lab test, no subscription, and get results a clinician has checked and explained in plain language. We collect your sample at home, anywhere in Ghana. When you want to keep an eye on things through the year, you can subscribe and track 127 biomarkers.
+              If you are concerned about diabetes, blood pressure, kidney disease, high cholesterol, liver health, fertility, or a private STI concern, BetterHealth gives you the tools to take back control of your health. Book lab tests with a few taps and get easy-to-understand, doctor-reviewed results in the app, with clear explanations and practical next steps.
             </p>
           </Reveal>
 
@@ -78,13 +78,13 @@ export default function Hero() {
                 to="/how-it-works"
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-white border border-border text-text-primary hover:-translate-y-0.5 hover:shadow-md transition-all no-underline"
               >
-                See How It Works
+                See how it works
               </Link>
               <Link
-                to="/book"
+                to="/book-tests"
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
               >
-                Book a Test <ArrowRight size={18} />
+                Book a test <ArrowRight size={18} />
               </Link>
             </div>
           </Reveal>
@@ -146,7 +146,7 @@ export default function Hero() {
             {/* Floating badge */}
             <div className="absolute -bottom-4 -right-4 bg-primary text-white text-xs font-bold font-heading px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-white animate-pulse-dot" />
-              42 Biomarkers Tracked
+              42 Health Indicators
             </div>
           </div>
         </Reveal>

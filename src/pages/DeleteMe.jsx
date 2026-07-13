@@ -25,7 +25,7 @@ const SECTIONS = [
     body: `When you request account deletion, we remove:
 
 - Your account profile (name, email, phone number, date of birth)
-- Your health dashboard data, including all biomarker results and notes
+- Your health dashboard data, including all health indicator results and notes
 - Any uploaded documents or health records linked to your account
 - Saved preferences, notifications, and session data
 

@@ -162,15 +162,20 @@ export default function StoriesPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
-              The tests their doctors{" "}
+              {hero.headline}{" "}
               <span className="text-primary italic tracking-normal">
-                never ordered.
+                {hero.highlight}
               </span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-lg leading-relaxed text-text-secondary max-w-[600px] mx-auto font-body">
               {hero.subheadline}
+            </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <p className="mt-6 max-w-[620px] mx-auto rounded-card border border-primary/30 bg-white px-5 py-4 text-[13px] font-medium leading-relaxed text-text-primary shadow-sm">
+              {hero.disclaimer}
             </p>
           </Reveal>
         </div>
@@ -227,14 +232,12 @@ export default function StoriesPage() {
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <a
-              href="https://app.betterhealth.africa/join"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/book-tests"
               className="inline-flex items-center gap-2 bg-white text-primary rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
             >
               {bottomCta.cta} <ArrowRight size={18} />
-            </a>
+            </Link>
           </Reveal>
         </div>
       </section>

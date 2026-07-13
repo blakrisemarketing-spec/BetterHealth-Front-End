@@ -14,8 +14,17 @@ const HEALTH_INTERESTS = [
   "General Full Body Check",
 ];
 
-export default function WaitlistForm({ variant = "light", source = "hero", className = "" }) {
-  const [form, setForm] = useState({ name: "", email: "", whatsapp: "", healthInterest: "" });
+export default function WaitlistForm({
+  variant = "light",
+  source = "hero",
+  className = "",
+  interestOptions = HEALTH_INTERESTS,
+  interestLabel = "Health Interest",
+  interestPlaceholder = "Select a health area",
+  initialInterest = "",
+  helperText = "Join 200+ Ghanaians on the waitlist",
+}) {
+  const [form, setForm] = useState({ name: "", email: "", whatsapp: "", healthInterest: initialInterest });
   const [status, setStatus] = useState("idle"); // idle | loading | success | duplicate | error
   const { submitted, markSubmitted } = useWaitlist();
 
@@ -38,6 +47,7 @@ export default function WaitlistForm({ variant = "light", source = "hero", class
           email: form.email.trim().toLowerCase(),
           whatsapp: form.whatsapp.trim(),
           healthInterest: form.healthInterest,
+          programInterest: form.healthInterest,
           source,
         }),
       });
@@ -133,7 +143,7 @@ export default function WaitlistForm({ variant = "light", source = "hero", class
             />
           </div>
           <div>
-            <label className={labelClass}>Health Interest *</label>
+            <label className={labelClass}>{interestLabel} *</label>
             <select
               required
               value={form.healthInterest}
@@ -141,8 +151,8 @@ export default function WaitlistForm({ variant = "light", source = "hero", class
               disabled={status === "loading"}
               className={`${inputClass} appearance-none`}
             >
-              <option value="">Select a health area</option>
-              {HEALTH_INTERESTS.map((interest) => (
+              <option value="">{interestPlaceholder}</option>
+              {interestOptions.map((interest) => (
                 <option key={interest} value={interest}>{interest}</option>
               ))}
             </select>
@@ -150,7 +160,7 @@ export default function WaitlistForm({ variant = "light", source = "hero", class
         </div>
 
         <p className={`text-[14px] font-medium ${isDark ? "text-white/70" : "text-text-secondary"}`}>
-          Join 200+ Ghanaians on the waitlist
+          {helperText}
         </p>
 
         <p className={`text-[13px] ${isDark ? "text-white/50" : "text-text-muted"}`}>
