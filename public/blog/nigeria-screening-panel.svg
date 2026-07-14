@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 770" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="770" fill="#FFFFFF"/>
+  <text x="80" y="66" font-size="34" font-weight="700" fill="#2B3A3A">Core screening panel for Nigerian adults</text>
+  <text x="80" y="100" font-size="20" fill="#6B7979">Shaped by Nigeria's own disease burden, not a generic import</text>
+
+  <g>
+    <!-- row 1 -->
+    <g transform="translate(80,140)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Blood pressure</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Check at least once a year</text>
+    </g>
+    <g transform="translate(640,140)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Blood sugar (HbA1c)</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Catches prediabetes early</text>
+    </g>
+    <!-- row 2 -->
+    <g transform="translate(80,284)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Cholesterol (lipids)</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Heart and stroke risk</text>
+    </g>
+    <g transform="translate(640,284)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Full blood count</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Anaemia, infection, and more</text>
+    </g>
+    <!-- row 3 -->
+    <g transform="translate(80,428)">
+      <rect width="520" height="120" rx="16" fill="#F3EEDF"/>
+      <rect width="8" height="120" rx="4" fill="#E0A23E"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Genotype &amp; sickle cell</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">About 1 in 4 carry the trait</text>
+    </g>
+    <g transform="translate(640,428)">
+      <rect width="520" height="120" rx="16" fill="#F6E3E0"/>
+      <rect width="8" height="120" rx="4" fill="#C9594F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Hepatitis B</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Silent for decades if untreated</text>
+    </g>
+    <!-- row 4 -->
+    <g transform="translate(80,572)">
+      <rect width="520" height="120" rx="16" fill="#EDEAF6"/>
+      <rect width="8" height="120" rx="4" fill="#8E7FC9"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">HIV test</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Routine, confidential, normal</text>
+    </g>
+    <g transform="translate(640,572)">
+      <rect width="520" height="120" rx="16" fill="#EFEDE7"/>
+      <text x="40" y="52" font-size="22" font-weight="700" fill="#2B3A3A">Malaria &amp; typhoid</text>
+      <text x="40" y="86" font-size="19" fill="#9AA6A6">Test with any fever, don't guess</text>
+    </g>
+  </g>
+  <text x="80" y="744" font-size="15" fill="#9AA6A6">General guidance, not a prescription. A clinician should tailor screening to you.</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="520" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">What a stool exam panel checks for</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">A doctor picks the test, or combination, based on the symptoms being investigated.</text>
+
+  <!-- four quadrant cards -->
+  <rect x="70" y="118" width="510" height="170" rx="14" fill="#F5F3EE"/>
+  <rect x="620" y="118" width="510" height="170" rx="14" fill="#F5F3EE"/>
+  <rect x="70" y="308" width="510" height="170" rx="14" fill="#F5F3EE"/>
+  <rect x="620" y="308" width="510" height="170" rx="14" fill="#F5F3EE"/>
+
+  <!-- Card 1: Ova and parasites -->
+  <circle cx="104" cy="152" r="10" fill="#6B8E7F"/>
+  <text x="126" y="158" font-size="21" font-weight="700" fill="#2B3A3A">Ova and parasites (O&amp;P)</text>
+  <text x="100" y="188" font-size="15" fill="#6B7979">Eggs, larvae or adult worms under a microscope</text>
+  <text x="100" y="212" font-size="15" fill="#6B7979">Detects hookworm, roundworm, tapeworm, giardia</text>
+  <text x="100" y="236" font-size="15" fill="#6B7979">Often needs 2 to 3 samples on different days</text>
+  <text x="100" y="264" font-size="15" font-weight="700" fill="#6B8E7F">Ordered for: chronic diarrhoea, suspected worms</text>
+
+  <!-- Card 2: Occult blood -->
+  <circle cx="654" cy="152" r="10" fill="#C9594F"/>
+  <text x="676" y="158" font-size="21" font-weight="700" fill="#2B3A3A">Occult (hidden) blood</text>
+  <text x="650" y="188" font-size="15" fill="#6B7979">Chemical or immunochemical test (FIT/FOBT)</text>
+  <text x="650" y="212" font-size="15" fill="#6B7979">Finds blood invisible to the naked eye</text>
+  <text x="650" y="236" font-size="15" fill="#6B7979">A screening flag, not a diagnosis on its own</text>
+  <text x="650" y="264" font-size="15" font-weight="700" fill="#C9594F">Ordered for: GI bleeding, colorectal cancer screening</text>
+
+  <!-- Card 3: Stool culture -->
+  <circle cx="104" cy="342" r="10" fill="#E0A23E"/>
+  <text x="126" y="348" font-size="21" font-weight="700" fill="#2B3A3A">Stool culture</text>
+  <text x="100" y="378" font-size="15" fill="#6B7979">Grows bacteria from the sample over a few days</text>
+  <text x="100" y="402" font-size="15" fill="#6B7979">Identifies Salmonella, Shigella, and similar bacteria</text>
+  <text x="100" y="426" font-size="15" fill="#6B7979">Can guide which antibiotic will work, if needed</text>
+  <text x="100" y="454" font-size="15" font-weight="700" fill="#E0A23E">Ordered for: bloody or persistent diarrhoea, fever</text>
+
+  <!-- Card 4: Antigen tests -->
+  <circle cx="654" cy="342" r="10" fill="#2B3A3A"/>
+  <text x="676" y="348" font-size="21" font-weight="700" fill="#2B3A3A">Stool antigen tests</text>
+  <text x="650" y="378" font-size="15" fill="#6B7979">Detects markers from a specific organism directly</text>
+  <text x="650" y="402" font-size="15" fill="#6B7979">Includes the H. pylori stool antigen test</text>
+  <text x="650" y="426" font-size="15" fill="#6B7979">Faster than culture, usually a day or two</text>
+  <text x="650" y="454" font-size="15" font-weight="700" fill="#2B3A3A">Ordered for: suspected ulcer-causing infection</text>
+
+  <text x="70" y="508" font-size="13" fill="#9AA6A6">General guide, not a full list. Your doctor selects the test based on your symptoms and history.</text>
+</svg>

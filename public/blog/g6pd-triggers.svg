@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="520" fill="#F5F3EE"/>
+
+  <text x="60" y="66" font-size="30" font-weight="800" fill="#2B3A3A">Common G6PD haemolysis triggers</text>
+  <text x="60" y="98" font-size="19" fill="#6B7979">Oxidative stress on red blood cells, from four main sources</text>
+
+  <!-- card 1: malaria drugs -->
+  <g>
+    <rect x="60" y="140" width="510" height="160" rx="18" fill="#F6E3E0" stroke="#C9594F" stroke-width="2"/>
+    <circle cx="112" cy="192" r="26" fill="#C9594F"/>
+    <text x="112" y="200" font-size="22" font-weight="700" fill="#F5F3EE" text-anchor="middle">Rx</text>
+    <text x="152" y="188" font-size="22" font-weight="700" fill="#2B3A3A">Antimalarial drugs</text>
+    <text x="152" y="216" font-size="17" fill="#2B3A3A">Primaquine and tafenoquine, used for</text>
+    <text x="152" y="240" font-size="17" fill="#2B3A3A">P. vivax radical cure and in mass drug</text>
+    <text x="152" y="264" font-size="17" fill="#2B3A3A">administration campaigns</text>
+  </g>
+
+  <!-- card 2: fava beans -->
+  <g>
+    <rect x="630" y="140" width="510" height="160" rx="18" fill="#F3EEDF" stroke="#E0A23E" stroke-width="2"/>
+    <circle cx="682" cy="192" r="26" fill="#E0A23E"/>
+    <ellipse cx="674" cy="188" rx="8" ry="12" fill="#F5F3EE"/>
+    <ellipse cx="690" cy="196" rx="8" ry="12" fill="#F5F3EE"/>
+    <text x="722" y="188" font-size="22" font-weight="700" fill="#2B3A3A">Fava beans (favism)</text>
+    <text x="722" y="216" font-size="17" fill="#2B3A3A">Broad beans and, less often, food</text>
+    <text x="722" y="240" font-size="17" fill="#2B3A3A">or air exposed to their pollen can</text>
+    <text x="722" y="264" font-size="17" fill="#2B3A3A">trigger a reaction in deficient people</text>
+  </g>
+
+  <!-- card 3: sulfa drugs / mothballs -->
+  <g>
+    <rect x="60" y="320" width="510" height="160" rx="18" fill="#EDEAF6" stroke="#8E7FC9" stroke-width="2"/>
+    <circle cx="112" cy="372" r="26" fill="#8E7FC9"/>
+    <text x="112" y="380" font-size="20" font-weight="700" fill="#F5F3EE" text-anchor="middle">S</text>
+    <text x="152" y="368" font-size="22" font-weight="700" fill="#2B3A3A">Sulfa drugs &amp; naphthalene</text>
+    <text x="152" y="396" font-size="17" fill="#2B3A3A">Some sulfa-based antibiotics and</text>
+    <text x="152" y="420" font-size="17" fill="#2B3A3A">naphthalene (mothballs) are known</text>
+    <text x="152" y="444" font-size="17" fill="#2B3A3A">oxidative triggers</text>
+  </g>
+
+  <!-- card 4: infections -->
+  <g>
+    <rect x="630" y="320" width="510" height="160" rx="18" fill="#EAF1EC" stroke="#6B8E7F" stroke-width="2"/>
+    <circle cx="682" cy="372" r="26" fill="#6B8E7F"/>
+    <circle cx="674" cy="366" r="4" fill="#F5F3EE"/>
+    <circle cx="690" cy="366" r="4" fill="#F5F3EE"/>
+    <circle cx="682" cy="380" r="4" fill="#F5F3EE"/>
+    <text x="722" y="368" font-size="22" font-weight="700" fill="#2B3A3A">Certain infections</text>
+    <text x="722" y="396" font-size="17" fill="#2B3A3A">The physical stress of some viral or</text>
+    <text x="722" y="420" font-size="17" fill="#2B3A3A">bacterial infections can itself trigger</text>
+    <text x="722" y="444" font-size="17" fill="#2B3A3A">haemolysis, independent of medication</text>
+  </g>
+</svg>

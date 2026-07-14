@@ -29,6 +29,21 @@ import bloodGroupTest from "./posts/blood-group-test.js";
 import psaProstateTest from "./posts/psa-prostate-test.js";
 import papSmearCervicalScreening from "./posts/pap-smear-cervical-screening.js";
 import uricAcidGoutTest from "./posts/uric-acid-gout-test.js";
+import crpInflammationTest from "./posts/crp-inflammation-test.js";
+import hPyloriTest from "./posts/h-pylori-test.js";
+import stoolTestExplained from "./posts/stool-test-explained.js";
+import urinalysisExplained from "./posts/urinalysis-explained.js";
+import vitaminB12FolateTest from "./posts/vitamin-b12-folate-test.js";
+import g6pdDeficiencyTest from "./posts/g6pd-deficiency-test.js";
+import antenatalBloodTests from "./posts/antenatal-blood-tests.js";
+import healthScreeningNigeria from "./posts/health-screening-nigeria.js";
+import healthScreeningKenya from "./posts/health-screening-kenya.js";
+import bloodTestLagos from "./posts/blood-test-lagos.js";
+import bloodTestNairobi from "./posts/blood-test-nairobi.js";
+import costOfHealthScreeningGhana from "./posts/cost-of-health-screening-ghana.js";
+import fullBodyCheckupGuide from "./posts/full-body-checkup-guide.js";
+import homeVsLabBloodTest from "./posts/home-vs-lab-blood-test.js";
+import bloodTestAccra from "./posts/blood-test-accra.js";
 
 const ALL = [
   hba1cExplained,
@@ -57,6 +72,21 @@ const ALL = [
   psaProstateTest,
   papSmearCervicalScreening,
   uricAcidGoutTest,
+  crpInflammationTest,
+  hPyloriTest,
+  stoolTestExplained,
+  urinalysisExplained,
+  vitaminB12FolateTest,
+  g6pdDeficiencyTest,
+  antenatalBloodTests,
+  healthScreeningNigeria,
+  healthScreeningKenya,
+  bloodTestLagos,
+  bloodTestNairobi,
+  costOfHealthScreeningGhana,
+  fullBodyCheckupGuide,
+  homeVsLabBloodTest,
+  bloodTestAccra,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically

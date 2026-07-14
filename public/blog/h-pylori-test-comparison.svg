@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Four ways to test for H. pylori: stool antigen, breath test, blood antibody, and endoscopy biopsy" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Four ways to test for H. pylori</title>
+  <rect width="1200" height="560" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Four ways to test for H. pylori</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Only three confirm an active, current infection. Blood antibody testing cannot.</text>
+
+  <!-- 2x2 grid of cards -->
+  <rect x="70" y="118" width="510" height="190" rx="14" fill="#F5F3EE"/>
+  <rect x="620" y="118" width="510" height="190" rx="14" fill="#F5F3EE"/>
+  <rect x="70" y="328" width="510" height="190" rx="14" fill="#F5F3EE"/>
+  <rect x="620" y="328" width="510" height="190" rx="14" fill="#F5F3EE"/>
+
+  <!-- Stool antigen -->
+  <text x="100" y="156" font-size="21" font-weight="700" fill="#2B3A3A">Stool antigen test</text>
+  <text x="100" y="188" font-size="15" fill="#6B7979">Detects active infection directly</text>
+  <text x="100" y="212" font-size="15" fill="#6B7979">No needles, sample done at home</text>
+  <text x="100" y="236" font-size="15" fill="#6B7979">Needs about 2 weeks off acid-suppressing</text>
+  <text x="100" y="256" font-size="15" fill="#6B7979">medicines before testing for accuracy</text>
+  <text x="100" y="288" font-size="15" font-weight="700" fill="#6B8E7F">Confirms current infection: yes</text>
+
+  <!-- Breath test -->
+  <text x="650" y="156" font-size="21" font-weight="700" fill="#2B3A3A">Urea breath test</text>
+  <text x="650" y="188" font-size="15" fill="#6B7979">Detects active infection directly</text>
+  <text x="650" y="212" font-size="15" fill="#6B7979">Drink a labelled solution, breathe into a bag</text>
+  <text x="650" y="236" font-size="15" fill="#6B7979">Fast, well tolerated, no sedation needed</text>
+  <text x="650" y="256" font-size="15" fill="#6B7979">Not always available in every clinic</text>
+  <text x="650" y="288" font-size="15" font-weight="700" fill="#6B8E7F">Confirms current infection: yes</text>
+
+  <!-- Blood antibody -->
+  <text x="100" y="366" font-size="21" font-weight="700" fill="#2B3A3A">Blood antibody test</text>
+  <text x="100" y="398" font-size="15" fill="#6B7979">Detects antibodies your immune system made</text>
+  <text x="100" y="422" font-size="15" fill="#6B7979">Simple blood draw, widely available</text>
+  <text x="100" y="446" font-size="15" fill="#6B7979">Stays positive for years after treatment</text>
+  <text x="100" y="466" font-size="15" fill="#6B7979">cures the infection</text>
+  <text x="100" y="498" font-size="15" font-weight="700" fill="#C9594F">Confirms current infection: no</text>
+
+  <!-- Endoscopy biopsy -->
+  <text x="650" y="366" font-size="21" font-weight="700" fill="#2B3A3A">Endoscopy with biopsy</text>
+  <text x="650" y="398" font-size="15" fill="#6B7979">Direct tissue sample from the stomach lining</text>
+  <text x="650" y="422" font-size="15" fill="#6B7979">Also checks for ulcers and alarm findings</text>
+  <text x="650" y="446" font-size="15" fill="#6B7979">More invasive, usually reserved for alarm</text>
+  <text x="650" y="466" font-size="15" fill="#6B7979">symptoms or when a closer look is needed</text>
+  <text x="650" y="498" font-size="15" font-weight="700" fill="#6B8E7F">Confirms current infection: yes</text>
+
+  <text x="70" y="544" font-size="13" fill="#9AA6A6">General guide only. Availability and preparation requirements vary by clinic. Confirm with your doctor.</text>
+</svg>

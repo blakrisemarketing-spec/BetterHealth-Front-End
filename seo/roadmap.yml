@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-05
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; South Africa still pending)"
+  updated: 2026-07-12
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria — these were reported confirmed on 2026-07-05 but the volume fields were never written back to this file; corrected this week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. South Africa still pending)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -371,6 +371,88 @@ items:
     status: done
     completed: 2026-07-09
 
+  - id: art-g6pd
+    type: article
+    cluster: biomarkers
+    slug: g6pd-deficiency-test
+    keyword: g6pd test
+    market: pan-africa
+    volume: 390
+    secondary: ["g6pd deficiency", "favism", "g6pd and malaria drugs", "g6pd deficiency foods to avoid"]
+    intent: informational
+    title: "G6PD Deficiency: Why This Test Matters Before Some Medications"
+    status: done
+    completed: 2026-07-12
+    notes: "Common across malaria-endemic Africa; relevant to antimalarial and some drug safety. Strong locally-specific AI-citation candidate. g6pd test 390/mo Ghana, LOW competition (DataForSEO, confirmed 2026-07-12) — highest-volume unpublished keyword in the queue; promoted from #6 to #1."
+
+  - id: art-urinalysis
+    type: article
+    cluster: biomarkers
+    slug: urinalysis-explained
+    keyword: urinalysis test
+    market: pan-africa
+    volume: 110
+    secondary: ["urine routine examination", "urine test results explained", "protein in urine", "leukocytes in urine"]
+    intent: informational
+    title: "Urinalysis: How to Read a Routine Urine Test"
+    status: done
+    completed: 2026-07-11
+    notes: "urinalysis test 110/mo Ghana, LOW competition (DataForSEO, confirmed 2026-07-12). Promoted from #3 to #2."
+
+  - id: local-nairobi
+    type: article
+    cluster: local
+    slug: blood-test-nairobi
+    keyword: blood test Nairobi
+    market: kenya
+    volume: 40
+    intent: local
+    title: "Blood Tests and Health Screening in Nairobi: Your Options"
+    status: done
+    completed: 2026-07-13
+    notes: "blood test Nairobi 40/mo Kenya, LOW competition (DataForSEO, confirmed 2026-07-12) — was reported confirmed 2026-07-05 but never written back to this file; corrected this week. Highest-volume of the remaining local items."
+
+  - id: art-vitamin-b12
+    type: article
+    cluster: biomarkers
+    slug: vitamin-b12-folate-test
+    keyword: vitamin b12 test
+    market: pan-africa
+    volume: 10
+    secondary: ["b12 deficiency symptoms", "folate test", "megaloblastic anaemia", "low b12 treatment"]
+    intent: informational
+    title: "Vitamin B12 and Folate: Testing for the Other Anaemias"
+    status: done
+    completed: 2026-07-11
+    notes: "Internal-link to the ferritin/iron-anaemia article — together they cover the common anaemia work-up. vitamin b12 test 10/mo Ghana, LOW competition (DataForSEO, confirmed 2026-07-12)."
+
+  - id: art-antenatal-tests
+    type: article
+    cluster: screening
+    slug: antenatal-blood-tests
+    keyword: antenatal blood tests
+    market: pan-africa
+    volume: 10
+    secondary: ["pregnancy blood tests", "booking bloods", "tests during pregnancy", "antenatal profile"]
+    intent: informational
+    title: "Antenatal Blood Tests: The Pregnancy Screening Panel Explained"
+    status: done
+    completed: 2026-07-12
+    notes: "antenatal blood tests 10/mo Ghana (DataForSEO, confirmed 2026-07-12, no competition data returned)."
+
+  - id: local-lagos
+    type: article
+    cluster: local
+    slug: blood-test-lagos
+    keyword: blood test Lagos
+    market: nigeria
+    volume: 10
+    intent: local
+    title: "Blood Tests and Health Screening in Lagos: Your Options"
+    status: done
+    completed: 2026-07-12
+    notes: "blood test Lagos 10/mo Nigeria, LOW competition (DataForSEO, confirmed 2026-07-12)."
+
   - id: art-h-pylori
     type: article
     cluster: conditions
@@ -381,8 +463,8 @@ items:
     secondary: ["stomach ulcer test", "h pylori symptoms", "h pylori treatment", "h pylori stool antigen"]
     intent: informational
     title: "H. pylori Test: The Bacterium Behind Most Stomach Ulcers"
-    status: todo
-
+    status: done
+    completed: 2026-07-11
   - id: art-stool-test
     type: article
     cluster: biomarkers
@@ -393,20 +475,8 @@ items:
     secondary: ["ova and parasites test", "stool routine examination", "stool test for infection"]
     intent: informational
     title: "Stool Test: What Ova, Parasites, and Occult Blood Reveal"
-    status: todo
-
-  - id: art-urinalysis
-    type: article
-    cluster: biomarkers
-    slug: urinalysis-explained
-    keyword: urinalysis test
-    market: pan-africa
-    volume: null
-    secondary: ["urine routine examination", "urine test results explained", "protein in urine", "leukocytes in urine"]
-    intent: informational
-    title: "Urinalysis: How to Read a Routine Urine Test"
-    status: todo
-
+    status: done
+    completed: 2026-07-11
   - id: art-crp-inflammation
     type: article
     cluster: biomarkers
@@ -417,46 +487,8 @@ items:
     secondary: ["c-reactive protein", "esr test", "inflammation blood test", "high crp causes"]
     intent: informational
     title: "CRP and ESR: What Inflammation Markers Tell You"
-    status: todo
-
-  - id: art-vitamin-b12
-    type: article
-    cluster: biomarkers
-    slug: vitamin-b12-folate-test
-    keyword: vitamin b12 test
-    market: pan-africa
-    volume: null
-    secondary: ["b12 deficiency symptoms", "folate test", "megaloblastic anaemia", "low b12 treatment"]
-    intent: informational
-    title: "Vitamin B12 and Folate: Testing for the Other Anaemias"
-    status: todo
-    notes: "Internal-link to the ferritin/iron-anaemia article — together they cover the common anaemia work-up."
-
-  - id: art-g6pd
-    type: article
-    cluster: biomarkers
-    slug: g6pd-deficiency-test
-    keyword: g6pd test
-    market: pan-africa
-    volume: null
-    secondary: ["g6pd deficiency", "favism", "g6pd and malaria drugs", "g6pd deficiency foods to avoid"]
-    intent: informational
-    title: "G6PD Deficiency: Why This Test Matters Before Some Medications"
-    status: todo
-    notes: "Common across malaria-endemic Africa; relevant to antimalarial and some drug safety. Strong locally-specific AI-citation candidate."
-
-  - id: art-antenatal-tests
-    type: article
-    cluster: screening
-    slug: antenatal-blood-tests
-    keyword: antenatal blood tests
-    market: pan-africa
-    volume: null
-    secondary: ["pregnancy blood tests", "booking bloods", "tests during pregnancy", "antenatal profile"]
-    intent: informational
-    title: "Antenatal Blood Tests: The Pregnancy Screening Panel Explained"
-    status: todo
-
+    status: done
+    completed: 2026-07-11
   # ---- Multi-market screening / local landing (Nigeria, Kenya, South Africa) ----
   - id: art-screening-nigeria
     type: article
@@ -467,8 +499,8 @@ items:
     volume: null
     intent: commercial
     title: "Health Screening in Nigeria: What to Test and How Often"
-    status: todo
-
+    status: done
+    completed: 2026-07-12
   - id: art-screening-kenya
     type: article
     cluster: screening
@@ -478,30 +510,8 @@ items:
     volume: null
     intent: commercial
     title: "Health Screening in Kenya: What to Test and How Often"
-    status: todo
-
-  - id: local-lagos
-    type: article
-    cluster: local
-    slug: blood-test-lagos
-    keyword: blood test Lagos
-    market: nigeria
-    volume: null
-    intent: local
-    title: "Blood Tests and Health Screening in Lagos: Your Options"
-    status: todo
-
-  - id: local-nairobi
-    type: article
-    cluster: local
-    slug: blood-test-nairobi
-    keyword: blood test Nairobi
-    market: kenya
-    volume: null
-    intent: local
-    title: "Blood Tests and Health Screening in Nairobi: Your Options"
-    status: todo
-
+    status: done
+    completed: 2026-07-12
   # ---- Commercial / decision intent (low volume, high business value) ----
   - id: art-cost-of-screening
     type: article
@@ -511,8 +521,8 @@ items:
     volume: null
     intent: commercial
     title: "How Much Does a Full Health Check Cost in Ghana?"
-    status: todo
-
+    status: done
+    completed: 2026-07-13
   - id: art-full-body-checkup
     type: article
     cluster: screening
@@ -521,8 +531,8 @@ items:
     volume: null
     intent: commercial
     title: "Full Body Checkup: What's Included and Who Needs One"
-    status: todo
-
+    status: done
+    completed: 2026-07-13
   - id: art-home-vs-lab
     type: article
     cluster: decision
@@ -531,8 +541,8 @@ items:
     volume: null
     intent: commercial
     title: "Home vs In-Lab Blood Tests: Which Is Right for You?"
-    status: todo
-
+    status: done
+    completed: 2026-07-13
   # ---- Local landing intent (low volume, low competition) ----
   - id: local-accra
     type: article
@@ -542,8 +552,8 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Accra: Your Options"
-    status: todo
-
+    status: done
+    completed: 2026-07-13
   - id: local-kumasi
     type: article
     cluster: local

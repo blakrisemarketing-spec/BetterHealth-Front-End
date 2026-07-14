@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="150" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">HEALTH SCREENING IN ACCRA</text>
+  <text x="86" y="232" font-size="54" font-weight="800" fill="#2B3A3A">Blood tests in Accra,</text>
+  <text x="86" y="292" font-size="54" font-weight="800" fill="#2B3A3A">your options explained</text>
+  <text x="90" y="336" font-size="24" fill="#6B7979">Public hospital lab, private lab, or a home blood draw.</text>
+
+  <!-- simple map-pin motif -->
+  <g transform="translate(980,340)">
+    <circle cx="0" cy="0" r="70" fill="#FFFFFF" stroke="#E8E3DA" stroke-width="2"/>
+    <path d="M0 -34 C22 -34 38 -18 38 4 C38 30 0 62 0 62 C0 62 -38 30 -38 4 C-38 -18 -22 -34 0 -34 Z" fill="#6B8E7F"/>
+    <circle cx="0" cy="2" r="13" fill="#F5F3EE"/>
+  </g>
+</svg>

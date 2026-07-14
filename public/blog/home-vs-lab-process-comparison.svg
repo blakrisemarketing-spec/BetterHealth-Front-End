@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+  <text x="80" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Two routes, one lab</text>
+  <text x="80" y="88" font-size="18" fill="#6B7979">Both paths end at the same accredited laboratory for processing.</text>
+
+  <!-- Column headers -->
+  <text x="120" y="140" font-size="20" font-weight="700" fill="#6B8E7F">HOME DRAW</text>
+  <text x="660" y="140" font-size="20" font-weight="700" fill="#D97B4F">WALK-IN LAB</text>
+
+  <!-- Home draw column -->
+  <g>
+    <rect x="80" y="164" width="460" height="76" rx="12" fill="#F5F3EE" stroke="#E8E3DA"/>
+    <text x="104" y="196" font-size="17" font-weight="700" fill="#2B3A3A">1. Book a time online</text>
+    <text x="104" y="220" font-size="14" fill="#6B7979">Choose a slot that fits your day</text>
+
+    <path d="M 310 240 L 310 264" stroke="#6B8E7F" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+    <rect x="80" y="264" width="460" height="76" rx="12" fill="#F5F3EE" stroke="#E8E3DA"/>
+    <text x="104" y="296" font-size="17" font-weight="700" fill="#2B3A3A">2. Phlebotomist visits you</text>
+    <text x="104" y="320" font-size="14" fill="#6B7979">Draws the sample at your home or office</text>
+
+    <path d="M 310 340 L 310 364" stroke="#6B8E7F" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+    <rect x="80" y="364" width="460" height="76" rx="12" fill="#F5F3EE" stroke="#E8E3DA"/>
+    <text x="104" y="396" font-size="17" font-weight="700" fill="#2B3A3A">3. Sample transported to lab</text>
+    <text x="104" y="420" font-size="14" fill="#6B7979">Handled under the same storage rules</text>
+
+    <path d="M 310 440 L 310 464" stroke="#6B8E7F" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  </g>
+
+  <!-- Lab column -->
+  <g>
+    <rect x="620" y="164" width="460" height="76" rx="12" fill="#F5F3EE" stroke="#E8E3DA"/>
+    <text x="644" y="196" font-size="17" font-weight="700" fill="#2B3A3A">1. Book or walk in</text>
+    <text x="644" y="220" font-size="14" fill="#6B7979">Choose an appointment or a queue</text>
+
+    <path d="M 850 240 L 850 264" stroke="#D97B4F" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <rect x="620" y="264" width="460" height="76" rx="12" fill="#F5F3EE" stroke="#E8E3DA"/>
+    <text x="644" y="296" font-size="17" font-weight="700" fill="#2B3A3A">2. Travel to the lab</text>
+    <text x="644" y="320" font-size="14" fill="#6B7979">A phlebotomist draws the sample on site</text>
+
+    <path d="M 850 340 L 850 364" stroke="#D97B4F" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+    <rect x="620" y="364" width="460" height="76" rx="12" fill="#F5F3EE" stroke="#E8E3DA"/>
+    <text x="644" y="396" font-size="17" font-weight="700" fill="#2B3A3A">3. Sample goes to processing</text>
+    <text x="644" y="420" font-size="14" fill="#6B7979">Often within the same building</text>
+
+    <path d="M 850 440 L 850 464" stroke="#D97B4F" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  </g>
+
+  <defs>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="5" refY="8" orient="auto">
+      <path d="M0,0 L5,8 L10,0 Z" fill="#6B8E7F"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="5" refY="8" orient="auto">
+      <path d="M0,0 L5,8 L10,0 Z" fill="#D97B4F"/>
+    </marker>
+  </defs>
+
+  <!-- Shared final step -->
+  <rect x="350" y="480" width="500" height="90" rx="14" fill="#EEF3EF" stroke="#6B8E7F" stroke-width="2"/>
+  <text x="600" y="518" font-size="19" font-weight="700" fill="#2B3A3A" text-anchor="middle">4. Same accredited lab processes both samples</text>
+  <text x="600" y="546" font-size="15" fill="#6B7979" text-anchor="middle">Identical equipment, technique and quality checks</text>
+
+  <line x1="80" y1="596" x2="1130" y2="596" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="80" y="614" font-size="13" fill="#9AA6A6">General process illustration. Steps can vary by test and provider.</text>
+</svg>

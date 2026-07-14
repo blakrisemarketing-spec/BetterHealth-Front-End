@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="140" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+  <text x="86" y="218" font-size="52" font-weight="800" fill="#2B3A3A">Know your G6PD status</text>
+  <text x="86" y="280" font-size="52" font-weight="800" fill="#2B3A3A">before malaria treatment</text>
+  <text x="90" y="326" font-size="24" fill="#6B7979">An inherited enzyme test that matters before primaquine or tafenoquine.</text>
+
+  <!-- info pill badges -->
+  <g font-size="20" font-weight="700" fill="#2B3A3A">
+    <rect x="90" y="360" width="176" height="52" rx="26" fill="#EAF1EC" stroke="#6B8E7F" stroke-width="2"/>
+    <text x="178" y="394" text-anchor="middle">X-linked</text>
+
+    <rect x="282" y="360" width="220" height="52" rx="26" fill="#F3EEDF" stroke="#E0A23E" stroke-width="2"/>
+    <text x="392" y="394" text-anchor="middle">Enzyme assay</text>
+
+    <rect x="518" y="360" width="230" height="52" rx="26" fill="#F6E3E0" stroke="#C9594F" stroke-width="2"/>
+    <text x="633" y="394" text-anchor="middle">Test before drugs</text>
+  </g>
+</svg>
