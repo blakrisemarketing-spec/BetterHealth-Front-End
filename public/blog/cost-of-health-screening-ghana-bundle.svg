@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+  <text x="80" y="64" font-size="32" font-weight="700" fill="#2B3A3A">What's usually bundled vs priced separately</text>
+  <text x="80" y="98" font-size="19" fill="#6B7979">Panel contents vary by provider. This is a general pattern, not a fixed list.</text>
+
+  <!-- left column: bundled -->
+  <g transform="translate(80,140)">
+    <rect width="500" height="420" rx="18" fill="#F1F4F2"/>
+    <rect width="8" height="420" rx="4" fill="#6B8E7F"/>
+    <text x="36" y="48" font-size="24" font-weight="700" fill="#2B3A3A">Typically bundled together</text>
+    <text x="36" y="78" font-size="16" fill="#6B7979">The core of most basic and comprehensive panels</text>
+
+    <g font-size="19" fill="#2B3A3A">
+      <circle cx="46" cy="112" r="5" fill="#6B8E7F"/>
+      <text x="64" y="118">Blood pressure check</text>
+      <circle cx="46" cy="152" r="5" fill="#6B8E7F"/>
+      <text x="64" y="158">Fasting blood sugar</text>
+      <circle cx="46" cy="192" r="5" fill="#6B8E7F"/>
+      <text x="64" y="198">Full blood count</text>
+      <circle cx="46" cy="232" r="5" fill="#6B8E7F"/>
+      <text x="64" y="238">Basic lipid profile</text>
+      <circle cx="46" cy="272" r="5" fill="#6B8E7F"/>
+      <text x="64" y="278">Kidney function markers</text>
+      <circle cx="46" cy="312" r="5" fill="#6B8E7F"/>
+      <text x="64" y="318">Liver function markers</text>
+      <circle cx="46" cy="352" r="5" fill="#6B8E7F"/>
+      <text x="64" y="358">Body weight and waist</text>
+    </g>
+  </g>
+
+  <!-- right column: a la carte -->
+  <g transform="translate(620,140)">
+    <rect width="500" height="420" rx="18" fill="#EFEDE7"/>
+    <rect width="8" height="420" rx="4" fill="#C28A2E"/>
+    <text x="36" y="48" font-size="24" font-weight="700" fill="#2B3A3A">Often priced separately</text>
+    <text x="36" y="78" font-size="16" fill="#6B7979">Add-ons tied to a specific concern or history</text>
+
+    <g font-size="19" fill="#2B3A3A">
+      <circle cx="46" cy="112" r="5" fill="#C28A2E"/>
+      <text x="64" y="118">HbA1c (3-month sugar average)</text>
+      <circle cx="46" cy="152" r="5" fill="#C28A2E"/>
+      <text x="64" y="158">Hormone or thyroid panels</text>
+      <circle cx="46" cy="192" r="5" fill="#C28A2E"/>
+      <text x="64" y="198">Genotype / sickle cell test</text>
+      <circle cx="46" cy="232" r="5" fill="#C28A2E"/>
+      <text x="64" y="238">Hepatitis or HIV screening</text>
+      <circle cx="46" cy="272" r="5" fill="#C28A2E"/>
+      <text x="64" y="278">Tumour marker tests</text>
+      <circle cx="46" cy="312" r="5" fill="#C28A2E"/>
+      <text x="64" y="318">Specialist imaging referrals</text>
+      <circle cx="46" cy="352" r="5" fill="#C28A2E"/>
+      <text x="64" y="358">Home sample collection fee</text>
+    </g>
+  </g>
+
+  <text x="80" y="596" font-size="15" fill="#9AA6A6">General pattern only. Confirm the current panel and pricing on the BetterHealth pricing page.</text>
+</svg>

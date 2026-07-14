@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Vitamin B12 and folate explained: testing for the other anaemias" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Vitamin B12 and Folate: Testing for the Other Anaemias</title>
+  <defs>
+    <radialGradient id="orb-b12" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1030" cy="160" r="310" fill="url(#orb-b12)"/>
+
+  <!-- Category label -->
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+
+  <!-- Main title -->
+  <text x="86" y="258" font-size="58" font-weight="800" fill="#2B3A3A">Vitamin B12 and Folate</text>
+
+  <!-- Subtitle -->
+  <text x="90" y="308" font-size="26" fill="#6B7979">Testing for the other anaemias</text>
+
+  <!-- Pill badges -->
+  <rect x="90" y="348" width="150" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="165" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Low B12</text>
+
+  <rect x="254" y="348" width="200" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="354" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Nerve &amp; Blood Cells</text>
+
+  <rect x="468" y="348" width="170" height="42" rx="21" fill="#C9594F"/>
+  <text x="553" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Folate Test</text>
+
+  <rect x="652" y="348" width="230" height="42" rx="21" fill="#A8C5B8"/>
+  <text x="767" y="375" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Megaloblastic Anaemia</text>
+
+  <!-- Decorative right: red blood cell motif (large rounded cell shapes, suggesting macrocytosis) -->
+  <ellipse cx="980" cy="235" rx="70" ry="52" fill="#C9594F" opacity="0.16"/>
+  <ellipse cx="980" cy="235" rx="42" ry="30" fill="#C9594F" opacity="0.28"/>
+  <ellipse cx="1090" cy="150" rx="34" ry="26" fill="#6B8E7F" opacity="0.20"/>
+  <ellipse cx="1090" cy="150" rx="18" ry="13" fill="#6B8E7F" opacity="0.34"/>
+  <ellipse cx="1085" cy="330" rx="26" ry="20" fill="#2B3A3A" opacity="0.12"/>
+</svg>

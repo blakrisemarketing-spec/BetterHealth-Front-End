@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="400" fill="#FFFFFF"/>
+  <text x="70" y="60" font-size="32" font-weight="700" fill="#2B3A3A">hs-CRP and cardiovascular risk</text>
+  <text x="70" y="94" font-size="19" fill="#6B7979">A widely-used framework for reading high-sensitivity CRP, one input among several</text>
+
+  <!-- band labels -->
+  <text x="251" y="150" font-size="22" font-weight="700" fill="#6B8E7F" text-anchor="middle">Lower risk</text>
+  <text x="554" y="150" font-size="22" font-weight="700" fill="#C28A2E" text-anchor="middle">Average risk</text>
+  <text x="903" y="150" font-size="22" font-weight="700" fill="#C9594F" text-anchor="middle">Higher risk</text>
+
+  <!-- segmented bar -->
+  <clipPath id="bar"><rect x="70" y="170" width="1060" height="64" rx="16"/></clipPath>
+  <g clip-path="url(#bar)">
+    <rect x="70" y="170" width="363" height="64" fill="#6B8E7F"/>
+    <rect x="433" y="170" width="243" height="64" fill="#E0A23E"/>
+    <rect x="676" y="170" width="454" height="64" fill="#C9594F"/>
+  </g>
+
+  <!-- threshold ticks -->
+  <line x1="433" y1="166" x2="433" y2="252" stroke="#2B3A3A" stroke-width="2"/>
+  <line x1="676" y1="166" x2="676" y2="252" stroke="#2B3A3A" stroke-width="2"/>
+  <text x="433" y="282" font-size="20" font-weight="700" fill="#2B3A3A" text-anchor="middle">1 mg/L</text>
+  <text x="676" y="282" font-size="20" font-weight="700" fill="#2B3A3A" text-anchor="middle">3 mg/L</text>
+
+  <!-- sub labels -->
+  <text x="251" y="328" font-size="17" fill="#6B7979" text-anchor="middle">Below 1 mg/L</text>
+  <text x="554" y="328" font-size="17" fill="#6B7979" text-anchor="middle">1 to 3 mg/L</text>
+  <text x="903" y="328" font-size="17" fill="#6B7979" text-anchor="middle">Above 3 mg/L</text>
+  <text x="70" y="366" font-size="15" fill="#9AA6A6">A commonly taught framework (AHA/CDC-associated), not a standalone diagnostic cutoff. A much higher CRP usually points to infection or another acute cause, not heart risk. Ask your clinician to read it alongside your full risk profile.</text>
+</svg>

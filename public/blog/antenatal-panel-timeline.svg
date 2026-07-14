@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="480" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">When antenatal blood tests happen</text>
+  <text x="70" y="86" font-size="18" fill="#6B7979">A typical timing pattern across antenatal care. Your provider may adjust it to your history.</text>
+
+  <!-- timeline spine -->
+  <line x1="70" y1="130" x2="1130" y2="130" stroke="#D8D3C6" stroke-width="4"/>
+  <circle cx="180" cy="130" r="10" fill="#6B8E7F"/>
+  <circle cx="660" cy="130" r="10" fill="#E0A23E"/>
+  <circle cx="1050" cy="130" r="10" fill="#C9594F"/>
+
+  <text x="180" y="112" font-size="16" font-weight="700" fill="#6B8E7F" text-anchor="middle">First visit</text>
+  <text x="660" y="112" font-size="16" font-weight="700" fill="#E0A23E" text-anchor="middle">24-28 weeks</text>
+  <text x="1050" y="112" font-size="16" font-weight="700" fill="#C9594F" text-anchor="middle">Later, as needed</text>
+
+  <!-- stage 1: booking bloods -->
+  <rect x="90" y="160" width="500" height="290" rx="16" fill="#EAF1EC" stroke="#6B8E7F" stroke-width="2"/>
+  <text x="115" y="196" font-size="20" font-weight="700" fill="#2B3A3A">Booking visit panel</text>
+  <text x="115" y="230" font-size="15" fill="#2B3A3A">- Blood group and Rhesus factor</text>
+  <text x="115" y="258" font-size="15" fill="#2B3A3A">- Full blood count (anaemia screen)</text>
+  <text x="115" y="286" font-size="15" fill="#2B3A3A">- HIV test</text>
+  <text x="115" y="314" font-size="15" fill="#2B3A3A">- Hepatitis B (HBsAg), often syphilis too</text>
+  <text x="115" y="342" font-size="15" fill="#2B3A3A">- Genotype / sickle cell screening</text>
+  <text x="115" y="378" font-size="14" fill="#6B7979">Most of the core panel is drawn once, as</text>
+  <text x="115" y="398" font-size="14" fill="#6B7979">early as possible in pregnancy.</text>
+
+  <!-- stage 2: gestational diabetes -->
+  <rect x="610" y="160" width="290" height="290" rx="16" fill="#F3EEDF" stroke="#E0A23E" stroke-width="2"/>
+  <text x="635" y="196" font-size="20" font-weight="700" fill="#2B3A3A">Gestational diabetes</text>
+  <text x="635" y="230" font-size="15" fill="#2B3A3A">- Blood sugar screening</text>
+  <text x="635" y="258" font-size="15" fill="#2B3A3A">- Oral glucose tolerance</text>
+  <text x="635" y="278" font-size="15" fill="#2B3A3A">  test, commonly used</text>
+  <text x="635" y="316" font-size="14" fill="#6B7979">Usually offered around</text>
+  <text x="635" y="336" font-size="14" fill="#6B7979">24 to 28 weeks, later</text>
+  <text x="635" y="356" font-size="14" fill="#6B7979">than the booking panel.</text>
+
+  <!-- stage 3: repeat/monitoring -->
+  <rect x="920" y="160" width="210" height="290" rx="16" fill="#F6E3E0" stroke="#C9594F" stroke-width="2"/>
+  <text x="945" y="196" font-size="20" font-weight="700" fill="#2B3A3A">If needed later</text>
+  <text x="945" y="230" font-size="15" fill="#2B3A3A">- Repeat full blood</text>
+  <text x="945" y="250" font-size="15" fill="#2B3A3A">  count for anaemia</text>
+  <text x="945" y="280" font-size="15" fill="#2B3A3A">- Extra monitoring for</text>
+  <text x="945" y="300" font-size="15" fill="#2B3A3A">  Rh-negative mothers</text>
+  <text x="945" y="336" font-size="14" fill="#6B7979">Your antenatal provider</text>
+  <text x="945" y="356" font-size="14" fill="#6B7979">sets the exact schedule.</text>
+
+  <text x="70" y="470" font-size="14" fill="#9AA6A6">Illustrative timing. Exact schedules vary by clinic, country, and individual risk.</text>
+</svg>

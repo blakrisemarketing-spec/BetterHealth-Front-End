@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="850" fill="#FFFFFF"/>
+  <text x="80" y="66" font-size="34" font-weight="700" fill="#2B3A3A">A core screening panel for Kenya</text>
+  <text x="80" y="100" font-size="20" fill="#6B7979">Cardiometabolic checks for everyone, plus tests shaped by Kenya's own disease burden</text>
+
+  <g>
+    <!-- row 1: cardiometabolic (sage) -->
+    <g transform="translate(80,140)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Blood pressure</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Rising with urban lifestyle change</text>
+    </g>
+    <g transform="translate(640,140)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Blood sugar (HbA1c)</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Catches prediabetes early</text>
+    </g>
+    <!-- row 2: cardiometabolic (sage) -->
+    <g transform="translate(80,284)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Lipid profile</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Heart and stroke risk</text>
+    </g>
+    <g transform="translate(640,284)">
+      <rect width="520" height="120" rx="16" fill="#F1F4F2"/>
+      <rect width="8" height="120" rx="4" fill="#6B8E7F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Full blood count</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Anaemia and infection</text>
+    </g>
+    <!-- row 3: infectious disease (coral) -->
+    <g transform="translate(80,428)">
+      <rect width="520" height="120" rx="16" fill="#FBF0EE"/>
+      <rect width="8" height="120" rx="4" fill="#C9594F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">HIV test</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Routine, private, worth repeating</text>
+    </g>
+    <g transform="translate(640,428)">
+      <rect width="520" height="120" rx="16" fill="#FBF0EE"/>
+      <rect width="8" height="120" rx="4" fill="#C9594F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Malaria test</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">If symptomatic, or living in an endemic region</text>
+    </g>
+    <!-- row 4: infectious disease + women's health -->
+    <g transform="translate(80,572)">
+      <rect width="520" height="120" rx="16" fill="#FBF0EE"/>
+      <rect width="8" height="120" rx="4" fill="#C9594F"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Typhoid test</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">Where sanitation and symptoms warrant it</text>
+    </g>
+    <g transform="translate(640,572)">
+      <rect width="520" height="120" rx="16" fill="#F3F0F9"/>
+      <rect width="8" height="120" rx="4" fill="#8E7FC9"/>
+      <text x="40" y="52" font-size="26" font-weight="700" fill="#2B3A3A">Cervical screening</text>
+      <text x="40" y="86" font-size="19" fill="#6B7979">For women, on a multi-year cycle</text>
+    </g>
+    <!-- row 5: note -->
+    <g transform="translate(80,716)">
+      <rect width="1080" height="90" rx="16" fill="#F3EEDF"/>
+      <rect width="8" height="90" rx="4" fill="#E0A23E"/>
+      <text x="40" y="42" font-size="20" font-weight="700" fill="#2B3A3A">Match the panel to where you live and your own risk</text>
+      <text x="40" y="70" font-size="18" fill="#6B7979">Malaria risk is regional; family history and age shift the rest</text>
+    </g>
+  </g>
+  <text x="80" y="822" font-size="15" fill="#9AA6A6">General guidance, not a prescription. A clinician should tailor screening to you.</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orbLg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1015" cy="145" r="320" fill="url(#orbLg)"/>
+
+  <text x="90" y="150" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">BLOOD TESTS IN LAGOS</text>
+  <text x="86" y="228" font-size="52" font-weight="800" fill="#2B3A3A">Where to test, and</text>
+  <text x="86" y="290" font-size="52" font-weight="800" fill="#2B3A3A">what to test for</text>
+  <text x="90" y="336" font-size="24" fill="#6B7979">Hospital labs, diagnostic centres, or a sample collected at home.</text>
+
+  <!-- simple route: home pin -> traffic dots -> lab flask -->
+  <g transform="translate(90,382)">
+    <circle cx="18" cy="18" r="18" fill="#EAF1EC" stroke="#6B8E7F" stroke-width="2"/>
+    <path d="M18 9 l9 8 h-3 v10 h-12 v-10 h-3 z" fill="#6B8E7F"/>
+  </g>
+  <g fill="#C9594F">
+    <circle cx="150" cy="400" r="5"/>
+    <circle cx="175" cy="400" r="5"/>
+    <circle cx="200" cy="400" r="5"/>
+    <circle cx="225" cy="400" r="5"/>
+    <circle cx="250" cy="400" r="5"/>
+  </g>
+  <text x="150" y="440" font-size="16" fill="#6B7979">Lagos traffic</text>
+  <g transform="translate(300,382)">
+    <circle cx="18" cy="18" r="18" fill="#F3EEDF" stroke="#E0A23E" stroke-width="2"/>
+    <rect x="12" y="8" width="12" height="18" rx="2" fill="#E0A23E"/>
+    <rect x="9" y="24" width="18" height="8" rx="2" fill="#E0A23E"/>
+  </g>
+  <text x="330" y="405" font-size="18" font-weight="700" fill="#2B3A3A">Lab result</text>
+</svg>

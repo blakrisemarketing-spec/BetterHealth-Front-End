@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9594F" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#C9594F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1015" cy="140" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">UNDERSTANDING YOUR BIOMARKERS</text>
+  <text x="86" y="262" font-size="58" font-weight="800" fill="#2B3A3A">CRP and ESR, in plain language</text>
+  <text x="90" y="312" font-size="26" fill="#6B7979">Two blood tests that flag inflammation, but never say where it's coming from.</text>
+
+  <!-- schematic: acute-phase spike (CRP, fast) vs slow curve (ESR) -->
+  <g stroke-linecap="round" fill="none">
+    <path d="M 110 420 L 340 420 C 400 420, 410 200, 460 200 C 510 200, 520 400, 640 400 L 1090 400" stroke="#C9594F" stroke-width="6"/>
+    <path d="M 110 430 C 400 430, 550 410, 700 340 C 850 275, 950 245, 1090 230" stroke="#6B8E7F" stroke-width="6" stroke-dasharray="2 12"/>
+  </g>
+  <circle cx="460" cy="200" r="10" fill="#C9594F"/>
+  <circle cx="1090" cy="230" r="10" fill="#6B8E7F"/>
+  <text x="470" y="185" font-size="18" font-weight="700" fill="#C9594F">CRP: rises and falls fast</text>
+  <text x="900" y="215" font-size="18" font-weight="700" fill="#6B8E7F">ESR: slower to change</text>
+</svg>

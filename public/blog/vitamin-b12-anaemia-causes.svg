@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-label="Macrocytic anaemia from B12 or folate deficiency compared with microcytic iron-deficiency anaemia" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Two anaemia patterns: macrocytic (B12/folate) vs microcytic (iron)</title>
+  <rect width="1200" height="520" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Two anaemia patterns on an FBC</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Red cell size (MCV) tells them apart</text>
+
+  <!-- Column headers -->
+  <text x="330" y="132" font-size="20" font-weight="700" fill="#2B3A3A" text-anchor="middle">B12 / Folate deficiency</text>
+  <text x="330" y="156" font-size="15" fill="#6B7979" text-anchor="middle">Macrocytic: cells too large</text>
+
+  <text x="870" y="132" font-size="20" font-weight="700" fill="#2B3A3A" text-anchor="middle">Iron deficiency</text>
+  <text x="870" y="156" font-size="15" fill="#6B7979" text-anchor="middle">Microcytic: cells too small</text>
+
+  <!-- Divider -->
+  <line x1="600" y1="110" x2="600" y2="470" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- Macrocytic large cells (left) -->
+  <circle cx="200" cy="240" r="46" fill="#C9594F" opacity="0.22"/>
+  <circle cx="200" cy="240" r="46" fill="none" stroke="#C9594F" stroke-width="3"/>
+  <circle cx="330" cy="255" r="50" fill="#C9594F" opacity="0.22"/>
+  <circle cx="330" cy="255" r="50" fill="none" stroke="#C9594F" stroke-width="3"/>
+  <circle cx="470" cy="235" r="44" fill="#C9594F" opacity="0.22"/>
+  <circle cx="470" cy="235" r="44" fill="none" stroke="#C9594F" stroke-width="3"/>
+  <text x="330" y="330" font-size="14" fill="#6B7979" text-anchor="middle">Fewer, larger, oddly-shaped red cells</text>
+  <text x="330" y="352" font-size="14" fill="#6B7979" text-anchor="middle">High MCV on the full blood count</text>
+
+  <!-- Microcytic small cells (right) -->
+  <g>
+    <circle cx="740" cy="220" r="20" fill="#E0A23E" opacity="0.7"/>
+    <circle cx="800" cy="250" r="18" fill="#E0A23E" opacity="0.7"/>
+    <circle cx="860" cy="215" r="20" fill="#E0A23E" opacity="0.7"/>
+    <circle cx="920" cy="248" r="17" fill="#E0A23E" opacity="0.7"/>
+    <circle cx="980" cy="222" r="19" fill="#E0A23E" opacity="0.7"/>
+    <circle cx="770" cy="280" r="18" fill="#E0A23E" opacity="0.7"/>
+    <circle cx="830" cy="290" r="17" fill="#E0A23E" opacity="0.7"/>
+    <circle cx="890" cy="282" r="19" fill="#E0A23E" opacity="0.7"/>
+    <circle cx="950" cy="288" r="17" fill="#E0A23E" opacity="0.7"/>
+  </g>
+  <text x="870" y="330" font-size="14" fill="#6B7979" text-anchor="middle">More numerous, smaller, pale red cells</text>
+  <text x="870" y="352" font-size="14" fill="#6B7979" text-anchor="middle">Low MCV on the full blood count</text>
+
+  <!-- Bottom labels: typical cause -->
+  <rect x="120" y="392" width="420" height="46" rx="10" fill="#F5F3EE"/>
+  <text x="330" y="421" font-size="15" font-weight="600" fill="#2B3A3A" text-anchor="middle">Typical cause: low B12 or folate intake, or malabsorption</text>
+
+  <rect x="660" y="392" width="420" height="46" rx="10" fill="#F5F3EE"/>
+  <text x="870" y="421" font-size="15" font-weight="600" fill="#2B3A3A" text-anchor="middle">Typical cause: low dietary iron or ongoing blood loss</text>
+
+  <!-- Source note -->
+  <text x="70" y="490" font-size="13" fill="#9AA6A6">MCV (mean corpuscular cell volume) is one value on a standard full blood count. A clinician interprets it alongside other results.</text>
+</svg>
