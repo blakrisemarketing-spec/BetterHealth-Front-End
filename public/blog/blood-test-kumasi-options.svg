@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+  <text x="80" y="66" font-size="34" font-weight="700" fill="#2B3A3A">Three routes to a blood test in Kumasi</text>
+  <text x="80" y="100" font-size="20" fill="#6B7979">General trade-offs. Availability and pricing vary by facility.</text>
+
+  <g>
+    <!-- column 1: public hospital -->
+    <g transform="translate(80,140)">
+      <rect width="330" height="420" rx="16" fill="#F1F4F2"/>
+      <rect width="330" height="8" rx="4" fill="#6B8E7F"/>
+      <text x="28" y="52" font-size="24" font-weight="700" fill="#2B3A3A">Public hospital lab</text>
+      <text x="28" y="82" font-size="16" fill="#6B7979">e.g. KATH, polyclinics</text>
+      <text x="28" y="130" font-size="17" fill="#2B3A3A">Usually needs a referral</text>
+      <text x="28" y="162" font-size="17" fill="#2B3A3A">Often the most affordable</text>
+      <text x="28" y="194" font-size="17" fill="#2B3A3A">route where NHIS applies</text>
+      <text x="28" y="234" font-size="17" fill="#2B3A3A">Longer queues and waits</text>
+      <text x="28" y="266" font-size="17" fill="#2B3A3A">are common</text>
+      <text x="28" y="306" font-size="17" fill="#2B3A3A">Best when a doctor has</text>
+      <text x="28" y="338" font-size="17" fill="#2B3A3A">already ordered the test</text>
+    </g>
+    <!-- column 2: private lab -->
+    <g transform="translate(435,140)">
+      <rect width="330" height="420" rx="16" fill="#EDEAF6"/>
+      <rect width="330" height="8" rx="4" fill="#8E7FC9"/>
+      <text x="28" y="52" font-size="24" font-weight="700" fill="#2B3A3A">Private diagnostic lab</text>
+      <text x="28" y="82" font-size="16" fill="#6B7979">Standalone or clinic-attached</text>
+      <text x="28" y="130" font-size="17" fill="#2B3A3A">Walk-in or booked</text>
+      <text x="28" y="162" font-size="17" fill="#2B3A3A">Generally faster turnaround</text>
+      <text x="28" y="194" font-size="17" fill="#2B3A3A">and a wider test menu</text>
+      <text x="28" y="234" font-size="17" fill="#2B3A3A">Paid out of pocket unless</text>
+      <text x="28" y="266" font-size="17" fill="#2B3A3A">private insurance applies</text>
+      <text x="28" y="306" font-size="17" fill="#2B3A3A">Good fit for a self-booked</text>
+      <text x="28" y="338" font-size="17" fill="#2B3A3A">routine screening panel</text>
+    </g>
+    <!-- column 3: home draw -->
+    <g transform="translate(790,140)">
+      <rect width="330" height="420" rx="16" fill="#FBF0EE"/>
+      <rect width="330" height="8" rx="4" fill="#C9594F"/>
+      <text x="28" y="52" font-size="24" font-weight="700" fill="#2B3A3A">Home blood draw</text>
+      <text x="28" y="82" font-size="16" fill="#6B7979">e.g. BetterHealth Africa</text>
+      <text x="28" y="130" font-size="17" fill="#2B3A3A">Phlebotomist comes to</text>
+      <text x="28" y="162" font-size="17" fill="#2B3A3A">your home or office</text>
+      <text x="28" y="194" font-size="17" fill="#2B3A3A">No travel or waiting room</text>
+      <text x="28" y="234" font-size="17" fill="#2B3A3A">Results delivered digitally</text>
+      <text x="28" y="266" font-size="17" fill="#2B3A3A">once processed</text>
+      <text x="28" y="306" font-size="17" fill="#2B3A3A">Not a substitute for urgent</text>
+      <text x="28" y="338" font-size="17" fill="#2B3A3A">same-visit clinical care</text>
+    </g>
+  </g>
+  <text x="80" y="596" font-size="15" fill="#9AA6A6">General guidance, not a prescription. A clinician or lab can confirm what applies to you.</text>
+</svg>
