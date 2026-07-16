@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-12
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria — these were reported confirmed on 2026-07-05 but the volume fields were never written back to this file; corrected this week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. South Africa still pending)"
+  updated: 2026-07-16
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria — these were reported confirmed on 2026-07-05 but the volume fields were never written back to this file; corrected this week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra still show no DataForSEO data. 2026-07-16 queue-refill pass confirmed syphilis test 140/mo Ghana, sperm count test 320/mo Nigeria, diabetes test 50/mo Ghana, and South Africa's first two data points: blood test Johannesburg 110/mo (MEDIUM competition) and blood test Durban 70/mo (LOW competition). breast cancer screening 70/mo Ghana confirmed but flagged: not in BetterHealth's current test catalogue, educational-only framing required. Abuja/Port Harcourt/Mombasa/Kisumu local pages and tuberculosis test still show no DataForSEO volume, added anyway per the curated-seed fallback rule.)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -563,6 +563,153 @@ items:
     intent: local
     title: "Blood Tests and Health Screening in Kumasi: Your Options"
     status: todo
+    notes: "Claimed by open PR #52 (2026-07-15, branch claude/hopeful-johnson-l8zjzz) as of 2026-07-16; excluded from this run's batch selection per the open-PR dedup rule. Flip to done once that PR merges."
+
+  # ==========================================================================
+  # Queue refill (added 2026-07-16) — todo queue had only 1 item (local-kumasi,
+  # already claimed by an open PR), triggering the refill pass. New DataForSEO
+  # volumes confirmed 2026-07-16 (Ghana 2288 / Nigeria 2566 / South Africa 2710).
+  # Appended in priority order; never reorder done items above.
+  # ==========================================================================
+  - id: art-syphilis-test
+    type: article
+    cluster: conditions
+    slug: syphilis-test-explained
+    keyword: syphilis test
+    market: pan-africa
+    volume: 140
+    secondary: ["syphilis test kit (70)", "syphilis test name (20)", "syphilis test price (10)", "syphilis test positive means (10)", "how to read syphilis test results (10)"]
+    intent: informational
+    title: "Syphilis Test (VDRL/RPR): What a Positive or Negative Result Means"
+    status: done
+    completed: 2026-07-16
+    notes: "syphilis test 140/mo Ghana, LOW competition (DataForSEO, confirmed 2026-07-16). BetterHealth's infectious-disease panel includes Syphilis (VDRL) per src/data/content.js. Cross-link HIV/Hepatitis B/C and premarital-screening articles for the STI-panel angle."
+
+  - id: art-sperm-count-fertility
+    type: article
+    cluster: biomarkers
+    slug: sperm-count-fertility-test
+    keyword: sperm count test
+    market: nigeria
+    volume: 320
+    secondary: ["normal sperm count to get pregnant (590)", "sperm count test kit (90)", "sperm count test price (70)", "sperm count test at home (50)"]
+    intent: informational
+    title: "Sperm Count and Semen Analysis: What the Fertility Test Checks"
+    status: done
+    completed: 2026-07-16
+    notes: "sperm count test 320/mo Nigeria (DataForSEO ideas endpoint, confirmed 2026-07-16); related 'normal sperm count to get pregnant' 590/mo. BetterHealth offers Sperm & Semen Health / the Him-Her Fertility Test per src/data/content.js. Handle with the same dignity/no-shame framing established in pap-smear-cervical-screening.js."
+
+  - id: local-johannesburg
+    type: article
+    cluster: local
+    slug: blood-test-johannesburg
+    keyword: blood test Johannesburg
+    market: south-africa
+    volume: 110
+    intent: local
+    title: "Blood Tests and Health Screening in Johannesburg: Your Options"
+    status: done
+    completed: 2026-07-16
+    notes: "blood test Johannesburg 110/mo South Africa, MEDIUM competition (DataForSEO, confirmed 2026-07-16). First South-Africa-market page on the site; use the same three-route framework (public hospital, private lab, home draw) established for Accra/Lagos/Nairobi/Kumasi, with SA-specific framing (medical aid vs private pay, NHI context kept general and hedged)."
+
+  - id: local-durban
+    type: article
+    cluster: local
+    slug: blood-test-durban
+    keyword: blood test Durban
+    market: south-africa
+    volume: 70
+    intent: local
+    title: "Blood Tests and Health Screening in Durban: Your Options"
+    status: done
+    completed: 2026-07-16
+    notes: "blood test Durban 70/mo South Africa, LOW competition (DataForSEO, confirmed 2026-07-16)."
+
+  - id: art-diabetes-test
+    type: article
+    cluster: biomarkers
+    slug: diabetes-test-types-explained
+    keyword: diabetes test
+    market: ghana
+    volume: 50
+    secondary: ["types of blood sugar test (40)", "how to test for diabetes at home (20)", "diabetes test name (10)"]
+    intent: informational
+    title: "Diabetes Tests Explained: Fasting Glucose, HbA1c, and OGTT Compared"
+    status: done
+    completed: 2026-07-16
+    notes: "diabetes test 50/mo Ghana, LOW competition (DataForSEO, confirmed 2026-07-16). Hub article comparing the diabetes test types head-to-head; cross-link fasting-blood-sugar-explained, hba1c-explained, and prediabetes-warning-signs rather than duplicating them."
+
+  - id: art-breast-cancer-screening
+    type: article
+    cluster: screening
+    slug: breast-cancer-screening-guide
+    keyword: breast cancer screening
+    market: pan-africa
+    volume: 70
+    intent: informational
+    title: "Breast Cancer Screening: Self-Checks, Clinical Exams, and Mammograms"
+    status: todo
+    notes: "breast cancer screening 70/mo Ghana (DataForSEO, confirmed 2026-07-16). CAUTION: BetterHealth's current test catalogue (src/data/content.js) does not list a mammogram or breast-cancer biomarker panel, so this must stay purely educational (self-exam technique, clinical breast exam, screening-age guidance, when to see a doctor) without implying BetterHealth performs or books mammograms. Model the pap-smear-cervical-screening.js precedent for handling a screening topic outside the direct product catalogue."
+
+  - id: art-tuberculosis-test
+    type: article
+    cluster: conditions
+    slug: tuberculosis-test-explained
+    keyword: tuberculosis test
+    market: pan-africa
+    volume: null
+    intent: informational
+    title: "Tuberculosis Testing: Sputum, Skin, and Blood Tests Explained"
+    status: todo
+    notes: "No confirmed standalone volume for 'tuberculosis test' in Ghana (DataForSEO, checked 2026-07-16); related queries skewed toward visa-medical-exam bookings (IOM TB test for UK visa), which is a different intent and out of scope for this article. Still worth publishing for AI-citation value given TB's African disease burden. Confirm volume again next refine pass."
+
+  - id: local-abuja
+    type: article
+    cluster: local
+    slug: blood-test-abuja
+    keyword: blood test Abuja
+    market: nigeria
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Abuja: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-16); still worth publishing for local/AI-citation coverage given the local-lagos precedent. Confirm volume next refine pass."
+
+  - id: local-port-harcourt
+    type: article
+    cluster: local
+    slug: blood-test-port-harcourt
+    keyword: blood test Port Harcourt
+    market: nigeria
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Port Harcourt: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-16). Confirm volume next refine pass."
+
+  - id: local-mombasa
+    type: article
+    cluster: local
+    slug: blood-test-mombasa
+    keyword: blood test Mombasa
+    market: kenya
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Mombasa: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-16). Confirm volume next refine pass."
+
+  - id: local-kisumu
+    type: article
+    cluster: local
+    slug: blood-test-kisumu
+    keyword: blood test Kisumu
+    market: kenya
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Kisumu: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-16). Confirm volume next refine pass."
 
   # ---- Technical / GEO tasks (interleaved by the weekly routine) ----
   - id: tech-og-images-blog

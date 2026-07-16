@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Sperm count and semen analysis explained: what the fertility test checks" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Sperm Count and Semen Analysis: What the Fertility Test Checks</title>
+  <defs>
+    <radialGradient id="orb-scf" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1030" cy="160" r="310" fill="url(#orb-scf)"/>
+
+  <!-- Category label -->
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">MALE FERTILITY TESTING</text>
+
+  <!-- Main title -->
+  <text x="86" y="252" font-size="50" font-weight="800" fill="#2B3A3A">Sperm count and</text>
+  <text x="86" y="312" font-size="50" font-weight="800" fill="#2B3A3A">semen analysis</text>
+
+  <!-- Subtitle -->
+  <text x="90" y="352" font-size="24" fill="#6B7979">What the fertility test actually checks, and what a result means.</text>
+
+  <!-- Pill badges -->
+  <rect x="90" y="384" width="190" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="185" y="411" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Count &amp; Concentration</text>
+
+  <rect x="294" y="384" width="140" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="364" y="411" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Motility</text>
+
+  <rect x="448" y="384" width="160" height="42" rx="21" fill="#C9594F"/>
+  <text x="528" y="411" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Morphology</text>
+
+  <rect x="622" y="384" width="150" height="42" rx="21" fill="#A8C5B8"/>
+  <text x="697" y="411" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Volume &amp; pH</text>
+
+  <!-- Decorative right: simple lab flask + droplet motif, no photos, no people -->
+  <circle cx="1010" cy="150" r="60" fill="none" stroke="#6B8E7F" stroke-width="8" opacity="0.35"/>
+  <path d="M 985 200 L 985 240 L 950 300 Q 940 320 960 320 L 1060 320 Q 1080 320 1070 300 L 1035 240 L 1035 200 Z" fill="#6B8E7F" opacity="0.18"/>
+  <rect x="978" y="188" width="64" height="16" rx="4" fill="#2B3A3A" opacity="0.15"/>
+  <circle cx="1130" cy="230" r="12" fill="#C9594F" opacity="0.20"/>
+  <circle cx="1105" cy="290" r="8" fill="#2B3A3A" opacity="0.12"/>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+  <text x="70" y="58" font-size="30" font-weight="700" fill="#2B3A3A">The two-step syphilis testing logic</text>
+  <text x="70" y="90" font-size="18" fill="#6B7979">Why a reactive screening test is always confirmed before it is called positive</text>
+
+  <!-- Step 1 box -->
+  <rect x="70" y="130" width="440" height="180" rx="16" fill="#F5F3EE" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="100" y="170" font-size="16" font-weight="700" letter-spacing="2" fill="#6B8E7F">STEP 1: SCREEN</text>
+  <text x="100" y="206" font-size="24" font-weight="700" fill="#2B3A3A">VDRL or RPR</text>
+  <text x="100" y="234" font-size="15" fill="#6B7979">Non-treponemal test.</text>
+  <text x="100" y="256" font-size="15" fill="#6B7979">Fast, low-cost, good for screening.</text>
+  <text x="100" y="278" font-size="15" fill="#6B7979">Can occasionally give a false positive.</text>
+
+  <!-- Arrow -->
+  <path d="M530 220 L610 220" stroke="#6B8E7F" stroke-width="3" fill="none"/>
+  <path d="M600 208 L620 220 L600 232 Z" fill="#6B8E7F"/>
+  <text x="565" y="200" font-size="14" font-weight="700" fill="#6B8E7F" text-anchor="middle">if reactive</text>
+
+  <!-- Step 2 box -->
+  <rect x="630" y="130" width="500" height="180" rx="16" fill="#F5F3EE" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="660" y="170" font-size="16" font-weight="700" letter-spacing="2" fill="#6B8E7F">STEP 2: CONFIRM</text>
+  <text x="660" y="206" font-size="24" font-weight="700" fill="#2B3A3A">TPHA or FTA-ABS</text>
+  <text x="660" y="234" font-size="15" fill="#6B7979">Treponemal test, specific to the</text>
+  <text x="660" y="256" font-size="15" fill="#6B7979">bacteria that causes syphilis.</text>
+  <text x="660" y="278" font-size="15" fill="#6B7979">Confirms or rules out a true infection.</text>
+
+  <!-- Down arrows to outcomes -->
+  <path d="M285 310 L285 350" stroke="#9AA6A6" stroke-width="2" fill="none"/>
+  <path d="M275 342 L285 358 L295 342 Z" fill="#9AA6A6"/>
+  <path d="M880 310 L880 350" stroke="#9AA6A6" stroke-width="2" fill="none"/>
+  <path d="M870 342 L880 358 L890 342 Z" fill="#9AA6A6"/>
+
+  <!-- Outcome: non-reactive screen -->
+  <rect x="70" y="368" width="440" height="90" rx="14" fill="#E4EDE8"/>
+  <text x="100" y="404" font-size="18" font-weight="700" fill="#4C6B5D">Non-reactive on VDRL/RPR</text>
+  <text x="100" y="430" font-size="15" fill="#4C6B5D">No current evidence of infection. No confirmatory test needed.</text>
+
+  <!-- Outcome: both reactive -->
+  <rect x="630" y="368" width="500" height="90" rx="14" fill="#FBEAE8"/>
+  <text x="660" y="404" font-size="18" font-weight="700" fill="#B24A40">Reactive on both VDRL/RPR and TPHA/FTA-ABS</text>
+  <text x="660" y="430" font-size="15" fill="#B24A40">Confirmed syphilis. Treatable with antibiotics from a clinician.</text>
+
+  <!-- Outcome: reactive screen, non-reactive confirm -->
+  <rect x="630" y="474" width="500" height="90" rx="14" fill="#FDF3E3"/>
+  <text x="660" y="510" font-size="18" font-weight="700" fill="#9A6B1E">Reactive VDRL/RPR, non-reactive TPHA/FTA-ABS</text>
+  <text x="660" y="536" font-size="15" fill="#9A6B1E">Likely a biological false positive, not syphilis. Discuss with a doctor.</text>
+
+  <text x="70" y="600" font-size="15" fill="#9AA6A6">Illustrative flow, not a lab protocol. Some labs reverse the order (treponemal test first). Ask your provider which sequence they used.</text>
+</svg>

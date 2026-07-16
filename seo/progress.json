@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-10",
+  "lastRunDate": "2026-07-16",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -40,13 +40,18 @@
     "art-cost-of-screening",
     "art-full-body-checkup",
     "art-home-vs-lab",
-    "local-accra"
+    "local-accra",
+    "art-syphilis-test",
+    "art-sperm-count-fertility",
+    "local-johannesburg",
+    "local-durban",
+    "art-diabetes-test"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-12",
   "inFlightPRs": [],
-  "publishedCount": 41,
-  "notes": "2026-07-14 CONSOLIDATION PR (seo/consolidated-2026-07-14): merges the three well-behaved nightly batches #44 (2026-07-11), #45 (2026-07-12), #48 (2026-07-13) plus the W29 weekly report + roadmap reprioritization (#46) into one atomic PR. The dedup + backlog-guard fixes from the 2026-07-10 skill update worked: the three batches had ZERO slug overlap, and the 2026-07-14 run correctly published nothing (backlog guard) rather than duplicating. 15 articles shipped, all cleared per-article clinical-safety + humanizer + quality-floor gates (each has 2 images, 4 internal links, 5-7 FAQ, zero em dashes); the two high-risk clinical pieces (art-g6pd drug-trigger safety, art-antenatal-tests) reviewed accurate and anti-self-medication. roadmap.yml carries #46's reprioritization + volume write-back correction (g6pd 390, urinalysis 110, nairobi 40, etc. now persisted). PRs #44, #45, #46, #48, #49 to be closed once this merges. Only local-kumasi remains as a todo article/local item (below the 10-item threshold) so the NEXT nightly run should trigger the queue-refill pass before drafting. NOTE: body prerender is still broken (vite.config.js injectBody targets an empty #root that no longer exists) - these 15 pages, like all others, ship identical boilerplate body to crawlers until that is fixed; that + GSC access remain the two indexation blockers."
+  "publishedCount": 46,
+  "notes": "2026-07-16 NIGHTLY BATCH: local-kumasi was the only todo article item and it was already claimed by open PR #52 (branch claude/hopeful-johnson-l8zjzz, 2026-07-15), so this run dedup-excluded it and ran the queue-refill pass first (DataForSEO confirmed syphilis test 140/mo Ghana, sperm count test 320/mo Nigeria, diabetes test 50/mo Ghana, blood test Johannesburg 110/mo and blood test Durban 70/mo South Africa -- the site's first two South Africa market pages). Shipped 5 articles from the refilled queue: syphilis-test-explained, sperm-count-fertility-test, blood-test-johannesburg, blood-test-durban, diabetes-test-types-explained. Each drafted by its own sub-agent in parallel per the quality-floor fix, then independently re-verified (not just trusted) for the floor: all 5 have 2 images, 3-4 internal links (>=2 blog cross-links each, all resolve), 6-7 FAQs, and every h2 opens with a citable claim. Ran clinical-safety review manually (the clinical-safety-review skill's checklist is written for the separate results-ingestion platform's DB schema, not this marketing/blog repo, so applied its content-safety intent instead: sourced WHO/ADA cutoffs, disclaimer block present on all 5, no fabricated clinician byline, syphilis article treats a reactive screen as needing confirmatory TPHA/FTA-ABS before treatment and defers dosing to a clinician, fertility article explicitly frames one low result as not a diagnosis). Ran a manual bh-humanizer pass after the sub-agents' own de-slop and caught + fixed 13 residual tells across the 5 files (two 'Here is what' excerpt openers, stacked 'actually/simply/genuinely' adverbs) that the sub-agents' self-checks had missed; zero em dashes and zero en-dash ranges confirmed by grep after the fix. npm run build green, all 5 dist/blog/<slug>/index.html carry the right title/og:type=article/canonical/Article+BreadcrumbList+FAQPage schema, and sitemap.xml + llms.txt include all 5 routes. Queue-refill also appended art-breast-cancer-screening (flagged: not in BetterHealth's test catalogue, must stay educational-only), art-tuberculosis-test, and four more local pages (Abuja, Port Harcourt, Mombasa, Kisumu) as todo for future runs, so the queue carries runway again. local-kumasi remains todo pending PR #52 merging; PR #51 (body-prerender fix) also still open and unrelated to this batch. NOTE: body prerender is still broken (vite.config.js injectBody targets an empty #root that no longer exists, see open PR #51) -- these 5 pages, like all others, ship identical boilerplate body to crawlers until that merges; that + GSC access remain the two indexation blockers."
 }
