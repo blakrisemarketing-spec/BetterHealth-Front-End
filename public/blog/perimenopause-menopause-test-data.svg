@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-label="The four stages from premenopause to postmenopause, showing how FSH rises and estradiol falls, with typical age ranges" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Premenopause to postmenopause: the FSH and estradiol trend by stage</title>
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+
+  <text x="70" y="56" font-size="28" font-weight="700" fill="#2B3A3A">Four stages, one hormone trend</text>
+  <text x="70" y="86" font-size="17" fill="#6B7979">FSH rises and estradiol falls as ovarian function declines, but the pace varies a lot from woman to woman.</text>
+
+  <!-- mini trend chart -->
+  <line x1="90" y1="230" x2="1110" y2="230" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="90" y="122" font-size="13" font-weight="700" fill="#8E7FC9">FSH (rises)</text>
+  <text x="90" y="142" font-size="13" font-weight="700" fill="#C9594F">Estradiol (falls)</text>
+
+  <path d="M 130 205 C 350 200, 560 175, 750 140 C 900 112, 1000 95, 1080 80" fill="none" stroke="#8E7FC9" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 130 110 C 350 118, 560 145, 750 175 C 900 196, 1000 205, 1080 212" fill="none" stroke="#C9594F" stroke-width="5" stroke-linecap="round"/>
+
+  <circle cx="130" cy="205" r="6" fill="#8E7FC9"/>
+  <circle cx="380" cy="198" r="6" fill="#8E7FC9"/>
+  <circle cx="700" cy="148" r="6" fill="#8E7FC9"/>
+  <circle cx="1080" cy="80" r="6" fill="#8E7FC9"/>
+
+  <circle cx="130" cy="110" r="6" fill="#C9594F"/>
+  <circle cx="380" cy="121" r="6" fill="#C9594F"/>
+  <circle cx="700" cy="180" r="6" fill="#C9594F"/>
+  <circle cx="1080" cy="212" r="6" fill="#C9594F"/>
+
+  <!-- stage cards -->
+  <g>
+    <rect x="70" y="260" width="250" height="300" rx="14" fill="#F1F4F2"/>
+    <text x="94" y="298" font-size="19" font-weight="800" fill="#2B3A3A">Premenopause</text>
+    <text x="94" y="322" font-size="14" fill="#6B7979">Typically 30s to mid-40s</text>
+    <rect x="94" y="340" width="150" height="30" rx="15" fill="#FFFFFF"/>
+    <text x="169" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#6B8E7F">FSH: typical range</text>
+    <rect x="94" y="378" width="150" height="30" rx="15" fill="#FFFFFF"/>
+    <text x="169" y="398" text-anchor="middle" font-size="13" font-weight="700" fill="#6B8E7F">Estradiol: typical range</text>
+    <text x="94" y="440" font-size="14" fill="#2B3A3A">Regular cycles.</text>
+    <text x="94" y="462" font-size="14" fill="#2B3A3A">Ovaries producing</text>
+    <text x="94" y="484" font-size="14" fill="#2B3A3A">estrogen steadily.</text>
+  </g>
+
+  <g>
+    <rect x="340" y="260" width="250" height="300" rx="14" fill="#EDEAF6"/>
+    <text x="364" y="298" font-size="19" font-weight="800" fill="#2B3A3A">Perimenopause</text>
+    <text x="364" y="322" font-size="14" fill="#6B7979">Often mid-40s, can last years</text>
+    <rect x="364" y="340" width="150" height="30" rx="15" fill="#FFFFFF"/>
+    <text x="439" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#8E7FC9">FSH: fluctuates</text>
+    <rect x="364" y="378" width="150" height="30" rx="15" fill="#FFFFFF"/>
+    <text x="439" y="398" text-anchor="middle" font-size="13" font-weight="700" fill="#8E7FC9">Estradiol: fluctuates</text>
+    <text x="364" y="440" font-size="14" fill="#2B3A3A">Irregular periods,</text>
+    <text x="364" y="462" font-size="14" fill="#2B3A3A">hot flushes, sleep and</text>
+    <text x="364" y="484" font-size="14" fill="#2B3A3A">mood changes begin.</text>
+  </g>
+
+  <g>
+    <rect x="610" y="260" width="250" height="300" rx="14" fill="#FBF0EE"/>
+    <text x="634" y="298" font-size="19" font-weight="800" fill="#2B3A3A">Menopause</text>
+    <text x="634" y="322" font-size="14" fill="#6B7979">Average age around 51</text>
+    <rect x="634" y="340" width="150" height="30" rx="15" fill="#FFFFFF"/>
+    <text x="709" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#C9594F">FSH: high</text>
+    <rect x="634" y="378" width="150" height="30" rx="15" fill="#FFFFFF"/>
+    <text x="709" y="398" text-anchor="middle" font-size="13" font-weight="700" fill="#C9594F">Estradiol: low</text>
+    <text x="634" y="440" font-size="14" fill="#2B3A3A">Confirmed after 12</text>
+    <text x="634" y="462" font-size="14" fill="#2B3A3A">months with no</text>
+    <text x="634" y="484" font-size="14" fill="#2B3A3A">menstrual period.</text>
+  </g>
+
+  <g>
+    <rect x="880" y="260" width="250" height="300" rx="14" fill="#F1F4F2"/>
+    <text x="904" y="298" font-size="19" font-weight="800" fill="#2B3A3A">Postmenopause</text>
+    <text x="904" y="322" font-size="14" fill="#6B7979">From menopause onward</text>
+    <rect x="904" y="340" width="150" height="30" rx="15" fill="#FFFFFF"/>
+    <text x="979" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#6B8E7F">FSH: stays high</text>
+    <rect x="904" y="378" width="150" height="30" rx="15" fill="#FFFFFF"/>
+    <text x="979" y="398" text-anchor="middle" font-size="13" font-weight="700" fill="#6B8E7F">Estradiol: stays low</text>
+    <text x="904" y="440" font-size="14" fill="#2B3A3A">Symptoms often ease</text>
+    <text x="904" y="462" font-size="14" fill="#2B3A3A">over time, though some</text>
+    <text x="904" y="484" font-size="14" fill="#2B3A3A">women have longer.</text>
+  </g>
+
+  <line x1="70" y1="580" x2="1130" y2="580" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="606" font-size="13" fill="#9AA6A6">Ages are general population ranges, not a personal prediction. Hormone levels vary widely, especially during perimenopause.</text>
+</svg>

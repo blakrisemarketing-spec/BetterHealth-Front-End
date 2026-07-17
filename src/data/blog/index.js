@@ -44,6 +44,11 @@ import costOfHealthScreeningGhana from "./posts/cost-of-health-screening-ghana.j
 import fullBodyCheckupGuide from "./posts/full-body-checkup-guide.js";
 import homeVsLabBloodTest from "./posts/home-vs-lab-blood-test.js";
 import bloodTestAccra from "./posts/blood-test-accra.js";
+import bilharziaSchistosomiasisTest from "./posts/bilharzia-schistosomiasis-test.js";
+import lassaFeverSymptomsTest from "./posts/lassa-fever-symptoms-test.js";
+import perimenopauseMenopauseTest from "./posts/perimenopause-menopause-test.js";
+import gestationalDiabetesTest from "./posts/gestational-diabetes-test.js";
+import bloodTestPretoria from "./posts/blood-test-pretoria.js";
 
 const ALL = [
   hba1cExplained,
@@ -87,6 +92,11 @@ const ALL = [
   fullBodyCheckupGuide,
   homeVsLabBloodTest,
   bloodTestAccra,
+  bilharziaSchistosomiasisTest,
+  lassaFeverSymptomsTest,
+  perimenopauseMenopauseTest,
+  gestationalDiabetesTest,
+  bloodTestPretoria,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically

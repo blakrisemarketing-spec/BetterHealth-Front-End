@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Perimenopause and menopause testing explained: what an FSH test can and cannot tell you" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Perimenopause and Menopause Testing: What an FSH Test Can (and Can't) Tell You</title>
+  <defs>
+    <radialGradient id="orb-perimenopause" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8E7FC9" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#8E7FC9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1020" cy="150" r="320" fill="url(#orb-perimenopause)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#8E7FC9">UNDERSTANDING YOUR BIOMARKERS</text>
+  <text x="86" y="240" font-size="50" font-weight="800" fill="#2B3A3A">Perimenopause and</text>
+  <text x="86" y="298" font-size="50" font-weight="800" fill="#2B3A3A">Menopause Testing</text>
+  <text x="90" y="342" font-size="26" fill="#6B7979">What an FSH test can (and can't) tell you</text>
+
+  <!-- pill badges -->
+  <rect x="90" y="382" width="106" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="143" y="409" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">FSH</text>
+
+  <rect x="210" y="382" width="140" height="42" rx="21" fill="#8E7FC9"/>
+  <text x="280" y="409" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Estradiol</text>
+
+  <rect x="364" y="382" width="230" height="42" rx="21" fill="#E0A23E"/>
+  <text x="479" y="409" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Symptoms first, tests second</text>
+
+  <!-- decorative rising trend line suggesting a hormone curve, plus a soft floral motif -->
+  <path d="M 900 300 C 950 300, 960 260, 1010 250 C 1060 240, 1075 195, 1120 180" fill="none" stroke="#8E7FC9" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="1120" cy="180" r="9" fill="#8E7FC9" opacity="0.75"/>
+  <circle cx="900" cy="300" r="7" fill="#8E7FC9" opacity="0.45"/>
+
+  <g opacity="0.30">
+    <circle cx="1000" cy="120" r="14" fill="#C9594F"/>
+    <circle cx="1035" cy="95" r="10" fill="#E0A23E"/>
+    <circle cx="960" cy="90" r="8" fill="#6B8E7F"/>
+  </g>
+  <circle cx="1130" cy="330" r="6" fill="#2B3A3A" opacity="0.18"/>
+</svg>

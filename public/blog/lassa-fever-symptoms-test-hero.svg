@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Lassa fever: symptoms, testing, and how it differs from malaria" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Lassa Fever: Symptoms, Testing, and How It Differs From Malaria</title>
+  <defs>
+    <radialGradient id="orb-lassa" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8E7FC9" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#8E7FC9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb-lassa)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">TESTING FOR CONDITIONS</text>
+  <text x="86" y="252" font-size="52" font-weight="800" fill="#2B3A3A">Lassa Fever</text>
+  <text x="90" y="304" font-size="26" fill="#6B7979">Symptoms, testing, and how it differs from malaria</text>
+
+  <rect x="90" y="344" width="106" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="143" y="371" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Fever</text>
+
+  <rect x="210" y="344" width="176" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="298" y="371" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">RT-PCR test</text>
+
+  <rect x="400" y="344" width="230" height="42" rx="21" fill="#C9594F"/>
+  <text x="515" y="371" text-anchor="middle" font-size="16" font-weight="700" fill="#FBF0EE">NCDC-notifiable</text>
+
+  <!-- decorative flat house + rodent-proof storage motif, calm and clinical, no scare imagery -->
+  <g opacity="0.85">
+    <path d="M900 300 L980 236 L1060 300 L1060 360 Q1060 366 1054 366 L906 366 Q900 366 900 360 Z" fill="#FFFFFF" opacity="0.55"/>
+    <rect x="928" y="308" width="34" height="46" rx="3" fill="#6B8E7F" opacity="0.5"/>
+    <rect x="1000" y="316" width="36" height="30" rx="4" fill="#E0A23E" opacity="0.55"/>
+    <circle cx="1018" cy="331" r="4" fill="#2B3A3A" opacity="0.3"/>
+  </g>
+
+  <circle cx="1120" cy="200" r="6" fill="#2B3A3A" opacity="0.18"/>
+  <circle cx="1150" cy="270" r="5" fill="#2B3A3A" opacity="0.14"/>
+  <circle cx="1080" cy="150" r="4" fill="#8E7FC9" opacity="0.3"/>
+</svg>
