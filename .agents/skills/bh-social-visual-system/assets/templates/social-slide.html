@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1350" />
+    <title>BetterHealth Social Slide</title>
+    <style>
+      @font-face {
+        font-family: "Quicksand";
+        src: url("../../../Brand/Fonts/Quicksand.woff2") format("woff2");
+        font-weight: 300 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      * { box-sizing: border-box; }
+
+      html,
+      body {
+        width: 1080px;
+        height: 1350px;
+        margin: 0;
+        overflow: hidden;
+        background: #f5f3ee;
+      }
+
+      body {
+        font-family: "Quicksand", Arial, Helvetica, sans-serif;
+        color: #2b3a3a;
+      }
+
+      .frame {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: #f5f3ee;
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        background-image: url("./assets/REPLACE-BACKGROUND.png");
+        background-position: center;
+        background-size: cover;
+      }
+
+      .scene::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 13% 30%, rgba(245, 243, 238, 0.98) 0%, rgba(245, 243, 238, 0.9) 28%, rgba(245, 243, 238, 0.35) 58%, rgba(245, 243, 238, 0.05) 88%),
+          linear-gradient(90deg, rgba(245, 243, 238, 0.9) 0%, rgba(245, 243, 238, 0.56) 46%, rgba(245, 243, 238, 0) 100%);
+      }
+
+      .brand-row {
+        position: relative;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        padding: 78px 84px 0;
+      }
+
+      .logo {
+        width: 282px;
+        height: auto;
+        display: block;
+      }
+
+      .badge {
+        border: 1.5px solid rgba(224, 220, 213, 0.9);
+        border-radius: 999px;
+        padding: 13px 30px 14px;
+        color: #6b7979;
+        background: rgba(255, 255, 255, 0.72);
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1;
+      }
+
+      .copy {
+        position: relative;
+        z-index: 4;
+        width: 670px;
+        margin: 130px 0 0 84px;
+      }
+
+      .kicker {
+        margin: 0 0 28px;
+        color: #9f3033;
+        font-size: 31px;
+        line-height: 1;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0;
+        color: #2b3a3a;
+        font-size: 76px;
+        line-height: 1.02;
+        font-weight: 680;
+      }
+
+      .accent { color: #9f3033; }
+
+      .support {
+        margin: 34px 0 0;
+        color: #2b3a3a;
+        font-size: 34px;
+        line-height: 1.23;
+        font-weight: 570;
+      }
+
+      .footer-row {
+        position: absolute;
+        z-index: 5;
+        left: 84px;
+        right: 84px;
+        bottom: 42px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        color: #6b8e7f;
+        font-size: 19px;
+        line-height: 1;
+        font-weight: 650;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="frame">
+      <div class="scene" aria-hidden="true"></div>
+
+      <header class="brand-row">
+        <img class="logo" src="../../../Brand/Logos/BetterHealth Africa Logo.png" alt="BetterHealth Africa" />
+        <div class="badge">D000</div>
+      </header>
+
+      <section class="copy">
+        <p class="kicker">Kicker</p>
+        <h1>Main message with <span class="accent">accent.</span></h1>
+        <p class="support">Supporting sentence goes here.</p>
+      </section>
+
+      <footer class="footer-row">
+        <span>General education only. For severe or urgent symptoms, seek medical care.</span>
+        <span>00/00</span>
+      </footer>
+    </main>
+  </body>
+</html>
