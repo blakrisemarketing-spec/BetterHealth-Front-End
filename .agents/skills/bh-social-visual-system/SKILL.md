@@ -83,15 +83,18 @@ Loosen normal brand restraint for attention:
    `/Users/greatdamzi/Documents/01. GitHub/BetterHealth-Media`
 5. Generate or select background imagery if the mode needs it. Save project-bound assets under the relevant Media `content/social-images/.../assets/` folder.
 6. Create or update the HTML source using an existing nearby slide/post as the first pattern, or use `assets/templates/social-slide.html` as a starting template.
-7. Render with `scripts/render-bh-social-still.mjs` or the Media renderer directly.
-8. Inspect the PNG visually. Check:
+7. Before rendering, run the visual clarity check from `references/visual-modes.md`.
+8. Render with `scripts/render-bh-social-still.mjs` or the Media renderer directly.
+9. Inspect the PNG visually. Check:
    - important text is inside safe zones;
    - text does not overlap cells, people, or UI;
    - humans look human and real;
    - medical visuals are realistic, not flat illustrations;
+   - charts/data visuals are internally consistent;
+   - every decorative element is obvious or removed;
    - disclaimer and page indicator are readable;
    - rendered dimensions match the target platform.
-9. Iterate, then report source and output paths.
+10. Iterate, then report source and output paths.
 
 ## Defaults
 

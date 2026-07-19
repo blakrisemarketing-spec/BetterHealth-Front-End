@@ -21,11 +21,9 @@ Avoid:
 - sounding like the brand knows everything;
 - vague abstract process language.
 
-## Forbidden Lines
+## Retired Copy
 
-Do not use these exact lines:
-- "The goal is not to panic. The goal is to get a clearer next step."
-- "Symptoms are signals. They are not a diagnosis."
+Do not revive the earlier fallback formulations about panic and clearer next steps, or about symptoms and diagnosis. Use the preferred framing above instead.
 
 ## Health Claims
 
