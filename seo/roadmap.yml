@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-12
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria — these were reported confirmed on 2026-07-05 but the volume fields were never written back to this file; corrected this week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. South Africa still pending)"
+  updated: 2026-07-19
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo — these were reported confirmed on 2026-07-05/07-12 but the volume fields were never written back to this file; corrected this week (see weekly-2026-W29 note about the same recurring write-back gap). h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data (2026-07-19 re-checked: still no data). South Africa still pending)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -203,7 +203,7 @@ items:
     cluster: biomarkers
     slug: liver-function-tests-explained
     keyword: liver function test results explained
-    volume: null
+    volume: 10
     intent: informational
     title: "Liver Function Tests (ALT, AST): What the Numbers Mean"
     status: done
@@ -223,7 +223,7 @@ items:
     slug: malaria-test-explained
     keyword: malaria test
     market: pan-africa
-    volume: null
+    volume: 320
     secondary: ["malaria rapid diagnostic test", "malaria blood film", "malaria parasite count", "how is malaria diagnosed"]
     intent: informational
     title: "Malaria Testing: RDT vs Blood Film, and How to Read the Result"
@@ -237,7 +237,7 @@ items:
     slug: typhoid-widal-test
     keyword: widal test
     market: pan-africa
-    volume: null
+    volume: 1000
     secondary: ["typhoid test", "widal test interpretation", "typhoid fever diagnosis", "widal test positive meaning"]
     intent: informational
     title: "Typhoid and the Widal Test: What a Positive Result Really Means"
@@ -251,7 +251,7 @@ items:
     slug: hepatitis-b-test
     keyword: hepatitis B test
     market: pan-africa
-    volume: null
+    volume: 110
     secondary: ["HBsAg test", "hepatitis B symptoms", "hepatitis B vaccine", "hepatitis B treatment"]
     intent: informational
     title: "Hepatitis B Test (HBsAg): Screening, Results, and Next Steps"
