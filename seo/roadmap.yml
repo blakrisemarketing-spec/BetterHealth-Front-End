@@ -562,7 +562,76 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Kumasi: Your Options"
+    status: done
+    completed: 2026-07-15
+    notes: "Published 2026-07-15. blood test Kumasi: no confirmed DataForSEO volume (checked 2026-07-15); ideas query returned no data either. Same three-route framework (public hospital/KATH, private lab, home draw) as Accra/Lagos/Nairobi, Kumasi/Ashanti Region framing. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ Q&As."
+
+  # ==========================================================================
+  # Queue refill (added 2026-07-15) — South Africa market entry. South Africa
+  # DataForSEO volumes were flagged "still pending" in the meta note above; these
+  # five close that gap with confirmed location-2710 volumes. Appended below the
+  # existing queue per the queue-refill pass (fewer than 10 todo article items
+  # remained after local-kumasi shipped).
+  # ==========================================================================
+  - id: art-mammogram-screening
+    type: article
+    cluster: screening
+    slug: mammogram-breast-cancer-screening
+    keyword: mammogram screening
+    market: south-africa
+    volume: 210
+    secondary: ["mammogram near me (1000/mo)", "free mammograms at dischem (590/mo)", "do mammograms hurt (140/mo)", "mammogram age (70/mo)"]
+    intent: informational
+    title: "Mammogram Screening: What to Expect and When to Start"
     status: todo
+    notes: "mammogram screening 210/mo South Africa, LOW competition; mammogram near me 1000/mo (DataForSEO, confirmed 2026-07-15). Breast cancer screening is a strong AI-citation and commercial-intent opportunity; cover screening age guidance, what a mammogram involves, pairing with pap-smear-cervical-screening as the women's cancer-screening cluster."
+  - id: art-colon-cancer-screening
+    type: article
+    cluster: screening
+    slug: colon-cancer-screening-test
+    keyword: colon cancer screening
+    market: south-africa
+    volume: 170
+    secondary: ["colorectal cancer symptoms", "stool occult blood test", "colonoscopy vs stool test"]
+    intent: informational
+    title: "Colon Cancer Screening: Stool Tests, Colonoscopy, and When to Start"
+    status: todo
+    notes: "colon cancer screening 170/mo South Africa, LOW competition (DataForSEO, confirmed 2026-07-15). Cross-link with stool-test-explained (occult blood) and psa-prostate-test / pap-smear-cervical-screening as part of the cancer-screening cluster."
+  - id: art-allergy-test
+    type: article
+    cluster: biomarkers
+    slug: allergy-test-explained
+    keyword: allergy test
+    market: south-africa
+    volume: 880
+    secondary: ["allergy symptoms", "food allergy test", "skin prick test vs blood allergy test"]
+    intent: informational
+    title: "Allergy Testing: Skin Prick vs Blood Test, and What Results Mean"
+    status: todo
+    notes: "allergy test 880/mo South Africa, MEDIUM competition (DataForSEO, confirmed 2026-07-15). Highest-volume unpublished keyword in the refill batch. Cover IgE blood testing vs skin prick testing, common allergen panels, and when a GP referral to an allergist is the right next step."
+  - id: art-diabetes-test-types
+    type: article
+    cluster: decision
+    slug: diabetes-test-types-explained
+    keyword: diabetes test
+    market: south-africa
+    volume: 480
+    secondary: ["how to test for diabetes at home (170/mo)", "diabetes test results (110/mo)", "diabetes test name (10/mo)"]
+    intent: commercial
+    title: "Diabetes Testing: Which Test Do You Actually Need?"
+    status: todo
+    notes: "diabetes test 480/mo South Africa, HIGH competition (DataForSEO, confirmed 2026-07-15). Decision-intent angle distinct from fasting-blood-sugar-explained (which explains a result): this compares fasting glucose vs HbA1c vs OGTT vs home glucometer, so it needs a genuinely different angle to avoid thin overlap. Cross-link fasting-blood-sugar-explained and prediabetes-warning-signs; do not duplicate their content."
+  - id: local-johannesburg
+    type: article
+    cluster: local
+    slug: blood-test-johannesburg
+    keyword: blood test Johannesburg
+    market: south-africa
+    volume: 110
+    intent: local
+    title: "Blood Tests and Health Screening in Johannesburg: Your Options"
+    status: todo
+    notes: "blood test Johannesburg 110/mo, MEDIUM competition (DataForSEO, confirmed 2026-07-15). First South Africa local landing page; follow the Accra/Lagos/Nairobi/Kumasi three-route format (public/provincial hospital lab, private pathology lab e.g. Lancet/Ampath/PathCare as generic category not endorsement, home draw), medical aid (not NHIS) framing kept general and hedged."
 
   # ---- Technical / GEO tasks (interleaved by the weekly routine) ----
   - id: tech-og-images-blog

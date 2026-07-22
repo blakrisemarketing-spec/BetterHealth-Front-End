@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-10",
+  "lastRunDate": "2026-07-15",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -40,13 +40,14 @@
     "art-cost-of-screening",
     "art-full-body-checkup",
     "art-home-vs-lab",
-    "local-accra"
+    "local-accra",
+    "local-kumasi"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-19",
   "inFlightPRs": [],
-  "publishedCount": 41,
-  "notes": "2026-07-14 CONSOLIDATION PR (seo/consolidated-2026-07-14): merges the three well-behaved nightly batches #44 (2026-07-11), #45 (2026-07-12), #48 (2026-07-13) plus the W29 weekly report + roadmap reprioritization (#46) into one atomic PR. The dedup + backlog-guard fixes from the 2026-07-10 skill update worked: the three batches had ZERO slug overlap, and the 2026-07-14 run correctly published nothing (backlog guard) rather than duplicating. 15 articles shipped, all cleared per-article clinical-safety + humanizer + quality-floor gates (each has 2 images, 4 internal links, 5-7 FAQ, zero em dashes); the two high-risk clinical pieces (art-g6pd drug-trigger safety, art-antenatal-tests) reviewed accurate and anti-self-medication. roadmap.yml carries #46's reprioritization + volume write-back correction (g6pd 390, urinalysis 110, nairobi 40, etc. now persisted). PRs #44, #45, #46, #48, #49 to be closed once this merges. Only local-kumasi remains as a todo article/local item (below the 10-item threshold) so the NEXT nightly run should trigger the queue-refill pass before drafting. NOTE: body prerender is still broken (vite.config.js injectBody targets an empty #root that no longer exists) - these 15 pages, like all others, ship identical boilerplate body to crawlers until that is fixed; that + GSC access remain the two indexation blockers."
+  "publishedCount": 42,
+  "notes": "2026-07-15 nightly run: only one todo article item existed (local-kumasi), so this run published that single article rather than a full batch of five, per the playbook's 'publish what remains, then refill' rule. blood-test-kumasi.js shipped (Komfo Anokye Teaching Hospital public-lab / private-lab / home-draw framework, matching Accra/Lagos/Nairobi), cleared clinical-safety, humanizer, and quality-floor gates (2 images, 4 internal links, 6 FAQ, ~2,250 words, zero em dashes), and the build verified correctly (Article + BreadcrumbList + FAQPage schema, sitemap.xml + llms.txt entries confirmed). Open-PR dedup check found only PR #51 open (a body-prerender bug fix, not an SEO content PR), so no claim conflicts. Ran the queue-refill pass since the todo queue had dropped to zero article items: appended 5 new South Africa-market items (art-mammogram-screening 210/mo, art-colon-cancer-screening 170/mo, art-allergy-test 880/mo, art-diabetes-test-types 480/mo, local-johannesburg 110/mo; all DataForSEO-confirmed 2026-07-15 at location 2710), closing the 'South Africa still pending' gap noted in a prior roadmap meta comment. NOTE: body prerender is still broken per PR #51 (open, unmerged) - the new Kumasi page, like all others, ships identical boilerplate body to crawlers until that lands; that + GSC access remain the two indexation blockers. A human should review and merge PR #51 when convenient."
 }

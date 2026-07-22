@@ -44,6 +44,7 @@ import costOfHealthScreeningGhana from "./posts/cost-of-health-screening-ghana.j
 import fullBodyCheckupGuide from "./posts/full-body-checkup-guide.js";
 import homeVsLabBloodTest from "./posts/home-vs-lab-blood-test.js";
 import bloodTestAccra from "./posts/blood-test-accra.js";
+import bloodTestKumasi from "./posts/blood-test-kumasi.js";
 
 const ALL = [
   hba1cExplained,
@@ -87,6 +88,7 @@ const ALL = [
   fullBodyCheckupGuide,
   homeVsLabBloodTest,
   bloodTestAccra,
+  bloodTestKumasi,
 ];
 
 // Newest first. localeCompare on ISO dates (YYYY-MM-DD) sorts chronologically
