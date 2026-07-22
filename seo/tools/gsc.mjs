@@ -16,8 +16,11 @@
 //                             or domain property "sc-domain:betterhealth.africa"
 //
 // Usage:
-//   node seo/tools/gsc.mjs queries [days]   # top queries (default 28 days)
-//   node seo/tools/gsc.mjs pages   [days]   # top pages
+//   node seo/tools/gsc.mjs queries [days]        # top queries (default 28 days)
+//   node seo/tools/gsc.mjs pages   [days]        # top pages
+//   node seo/tools/gsc.mjs sitemap-status        # list submitted sitemaps + their status
+//   node seo/tools/gsc.mjs sitemap-submit <path> # submit a sitemap, e.g. "sitemap.xml"
+//   node seo/tools/gsc.mjs inspect <url>         # URL Inspection: index status for one URL
 
 import crypto from "node:crypto";
 import fs from "node:fs";
@@ -25,7 +28,8 @@ import fs from "node:fs";
 const KEY = process.env.GSC_SERVICE_ACCOUNT_JSON;
 const SITE = process.env.GSC_SITE_URL;
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
-const SCOPE = "https://www.googleapis.com/auth/webmasters.readonly";
+const SCOPE_READONLY = "https://www.googleapis.com/auth/webmasters.readonly";
+const SCOPE_FULL = "https://www.googleapis.com/auth/webmasters";
 
 function requireConfig() {
   if (!KEY || !SITE) {
@@ -82,13 +86,13 @@ function parseOrDie(raw, source) {
 const b64url = (input) =>
   Buffer.from(input).toString("base64").replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
 
-async function getAccessToken(sa) {
+async function getAccessToken(sa, scope) {
   const now = Math.floor(Date.now() / 1000);
   const header = b64url(JSON.stringify({ alg: "RS256", typ: "JWT" }));
   const claim = b64url(
     JSON.stringify({
       iss: sa.client_email,
-      scope: SCOPE,
+      scope,
       aud: TOKEN_URL,
       iat: now,
       exp: now + 3600,
@@ -125,7 +129,7 @@ function dateRange(days) {
 async function query(dimension, days) {
   requireConfig();
   const sa = loadServiceAccount();
-  const token = await getAccessToken(sa);
+  const token = await getAccessToken(sa, SCOPE_READONLY);
   const { startDate, endDate } = dateRange(days);
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/searchAnalytics/query`;
   const res = await fetch(url, {
@@ -150,11 +154,97 @@ async function query(dimension, days) {
   };
 }
 
-const [cmd, daysArg] = process.argv.slice(2);
-const days = Number(daysArg) || 28;
-const dimension = cmd === "pages" ? "page" : cmd === "queries" ? "query" : null;
-if (!dimension) {
-  console.error("Usage: gsc.mjs <queries|pages> [days]");
-  process.exit(1);
+async function sitemapStatus() {
+  requireConfig();
+  const sa = loadServiceAccount();
+  const token = await getAccessToken(sa, SCOPE_READONLY);
+  const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps`;
+  const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+  if (!res.ok) {
+    console.error(`[gsc] Sitemap status failed: HTTP ${res.status} — ${await res.text()}`);
+    process.exit(1);
+  }
+  const data = await res.json();
+  return {
+    sitemaps: (data.sitemap || []).map((s) => ({
+      path: s.path,
+      lastSubmitted: s.lastSubmitted,
+      lastDownloaded: s.lastDownloaded,
+      isPending: s.isPending,
+      isSitemapsIndex: s.isSitemapsIndex,
+      errors: s.errors,
+      warnings: s.warnings,
+      contents: s.contents,
+    })),
+  };
 }
-query(dimension, days).then((out) => console.log(JSON.stringify(out, null, 2)));
+
+async function sitemapSubmit(path) {
+  requireConfig();
+  if (!path) {
+    console.error('[gsc] Usage: gsc.mjs sitemap-submit <path>  (e.g. "sitemap.xml")');
+    process.exit(1);
+  }
+  const sa = loadServiceAccount();
+  const token = await getAccessToken(sa, SCOPE_FULL);
+  const feedUrl = new URL(path, SITE).toString();
+  const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps/${encodeURIComponent(feedUrl)}`;
+  const res = await fetch(url, { method: "PUT", headers: { Authorization: `Bearer ${token}` } });
+  if (!res.ok) {
+    console.error(`[gsc] Sitemap submit failed: HTTP ${res.status} — ${await res.text()}`);
+    process.exit(1);
+  }
+  return { submitted: feedUrl };
+}
+
+async function inspect(inspectionUrl) {
+  requireConfig();
+  if (!inspectionUrl) {
+    console.error("[gsc] Usage: gsc.mjs inspect <url>");
+    process.exit(1);
+  }
+  const sa = loadServiceAccount();
+  const token = await getAccessToken(sa, SCOPE_READONLY);
+  const res = await fetch("https://searchconsole.googleapis.com/v1/urlInspection/index:inspect", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ inspectionUrl, siteUrl: SITE }),
+  });
+  if (!res.ok) {
+    console.error(`[gsc] Inspect failed: HTTP ${res.status} — ${await res.text()}`);
+    process.exit(1);
+  }
+  const data = await res.json();
+  const result = data.inspectionResult?.indexStatusResult || {};
+  return {
+    url: inspectionUrl,
+    verdict: result.verdict,
+    coverageState: result.coverageState,
+    lastCrawlTime: result.lastCrawlTime,
+    pageFetchState: result.pageFetchState,
+    indexingState: result.indexingState,
+    robotsTxtState: result.robotsTxtState,
+    sitemap: result.sitemap,
+  };
+}
+
+const [cmd, arg] = process.argv.slice(2);
+
+const run = async () => {
+  switch (cmd) {
+    case "queries":
+      return query("query", Number(arg) || 28);
+    case "pages":
+      return query("page", Number(arg) || 28);
+    case "sitemap-status":
+      return sitemapStatus();
+    case "sitemap-submit":
+      return sitemapSubmit(arg);
+    case "inspect":
+      return inspect(arg);
+    default:
+      console.error("Usage: gsc.mjs <queries|pages> [days] | sitemap-status | sitemap-submit <path> | inspect <url>");
+      process.exit(1);
+  }
+};
+run().then((out) => console.log(JSON.stringify(out, null, 2)));
