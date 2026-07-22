@@ -1,0 +1,4 @@
+interface:
+  display_name: "BH Social Visual System"
+  short_description: "BetterHealth social image production system"
+  default_prompt: "Use $bh-social-visual-system to create a BetterHealth social visual asset."

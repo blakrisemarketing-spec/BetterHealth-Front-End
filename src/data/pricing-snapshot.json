@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-14T03:12:39.181Z",
+  "generatedAt": "2026-07-15T02:56:14.590Z",
   "panelsByCode": {
     "alpha": {
       "amount": 995,
@@ -179,9 +179,9 @@
       "formatted": "GHS 330"
     },
     "CHLAMYDIA": {
-      "amount": 175,
+      "amount": 180,
       "currency": "GHS",
-      "formatted": "GHS 175"
+      "formatted": "GHS 180"
     },
     "CK_MB": {
       "amount": 150,

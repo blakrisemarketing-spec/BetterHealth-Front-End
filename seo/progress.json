@@ -46,7 +46,7 @@
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
-  "lastWeeklyRun": "2026-07-12",
+  "lastWeeklyRun": "2026-07-19",
   "inFlightPRs": [],
   "publishedCount": 42,
   "notes": "2026-07-15 nightly run: only one todo article item existed (local-kumasi), so this run published that single article rather than a full batch of five, per the playbook's 'publish what remains, then refill' rule. blood-test-kumasi.js shipped (Komfo Anokye Teaching Hospital public-lab / private-lab / home-draw framework, matching Accra/Lagos/Nairobi), cleared clinical-safety, humanizer, and quality-floor gates (2 images, 4 internal links, 6 FAQ, ~2,250 words, zero em dashes), and the build verified correctly (Article + BreadcrumbList + FAQPage schema, sitemap.xml + llms.txt entries confirmed). Open-PR dedup check found only PR #51 open (a body-prerender bug fix, not an SEO content PR), so no claim conflicts. Ran the queue-refill pass since the todo queue had dropped to zero article items: appended 5 new South Africa-market items (art-mammogram-screening 210/mo, art-colon-cancer-screening 170/mo, art-allergy-test 880/mo, art-diabetes-test-types 480/mo, local-johannesburg 110/mo; all DataForSEO-confirmed 2026-07-15 at location 2710), closing the 'South Africa still pending' gap noted in a prior roadmap meta comment. NOTE: body prerender is still broken per PR #51 (open, unmerged) - the new Kumasi page, like all others, ships identical boilerplate body to crawlers until that lands; that + GSC access remain the two indexation blockers. A human should review and merge PR #51 when convenient."

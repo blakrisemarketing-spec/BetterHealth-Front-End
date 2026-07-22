@@ -1,0 +1,4 @@
+interface:
+  display_name: "BH Social Content Pipeline"
+  short_description: "Council-to-publish BetterHealth social workflow"
+  default_prompt: "Use $bh-social-content-pipeline to create a BetterHealth social content kit and production brief."

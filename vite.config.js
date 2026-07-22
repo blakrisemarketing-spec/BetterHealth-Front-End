@@ -124,11 +124,15 @@ const HOMEPAGE_FALLBACK =
   FALLBACK_NAV +
   '</main></div>'
 
-// Inject a no-JS body into the empty SPA root so crawlers/AI engines and the
-// first paint see real content. Blog routes get the full article HTML; marketing
-// routes get a heading + description fallback.
+// Inject a no-JS body into the SPA root so crawlers/AI engines and the first
+// paint see real content. Blog routes get the full article HTML; marketing
+// routes get a heading + description fallback. Matches the whole #root div
+// (not just an empty one) since index.html now ships a <noscript> fallback
+// inside #root — React's createRoot() replaces #root's children on mount
+// regardless of what's there, so this doesn't change client-side behavior.
+const ROOT_DIV_RE = /<div id="root">[\s\S]*?<\/div>/
 const injectBody = (html, bodyHtml) =>
-  bodyHtml ? html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`) : html
+  bodyHtml ? html.replace(ROOT_DIV_RE, `<div id="root">${bodyHtml}</div>`) : html
 
 // This is a single-page app served by Hostinger/LiteSpeed (which serves
 // dist/<route>/index.html as a directory index). Without a real per-route HTML

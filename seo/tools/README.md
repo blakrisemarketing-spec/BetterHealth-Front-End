@@ -22,8 +22,11 @@ Env: `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD`. Optional: `DFS_LOCATION_CODE`
 ## gsc.mjs (free)
 
 ```bash
-node seo/tools/gsc.mjs queries 28   # top queries, last 28 days
-node seo/tools/gsc.mjs pages   28   # top pages
+node seo/tools/gsc.mjs queries 28              # top queries, last 28 days
+node seo/tools/gsc.mjs pages   28              # top pages
+node seo/tools/gsc.mjs sitemap-status          # list submitted sitemaps + crawl/error status
+node seo/tools/gsc.mjs sitemap-submit sitemap.xml   # (re)submit a sitemap
+node seo/tools/gsc.mjs inspect <url>           # URL Inspection: live index status for one URL
 ```
 
 Env: `GSC_SERVICE_ACCOUNT_JSON` (the service-account key — see formats below),
@@ -33,7 +36,11 @@ Env: `GSC_SERVICE_ACCOUNT_JSON` (the service-account key — see formats below),
 **Setup:** In Google Cloud, create a service account and a JSON key. Enable the
 "Google Search Console API". In Search Console → Settings → Users and permissions,
 add the service account's `client_email` as a user with at least "Restricted"
-(read) access on the property.
+(read) access on the property — `queries`, `pages`, `sitemap-status`, and `inspect`
+all work with read-only access. `sitemap-submit` is a write operation: it requests
+the full `webmasters` scope at call time, so the service account needs **"Full"**
+permission on the property for that one command (it already has this — see the
+Users and permissions screen).
 
 **Storing the key in an env var (base64 — recommended).** The downloaded key is
 pretty-printed JSON with real line breaks, and single-line env-var fields (the
