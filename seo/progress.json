@@ -45,7 +45,7 @@
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
-  "lastWeeklyRun": "2026-07-12",
+  "lastWeeklyRun": "2026-07-19",
   "inFlightPRs": [],
   "publishedCount": 41,
   "notes": "2026-07-14 CONSOLIDATION PR (seo/consolidated-2026-07-14): merges the three well-behaved nightly batches #44 (2026-07-11), #45 (2026-07-12), #48 (2026-07-13) plus the W29 weekly report + roadmap reprioritization (#46) into one atomic PR. The dedup + backlog-guard fixes from the 2026-07-10 skill update worked: the three batches had ZERO slug overlap, and the 2026-07-14 run correctly published nothing (backlog guard) rather than duplicating. 15 articles shipped, all cleared per-article clinical-safety + humanizer + quality-floor gates (each has 2 images, 4 internal links, 5-7 FAQ, zero em dashes); the two high-risk clinical pieces (art-g6pd drug-trigger safety, art-antenatal-tests) reviewed accurate and anti-self-medication. roadmap.yml carries #46's reprioritization + volume write-back correction (g6pd 390, urinalysis 110, nairobi 40, etc. now persisted). PRs #44, #45, #46, #48, #49 to be closed once this merges. Only local-kumasi remains as a todo article/local item (below the 10-item threshold) so the NEXT nightly run should trigger the queue-refill pass before drafting. NOTE: body prerender is still broken (vite.config.js injectBody targets an empty #root that no longer exists) - these 15 pages, like all others, ship identical boilerplate body to crawlers until that is fixed; that + GSC access remain the two indexation blockers."
