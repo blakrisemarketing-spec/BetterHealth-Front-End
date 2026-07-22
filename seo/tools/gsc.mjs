@@ -187,7 +187,19 @@ async function sitemapSubmit(path) {
   }
   const sa = loadServiceAccount();
   const token = await getAccessToken(sa, SCOPE_FULL);
-  const feedUrl = new URL(path, SITE).toString();
+  // Resolve the sitemap feed URL. A URL-prefix property (https://host/) can serve
+  // as the base for a relative path, but a domain property (sc-domain:host) has no
+  // scheme to resolve against — `new URL("sitemap.xml", "sc-domain:host")` throws.
+  // Accept an already-absolute URL as-is; otherwise derive https://<host>/<path>
+  // for a domain property, or resolve against the property URL for a prefix one.
+  let feedUrl;
+  if (/^https?:\/\//i.test(path)) {
+    feedUrl = path;
+  } else if (SITE.startsWith("sc-domain:")) {
+    feedUrl = new URL(path.replace(/^\//, ""), `https://${SITE.slice("sc-domain:".length)}/`).toString();
+  } else {
+    feedUrl = new URL(path, SITE).toString();
+  }
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps/${encodeURIComponent(feedUrl)}`;
   const res = await fetch(url, { method: "PUT", headers: { Authorization: `Bearer ${token}` } });
   if (!res.ok) {
