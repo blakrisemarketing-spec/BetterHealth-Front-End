@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-16
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria — these were reported confirmed on 2026-07-05 but the volume fields were never written back to this file; corrected this week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra still show no DataForSEO data. 2026-07-16 queue-refill pass confirmed syphilis test 140/mo Ghana, sperm count test 320/mo Nigeria, diabetes test 50/mo Ghana, and South Africa's first two data points: blood test Johannesburg 110/mo (MEDIUM competition) and blood test Durban 70/mo (LOW competition). breast cancer screening 70/mo Ghana confirmed but flagged: not in BetterHealth's current test catalogue, educational-only framing required. Abuja/Port Harcourt/Mombasa/Kisumu local pages and tuberculosis test still show no DataForSEO volume, added anyway per the curated-seed fallback rule.)"
+  updated: 2026-07-19
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo — these were reported confirmed on 2026-07-05/07-12 but the volume fields were never written back to this file; corrected this week (see weekly-2026-W29 note about the same recurring write-back gap). h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data (2026-07-19 re-checked: still no data). South Africa still pending)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -203,7 +203,7 @@ items:
     cluster: biomarkers
     slug: liver-function-tests-explained
     keyword: liver function test results explained
-    volume: null
+    volume: 10
     intent: informational
     title: "Liver Function Tests (ALT, AST): What the Numbers Mean"
     status: done
@@ -223,7 +223,7 @@ items:
     slug: malaria-test-explained
     keyword: malaria test
     market: pan-africa
-    volume: null
+    volume: 320
     secondary: ["malaria rapid diagnostic test", "malaria blood film", "malaria parasite count", "how is malaria diagnosed"]
     intent: informational
     title: "Malaria Testing: RDT vs Blood Film, and How to Read the Result"
@@ -237,7 +237,7 @@ items:
     slug: typhoid-widal-test
     keyword: widal test
     market: pan-africa
-    volume: null
+    volume: 1000
     secondary: ["typhoid test", "widal test interpretation", "typhoid fever diagnosis", "widal test positive meaning"]
     intent: informational
     title: "Typhoid and the Widal Test: What a Positive Result Really Means"
@@ -251,7 +251,7 @@ items:
     slug: hepatitis-b-test
     keyword: hepatitis B test
     market: pan-africa
-    volume: null
+    volume: 110
     secondary: ["HBsAg test", "hepatitis B symptoms", "hepatitis B vaccine", "hepatitis B treatment"]
     intent: informational
     title: "Hepatitis B Test (HBsAg): Screening, Results, and Next Steps"
@@ -562,14 +562,83 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Kumasi: Your Options"
-    status: todo
-    notes: "Claimed by open PR #52 (2026-07-15, branch claude/hopeful-johnson-l8zjzz) as of 2026-07-16; excluded from this run's batch selection per the open-PR dedup rule. Flip to done once that PR merges."
+    status: done
+    completed: 2026-07-15
+    notes: "Published 2026-07-15. blood test Kumasi: no confirmed DataForSEO volume (checked 2026-07-15); ideas query returned no data either. Same three-route framework (public hospital/KATH, private lab, home draw) as Accra/Lagos/Nairobi, Kumasi/Ashanti Region framing. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ Q&As."
 
   # ==========================================================================
-  # Queue refill (added 2026-07-16) — todo queue had only 1 item (local-kumasi,
-  # already claimed by an open PR), triggering the refill pass. New DataForSEO
-  # volumes confirmed 2026-07-16 (Ghana 2288 / Nigeria 2566 / South Africa 2710).
-  # Appended in priority order; never reorder done items above.
+  # Queue refill (added 2026-07-15) — South Africa market entry. South Africa
+  # DataForSEO volumes were flagged "still pending" in the meta note above; these
+  # five close that gap with confirmed location-2710 volumes. Appended below the
+  # existing queue per the queue-refill pass (fewer than 10 todo article items
+  # remained after local-kumasi shipped).
+  # ==========================================================================
+  - id: art-mammogram-screening
+    type: article
+    cluster: screening
+    slug: mammogram-breast-cancer-screening
+    keyword: mammogram screening
+    market: south-africa
+    volume: 210
+    secondary: ["mammogram near me (1000/mo)", "free mammograms at dischem (590/mo)", "do mammograms hurt (140/mo)", "mammogram age (70/mo)"]
+    intent: informational
+    title: "Mammogram Screening: What to Expect and When to Start"
+    status: todo
+    notes: "mammogram screening 210/mo South Africa, LOW competition; mammogram near me 1000/mo (DataForSEO, confirmed 2026-07-15). Breast cancer screening is a strong AI-citation and commercial-intent opportunity; cover screening age guidance, what a mammogram involves, pairing with pap-smear-cervical-screening as the women's cancer-screening cluster."
+  - id: art-colon-cancer-screening
+    type: article
+    cluster: screening
+    slug: colon-cancer-screening-test
+    keyword: colon cancer screening
+    market: south-africa
+    volume: 170
+    secondary: ["colorectal cancer symptoms", "stool occult blood test", "colonoscopy vs stool test"]
+    intent: informational
+    title: "Colon Cancer Screening: Stool Tests, Colonoscopy, and When to Start"
+    status: todo
+    notes: "colon cancer screening 170/mo South Africa, LOW competition (DataForSEO, confirmed 2026-07-15). Cross-link with stool-test-explained (occult blood) and psa-prostate-test / pap-smear-cervical-screening as part of the cancer-screening cluster."
+  - id: art-allergy-test
+    type: article
+    cluster: biomarkers
+    slug: allergy-test-explained
+    keyword: allergy test
+    market: south-africa
+    volume: 880
+    secondary: ["allergy symptoms", "food allergy test", "skin prick test vs blood allergy test"]
+    intent: informational
+    title: "Allergy Testing: Skin Prick vs Blood Test, and What Results Mean"
+    status: todo
+    notes: "allergy test 880/mo South Africa, MEDIUM competition (DataForSEO, confirmed 2026-07-15). Highest-volume unpublished keyword in the refill batch. Cover IgE blood testing vs skin prick testing, common allergen panels, and when a GP referral to an allergist is the right next step."
+  - id: art-diabetes-test-types
+    type: article
+    cluster: decision
+    slug: diabetes-test-types-explained
+    keyword: diabetes test
+    market: south-africa
+    volume: 480
+    secondary: ["how to test for diabetes at home (170/mo)", "diabetes test results (110/mo)", "diabetes test name (10/mo)"]
+    intent: commercial
+    title: "Diabetes Testing: Which Test Do You Actually Need?"
+    status: done
+    completed: 2026-07-16
+    notes: "Published 2026-07-16 (PR #53, id was art-diabetes-test in that batch). diabetes test 480/mo South Africa, HIGH competition (DataForSEO, confirmed 2026-07-15/16). Decision-intent angle distinct from fasting-blood-sugar-explained: compares fasting glucose vs HbA1c vs OGTT vs home glucometer. Cross-links fasting-blood-sugar-explained and prediabetes-warning-signs."
+  - id: local-johannesburg
+    type: article
+    cluster: local
+    slug: blood-test-johannesburg
+    keyword: blood test Johannesburg
+    market: south-africa
+    volume: 110
+    intent: local
+    title: "Blood Tests and Health Screening in Johannesburg: Your Options"
+    status: done
+    completed: 2026-07-16
+    notes: "Published 2026-07-16 (PR #53). blood test Johannesburg 110/mo, MEDIUM competition (DataForSEO, confirmed 2026-07-15/16). First South Africa local landing page; Accra/Lagos/Nairobi/Kumasi three-route format, medical aid (not NHIS) framing kept general and hedged."
+
+  # ==========================================================================
+  # Nightly batch 2026-07-16 (PR #53) — published from the 2026-07-16 refill.
+  # syphilis / sperm-count / durban shipped here; johannesburg + diabetes-test
+  # (above) were also part of this batch and are flipped to done in place.
   # ==========================================================================
   - id: art-syphilis-test
     type: article
@@ -599,19 +668,6 @@ items:
     completed: 2026-07-16
     notes: "sperm count test 320/mo Nigeria (DataForSEO ideas endpoint, confirmed 2026-07-16); related 'normal sperm count to get pregnant' 590/mo. BetterHealth offers Sperm & Semen Health / the Him-Her Fertility Test per src/data/content.js. Handle with the same dignity/no-shame framing established in pap-smear-cervical-screening.js."
 
-  - id: local-johannesburg
-    type: article
-    cluster: local
-    slug: blood-test-johannesburg
-    keyword: blood test Johannesburg
-    market: south-africa
-    volume: 110
-    intent: local
-    title: "Blood Tests and Health Screening in Johannesburg: Your Options"
-    status: done
-    completed: 2026-07-16
-    notes: "blood test Johannesburg 110/mo South Africa, MEDIUM competition (DataForSEO, confirmed 2026-07-16). First South-Africa-market page on the site; use the same three-route framework (public hospital, private lab, home draw) established for Accra/Lagos/Nairobi/Kumasi, with SA-specific framing (medical aid vs private pay, NHI context kept general and hedged)."
-
   - id: local-durban
     type: article
     cluster: local
@@ -625,20 +681,10 @@ items:
     completed: 2026-07-16
     notes: "blood test Durban 70/mo South Africa, LOW competition (DataForSEO, confirmed 2026-07-16)."
 
-  - id: art-diabetes-test
-    type: article
-    cluster: biomarkers
-    slug: diabetes-test-types-explained
-    keyword: diabetes test
-    market: ghana
-    volume: 50
-    secondary: ["types of blood sugar test (40)", "how to test for diabetes at home (20)", "diabetes test name (10)"]
-    intent: informational
-    title: "Diabetes Tests Explained: Fasting Glucose, HbA1c, and OGTT Compared"
-    status: done
-    completed: 2026-07-16
-    notes: "diabetes test 50/mo Ghana, LOW competition (DataForSEO, confirmed 2026-07-16). Hub article comparing the diabetes test types head-to-head; cross-link fasting-blood-sugar-explained, hba1c-explained, and prediabetes-warning-signs rather than duplicating them."
-
+  # ==========================================================================
+  # Queue refill (added 2026-07-16, PR #53) — todo candidates from the same
+  # refill pass. Never reorder done items above.
+  # ==========================================================================
   - id: art-breast-cancer-screening
     type: article
     cluster: screening
