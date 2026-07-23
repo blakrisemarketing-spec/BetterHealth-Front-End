@@ -147,6 +147,10 @@ export default {
       label: "Another major infectious disease test explained: malaria RDT vs blood film",
     },
     {
+      type: "p",
+      text: "A confirmed diagnosis of active TB is not the end of the story, and it helps to know roughly what comes next. Standard first-line treatment is a multidrug course, typically lasting around six months, and the drugs work together precisely because TB bacteria can develop resistance to any single medicine used on its own. Many national TB programmes across Africa support patients through directly observed therapy, where a health worker confirms each dose is taken, because finishing the full course, not just feeling better partway through, is what actually clears the infection and prevents drug-resistant TB from developing.",
+    },
+    {
       type: "h2",
       id: "what-to-do",
       text: "Anyone with a cough lasting more than two to three weeks, unexplained weight loss, night sweats, or known contact with a person who has active TB should see a doctor for proper evaluation rather than waiting it out",

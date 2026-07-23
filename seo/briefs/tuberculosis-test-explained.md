@@ -4,7 +4,7 @@
 - **Market:** Pan-Africa (continental framing; no single home market)
 - **Primary keyword:** tuberculosis test (no confirmed standalone search volume in Ghana per DataForSEO ideas check, 2026-07-23; deliberate low-volume/high-authority pick for AI-citation value given TB's disease burden across sub-Saharan Africa per WHO, not an error)
 - **Secondary keywords:** TB test, sputum test for TB, GeneXpert test, tuberculin skin test, TB skin test, IGRA test, latent TB vs active TB, TB and HIV testing
-- **Intent:** informational (disease-testing/diagnostic-education, explicitly NOT the visa-medical-exam booking intent that the same DataForSEO check surfaced, e.g. "IOM TB test online booking", "TB test for UK visa in Kumasi" — those are a different intent and were deliberately not chased)
+- **Intent:** informational (disease-testing/diagnostic-education, explicitly NOT the visa-medical-exam booking intent that the same DataForSEO check surfaced, e.g. "IOM TB test online booking", "TB test for UK visa in Kumasi"; those are a different intent and were deliberately not chased)
 - **Cluster:** conditions
 
 ## Angle
