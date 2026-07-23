@@ -22,7 +22,7 @@ export default {
   slug: "tuberculosis-test-explained",
   title: "Tuberculosis Testing: Sputum, Skin, and Blood Tests Explained",
   description:
-    "TB is confirmed with a sputum test, not a skin or blood test alone. Learn what sputum smear microscopy, GeneXpert, TST, IGRA and chest X-ray each check, and why latent and active TB are not the same thing.",
+    "TB is confirmed with a sputum test, not a skin or blood test alone. Learn what each TB test checks, and why latent and active TB are not the same thing.",
   excerpt:
     "A positive TB skin test and a positive sputum test do not mean the same thing. Here is what each tuberculosis test actually checks, and why the latent-versus-active distinction matters so much.",
   datePublished: "2026-07-23",
