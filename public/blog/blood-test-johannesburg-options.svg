@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="560" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Three ways to get a blood test in Johannesburg</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Pick the option that fits your budget, your medical aid status, and how urgent the result is.</text>
+
+  <!-- three columns -->
+  <rect x="70" y="118" width="340" height="390" rx="14" fill="#F5F3EE"/>
+  <rect x="430" y="118" width="340" height="390" rx="14" fill="#F1F4F2"/>
+  <rect x="790" y="118" width="340" height="390" rx="14" fill="#F5F3EE"/>
+
+  <text x="100" y="158" font-size="22" font-weight="700" fill="#2B3A3A">Public hospital lab</text>
+  <text x="100" y="192" font-size="15" fill="#6B7979">Served by the public health</text>
+  <text x="100" y="214" font-size="15" fill="#6B7979">system, regardless of cover</text>
+  <text x="100" y="242" font-size="15" fill="#6B7979">Attached to a consultation</text>
+  <text x="100" y="270" font-size="15" fill="#6B7979">Demand can mean longer</text>
+  <text x="100" y="292" font-size="15" fill="#6B7979">queues at busy sites</text>
+  <text x="100" y="360" font-size="15" font-weight="700" fill="#6B8E7F">Best for: care already</text>
+  <text x="100" y="382" font-size="15" font-weight="700" fill="#6B8E7F">happening in the public system</text>
+
+  <text x="460" y="158" font-size="22" font-weight="700" fill="#2B3A3A">Private pathology lab</text>
+  <text x="460" y="192" font-size="15" fill="#6B7979">Walk-in branches across</text>
+  <text x="460" y="214" font-size="15" fill="#6B7979">Johannesburg</text>
+  <text x="460" y="242" font-size="15" fill="#6B7979">Usually paid via medical aid</text>
+  <text x="460" y="264" font-size="15" fill="#6B7979">or direct payment</text>
+  <text x="460" y="292" font-size="15" fill="#6B7979">Broad menu of routine tests</text>
+  <text x="460" y="360" font-size="15" font-weight="700" fill="#6B8E7F">Best for: routine and</text>
+  <text x="460" y="382" font-size="15" font-weight="700" fill="#6B8E7F">self-requested panels</text>
+
+  <text x="820" y="158" font-size="22" font-weight="700" fill="#2B3A3A">Home sample collection</text>
+  <text x="820" y="192" font-size="15" fill="#6B7979">A phlebotomist comes to you</text>
+  <text x="820" y="220" font-size="15" fill="#6B7979">No travel through city traffic</text>
+  <text x="820" y="248" font-size="15" fill="#6B7979">Booked ahead for a time slot</text>
+  <text x="820" y="276" font-size="15" fill="#6B7979">Sample still goes to an</text>
+  <text x="820" y="298" font-size="15" fill="#6B7979">accredited lab for processing</text>
+  <text x="820" y="360" font-size="15" font-weight="700" fill="#6B8E7F">Best for: full panels and</text>
+  <text x="820" y="382" font-size="15" font-weight="700" fill="#6B8E7F">busy schedules</text>
+
+  <text x="70" y="536" font-size="13" fill="#9AA6A6">General guidance. Availability, cost, and turnaround vary by facility. Confirm details when you book.</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="150" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">BLOOD TESTING IN JOHANNESBURG</text>
+  <text x="86" y="230" font-size="52" font-weight="800" fill="#2B3A3A">Where to test, what</text>
+  <text x="86" y="292" font-size="52" font-weight="800" fill="#2B3A3A">to expect</text>
+  <text x="90" y="340" font-size="24" fill="#6B7979">Public hospitals, private pathology labs, and home collection across the city.</text>
+
+  <!-- simple map-pin cluster motif -->
+  <g fill="#6B8E7F">
+    <path d="M 980 250 c 0 -22 -18 -40 -40 -40 s -40 18 -40 40 c 0 28 40 66 40 66 s 40 -38 40 -66 z" opacity="0.85"/>
+    <circle cx="940" cy="248" r="13" fill="#F5F3EE"/>
+  </g>
+  <g fill="#6B8E7F">
+    <path d="M 1080 320 c 0 -16 -13 -29 -29 -29 s -29 13 -29 29 c 0 20 29 48 29 48 s 29 -28 29 -48 z" opacity="0.6"/>
+    <circle cx="1051" cy="318" r="9" fill="#F5F3EE"/>
+  </g>
+  <g fill="#6B8E7F">
+    <path d="M 890 360 c 0 -13 -11 -24 -24 -24 s -24 11 -24 24 c 0 17 24 40 24 40 s 24 -23 24 -40 z" opacity="0.45"/>
+    <circle cx="866" cy="358" r="7" fill="#F5F3EE"/>
+  </g>
+</svg>

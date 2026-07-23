@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-15",
+  "lastRunDate": "2026-07-16",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -41,13 +41,18 @@
     "art-full-body-checkup",
     "art-home-vs-lab",
     "local-accra",
-    "local-kumasi"
+    "local-kumasi",
+    "art-syphilis-test",
+    "art-sperm-count-fertility",
+    "local-johannesburg",
+    "local-durban",
+    "art-diabetes-test-types"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-19",
   "inFlightPRs": [],
-  "publishedCount": 42,
-  "notes": "2026-07-15 nightly run: only one todo article item existed (local-kumasi), so this run published that single article rather than a full batch of five, per the playbook's 'publish what remains, then refill' rule. blood-test-kumasi.js shipped (Komfo Anokye Teaching Hospital public-lab / private-lab / home-draw framework, matching Accra/Lagos/Nairobi), cleared clinical-safety, humanizer, and quality-floor gates (2 images, 4 internal links, 6 FAQ, ~2,250 words, zero em dashes), and the build verified correctly (Article + BreadcrumbList + FAQPage schema, sitemap.xml + llms.txt entries confirmed). Open-PR dedup check found only PR #51 open (a body-prerender bug fix, not an SEO content PR), so no claim conflicts. Ran the queue-refill pass since the todo queue had dropped to zero article items: appended 5 new South Africa-market items (art-mammogram-screening 210/mo, art-colon-cancer-screening 170/mo, art-allergy-test 880/mo, art-diabetes-test-types 480/mo, local-johannesburg 110/mo; all DataForSEO-confirmed 2026-07-15 at location 2710), closing the 'South Africa still pending' gap noted in a prior roadmap meta comment. NOTE: body prerender is still broken per PR #51 (open, unmerged) - the new Kumasi page, like all others, ships identical boilerplate body to crawlers until that lands; that + GSC access remain the two indexation blockers. A human should review and merge PR #51 when convenient."
+  "publishedCount": 47,
+  "notes": "2026-07-22 backlog reconciliation: merged the pending nightly content PRs onto main after the indexation fixes landed. PR #52 (blood-test-kumasi) merged first, then PR #53's 2026-07-16 batch of 5 (syphilis-test-explained, sperm-count-fertility-test, blood-test-johannesburg, blood-test-durban, diabetes-test-types-explained). PR #52 and PR #53 had each run an independent queue-refill, producing overlapping South Africa roadmap items; reconciled so every published slug appears exactly once as done (johannesburg + diabetes-test-types flipped from #52's todo entries to done; syphilis/sperm-count/durban added as done) and #52's + #53's distinct todo refill candidates both retained (mammogram/colon-cancer/allergy from #52; breast-cancer/tuberculosis/abuja/port-harcourt/mombasa/kisumu from #53). The body-prerender bug these batches were drafted under is now FIXED (PR #60, merged + deployed) and GSC access is resolved, so unlike when these were drafted, the pages now ship real per-article content to crawlers. npm run build green; all published dist/blog/<slug>/index.html carry the right Article+BreadcrumbList+FAQPage schema and appear in sitemap.xml + llms.txt. PR #54 (2026-07-17 batch) reconciled next."
 }

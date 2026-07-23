@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="900" fill="#FFFFFF"/>
+  <text x="70" y="58" font-size="30" font-weight="700" fill="#2B3A3A">What a semen analysis measures</text>
+  <text x="70" y="90" font-size="18" fill="#6B7979">WHO lower reference limits (5th percentile). These are floors, not targets to beat.</text>
+
+  <!-- Row 1: Volume -->
+  <line x1="70" y1="118" x2="1130" y2="118" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="152" font-size="20" font-weight="700" fill="#2B3A3A">Volume</text>
+  <text x="70" y="174" font-size="15" fill="#6B7979">How much semen is collected per ejaculate</text>
+  <rect x="870" y="134" width="190" height="34" rx="17" fill="#E4EDE8"/>
+  <text x="965" y="157" font-size="16" font-weight="700" fill="#4C6B5D" text-anchor="middle">1.5 mL or more</text>
+
+  <!-- Row 2: Concentration -->
+  <line x1="70" y1="196" x2="1130" y2="196" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="230" font-size="20" font-weight="700" fill="#2B3A3A">Concentration</text>
+  <text x="70" y="252" font-size="15" fill="#6B7979">Sperm per millilitre of semen</text>
+  <rect x="870" y="212" width="190" height="34" rx="17" fill="#E4EDE8"/>
+  <text x="965" y="235" font-size="16" font-weight="700" fill="#4C6B5D" text-anchor="middle">15 million/mL or more</text>
+
+  <!-- Row 3: Total count -->
+  <line x1="70" y1="274" x2="1130" y2="274" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="308" font-size="20" font-weight="700" fill="#2B3A3A">Total count</text>
+  <text x="70" y="330" font-size="15" fill="#6B7979">Total sperm across the whole sample</text>
+  <rect x="870" y="290" width="190" height="34" rx="17" fill="#E4EDE8"/>
+  <text x="965" y="313" font-size="16" font-weight="700" fill="#4C6B5D" text-anchor="middle">39 million or more</text>
+
+  <!-- Row 4: Total motility -->
+  <line x1="70" y1="352" x2="1130" y2="352" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="386" font-size="20" font-weight="700" fill="#2B3A3A">Total motility</text>
+  <text x="70" y="408" font-size="15" fill="#6B7979">Share of sperm that are moving at all</text>
+  <rect x="870" y="368" width="190" height="34" rx="17" fill="#E4EDE8"/>
+  <text x="965" y="391" font-size="16" font-weight="700" fill="#4C6B5D" text-anchor="middle">40% or more</text>
+
+  <!-- Row 5: Progressive motility -->
+  <line x1="70" y1="430" x2="1130" y2="430" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="464" font-size="20" font-weight="700" fill="#2B3A3A">Progressive motility</text>
+  <text x="70" y="486" font-size="15" fill="#6B7979">Share swimming forward in a fairly straight line</text>
+  <rect x="870" y="446" width="190" height="34" rx="17" fill="#E4EDE8"/>
+  <text x="965" y="469" font-size="16" font-weight="700" fill="#4C6B5D" text-anchor="middle">32% or more</text>
+
+  <!-- Row 6: Vitality -->
+  <line x1="70" y1="508" x2="1130" y2="508" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="542" font-size="20" font-weight="700" fill="#2B3A3A">Vitality</text>
+  <text x="70" y="564" font-size="15" fill="#6B7979">Share of sperm that are alive</text>
+  <rect x="870" y="524" width="190" height="34" rx="17" fill="#E4EDE8"/>
+  <text x="965" y="547" font-size="16" font-weight="700" fill="#4C6B5D" text-anchor="middle">58% or more</text>
+
+  <!-- Row 7: Morphology -->
+  <line x1="70" y1="586" x2="1130" y2="586" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="620" font-size="20" font-weight="700" fill="#2B3A3A">Normal morphology</text>
+  <text x="70" y="642" font-size="15" fill="#6B7979">Share of sperm with a typical shape</text>
+  <rect x="870" y="602" width="190" height="34" rx="17" fill="#E4EDE8"/>
+  <text x="965" y="625" font-size="16" font-weight="700" fill="#4C6B5D" text-anchor="middle">4% or more</text>
+
+  <!-- Row 8: pH -->
+  <line x1="70" y1="664" x2="1130" y2="664" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="698" font-size="20" font-weight="700" fill="#2B3A3A">pH</text>
+  <text x="70" y="720" font-size="15" fill="#6B7979">How acidic or alkaline the sample is</text>
+  <rect x="870" y="680" width="190" height="34" rx="17" fill="#E4EDE8"/>
+  <text x="965" y="703" font-size="16" font-weight="700" fill="#4C6B5D" text-anchor="middle">7.2 or higher</text>
+
+  <!-- Row 9: Liquefaction -->
+  <line x1="70" y1="742" x2="1130" y2="742" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="776" font-size="20" font-weight="700" fill="#2B3A3A">Liquefaction</text>
+  <text x="70" y="798" font-size="15" fill="#6B7979">Time for the sample to turn from gel to liquid</text>
+  <rect x="870" y="758" width="190" height="34" rx="17" fill="#E4EDE8"/>
+  <text x="965" y="781" font-size="16" font-weight="700" fill="#4C6B5D" text-anchor="middle">Within 60 minutes</text>
+
+  <line x1="70" y1="816" x2="1130" y2="816" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="850" font-size="15" fill="#9AA6A6">Figures reflect WHO's widely used lower reference limits (5th percentile), not an average or a pass mark.</text>
+  <text x="70" y="874" font-size="15" fill="#9AA6A6">Some labs still reference older cutoffs. Always check the range printed on your own lab report.</text>
+</svg>
