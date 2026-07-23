@@ -9,7 +9,7 @@
   <rect width="1200" height="480" fill="#F5F3EE"/>
   <circle cx="1020" cy="150" r="320" fill="url(#orb-colon)"/>
 
-  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">SCREENING &middot; DIGESTIVE HEALTH</text>
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">SCREENING &#183; DIGESTIVE HEALTH</text>
   <text x="86" y="248" font-size="50" font-weight="800" fill="#2B3A3A">Colon Cancer Screening</text>
   <text x="90" y="300" font-size="26" fill="#6B7979">Stool tests, colonoscopy, and when to start</text>
 
