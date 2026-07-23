@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">What happens during a mammogram, step by step</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">A standard screening mammogram usually takes about 20 minutes from check-in to done.</text>
+
+  <!-- connecting line -->
+  <line x1="130" y1="200" x2="1090" y2="200" stroke="#E8E3DA" stroke-width="4"/>
+
+  <!-- step 1 -->
+  <circle cx="130" cy="200" r="26" fill="#6B8E7F"/>
+  <text x="130" y="208" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+  <text x="130" y="260" font-size="17" font-weight="700" fill="#2B3A3A" text-anchor="middle">Positioning</text>
+  <text x="130" y="286" font-size="14" fill="#6B7979" text-anchor="middle">A radiographer places</text>
+  <text x="130" y="306" font-size="14" fill="#6B7979" text-anchor="middle">your breast on a flat</text>
+  <text x="130" y="326" font-size="14" fill="#6B7979" text-anchor="middle">plate, one side at a time.</text>
+
+  <!-- step 2 -->
+  <circle cx="450" cy="200" r="26" fill="#6B8E7F"/>
+  <text x="450" y="208" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+  <text x="450" y="260" font-size="17" font-weight="700" fill="#2B3A3A" text-anchor="middle">Compression</text>
+  <text x="450" y="286" font-size="14" fill="#6B7979" text-anchor="middle">A second plate presses</text>
+  <text x="450" y="306" font-size="14" fill="#6B7979" text-anchor="middle">down for a few seconds.</text>
+  <text x="450" y="326" font-size="14" fill="#6B7979" text-anchor="middle">Brief and often uncomfortable.</text>
+
+  <!-- step 3 -->
+  <circle cx="770" cy="200" r="26" fill="#6B8E7F"/>
+  <text x="770" y="208" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+  <text x="770" y="260" font-size="17" font-weight="700" fill="#2B3A3A" text-anchor="middle">X-ray, two angles</text>
+  <text x="770" y="286" font-size="14" fill="#6B7979" text-anchor="middle">A low-dose image is taken,</text>
+  <text x="770" y="306" font-size="14" fill="#6B7979" text-anchor="middle">then repeated from the side</text>
+  <text x="770" y="326" font-size="14" fill="#6B7979" text-anchor="middle">for each breast.</text>
+
+  <!-- step 4 -->
+  <circle cx="1090" cy="200" r="26" fill="#6B8E7F"/>
+  <text x="1090" y="208" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+  <text x="1090" y="260" font-size="17" font-weight="700" fill="#2B3A3A" text-anchor="middle">Review</text>
+  <text x="1090" y="286" font-size="14" fill="#6B7979" text-anchor="middle">A radiologist reads the</text>
+  <text x="1090" y="306" font-size="14" fill="#6B7979" text-anchor="middle">images and your result is</text>
+  <text x="1090" y="326" font-size="14" fill="#6B7979" text-anchor="middle">sent to your doctor.</text>
+
+  <line x1="70" y1="368" x2="1130" y2="368" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="70" y="404" font-size="16" fill="#2B3A3A" font-weight="700">Each compression usually lasts only a few seconds per view.</text>
+  <text x="70" y="430" font-size="15" fill="#6B7979">Timing the exam to a week or two after your period can reduce tenderness for some women.</text>
+</svg>

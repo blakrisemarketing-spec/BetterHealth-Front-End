@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Colon cancer screening explained: stool tests, colonoscopy, and when to start" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Colon Cancer Screening: Stool Tests, Colonoscopy, and When to Start</title>
+  <defs>
+    <radialGradient id="orb-colon" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1020" cy="150" r="320" fill="url(#orb-colon)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">SCREENING &middot; DIGESTIVE HEALTH</text>
+  <text x="86" y="248" font-size="50" font-weight="800" fill="#2B3A3A">Colon Cancer Screening</text>
+  <text x="90" y="300" font-size="26" fill="#6B7979">Stool tests, colonoscopy, and when to start</text>
+
+  <rect x="90" y="340" width="164" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="172" y="367" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Stool test</text>
+
+  <rect x="268" y="340" width="164" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="350" y="367" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Colonoscopy</text>
+
+  <rect x="446" y="340" width="180" height="42" rx="21" fill="#E0A23E"/>
+  <text x="536" y="367" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Age 45+ guidance</text>
+
+  <!-- decorative colon loop motif, kept simple and non-clinical -->
+  <g opacity="0.85">
+    <path d="M 1000 120 Q 1080 120 1080 180 Q 1080 240 1010 240 Q 950 240 950 190 Q 950 150 990 150 Q 1030 150 1030 180"
+      fill="none" stroke="#6B8E7F" stroke-width="14" stroke-linecap="round" opacity="0.5"/>
+    <circle cx="1080" cy="120" r="7" fill="#2B3A3A" opacity="0.3"/>
+  </g>
+  <circle cx="1130" cy="300" r="6" fill="#2B3A3A" opacity="0.18"/>
+  <circle cx="900" cy="360" r="5" fill="#2B3A3A" opacity="0.14"/>
+</svg>
