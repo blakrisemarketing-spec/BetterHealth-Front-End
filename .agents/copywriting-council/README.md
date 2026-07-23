@@ -1,10 +1,16 @@
 # Copywriting Council
 
-This folder documents the BetterHealth copywriting council that is published in Workspace Agents.
+This folder documents the BetterHealth copywriting council that is published in Workspace Agents and packaged for reuse from this repository.
 
 The council is intentionally split into separate book-lens agents rather than one blended copywriting agent. Each specialist reasons from one book or framework, then the Council Chair synthesizes their outputs into a final recommendation.
 
-Last synced: 2026-07-13
+Last synced: 2026-07-19
+
+## Portability
+
+The workspace IDs below work only in OpenAI Workspace Agents. The Council method itself is platform-neutral: any agent can use the named book lenses as separate review passes, record them with [`../content-pipeline/templates/council-review.md`](../content-pipeline/templates/council-review.md), and perform the final Chair synthesis.
+
+For the full content workflow, start with [`../content-pipeline/PLAYBOOK.md`](../content-pipeline/PLAYBOOK.md).
 
 ## Architecture
 
@@ -58,4 +64,3 @@ For a major landing-page or campaign task, a strong default panel is:
 - They should not claim access to full book text unless source material is provided.
 - Health, medical, legal, and financial claims must stay careful and supportable.
 - If proof is missing, the agents should flag the proof gap rather than fill it with invented evidence.
-

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-label="Comparison of four diabetes tests: fasting glucose, random glucose, HbA1c, and the oral glucose tolerance test, showing what each measures and the diagnostic cutoff for diabetes">
+  <title>Diabetes Tests Compared</title>
+  <rect width="900" height="460" fill="#F9FAFB" rx="12"/>
+
+  <text x="450" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="bold" fill="#111827">Four Diabetes Tests Compared</text>
+  <text x="450" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">WHO / ADA diagnostic cutoffs for diabetes</text>
+
+  <!-- column headers -->
+  <text x="34" y="86" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#374151">TEST</text>
+  <text x="230" y="86" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#374151">WHAT IT MEASURES</text>
+  <text x="560" y="86" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#374151">FASTING?</text>
+  <text x="680" y="86" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#374151">DIABETES CUTOFF</text>
+  <line x1="24" y1="96" x2="876" y2="96" stroke="#D1D5DB" stroke-width="1.5"/>
+
+  <!-- Row 1: Fasting glucose -->
+  <rect x="24" y="108" width="14" height="14" rx="3" fill="#16A34A"/>
+  <text x="46" y="120" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#111827">Fasting glucose</text>
+  <text x="230" y="120" font-family="Arial, sans-serif" font-size="12" fill="#374151">Blood sugar after 8h fast</text>
+  <text x="560" y="120" font-family="Arial, sans-serif" font-size="12" fill="#374151">Yes</text>
+  <text x="680" y="120" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#111827">≥ 7.0 mmol/L</text>
+
+  <line x1="24" y1="136" x2="876" y2="136" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Row 2: Random glucose -->
+  <rect x="24" y="148" width="14" height="14" rx="3" fill="#8FAE9E"/>
+  <text x="46" y="160" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#111827">Random glucose</text>
+  <text x="230" y="160" font-family="Arial, sans-serif" font-size="12" fill="#374151">Blood sugar at any time</text>
+  <text x="560" y="160" font-family="Arial, sans-serif" font-size="12" fill="#374151">No</text>
+  <text x="680" y="160" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#111827">≥ 11.1 mmol/L + symptoms</text>
+
+  <line x1="24" y1="176" x2="876" y2="176" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Row 3: HbA1c -->
+  <rect x="24" y="188" width="14" height="14" rx="3" fill="#D97B4F"/>
+  <text x="46" y="200" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#111827">HbA1c</text>
+  <text x="230" y="200" font-family="Arial, sans-serif" font-size="12" fill="#374151">2 to 3 month average</text>
+  <text x="560" y="200" font-family="Arial, sans-serif" font-size="12" fill="#374151">No</text>
+  <text x="680" y="200" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#111827">≥ 6.5%</text>
+
+  <line x1="24" y1="216" x2="876" y2="216" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Row 4: OGTT -->
+  <rect x="24" y="228" width="14" height="14" rx="3" fill="#C9594F"/>
+  <text x="46" y="240" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#111827">OGTT (2-hour)</text>
+  <text x="230" y="240" font-family="Arial, sans-serif" font-size="12" fill="#374151">Response to a glucose drink</text>
+  <text x="560" y="240" font-family="Arial, sans-serif" font-size="12" fill="#374151">Yes, then drink</text>
+  <text x="680" y="240" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#111827">≥ 11.1 mmol/L</text>
+
+  <line x1="24" y1="256" x2="876" y2="256" stroke="#D1D5DB" stroke-width="1.5"/>
+
+  <!-- Row 5: Home glucometer, styled distinctly as monitoring not diagnosis -->
+  <rect x="24" y="270" width="14" height="14" rx="3" fill="#9AA6A6"/>
+  <text x="46" y="282" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#111827">Home glucometer</text>
+  <text x="230" y="282" font-family="Arial, sans-serif" font-size="12" fill="#374151">A single finger-prick reading</text>
+  <text x="560" y="282" font-family="Arial, sans-serif" font-size="12" fill="#374151">Varies</text>
+  <text x="680" y="282" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#6B7280">For monitoring, not diagnosis</text>
+
+  <rect x="24" y="308" width="852" height="100" rx="10" fill="#EEF3EF" stroke="#6B8E7F" stroke-width="1.5"/>
+  <text x="450" y="336" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#2B3A3A">Snapshot vs average vs challenge test</text>
+  <text x="450" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">Fasting and random glucose capture one moment. HbA1c captures a trend.</text>
+  <text x="450" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">The OGTT tests how your body responds to a glucose load over two hours.</text>
+
+  <text x="450" y="438" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#9CA3AF">WHO 2006 / ADA 2024 diagnostic thresholds. A single result is confirmed by a clinician, usually on a second test.</text>
+</svg>

@@ -1,8 +1,14 @@
 {
   "name": "BetterHealth Copywriting Council",
-  "last_synced": "2026-07-13",
+  "last_synced": "2026-07-19",
   "published_to": "Workspace Agents",
   "github_source_path": ".agents/copywriting-council",
+  "portable_workflow": {
+    "entrypoint": "CLAUDE.md",
+    "playbook": ".agents/content-pipeline/PLAYBOOK.md",
+    "review_template": ".agents/content-pipeline/templates/council-review.md",
+    "note": "Workspace Agent IDs are OpenAI-specific. Any agent can run the named book lenses as separate review passes and then write a Chair synthesis."
+  },
   "principles": [
     "Keep book-lens agents separate so their reasoning stays distinct.",
     "Use the chair for routing, disagreement resolution, synthesis, final copy, and implementation briefs.",
@@ -122,4 +128,3 @@
     }
   ]
 }
-
