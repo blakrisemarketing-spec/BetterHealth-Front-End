@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Bilharzia (schistosomiasis): symptoms, testing, and treatment" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Bilharzia (Schistosomiasis): Symptoms, Testing, and Treatment</title>
+  <defs>
+    <radialGradient id="orb-bilharzia" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1030" cy="140" r="320" fill="url(#orb-bilharzia)"/>
+
+  <text x="90" y="150" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">CONDITIONS · FRESHWATER EXPOSURE</text>
+  <text x="86" y="222" font-size="50" font-weight="800" fill="#2B3A3A">Bilharzia</text>
+  <text x="86" y="266" font-size="28" font-weight="600" fill="#6B7979">(Schistosomiasis)</text>
+  <text x="90" y="308" font-size="24" fill="#6B7979">Symptoms, testing, and treatment</text>
+
+  <rect x="90" y="348" width="210" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="195" y="375" text-anchor="middle" font-size="15" font-weight="700" fill="#F5F3EE">S. haematobium</text>
+
+  <rect x="312" y="348" width="180" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="402" y="375" text-anchor="middle" font-size="15" font-weight="700" fill="#F5F3EE">S. mansoni</text>
+
+  <rect x="504" y="348" width="230" height="42" rx="21" fill="#E0A23E"/>
+  <text x="619" y="375" text-anchor="middle" font-size="15" font-weight="700" fill="#2B3A3A">Freshwater exposure</text>
+
+  <!-- decorative water + snail motif -->
+  <path d="M930 300 Q 970 280 1010 300 Q 1050 320 1090 300" stroke="#6B8E7F" stroke-width="6" fill="none" opacity="0.35" stroke-linecap="round"/>
+  <path d="M930 330 Q 970 310 1010 330 Q 1050 350 1090 330" stroke="#6B8E7F" stroke-width="6" fill="none" opacity="0.25" stroke-linecap="round"/>
+  <path d="M930 360 Q 970 340 1010 360 Q 1050 380 1090 360" stroke="#6B8E7F" stroke-width="6" fill="none" opacity="0.18" stroke-linecap="round"/>
+
+  <!-- simple snail-shell spiral, flat vector -->
+  <circle cx="1005" cy="205" r="34" fill="#C9594F" opacity="0.16"/>
+  <path d="M1005 205 m0 -20 a20 20 0 1 1 -14 34" stroke="#C9594F" stroke-width="5" fill="none" opacity="0.55" stroke-linecap="round"/>
+  <circle cx="1005" cy="205" r="6" fill="#C9594F" opacity="0.55"/>
+
+  <circle cx="1130" cy="230" r="6" fill="#2B3A3A" opacity="0.18"/>
+  <circle cx="1150" cy="290" r="5" fill="#2B3A3A" opacity="0.14"/>
+  <circle cx="880" cy="380" r="5" fill="#2B3A3A" opacity="0.14"/>
+</svg>

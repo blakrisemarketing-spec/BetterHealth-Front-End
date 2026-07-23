@@ -757,6 +757,154 @@ items:
     status: todo
     notes: "No DataForSEO volume returned yet (checked 2026-07-16). Confirm volume next refine pass."
 
+  # ==========================================================================
+  # Nightly batch 2026-07-17 (PR #54) — DataForSEO refine pass surfaced strong
+  # volumes outside the seed list. 5 published (done) + 6 refill candidates (todo).
+  # ==========================================================================
+  - id: art-bilharzia-schistosomiasis
+    type: article
+    cluster: conditions
+    slug: bilharzia-schistosomiasis-test
+    keyword: bilharzia
+    market: kenya
+    volume: 880
+    secondary: ["bilharzia symptoms (720)", "bilharzia treatment (320)", "bilharzia causes (170)", "what are 5 symptoms of bilharzia (110)", "prevention of bilharzia (70)", "how is bilharzia transmitted (50)"]
+    intent: informational
+    title: "Bilharzia (Schistosomiasis): Symptoms, Testing, and Treatment"
+    status: done
+    completed: 2026-07-17
+    notes: "bilharzia 880/mo Kenya, LOW competition (DataForSEO, confirmed 2026-07-17), well above the 10-20/mo the seed keywords (schistosomiasis test/bilharzia test) showed in Ghana/Nigeria. Not in BetterHealth's named catalogue; links generically to /what-we-test and cross-links urinalysis-explained and stool-test-explained, since routine urinalysis and stool O&P exams are how it's actually detected. WHO-sourced, no dosing given, no fabricated prevalence stat. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 7 FAQ."
+
+  - id: art-lassa-fever
+    type: article
+    cluster: conditions
+    slug: lassa-fever-symptoms-test
+    keyword: lassa fever
+    market: nigeria
+    volume: 4400
+    secondary: ["lassa fever symptoms (3600)", "lassa fever virus (4400)", "lassa fever causes (390)", "lassa fever in nigeria (390)", "lassa fever incubation period (170)", "lassa fever transmission (90)", "lassa fever outbreak (70)", "lassa fever test (20)"]
+    intent: informational
+    title: "Lassa Fever: Symptoms, Testing, and How It Differs From Malaria"
+    status: done
+    completed: 2026-07-17
+    notes: "lassa fever 4,400/mo and lassa fever symptoms 3,600/mo Nigeria, LOW competition (DataForSEO, confirmed 2026-07-17) -- the highest-volume keyword shipped in the program to date, found via the refine step rather than the original seed list. WHO/CDC/NCDC-sourced (6-to-21-day incubation, ~80% mild/asymptomatic, WHO's own ~1%/up to ~15% case-fatality framing), explicitly frames testing as a hospital/public-health-lab matter (RT-PCR at NCDC-coordinated labs), not a routine home draw, and is honest in its own FAQ that BetterHealth does not test for it. Cross-links malaria-test-explained and typhoid-widal-test for the realistic 'get the common causes of fever tested first' angle. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
+
+  - id: art-perimenopause-menopause
+    type: article
+    cluster: biomarkers
+    slug: perimenopause-menopause-test
+    keyword: perimenopause test
+    market: south-africa
+    volume: 210
+    secondary: ["menopause test (140, HIGH competition)", "menopause test at home (20)", "FSH test", "menopause symptoms"]
+    intent: informational
+    title: "Perimenopause and Menopause Testing: What an FSH Test Can (and Can't) Tell You"
+    status: done
+    completed: 2026-07-17
+    notes: "perimenopause test 210/mo South Africa (DataForSEO, confirmed 2026-07-17), better-performing than the seed 'menopause test' (140/mo, HIGH competition). Built around the clinically important nuance that a single FSH reading fluctuates heavily during perimenopause and is not diagnostic alone (NAMS/NICE guidance: symptoms/age first for women over 45, hormone testing reserved for under-45 or unclear cases). No pharmacy test-kit brand names. Genuinely within BetterHealth's catalogue (hormone panel: FSH, LH, estradiol, progesterone, DHEA-S, SHBG). Cross-links thyroid-tsh-test-explained and vitamin-d-deficiency for the symptom-overlap differential. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
+
+  - id: art-gestational-diabetes
+    type: article
+    cluster: screening
+    slug: gestational-diabetes-test
+    keyword: gestational diabetes
+    market: south-africa
+    volume: 2400
+    secondary: ["gestational diabetes symptoms (480)", "gestational diabetes diet (140)", "gestational diabetes test (90)", "gestational diabetes range (20)"]
+    intent: informational
+    title: "Gestational Diabetes: Screening, Testing, and What a Result Means"
+    status: done
+    completed: 2026-07-17
+    notes: "gestational diabetes 2,400/mo South Africa (DataForSEO, confirmed 2026-07-17), the second-highest-volume keyword in this batch. WHO 2013/IADPSG OGTT diagnostic thresholds stated precisely (fasting 5.1 to 6.9, 1-hour >=10.0, 2-hour 8.5 to 11.0 mmol/L), hedged to the reader's own lab reference range. Deliberately differentiates from hba1c-explained/fasting-blood-sugar-explained via the HbA1c-in-pregnancy-is-unreliable caveat rather than duplicating them. Cross-links antenatal-blood-tests, fasting-blood-sugar-explained, prediabetes-warning-signs. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
+
+  - id: local-pretoria
+    type: article
+    cluster: local
+    slug: blood-test-pretoria
+    keyword: blood test Pretoria
+    market: south-africa
+    volume: 50
+    intent: local
+    title: "Blood Tests and Health Screening in Pretoria: Your Options"
+    status: done
+    completed: 2026-07-17
+    notes: "blood test Pretoria 50/mo South Africa, LOW competition (DataForSEO, confirmed 2026-07-17). Third South-Africa-market local page (after Johannesburg/Durban, shipped in still-unmerged PR #53). Same three-route framework as Accra/Lagos/Nairobi/Kumasi; South-Africa-specific adaptations: 'medical aid' terminology (not NHIS), NHI mentioned once and hedged as still-rolling-out, Steve Biko Academic Hospital named once as the public-facility reference point, 'major private pathology lab groups' referenced generically with no brand endorsed. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
+
+  - id: art-testosterone-test
+    type: article
+    cluster: biomarkers
+    slug: testosterone-test-explained
+    keyword: how to increase testosterone
+    market: ghana
+    volume: 260
+    secondary: ["testosterone booster (390)", "testosterone supplements (170)", "low testosterone symptoms"]
+    intent: informational
+    title: "Low Testosterone: Symptoms, Testing, and What Actually Helps"
+    status: todo
+    notes: "'testosterone test' itself returns no confirmed volume in any market checked; 'how to increase testosterone' (260/mo Ghana) and 'testosterone booster' (390/mo Ghana, supplement-intent) are the real traffic. CAUTION for the drafting agent: this needs a genuinely evidence-based, non-supplement-pushing angle (similar to how the hypertension article handles 'how to lower blood pressure' as a secondary keyword) rather than chasing supplement-shopper intent. BetterHealth's catalogue includes Testosterone (Total & Free) in the Men's Panel and the Reproductive Hormones panel, so this is well within scope."
+
+  - id: art-yellow-fever
+    type: article
+    cluster: conditions
+    slug: yellow-fever-explained
+    keyword: yellow fever
+    market: nigeria
+    volume: 2400
+    secondary: ["yellow fever vaccine (1300)", "yellow fever symptoms (480)", "yellow fever virus (2400)"]
+    intent: informational
+    title: "Yellow Fever: Symptoms, Vaccination, and Why the Certificate Matters"
+    status: todo
+    notes: "yellow fever 2,400/mo Nigeria, yellow fever vaccine 1,300/mo, yellow fever symptoms 480/mo (DataForSEO, confirmed 2026-07-17). CAUTION for the drafting agent: a large share of this volume looks like vaccination-certificate/travel-requirement intent rather than disease-testing intent, so the angle should lead with vaccination and the certificate (a routine, well-supported topic) and cover symptoms/diagnosis as a secondary section, not force a testing angle that doesn't match the query. BetterHealth does not offer yellow fever vaccination; keep that boundary honest, same treatment as the Lassa fever article's 'does BetterHealth test for this' FAQ."
+
+  - id: art-cholera-test
+    type: article
+    cluster: conditions
+    slug: cholera-symptoms-test
+    keyword: cholera symptoms
+    market: kenya
+    volume: 390
+    secondary: ["cholera test (30)", "cholera treatment", "cholera prevention", "cholera vs typhoid"]
+    intent: informational
+    title: "Cholera: Symptoms, Testing, and Why Rehydration Comes First"
+    status: todo
+    notes: "cholera symptoms 390/mo Kenya, LOW competition; cholera test 30/mo (DataForSEO, confirmed 2026-07-17). Acute watery-diarrhoea illness, oral rehydration is the life-saving first step; cross-link typhoid-widal-test and stool-test-explained. Same 'this needs urgent care, not a routine home draw for the acute illness' honesty as the Lassa fever article where applicable."
+
+  - id: local-cape-town
+    type: article
+    cluster: local
+    slug: blood-test-cape-town
+    keyword: blood test Cape Town
+    market: south-africa
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Cape Town: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-17, both volume and ideas endpoints empty). Still worth publishing per the local-page precedent (Accra/Lagos/Nairobi/Kumasi/Johannesburg/Durban/Pretoria) for AI-citation and city coverage. Confirm volume again next refine pass. Groote Schuur Hospital is the natural named-once public-facility reference point for this one, matching the Steve Biko precedent in the Pretoria article."
+
+  - id: local-ibadan
+    type: article
+    cluster: local
+    slug: blood-test-ibadan
+    keyword: blood test Ibadan
+    market: nigeria
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Ibadan: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-17). Still worth publishing per the local-lagos precedent. Confirm volume next refine pass."
+
+  - id: local-eldoret
+    type: article
+    cluster: local
+    slug: blood-test-eldoret
+    keyword: blood test Eldoret
+    market: kenya
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Eldoret: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-17). Still worth publishing per the local-nairobi precedent. Confirm volume next refine pass."
+
   # ---- Technical / GEO tasks (interleaved by the weekly routine) ----
   - id: tech-og-images-blog
     type: technical

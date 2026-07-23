@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="580" fill="#FFFFFF"/>
+  <text x="70" y="60" font-size="30" font-weight="700" fill="#2B3A3A">OGTT diagnostic thresholds for gestational diabetes</text>
+  <text x="70" y="92" font-size="18" fill="#6B7979">75g oral glucose tolerance test. Any ONE of these three values, met or exceeded, is enough to diagnose.</text>
+
+  <!-- Fasting card -->
+  <rect x="70" y="130" width="330" height="330" rx="18" fill="#F1F4F2" stroke="#6B8E7F" stroke-width="2"/>
+  <circle cx="130" cy="188" r="22" fill="#6B8E7F"/>
+  <text x="130" y="195" font-size="18" font-weight="700" fill="#F5F3EE" text-anchor="middle">1</text>
+  <text x="165" y="182" font-size="15" font-weight="700" letter-spacing="2" fill="#6B8E7F">DRAW 1</text>
+  <text x="165" y="205" font-size="20" font-weight="700" fill="#2B3A3A">Fasting</text>
+  <text x="105" y="290" font-size="40" font-weight="800" fill="#2B3A3A">5.1-6.9</text>
+  <text x="105" y="322" font-size="20" fill="#2B3A3A">mmol/L</text>
+  <text x="105" y="360" font-size="15" fill="#6B7979">Blood drawn after an</text>
+  <text x="105" y="382" font-size="15" fill="#6B7979">overnight fast, before</text>
+  <text x="105" y="404" font-size="15" fill="#6B7979">the glucose drink.</text>
+  <rect x="105" y="424" width="260" height="2" fill="#D8D3C6"/>
+  <text x="105" y="446" font-size="13" fill="#9AA6A6">Meets or exceeds this value</text>
+
+  <!-- 1 hour card -->
+  <rect x="435" y="130" width="330" height="330" rx="18" fill="#F3EEDF" stroke="#E0A23E" stroke-width="2"/>
+  <circle cx="495" cy="188" r="22" fill="#E0A23E"/>
+  <text x="495" y="195" font-size="18" font-weight="700" fill="#F5F3EE" text-anchor="middle">2</text>
+  <text x="530" y="182" font-size="15" font-weight="700" letter-spacing="2" fill="#C28A2E">DRAW 2</text>
+  <text x="530" y="205" font-size="20" font-weight="700" fill="#2B3A3A">1 hour after drink</text>
+  <text x="470" y="290" font-size="40" font-weight="800" fill="#2B3A3A">&#8805; 10.0</text>
+  <text x="470" y="322" font-size="20" fill="#2B3A3A">mmol/L</text>
+  <text x="470" y="360" font-size="15" fill="#6B7979">Blood drawn one hour</text>
+  <text x="470" y="382" font-size="15" fill="#6B7979">after drinking the 75g</text>
+  <text x="470" y="404" font-size="15" fill="#6B7979">glucose solution.</text>
+  <rect x="470" y="424" width="260" height="2" fill="#D8D3C6"/>
+  <text x="470" y="446" font-size="13" fill="#9AA6A6">Meets or exceeds this value</text>
+
+  <!-- 2 hour card -->
+  <rect x="800" y="130" width="330" height="330" rx="18" fill="#FBF0EE" stroke="#C9594F" stroke-width="2"/>
+  <circle cx="860" cy="188" r="22" fill="#C9594F"/>
+  <text x="860" y="195" font-size="18" font-weight="700" fill="#F5F3EE" text-anchor="middle">3</text>
+  <text x="895" y="182" font-size="15" font-weight="700" letter-spacing="2" fill="#C9594F">DRAW 3</text>
+  <text x="895" y="205" font-size="20" font-weight="700" fill="#2B3A3A">2 hours after drink</text>
+  <text x="835" y="290" font-size="40" font-weight="800" fill="#2B3A3A">8.5-11.0</text>
+  <text x="835" y="322" font-size="20" fill="#2B3A3A">mmol/L</text>
+  <text x="835" y="360" font-size="15" fill="#6B7979">Blood drawn two hours</text>
+  <text x="835" y="382" font-size="15" fill="#6B7979">after drinking the 75g</text>
+  <text x="835" y="404" font-size="15" fill="#6B7979">glucose solution.</text>
+  <rect x="835" y="424" width="260" height="2" fill="#D8D3C6"/>
+  <text x="835" y="446" font-size="13" fill="#9AA6A6">Meets or exceeds this value</text>
+
+  <!-- footer note -->
+  <rect x="70" y="494" width="1060" height="56" rx="12" fill="#F5F3EE"/>
+  <text x="94" y="528" font-size="15" fill="#2B3A3A">Criteria: WHO 2013 / IADPSG consensus. Cut-offs vary slightly by country, so read your result against your lab's own reference range.</text>
+
+  <text x="70" y="572" font-size="14" fill="#9AA6A6">Source: WHO Diagnostic Criteria and Classification of Hyperglycaemia First Detected in Pregnancy, 2013.</text>
+</svg>

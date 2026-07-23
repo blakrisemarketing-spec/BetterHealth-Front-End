@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Comparing Lassa fever, malaria and typhoid: why fever needs a test, not a guess" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Lassa Fever vs Malaria vs Typhoid: Fever Needs a Test, Not a Guess</title>
+  <rect width="1200" height="600" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="28" font-weight="700" fill="#2B3A3A">Three causes of fever, one lesson: test, don't guess</text>
+  <text x="70" y="86" font-size="16" fill="#6B7979">Lassa fever, malaria and typhoid can all start the same way. A lab test is what tells them apart.</text>
+
+  <!-- Lassa card -->
+  <rect x="70" y="118" width="340" height="410" rx="16" fill="#FBF0EE"/>
+  <rect x="70" y="118" width="340" height="8" rx="4" fill="#C9594F"/>
+  <text x="100" y="164" font-size="21" font-weight="700" fill="#2B3A3A">Lassa fever</text>
+
+  <text x="100" y="200" font-size="14" font-weight="700" fill="#C9594F">HOW IT SPREADS</text>
+  <text x="100" y="224" font-size="14" fill="#4B5A5A">Contact with Mastomys rat</text>
+  <text x="100" y="244" font-size="14" fill="#4B5A5A">urine or droppings; also</text>
+  <text x="100" y="264" font-size="14" fill="#4B5A5A">person-to-person contact</text>
+
+  <text x="100" y="302" font-size="14" font-weight="700" fill="#C9594F">EARLY SIGNS</text>
+  <text x="100" y="326" font-size="14" fill="#4B5A5A">Fever, weakness, malaise</text>
+  <text x="100" y="346" font-size="14" fill="#4B5A5A">(about 80% of cases are</text>
+  <text x="100" y="366" font-size="14" fill="#4B5A5A">mild or symptom-free)</text>
+
+  <text x="100" y="404" font-size="14" font-weight="700" fill="#C9594F">SEVERE WARNING SIGNS</text>
+  <text x="100" y="428" font-size="14" fill="#4B5A5A">Facial swelling, bleeding,</text>
+  <text x="100" y="448" font-size="14" fill="#4B5A5A">low blood pressure</text>
+
+  <text x="100" y="486" font-size="14" font-weight="700" fill="#C9594F">CONFIRMED BY</text>
+  <text x="100" y="510" font-size="14" fill="#4B5A5A">RT-PCR at a public health</text>
+  <text x="100" y="530" font-size="14" fill="#4B5A5A">reference laboratory</text>
+
+  <!-- Malaria card -->
+  <rect x="430" y="118" width="340" height="410" rx="16" fill="#F1F4F2"/>
+  <rect x="430" y="118" width="340" height="8" rx="4" fill="#6B8E7F"/>
+  <text x="460" y="164" font-size="21" font-weight="700" fill="#2B3A3A">Malaria</text>
+
+  <text x="460" y="200" font-size="14" font-weight="700" fill="#6B8E7F">HOW IT SPREADS</text>
+  <text x="460" y="224" font-size="14" fill="#4B5A5A">Bite from an infected</text>
+  <text x="460" y="244" font-size="14" fill="#4B5A5A">female Anopheles mosquito</text>
+
+  <text x="460" y="302" font-size="14" font-weight="700" fill="#6B8E7F">EARLY SIGNS</text>
+  <text x="460" y="326" font-size="14" fill="#4B5A5A">Fever, chills, sweats,</text>
+  <text x="460" y="346" font-size="14" fill="#4B5A5A">headache, body aches,</text>
+  <text x="460" y="366" font-size="14" fill="#4B5A5A">often in cycles</text>
+
+  <text x="460" y="404" font-size="14" font-weight="700" fill="#6B8E7F">SEVERE WARNING SIGNS</text>
+  <text x="460" y="428" font-size="14" fill="#4B5A5A">Confusion, repeated vomiting,</text>
+  <text x="460" y="448" font-size="14" fill="#4B5A5A">difficulty breathing, seizure</text>
+
+  <text x="460" y="486" font-size="14" font-weight="700" fill="#6B8E7F">CONFIRMED BY</text>
+  <text x="460" y="510" font-size="14" fill="#4B5A5A">Rapid diagnostic test (RDT)</text>
+  <text x="460" y="530" font-size="14" fill="#4B5A5A">or blood film microscopy</text>
+
+  <!-- Typhoid card -->
+  <rect x="790" y="118" width="340" height="410" rx="16" fill="#EDEAF6"/>
+  <rect x="790" y="118" width="340" height="8" rx="4" fill="#8E7FC9"/>
+  <text x="820" y="164" font-size="21" font-weight="700" fill="#2B3A3A">Typhoid</text>
+
+  <text x="820" y="200" font-size="14" font-weight="700" fill="#8E7FC9">HOW IT SPREADS</text>
+  <text x="820" y="224" font-size="14" fill="#4B5A5A">Food or water contaminated</text>
+  <text x="820" y="244" font-size="14" fill="#4B5A5A">with Salmonella Typhi</text>
+
+  <text x="820" y="302" font-size="14" font-weight="700" fill="#8E7FC9">EARLY SIGNS</text>
+  <text x="820" y="326" font-size="14" fill="#4B5A5A">Fever that rises gradually,</text>
+  <text x="820" y="346" font-size="14" fill="#4B5A5A">headache, abdominal</text>
+  <text x="820" y="366" font-size="14" fill="#4B5A5A">discomfort, fatigue</text>
+
+  <text x="820" y="404" font-size="14" font-weight="700" fill="#8E7FC9">SEVERE WARNING SIGNS</text>
+  <text x="820" y="428" font-size="14" fill="#4B5A5A">High fever beyond 3 to 5 days,</text>
+  <text x="820" y="448" font-size="14" fill="#4B5A5A">severe abdominal pain, confusion</text>
+
+  <text x="820" y="486" font-size="14" font-weight="700" fill="#8E7FC9">CONFIRMED BY</text>
+  <text x="820" y="510" font-size="14" fill="#4B5A5A">Blood culture (Widal test</text>
+  <text x="820" y="530" font-size="14" fill="#4B5A5A">is supportive at best)</text>
+
+  <text x="70" y="572" font-size="13" fill="#9AA6A6">Source: WHO, Nigeria CDC (NCDC) and standard clinical guidance. Individual cases vary; a clinician and a lab test confirm the cause.</text>
+</svg>

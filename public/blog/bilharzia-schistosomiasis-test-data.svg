@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-label="How bilharzia spreads: from freshwater contact to larvae penetrating skin, maturing in blood vessels, and eggs shed in urine or stool" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>How bilharzia spreads: the transmission cycle</title>
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+  <text x="60" y="56" font-size="30" font-weight="700" fill="#2B3A3A">How bilharzia spreads</text>
+  <text x="60" y="86" font-size="18" fill="#6B7979">From contact with contaminated fresh water to eggs shed back into the water</text>
+
+  <!-- Card 1: Freshwater contact -->
+  <rect x="40" y="130" width="250" height="330" rx="16" fill="#F1F4F2"/>
+  <circle cx="165" cy="196" r="30" fill="#6B8E7F" opacity="0.18"/>
+  <path d="M138 196 Q 152 184 165 196 Q 178 208 192 196" stroke="#6B8E7F" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M138 210 Q 152 198 165 210 Q 178 222 192 210" stroke="#6B8E7F" stroke-width="5" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <text x="65" y="256" font-size="15" font-weight="700" letter-spacing="1" fill="#6B8E7F">STEP 1</text>
+  <text x="65" y="286" font-size="19" font-weight="700" fill="#2B3A3A">Freshwater</text>
+  <text x="65" y="308" font-size="19" font-weight="700" fill="#2B3A3A">contact</text>
+  <text x="65" y="342" font-size="14" fill="#4C5959">Skin touches a lake, river,</text>
+  <text x="65" y="362" font-size="14" fill="#4C5959">dam, or irrigation canal</text>
+  <text x="65" y="382" font-size="14" fill="#4C5959">carrying Schistosoma</text>
+  <text x="65" y="402" font-size="14" fill="#4C5959">larvae (cercariae).</text>
+  <text x="65" y="434" font-size="13" fill="#6B7979">Seawater and chlorinated</text>
+  <text x="65" y="452" font-size="13" fill="#6B7979">pools do not carry it.</text>
+
+  <!-- arrow 1 -->
+  <path d="M296 296 L 322 296" stroke="#C7CFCB" stroke-width="4" stroke-linecap="round"/>
+  <path d="M312 286 L 326 296 L 312 306" stroke="#C7CFCB" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Card 2: Larvae penetrate skin -->
+  <rect x="330" y="130" width="250" height="330" rx="16" fill="#EDEAF6"/>
+  <circle cx="455" cy="196" r="30" fill="#8E7FC9" opacity="0.18"/>
+  <line x1="430" y1="212" x2="480" y2="212" stroke="#8E7FC9" stroke-width="4" opacity="0.5"/>
+  <path d="M455 178 L 455 214" stroke="#8E7FC9" stroke-width="5" stroke-linecap="round"/>
+  <path d="M447 204 L 455 216 L 463 204" stroke="#8E7FC9" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="355" y="256" font-size="15" font-weight="700" letter-spacing="1" fill="#8E7FC9">STEP 2</text>
+  <text x="355" y="286" font-size="19" font-weight="700" fill="#2B3A3A">Larvae penetrate</text>
+  <text x="355" y="308" font-size="19" font-weight="700" fill="#2B3A3A">the skin</text>
+  <text x="355" y="342" font-size="14" fill="#4C5959">Cercariae burrow through</text>
+  <text x="355" y="362" font-size="14" fill="#4C5959">intact skin within minutes</text>
+  <text x="355" y="382" font-size="14" fill="#4C5959">of contact with the water,</text>
+  <text x="355" y="402" font-size="14" fill="#4C5959">often unnoticed at the time.</text>
+
+  <!-- arrow 2 -->
+  <path d="M586 296 L 612 296" stroke="#C7CFCB" stroke-width="4" stroke-linecap="round"/>
+  <path d="M602 286 L 616 296 L 602 306" stroke="#C7CFCB" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Card 3: Mature in blood vessels -->
+  <rect x="620" y="130" width="250" height="330" rx="16" fill="#FBF0EE"/>
+  <circle cx="745" cy="196" r="30" fill="#C9594F" opacity="0.18"/>
+  <path d="M725 210 Q 735 180 745 210 Q 755 180 765 210" stroke="#C9594F" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="645" y="256" font-size="15" font-weight="700" letter-spacing="1" fill="#C9594F">STEP 3</text>
+  <text x="645" y="286" font-size="19" font-weight="700" fill="#2B3A3A">Mature in blood</text>
+  <text x="645" y="308" font-size="19" font-weight="700" fill="#2B3A3A">vessels</text>
+  <text x="645" y="342" font-size="14" fill="#4C5959">Worms travel through the</text>
+  <text x="645" y="362" font-size="14" fill="#4C5959">bloodstream over several</text>
+  <text x="645" y="382" font-size="14" fill="#4C5959">weeks and settle around</text>
+  <text x="645" y="402" font-size="14" fill="#4C5959">the bladder or intestine.</text>
+
+  <!-- arrow 3 -->
+  <path d="M876 296 L 902 296" stroke="#C7CFCB" stroke-width="4" stroke-linecap="round"/>
+  <path d="M892 286 L 906 296 L 892 306" stroke="#C7CFCB" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Card 4: Eggs shed in urine or stool -->
+  <rect x="910" y="130" width="250" height="330" rx="16" fill="#FBF3E1"/>
+  <circle cx="1035" cy="196" r="30" fill="#E0A23E" opacity="0.22"/>
+  <ellipse cx="1025" cy="200" rx="9" ry="13" fill="#E0A23E" opacity="0.7"/>
+  <ellipse cx="1047" cy="200" rx="9" ry="13" fill="#E0A23E" opacity="0.5"/>
+  <text x="935" y="256" font-size="15" font-weight="700" letter-spacing="1" fill="#B9821F">STEP 4</text>
+  <text x="935" y="286" font-size="19" font-weight="700" fill="#2B3A3A">Eggs shed in</text>
+  <text x="935" y="308" font-size="19" font-weight="700" fill="#2B3A3A">urine or stool</text>
+  <text x="935" y="342" font-size="14" fill="#4C5959">Eggs leave the body in</text>
+  <text x="935" y="362" font-size="14" fill="#4C5959">urine (S. haematobium) or</text>
+  <text x="935" y="382" font-size="14" fill="#4C5959">stool (S. mansoni), which is</text>
+  <text x="935" y="402" font-size="14" fill="#4C5959">how a lab test detects them.</text>
+
+  <!-- loop-back arrow -->
+  <path d="M1035 460 C 1035 520, 165 520, 165 460" stroke="#9AA6A6" stroke-width="3" fill="none" stroke-dasharray="2 7" stroke-linecap="round"/>
+  <path d="M155 468 L 165 460 L 176 468" stroke="#9AA6A6" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="548" text-anchor="middle" font-size="14" fill="#6B7979">Eggs that reach fresh water hatch and infect freshwater snails, which release new larvae. Avoiding</text>
+  <text x="600" y="568" text-anchor="middle" font-size="14" fill="#6B7979">contact with untreated fresh water in areas where bilharzia is present breaks this cycle.</text>
+
+  <text x="60" y="604" font-size="13" fill="#9AA6A6">General life-cycle overview, not every exposure leads to infection. A laboratory test is needed to confirm it.</text>
+</svg>
