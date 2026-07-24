@@ -37,7 +37,7 @@ export default {
   author: { name: "BetterHealth Africa Editorial Team", url: "/about" },
   image: "/og-image.png",
   imageAlt:
-    "Illustration explaining low testosterone: symptoms, how the test works, and what actually helps.",
+    "Illustration explaining low testosterone: symptoms, how the test works, and what helps.",
   tags: [
     "testosterone",
     "low testosterone",
@@ -53,7 +53,7 @@ export default {
     {
       type: "image",
       src: "/blog/testosterone-test-hero.svg",
-      alt: "Low testosterone explained: symptoms, testing, and what actually helps.",
+      alt: "Low testosterone explained: symptoms, testing, and what helps.",
     },
     {
       type: "p",
@@ -166,7 +166,7 @@ export default {
     },
     {
       type: "h2",
-      id: "what-actually-helps",
+      id: "what-helps",
       text: "The lifestyle changes with genuine evidence behind them for raising low testosterone are better sleep, weight loss where relevant, regular resistance exercise, treating underlying conditions like sleep apnea or diabetes, and limiting excess alcohol, while most over-the-counter testosterone booster supplements have little to no quality evidence behind them.",
     },
     {
