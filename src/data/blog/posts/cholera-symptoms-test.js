@@ -75,7 +75,7 @@ export default {
         "Eating fruit or vegetables that were washed, grown, or irrigated with contaminated water",
         "Food prepared or served by someone who has not washed their hands properly after using the toilet",
       ],
-      },
+    },
     {
       type: "p",
       text: "Cholera does not spread through the air, through coughing, or through ordinary social contact the way a cold does. A person sharing a household with someone who has cholera is not at risk simply by being near them. The risk comes specifically from contaminated water or food, which is why handwashing and safe water matter so much more than distancing from an infected person.",
