@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 550" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="550" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Three ways to get a blood test in Kisumu</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">The right option depends on urgency, budget, and whether a doctor ordered the test.</text>
+
+  <!-- Column 1: Public hospital lab -->
+  <rect x="60" y="120" width="340" height="390" rx="18" fill="#F1F4F2"/>
+  <circle cx="110" cy="170" r="10" fill="#6B8E7F"/>
+  <text x="134" y="176" font-size="20" font-weight="700" fill="#2B3A3A">Public hospital lab</text>
+  <text x="90" y="216" font-size="15" fill="#6B7979">Serves everyone, often</text>
+  <text x="90" y="238" font-size="15" fill="#6B7979">the lowest cost</text>
+  <text x="90" y="272" font-size="15" fill="#6B7979">Walk-in, expect a queue</text>
+  <text x="90" y="306" font-size="15" fill="#6B7979">Attached to outpatient and</text>
+  <text x="90" y="328" font-size="15" fill="#6B7979">inpatient care</text>
+  <text x="90" y="362" font-size="15" fill="#6B7979">Good for doctor-ordered</text>
+  <text x="90" y="384" font-size="15" fill="#6B7979">tests tied to a visit</text>
+  <text x="90" y="440" font-size="15" fill="#6B7979">Best for routine or</text>
+  <text x="90" y="462" font-size="15" fill="#6B7979">doctor-ordered tests</text>
+
+  <!-- Column 2: Private hospital / standalone lab -->
+  <rect x="430" y="120" width="340" height="390" rx="18" fill="#EDEAF6"/>
+  <circle cx="480" cy="170" r="10" fill="#8E7FC9"/>
+  <text x="504" y="176" font-size="20" font-weight="700" fill="#2B3A3A">Private hospital or lab</text>
+  <text x="460" y="216" font-size="15" fill="#6B7979">Walk-in branches across</text>
+  <text x="460" y="238" font-size="15" fill="#6B7979">the city</text>
+  <text x="460" y="272" font-size="15" fill="#6B7979">Often faster for a single</text>
+  <text x="460" y="294" font-size="15" fill="#6B7979">common test</text>
+  <text x="460" y="328" font-size="15" fill="#6B7979">Useful when a doctor</text>
+  <text x="460" y="350" font-size="15" fill="#6B7979">reviews the result same visit</text>
+  <text x="460" y="384" font-size="15" fill="#6B7979">Typically priced higher</text>
+  <text x="460" y="406" font-size="15" fill="#6B7979">than a public facility</text>
+  <text x="460" y="440" font-size="15" fill="#6B7979">A middle ground on</text>
+  <text x="460" y="462" font-size="15" fill="#6B7979">price and speed</text>
+
+  <!-- Column 3: Home blood draw -->
+  <rect x="800" y="120" width="340" height="390" rx="18" fill="#FBF0EE"/>
+  <circle cx="850" cy="170" r="10" fill="#C9594F"/>
+  <text x="874" y="176" font-size="20" font-weight="700" fill="#2B3A3A">Home blood draw</text>
+  <text x="830" y="216" font-size="15" fill="#6B7979">Book online, phlebotomist</text>
+  <text x="830" y="238" font-size="15" fill="#6B7979">comes to you</text>
+  <text x="830" y="272" font-size="15" fill="#6B7979">No travel or waiting room</text>
+  <text x="830" y="306" font-size="15" fill="#6B7979">Usually booked a day or</text>
+  <text x="830" y="328" font-size="15" fill="#6B7979">more in advance</text>
+  <text x="830" y="362" font-size="15" fill="#6B7979">Results delivered digitally</text>
+  <text x="830" y="384" font-size="15" fill="#6B7979">once processed</text>
+  <text x="830" y="440" font-size="15" fill="#6B7979">Good fit for a full panel</text>
+  <text x="830" y="462" font-size="15" fill="#6B7979">or a busy schedule</text>
+
+  <line x1="70" y1="530" x2="1130" y2="530" stroke="#E8E3DA" stroke-width="1"/>
+  <text x="1130" y="546" font-size="13" fill="#9AA6A6" text-anchor="end">Availability and current pricing vary. Confirm details before booking.</text>
+</svg>

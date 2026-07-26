@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Yellow fever: symptoms, vaccination, and why the certificate matters" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Yellow Fever: Symptoms, Vaccination, and Why the Certificate Matters</title>
+  <defs>
+    <radialGradient id="orb-yellowfever" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E0A23E" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#E0A23E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1020" cy="150" r="320" fill="url(#orb-yellowfever)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">CONDITIONS EXPLAINED</text>
+  <text x="86" y="252" font-size="52" font-weight="800" fill="#2B3A3A">Yellow Fever</text>
+  <text x="90" y="304" font-size="26" fill="#6B7979">Symptoms, vaccination, and why the certificate matters</text>
+
+  <rect x="90" y="344" width="150" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="165" y="371" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Yellow card</text>
+
+  <rect x="254" y="344" width="150" height="42" rx="21" fill="#6B8E7F"/>
+  <text x="329" y="371" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">1 dose, life</text>
+
+  <rect x="418" y="344" width="196" height="42" rx="21" fill="#E0A23E"/>
+  <text x="516" y="371" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">NCDC risk zone</text>
+
+  <!-- decorative flat vaccination-card + mosquito motif, calm and clinical, no scare imagery -->
+  <g opacity="0.85">
+    <rect x="930" y="248" width="164" height="106" rx="10" fill="#FFFFFF" opacity="0.6"/>
+    <rect x="950" y="270" width="60" height="9" rx="4" fill="#E0A23E" opacity="0.65"/>
+    <rect x="950" y="290" width="110" height="6" rx="3" fill="#6B8E7F" opacity="0.5"/>
+    <rect x="950" y="304" width="90" height="6" rx="3" fill="#6B8E7F" opacity="0.4"/>
+    <rect x="950" y="318" width="70" height="6" rx="3" fill="#6B8E7F" opacity="0.35"/>
+    <circle cx="1068" cy="330" r="14" fill="#C9594F" opacity="0.3"/>
+  </g>
+
+  <circle cx="1120" cy="200" r="6" fill="#2B3A3A" opacity="0.18"/>
+  <circle cx="1150" cy="270" r="5" fill="#2B3A3A" opacity="0.14"/>
+  <circle cx="1080" cy="150" r="4" fill="#E0A23E" opacity="0.35"/>
+</svg>

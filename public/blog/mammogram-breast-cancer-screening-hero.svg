@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">BREAST CANCER SCREENING</text>
+  <text x="86" y="252" font-size="52" font-weight="800" fill="#2B3A3A">Mammogram screening,</text>
+  <text x="86" y="312" font-size="52" font-weight="800" fill="#2B3A3A">what to expect</text>
+  <text x="90" y="356" font-size="24" fill="#6B7979">A short, honest walkthrough of the exam, and when guidelines say to start.</text>
+
+  <g font-size="18" font-weight="700" fill="#FFFFFF">
+    <rect x="90" y="390" width="216" height="50" rx="25" fill="#6B8E7F"/>
+    <text x="198" y="422" text-anchor="middle">About 20 minutes</text>
+
+    <rect x="322" y="390" width="270" height="50" rx="25" fill="#6B8E7F"/>
+    <text x="457" y="422" text-anchor="middle">Read by a radiologist</text>
+  </g>
+
+  <!-- abstract scan plate motif, top-right -->
+  <rect x="960" y="250" width="150" height="180" rx="14" fill="none" stroke="#6B8E7F" stroke-width="3" stroke-opacity="0.5"/>
+  <rect x="990" y="280" width="90" height="120" rx="8" fill="#6B8E7F" fill-opacity="0.12"/>
+  <line x1="1000" y1="310" x2="1070" y2="310" stroke="#6B8E7F" stroke-width="3" stroke-opacity="0.4"/>
+  <line x1="1000" y1="340" x2="1070" y2="340" stroke="#6B8E7F" stroke-width="3" stroke-opacity="0.4"/>
+  <line x1="1000" y1="370" x2="1050" y2="370" stroke="#6B8E7F" stroke-width="3" stroke-opacity="0.4"/>
+</svg>

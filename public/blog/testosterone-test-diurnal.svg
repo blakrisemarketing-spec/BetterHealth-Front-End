@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="480" fill="#FFFFFF"/>
+  <text x="70" y="66" font-size="32" font-weight="700" fill="#2B3A3A">Testosterone follows a daily rhythm</text>
+  <text x="70" y="98" font-size="19" fill="#6B7979">Roughly how total testosterone tracks across a 24-hour day (illustrative pattern, not a lab tracing)</text>
+
+  <!-- axes -->
+  <line x1="90" y1="380" x2="1130" y2="380" stroke="#C9C2B4" stroke-width="2"/>
+  <line x1="90" y1="140" x2="90" y2="380" stroke="#C9C2B4" stroke-width="2"/>
+
+  <!-- highlighted morning draw window -->
+  <rect x="150" y="140" width="140" height="240" fill="#6B8E7F" opacity="0.14"/>
+  <text x="220" y="160" text-anchor="middle" font-size="15" font-weight="700" fill="#6B8E7F">Ideal draw window</text>
+
+  <!-- curve: high in early morning, declining through the day, low in evening -->
+  <path d="M 110 180 C 160 155, 220 152, 280 168 C 400 210, 550 260, 700 300 C 850 335, 1000 355, 1110 362"
+        fill="none" stroke="#2B3A3A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- points -->
+  <circle cx="220" cy="160" r="7" fill="#6B8E7F"/>
+  <circle cx="700" cy="300" r="7" fill="#E0A23E"/>
+  <circle cx="1080" cy="358" r="7" fill="#C9594F"/>
+
+  <!-- x labels -->
+  <text x="110" y="410" font-size="16" fill="#6B7979" text-anchor="middle">6am</text>
+  <text x="220" y="410" font-size="16" fill="#6B7979" text-anchor="middle">8am</text>
+  <text x="450" y="410" font-size="16" fill="#6B7979" text-anchor="middle">12pm</text>
+  <text x="700" y="410" font-size="16" fill="#6B7979" text-anchor="middle">4pm</text>
+  <text x="900" y="410" font-size="16" fill="#6B7979" text-anchor="middle">8pm</text>
+  <text x="1080" y="410" font-size="16" fill="#6B7979" text-anchor="middle">11pm</text>
+
+  <!-- y label -->
+  <text x="60" y="165" font-size="15" fill="#9AA6A6" text-anchor="end">Higher</text>
+  <text x="60" y="380" font-size="15" fill="#9AA6A6" text-anchor="end">Lower</text>
+
+  <!-- callouts -->
+  <text x="220" y="140" font-size="15" font-weight="700" fill="#2B3A3A" text-anchor="middle">Peak, shortly after waking</text>
+  <text x="1080" y="340" font-size="15" font-weight="700" fill="#2B3A3A" text-anchor="middle">Lowest, late evening</text>
+
+  <text x="70" y="452" font-size="15" fill="#9AA6A6">This is why a testosterone test is usually ordered as an early-morning, fasting blood draw. Individual patterns vary.</text>
+</svg>

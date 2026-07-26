@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Four steps for responding to suspected cholera: watch for watery diarrhoea, start oral rehydration right away, watch for severe dehydration signs, and get emergency care if they appear" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Responding to Suspected Cholera: Rehydration Comes First</title>
+  <rect width="1200" height="560" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="28" font-weight="700" fill="#2B3A3A">Rehydration comes first</text>
+  <text x="70" y="86" font-size="16" fill="#6B7979">Four steps that matter more than waiting on a lab result when watery diarrhoea is severe.</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(70,130)">
+    <rect width="245" height="360" rx="16" fill="#EAF1F6"/>
+    <rect width="245" height="8" rx="4" fill="#3E7CA6"/>
+    <circle cx="40" cy="56" r="22" fill="#3E7CA6"/>
+    <text x="40" y="64" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">1</text>
+    <text x="24" y="112" font-size="17" font-weight="700" fill="#2B3A3A">Watch for</text>
+    <text x="24" y="136" font-size="17" font-weight="700" fill="#2B3A3A">watery diarrhoea</text>
+    <text x="24" y="176" font-size="13.5" fill="#4B5A5A">Frequent, watery stool,</text>
+    <text x="24" y="198" font-size="13.5" fill="#4B5A5A">often with vomiting and</text>
+    <text x="24" y="220" font-size="13.5" fill="#4B5A5A">little or no fever, is the</text>
+    <text x="24" y="242" font-size="13.5" fill="#4B5A5A">early pattern to notice.</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(340,130)">
+    <rect width="245" height="360" rx="16" fill="#EAF1F6"/>
+    <rect width="245" height="8" rx="4" fill="#3E7CA6"/>
+    <circle cx="40" cy="56" r="22" fill="#3E7CA6"/>
+    <text x="40" y="64" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">2</text>
+    <text x="24" y="112" font-size="17" font-weight="700" fill="#2B3A3A">Start oral</text>
+    <text x="24" y="136" font-size="17" font-weight="700" fill="#2B3A3A">rehydration now</text>
+    <text x="24" y="176" font-size="13.5" fill="#4B5A5A">Begin an oral rehydration</text>
+    <text x="24" y="198" font-size="13.5" fill="#4B5A5A">solution immediately, in</text>
+    <text x="24" y="220" font-size="13.5" fill="#4B5A5A">small frequent sips, even</text>
+    <text x="24" y="242" font-size="13.5" fill="#4B5A5A">before any test is done.</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(610,130)">
+    <rect width="245" height="360" rx="16" fill="#FBF0EE"/>
+    <rect width="245" height="8" rx="4" fill="#C9594F"/>
+    <circle cx="40" cy="56" r="22" fill="#C9594F"/>
+    <text x="40" y="64" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">3</text>
+    <text x="24" y="112" font-size="17" font-weight="700" fill="#2B3A3A">Watch for severe</text>
+    <text x="24" y="136" font-size="17" font-weight="700" fill="#2B3A3A">dehydration signs</text>
+    <text x="24" y="176" font-size="13.5" fill="#4B5A5A">Sunken eyes, no tears,</text>
+    <text x="24" y="198" font-size="13.5" fill="#4B5A5A">very little urination,</text>
+    <text x="24" y="220" font-size="13.5" fill="#4B5A5A">extreme thirst, or</text>
+    <text x="24" y="242" font-size="13.5" fill="#4B5A5A">lethargy are red flags.</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g transform="translate(880,130)">
+    <rect width="245" height="360" rx="16" fill="#FBF0EE"/>
+    <rect width="245" height="8" rx="4" fill="#C9594F"/>
+    <circle cx="40" cy="56" r="22" fill="#C9594F"/>
+    <text x="40" y="64" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">4</text>
+    <text x="24" y="112" font-size="17" font-weight="700" fill="#2B3A3A">Get emergency</text>
+    <text x="24" y="136" font-size="17" font-weight="700" fill="#2B3A3A">care immediately</text>
+    <text x="24" y="176" font-size="13.5" fill="#4B5A5A">Go to a hospital or clinic</text>
+    <text x="24" y="198" font-size="13.5" fill="#4B5A5A">right away for IV fluids.</text>
+    <text x="24" y="220" font-size="13.5" fill="#4B5A5A">Do not wait on a stool</text>
+    <text x="24" y="242" font-size="13.5" fill="#4B5A5A">test result to act.</text>
+  </g>
+
+  <!-- arrows -->
+  <g fill="#9AA6A6">
+    <path d="M320 300 L335 300 L328 292 M335 300 L328 308" stroke="#9AA6A6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M590 300 L605 300 L598 292 M605 300 L598 308" stroke="#9AA6A6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M860 300 L875 300 L868 292 M875 300 L868 308" stroke="#9AA6A6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="70" y="530" font-size="13" fill="#9AA6A6">General guidance based on WHO oral rehydration principles. A clinician decides IV fluids, antibiotics, and hospital admission for an individual case.</text>
+</svg>
