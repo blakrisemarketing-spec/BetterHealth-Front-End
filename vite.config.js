@@ -117,6 +117,41 @@ const marketingFallback = (page) =>
   FALLBACK_NAV +
   '</main></div>'
 
+// No-JS body for /blog. The article list is client-rendered, so without this the
+// blog index prerenders as a heading + description and exposes ZERO links to any
+// article — leaving every article reachable only via sitemap.xml. Sitemap-only
+// discovery with no internal links is the weakest crawl signal a URL can have,
+// and it matches what GSC reported on 2026-07-26: 70 submitted, 0 indexed, with
+// articles sitting at "Discovered - currently not indexed". Listing every article
+// here puts the whole corpus one hop from the (already indexed) homepage, which
+// also makes the articles' own 253 cross-links reachable.
+const BLOG_MONTHS = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+]
+const fallbackDate = (iso) => {
+  const [y, m, d] = String(iso).split('-').map(Number)
+  return m >= 1 && m <= 12 ? `${d} ${BLOG_MONTHS[m - 1]} ${y}` : String(iso)
+}
+
+const blogIndexFallback = (page) =>
+  '<div class="bg-base min-h-screen"><main class="max-w-[720px] mx-auto px-6 pt-[120px] pb-16">' +
+  `<h1 class="text-[2rem] sm:text-[2.5rem] font-extrabold font-heading leading-[1.1] text-text-primary mb-5">${esc(shortTitle(page.title))}</h1>` +
+  `<p class="text-[1.05rem] leading-[1.85] text-text-secondary font-body mb-6">${esc(page.description)}</p>` +
+  '<ul class="list-none p-0 m-0 space-y-6">' +
+  ARTICLES.map(
+    (a) =>
+      '<li class="border-b border-border pb-6">' +
+      `<h2 class="text-[1.15rem] font-extrabold font-heading text-text-primary leading-snug mb-2"><a href="/blog/${esc(a.slug)}">${esc(a.title)}</a></h2>` +
+      `<p class="text-[14px] text-text-secondary font-body leading-relaxed mb-2">${esc(a.excerpt || a.description || '')}</p>` +
+      `<p class="text-[12px] text-text-secondary font-body m-0"><time datetime="${esc(a.datePublished)}">${esc(fallbackDate(a.datePublished))}</time>` +
+      (a.readingMinutes ? ` &middot; ${esc(a.readingMinutes)} min read` : '') +
+      '</p></li>'
+  ).join('') +
+  '</ul>' +
+  FALLBACK_NAV +
+  '</main></div>'
+
 const HOMEPAGE_FALLBACK =
   '<div class="bg-base min-h-screen"><main class="max-w-[720px] mx-auto px-6 pt-[120px] pb-16">' +
   '<h1 class="text-[2rem] sm:text-[2.5rem] font-extrabold font-heading leading-[1.1] text-text-primary mb-5">BetterHealth Africa &mdash; Better health, made accessible.</h1>' +
@@ -199,10 +234,13 @@ function prerenderSeoPlugin() {
         ].filter(Boolean).join('\n')
         html = html.replace('</head>', `${extra}\n  </head>`)
 
-        // No-JS body: full article HTML for blog posts, heading+description for the rest.
+        // No-JS body: full article HTML for blog posts, the full article list for
+        // the blog index, heading+description for the rest.
         if (route.startsWith('blog/')) {
           const article = getArticle(route.slice('blog/'.length))
           if (article) html = injectBody(html, articleToHtml(article))
+        } else if (route === 'blog') {
+          html = injectBody(html, blogIndexFallback(page))
         } else {
           html = injectBody(html, marketingFallback(page))
         }
