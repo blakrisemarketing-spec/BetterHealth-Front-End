@@ -13,6 +13,32 @@ description: >
 
 # SEO Nightly Routine
 
+## ⏸ PAUSED — 2026-07-26. Do not publish. Stop and exit.
+
+**If you are a scheduled run, stop here.** Do not select a batch, draft articles,
+refill the queue, or open a PR. Take no action and end the session quietly.
+
+**Why:** GSC access opened on 2026-07-26 and reported **70 URLs submitted, 0
+indexed**, with sampled articles at "Discovered — currently not indexed" (see
+`seo/reports/weekly-2026-W31.md`). 67 articles are published and none are in
+Google's index, so article #68 has no marginal value. Two causes were identified
+and are being addressed instead:
+
+1. `/blog` prerendered zero article links, leaving every article an orphan
+   reachable only via sitemap.xml (fixed in PR #67).
+2. No backlink profile — the actual authority constraint, now the active workstream.
+
+**Resume condition:** the sitemap's indexed count moves off 0. Re-check with
+`node seo/tools/gsc.mjs sitemap-status`. When it does, delete this block and the
+routine resumes normally. Publishing more articles before then adds thin-corpus
+pressure to a domain that is not yet indexing what it already has.
+
+Note: the cloud Routine that invokes this skill may still be enabled and will keep
+spawning sessions until it is disabled at https://claude.ai/code/routines. This
+block is what stops the work; disabling the routine is what stops the compute.
+
+---
+
 You are advancing BetterHealth Africa toward #1 rankings on Google and AI chatbots
 for African health-screening keywords. One invocation publishes a **batch of up to
 five articles**, shipped as a **single reviewable PR**. Be rigorous: this is a
