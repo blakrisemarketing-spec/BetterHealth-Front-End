@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-17",
+  "lastRunDate": "2026-07-23",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -51,13 +51,18 @@
     "art-lassa-fever",
     "art-perimenopause-menopause",
     "art-gestational-diabetes",
-    "local-pretoria"
+    "local-pretoria",
+    "art-mammogram-screening",
+    "art-colon-cancer-screening",
+    "art-allergy-test",
+    "art-breast-cancer-screening",
+    "art-tuberculosis-test"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-19",
   "inFlightPRs": [],
-  "publishedCount": 52,
-  "notes": "2026-07-22 backlog reconciliation: merged the pending nightly content PRs onto main after the indexation fixes landed (PR #52 blood-test-kumasi, then PR #53's 2026-07-16 batch of 5, then PR #54's 2026-07-17 batch of 5: bilharzia-schistosomiasis-test, lassa-fever-symptoms-test, perimenopause-menopause-test, gestational-diabetes-test, blood-test-pretoria). #52/#53/#54 had each run independent queue-refills, producing overlapping South Africa roadmap items; reconciled so every published slug appears exactly once as done (johannesburg + diabetes-test-types flipped from #52's todo entries to done; syphilis/sperm-count/durban + #54's 5 added as done) with no duplicate ids or slugs, and each batch's distinct todo refill candidates retained (mammogram/colon-cancer/allergy from #52; breast-cancer/tuberculosis/abuja/port-harcourt/mombasa/kisumu from #53; testosterone/yellow-fever/cholera/cape-town/ibadan/eldoret from #54). The body-prerender bug these batches were drafted under is now FIXED (PR #60, merged + deployed) and GSC access is resolved, so the pages now ship real per-article content to crawlers. npm run build green; all published dist/blog/<slug>/index.html carry the right Article+BreadcrumbList+FAQPage schema and appear in sitemap.xml + llms.txt. Backlog fully cleared: PRs #51 (dup of #60) and #55 (skip-note) closed; #52/#53/#54 merged."
+  "publishedCount": 57,
+  "notes": "2026-07-23 nightly batch: published 5 articles (mammogram-breast-cancer-screening, colon-cancer-screening-test, allergy-test-explained, breast-cancer-screening-guide, tuberculosis-test-explained), each drafted by its own sub-agent in parallel per the quality-floor process. No open SEO PRs found at selection time, so no dedup needed. All 5 stay honest that BetterHealth (a blood/urine/stool testing platform) does not offer the specific service the article covers (mammography, colonoscopy, allergy/IgE testing, TB diagnostics), following the pap-smear-cervical-screening.js and lassa-fever-symptoms-test.js precedents for handling topics outside the direct product catalogue. npm run build green; all 5 dist/blog/<slug>/index.html carry Article+BreadcrumbList+FAQPage schema and appear in sitemap.xml + llms.txt; zero spaced em dashes across all 5 article files. 10 todo article/local items remain in the queue (not yet below the 10-item queue-refill threshold, so no refill run this time)."
 }
