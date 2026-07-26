@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="Cholera: symptoms, testing, and why rehydration comes first" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Cholera: Symptoms, Testing, and Why Rehydration Comes First</title>
+  <defs>
+    <radialGradient id="orb-cholera" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3E7CA6" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#3E7CA6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1020" cy="150" r="320" fill="url(#orb-cholera)"/>
+
+  <text x="90" y="150" font-size="22" font-weight="700" letter-spacing="3" fill="#3E7CA6">TESTING FOR CONDITIONS</text>
+  <text x="86" y="234" font-size="52" font-weight="800" fill="#2B3A3A">Cholera, explained</text>
+  <text x="90" y="284" font-size="25" fill="#6B7979">Symptoms, testing, and why rehydration comes first</text>
+
+  <rect x="90" y="326" width="190" height="42" rx="21" fill="#2B3A3A"/>
+  <text x="185" y="353" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">Watery diarrhoea</text>
+
+  <rect x="294" y="326" width="170" height="42" rx="21" fill="#3E7CA6"/>
+  <text x="379" y="353" text-anchor="middle" font-size="16" font-weight="700" fill="#F5F3EE">ORS first</text>
+
+  <rect x="478" y="326" width="180" height="42" rx="21" fill="#E0A23E"/>
+  <text x="568" y="353" text-anchor="middle" font-size="16" font-weight="700" fill="#2B3A3A">Stool test</text>
+
+  <!-- decorative water droplet + rehydration sachet -->
+  <g transform="translate(960,120)">
+    <path d="M60 0 C90 45 116 78 116 108 C116 141 91 165 60 165 C29 165 4 141 4 108 C4 78 30 45 60 0 Z" fill="#3E7CA6" opacity="0.16"/>
+    <path d="M60 30 C82 63 100 87 100 110 C100 134 82 152 60 152 C38 152 20 134 20 110 C20 87 38 63 60 30 Z" fill="#3E7CA6" opacity="0.4"/>
+  </g>
+  <g transform="translate(1010,290)">
+    <rect x="0" y="0" width="86" height="112" rx="10" fill="#FFFFFF" opacity="0.85" stroke="#D8D0C0" stroke-width="2"/>
+    <text x="43" y="40" text-anchor="middle" font-size="11" font-weight="700" fill="#3E7CA6">ORS</text>
+    <line x1="14" y1="56" x2="72" y2="56" stroke="#D8D0C0" stroke-width="2"/>
+    <line x1="14" y1="72" x2="72" y2="72" stroke="#D8D0C0" stroke-width="2"/>
+    <line x1="14" y1="88" x2="58" y2="88" stroke="#D8D0C0" stroke-width="2"/>
+  </g>
+  <circle cx="1130" cy="220" r="6" fill="#2B3A3A" opacity="0.16"/>
+  <circle cx="1120" cy="400" r="5" fill="#2B3A3A" opacity="0.14"/>
+</svg>

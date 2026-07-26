@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-24",
+  "lastRunDate": "2026-07-25",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -61,13 +61,18 @@
     "local-port-harcourt",
     "local-mombasa",
     "local-kisumu",
-    "art-testosterone-test"
+    "art-testosterone-test",
+    "art-yellow-fever",
+    "art-cholera-test",
+    "local-cape-town",
+    "local-ibadan",
+    "local-eldoret"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-19",
   "inFlightPRs": [],
-  "publishedCount": 62,
-  "notes": "2026-07-24 nightly batch: dedup against open PRs found PR #63 (open, unmerged, branch seo/nightly-2026-07-23) already claims the first five todo items (mammogram-breast-cancer-screening, colon-cancer-screening-test, allergy-test-explained, breast-cancer-screening-guide, tuberculosis-test-explained), so this run skipped those and took the next five unclaimed todo items instead: local-abuja, local-port-harcourt, local-mombasa, local-kisumu, art-testosterone-test (blood-test-abuja, blood-test-port-harcourt, blood-test-mombasa, blood-test-kisumu, testosterone-test-explained). Each drafted end-to-end in its own sub-agent per the quality-floor process (all 5 hit >=2 images, 4 internal links with >=2 resolving blog cross-links, >=6 FAQ Q&As, ~1,100+ word bodies, every h2 a citable claim sentence, zero em dashes). No new unsourced statistics introduced; all reuse figures already published elsewhere on the site (Nigeria sickle-cell-trait prevalence, Kenya malaria/bilharzia framing). testosterone-test-explained deliberately avoids the 'testosterone booster' supplement-shopper angle: no OTC product named, TRT framed as doctor-supervised only, reference ranges stated as lab-specific rather than a fixed universal number. npm run build green; all 5 dist/blog/<slug>/index.html confirmed with correct title, og:type=article, canonical, and Article+BreadcrumbList+FAQPage schema; all 5 routes present in dist/sitemap.xml and dist/llms.txt. Remaining todo article count after this batch is exactly 10 (5 claimed by PR #63, plus art-yellow-fever, art-cholera-test, local-cape-town, local-ibadan, local-eldoret), so the queue-refill pass was not triggered (threshold is fewer than 10). A human should still merge or close PR #63 soon so the next nightly run's dedup step stays simple."
+  "publishedCount": 67,
+  "notes": "2026-07-25 nightly batch: published yellow-fever-explained, cholera-symptoms-test, blood-test-cape-town, blood-test-ibadan, blood-test-eldoret (5/5, none dropped). These were the only 5 unclaimed todo article items left in roadmap.yml; the other 10 todo items (mammogram/colon-cancer/allergy/breast-cancer-screening/tuberculosis/abuja/port-harcourt/mombasa/kisumu/testosterone) are already claimed by open PRs #63 (2026-07-23) and #64 (2026-07-24), so this run skipped them per the dedup rule. npm ci && npm run build green; all 5 dist/blog/<slug>/index.html confirmed with correct title, og:type=article, canonical, and Article+BreadcrumbList+FAQPage JSON-LD; all 5 routes present in dist/sitemap.xml and dist/llms.txt; zero spaced em dashes in all 5 article files; lint clean apart from the two pre-existing unrelated errors. Ran a queue-refill pass since the queue would otherwise starve on the next run: appended 8 new todo items (art-dengue-fever 4,400/mo Kenya confirmed, art-prolactin-test 720/mo Nigeria confirmed, art-pcos-test, art-hepatitis-a-test 10/mo Ghana confirmed, local-kano, local-enugu, local-nakuru, local-bloemfontein) below the existing queue, DataForSEO-confirmed where volume exists. FLAG FOR A HUMAN: this run's PR brings the unmerged SEO PR count to 3 (#63, #64, and this one) — per the seo-nightly playbook's backlog rule, please merge or close some of these before the next nightly run adds a 4th, so drafts don't pile up faster than they're reviewed."
 }

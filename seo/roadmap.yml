@@ -863,8 +863,9 @@ items:
     secondary: ["yellow fever vaccine (1300)", "yellow fever symptoms (480)", "yellow fever virus (2400)"]
     intent: informational
     title: "Yellow Fever: Symptoms, Vaccination, and Why the Certificate Matters"
-    status: todo
-    notes: "yellow fever 2,400/mo Nigeria, yellow fever vaccine 1,300/mo, yellow fever symptoms 480/mo (DataForSEO, confirmed 2026-07-17). CAUTION for the drafting agent: a large share of this volume looks like vaccination-certificate/travel-requirement intent rather than disease-testing intent, so the angle should lead with vaccination and the certificate (a routine, well-supported topic) and cover symptoms/diagnosis as a secondary section, not force a testing angle that doesn't match the query. BetterHealth does not offer yellow fever vaccination; keep that boundary honest, same treatment as the Lassa fever article's 'does BetterHealth test for this' FAQ."
+    status: done
+    completed: 2026-07-25
+    notes: "Published 2026-07-25. yellow fever 2,400/mo Nigeria, yellow fever vaccine 1,300/mo, yellow fever symptoms 480/mo (DataForSEO, re-confirmed 2026-07-25). Leads with the vaccine and the International Certificate of Vaccination or Prophylaxis (Nigeria's yellow card) per the caution above, covers symptoms/toxic-phase/diagnosis as a secondary section. Honest boundary: BetterHealth Africa does not vaccinate or test for yellow fever (NPHCDA-approved centres and public health labs are the right referral), same treatment as the Lassa fever article. Cross-links malaria-test-explained, typhoid-widal-test, lassa-fever-symptoms-test. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
 
   - id: art-cholera-test
     type: article
@@ -876,8 +877,9 @@ items:
     secondary: ["cholera test (30)", "cholera treatment", "cholera prevention", "cholera vs typhoid"]
     intent: informational
     title: "Cholera: Symptoms, Testing, and Why Rehydration Comes First"
-    status: todo
-    notes: "cholera symptoms 390/mo Kenya, LOW competition; cholera test 30/mo (DataForSEO, confirmed 2026-07-17). Acute watery-diarrhoea illness, oral rehydration is the life-saving first step; cross-link typhoid-widal-test and stool-test-explained. Same 'this needs urgent care, not a routine home draw for the acute illness' honesty as the Lassa fever article where applicable."
+    status: done
+    completed: 2026-07-25
+    notes: "Published 2026-07-25. cholera symptoms 390/mo Kenya, LOW competition; cholera (880/mo via ideas endpoint) re-confirmed 2026-07-25. Acute watery-diarrhoea illness, oral rehydration framed as the life-saving first step, with a prominent emergency-dehydration callout and disclaimer. Cross-links typhoid-widal-test and stool-test-explained. Honest 'this needs urgent hospital care, not a routine home draw' framing, same as the Lassa fever article. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 7 FAQ."
 
   - id: local-cape-town
     type: article
@@ -888,8 +890,9 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Cape Town: Your Options"
-    status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-17, both volume and ideas endpoints empty). Still worth publishing per the local-page precedent (Accra/Lagos/Nairobi/Kumasi/Johannesburg/Durban/Pretoria) for AI-citation and city coverage. Confirm volume again next refine pass. Groote Schuur Hospital is the natural named-once public-facility reference point for this one, matching the Steve Biko precedent in the Pretoria article."
+    status: done
+    completed: 2026-07-25
+    notes: "Published 2026-07-25. No DataForSEO volume returned (re-checked 2026-07-25, both volume and ideas endpoints still empty), published per the local-page precedent for AI-citation and city coverage. Groote Schuur Hospital named once as the public-facility reference point, matching the Steve Biko precedent in the Pretoria article. Same three-route framework, 'medical aid' terminology, hedged NHI mention. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
 
   - id: local-ibadan
     type: article
@@ -900,8 +903,9 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Ibadan: Your Options"
-    status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-17). Still worth publishing per the local-lagos precedent. Confirm volume next refine pass."
+    status: done
+    completed: 2026-07-25
+    notes: "Published 2026-07-25. No DataForSEO volume returned (re-checked 2026-07-25), published per the local-lagos precedent. University College Hospital (UCH) named once as the public-facility reference point; sickle-cell-trait prevalence figure reused from genotype-test-aa-as-ss.js, no new statistic invented. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
 
   - id: local-eldoret
     type: article
@@ -912,8 +916,115 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Eldoret: Your Options"
+    status: done
+    completed: 2026-07-25
+    notes: "Published 2026-07-25. No DataForSEO volume returned (re-checked 2026-07-25), published per the local-nairobi precedent. Moi Teaching and Referral Hospital named once as the public-facility reference point; Kenya disease-burden framing reuses figures already published in health-screening-kenya.js. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
+
+  # ==========================================================================
+  # Queue refill (added 2026-07-25) — all 10 prior todo article items (mammogram/
+  # colon-cancer/allergy/breast-cancer-screening/tuberculosis + abuja/port-harcourt/
+  # mombasa/kisumu/testosterone) are already claimed by open PRs #63 and #64, so
+  # this refill gives the next nightly run fresh unclaimed runway. DataForSEO
+  # re-checked 2026-07-25; dengue fever and prolactin test surfaced strong
+  # confirmed volumes outside the original seed list. Never reorder done items above.
+  # ==========================================================================
+  - id: art-dengue-fever
+    type: article
+    cluster: conditions
+    slug: dengue-fever-explained
+    keyword: dengue fever
+    market: kenya
+    volume: 4400
+    secondary: ["4 stages of dengue fever (70)", "dengue fever vaccine (50)", "prevention of dengue fever (40)"]
+    intent: informational
+    title: "Dengue Fever: Symptoms, Testing, and How It Differs From Malaria"
     status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-17). Still worth publishing per the local-nairobi precedent. Confirm volume next refine pass."
+    notes: "dengue fever 4,400/mo Kenya, LOW competition (DataForSEO, confirmed 2026-07-25) — the highest-volume unpublished keyword in the queue. Aedes-mosquito-borne, same family as yellow fever; cross-link malaria-test-explained and yellow-fever-explained for the fever-differential angle. CAUTION: be honest that BetterHealth does not offer a specific dengue NS1/IgM test in its home panel (confirm against src/data/content.js before drafting; if absent, frame testing as a hospital/lab matter, same pattern as Lassa fever and yellow fever), and flag the warning-sign/severe-dengue plasma-leakage symptoms that need urgent care, similar to the cholera and yellow-fever severity framing."
+
+  - id: art-prolactin-test
+    type: article
+    cluster: biomarkers
+    slug: prolactin-test-explained
+    keyword: prolactin test
+    market: nigeria
+    volume: 720
+    intent: informational
+    title: "Prolactin Test: What a High or Low Result Means for Fertility and Cycles"
+    status: todo
+    notes: "prolactin test 720/mo Nigeria, LOW competition (DataForSEO, confirmed 2026-07-25). Genuinely within BetterHealth's catalogue (Reproductive Hormones panel per src/data/content.js). Cross-link perimenopause-menopause-test and sperm-count-fertility-test for the hormone-panel cluster."
+
+  - id: art-pcos-test
+    type: article
+    cluster: conditions
+    slug: pcos-test-explained
+    keyword: pcos test
+    market: nigeria
+    volume: null
+    secondary: ["pcos blood test", "pcos test kit", "how do gynecologists check for pcos"]
+    intent: informational
+    title: "PCOS Testing: The Hormone Panel Behind a Polycystic Ovary Syndrome Diagnosis"
+    status: todo
+    notes: "No confirmed standalone volume for 'pcos test' or 'pcos symptoms' in Nigeria (DataForSEO, checked 2026-07-25, both null), but PCOS is a high-interest, high-burden topic worth publishing for AI-citation value; confirm volume again next refine pass. Within BetterHealth's Reproductive Hormones panel (LH, FSH, testosterone, DHEA-S per src/data/content.js) and the existing PCOS Program. Cross-link perimenopause-menopause-test and testosterone-test-explained (once that one ships) for the hormone cluster; avoid diagnostic overreach, PCOS diagnosis needs clinical criteria (Rotterdam) alongside labs, not labs alone."
+
+  - id: art-hepatitis-a-test
+    type: article
+    cluster: conditions
+    slug: hepatitis-a-test
+    keyword: hepatitis a test
+    market: ghana
+    volume: 10
+    intent: informational
+    title: "Hepatitis A Test: Who Needs It and How It Differs From Hepatitis B and C"
+    status: todo
+    notes: "hepatitis a test 10/mo Ghana, LOW competition (DataForSEO, confirmed 2026-07-25). Completes the hepatitis A/B/C trio started with hepatitis-b-test and hepatitis-c-test; cross-link both for the 'which hepatitis test do I need' comparison angle. Faecal-oral transmission (contaminated food/water) distinguishes it from blood-borne B/C, a genuinely useful distinction to lead with."
+
+  - id: local-kano
+    type: article
+    cluster: local
+    slug: blood-test-kano
+    keyword: blood test Kano
+    market: nigeria
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Kano: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-25). Still worth publishing per the local-lagos/local-ibadan precedent; Aminu Kano Teaching Hospital is the natural named-once public-facility reference point. Confirm volume next refine pass."
+
+  - id: local-enugu
+    type: article
+    cluster: local
+    slug: blood-test-enugu
+    keyword: blood test Enugu
+    market: nigeria
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Enugu: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-25). Still worth publishing per the local-lagos precedent; University of Nigeria Teaching Hospital (UNTH), Enugu, is the natural named-once public-facility reference point. Confirm volume next refine pass."
+
+  - id: local-nakuru
+    type: article
+    cluster: local
+    slug: blood-test-nakuru
+    keyword: blood test Nakuru
+    market: kenya
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Nakuru: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-25). Still worth publishing per the local-nairobi/local-eldoret precedent; Nakuru Level 5 Hospital is the natural named-once public-facility reference point. Confirm volume next refine pass."
+
+  - id: local-bloemfontein
+    type: article
+    cluster: local
+    slug: blood-test-bloemfontein
+    keyword: blood test Bloemfontein
+    market: south-africa
+    volume: null
+    intent: local
+    title: "Blood Tests and Health Screening in Bloemfontein: Your Options"
+    status: todo
+    notes: "No DataForSEO volume returned yet (checked 2026-07-25). Still worth publishing per the local-pretoria/local-cape-town precedent; Universitas Academic Hospital is the natural named-once public-facility reference point. Confirm volume next refine pass."
 
   # ---- Technical / GEO tasks (interleaved by the weekly routine) ----
   - id: tech-og-images-blog
