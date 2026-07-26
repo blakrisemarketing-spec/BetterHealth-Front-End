@@ -251,6 +251,7 @@ Suggested carousel visual direction:
 - Slide 5: show a real, calm Ghanaian test-collection moment with the LFT as the starting point.
 - Slide 6: show biomarkers as one clean marker dashboard: ALT/AST, ALP/GGT, and bilirubin.
 - Slide 7: show a Ghanaian professional tracking results on her phone, paired with a strong BetterHealth booking CTA.
+- Keep the footer disclaimer on every educational slide: General education only. For severe or urgent symptoms, seek medical care.
 
 Production source:
 `/Users/greatdamzi/Documents/01. GitHub/BetterHealth-Media/content/social-images/day-008-lft-carousel/slides-02-07.html`
