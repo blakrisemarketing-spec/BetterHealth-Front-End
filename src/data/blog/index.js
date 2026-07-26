@@ -55,6 +55,11 @@ import lassaFeverSymptomsTest from "./posts/lassa-fever-symptoms-test.js";
 import perimenopauseMenopauseTest from "./posts/perimenopause-menopause-test.js";
 import gestationalDiabetesTest from "./posts/gestational-diabetes-test.js";
 import bloodTestPretoria from "./posts/blood-test-pretoria.js";
+import mammogramBreastCancerScreening from "./posts/mammogram-breast-cancer-screening.js";
+import colonCancerScreeningTest from "./posts/colon-cancer-screening-test.js";
+import allergyTestExplained from "./posts/allergy-test-explained.js";
+import breastCancerScreeningGuide from "./posts/breast-cancer-screening-guide.js";
+import tuberculosisTestExplained from "./posts/tuberculosis-test-explained.js";
 import bloodTestAbuja from "./posts/blood-test-abuja.js";
 import bloodTestPortHarcourt from "./posts/blood-test-port-harcourt.js";
 import bloodTestMombasa from "./posts/blood-test-mombasa.js";
@@ -114,6 +119,11 @@ const ALL = [
   perimenopauseMenopauseTest,
   gestationalDiabetesTest,
   bloodTestPretoria,
+  mammogramBreastCancerScreening,
+  colonCancerScreeningTest,
+  allergyTestExplained,
+  breastCancerScreeningGuide,
+  tuberculosisTestExplained,
   bloodTestAbuja,
   bloodTestPortHarcourt,
   bloodTestMombasa,

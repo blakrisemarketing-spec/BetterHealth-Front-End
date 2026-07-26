@@ -31,7 +31,7 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-19
+  updated: 2026-07-23
   keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo — these were reported confirmed on 2026-07-05/07-12 but the volume fields were never written back to this file; corrected this week (see weekly-2026-W29 note about the same recurring write-back gap). h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data (2026-07-19 re-checked: still no data). South Africa still pending)"
 
 items:
@@ -583,8 +583,9 @@ items:
     secondary: ["mammogram near me (1000/mo)", "free mammograms at dischem (590/mo)", "do mammograms hurt (140/mo)", "mammogram age (70/mo)"]
     intent: informational
     title: "Mammogram Screening: What to Expect and When to Start"
-    status: todo
-    notes: "mammogram screening 210/mo South Africa, LOW competition; mammogram near me 1000/mo (DataForSEO, confirmed 2026-07-15). Breast cancer screening is a strong AI-citation and commercial-intent opportunity; cover screening age guidance, what a mammogram involves, pairing with pap-smear-cervical-screening as the women's cancer-screening cluster."
+    status: done
+    completed: 2026-07-23
+    notes: "Published 2026-07-23. mammogram screening 210/mo South Africa, LOW competition; mammogram near me 1000/mo (DataForSEO, confirmed 2026-07-15). Procedure-focused deep dive: step-by-step exam walkthrough, discomfort honesty, BI-RADS-style plain-language result categories, hedged age/interval guidance (WHO/USPSTF/NHS differ). Honest that BetterHealth does not perform/book/refer for mammograms (no imaging service in catalogue). Cross-links batch-mate breast-cancer-screening-guide and pap-smear-cervical-screening. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
   - id: art-colon-cancer-screening
     type: article
     cluster: screening
@@ -595,8 +596,9 @@ items:
     secondary: ["colorectal cancer symptoms", "stool occult blood test", "colonoscopy vs stool test"]
     intent: informational
     title: "Colon Cancer Screening: Stool Tests, Colonoscopy, and When to Start"
-    status: todo
-    notes: "colon cancer screening 170/mo South Africa, LOW competition (DataForSEO, confirmed 2026-07-15). Cross-link with stool-test-explained (occult blood) and psa-prostate-test / pap-smear-cervical-screening as part of the cancer-screening cluster."
+    status: done
+    completed: 2026-07-23
+    notes: "Published 2026-07-23. colon cancer screening 170/mo South Africa, LOW competition (DataForSEO, confirmed 2026-07-15). Balanced stool-test-vs-colonoscopy comparison; USPSTF 2021 age-45 shift cited; South Africa medical-scheme framing, CANSA referenced generically. Honest that BetterHealth's stool panel's hidden-blood marker is a data point, not a certified FIT/FOBT test, and that BetterHealth does not offer colonoscopy. Cross-links stool-test-explained and pap-smear-cervical-screening. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
   - id: art-allergy-test
     type: article
     cluster: biomarkers
@@ -607,8 +609,9 @@ items:
     secondary: ["allergy symptoms", "food allergy test", "skin prick test vs blood allergy test"]
     intent: informational
     title: "Allergy Testing: Skin Prick vs Blood Test, and What Results Mean"
-    status: todo
-    notes: "allergy test 880/mo South Africa, MEDIUM competition (DataForSEO, confirmed 2026-07-15). Highest-volume unpublished keyword in the refill batch. Cover IgE blood testing vs skin prick testing, common allergen panels, and when a GP referral to an allergist is the right next step."
+    status: done
+    completed: 2026-07-23
+    notes: "Published 2026-07-23. allergy test 880/mo South Africa, MEDIUM competition (DataForSEO, confirmed 2026-07-15), highest-volume keyword in this batch. Covers skin prick vs specific IgE blood testing, common food/environmental allergen panels, sensitization-vs-clinical-allergy distinction, anaphylaxis emergency callout. Did not chase retailer price-comparison intent (Dis-Chem/Clicks/Pathcare) since pricing is unverifiable. Honest that BetterHealth has no allergy/IgE panel; the one real connection drawn is the FBC eosinophil differential, explicitly framed as an incidental clue only. Cross-links full-blood-count-explained and crp-inflammation-test. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 7 FAQ."
   - id: art-diabetes-test-types
     type: article
     cluster: decision
@@ -694,8 +697,9 @@ items:
     volume: 70
     intent: informational
     title: "Breast Cancer Screening: Self-Checks, Clinical Exams, and Mammograms"
-    status: todo
-    notes: "breast cancer screening 70/mo Ghana (DataForSEO, confirmed 2026-07-16). CAUTION: BetterHealth's current test catalogue (src/data/content.js) does not list a mammogram or breast-cancer biomarker panel, so this must stay purely educational (self-exam technique, clinical breast exam, screening-age guidance, when to see a doctor) without implying BetterHealth performs or books mammograms. Model the pap-smear-cervical-screening.js precedent for handling a screening topic outside the direct product catalogue."
+    status: done
+    completed: 2026-07-23
+    notes: "Published 2026-07-23. breast cancer screening 70/mo Ghana (DataForSEO, confirmed 2026-07-16). Broad three-approach overview (self-awareness, clinical breast exam, mammogram at summary level only, deep-linking to the batch-mate mammogram article for procedure depth). Pan-African framing, WHO-sourced qualitative screening-access gap, no invented stat. Family-history hedge included (most breast cancer patients have no strong family history). Stays purely educational per the pap-smear-cervical-screening.js precedent, honest that BetterHealth performs no imaging or physical exams. Article + BreadcrumbList + FAQPage schema, 2 images, 3 internal links, 6 FAQ."
 
   - id: art-tuberculosis-test
     type: article
@@ -706,8 +710,9 @@ items:
     volume: null
     intent: informational
     title: "Tuberculosis Testing: Sputum, Skin, and Blood Tests Explained"
-    status: todo
-    notes: "No confirmed standalone volume for 'tuberculosis test' in Ghana (DataForSEO, checked 2026-07-16); related queries skewed toward visa-medical-exam bookings (IOM TB test for UK visa), which is a different intent and out of scope for this article. Still worth publishing for AI-citation value given TB's African disease burden. Confirm volume again next refine pass."
+    status: done
+    completed: 2026-07-23
+    notes: "Published 2026-07-23. No confirmed standalone volume for 'tuberculosis test' in Ghana (DataForSEO, re-checked 2026-07-23, still no data; related queries still skew toward visa-medical-exam bookings, deliberately not chased). Published for AI-citation value given TB's African disease burden. Covers latent-vs-active distinction, sputum smear/GeneXpert, TST/IGRA, chest X-ray as supportive-only, and the WHO-documented TB-HIV syndemic (cross-linked to hiv-test-explained). Honest that BetterHealth does not offer TB diagnostic testing directly (hospital/public-TB-programme matter), same pattern as lassa-fever-symptoms-test.js. No fabricated mortality/incidence figures. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
 
   - id: local-abuja
     type: article

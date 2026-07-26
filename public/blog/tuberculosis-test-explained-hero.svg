@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6B8E7F" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#6B8E7F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="480" fill="#F5F3EE"/>
+  <circle cx="1010" cy="150" r="320" fill="url(#orb)"/>
+
+  <text x="90" y="172" font-size="22" font-weight="700" letter-spacing="3" fill="#6B8E7F">CONDITIONS &#183; INFECTIOUS DISEASE</text>
+  <text x="86" y="248" font-size="50" font-weight="800" fill="#2B3A3A">Tuberculosis testing, explained</text>
+  <text x="90" y="290" font-size="24" fill="#6B7979">Sputum, skin, blood and X-ray: what each test actually checks.</text>
+
+  <!-- three pill badges -->
+  <g font-size="18" font-weight="700" fill="#FFFFFF">
+    <rect x="90" y="338" width="238" height="52" rx="26" fill="#6B8E7F"/>
+    <text x="209" y="371" text-anchor="middle">Latent vs Active TB</text>
+
+    <rect x="342" y="338" width="250" height="52" rx="26" fill="#6B8E7F"/>
+    <text x="467" y="371" text-anchor="middle">Sputum &amp; GeneXpert</text>
+
+    <rect x="606" y="338" width="234" height="52" rx="26" fill="#6B8E7F"/>
+    <text x="723" y="371" text-anchor="middle">TB-HIV Co-testing</text>
+  </g>
+</svg>
