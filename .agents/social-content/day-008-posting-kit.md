@@ -15,14 +15,14 @@ Council diagnosis:
 - The Copywriter's Handbook: define fatty liver disease plainly before introducing markers.
 - Tested Advertising Methods: the hero works because it turns an invisible internal condition into a visible comparison.
 - Ogilvy on Advertising: build trust by saying what a liver function test can and cannot do. It can show useful clues; it does not confirm fatty liver disease by itself.
-- Scientific Advertising: make the carousel useful by naming the specific biomarkers: ALT, AST, ALP, GGT, bilirubin, albumin, and total protein.
+- Scientific Advertising: make the carousel useful by naming the specific biomarkers: ALT, AST, ALP, GGT, and bilirubin.
 - Made to Stick: use one simple mental model: "fat can build up quietly, testing can give clues."
 - Influence: the save/share value is high because many people know they should "check their liver" but do not know what that actually means.
 - Chair synthesis: keep the hero dramatic, then make the rest of the post calmly useful.
 
 ## Core Message
 
-Fatty liver disease means extra fat has built up in the liver. Many people do not feel symptoms early. Common risk factors include alcohol use, weight gain around the waist, insulin resistance or type 2 diabetes, high cholesterol or triglycerides, and some medicines or other health conditions. A liver function test can give useful clues about liver stress, bile flow, bilirubin processing, and protein-making function, but fatty liver disease may also need clinical review, imaging such as ultrasound, and other tests where needed.
+Fatty liver disease is a condition where excess fat builds up in the liver. Many people do not feel symptoms early. It can be linked to alcohol use, weight gain around the waist, insulin resistance or type 2 diabetes, high cholesterol, and some medicines or other health conditions. A Liver Function Test is a useful starting point that can give clues about the overall functioning of the liver, but it does not tell the whole story by itself.
 
 ## Clinical Guardrail
 
@@ -50,16 +50,14 @@ How do you know if your liver is healthy?
 Many people with fatty liver disease have no idea.
 
 Slide 2:
-What is fatty liver disease?
-
-It means extra fat has built up in the liver.
+Fatty liver disease is a condition where excess fat builds up in your liver.
 
 In the early stage, many people feel nothing unusual.
 
 That is why it can be missed until a health check raises a clue.
 
 Slide 3:
-What symptoms can it cause?
+Symptoms
 
 Fatty liver disease often has no clear symptoms at first.
 
@@ -69,33 +67,25 @@ Tiredness
 Feeling generally unwell
 Discomfort or fullness on the upper right side of the abdomen
 
-If symptoms feel severe or urgent, seek medical care.
-
 Slide 4:
-What can cause it?
+Causes
 
 Fatty liver disease can be linked to:
 
 Alcohol use
 Weight gain around the waist
 Insulin resistance or type 2 diabetes
-High cholesterol or triglycerides
+High cholesterol
 Some medicines or other health conditions
 
-The cause is not something to guess.
-
-It needs context.
+Each person is unique and exact cause may vary.
 
 Slide 5:
-What test helps you start checking?
+What should you do?
 
-A Liver Function Test is often a useful blood test to begin with.
+A Liver Function Test is often the best place to start.
 
-It is a blood test that checks markers linked to liver stress, bile flow, bilirubin processing, and protein-making function.
-
-To look for fat in the liver, a clinician may also recommend imaging such as an ultrasound.
-
-So the blood test can give useful clues.
+It is a blood test that checks markers linked to the overall functioning of the liver.
 
 It is a starting point, not the whole story.
 
@@ -103,29 +93,26 @@ Slide 6:
 Key biomarkers to know
 
 ALT and AST
-Liver cell stress clues
+Helps identify liver inflammation & cell stress
 
 ALP and GGT
-Bile flow clues
+Helps assess the proper functioning of your bile ducts
 
 Bilirubin
-Pigment and bile processing clue
+Helps measure the cleaning of red blood cells by the liver
 
-Albumin and total protein
-Protein-making clues
-
-The pattern matters more than one number.
+It's always best to take your health markers in context and not isolate a single result.
 
 Slide 7:
 How BetterHealth helps
 
-Book a Liver Function Test.
+Book a Liver Function Test & keep track of your health.
 
 Get tested at home, office, or a partner lab.
 
 Receive easy-to-understand results in your account.
 
-Use your result to ask a better health question.
+Get direct medical guidance from a BetterHealth clinician.
 
 Book a health test today on
 www.BetterHealth.Africa
@@ -134,23 +121,23 @@ www.BetterHealth.Africa
 
 How do you know if your liver is healthy?
 
-Fatty liver disease can be silent.
+Fatty liver disease is a condition where excess fat builds up in the liver.
 
-It means extra fat has built up in the liver, and in the early stage many people do not feel anything unusual.
+In the early stage, many people feel nothing unusual. That is why it can be missed until a health check raises a clue.
 
 Some people may notice tiredness, feeling generally unwell, or discomfort on the upper right side of the abdomen. But symptoms alone are not enough to understand what is happening.
 
-Fatty liver disease can be linked to alcohol use, weight gain around the waist, insulin resistance or type 2 diabetes, high cholesterol or triglycerides, some medicines, and other health conditions.
+Fatty liver disease can be linked to alcohol use, weight gain around the waist, insulin resistance or type 2 diabetes, high cholesterol, some medicines, and other health conditions. Each person is unique and the exact cause may vary.
 
 That is why the next step should be clarity, not guessing.
 
-A Liver Function Test can be a useful blood test to begin with.
+A Liver Function Test is often the best place to start.
 
-It checks markers such as ALT, AST, ALP, GGT, bilirubin, albumin, and total protein. These markers can give useful clues about liver stress, bile flow, bilirubin processing, and protein-making function.
+It checks markers linked to the overall functioning of the liver. ALT and AST can help identify liver inflammation and cell stress; ALP and GGT can help assess bile-duct function; and bilirubin can help measure how the liver processes pigment from red blood cells.
 
 But a liver function test does not confirm fatty liver disease by itself. To look for fat in the liver, a clinician may also recommend imaging such as an ultrasound. Your symptoms, history, alcohol use, medicines, risk factors, imaging, and other tests may all matter.
 
-BetterHealth helps you choose the right tests, get tested, and understand your results in plain English.
+BetterHealth helps you get tested at home, office, or a partner lab; keep easy-to-understand results in your account; and get direct medical guidance from a BetterHealth clinician.
 
 Book a Liver Function Test today on www.BetterHealth.Africa
 
@@ -163,17 +150,17 @@ Hashtags:
 
 Fatty liver disease is easy to overlook because many people do not feel symptoms early.
 
-It means extra fat has built up in the liver.
+It is a condition where excess fat builds up in the liver.
 
 Some people may feel tired, generally unwell, or notice discomfort on the upper right side of the abdomen. Others may feel nothing at all.
 
-Common risk factors include alcohol use, weight gain around the waist, insulin resistance or type 2 diabetes, high cholesterol or triglycerides, some medicines, and other health conditions.
+It can be linked to alcohol use, weight gain around the waist, insulin resistance or type 2 diabetes, high cholesterol, some medicines, and other health conditions. Each person is unique and the exact cause may vary.
 
-A Liver Function Test can be a useful blood test to begin with.
+A Liver Function Test is often the best place to start.
 
-It checks markers such as ALT, AST, ALP, GGT, bilirubin, albumin, and total protein.
+It checks markers linked to the overall functioning of the liver.
 
-These markers can give useful clues about liver cell stress, bile flow, bilirubin processing, and protein-making function.
+ALT and AST can help identify liver inflammation and cell stress. ALP and GGT can help assess bile-duct function. Bilirubin can help measure how the liver processes pigment from red blood cells.
 
 But the blood test should not be read alone. To look for fat in the liver, a clinician may also recommend imaging such as an ultrasound.
 
@@ -183,7 +170,7 @@ The useful question is not only:
 It is:
 "What does this pattern mean with my symptoms, health history, alcohol use, medicines, risk factors, imaging, and any other tests I may need?"
 
-BetterHealth helps people choose the right tests, get tested, and understand their results in plain English.
+BetterHealth helps people get tested at home, office, or a partner lab, receive easy-to-understand results in their account, and get direct medical guidance from a BetterHealth clinician.
 
 Book a Liver Function Test on www.BetterHealth.Africa
 
@@ -191,21 +178,21 @@ Book a Liver Function Test on www.BetterHealth.Africa
 
 How do you know if your liver is healthy?
 
-Fatty liver disease means extra fat has built up in the liver.
+Fatty liver disease is a condition where excess fat builds up in the liver.
 
 Many people do not feel symptoms early, which is why it can be missed.
 
 Some people may notice tiredness, feeling generally unwell, or discomfort on the upper right side of the abdomen.
 
-It can be linked to alcohol use, weight gain around the waist, insulin resistance or type 2 diabetes, high cholesterol or triglycerides, some medicines, and other health conditions.
+It can be linked to alcohol use, weight gain around the waist, insulin resistance or type 2 diabetes, high cholesterol, some medicines, and other health conditions. Each person is unique and the exact cause may vary.
 
-A Liver Function Test can be a useful blood test to begin with.
+A Liver Function Test is often the best place to start.
 
-It checks markers such as ALT, AST, ALP, GGT, bilirubin, albumin, and total protein. These can give useful clues about liver stress, bile flow, bilirubin processing, and protein-making function.
+It checks markers linked to the overall functioning of the liver. ALT and AST can help identify liver inflammation and cell stress; ALP and GGT can help assess bile-duct function; and bilirubin can help measure how the liver processes pigment from red blood cells.
 
 But it does not confirm fatty liver disease by itself. To look for fat in the liver, imaging such as an ultrasound may also be needed. Results need context.
 
-BetterHealth helps you choose the right tests, get tested, and understand your results in plain English.
+BetterHealth helps you get tested at home, office, or a partner lab, receive easy-to-understand results in your account, and get direct medical guidance from a BetterHealth clinician.
 
 Book a Liver Function Test today on www.BetterHealth.Africa
 
@@ -213,12 +200,11 @@ Book a Liver Function Test today on www.BetterHealth.Africa
 
 Fatty liver disease can be silent.
 
-A Liver Function Test can give useful clues through markers like:
+A Liver Function Test is often the best place to start. It checks markers linked to the overall functioning of the liver:
 
-ALT/AST: liver cell stress
-ALP/GGT: bile flow
-Bilirubin: pigment processing
-Albumin/protein: protein-making function
+ALT/AST: inflammation and cell stress
+ALP/GGT: bile-duct function
+Bilirubin: processing pigment from red blood cells
 
 The pattern needs context.
 
@@ -232,12 +218,12 @@ Have you ever checked your liver?
 - Not yet
 
 Story 2:
-Fatty liver disease means extra fat has built up in the liver.
+Fatty liver disease is a condition where excess fat builds up in the liver.
 
 Many people do not feel symptoms early.
 
 Story 3 quiz:
-Which blood test is often a useful place to begin?
+Which blood test is often the best place to start?
 - Liver Function Test
 - Eye Test
 
@@ -247,17 +233,8 @@ A Liver Function Test can check markers like:
 ALT and AST
 ALP and GGT
 Bilirubin
-Albumin and total protein
-
 Story 5:
-The result needs context:
-
-Symptoms
-History
-Alcohol use
-Medicines
-Risk factors
-Other tests where needed
+It is always best to take your health markers in context and not isolate a single result.
 
 Story 6 CTA:
 Book a Liver Function Test with BetterHealth and understand your results in plain English.
@@ -271,9 +248,16 @@ Suggested carousel visual direction:
 - Slide 2: show fat building up inside or around the liver with a simple cross-section or organ texture.
 - Slide 3: show a person feeling tired or holding the upper right abdomen, but keep it photorealistic and Ghana-market real if using a human.
 - Slide 4: show risk factors as a connected system around the liver, not random flat icons.
-- Slide 5: show a blood-test result panel connected to the liver, with LFT as the starting point.
-- Slide 6: show biomarkers as one clean marker dashboard: ALT/AST, ALP/GGT, bilirubin, albumin/total protein.
-- Slide 7: strict brand CTA image: BetterHealth booking flow, clean cream background, strong CTA.
+- Slide 5: show a real, calm Ghanaian test-collection moment with the LFT as the starting point.
+- Slide 6: show biomarkers as one clean marker dashboard: ALT/AST, ALP/GGT, and bilirubin.
+- Slide 7: show a Ghanaian professional tracking results on her phone, paired with a strong BetterHealth booking CTA.
+- Keep the footer disclaimer on every educational slide: General education only. For severe or urgent symptoms, seek medical care.
+
+Production source:
+`/Users/greatdamzi/Documents/01. GitHub/BetterHealth-Media/content/social-images/day-008-lft-carousel/slides-02-07.html`
+
+Rendered outputs:
+`/Users/greatdamzi/Documents/01. GitHub/BetterHealth-Media/out/social/day-008-lft-carousel/slide-02.png` through `slide-07.png`
 
 Avoid:
 - using blood cells as the default visual for every slide;
