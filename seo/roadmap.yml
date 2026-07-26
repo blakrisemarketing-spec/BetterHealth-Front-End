@@ -723,8 +723,9 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Abuja: Your Options"
-    status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-16); still worth publishing for local/AI-citation coverage given the local-lagos precedent. Confirm volume next refine pass."
+    status: done
+    completed: 2026-07-24
+    notes: "No DataForSEO volume returned (re-checked 2026-07-24, Nigeria location 2566); published anyway per the local-lagos precedent. National Hospital Abuja named once as the public-hospital example; NHIA/NHIS mentioned once, hedged. Cross-links genotype-test-aa-as-ss and premarital-screening. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
 
   - id: local-port-harcourt
     type: article
@@ -735,8 +736,9 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Port Harcourt: Your Options"
-    status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-16). Confirm volume next refine pass."
+    status: done
+    completed: 2026-07-24
+    notes: "No DataForSEO volume returned (re-checked 2026-07-24). University of Port Harcourt Teaching Hospital (UPTH) named once as the public-hospital example; hepatitis B given extra weight given the Niger Delta region. Cross-links blood-test-lagos, genotype-test-aa-as-ss, hepatitis-b-test. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
 
   - id: local-mombasa
     type: article
@@ -747,8 +749,9 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Mombasa: Your Options"
-    status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-16). Confirm volume next refine pass."
+    status: done
+    completed: 2026-07-24
+    notes: "No DataForSEO volume returned (re-checked 2026-07-24, Kenya location 2404). Coast General Teaching and Referral Hospital named once; NHIF-to-SHA transition hedged per the blood-test-nairobi.js precedent; bilharzia added as a coastal-relevant cross-link. Cross-links blood-test-nairobi, malaria-test-explained, bilharzia-schistosomiasis-test. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 7 FAQ."
 
   - id: local-kisumu
     type: article
@@ -759,8 +762,9 @@ items:
     volume: null
     intent: local
     title: "Blood Tests and Health Screening in Kisumu: Your Options"
-    status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-16). Confirm volume next refine pass."
+    status: done
+    completed: 2026-07-24
+    notes: "No DataForSEO volume returned (re-checked 2026-07-24). JOOTRH (Jaramogi Oginga Odinga Teaching and Referral Hospital) named once; NHIF-to-SHA transition hedged per the blood-test-nairobi.js precedent; Lake Victoria malaria/bilharzia framing kept general, no new statistic. Cross-links blood-test-nairobi, malaria-test-explained, bilharzia-schistosomiasis-test. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
 
   # ==========================================================================
   # Nightly batch 2026-07-17 (PR #54) — DataForSEO refine pass surfaced strong
@@ -845,8 +849,9 @@ items:
     secondary: ["testosterone booster (390)", "testosterone supplements (170)", "low testosterone symptoms"]
     intent: informational
     title: "Low Testosterone: Symptoms, Testing, and What Actually Helps"
-    status: todo
-    notes: "'testosterone test' itself returns no confirmed volume in any market checked; 'how to increase testosterone' (260/mo Ghana) and 'testosterone booster' (390/mo Ghana, supplement-intent) are the real traffic. CAUTION for the drafting agent: this needs a genuinely evidence-based, non-supplement-pushing angle (similar to how the hypertension article handles 'how to lower blood pressure' as a secondary keyword) rather than chasing supplement-shopper intent. BetterHealth's catalogue includes Testosterone (Total & Free) in the Men's Panel and the Reproductive Hormones panel, so this is well within scope."
+    status: done
+    completed: 2026-07-24
+    notes: "how to increase testosterone 260/mo Ghana, LOW competition (DataForSEO, re-confirmed 2026-07-24). Deliberately non-supplement-pushing angle: covers hypogonadism, real symptoms, total/free testosterone testing (morning fasting draw, diurnal rhythm, repeat testing before diagnosis), causes, evidence-based lifestyle levers, and explicit skepticism of OTC boosters (no brand named), with TRT framed as doctor-supervised only. Cross-links psa-prostate-test and perimenopause-menopause-test. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 7 FAQ."
 
   - id: art-yellow-fever
     type: article

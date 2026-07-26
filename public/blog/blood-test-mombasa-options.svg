@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="560" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Three ways to get a blood test in Mombasa</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Pick the option that fits your schedule, budget, and how urgent the result is.</text>
+
+  <!-- three columns -->
+  <rect x="70" y="118" width="340" height="390" rx="14" fill="#F5F3EE"/>
+  <rect x="430" y="118" width="340" height="390" rx="14" fill="#F1F4F2"/>
+  <rect x="790" y="118" width="340" height="390" rx="14" fill="#F5F3EE"/>
+
+  <text x="100" y="158" font-size="22" font-weight="700" fill="#2B3A3A">Public hospital lab</text>
+  <text x="100" y="192" font-size="15" fill="#6B7979">Lower cost, may need a</text>
+  <text x="100" y="214" font-size="15" fill="#6B7979">referral</text>
+  <text x="100" y="242" font-size="15" fill="#6B7979">Busy facilities can mean</text>
+  <text x="100" y="264" font-size="15" fill="#6B7979">longer queues</text>
+  <text x="100" y="292" font-size="15" fill="#6B7979">Doctor can review the</text>
+  <text x="100" y="314" font-size="15" fill="#6B7979">result on site</text>
+  <text x="100" y="360" font-size="15" font-weight="700" fill="#6B8E7F">Best for: doctor-ordered</text>
+  <text x="100" y="382" font-size="15" font-weight="700" fill="#6B8E7F">tests, tight budgets</text>
+
+  <text x="460" y="158" font-size="22" font-weight="700" fill="#2B3A3A">Private lab or hospital</text>
+  <text x="460" y="192" font-size="15" fill="#6B7979">Walk-in branches across</text>
+  <text x="460" y="214" font-size="15" fill="#6B7979">the city</text>
+  <text x="460" y="242" font-size="15" fill="#6B7979">Often faster turnaround</text>
+  <text x="460" y="270" font-size="15" fill="#6B7979">Priced higher than a</text>
+  <text x="460" y="292" font-size="15" fill="#6B7979">public facility</text>
+  <text x="460" y="360" font-size="15" font-weight="700" fill="#6B8E7F">Best for: speed, a wider</text>
+  <text x="460" y="382" font-size="15" font-weight="700" fill="#6B8E7F">test menu</text>
+
+  <text x="820" y="158" font-size="22" font-weight="700" fill="#2B3A3A">Home blood draw</text>
+  <text x="820" y="192" font-size="15" fill="#6B7979">A phlebotomist comes to you</text>
+  <text x="820" y="220" font-size="15" fill="#6B7979">No travel or queueing</text>
+  <text x="820" y="248" font-size="15" fill="#6B7979">Booked a day or more</text>
+  <text x="820" y="270" font-size="15" fill="#6B7979">in advance</text>
+  <text x="820" y="298" font-size="15" fill="#6B7979">Good for full panels</text>
+  <text x="820" y="360" font-size="15" font-weight="700" fill="#6B8E7F">Best for: full body</text>
+  <text x="820" y="382" font-size="15" font-weight="700" fill="#6B8E7F">checkups, busy schedules</text>
+
+  <text x="70" y="536" font-size="13" fill="#9AA6A6">General guidance. Availability, cost, and turnaround vary by facility. Confirm details when you book.</text>
+</svg>

@@ -1,5 +1,5 @@
 {
-  "lastRunDate": "2026-07-23",
+  "lastRunDate": "2026-07-24",
   "completed": [
     "art-hba1c-explained",
     "art-preventive-screening-ghana",
@@ -56,13 +56,18 @@
     "art-colon-cancer-screening",
     "art-allergy-test",
     "art-breast-cancer-screening",
-    "art-tuberculosis-test"
+    "art-tuberculosis-test",
+    "local-abuja",
+    "local-port-harcourt",
+    "local-mombasa",
+    "local-kisumu",
+    "art-testosterone-test"
   ],
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
   "lastWeeklyRun": "2026-07-19",
   "inFlightPRs": [],
-  "publishedCount": 57,
-  "notes": "2026-07-23 nightly batch: published 5 articles (mammogram-breast-cancer-screening, colon-cancer-screening-test, allergy-test-explained, breast-cancer-screening-guide, tuberculosis-test-explained), each drafted by its own sub-agent in parallel per the quality-floor process. No open SEO PRs found at selection time, so no dedup needed. All 5 stay honest that BetterHealth (a blood/urine/stool testing platform) does not offer the specific service the article covers (mammography, colonoscopy, allergy/IgE testing, TB diagnostics), following the pap-smear-cervical-screening.js and lassa-fever-symptoms-test.js precedents for handling topics outside the direct product catalogue. npm run build green; all 5 dist/blog/<slug>/index.html carry Article+BreadcrumbList+FAQPage schema and appear in sitemap.xml + llms.txt; zero spaced em dashes across all 5 article files. 10 todo article/local items remain in the queue (not yet below the 10-item queue-refill threshold, so no refill run this time)."
+  "publishedCount": 62,
+  "notes": "2026-07-24 nightly batch: dedup against open PRs found PR #63 (open, unmerged, branch seo/nightly-2026-07-23) already claims the first five todo items (mammogram-breast-cancer-screening, colon-cancer-screening-test, allergy-test-explained, breast-cancer-screening-guide, tuberculosis-test-explained), so this run skipped those and took the next five unclaimed todo items instead: local-abuja, local-port-harcourt, local-mombasa, local-kisumu, art-testosterone-test (blood-test-abuja, blood-test-port-harcourt, blood-test-mombasa, blood-test-kisumu, testosterone-test-explained). Each drafted end-to-end in its own sub-agent per the quality-floor process (all 5 hit >=2 images, 4 internal links with >=2 resolving blog cross-links, >=6 FAQ Q&As, ~1,100+ word bodies, every h2 a citable claim sentence, zero em dashes). No new unsourced statistics introduced; all reuse figures already published elsewhere on the site (Nigeria sickle-cell-trait prevalence, Kenya malaria/bilharzia framing). testosterone-test-explained deliberately avoids the 'testosterone booster' supplement-shopper angle: no OTC product named, TRT framed as doctor-supervised only, reference ranges stated as lab-specific rather than a fixed universal number. npm run build green; all 5 dist/blog/<slug>/index.html confirmed with correct title, og:type=article, canonical, and Article+BreadcrumbList+FAQPage schema; all 5 routes present in dist/sitemap.xml and dist/llms.txt. Remaining todo article count after this batch is exactly 10 (5 claimed by PR #63, plus art-yellow-fever, art-cholera-test, local-cape-town, local-ibadan, local-eldoret), so the queue-refill pass was not triggered (threshold is fewer than 10). A human should still merge or close PR #63 soon so the next nightly run's dedup step stays simple."
 }
