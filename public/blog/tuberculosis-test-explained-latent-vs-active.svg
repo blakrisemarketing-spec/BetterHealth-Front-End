@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="28" font-weight="700" fill="#2B3A3A">Latent TB infection vs active TB disease</text>
+  <text x="70" y="88" font-size="17" fill="#6B7979">The bacteria can be present without causing illness. Only active disease is contagious and needs treatment now.</text>
+
+  <!-- Left card: latent -->
+  <rect x="70" y="118" width="520" height="312" rx="16" fill="#F0F5F2" stroke="#6B8E7F" stroke-width="2"/>
+  <text x="100" y="158" font-size="21" font-weight="700" fill="#4C6F60">LATENT TB INFECTION</text>
+
+  <circle cx="104" cy="194" r="4" fill="#6B8E7F"/>
+  <text x="120" y="199" font-size="15" fill="#2B3A3A">Bacteria present, contained by the immune system</text>
+
+  <circle cx="104" cy="228" r="4" fill="#6B8E7F"/>
+  <text x="120" y="233" font-size="15" fill="#2B3A3A">No symptoms; feels completely well</text>
+
+  <circle cx="104" cy="262" r="4" fill="#6B8E7F"/>
+  <text x="120" y="267" font-size="15" fill="#2B3A3A">Not contagious to others</text>
+
+  <circle cx="104" cy="296" r="4" fill="#6B8E7F"/>
+  <text x="120" y="301" font-size="15" fill="#2B3A3A">TST (Mantoux) or IGRA blood test can be positive</text>
+
+  <circle cx="104" cy="330" r="4" fill="#6B8E7F"/>
+  <text x="120" y="335" font-size="15" fill="#2B3A3A">Sputum test and chest X-ray are usually normal</text>
+
+  <circle cx="104" cy="364" r="4" fill="#6B8E7F"/>
+  <text x="120" y="369" font-size="15" fill="#2B3A3A">May be offered preventive treatment</text>
+
+  <circle cx="104" cy="398" r="4" fill="#6B8E7F"/>
+  <text x="120" y="403" font-size="15" fill="#2B3A3A">Risk of progressing to active disease over time</text>
+
+  <!-- Right card: active -->
+  <rect x="610" y="118" width="520" height="312" rx="16" fill="#FBEEEC" stroke="#C9594F" stroke-width="2"/>
+  <text x="640" y="158" font-size="21" font-weight="700" fill="#B24C3F">ACTIVE TB DISEASE</text>
+
+  <circle cx="644" cy="194" r="4" fill="#C9594F"/>
+  <text x="660" y="199" font-size="15" fill="#2B3A3A">Bacteria multiplying and causing illness</text>
+
+  <circle cx="644" cy="228" r="4" fill="#C9594F"/>
+  <text x="660" y="233" font-size="15" fill="#2B3A3A">Cough 2 to 3+ weeks, fever, night sweats, weight loss</text>
+
+  <circle cx="644" cy="262" r="4" fill="#C9594F"/>
+  <text x="660" y="267" font-size="15" fill="#2B3A3A">Contagious when TB is in the lungs</text>
+
+  <circle cx="644" cy="296" r="4" fill="#C9594F"/>
+  <text x="660" y="301" font-size="15" fill="#2B3A3A">Sputum smear microscopy or GeneXpert usually positive</text>
+
+  <circle cx="644" cy="330" r="4" fill="#C9594F"/>
+  <text x="660" y="335" font-size="15" fill="#2B3A3A">Chest X-ray usually shows abnormal patterns</text>
+
+  <circle cx="644" cy="364" r="4" fill="#C9594F"/>
+  <text x="660" y="369" font-size="15" fill="#2B3A3A">Needs a full course of TB treatment</text>
+
+  <circle cx="644" cy="398" r="4" fill="#C9594F"/>
+  <text x="660" y="403" font-size="15" fill="#2B3A3A">Needs prompt diagnosis and treatment to recover</text>
+
+  <text x="70" y="450" font-size="13" fill="#9AA6A6">Based on WHO tuberculosis diagnostic guidance. Only a clinician can confirm which category applies to a given person.</text>
+</svg>

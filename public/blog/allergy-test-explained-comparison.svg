@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="460" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Skin prick test vs blood IgE test</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Two ways to check for allergen sensitization. Neither is universally "better".</text>
+
+  <!-- Skin prick card -->
+  <g>
+    <rect x="70" y="118" width="510" height="310" rx="16" fill="#F5F3EE" stroke="#6B8E7F" stroke-width="2"/>
+    <circle cx="112" cy="160" r="10" fill="#6B8E7F"/>
+    <text x="134" y="167" font-size="22" font-weight="700" fill="#6B8E7F">Skin prick test</text>
+
+    <text x="96" y="204" font-size="15" font-weight="700" fill="#2B3A3A">Result in</text>
+    <text x="220" y="204" font-size="15" fill="#6B7979">about 15 to 20 minutes</text>
+
+    <text x="96" y="236" font-size="15" font-weight="700" fill="#2B3A3A">How it's done</text>
+    <text x="96" y="258" font-size="14" fill="#6B7979">A tiny amount of allergen is placed just</text>
+    <text x="96" y="278" font-size="14" fill="#6B7979">under the skin, usually on the forearm</text>
+    <text x="96" y="298" font-size="14" fill="#6B7979">or back, and a raised bump is measured.</text>
+
+    <text x="96" y="330" font-size="15" font-weight="700" fill="#2B3A3A">Usually first-line for</text>
+    <text x="96" y="352" font-size="14" fill="#6B7979">Most adults and children, done by an</text>
+    <text x="96" y="372" font-size="14" fill="#6B7979">allergist or dermatologist.</text>
+
+    <text x="96" y="404" font-size="14" fill="#9AA6A6">Needs antihistamines stopped beforehand,</text>
+    <text x="96" y="422" font-size="14" fill="#9AA6A6">since they can suppress the reaction.</text>
+  </g>
+
+  <!-- Blood IgE card -->
+  <g>
+    <rect x="620" y="118" width="510" height="310" rx="16" fill="#F5F3EE" stroke="#6B8E7F" stroke-width="2"/>
+    <circle cx="662" cy="160" r="10" fill="#6B8E7F"/>
+    <text x="684" y="167" font-size="22" font-weight="700" fill="#6B8E7F">Specific IgE blood test</text>
+
+    <text x="646" y="204" font-size="15" font-weight="700" fill="#2B3A3A">Result in</text>
+    <text x="770" y="204" font-size="15" fill="#6B7979">several days, sent to a lab</text>
+
+    <text x="646" y="236" font-size="15" font-weight="700" fill="#2B3A3A">How it's done</text>
+    <text x="646" y="258" font-size="14" fill="#6B7979">A standard blood draw measures</text>
+    <text x="646" y="278" font-size="14" fill="#6B7979">allergen-specific IgE antibody levels</text>
+    <text x="646" y="298" font-size="14" fill="#6B7979">in the sample.</text>
+
+    <text x="646" y="330" font-size="15" font-weight="700" fill="#2B3A3A">Usually preferred when</text>
+    <text x="646" y="352" font-size="14" fill="#6B7979">Skin testing isn't practical: on certain</text>
+    <text x="646" y="372" font-size="14" fill="#6B7979">medication, significant skin conditions,</text>
+    <text x="646" y="392" font-size="14" fill="#6B7979">or very young children.</text>
+
+    <text x="646" y="422" font-size="14" fill="#9AA6A6">Not affected by antihistamines.</text>
+  </g>
+
+  <text x="70" y="452" font-size="13" fill="#9AA6A6">Both tests show sensitization, not necessarily a clinically significant allergy. A doctor reads the result alongside your history.</text>
+</svg>

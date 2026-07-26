@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1200" height="520" fill="#FFFFFF"/>
+  <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Stool test vs colonoscopy: the honest tradeoffs</text>
+  <text x="70" y="88" font-size="18" fill="#6B7979">Two different ways to screen for colon cancer. Neither is wrong; they suit different situations.</text>
+
+  <!-- column headers -->
+  <rect x="70" y="112" width="515" height="52" rx="12" fill="#6B8E7F"/>
+  <text x="327" y="145" text-anchor="middle" font-size="19" font-weight="700" fill="#F5F3EE">Stool-based test (FIT/FOBT, stool DNA)</text>
+
+  <rect x="615" y="112" width="515" height="52" rx="12" fill="#2B3A3A"/>
+  <text x="872" y="145" text-anchor="middle" font-size="19" font-weight="700" fill="#F5F3EE">Colonoscopy</text>
+
+  <!-- row separators -->
+  <line x1="70" y1="184" x2="1130" y2="184" stroke="#E8E3DA" stroke-width="1"/>
+  <line x1="70" y1="238" x2="1130" y2="238" stroke="#E8E3DA" stroke-width="1"/>
+  <line x1="70" y1="292" x2="1130" y2="292" stroke="#E8E3DA" stroke-width="1"/>
+  <line x1="70" y1="346" x2="1130" y2="346" stroke="#E8E3DA" stroke-width="1"/>
+  <line x1="70" y1="400" x2="1130" y2="400" stroke="#E8E3DA" stroke-width="1"/>
+
+  <!-- row labels (left margin, small caps style) -->
+  <text x="70" y="176" font-size="13" font-weight="700" fill="#9AA6A6">HOW INVASIVE</text>
+  <text x="90" y="212" font-size="16" fill="#2B3A3A">None. Done at home on a stool sample.</text>
+  <text x="635" y="212" font-size="16" fill="#2B3A3A">Yes. Sedation and a scope inserted into the colon.</text>
+
+  <text x="70" y="230" font-size="13" font-weight="700" fill="#9AA6A6">HOW OFTEN</text>
+  <text x="90" y="266" font-size="16" fill="#2B3A3A">Usually every year, since it only checks for blood or DNA changes present that day.</text>
+  <text x="635" y="266" font-size="16" fill="#2B3A3A">Roughly every 10 years for an average-risk, normal result.</text>
+
+  <text x="70" y="284" font-size="13" font-weight="700" fill="#9AA6A6">PREP NEEDED</text>
+  <text x="90" y="320" font-size="16" fill="#2B3A3A">Minimal. Collect a small sample and send it to a lab.</text>
+  <text x="635" y="320" font-size="16" fill="#2B3A3A">Full bowel prep the day before, plus time off work and a ride home.</text>
+
+  <text x="70" y="338" font-size="13" font-weight="700" fill="#9AA6A6">SENSITIVITY</text>
+  <text x="90" y="374" font-size="16" fill="#2B3A3A">Good for cancer, weaker for small polyps, which can be missed.</text>
+  <text x="635" y="374" font-size="16" fill="#2B3A3A">The most sensitive option, since the colon is viewed directly.</text>
+
+  <text x="70" y="392" font-size="13" font-weight="700" fill="#9AA6A6">IF SOMETHING IS FOUND</text>
+  <text x="90" y="428" font-size="16" fill="#2B3A3A">A positive result needs a follow-up colonoscopy to confirm and treat.</text>
+  <text x="635" y="428" font-size="16" fill="#2B3A3A">Polyps can usually be removed in the same procedure.</text>
+
+  <text x="70" y="446" font-size="13" font-weight="700" fill="#9AA6A6">ACCESS</text>
+  <text x="90" y="482" font-size="16" fill="#2B3A3A">Wide. Needs only a lab, no specialist or facility booking.</text>
+  <text x="635" y="482" font-size="16" fill="#2B3A3A">Needs a gastroenterologist and an endoscopy facility, which limits access in many settings.</text>
+
+  <text x="70" y="508" font-size="13" fill="#9AA6A6">A positive stool test result should always be followed up with a colonoscopy, not repeated alone. Your doctor chooses the starting point.</text>
+</svg>
