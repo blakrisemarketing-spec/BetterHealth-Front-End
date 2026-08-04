@@ -1,6 +1,7 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from "react-router-dom";
 import { captureReferralFromUrl } from "./lib/partner-signup";
+import { trackPageView, trackBookingIntent } from "./lib/analytics";
 import ScrollToTop from "./components/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -52,6 +53,59 @@ function ReferralCapture() {
   return null;
 }
 
+/**
+ * Fires a Meta Pixel + GA4 page view on every client-side route change. The
+ * initial document load is already counted by the base pixel/GTM snippets in
+ * index.html, so the first render is skipped here to avoid double-counting.
+ */
+function RouteAnalytics() {
+  const location = useLocation();
+  const firstRender = useRef(true);
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    trackPageView(location.pathname + location.search);
+  }, [location.pathname, location.search]);
+  return null;
+}
+
+/**
+ * A single delegated click listener that catches every click-out to the app's
+ * /join onboarding (the site's primary conversion) and fires a booking-intent
+ * event — so we don't have to wire onClick into each scattered CTA, and future
+ * CTAs are covered automatically. The panel/test being booked is read from the
+ * outbound URL for content attribution.
+ */
+function BookingClickTracker() {
+  useEffect(() => {
+    const onClick = (e) => {
+      const anchor = e.target.closest?.("a[href]");
+      if (!anchor) return;
+      const href = anchor.getAttribute("href") || "";
+      if (!href.includes("app.betterhealth.africa") || !href.includes("/join")) return;
+      try {
+        const params = new URL(href, window.location.origin).searchParams;
+        const content = params.get("panel") || params.get("test") || params.get("tests");
+        const contentType = params.has("panel")
+          ? "panel"
+          : params.has("tests")
+            ? "tests"
+            : params.has("test")
+              ? "test"
+              : undefined;
+        trackBookingIntent({ content: content || undefined, contentType });
+      } catch {
+        trackBookingIntent();
+      }
+    };
+    document.addEventListener("click", onClick, { capture: true });
+    return () => document.removeEventListener("click", onClick, { capture: true });
+  }, []);
+  return null;
+}
+
 function RedirectWithSearch({ to }) {
   const location = useLocation();
   return <Navigate to={`${to}${location.search}`} replace />;
@@ -68,6 +122,8 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <ReferralCapture />
+      <RouteAnalytics />
+      <BookingClickTracker />
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />

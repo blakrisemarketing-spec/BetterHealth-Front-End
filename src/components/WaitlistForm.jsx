@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { waitlist } from "../data/content";
 import { useWaitlist } from "../context/WaitlistContext";
+import { trackLead } from "../lib/analytics";
 
 const HEALTH_INTERESTS = [
   "Diabetes & Blood Sugar",
@@ -60,6 +61,7 @@ export default function WaitlistForm({
       } else if (data.result === "success") {
         setStatus("success");
         markSubmitted();
+        trackLead({ source: `waitlist:${source}` });
       } else {
         setStatus("error");
       }

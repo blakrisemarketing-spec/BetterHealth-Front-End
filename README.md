@@ -61,3 +61,5 @@ BetterHealth-Front-End/
 
 **Live site:** [betterhealth.africa](https://betterhealth.africa)
 **Deployed via:** Hostinger (LiteSpeed) — auto-builds and serves `dist/` on push to `main`; SPA routing via `public/.htaccess`
+
+> **⚠️ Tracking is production-only — never copy it to a staging/preview environment.** The Meta Pixel and the GA4/GTM conversion events (`src/lib/analytics.js`) run on the live production site by design. This marketing site has no staging deploy today; if one is ever added, it **must** use a separate Meta Pixel + GA property (or strip the tracking entirely). Staging/test traffic sharing the production pixel/GA property would pollute production ad and conversion data. See the backend deployment runbook (`BetterHealth-Africa/docs/architecture/deployment-runbook.md`) for the same rule on the app side (Meta CAPI).

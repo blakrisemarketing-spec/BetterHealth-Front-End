@@ -23,6 +23,8 @@ const SECTIONS = [
 
 **Usage data:** How you interact with our platform (pages visited, features used, device type, browser, IP address). This helps us improve the product.
 
+**Advertising and measurement data:** On our public marketing website (betterhealth.africa) we and our advertising partners use cookies and similar technologies to measure how our ads perform and to show you relevant ads elsewhere. This can include your device and browser type, IP address, the pages and buttons you interact with, and advertising identifiers or click IDs (such as Google and Meta click identifiers). These technologies operate only on our public marketing website and never have access to your health results, which are stored separately behind sign-in. See Section 8.
+
 **Communication data:** Messages you send us via email or WhatsApp support.`,
   },
   {
@@ -36,7 +38,9 @@ const SECTIONS = [
 - Improve and personalise the platform
 - Send important account updates (not marketing, unless you opt in)
 
-We do not sell your data. We do not use your health data for advertising. We do not share your data with third parties except as described in Section 4.`,
+- Measure and improve our advertising, using cookies on our public marketing website
+
+We do not sell your data. We do not use your health data for advertising, and we never share your health results with advertising platforms. The advertising and analytics cookies on our public website measure our marketing only, are described in Section 8, and can be controlled through your browser settings. Aside from that, we do not share your data with third parties except as described in Section 4.`,
   },
   {
     title: "4. Who We Share Data With",
@@ -49,6 +53,8 @@ We do not sell your data. We do not use your health data for advertising. We do 
 **Supabase:** Our database infrastructure provider. Your data is stored on Supabase with row-level security and encryption at rest.
 
 **Google (sign-in only):** If you use "Continue with Google", Google acts as your authentication provider. We receive your name and email from Google to verify your identity; we do not send Google your health data. Google's handling of your information is governed by Google's own privacy policy.
+
+**Advertising and analytics platforms (marketing website only):** Limited activity on our public marketing website — such as which pages you view and whether you start a booking — is shared with Google (Google Analytics and Google Ads) and Meta (Facebook and Instagram) so we can measure our advertising and show relevant ads. This covers your website activity only; your health results and dashboard data are never shared with these platforms. Each platform processes this data under its own privacy policy, and you can opt out through your browser settings and each platform's own ad settings (see Section 8).
 
 We do not share your health data with insurers, employers, government agencies, or any third party without your explicit written consent.`,
   },
@@ -74,8 +80,16 @@ To exercise any right, email privacy@betterhealth.africa. We will respond within
     body: "We retain your account data and health results for as long as your account is active, plus a 90-day grace period after account deletion (to allow for accidental deletion recovery). After 90 days, all personal data is permanently deleted. Payment transaction records are retained for 7 years as required by Ghanaian financial regulations.",
   },
   {
-    title: "8. Cookies",
-    body: "We use essential cookies to keep you logged in and secure your session. We use analytics cookies (with your consent) to understand how the platform is used. You can manage cookie preferences through your browser settings. We do not use advertising or tracking cookies.",
+    title: "8. Cookies and Advertising",
+    body: `We use three types of cookies and similar technologies:
+
+**Essential cookies** keep you logged in and secure your session. These are always active because the platform cannot work without them.
+
+**Analytics cookies** (Google Analytics) help us understand how the site is used so we can improve it.
+
+**Advertising cookies** (Google Ads and the Meta Pixel) let us measure our ad campaigns, understand which ads bring people to us, and show relevant ads on Google, Facebook, and Instagram — including to people who have visited our site before.
+
+These cookies operate on our public marketing website only and never have access to your health results. You can block or delete cookies at any time through your browser settings, and you can opt out of personalised advertising through Google Ads Settings and Meta's ad preferences. BetterHealth is available to residents of Ghana only.`,
   },
   {
     title: "9. Children's Privacy",
@@ -107,7 +121,7 @@ export default function PrivacyPage() {
             <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-3">
               Privacy Policy
             </h1>
-            <p className="text-[14px] text-text-muted mb-8">Last updated: June 2026</p>
+            <p className="text-[14px] text-text-muted mb-8">Last updated: July 2026</p>
             <p className="text-[15px] text-text-secondary leading-relaxed mb-2">
               BetterHealth Africa takes your privacy seriously. This policy explains what data we collect, why we collect it, how we protect it, and what rights you have. We have written it in plain language, with no legal jargon.
             </p>

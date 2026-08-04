@@ -1,6 +1,8 @@
 // Falls back to the public production endpoint when VITE_PARTNER_API_URL is not
 // provided at build time (e.g. CI without the env var set), so partner and
 // foundation forms still submit. Override via env for staging/local.
+import { trackLead } from "./analytics";
+
 const ENDPOINT =
   import.meta.env.VITE_PARTNER_API_URL || "https://api.betterhealth.africa/api/partner-signup";
 const REF_STORAGE_KEY = "bh_referral_code";
@@ -72,6 +74,7 @@ export async function submitPartnerSignup({ partnerType, ...payload }) {
       return { ok: false, error: `Request failed (HTTP ${res.status}).` };
     }
 
+    trackLead({ source: `partner:${partnerType}` });
     return { ok: true };
   } catch (err) {
     return { ok: false, error: err?.message || "Network error" };
