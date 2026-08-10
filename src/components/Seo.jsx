@@ -25,6 +25,11 @@ export default function Seo({ route }) {
     <Helmet>
       <title>{page.title}</title>
       <meta name="description" content={page.description} />
+      {/* Paid-ad landing variants opt out of the index: several near-identical
+          pages targeting one intent is the classic doorway-page pattern, and
+          they'd compete with each other. They still need full OG tags so the
+          ad's link preview renders. */}
+      {page.noindex && <meta name="robots" content="noindex, follow" />}
       <link rel="canonical" href={url} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />

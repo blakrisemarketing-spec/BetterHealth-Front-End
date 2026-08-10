@@ -13,6 +13,7 @@ import {
   pageUrl,
 } from "../components/structured-data.js";
 import { ARTICLES, articleFaqItems } from "./blog/index.js";
+import { WELLNESS_CONSULTATION_SEO } from "./wellness-consultation-seo.js";
 
 export const SITE_URL = "https://www.betterhealth.africa";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
@@ -84,6 +85,15 @@ const MEDICAL_ROUTES = new Set(["how-it-works", "what-we-test", "stories", "book
 // schema (NGO/Product/FAQ/Blog) is declared here; MedicalWebPage and
 // BreadcrumbList are added automatically below so every page stays consistent.
 const RAW_ROUTE_SEO = {
+  // Paid-campaign landing variants. `noindex` keeps four near-identical pages
+  // out of the index and the sitemap (doorway-page pattern) while still getting
+  // them a prerendered <head> so the ad's link preview renders.
+  ...Object.fromEntries(
+    Object.entries(WELLNESS_CONSULTATION_SEO).map(([slug, page]) => [
+      `wellness-consultation/${slug}`,
+      { ...page, image: DEFAULT_OG_IMAGE, noindex: true },
+    ]),
+  ),
   foundation: {
     title: "100 Healthy Years Foundation | Free Health Screening in Ghana",
     description:
