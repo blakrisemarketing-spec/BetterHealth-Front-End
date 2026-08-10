@@ -1,7 +1,9 @@
-import { createContext, useContext, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
+import { WaitlistContext } from "./waitlist-context";
 
-const WaitlistContext = createContext();
-
+// Exports exactly one component, and nothing else, so Fast Refresh can hot-swap
+// it without remounting. The context object and the useWaitlist hook live in
+// waitlist-context.js.
 export function WaitlistProvider({ children }) {
   const [submitted, setSubmitted] = useState(false);
 
@@ -12,10 +14,4 @@ export function WaitlistProvider({ children }) {
       {children}
     </WaitlistContext.Provider>
   );
-}
-
-export function useWaitlist() {
-  const ctx = useContext(WaitlistContext);
-  if (!ctx) throw new Error("useWaitlist must be used within WaitlistProvider");
-  return ctx;
 }
