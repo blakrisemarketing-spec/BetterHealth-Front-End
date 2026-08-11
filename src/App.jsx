@@ -26,6 +26,7 @@ const ForLabsPage = lazy(() => import("./pages/ForLabs"));
 const ForDoctorsPage = lazy(() => import("./pages/ForDoctors"));
 const ForNutritionistsPage = lazy(() => import("./pages/ForNutritionists"));
 const FoundationPage = lazy(() => import("./pages/Foundation"));
+const WellnessConsultationPage = lazy(() => import("./pages/WellnessConsultation"));
 const DeleteMePage = lazy(() => import("./pages/DeleteMe"));
 const ReferralRedirectPage = lazy(() => import("./pages/ReferralRedirect"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
@@ -151,6 +152,14 @@ export default function App() {
           <Route path="/for-nutritionists" element={<ForNutritionistsPage />} />
           <Route path="/foundation" element={<FoundationPage />} />
           <Route path="/waitlist" element={<WaitlistPage />} />
+          {/* Paid-campaign landing variants (A/B/C/D by audience). The bare path
+              redirects to whichever cell is currently winning, keeping the
+              search string so the utm params and click ids survive the hop. */}
+          <Route
+            path="/wellness-consultation"
+            element={<RedirectWithSearch to="/wellness-consultation/wellness" />}
+          />
+          <Route path="/wellness-consultation/:variant" element={<WellnessConsultationPage />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="/ref/:code" element={<ReferralRedirectPage />} />
           <Route path="/ref/:code/:partnerType" element={<ReferralRedirectPage />} />

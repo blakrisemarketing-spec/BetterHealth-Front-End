@@ -80,3 +80,36 @@ export function trackLead({ source } = {}) {
   fbq("track", "Lead", source ? { content_category: source } : {});
   dataLayerPush({ event: "generate_lead", lead_source: source || null });
 }
+
+/**
+ * Wellness consultation booked — someone requested a call with a Wellness
+ * Consultant, either by submitting the booking form or by opening the prefilled
+ * WhatsApp thread.
+ *
+ * This is the optimisation event for the wellness-consultation paid campaign,
+ * and unlike a test purchase (which completes on app.betterhealth.africa, where
+ * this pixel does not run) it happens on the marketing site — so the ad
+ * platforms can actually see and optimise toward it.
+ *
+ * `Schedule` is a Meta *standard* event on purpose: standard events can be
+ * selected directly as an optimisation goal and are eligible for the custom
+ * conversion built on top of them. Do not swap it for a custom event.
+ *
+ * Callers must fire this once per booking, on success only — never on form
+ * render or on a failed submit — or the campaign will optimise toward noise.
+ *
+ * @param {{ channel?: 'form'|'whatsapp', concern?: string }} [opts]
+ *   channel — which path the person took, so we can compare form vs WhatsApp
+ *   concern — the health concern they selected, for creative/audience feedback
+ */
+export function trackConsultationBooked({ channel, concern } = {}) {
+  fbq("track", "Schedule", {
+    content_category: "wellness_consultation",
+    ...(channel ? { content_name: channel } : {}),
+  });
+  dataLayerPush({
+    event: "schedule_consultation",
+    booking_channel: channel || null,
+    health_concern: concern || null,
+  });
+}
