@@ -19,35 +19,61 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Quicksand:wght@300..700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Quicksand:wght@300..700&display=swap" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Quicksand:wght@300..700&display=swap" /></noscript>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KTCH9TZLV"></script>
+    <!--
+      Analytics host gate — tracking is PRODUCTION ONLY.
+
+      The staging site (bha-devon.vercel.app) and every local build are served
+      from this same index.html, so they carry these exact GA4 / GTM / Pixel
+      IDs. Without this gate, a pageview or a test booking on staging lands in
+      the very dataset the ad campaigns are judged and optimised on — which is
+      the failure the deployment runbook warns about for this repo by name.
+
+      Gating at the loaders means nothing is even requested off-production.
+      src/lib/analytics.js guards the event sinks as well, so a future event
+      helper cannot reintroduce the leak by forgetting to check.
+    -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1KTCH9TZLV');
+      window.__BH_TRACKING_ENABLED__ =
+        location.hostname === 'betterhealth.africa' ||
+        location.hostname === 'www.betterhealth.africa';
     </script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KMH4QTML');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Meta Pixel -->
+    <!-- Google tag (gtag.js) + Google Tag Manager + Meta Pixel -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '2118966258986670');
-      fbq('track', 'PageView');
+      if (window.__BH_TRACKING_ENABLED__) {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+
+        var gtagSrc = document.createElement('script');
+        gtagSrc.async = true;
+        gtagSrc.src = 'https://www.googletagmanager.com/gtag/js?id=G-1KTCH9TZLV';
+        document.head.appendChild(gtagSrc);
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-1KTCH9TZLV');
+
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KMH4QTML');
+
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2118966258986670');
+        fbq('track', 'PageView');
+      }
     </script>
-    <!-- End Meta Pixel -->
+    <!-- End analytics -->
 <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.betterhealth.africa/" />
