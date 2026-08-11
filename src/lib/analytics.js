@@ -12,17 +12,30 @@
 // for the case where an ad blocker has prevented the pixels from loading, so a
 // missing fbq/dataLayer is a silent no-op, never a thrown error.
 
+// Tracking is production-only. Staging (bha-devon.vercel.app) and local builds
+// serve the same index.html and therefore the same GA4 / GTM / Pixel IDs, so an
+// event fired anywhere else lands in the dataset the ad campaigns are optimised
+// on. index.html gates the loaders; this gates the sinks, so both halves have to
+// fail before anything leaks — and a new event helper added later inherits the
+// guard for free rather than having to remember it.
+//
+// Set by the gate in index.html. Treated as false when absent, so the safe
+// default survives someone rendering this module outside that document.
+function trackingEnabled() {
+  return typeof window !== "undefined" && window.__BH_TRACKING_ENABLED__ === true;
+}
+
 function fbq(...args) {
-  if (typeof window !== "undefined" && typeof window.fbq === "function") {
+  if (!trackingEnabled()) return;
+  if (typeof window.fbq === "function") {
     window.fbq(...args);
   }
 }
 
 function dataLayerPush(payload) {
-  if (typeof window !== "undefined") {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(payload);
-  }
+  if (!trackingEnabled()) return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(payload);
 }
 
 /**
