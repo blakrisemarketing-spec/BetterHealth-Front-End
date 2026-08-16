@@ -16,6 +16,15 @@ const TODAY = new Date().toDateString();
 const DAY_LABEL = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const MONTH_LABEL = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+// Risk reversal shown at the point of commitment. Every line is a promise the
+// business has to keep operationally — the cancel line in particular assumes a
+// consultant actually acts on a WhatsApp reply.
+const REASSURANCE = [
+  "No card, no payment, and no test booked for you",
+  "Cancel or move it by replying to the WhatsApp reminder",
+  "Your details are protected under Ghana's Data Protection Act",
+];
+
 /**
  * First-party date + time picker for the wellness consultation.
  *
@@ -175,9 +184,21 @@ export default function ConsultationBooking({ variant, concern, compact = false 
       </div>
 
       {/* ── Time ── */}
-      <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
-        Pick a time
-      </p>
+      <div className="mb-2 flex items-baseline justify-between gap-3">
+        <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-text-muted">
+          Pick a time
+        </p>
+        {/* Scarcity, but only ever the real count off the slots response. A
+            countdown or an invented "2 spots left!" would convert today and
+            cost more than it earns the first time somebody reloads. */}
+        {slotsState === "ready" && available.length > 0 && available.length <= 4 && (
+          <p className="text-[12px] font-bold text-accent-ink">
+            {available.length === 1
+              ? "1 time left this day"
+              : `Only ${available.length} times left this day`}
+          </p>
+        )}
+      </div>
 
       {slotsState === "loading" && (
         <div className="flex items-center gap-2 py-6 text-[14px] text-text-secondary">
@@ -303,7 +324,19 @@ export default function ConsultationBooking({ variant, concern, compact = false 
         </p>
       )}
 
-      <div className="mt-5 border-t border-border pt-4">
+      {/* Risk reversal, at the point of commitment rather than only in the FAQ.
+          These are the three things somebody hesitates over with a finger on the
+          button, and they cost nothing to answer here. */}
+      <ul className="mt-5 flex flex-col gap-2 border-t border-border pt-4">
+        {REASSURANCE.map((item) => (
+          <li key={item} className="flex items-start gap-2 text-[12.5px] leading-snug text-text-secondary">
+            <Check size={13} strokeWidth={3} className="mt-0.5 shrink-0 text-primary" />
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-4 border-t border-border pt-4">
         <a
           href={WHATSAPP_URL}
           target="_blank"

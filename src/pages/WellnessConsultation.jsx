@@ -1,27 +1,60 @@
 import { Navigate, useParams } from "react-router-dom";
-import { ArrowRight, Check, ShieldCheck } from "lucide-react";
+import { ArrowRight, BadgeCheck, Check, FlaskConical, Microscope, ShieldCheck } from "lucide-react";
 import Seo from "../components/Seo";
-import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import Reveal from "../components/ui/Reveal";
+import Fade from "../components/consultation/Fade";
 import GradientOrb from "../components/ui/GradientOrb";
 import ConsultationBooking from "../components/consultation/ConsultationBooking";
+import CampaignNav from "../components/consultation/CampaignNav";
+import StickyCTA from "../components/consultation/StickyCTA";
+import QualifyChecklist from "../components/consultation/QualifyChecklist";
+import CompareOptions from "../components/consultation/CompareOptions";
+import ProofWall from "../components/consultation/ProofWall";
+import HeroMedia from "../components/consultation/HeroMedia";
 import {
   CONSULT_MINUTES,
   CONSULTANTS,
   DISCLAIMER,
   FAQ,
+  HERO_CHECKS,
+  HERO_CTA_NOTE,
   HOW_IT_WORKS,
+  PLAN_COVERS,
+  PLAN_SECTION_HEADING,
   PROMISE,
   SHARED_IMAGES,
+  TRUST_POINTS,
   VARIANTS,
 } from "../data/wellness-consultation";
+
+const TRUST_ICONS = {
+  flask: FlaskConical,
+  badge: BadgeCheck,
+  shield: ShieldCheck,
+  science: Microscope,
+};
 
 /**
  * One page shell driving all four A/B/C/D landing variants. The cells differ by
  * AUDIENCE (blood sugar / blood pressure / general wellness / fertility), not by
- * layout — holding structure, team block and FAQ constant is what makes a
+ * layout — holding structure, proof, team and FAQ constant is what makes a
  * difference in results attributable to the audience rather than the furniture.
+ *
+ * Section order is a conversion argument, and each section is doing one job:
+ *
+ *   hero        get read in three seconds, kill the three cost/effort objections
+ *   trust       borrow institutional credibility before asking for attention
+ *   agitate     cost of inaction — the emotional engine of the page
+ *   checklist   the reader decides the page is about them
+ *   belief      kill the false belief that stops the booking
+ *   mechanism   why the problem stays hidden, and what we'd actually look at
+ *   promise     what they walk away with — the product, finally
+ *   steps       remove procedural uncertainty
+ *   compare     make the alternatives explicit and lose fairly
+ *   proof       borrow trust from people and institutions
+ *   book        the single conversion point on the page
+ *   team, faq   last objections
+ *   close       one more ask
  *
  * Variant copy: src/data/wellness-consultation.js
  * Audience briefs: artifacts/wellness-consultation/ABCD_TEST.md
@@ -42,185 +75,220 @@ export default function WellnessConsultationPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
       <Seo route={`wellness-consultation/${slug}`} />
-      <Nav />
+      <CampaignNav onCta={scrollToBooking} />
       <main>
-        {/* ── Hero ── */}
-        <section className="relative overflow-hidden bg-base px-6 pt-[112px] pb-14 lg:pb-20">
+        {/* ── Hero ──
+            No Reveal on the headline, sub or CTA. Everything else on the page
+            fades in on scroll, but the LCP element of an ad landing page cannot
+            spend its first second at opacity 0 — on a Ghanaian 3G connection
+            that is a blank screen at exactly the moment the click is regretted. */}
+        <section className="relative overflow-hidden bg-base px-5 pt-[104px] pb-12 sm:px-6 lg:pb-20">
           <GradientOrb color="green" size="620px" className="top-[-14%] right-[-10%]" />
           <GradientOrb color="blue" size="380px" className="bottom-[-16%] left-[-8%]" />
           <div className="relative z-10 mx-auto grid max-w-[1120px] items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
             <div>
-              <Reveal>
-                <span className="mb-5 inline-flex items-center gap-2 rounded-pill border border-primary/25 bg-primary-bg px-4 py-1.5 font-heading text-xs font-bold uppercase tracking-wider text-primary">
-                  <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-primary" />
-                  {v.eyebrow}
-                </span>
-              </Reveal>
-              <Reveal delay={0.08}>
-                <h1 className="mb-5 font-heading text-[2rem] font-extrabold leading-[1.08] tracking-tight text-text-primary sm:text-[2.6rem] lg:text-[3.1rem]">
-                  {v.h1}
-                </h1>
-              </Reveal>
-              <Reveal delay={0.16}>
-                <p className="mb-7 max-w-[560px] font-body text-[17px] leading-relaxed text-text-secondary">
-                  {v.lede}
-                </p>
-              </Reveal>
-              <Reveal delay={0.24}>
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <a
-                    href="#book"
-                    onClick={scrollToBooking}
-                    className="inline-flex items-center justify-center gap-2 rounded-btn bg-primary px-7 py-4 font-heading text-[15px] font-bold text-white no-underline transition-all hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-glow-green"
+              <span className="mb-4 inline-flex items-center gap-2 rounded-pill border border-primary/25 bg-primary-bg px-4 py-1.5 font-heading text-xs font-bold uppercase tracking-wider text-primary">
+                <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-primary" />
+                {v.eyebrow}
+              </span>
+
+              <h1 className="mb-5 font-heading text-[2.05rem] font-extrabold leading-[1.06] tracking-tight text-text-primary sm:text-[2.6rem] lg:text-[3.1rem]">
+                {v.h1}
+              </h1>
+
+              <div className="mb-7 flex max-w-[540px] flex-col gap-3.5">
+                {v.heroSub.map((para, i) => (
+                  <p
+                    key={i}
+                    className="font-body text-[16.5px] leading-relaxed text-text-secondary sm:text-[17px]"
                   >
-                    Book your free call <ArrowRight size={17} />
-                  </a>
-                  <span className="text-[14px] text-text-secondary">
-                    {CONSULT_MINUTES} minutes · nothing to pay
-                  </span>
-                </div>
-              </Reveal>
+                    {para}
+                  </p>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href="#book"
+                  onClick={scrollToBooking}
+                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-btn bg-primary px-8 py-4 font-heading text-[16px] font-bold text-white no-underline transition-all hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-glow-green"
+                >
+                  Book a call <ArrowRight size={17} />
+                </a>
+                <span className="text-[13.5px] font-semibold text-text-secondary">
+                  {HERO_CTA_NOTE}
+                </span>
+              </div>
             </div>
 
-            <Reveal delay={0.12}>
-              <figure className="relative">
-                <img
-                  src={v.hero.src}
-                  alt={v.hero.alt}
-                  width={1200}
-                  height={900}
-                  loading="eager"
-                  fetchPriority="high"
-                  className="aspect-[4/3] w-full rounded-card object-cover shadow-[0_24px_70px_rgba(43,58,58,0.16)]"
-                />
-                <figcaption className="absolute -bottom-4 left-4 right-4 rounded-card border border-border bg-card/95 px-4 py-3 shadow-card backdrop-blur sm:left-6 sm:right-auto sm:max-w-[300px]">
-                  <p className="text-[13px] leading-snug text-text-secondary">
-                    <strong className="text-text-primary">A written plan</strong>, on WhatsApp
-                    within a day of your call.
-                  </p>
-                </figcaption>
-              </figure>
-            </Reveal>
+            <HeroMedia
+              video={v.hero.video}
+              poster={v.hero.poster}
+              alt={v.hero.alt}
+              caption={
+                <>
+                  <strong className="text-text-primary">A written plan</strong>, on WhatsApp
+                  within a day of your call.
+                </>
+              }
+            />
           </div>
         </section>
 
-        {/* ── What you walk away with ── */}
-        <section className="border-t border-border bg-section-alt px-6 py-16 lg:py-20">
-          <div className="mx-auto grid max-w-[1120px] items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
-            <Reveal>
+        {/* ── Trust strip ── */}
+        <section className="border-y border-border bg-section-alt px-5 py-5 sm:px-6">
+          <ul className="mx-auto flex max-w-[1120px] flex-wrap items-center justify-center gap-x-7 gap-y-3">
+            {TRUST_POINTS.map((point) => {
+              const Icon = TRUST_ICONS[point.icon];
+              return (
+                <li key={point.label} className="flex items-center gap-2">
+                  <Icon size={16} className="shrink-0 text-primary" />
+                  <span className="text-[13px] font-semibold text-text-secondary">
+                    {point.label}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+
+        {/* ── The plan · cost of inaction ── */}
+        <section className="bg-base px-5 py-14 sm:px-6 lg:py-20">
+          <div className="mx-auto max-w-[720px]">
+            <Fade>
+              <h2 className="mb-5 font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.35rem]">
+                {PLAN_SECTION_HEADING}
+              </h2>
+            </Fade>
+            {/* Readable weight, not bold. The lead is long — it describes the
+                fear — and setting it heavy makes a wall the reader skips. The
+                short `turn` lines below are what get the emphasis. */}
+            <Fade delay={0.06}>
+              <p className="mb-7 font-body text-[17px] font-medium leading-relaxed text-text-primary sm:text-[18px]">
+                {v.agitate.lead}
+              </p>
+            </Fade>
+
+            {/* The photograph that used to be the hero. It sits at the pivot on
+                purpose — the argument turns from fear to "it needn't be your
+                reality" right here, and a human face carries that better than
+                another paragraph. */}
+            <Fade delay={0.1}>
               <img
-                src={SHARED_IMAGES.plan.src}
-                alt={SHARED_IMAGES.plan.alt}
+                src={v.photo.src}
+                alt={v.photo.alt}
                 width={1200}
                 height={800}
                 loading="lazy"
-                className="aspect-[3/2] w-full rounded-card object-cover shadow-card"
+                className="mb-7 aspect-[3/2] w-full rounded-card object-cover shadow-card"
               />
-            </Reveal>
-            <div>
-              <Reveal>
-                <h2 className="mb-3 font-heading text-[1.55rem] font-extrabold tracking-tight text-text-primary sm:text-[2rem]">
-                  What you&apos;ll walk away with
-                </h2>
-              </Reveal>
-              <Reveal delay={0.06}>
-                <p className="mb-7 text-[15px] leading-relaxed text-text-secondary">
-                  Three things, in writing, within 24 hours of your call.
-                </p>
-              </Reveal>
-              <div className="flex flex-col gap-4">
-                {PROMISE.map((item, i) => (
-                  <Reveal key={item.title} delay={0.1 + i * 0.06}>
-                    <div className="flex gap-3.5 rounded-card border border-border bg-card p-4 sm:p-5">
-                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
-                        <Check size={14} className="text-white" />
-                      </span>
-                      <div>
-                        <p className="mb-1 text-[15px] font-bold text-text-primary">{item.title}</p>
-                        <p className="text-[14px] leading-relaxed text-text-secondary">{item.body}</p>
-                      </div>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
+            </Fade>
+
+            {v.agitate.turn && (
+              <Fade delay={0.12}>
+                <div className="mb-7 border-l-[3px] border-primary pl-5">
+                  {v.agitate.turn.map((line, i) => (
+                    <p
+                      key={i}
+                      className="font-heading text-[17px] font-bold leading-relaxed text-text-primary sm:text-[19px]"
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              </Fade>
+            )}
+
+            <div className="mb-8 flex flex-col gap-3.5">
+              {v.agitate.paras.map((p, i) => (
+                <Fade key={i} delay={0.1 + i * 0.06}>
+                  <p className="text-[17px] leading-relaxed text-text-secondary">{p}</p>
+                </Fade>
+              ))}
             </div>
+
+            <div className="mb-8 grid gap-4 sm:grid-cols-2">
+              {v.agitate.stats.map((stat, i) => (
+                <Fade key={stat.label} delay={0.14 + i * 0.06}>
+                  <div className="h-full rounded-card border border-accent-soft bg-accent-bg p-5">
+                    <p className="font-heading text-[1.9rem] font-extrabold leading-none tracking-tight text-accent-ink">
+                      {stat.value}
+                    </p>
+                    <p className="mt-2 text-[14px] leading-snug text-text-secondary">
+                      {stat.label}
+                    </p>
+                  </div>
+                </Fade>
+              ))}
+            </div>
+
+            <Fade delay={0.2}>
+              <p className="border-l-[3px] border-accent-dark pl-5 font-heading text-[17px] font-bold leading-relaxed text-text-primary sm:text-[19px]">
+                {v.agitate.cost}
+              </p>
+            </Fade>
           </div>
         </section>
 
-        {/* ── Booking ── */}
-        <section id="book" className="scroll-mt-20 border-t border-border bg-base px-6 py-16 lg:py-20">
-          {/* [&>*]:min-w-0 is load-bearing: a grid item's automatic minimum size
-              is min-content, and the picker's 14-day strip is ~970px wide before
-              it's allowed to scroll. Without this the strip forces its column
-              open and crushes the column beside it to a few characters wide. */}
-          <div className="mx-auto grid max-w-[1120px] items-start gap-10 [&>*]:min-w-0 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
-            <div>
-              <Reveal>
-                <h2 className="mb-3 font-heading text-[1.55rem] font-extrabold tracking-tight text-text-primary sm:text-[2rem]">
-                  Pick a time that suits you
-                </h2>
-              </Reveal>
-              <Reveal delay={0.06}>
-                <p className="mb-6 text-[15px] leading-relaxed text-text-secondary">
-                  {CONSULT_MINUTES} minutes with a BetterHealth Wellness Consultant, on Google Meet
-                  or an ordinary phone call. No payment, and no test required.
-                </p>
-              </Reveal>
-              <Reveal delay={0.12}>
-                <img
-                  src={SHARED_IMAGES.consult.src}
-                  alt={SHARED_IMAGES.consult.alt}
-                  width={1200}
-                  height={800}
-                  loading="lazy"
-                  className="hidden aspect-[3/2] w-full rounded-card object-cover shadow-card lg:block"
-                />
-              </Reveal>
-            </div>
-            <Reveal delay={0.1}>
-              <ConsultationBooking variant={v.variant} concern={v.concern} />
-            </Reveal>
-          </div>
+        {/* ── Self-qualification ── */}
+        <section className="bg-base px-5 pb-14 sm:px-6 lg:pb-20">
+          <QualifyChecklist
+            heading={v.checklist.heading}
+            items={v.checklist.items}
+            onCta={scrollToBooking}
+          />
         </section>
 
-        {/* ── The question they don't ask out loud ── */}
-        <section className="border-t border-border bg-section-alt px-6 py-16 lg:py-20">
+        {/* ── False belief ── */}
+        <section className="border-t border-border bg-section-alt px-5 py-14 sm:px-6 lg:py-20">
           <div className="mx-auto max-w-[720px]">
-            <Reveal>
-              <div className="rounded-card border-l-[3px] border-primary bg-card p-6 shadow-card sm:p-8">
-                <p className="mb-3 font-heading text-[1.25rem] font-extrabold leading-snug text-text-primary sm:text-[1.5rem]">
-                  &ldquo;{v.unspoken.q}&rdquo;
+            <Fade>
+              <p className="mb-3 font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-text-muted">
+                The thing nobody says out loud
+              </p>
+            </Fade>
+            <Fade delay={0.06}>
+              <p className="mb-6 font-heading text-[1.35rem] font-extrabold leading-snug text-text-primary sm:text-[1.7rem]">
+                {v.belief.myth}
+              </p>
+            </Fade>
+            <Fade delay={0.12}>
+              <div className="rounded-card border-l-[3px] border-primary bg-card p-6 shadow-card sm:p-7">
+                <p className="mb-2 font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-primary">
+                  What&apos;s actually true
                 </p>
-                <p className="text-[15px] leading-relaxed text-text-secondary">{v.unspoken.a}</p>
+                <p className="text-[17px] leading-relaxed text-text-secondary">
+                  {v.belief.truth}
+                </p>
               </div>
-            </Reveal>
+            </Fade>
           </div>
         </section>
 
-        {/* ── Variant body ── */}
-        <section className="border-t border-border bg-base px-6 py-16 lg:py-20">
-          <div className="mx-auto flex max-w-[720px] flex-col gap-10">
+        {/* ── Mechanism · why it stays hidden, what we'd look at ── */}
+        <section className="bg-section-alt px-5 pb-14 sm:px-6 lg:pb-20">
+          <div className="mx-auto flex max-w-[720px] flex-col gap-9">
             {v.body.map((block, i) => (
-              <Reveal key={block.heading} delay={i * 0.06}>
+              <Fade key={block.heading} delay={i * 0.06}>
                 <div>
                   <h2 className="mb-3 font-heading text-[1.3rem] font-extrabold tracking-tight text-text-primary sm:text-[1.6rem]">
                     {block.heading}
                   </h2>
                   <div className="flex flex-col gap-3">
                     {block.paras.map((p, j) => (
-                      <p key={j} className="text-[15px] leading-relaxed text-text-secondary">
+                      <p key={j} className="text-[17px] leading-relaxed text-text-secondary">
                         {p}
                       </p>
                     ))}
                   </div>
                 </div>
-              </Reveal>
+              </Fade>
             ))}
 
-            <Reveal>
-              <div className="rounded-card border border-border bg-card p-5 sm:p-6">
+            <Fade>
+              <div className="rounded-card border border-border bg-card p-5 shadow-card sm:p-6">
                 <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.12em] text-primary">
-                  Often the starting point
+                  Often the baseline
                 </p>
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="font-heading text-[19px] font-extrabold text-text-primary">
@@ -230,56 +298,185 @@ export default function WellnessConsultationPage() {
                     {v.panel.price}
                   </span>
                 </div>
-                <p className="mt-2 text-[14px] leading-relaxed text-text-secondary">
-                  Your consultant will tell you whether this is the right place to start for you,
-                  and say so plainly if something smaller would answer your question. You decide
-                  after the call, in your own time.
+                <p className="mt-2 text-[15px] leading-relaxed text-text-secondary">
+                  Your consultant will tell you whether this is the right baseline for you, and say
+                  so plainly if something smaller would answer your question. You decide after the
+                  call, in your own time.
                 </p>
               </div>
-            </Reveal>
+            </Fade>
+          </div>
+        </section>
+
+        {/* ── The product · what you walk away with ── */}
+        <section className="border-t border-border bg-base px-5 py-14 sm:px-6 lg:py-20">
+          <div className="mx-auto grid max-w-[1120px] items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
+            <Fade>
+              <img
+                src={SHARED_IMAGES.plan.src}
+                alt={SHARED_IMAGES.plan.alt}
+                width={1200}
+                height={800}
+                loading="lazy"
+                className="aspect-[3/2] w-full rounded-card object-cover shadow-card"
+              />
+            </Fade>
+            <div>
+              <Fade>
+                <h2 className="mb-3 font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.35rem]">
+                  What you&apos;ll walk away with
+                </h2>
+              </Fade>
+              <Fade delay={0.06}>
+                <p className="mb-7 text-[16.5px] leading-relaxed text-text-secondary">
+                  Three things, in writing, within 24 hours of your call.
+                </p>
+              </Fade>
+              <div className="flex flex-col gap-4">
+                {PROMISE.map((item, i) => (
+                  <Fade key={item.title} delay={0.1 + i * 0.06}>
+                    <div className="flex gap-3.5 rounded-card border border-border bg-card p-4 shadow-card sm:p-5">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
+                        <Check size={14} className="text-white" />
+                      </span>
+                      <div>
+                        <p className="mb-1 text-[15px] font-bold text-text-primary">{item.title}</p>
+                        <p className="text-[15px] leading-relaxed text-text-secondary">{item.body}</p>
+                      </div>
+                    </div>
+                  </Fade>
+                ))}
+              </div>
+
+              {/* Breadth, as a scannable list rather than a paragraph — the
+                  reader's real question at this point is "twenty minutes on
+                  what, exactly?", and the length of the list is the answer. */}
+              <Fade delay={0.24}>
+                <div className="mt-8 border-t border-border pt-7">
+                  <p className="mb-4 font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-text-muted">
+                    Your plan covers
+                  </p>
+                  <ul className="flex flex-wrap gap-2">
+                    {PLAN_COVERS.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-pill border border-border bg-card px-3.5 py-1.5 text-[14px] font-medium text-text-secondary"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Fade>
+            </div>
           </div>
         </section>
 
         {/* ── How it works ── */}
-        <section className="border-t border-border bg-section-alt px-6 py-16 lg:py-20">
+        <section className="bg-base px-5 py-14 sm:px-6 lg:py-20">
           <div className="mx-auto max-w-[1120px]">
-            <Reveal>
-              <h2 className="mb-9 text-center font-heading text-[1.55rem] font-extrabold tracking-tight text-text-primary sm:text-[2rem]">
+            <Fade>
+              <h2 className="mb-2 text-center font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.35rem]">
                 How it works
               </h2>
-            </Reveal>
+            </Fade>
+            <Fade delay={0.06}>
+              <p className="mx-auto mb-9 max-w-[520px] text-center text-[16.5px] leading-relaxed text-text-secondary">
+                Book today, and you could have your plan in writing by this time tomorrow.
+              </p>
+            </Fade>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {HOW_IT_WORKS.map((step, i) => (
-                <Reveal key={step.title} delay={i * 0.06}>
-                  <div className="h-full rounded-card border border-border bg-card p-5">
+                <Fade key={step.title} delay={i * 0.06}>
+                  <div className="h-full rounded-card border border-border bg-card p-5 shadow-card">
                     <span className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-primary font-heading text-[13px] font-bold text-white">
                       {i + 1}
                     </span>
                     <p className="mb-1.5 text-[15px] font-bold text-text-primary">{step.title}</p>
-                    <p className="text-[14px] leading-relaxed text-text-secondary">{step.body}</p>
+                    <p className="text-[15px] leading-relaxed text-text-secondary">{step.body}</p>
                   </div>
-                </Reveal>
+                </Fade>
               ))}
             </div>
           </div>
         </section>
 
+        {/* ── Us vs them ── */}
+        <section className="bg-base px-5 pb-14 sm:px-6 lg:pb-20">
+          <CompareOptions />
+        </section>
+
+        {/* ── Proof ── */}
+        <section className="border-t border-border bg-section-alt px-5 py-14 sm:px-6 lg:py-20">
+          <ProofWall />
+        </section>
+
+        {/* ── Booking — the one conversion point on the page ── */}
+        <section id="book" className="scroll-mt-[76px] border-t border-border bg-base px-5 py-14 sm:px-6 lg:py-20">
+          {/* [&>*]:min-w-0 is load-bearing: a grid item's automatic minimum size
+              is min-content, and the picker's 14-day strip is ~970px wide before
+              it's allowed to scroll. Without this the strip forces its column
+              open and crushes the column beside it to a few characters wide. */}
+          <div className="mx-auto grid max-w-[1120px] items-start gap-8 [&>*]:min-w-0 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
+            <div>
+              <Fade>
+                <h2 className="mb-3 font-heading text-[1.85rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.45rem]">
+                  Pick a time that suits you
+                </h2>
+              </Fade>
+              <Fade delay={0.06}>
+                <p className="mb-6 text-[17px] leading-relaxed text-text-secondary">
+                  {CONSULT_MINUTES} minutes with a BetterHealth Wellness Consultant, on Google Meet
+                  or an ordinary phone call. The call and your written plan are free.
+                </p>
+              </Fade>
+              <Fade delay={0.1}>
+                <ul className="mb-7 flex flex-col gap-2.5">
+                  {HERO_CHECKS.map((check) => (
+                    <li key={check} className="flex items-start gap-2.5">
+                      <span className="mt-0.5 flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full bg-primary">
+                        <Check size={12} strokeWidth={3.5} className="text-white" />
+                      </span>
+                      <span className="text-[14.5px] font-semibold leading-snug text-text-primary">
+                        {check}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </Fade>
+              <Fade delay={0.14}>
+                <img
+                  src={SHARED_IMAGES.consult.src}
+                  alt={SHARED_IMAGES.consult.alt}
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  className="hidden aspect-[3/2] w-full rounded-card object-cover shadow-card lg:block"
+                />
+              </Fade>
+            </div>
+            <Fade delay={0.1}>
+              <ConsultationBooking variant={v.variant} concern={v.concern} />
+            </Fade>
+          </div>
+        </section>
+
         {/* ── Who you'll speak to ── */}
-        <section className="border-t border-border bg-base px-6 py-16 lg:py-20">
+        <section className="bg-base px-5 pb-14 sm:px-6 lg:pb-20">
           <div className="mx-auto max-w-[720px] text-center">
-            <Reveal>
-              <h2 className="mb-3 font-heading text-[1.55rem] font-extrabold tracking-tight text-text-primary sm:text-[2rem]">
+            <Fade>
+              <h2 className="mb-3 font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.35rem]">
                 Who you&apos;ll speak to
               </h2>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <p className="mb-8 text-[15px] leading-relaxed text-text-secondary">
+            </Fade>
+            <Fade delay={0.06}>
+              <p className="mb-8 text-[16.5px] leading-relaxed text-text-secondary">
                 One of our Wellness Consultants. They&apos;re not doctors and won&apos;t diagnose
                 anything — if something needs a doctor, they&apos;ll say so, and a doctor reviews
                 any results you go on to have done.
               </p>
-            </Reveal>
-            <Reveal delay={0.1}>
+            </Fade>
+            <Fade delay={0.1}>
               <div className="flex flex-wrap justify-center gap-2.5">
                 {CONSULTANTS.map((c) => (
                   <span
@@ -293,63 +490,63 @@ export default function WellnessConsultationPage() {
                   </span>
                 ))}
               </div>
-            </Reveal>
+            </Fade>
           </div>
         </section>
 
         {/* ── FAQ ── */}
-        <section className="border-t border-border bg-section-alt px-6 py-16 lg:py-20">
+        <section className="bg-base px-5 pb-14 sm:px-6 lg:pb-20">
           <div className="mx-auto max-w-[720px]">
-            <Reveal>
-              <h2 className="mb-8 font-heading text-[1.55rem] font-extrabold tracking-tight text-text-primary sm:text-[2rem]">
+            <Fade>
+              <h2 className="mb-8 font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.35rem]">
                 Before you book
               </h2>
-            </Reveal>
+            </Fade>
             <div className="flex flex-col gap-3">
               {FAQ.map((item, i) => (
-                <Reveal key={item.q} delay={i * 0.04}>
+                <Fade key={item.q} delay={i * 0.04}>
                   <details className="group rounded-card border border-border bg-card p-5">
                     <summary className="cursor-pointer list-none text-[15px] font-bold text-text-primary marker:hidden">
                       {item.q}
                     </summary>
-                    <p className="mt-2.5 text-[14px] leading-relaxed text-text-secondary">
+                    <p className="mt-2.5 text-[15px] leading-relaxed text-text-secondary">
                       {item.a}
                     </p>
                   </details>
-                </Reveal>
+                </Fade>
               ))}
             </div>
           </div>
         </section>
 
         {/* ── Closing CTA ── */}
-        <section className="relative overflow-hidden bg-primary px-6 py-16 lg:py-20">
+        <section className="relative overflow-hidden bg-primary px-5 py-16 sm:px-6 lg:py-20">
           <GradientOrb color="green" size="520px" className="right-[-10%] top-[-20%] opacity-30" />
           <div className="relative z-10 mx-auto max-w-[560px] text-center">
-            <Reveal>
-              <h2 className="mb-4 font-heading text-[1.55rem] font-extrabold tracking-tight text-white sm:text-[2.1rem]">
-                Twenty minutes could give you a plan
+            <Fade>
+              <h2 className="mb-4 font-heading text-[1.85rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-[2.45rem]">
+                You don&apos;t need another warning. You need a plan.
               </h2>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="mb-7 font-body text-[16px] leading-relaxed text-white/80">
-                Free, no test required, and the plan is yours to keep either way.
+            </Fade>
+            <Fade delay={0.08}>
+              <p className="mb-7 font-body text-[16px] leading-relaxed text-white/85">
+                Free, and the written plan is yours to keep either way.
               </p>
-            </Reveal>
-            <Reveal delay={0.16}>
+            </Fade>
+            <Fade delay={0.16}>
               <a
                 href="#book"
                 onClick={scrollToBooking}
-                className="inline-flex items-center justify-center gap-2 rounded-btn bg-white px-8 py-4 font-heading text-[15px] font-bold text-primary no-underline transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-btn bg-white px-8 py-4 font-heading text-[16px] font-bold text-primary no-underline transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
                 Book your free call <ArrowRight size={17} />
               </a>
-            </Reveal>
+            </Fade>
           </div>
         </section>
 
         {/* ── Disclaimer ── */}
-        <section className="bg-base px-6 py-8">
+        <section className="bg-base px-5 py-8 pb-24 sm:px-6 lg:pb-8">
           <div className="mx-auto flex max-w-[720px] items-start gap-2.5">
             <ShieldCheck size={15} className="mt-0.5 shrink-0 text-text-muted" />
             <p className="text-[12.5px] leading-relaxed text-text-muted">{DISCLAIMER}</p>
@@ -357,6 +554,7 @@ export default function WellnessConsultationPage() {
         </section>
       </main>
       <Footer />
+      <StickyCTA onCta={scrollToBooking} />
     </div>
   );
 }
