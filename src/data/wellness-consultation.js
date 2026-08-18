@@ -53,7 +53,7 @@ export const SHARED_IMAGES = {
  * commitment, beside the picker.
  */
 export const HERO_CHECKS = [
-  "Free — the call and your written plan cost nothing",
+  "Paid for by the BetterHealth Foundation — the call and your plan cost you nothing",
   `${CONSULT_MINUTES} minutes, on Google Meet or an ordinary phone call`,
   "The written plan is yours to keep, either way",
 ];
@@ -86,6 +86,122 @@ export const TRUST_POINTS = [
  * thing that varies.
  */
 export const PLAN_SECTION_HEADING = "A plan for wellness";
+
+/**
+ * Qualifying questions, asked AFTER the booking is confirmed — never before.
+ *
+ * This placement is the whole design and it is deliberate. The booking is the
+ * conversion the campaign is measured on (landing→booking, and the Meta
+ * `Schedule` event that ad delivery optimises against). Every field added ahead
+ * of that button costs bookings, and it costs them from the people who are least
+ * certain — which is exactly the group the campaign exists to find out about.
+ *
+ * Asked after the slot is taken, the same questions cost nothing. The person is
+ * committed, they are looking at a confirmation screen with nothing else to do,
+ * and there is at least a day before the call for a consultant to read the
+ * answers.
+ *
+ * Content is Damzi's, taken from what the consultants actually want to know
+ * walking into a call. Do not edit it to taste — if a question changes, it
+ * changes because a consultant asked for it.
+ *
+ * `type`:
+ *   choice  one-tap chips; `other: true` reveals a text field on "Other"
+ *   text    single-line input
+ *   longText textarea
+ * `required` gates the Send button only. The whole form is still skippable —
+ * the booking stands either way.
+ *
+ * `stage` splits them either side of the booking:
+ *
+ *   pre   asked BEFORE the picker. Three one-tap questions, no typing. They ride
+ *         along in the booking POST, so they are saved at the same instant the
+ *         slot is — there is no window in which someone has a booking and we
+ *         have lost their answers.
+ *   post  asked on the confirmation screen, best-effort. These are the ones with
+ *         typing in them, which is exactly why they sit after the commitment.
+ *
+ * Moving a question between stages is a one-word edit here. Keep `pre` to three
+ * and keep it tap-only: it sits in front of the conversion, and every question
+ * added there is paid for in bookings.
+ */
+export const INTAKE_QUESTIONS = [
+  {
+    id: "condition",
+    stage: "pre",
+    type: "choice",
+    label: "What is your condition?",
+    options: ["Hypertension", "Diabetes", "Other"],
+    other: true,
+    otherPlaceholder: "Tell us what it is",
+  },
+  {
+    id: "duration",
+    stage: "pre",
+    type: "choice",
+    label: "How long have you been dealing with this?",
+    help: "This helps us understand how the condition might have progressed.",
+    options: [
+      "Just diagnosed",
+      "Under a year",
+      "One to five years",
+      "More than five years",
+      "I haven't been diagnosed",
+    ],
+  },
+  {
+    id: "medication",
+    stage: "post",
+    type: "text",
+    label: "Are you on any medication for it?",
+    help: "Knowing what drugs you take helps in our preparation for the call.",
+    // "None" has to be answerable in a free-text field, or the person not on
+    // medication has nothing to type and skips the question entirely — which
+    // reads identically to no answer at all.
+    placeholder: "e.g. Amlodipine 5mg — or write “none”",
+  },
+  {
+    id: "lastTest",
+    stage: "post",
+    type: "choice",
+    label: "When did you last have a blood test done?",
+    options: [
+      "In the last 3 months",
+      "3 to 12 months ago",
+      "Over a year ago",
+      "I'm not sure",
+    ],
+  },
+  {
+    id: "goal",
+    stage: "post",
+    type: "longText",
+    label: "What would make this call worth your time?",
+    help: "One line is plenty. This is the single most useful thing you can tell us.",
+    placeholder: "e.g. I want to know whether I can come off the tablets eventually",
+  },
+  {
+    id: "callPreference",
+    stage: "post",
+    type: "choice",
+    label: "Would you prefer a video call or a phone call?",
+    options: [
+      "Video call me through the Google Meet invitation",
+      "Call me on my phone number",
+    ],
+  },
+  {
+    id: "ageBracket",
+    stage: "pre",
+    type: "choice",
+    label: "What age bracket is most applicable to you?",
+    required: true,
+    options: ["18-30", "31-40", "41-50", "51-59", "60+"],
+  },
+];
+
+export const PRE_QUESTIONS = INTAKE_QUESTIONS.filter((q) => q.stage === "pre");
+export const POST_QUESTIONS = INTAKE_QUESTIONS.filter((q) => q.stage === "post");
 
 /**
  * Us-vs-them. The middle column is BetterHealth's own book-a-test funnel, which
@@ -218,7 +334,7 @@ export const PLAN_COVERS = [
 export const FAQ = [
   {
     q: "Is it really free?",
-    a: "Yes. The call and your written plan cost nothing. We charge for lab tests, and only if you decide to do one.",
+    a: "Yes. The call and your written plan are paid for by the BetterHealth Foundation, not by you. Lab tests are charged separately, and only if you decide to do one.",
   },
   {
     q: "I'm already on medication. Is this for me?",
@@ -288,7 +404,7 @@ export const VARIANTS = {
       "We will help you create a customised health plan that gives you back control over your health within 90 days.",
     ],
     hero: {
-      video: { src: null },
+      vimeoId: null,
       poster: screeningPoster,
       alt: "A BetterHealth consultant running a free blood sugar screening in Ghana.",
     },
@@ -357,12 +473,12 @@ export const VARIANTS = {
       "We will help you create a customised health plan that gives you back control over your health within 90 days.",
     ],
     hero: {
-      // TO ADD THE PROMO VIDEO: put the file at public/videos/<name>.mp4 and set
-      // src to "/videos/<name>.mp4". Nothing else changes — the play button and
-      // the player appear on their own, and the poster keeps carrying the hero
-      // until the visitor presses play. Swap `poster` for a still from the video
-      // at the same time, or the hero advertises a photo of something else.
-      video: { src: null },
+      // TO ADD THE PROMO VIDEO: paste the Vimeo ID here (the digits in
+      // vimeo.com/123456789). Nothing else changes — the play button and the
+      // player appear on their own, and the poster carries the hero until the
+      // visitor presses play. Swap `poster` for a still from the video at the
+      // same time, or the hero advertises a photo of something else.
+      vimeoId: null,
       poster: screeningPoster,
       alt: "A BetterHealth consultant taking a blood pressure reading at a community screening in Ghana.",
     },
@@ -431,7 +547,7 @@ export const VARIANTS = {
       "We will help you create a customised health plan that gives you back control over your health within 90 days.",
     ],
     hero: {
-      video: { src: null },
+      vimeoId: null,
       poster: dashboardPoster,
       alt: "The BetterHealth dashboard showing a member's health results over time.",
     },
@@ -503,7 +619,7 @@ export const VARIANTS = {
       "In around half of cases there's a male factor involved, and it's one of the more straightforward things to check. Twenty minutes on the phone, for both of you, and you'll know what's worth checking and in what order.",
     ],
     hero: {
-      video: { src: null },
+      vimeoId: null,
       poster: involvedPoster,
       alt: "A BetterHealth consultant talking with a couple at a community health session in Ghana.",
     },

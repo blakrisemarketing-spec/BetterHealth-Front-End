@@ -122,7 +122,7 @@ export default function WellnessConsultationPage() {
             </div>
 
             <HeroMedia
-              video={v.hero.video}
+              vimeoId={v.hero.vimeoId}
               poster={v.hero.poster}
               alt={v.hero.alt}
               caption={
@@ -530,7 +530,8 @@ export default function WellnessConsultationPage() {
             </Fade>
             <Fade delay={0.08}>
               <p className="mb-7 font-body text-[16px] leading-relaxed text-white/85">
-                Free, and the written plan is yours to keep either way.
+                Paid for by the BetterHealth Foundation. The written plan is yours to keep
+                either way.
               </p>
             </Fade>
             <Fade delay={0.16}>

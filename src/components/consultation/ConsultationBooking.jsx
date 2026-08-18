@@ -9,7 +9,10 @@ import {
   upcomingDates,
 } from "../../lib/consultation-api";
 import { trackConsultationBooked } from "../../lib/analytics";
-import { CONSULT_MINUTES, WHATSAPP_URL } from "../../data/wellness-consultation";
+import { CONSULT_MINUTES, PRE_QUESTIONS, WHATSAPP_URL } from "../../data/wellness-consultation";
+import IntakeQuestions from "./IntakeQuestions";
+import IntakeFields from "./IntakeFields";
+import { flattenAnswers, missingRequired } from "./intake-answers";
 
 const DAYS = upcomingDates(14);
 const TODAY = new Date().toDateString();
@@ -20,6 +23,7 @@ const MONTH_LABEL = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Se
 // business has to keep operationally — the cancel line in particular assumes a
 // consultant actually acts on a WhatsApp reply.
 const REASSURANCE = [
+  "Paid for by the BetterHealth Foundation, not by you",
   "No card, no payment, and no test booked for you",
   "Cancel or move it by replying to the WhatsApp reminder",
   "Your details are protected under Ghana's Data Protection Act",
@@ -28,10 +32,17 @@ const REASSURANCE = [
 /**
  * First-party date + time picker for the wellness consultation.
  *
- * Progressive disclosure on purpose: the name/number fields only appear once a
- * time is chosen, so the first thing a visitor sees is availability rather than
- * a form. Asking for details before showing that anything is available is the
- * fastest way to lose someone who arrived from an ad.
+ * Three qualifying questions sit in front of the picker, then availability, then
+ * name and number. The questions are one-tap only and carry no typing — that is
+ * what keeps them affordable in front of the conversion.
+ *
+ * They ride along in the booking POST rather than going up separately, because
+ * the requirement is that answering them is never wasted: the moment a slot is
+ * taken, the answers are saved with it. A second request could fail on its own
+ * and leave a booking with no answers attached.
+ *
+ * Name and number still appear only once a time is chosen, so the visitor sees
+ * availability before being asked to type anything.
  *
  * `trackConsultationBooked` fires exactly once, on the 201 — never on render,
  * never on a failed submit. A duplicate or premature event would teach Meta to
@@ -43,6 +54,7 @@ export default function ConsultationBooking({ variant, concern, compact = false 
   const [slotsState, setSlotsState] = useState("loading"); // loading | ready | error
   const [time, setTime] = useState(null);
   const [form, setForm] = useState({ fullName: "", whatsapp: "" });
+  const [preAnswers, setPreAnswers] = useState({});
   const [status, setStatus] = useState("idle"); // idle | saving | done | error
   const [message, setMessage] = useState("");
   const [booking, setBooking] = useState(null);
@@ -105,6 +117,8 @@ export default function ConsultationBooking({ variant, concern, compact = false 
         date: dateParam,
         time,
         landingVariant: variant,
+        // Saved with the slot, not after it.
+        intake: flattenAnswers(PRE_QUESTIONS, preAnswers),
         ...captureAttribution(),
       });
 
@@ -148,6 +162,16 @@ export default function ConsultationBooking({ variant, concern, compact = false 
       <p className="text-[13px] text-text-secondary mb-5">
         {CONSULT_MINUTES} minutes · Google Meet or a phone call · nothing to pay
       </p>
+
+      {/* ── Three qualifying questions, before availability ── */}
+      <div className="mb-6 border-b border-border pb-6">
+        <IntakeFields
+          questions={PRE_QUESTIONS}
+          answers={preAnswers}
+          onChange={setPreAnswers}
+          disabled={status === "saving"}
+        />
+      </div>
 
       {/* ── Day ── */}
       <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
@@ -296,7 +320,7 @@ export default function ConsultationBooking({ variant, concern, compact = false 
 
           <button
             type="submit"
-            disabled={status === "saving"}
+            disabled={status === "saving" || missingRequired(PRE_QUESTIONS, preAnswers).length > 0}
             className="inline-flex w-full items-center justify-center gap-2 rounded-btn bg-primary px-7 py-3.5 text-[15px] font-bold font-heading text-white transition-all hover:-translate-y-0.5 hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:self-start cursor-pointer"
           >
             {status === "saving" ? (
@@ -310,6 +334,12 @@ export default function ConsultationBooking({ variant, concern, compact = false 
               </>
             )}
           </button>
+
+          {missingRequired(PRE_QUESTIONS, preAnswers).length > 0 && (
+            <p className="text-[12.5px] font-semibold text-accent-ink">
+              Please pick an age bracket above before confirming.
+            </p>
+          )}
 
           <p className="text-[12px] leading-relaxed text-text-muted">
             We&apos;ll send a reminder on WhatsApp. No payment, and nothing is booked for you beyond
@@ -389,6 +419,10 @@ function Confirmation({ booking }) {
         Quote it any time and we&apos;ll pick up where we left off. Your written plan follows on
         WhatsApp within a day of the call.
       </p>
+
+      {/* Qualifying questions live here, after the slot is secured, never before
+          the button. See INTAKE_QUESTIONS for the reasoning. */}
+      <IntakeQuestions refCode={booking.refCode} />
     </div>
   );
 }

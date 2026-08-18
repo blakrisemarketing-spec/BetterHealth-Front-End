@@ -5,32 +5,35 @@ import { useState } from "react";
  * Hero slot for the campaign pages: the promo video once there is one, the
  * poster frame on its own until then.
  *
- * `preload="none"` is deliberate and load-bearing. This page is opened from a
- * Meta ad on Ghanaian mobile data, and a hero video that starts buffering on
- * load spends the visitor's megabytes before they have decided anything — and
- * pushes out the LCP paint that decides whether they stay. Nothing is fetched
- * until the play button is pressed; the poster is an ordinary image and carries
- * the hero on its own.
+ * The Vimeo iframe is NOT rendered until the visitor presses play — a facade of
+ * poster + button sits there instead. This is the same reasoning that had the
+ * self-hosted version on `preload="none"`, and it matters more with an embed,
+ * not less: a mounted Vimeo iframe pulls ~700KB of player before anyone has
+ * decided to watch, on a page opened from an ad on Ghanaian mobile data. It also
+ * keeps Vimeo's cookies off the page for everyone who never plays.
  *
- * Autoplay is deliberately not used for the same reason, and because a promo
- * with a voiceover autoplays muted, which is the worst of both.
+ * `dnt=1` asks Vimeo not to track the session at all. Keep it — the page carries
+ * a GDPC certification claim and a privacy policy, and a silent third-party
+ * tracker in the hero is exactly the kind of thing that makes both untrue.
  */
-export default function HeroMedia({ video, poster, alt, caption }) {
+export default function HeroMedia({ vimeoId, poster, alt, caption }) {
   const [playing, setPlaying] = useState(false);
-  const hasVideo = Boolean(video?.src);
+  const hasVideo = Boolean(vimeoId);
+
+  const src =
+    `https://player.vimeo.com/video/${vimeoId}` +
+    "?autoplay=1&title=0&byline=0&portrait=0&dnt=1&playsinline=1";
 
   return (
     <figure className="relative mt-2 lg:mt-0">
-      <div className="relative overflow-hidden rounded-card shadow-[0_24px_70px_rgba(43,58,58,0.16)]">
+      <div className="relative aspect-video overflow-hidden rounded-card bg-text-primary shadow-[0_24px_70px_rgba(43,58,58,0.16)]">
         {hasVideo && playing ? (
-          <video
-            src={video.src}
-            poster={poster}
-            controls
-            autoPlay
-            playsInline
-            preload="none"
-            className="aspect-video w-full bg-text-primary object-cover"
+          <iframe
+            src={src}
+            title={alt}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
           />
         ) : (
           <>
@@ -41,7 +44,7 @@ export default function HeroMedia({ video, poster, alt, caption }) {
               height={675}
               loading="eager"
               fetchPriority="high"
-              className="aspect-video w-full object-cover"
+              className="h-full w-full object-cover"
             />
             {hasVideo && (
               <button

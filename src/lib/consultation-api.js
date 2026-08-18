@@ -84,6 +84,42 @@ export async function bookConsultation(payload) {
   throw err;
 }
 
+/**
+ * Post-booking intake answers for an existing consultation.
+ *
+ * Post-booking half only. The three qualifying answers do NOT come through here
+ * — they ride in the booking POST as `intake`, so they are saved the instant the
+ * slot is taken. See ConsultationBooking.
+ *
+ * BACKEND NOT BUILT YET. This posts to
+ *   POST /wellness-consultations/:refCode/intake   { answers: {id: value} }
+ * which does not exist in BetterHealth-Africa at the time of writing — the
+ * public booking API from migration 166 accepts only the booking fields, and its
+ * Zod schema will strip anything else rather than error, so piggybacking these
+ * onto `bookConsultation` would drop them silently. That is the failure mode
+ * worth avoiding: the form would look like it worked and consultants would open
+ * calls with nothing.
+ *
+ * Until the route exists this resolves `{ stored: false }` and the caller keeps
+ * the booking confirmed regardless. A failed intake must never look to the
+ * visitor like a failed booking — they have the slot either way.
+ */
+export async function submitIntake(refCode, answers) {
+  try {
+    const { ok } = await request(
+      `/wellness-consultations/${encodeURIComponent(refCode)}/intake`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ answers }),
+      },
+    );
+    return { stored: ok };
+  } catch {
+    return { stored: false };
+  }
+}
+
 /** Next `count` selectable dates, skipping Sunday (nobody is rostered). */
 export function upcomingDates(count = 14, from = new Date()) {
   const out = [];
