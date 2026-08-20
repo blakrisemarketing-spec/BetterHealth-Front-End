@@ -15,9 +15,20 @@ import Fade from "./Fade";
  * Deliberately NOT scored. Ticking four boxes doesn't mean anything clinically,
  * and a page that implies otherwise is doing diagnosis by widget. The response
  * only ever says what happens next.
+ *
+ * It also never counts. "You've ticked 3" is a machine reporting its own state
+ * back to you, and it reads as one — the reader has just told us something true
+ * about their life and been answered with arithmetic. Each statement carries its
+ * own `reply` instead, so what comes back speaks to the thing they actually
+ * picked. Two replies at most: the panel is a nudge toward the form, and a wall
+ * of text at the moment of highest intent is a wall in front of the form.
  */
 export default function QualifyChecklist({ heading, items, onCta }) {
   const [ticked, setTicked] = useState(() => new Set());
+
+  // Tolerate a plain string, so a new statement added without a reply degrades
+  // to a silent tick rather than crashing the section.
+  const rows = items.map((it) => (typeof it === "string" ? { text: it, reply: null } : it));
 
   const toggle = (i) => {
     setTicked((prev) => {
@@ -29,6 +40,14 @@ export default function QualifyChecklist({ heading, items, onCta }) {
   };
 
   const count = ticked.size;
+
+  // List order, not tick order: the statements are written most-significant
+  // first, and "I've been told my pressure is high" should lead the answer even
+  // if they tapped it last.
+  const replies = rows
+    .filter((row, i) => ticked.has(i) && row.reply)
+    .map((row) => row.reply)
+    .slice(0, 2);
 
   return (
     <div className="mx-auto max-w-[720px]">
@@ -44,10 +63,10 @@ export default function QualifyChecklist({ heading, items, onCta }) {
       </Fade>
 
       <div className="flex flex-col gap-2.5">
-        {items.map((item, i) => {
+        {rows.map((item, i) => {
           const on = ticked.has(i);
           return (
-            <Fade key={item} delay={0.1 + i * 0.05}>
+            <Fade key={item.text} delay={0.1 + i * 0.05}>
               <button
                 type="button"
                 onClick={() => toggle(i)}
@@ -70,7 +89,7 @@ export default function QualifyChecklist({ heading, items, onCta }) {
                     on ? "font-semibold text-text-primary" : "text-text-secondary"
                   }`}
                 >
-                  {item}
+                  {item.text}
                 </span>
               </button>
             </Fade>
@@ -81,21 +100,28 @@ export default function QualifyChecklist({ heading, items, onCta }) {
       {/* Response appears only once something is ticked — an empty verdict box
           sitting there before any interaction just adds height. The panel stays
           mounted so the reveal can animate, which means it has to be hidden from
-          assistive tech as well as visually: otherwise a screen reader reads out
-          "You've ticked 0" before the reader has touched anything. */}
+          assistive tech as well as visually: otherwise a screen reader reads the
+          replies out before the reader has touched anything. */}
       <div
         aria-hidden={count === 0}
         className={`overflow-hidden transition-all duration-500 ${
-          count > 0 ? "mt-6 max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+          count > 0 ? "mt-6 max-h-[560px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="rounded-card border-l-[3px] border-accent-dark bg-card p-5 shadow-card sm:p-6">
-          <p className="mb-2 font-heading text-[17px] font-extrabold leading-snug text-text-primary">
-            {count === 1
-              ? "One is enough to be worth twenty minutes."
-              : `You've ticked ${count}. That's what the call is for.`}
-          </p>
-          <p className="mb-5 text-[15px] leading-relaxed text-text-secondary">
+          {replies.map((reply, i) => (
+            <p
+              key={reply}
+              className={
+                i === 0
+                  ? "mb-2.5 font-heading text-[16.5px] font-bold leading-snug text-text-primary"
+                  : "mb-2.5 text-[15.5px] leading-relaxed text-text-secondary"
+              }
+            >
+              {reply}
+            </p>
+          ))}
+          <p className="mb-5 mt-4 border-t border-border pt-4 text-[14px] leading-relaxed text-text-muted">
             None of this is a diagnosis. It does mean you have specific things to ask about, and
             your consultant will start from those rather than a script.
           </p>

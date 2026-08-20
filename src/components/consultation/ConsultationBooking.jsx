@@ -24,7 +24,7 @@ const MONTH_LABEL = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Se
 // consultant actually acts on a WhatsApp reply.
 const REASSURANCE = [
   "Paid for by the BetterHealth Foundation, not by you",
-  "No card, no payment, and no test booked for you",
+  "No card, no payment",
   "Cancel or move it by replying to the WhatsApp reminder",
   // Deliberately not "no app to download" — the Meet link may ask some phones to
   // install something. What is promised is that the technology is never the
@@ -253,10 +253,26 @@ export default function ConsultationBooking({ variant, concern, compact = false 
         </div>
       )}
 
+      {/* The whole day is rendered, taken times included, so a visitor can see
+          what is left rather than a short list with nothing to measure it
+          against. Taken slots are struck through and disabled: the server will
+          not accept them either, so this is a picture of the diary and not a
+          decoration over it. */}
       {slotsState === "ready" && available.length > 0 && (
         <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
-          {available.map((slot) => {
+          {slots.map((slot) => {
             const selected = slot.time === time;
+            if (!slot.available) {
+              return (
+                <span
+                  key={slot.time}
+                  aria-label={`${formatSlot(slot.time)}, taken`}
+                  className="cursor-not-allowed select-none rounded-btn border border-border bg-section-alt px-2 py-2.5 text-center text-[13px] font-semibold text-text-muted line-through decoration-text-muted/60"
+                >
+                  {formatSlot(slot.time)}
+                </span>
+              );
+            }
             return (
               <button
                 key={slot.time}
