@@ -1,5 +1,5 @@
 import { Navigate, useParams } from "react-router-dom";
-import { ArrowRight, BadgeCheck, Check, FlaskConical, Microscope, ShieldCheck } from "lucide-react";
+import { ArrowRight, BadgeCheck, Check, FlaskConical, Microscope, ShieldCheck, X } from "lucide-react";
 import Seo from "../components/Seo";
 import Footer from "../components/Footer";
 import Fade from "../components/consultation/Fade";
@@ -8,20 +8,18 @@ import ConsultationBooking from "../components/consultation/ConsultationBooking"
 import CampaignNav from "../components/consultation/CampaignNav";
 import StickyCTA from "../components/consultation/StickyCTA";
 import QualifyChecklist from "../components/consultation/QualifyChecklist";
-import CompareOptions from "../components/consultation/CompareOptions";
 import ProofWall from "../components/consultation/ProofWall";
 import HeroMedia from "../components/consultation/HeroMedia";
 import {
   CONSULT_MINUTES,
-  CONSULTANTS,
   DISCLAIMER,
   FAQ,
   HERO_CHECKS,
   HERO_CTA_NOTE,
-  HOW_IT_WORKS,
-  PLAN_COVERS,
   PLAN_SECTION_HEADING,
   PROMISE,
+  SCOPE,
+  SESSION_SHEET,
   SHARED_IMAGES,
   TRUST_POINTS,
   VARIANTS,
@@ -44,17 +42,26 @@ const TRUST_ICONS = {
  *
  *   hero        get read in three seconds, kill the three cost/effort objections
  *   trust       borrow institutional credibility before asking for attention
- *   agitate     cost of inaction — the emotional engine of the page
+ *   agitate     cost of inaction, the emotional engine of the page
  *   checklist   the reader decides the page is about them
+ *   book        the conversion point, the moment they have decided
  *   belief      kill the false belief that stops the booking
  *   mechanism   why the problem stays hidden, and what we'd actually look at
- *   promise     what they walk away with — the product, finally
- *   steps       remove procedural uncertainty
- *   compare     make the alternatives explicit and lose fairly
- *   proof       borrow trust from people and institutions
- *   book        the single conversion point on the page
- *   team, faq   last objections
+ *   promise     what they walk away with
+ *   inside      the twenty minutes, minute by minute
+ *   proof       borrow trust from members who tested
+ *   scope       the boundaries of the call
+ *   faq         last objections
  *   close       one more ask
+ *
+ * The booking form sits high, directly under the checklist, rather than after
+ * the whole argument. Everything below it is for the reader who is not ready
+ * yet; the sticky CTA and the closing block carry them back up.
+ *
+ * Four blocks were cut on 2026-08-18 — a four-card how-it-works, a plan-covers
+ * pill wall, an us-vs-them table and a consultant roster. Each restated
+ * something the page already said, and the length was costing more than they
+ * returned. They are one `git revert` away if a cell's numbers argue for them.
  *
  * Variant copy: src/data/wellness-consultation.js
  * Audience briefs: artifacts/wellness-consultation/ABCD_TEST.md
@@ -77,7 +84,7 @@ export default function WellnessConsultationPage() {
       <Seo route={`wellness-consultation/${slug}`} />
       <CampaignNav onCta={scrollToBooking} />
       <main>
-        {/* ── Hero ──
+{/* ── Hero ──
             No Reveal on the headline, sub or CTA. Everything else on the page
             fades in on scroll, but the LCP element of an ad landing page cannot
             spend its first second at opacity 0 — on a Ghanaian 3G connection
@@ -125,12 +132,6 @@ export default function WellnessConsultationPage() {
               vimeoId={v.hero.vimeoId}
               poster={v.hero.poster}
               alt={v.hero.alt}
-              caption={
-                <>
-                  <strong className="text-text-primary">A written plan</strong>, on WhatsApp
-                  within a day of your call.
-                </>
-              }
             />
           </div>
         </section>
@@ -239,12 +240,62 @@ export default function WellnessConsultationPage() {
           />
         </section>
 
+        {/* ── Booking — the one conversion point on the page ── */}
+        <section id="book" className="scroll-mt-[76px] border-t border-border bg-base px-5 py-14 sm:px-6 lg:py-20">
+          {/* [&>*]:min-w-0 is load-bearing: a grid item's automatic minimum size
+              is min-content, and the picker's 14-day strip is ~970px wide before
+              it's allowed to scroll. Without this the strip forces its column
+              open and crushes the column beside it to a few characters wide. */}
+          <div className="mx-auto grid max-w-[1120px] items-start gap-8 [&>*]:min-w-0 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
+            <div>
+              <Fade>
+                <h2 className="mb-3 font-heading text-[1.85rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.45rem]">
+                  Pick a time that suits you
+                </h2>
+              </Fade>
+              <Fade delay={0.06}>
+                <p className="mb-6 text-[17px] leading-relaxed text-text-secondary">
+                  {CONSULT_MINUTES} minutes with a BetterHealth Wellness Consultant, on Google Meet
+                  or an ordinary phone call. The call and your written plan are free.
+                </p>
+              </Fade>
+              <Fade delay={0.1}>
+                <ul className="mb-7 flex flex-col gap-2.5">
+                  {HERO_CHECKS.map((check) => (
+                    <li key={check} className="flex items-start gap-2.5">
+                      <span className="mt-0.5 flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full bg-primary">
+                        <Check size={12} strokeWidth={3.5} className="text-white" />
+                      </span>
+                      <span className="text-[14.5px] font-semibold leading-snug text-text-primary">
+                        {check}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </Fade>
+              <Fade delay={0.14}>
+                <img
+                  src={SHARED_IMAGES.consult.src}
+                  alt={SHARED_IMAGES.consult.alt}
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  className="hidden aspect-[3/2] w-full rounded-card object-cover shadow-card lg:block"
+                />
+              </Fade>
+            </div>
+            <Fade delay={0.1}>
+              <ConsultationBooking variant={v.variant} concern={v.concern} />
+            </Fade>
+          </div>
+        </section>
+
         {/* ── False belief ── */}
         <section className="border-t border-border bg-section-alt px-5 py-14 sm:px-6 lg:py-20">
           <div className="mx-auto max-w-[720px]">
             <Fade>
               <p className="mb-3 font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-text-muted">
-                The thing nobody says out loud
+                What most people fear
               </p>
             </Fade>
             <Fade delay={0.06}>
@@ -348,149 +399,101 @@ export default function WellnessConsultationPage() {
                 ))}
               </div>
 
-              {/* Breadth, as a scannable list rather than a paragraph — the
-                  reader's real question at this point is "twenty minutes on
-                  what, exactly?", and the length of the list is the answer. */}
-              <Fade delay={0.24}>
-                <div className="mt-8 border-t border-border pt-7">
-                  <p className="mb-4 font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-text-muted">
-                    Your plan covers
+            </div>
+          </div>
+        </section>
+
+                {/* ── Inside the call ──
+            The objection this answers is not "what do I do" but "how long am I
+            committing to, and to what". A visitor who cannot picture the twenty
+            minutes assumes the worst about them. */}
+        <section className="bg-base px-5 pb-14 sm:px-6 lg:pb-20">
+          <div className="mx-auto max-w-[720px]">
+            <Fade>
+              <div className="rounded-card border border-border bg-card p-6 shadow-card sm:p-7">
+                <p className="mb-1 font-heading text-[1.3rem] font-extrabold tracking-tight text-text-primary sm:text-[1.6rem]">
+                  Inside the {CONSULT_MINUTES} minutes
+                </p>
+                <p className="mb-5 text-[15px] leading-relaxed text-text-secondary">
+                  So you know what you&apos;re agreeing to, and when it ends.
+                </p>
+                <ol className="flex flex-col gap-4">
+                  {SESSION_SHEET.map((block) => (
+                    <li key={block.when} className="flex flex-col gap-1 sm:flex-row sm:gap-4">
+                      <span className="shrink-0 self-start rounded-pill bg-primary-bg px-3 py-1 font-heading text-[12.5px] font-bold tabular-nums text-primary sm:w-[94px] sm:text-center">
+                        {block.when}
+                      </span>
+                      <div>
+                        <p className="text-[15px] font-bold text-text-primary">{block.title}</p>
+                        <p className="text-[14.5px] leading-relaxed text-text-secondary">
+                          {block.body}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </Fade>
+          </div>
+        </section>
+
+{/* ── Proof ── */}
+        <section className="border-t border-border bg-section-alt px-5 py-14 sm:px-6 lg:py-20">
+          <ProofWall />
+        </section>
+
+        {/* ── What this is, and what it isn't ──
+            A safety surface as much as a conversion one: every cell targets
+            people who already carry a diagnosis, so the limits of a
+            non-clinical call are worth stating in full sight rather than in the
+            disclaimer at the foot of the page. */}
+        <section className="bg-base px-5 pb-14 sm:px-6 lg:pb-20">
+          <div className="mx-auto max-w-[900px]">
+            <Fade>
+              <h2 className="mb-8 text-center font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.35rem]">
+                What this is, and what it isn&apos;t
+              </h2>
+            </Fade>
+            <div className="grid gap-4 lg:grid-cols-2">
+              <Fade>
+                <div className="h-full rounded-card border border-border bg-card p-6 shadow-card">
+                  <p className="mb-4 font-heading text-[16px] font-bold text-text-primary">
+                    What it is
                   </p>
-                  <ul className="flex flex-wrap gap-2">
-                    {PLAN_COVERS.map((item) => (
-                      <li
-                        key={item}
-                        className="rounded-pill border border-border bg-card px-3.5 py-1.5 text-[14px] font-medium text-text-secondary"
-                      >
-                        {item}
+                  <ul className="flex flex-col gap-3">
+                    {SCOPE.is.map((line) => (
+                      <li key={line} className="flex items-start gap-2.5">
+                        <span className="mt-0.5 flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full bg-primary">
+                          <Check size={12} strokeWidth={3.5} className="text-white" />
+                        </span>
+                        <span className="text-[14.5px] leading-relaxed text-text-secondary">
+                          {line}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Fade>
+              <Fade delay={0.08}>
+                <div className="h-full rounded-card border border-border bg-section-alt p-6">
+                  <p className="mb-4 font-heading text-[16px] font-bold text-text-primary">
+                    What it isn&apos;t
+                  </p>
+                  <ul className="flex flex-col gap-3">
+                    {SCOPE.isnt.map((line) => (
+                      <li key={line} className="flex items-start gap-2.5">
+                        <span className="mt-0.5 flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full border border-border bg-card">
+                          <X size={11} strokeWidth={3} className="text-text-muted" />
+                        </span>
+                        <span className="text-[14.5px] leading-relaxed text-text-secondary">
+                          {line}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </Fade>
             </div>
-          </div>
-        </section>
-
-        {/* ── How it works ── */}
-        <section className="bg-base px-5 py-14 sm:px-6 lg:py-20">
-          <div className="mx-auto max-w-[1120px]">
-            <Fade>
-              <h2 className="mb-2 text-center font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.35rem]">
-                How it works
-              </h2>
-            </Fade>
-            <Fade delay={0.06}>
-              <p className="mx-auto mb-9 max-w-[520px] text-center text-[16.5px] leading-relaxed text-text-secondary">
-                Book today, and you could have your plan in writing by this time tomorrow.
-              </p>
-            </Fade>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {HOW_IT_WORKS.map((step, i) => (
-                <Fade key={step.title} delay={i * 0.06}>
-                  <div className="h-full rounded-card border border-border bg-card p-5 shadow-card">
-                    <span className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-primary font-heading text-[13px] font-bold text-white">
-                      {i + 1}
-                    </span>
-                    <p className="mb-1.5 text-[15px] font-bold text-text-primary">{step.title}</p>
-                    <p className="text-[15px] leading-relaxed text-text-secondary">{step.body}</p>
-                  </div>
-                </Fade>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Us vs them ── */}
-        <section className="bg-base px-5 pb-14 sm:px-6 lg:pb-20">
-          <CompareOptions />
-        </section>
-
-        {/* ── Proof ── */}
-        <section className="border-t border-border bg-section-alt px-5 py-14 sm:px-6 lg:py-20">
-          <ProofWall />
-        </section>
-
-        {/* ── Booking — the one conversion point on the page ── */}
-        <section id="book" className="scroll-mt-[76px] border-t border-border bg-base px-5 py-14 sm:px-6 lg:py-20">
-          {/* [&>*]:min-w-0 is load-bearing: a grid item's automatic minimum size
-              is min-content, and the picker's 14-day strip is ~970px wide before
-              it's allowed to scroll. Without this the strip forces its column
-              open and crushes the column beside it to a few characters wide. */}
-          <div className="mx-auto grid max-w-[1120px] items-start gap-8 [&>*]:min-w-0 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
-            <div>
-              <Fade>
-                <h2 className="mb-3 font-heading text-[1.85rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.45rem]">
-                  Pick a time that suits you
-                </h2>
-              </Fade>
-              <Fade delay={0.06}>
-                <p className="mb-6 text-[17px] leading-relaxed text-text-secondary">
-                  {CONSULT_MINUTES} minutes with a BetterHealth Wellness Consultant, on Google Meet
-                  or an ordinary phone call. The call and your written plan are free.
-                </p>
-              </Fade>
-              <Fade delay={0.1}>
-                <ul className="mb-7 flex flex-col gap-2.5">
-                  {HERO_CHECKS.map((check) => (
-                    <li key={check} className="flex items-start gap-2.5">
-                      <span className="mt-0.5 flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full bg-primary">
-                        <Check size={12} strokeWidth={3.5} className="text-white" />
-                      </span>
-                      <span className="text-[14.5px] font-semibold leading-snug text-text-primary">
-                        {check}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </Fade>
-              <Fade delay={0.14}>
-                <img
-                  src={SHARED_IMAGES.consult.src}
-                  alt={SHARED_IMAGES.consult.alt}
-                  width={1200}
-                  height={800}
-                  loading="lazy"
-                  className="hidden aspect-[3/2] w-full rounded-card object-cover shadow-card lg:block"
-                />
-              </Fade>
-            </div>
-            <Fade delay={0.1}>
-              <ConsultationBooking variant={v.variant} concern={v.concern} />
-            </Fade>
-          </div>
-        </section>
-
-        {/* ── Who you'll speak to ── */}
-        <section className="bg-base px-5 pb-14 sm:px-6 lg:pb-20">
-          <div className="mx-auto max-w-[720px] text-center">
-            <Fade>
-              <h2 className="mb-3 font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-text-primary sm:text-[2.35rem]">
-                Who you&apos;ll speak to
-              </h2>
-            </Fade>
-            <Fade delay={0.06}>
-              <p className="mb-8 text-[16.5px] leading-relaxed text-text-secondary">
-                One of our Wellness Consultants. They&apos;re not doctors and won&apos;t diagnose
-                anything — if something needs a doctor, they&apos;ll say so, and a doctor reviews
-                any results you go on to have done.
-              </p>
-            </Fade>
-            <Fade delay={0.1}>
-              <div className="flex flex-wrap justify-center gap-2.5">
-                {CONSULTANTS.map((c) => (
-                  <span
-                    key={c.name}
-                    className="inline-flex items-center gap-2 rounded-pill border border-border bg-card px-4 py-2 text-[14px] font-semibold text-text-primary"
-                  >
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-bg font-heading text-[12px] font-bold text-primary">
-                      {c.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                    </span>
-                    {c.name}
-                  </span>
-                ))}
-              </div>
-            </Fade>
           </div>
         </section>
 

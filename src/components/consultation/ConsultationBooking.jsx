@@ -26,23 +26,31 @@ const REASSURANCE = [
   "Paid for by the BetterHealth Foundation, not by you",
   "No card, no payment, and no test booked for you",
   "Cancel or move it by replying to the WhatsApp reminder",
+  // Deliberately not "no app to download" — the Meet link may ask some phones to
+  // install something. What is promised is that the technology is never the
+  // visitor's problem to solve, which is the fear underneath the question.
+  "Rather not use video? We'll ring your phone instead",
   "Your details are protected under Ghana's Data Protection Act",
 ];
 
 /**
  * First-party date + time picker for the wellness consultation.
  *
- * Three qualifying questions sit in front of the picker, then availability, then
- * name and number. The questions are one-tap only and carry no typing — that is
- * what keeps them affordable in front of the conversion.
+ * Order is availability first: day, then time, and only then the three
+ * qualifying questions plus name and number, all revealed together once a slot
+ * is chosen. Nothing is asked of a visitor who has not yet seen that a time
+ * exists that suits them.
  *
- * They ride along in the booking POST rather than going up separately, because
- * the requirement is that answering them is never wasted: the moment a slot is
- * taken, the answers are saved with it. A second request could fail on its own
- * and leave a booking with no answers attached.
+ * The questions used to sit above the picker. Moving them below it changes
+ * nothing about how they are stored: they still ride along in the booking POST
+ * rather than going up separately, because the requirement is that answering
+ * them is never wasted — the moment a slot is taken, the answers are saved with
+ * it. A second request could fail on its own and leave a booking with no answers
+ * attached. Screen order and payload order are independent here, which is what
+ * makes the move free.
  *
- * Name and number still appear only once a time is chosen, so the visitor sees
- * availability before being asked to type anything.
+ * They remain one-tap only and carry no typing. They are still ahead of the
+ * conversion, just no longer ahead of the availability.
  *
  * `trackConsultationBooked` fires exactly once, on the 201 — never on render,
  * never on a failed submit. A duplicate or premature event would teach Meta to
@@ -163,16 +171,6 @@ export default function ConsultationBooking({ variant, concern, compact = false 
         {CONSULT_MINUTES} minutes · Google Meet or a phone call · nothing to pay
       </p>
 
-      {/* ── Three qualifying questions, before availability ── */}
-      <div className="mb-6 border-b border-border pb-6">
-        <IntakeFields
-          questions={PRE_QUESTIONS}
-          answers={preAnswers}
-          onChange={setPreAnswers}
-          disabled={status === "saving"}
-        />
-      </div>
-
       {/* ── Day ── */}
       <p className="text-[12px] font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
         Pick a day
@@ -287,6 +285,18 @@ export default function ConsultationBooking({ variant, concern, compact = false 
               {DAY_LABEL[date.getDay()]} {date.getDate()} {MONTH_LABEL[date.getMonth()]} at {formatSlot(time)}
             </strong>
           </p>
+
+          {/* The three qualifying questions, now that a time is actually held.
+              Tap-only, and placed above the typing rather than below it so the
+              visitor keeps moving through chips before reaching a keyboard. */}
+          <div className="border-b border-border pb-4">
+            <IntakeFields
+              questions={PRE_QUESTIONS}
+              answers={preAnswers}
+              onChange={setPreAnswers}
+              disabled={status === "saving"}
+            />
+          </div>
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <label className="flex flex-col gap-1.5">

@@ -12,11 +12,15 @@ import { useState } from "react";
  * decided to watch, on a page opened from an ad on Ghanaian mobile data. It also
  * keeps Vimeo's cookies off the page for everyone who never plays.
  *
- * `dnt=1` asks Vimeo not to track the session at all. Keep it — the page carries
+ * `dnt=1` asks Vimeo not to track the session at all. Keep it: the page carries
  * a GDPC certification claim and a privacy policy, and a silent third-party
  * tracker in the hero is exactly the kind of thing that makes both untrue.
+ *
+ * No caption card over or under the frame. The promo videos burn in their own
+ * lower third and ticker, so anything the page adds there competes with the
+ * video's own furniture. The written-plan promise lives in HERO_CHECKS instead.
  */
-export default function HeroMedia({ vimeoId, poster, alt, caption }) {
+export default function HeroMedia({ vimeoId, poster, alt }) {
   const [playing, setPlaying] = useState(false);
   const hasVideo = Boolean(vimeoId);
 
@@ -25,7 +29,7 @@ export default function HeroMedia({ vimeoId, poster, alt, caption }) {
     "?autoplay=1&title=0&byline=0&portrait=0&dnt=1&playsinline=1";
 
   return (
-    <figure className="relative mt-2 lg:mt-0">
+    <figure className="mt-2 lg:mt-0">
       <div className="relative aspect-video overflow-hidden rounded-card bg-text-primary shadow-[0_24px_70px_rgba(43,58,58,0.16)]">
         {hasVideo && playing ? (
           <iframe
@@ -62,12 +66,6 @@ export default function HeroMedia({ vimeoId, poster, alt, caption }) {
           </>
         )}
       </div>
-
-      {caption && (
-        <figcaption className="absolute -bottom-4 left-4 right-4 rounded-card border border-border bg-card/95 px-4 py-3 shadow-card backdrop-blur sm:left-6 sm:right-auto sm:max-w-[300px]">
-          <p className="text-[13px] leading-snug text-text-secondary">{caption}</p>
-        </figcaption>
-      )}
     </figure>
   );
 }
