@@ -440,12 +440,30 @@ export const VARIANTS = {
     checklist: {
       heading: "Does any of this sound familiar?",
       items: [
-        "I've been diagnosed with diabetes, or told my blood sugar is high",
-        "I was told to avoid sugar and starchy food, and not much more than that",
-        "I don't know what my HbA1c is, or what it should be",
-        "I check my sugar sometimes, and the numbers jump around without me knowing why",
-        "Somebody in my family has lost their sight, a limb or their kidneys to this",
-        "The diet advice I was given doesn't fit the food I actually eat",
+        {
+          text: "I've been diagnosed with diabetes, or told my blood sugar is high",
+          reply: "A diagnosis is a starting point. Almost nobody is given the plan that is supposed to follow it.",
+        },
+        {
+          text: "I was told to avoid sugar and starchy food, and not much more than that",
+          reply: "Ten seconds of advice for a kitchen that runs on banku, rice and kenkey. It was never going to survive contact with your week.",
+        },
+        {
+          text: "I don't know what my HbA1c is, or what it should be",
+          reply: "That one number tells you what the last three months actually did. Most people have never been shown theirs.",
+        },
+        {
+          text: "I check my sugar sometimes, and the numbers jump around without me knowing why",
+          reply: "Finger-pricks jump because they measure the minute, not the season. That is why they are so easy to dismiss.",
+        },
+        {
+          text: "Somebody in my family has lost their sight, a limb or their kidneys to this",
+          reply: "You have watched where this can go, and that fear is earned. It is also the reason to find out where you actually stand.",
+        },
+        {
+          text: "The diet advice I was given doesn't fit the food I actually eat",
+          reply: "Advice you cannot follow is not advice. Your plan starts from what is already in your kitchen.",
+        },
       ],
     },
     belief: {
@@ -515,12 +533,30 @@ export const VARIANTS = {
     checklist: {
       heading: "Does any of this sound familiar?",
       items: [
-        "I've been told my blood pressure is high",
-        "I was given tablets and not much else",
-        "Nobody has explained what my numbers should be, or how often to check them",
-        "Some days I take my medication, some days I forget",
-        "I've cut salt and tried herbal remedies without knowing whether they helped",
-        "I couldn't tell you whether my pressure is better or worse than a year ago",
+        {
+          text: "I've been told my blood pressure is high",
+          reply: "Being told is usually where it stops. What to do about it, week by week, is the part nobody hands you.",
+        },
+        {
+          text: "I was given tablets and not much else",
+          reply: "The tablets are doing their job. What's missing is everything around them, and that is the part that decides whether your numbers move.",
+        },
+        {
+          text: "Nobody has explained what my numbers should be, or how often to check them",
+          reply: "Without a target you have no way of knowing whether you are winning. That is the first thing we would put right.",
+        },
+        {
+          text: "Some days I take my medication, some days I forget",
+          reply: "That is not a discipline problem. It is what happens when nobody built the routine around your actual day.",
+        },
+        {
+          text: "I've cut salt and tried herbal remedies without knowing whether they helped",
+          reply: "You may already be doing something that works. Without a measurement you will never find out which part.",
+        },
+        {
+          text: "I couldn't tell you whether my pressure is better or worse than a year ago",
+          reply: "A year with nothing to compare against is a year of guessing. Two readings taken the same way ends that.",
+        },
       ],
     },
     belief: {
@@ -583,12 +619,30 @@ export const VARIANTS = {
     checklist: {
       heading: "Does any of this sound familiar?",
       items: [
-        "I'm tired most days, no matter how much I sleep",
-        "I've been treated for malaria or typhoid more than once for the same tiredness",
-        "I was told my tests were “normal”, but nobody explained what was actually checked",
-        "I've gained weight I can't shift, or lost weight I can't explain",
-        "I've bought supplements without knowing whether I needed them",
-        "I couldn't name a single one of my health numbers",
+        {
+          text: "I'm tired most days, no matter how much I sleep",
+          reply: "Tiredness that sleep does not fix is a signal rather than a personality. It usually has a cause that can be measured.",
+        },
+        {
+          text: "I've been treated for malaria or typhoid more than once for the same tiredness",
+          reply: "Being treated twice for the same tiredness means the first answer was not the answer.",
+        },
+        {
+          text: "I was told my tests were “normal”, but nobody explained what was actually checked",
+          reply: "“Normal” only covers what was tested. Nobody told you how short that list was.",
+        },
+        {
+          text: "I've gained weight I can't shift, or lost weight I can't explain",
+          reply: "Weight that moves on its own is worth investigating rather than blaming yourself for.",
+        },
+        {
+          text: "I've bought supplements without knowing whether I needed them",
+          reply: "You may have been treating something you do not have, and missing something you do.",
+        },
+        {
+          text: "I couldn't name a single one of my health numbers",
+          reply: "Almost nobody can. It has never been made easy to find out, which is most of the problem.",
+        },
       ],
     },
     belief: {
@@ -652,11 +706,26 @@ export const VARIANTS = {
     checklist: {
       heading: "Does any of this sound familiar?",
       items: [
-        "We've been trying for a year or more",
-        "Only one of us has been tested — or neither of us",
-        "We've tried timing, herbs, prayer, or all three",
-        "Nobody has explained what's actually worth checking, or in what order",
-        "We'd rather have a shorter list of possibilities than no list at all",
+        {
+          text: "We've been trying for a year or more",
+          reply: "A year is long enough to stop guessing and start narrowing it down.",
+        },
+        {
+          text: "Only one of us has been tested, or neither of us",
+          reply: "Half the picture cannot answer the question, and the untested half is usually the quicker one to check.",
+        },
+        {
+          text: "We've tried timing, herbs, prayer, or all three",
+          reply: "None of that is foolish. It just cannot tell you which door to try next.",
+        },
+        {
+          text: "Nobody has explained what's actually worth checking, or in what order",
+          reply: "There is an order to this, and it starts cheaper and simpler than most people expect.",
+        },
+        {
+          text: "We'd rather have a shorter list of possibilities than no list at all",
+          reply: "That is what testing does. It will not promise you a baby; it will shorten the list.",
+        },
       ],
     },
     belief: {

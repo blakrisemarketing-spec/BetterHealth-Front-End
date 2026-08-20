@@ -246,6 +246,21 @@ and that path fires the same event cleanly on click-out.
       5. Meet the team — real faces; this is a trust purchase
       6. Booking form (repeat CTA)
       7. FAQ — "is it really free", "do I have to do the test", "is this a sales call"
+
+      **SUPERSEDED 2026-08-20 — the list above is the original plan, kept for the
+      reasoning.** What shipped differs on two counts. The booking form moved
+      from near the bottom to fourth, directly under the self-qualification
+      checklist: that is the moment the reader has decided the page is about
+      them, and it took the form from 70% of page depth to 24%. And four blocks
+      came out (the four-step how-it-works, a plan-covers pill wall, an
+      us-vs-them table, the team roster), each restating something the page
+      already said; the team section in particular was left saying only what our
+      consultants are *not*, after the call not to lead on credentials.
+
+      Current order lives in the header comment of
+      `src/pages/WellnessConsultation.jsx`, which is the source of truth:
+      hero · trust · agitate · checklist · **book** · belief · mechanism ·
+      promise · inside-the-20-minutes · proof · scope · FAQ · close.
 - [ ] **6.3** `ConsultationBooking.jsx` — embeds the slot picker (§4.1) and registers a
       `postMessage` listener for the widget's booking-completed event, firing
       `trackConsultationBooked({ channel })` **once, on completion only** — never on
