@@ -18,10 +18,16 @@ import bloodSugarPhoto from "../assets/foundation/hero-screening.webp";
 import bloodPressurePhoto from "../assets/foundation/what-we-do.webp";
 import wellnessPhoto from "../assets/how-it-works/step-1-choose-test.jpg";
 import fertilityPhoto from "../assets/how-it-works/step-4-next-steps.jpg";
-// Hero video poster frames. PLACEHOLDERS: replace each with a still lifted from
-// that cell's actual promo video, or the hero shows a photo of something the
-// video isn't about.
-import screeningPoster from "../assets/foundation/proof-screening.webp";
+// Hero video posters: the designed title card for each promo video, supplied
+// with the films rather than grabbed from them. A frame lifted out of the video
+// carries its burned-in lower third and ticker, which then compete with the
+// page's own layout; the title cards are clean and carry the headline.
+//
+// The wellness and fertility cells are still PLACEHOLDERS until those videos
+// exist, and until then their hero shows a photo of something the video is not
+// about.
+import hypertensionVideoPoster from "../assets/foundation/hero-hypertension-video.webp";
+import diabetesVideoPoster from "../assets/foundation/hero-diabetes-video.webp";
 import dashboardPoster from "../assets/how-it-works/step-3-dashboard.jpg";
 import involvedPoster from "../assets/foundation/get-involved.webp";
 import planPhoto from "../assets/about/community-intake.jpg";
@@ -53,7 +59,7 @@ export const SHARED_IMAGES = {
  * commitment, beside the picker.
  */
 export const HERO_CHECKS = [
-  "Free — the call and your written plan cost nothing",
+  "Paid for by the BetterHealth Foundation. The call and your plan cost you nothing",
   `${CONSULT_MINUTES} minutes, on Google Meet or an ordinary phone call`,
   "The written plan is yours to keep, either way",
 ];
@@ -88,23 +94,128 @@ export const TRUST_POINTS = [
 export const PLAN_SECTION_HEADING = "A plan for wellness";
 
 /**
- * Us-vs-them. The middle column is BetterHealth's own book-a-test funnel, which
- * is the honest comparison to draw — the campaign exists because picking a panel
- * off a price list is a decision most people aren't equipped to make. Stated
- * fairly rather than strawmanned, because the reader has met that column.
+ * Qualifying questions, split either side of the Confirm button.
+ *
+ * This placement is the whole design and it is deliberate. The booking is the
+ * conversion the campaign is measured on (landing→booking, and the Meta
+ * `Schedule` event that ad delivery optimises against). Every field added ahead
+ * of that button costs bookings, and it costs them from the people who are least
+ * certain — which is exactly the group the campaign exists to find out about.
+ *
+ * Asked after the slot is taken, the same questions cost nothing. The person is
+ * committed, they are looking at a confirmation screen with nothing else to do,
+ * and there is at least a day before the call for a consultant to read the
+ * answers.
+ *
+ * Content is Damzi's, taken from what the consultants actually want to know
+ * walking into a call. Do not edit it to taste — if a question changes, it
+ * changes because a consultant asked for it.
+ *
+ * `type`:
+ *   choice  one-tap chips; `other: true` reveals a text field on "Other"
+ *   text    single-line input
+ *   longText textarea
+ * `required` gates the Send button only. The whole form is still skippable —
+ * the booking stands either way.
+ *
+ * `stage` splits them either side of the booking:
+ *
+ *   pre   asked once a slot has been chosen, immediately above the Confirm
+ *         button. Three one-tap questions, no typing. They ride along in the
+ *         booking POST, so they are saved at the same instant the slot is —
+ *         there is no window in which someone has a booking and we have lost
+ *         their answers.
+ *
+ *         They used to sit ABOVE the picker, which put three questions in front
+ *         of a visitor who had not yet seen a single available time. Screen order
+ *         and payload order are independent: anything answered before the submit
+ *         still travels in the same request, so moving them below the picker
+ *         costs nothing in data integrity and stops the page asking for
+ *         qualification before it has shown any availability.
+ *   post  asked on the confirmation screen, best-effort. These are the ones with
+ *         typing in them, which is exactly why they sit after the commitment.
+ *
+ * Moving a question between stages is a one-word edit here. Keep `pre` to three
+ * and keep it tap-only: it is still ahead of the conversion, and every question
+ * added there is paid for in bookings.
  */
-export const COMPARISON = {
-  columns: ["Carry on as you are", "Manage it on your own", "Start with a call"],
-  rows: [
-    { label: "Costs to start", cells: ["Nothing", "The price of whatever you pick", "Nothing"] },
-    { label: "What it's based on", cells: ["What you were told once", "Guesswork", "Your numbers and your history"] },
-    { label: "What you leave with", cells: ["The same uncertainty", "Scattered readings", "A written plan"] },
-    { label: "How you know it's working", cells: ["You don't", "You hope", "A 90-day checkpoint"] },
-    { label: "Who's watching it with you", cells: ["Nobody", "You, alone", "A consultant — and a doctor on any results"] },
-  ],
-  // Index of the column we're recommending — highlighted in the table.
-  recommend: 2,
-};
+export const INTAKE_QUESTIONS = [
+  {
+    id: "condition",
+    stage: "pre",
+    type: "choice",
+    label: "What is your condition?",
+    options: ["Hypertension", "Diabetes", "Other"],
+    other: true,
+    otherPlaceholder: "Tell us what it is",
+  },
+  {
+    id: "duration",
+    stage: "pre",
+    type: "choice",
+    label: "How long have you been dealing with this?",
+    help: "This helps us understand how the condition might have progressed.",
+    options: [
+      "Just diagnosed",
+      "Under a year",
+      "One to five years",
+      "More than five years",
+      "I haven't been diagnosed",
+    ],
+  },
+  {
+    id: "medication",
+    stage: "post",
+    type: "text",
+    label: "Are you on any medication for it?",
+    help: "Knowing what drugs you take helps in our preparation for the call.",
+    // "None" has to be answerable in a free-text field, or the person not on
+    // medication has nothing to type and skips the question entirely — which
+    // reads identically to no answer at all.
+    placeholder: "e.g. Amlodipine 5mg, or write “none”",
+  },
+  {
+    id: "lastTest",
+    stage: "post",
+    type: "choice",
+    label: "When did you last have a blood test done?",
+    options: [
+      "In the last 3 months",
+      "3 to 12 months ago",
+      "Over a year ago",
+      "I'm not sure",
+    ],
+  },
+  {
+    id: "goal",
+    stage: "post",
+    type: "longText",
+    label: "What would make this call worth your time?",
+    help: "One line is plenty. This is the single most useful thing you can tell us.",
+    placeholder: "e.g. I want to know whether I can come off the tablets eventually",
+  },
+  {
+    id: "callPreference",
+    stage: "post",
+    type: "choice",
+    label: "Would you prefer a video call or a phone call?",
+    options: [
+      "Video call me through the Google Meet invitation",
+      "Call me on my phone number",
+    ],
+  },
+  {
+    id: "ageBracket",
+    stage: "pre",
+    type: "choice",
+    label: "What age bracket is most applicable to you?",
+    required: true,
+    options: ["18-30", "31-40", "41-50", "51-59", "60+"],
+  },
+];
+
+export const PRE_QUESTIONS = INTAKE_QUESTIONS.filter((q) => q.stage === "pre");
+export const POST_QUESTIONS = INTAKE_QUESTIONS.filter((q) => q.stage === "post");
 
 /**
  * Real member stories. These are members who TESTED with BetterHealth, not
@@ -145,72 +256,56 @@ export const MEMBER_STORIES = [
   },
 ];
 
-/**
- * Founder's own story, excerpted from the About page. Held identical across all
- * four cells, so the excerpt avoids naming a single condition.
- */
-export const FOUNDER_QUOTE = {
-  quote:
-    "I watched my family lose people, one after another, to diseases the world already knows how to prevent. The science wasn't missing. The infrastructure was — the knowledge that saved my life had never reached the people I came from.",
-  name: "Damzi",
-  title: "Founder, BetterHealth Africa",
-};
-
 /** What every consultation produces, regardless of which door someone came in. */
 export const PROMISE = [
   {
     title: "Where you actually stand",
-    body: "What your numbers mean in plain English, which ones are worth tracking and which aren't — not test codes.",
+    body: "What your numbers mean in plain English, what your options are, and what the next 90 days look like.",
   },
   {
     title: "Three things to work on",
-    body: "Yours, from your call, not from a template. At least one you can start this week without spending anything.",
+    body: "Three things you can start straight away, taken from your call rather than a template. At least one of them costs nothing.",
   },
   {
     title: "A 90-day checkpoint",
-    body: "A date and a number to measure against, so you find out whether what you're doing is working rather than hoping it is.",
+    body: "A target for where you should be in 90 days and a date to check it, so you find out whether this is working rather than hoping it is.",
   },
 ];
 
 /**
- * Every step is written as [what happens] + [so you …]. Lifted from One Medical,
- * whose benefit list never states a feature without the consequence attached —
- * "longer appointments so you don't feel rushed" rather than "45-minute
- * appointments". The reader doesn't have to do the translation, which is the
- * step where most of them stop reading.
- */
-export const HOW_IT_WORKS = [
-  { title: "Book a time", body: "Twenty minutes, on Google Meet or an ordinary phone call, so you don't have to travel or take a day off." },
-  { title: "Talk it through", body: "What you've been told, what you've tried, and what's actually happening week to week — so the plan fits your life rather than a template." },
-  { title: "Get your plan", body: "Written up and sent on WhatsApp within a day, so you can read it again, and show it to your doctor or your family." },
-  { title: "Work the 90 days", body: "Most plans start with a baseline blood test, so you and your doctor can see where you're starting from — and so there's something to measure against later." },
-];
-
-/**
- * What the plan actually contains, as a scannable list rather than prose.
+ * What happens inside the call, minute by minute.
  *
- * Adapted from One Medical's "Get care today for …" block, which lists forty
- * conditions in one sight-line. The device works because the reader scans until
- * they find themselves, and the sheer length does the persuading. Ours answers
- * the question that decides a free-call booking — "twenty minutes on what,
- * exactly?" — and its length is the argument that this is more substantial than
- * a sales call.
+ * This answers the question that stops a booking on its own: "will I be stuck on
+ * a call with a stranger, and when does it end". Publishing the clock is what
+ * makes twenty minutes feel bounded rather than open-ended, and it is the
+ * cheapest reassurance on the page. It replaced a four-card how-it-works block
+ * and a plan-covers pill wall, both cut on 2026-08-18 for saying less at
+ * greater length.
  *
- * Keep every entry to something a consultant genuinely covers; the whole effect
- * collapses if a reader books expecting an item that never comes up.
+ * The three blocks deliberately map onto PROMISE, so the call and the plan are
+ * visibly the same shape: where you stand → what to work on → when to re-check.
+ *
+ * THE RANGES ASSUME CONSULT_MINUTES = 20. They are written out rather than
+ * derived because the cut points are an editorial judgement, not arithmetic. If
+ * the call length changes, re-cut these by hand or the page starts lying about
+ * what a consultant does.
  */
-export const PLAN_COVERS = [
-  "what you eat",
-  "when you eat it",
-  "your medication routine",
-  "sleep",
-  "movement that fits your week",
-  "what to track at home",
-  "which numbers to re-check",
-  "how often to check them",
-  "what to ask your doctor",
-  "what to do if a number moves",
-  "when to look again",
+export const SESSION_SHEET = [
+  {
+    when: "0–5 min",
+    title: "Where you are now",
+    body: "What you've been told, what you're taking, and what has actually been happening week to week.",
+  },
+  {
+    when: "5–15 min",
+    title: "Where you want to be",
+    body: "Your questions, and the specifics: food, timing, your medication routine, sleep, movement, and what is worth tracking at home.",
+  },
+  {
+    when: "15–20 min",
+    title: "What you'll do next",
+    body: "Two or three changes to start with, whether a baseline test would tell you anything useful, and the date you'll check again.",
+  },
 ];
 
 // Held identical across all four cells on purpose: if the reassurance differs,
@@ -218,15 +313,15 @@ export const PLAN_COVERS = [
 export const FAQ = [
   {
     q: "Is it really free?",
-    a: "Yes. The call and your written plan cost nothing. We charge for lab tests, and only if you decide to do one.",
+    a: "Yes. The call and your written plan are paid for by the BetterHealth Foundation, not by you. We don't ask for card details, there is no deposit, and there is nothing to cancel later. Lab tests are charged separately, and only if you decide to do one.",
   },
   {
     q: "I'm already on medication. Is this for me?",
-    a: "Yes — that's exactly who it's for. We don't start, stop or change any medication; that is between you and your doctor. What we do is build the system around it: what to track, what to change, and how to tell whether it's working.",
+    a: "Yes. That is exactly who it is for. We don't start, stop or change any medication; that is between you and your doctor. What we do is build the system around it: what to track, what to change, and how to tell whether it is working.",
   },
   {
     q: "Do I have to do a test?",
-    a: "No. The plan is yours either way. Most plans start with a baseline blood test, because that's how you stop guessing about whether anything is moving — but it's your call and it will keep.",
+    a: "No. The plan is yours either way. Most plans start with a baseline blood test, because that is how you stop guessing about whether anything is moving. But it is your call, and it will keep.",
   },
   {
     q: "Is this a sales call?",
@@ -237,17 +332,47 @@ export const FAQ = [
     a: "Most people start somewhere between GHS 350 and GHS 700, depending on what they need. Your consultant will give you the exact figure on the call and put it in writing.",
   },
   {
+    // Deliberately does NOT promise "no app to download" — the Google Meet link
+    // may well ask some phones to install something, and a reassurance that
+    // turns out to be false at the worst moment costs more than it bought. What
+    // is promised instead is that the technology is never the visitor's problem.
+    q: "How do I join the call?",
+    a: "Whichever way is easiest for you. We send a Google Meet link, and if you would rather not use it we simply ring your WhatsApp number at the time you picked. You don't need to be good with technology, and you won't be left working out how to connect on your own. If the link gives you any trouble, we call you.",
+  },
+  {
     q: "Who am I speaking to?",
-    a: "A BetterHealth Wellness Consultant. They are not doctors and won't diagnose anything — if something needs a doctor, they'll say so. A doctor reviews any results you do have done.",
+    a: "A BetterHealth Wellness Consultant. They are not doctors and won't diagnose anything. If something needs a doctor, they will say so, and a doctor reviews any results you go on to have done.",
   },
 ];
 
-export const CONSULTANTS = [
-  { name: "Great Damzi" },
-  { name: "Esther Forson" },
-  { name: "Maame Esi" },
-  { name: "Mawusi Clairette" },
-];
+/**
+ * The boundaries of the call, stated in two columns rather than buried in a
+ * sentence of small print.
+ *
+ * This is a safety surface before it is a conversion one. The four cells target
+ * people who already have a hypertension or diabetes diagnosis, which makes the
+ * limits of a non-clinical call worth more space than a general-wellness offer
+ * would need: what a consultant will not do is exactly what a worried reader
+ * assumes they might.
+ *
+ * Every line here has to match what a consultant is actually briefed to do, and
+ * the medication line has to match the rule the consultant's own screen enforces
+ * — a dose is never theirs to change. If one drifts, so does the other.
+ */
+export const SCOPE = {
+  is: [
+    "A conversation about what you are actually dealing with: your food, your routine, your medication schedule, and what is worth tracking.",
+    "A written plan on WhatsApp within a day, yours to keep and to show your doctor or your family.",
+    "An honest view on whether a baseline test would tell you anything useful, and what it would cost.",
+    "Free, whether or not you ever book a test with us.",
+  ],
+  isnt: [
+    "A diagnosis. Nobody on this call can tell you what you have.",
+    "Advice to start, stop or change any medication. That is between you and your doctor.",
+    "A replacement for your own doctor, a dietitian or a specialist.",
+    "Care for something urgent. If you feel unwell now, please see a doctor today rather than waiting for a call.",
+  ],
+};
 
 export const DISCLAIMER =
   "General education only. This is not a diagnosis and does not replace advice from your own doctor. For severe or urgent symptoms, seek medical care.";
@@ -288,9 +413,10 @@ export const VARIANTS = {
       "We will help you create a customised health plan that gives you back control over your health within 90 days.",
     ],
     hero: {
-      video: { src: null },
-      poster: screeningPoster,
-      alt: "A BetterHealth consultant running a free blood sugar screening in Ghana.",
+      // vimeo.com/1219554916 — "Diabetes Consultation Explainer" (2:20).
+      vimeoId: "1219554916",
+      poster: diabetesVideoPoster,
+      alt: "BetterHealth Health Brief special report: diabetes is not a death sentence. It can be managed, and caught early, reversed.",
     },
     photo: {
       src: bloodSugarPhoto,
@@ -357,14 +483,15 @@ export const VARIANTS = {
       "We will help you create a customised health plan that gives you back control over your health within 90 days.",
     ],
     hero: {
-      // TO ADD THE PROMO VIDEO: put the file at public/videos/<name>.mp4 and set
-      // src to "/videos/<name>.mp4". Nothing else changes — the play button and
-      // the player appear on their own, and the poster keeps carrying the hero
-      // until the visitor presses play. Swap `poster` for a still from the video
-      // at the same time, or the hero advertises a photo of something else.
-      video: { src: null },
-      poster: screeningPoster,
-      alt: "A BetterHealth consultant taking a blood pressure reading at a community screening in Ghana.",
+      // TO ADD THE PROMO VIDEO: paste the Vimeo ID here (the digits in
+      // vimeo.com/123456789). Nothing else changes — the play button and the
+      // player appear on their own, and the poster carries the hero until the
+      // visitor presses play. Swap `poster` for a still from the video at the
+      // same time, or the hero advertises a photo of something else.
+      // vimeo.com/1219554914 — "Hypertension Consultation Explainer" (2:02).
+      vimeoId: "1219554914",
+      poster: hypertensionVideoPoster,
+      alt: "BetterHealth Health Brief special report: take back control of your blood pressure. A 90-day plan, built for Ghana.",
     },
     photo: {
       src: bloodPressurePhoto,
@@ -397,24 +524,23 @@ export const VARIANTS = {
       ],
     },
     belief: {
-      myth: "“Once you're on pressure tablets, that's you for life.”",
+      myth: "“Once you're on pressure tablets, you'll have to take it for life.”",
       truth:
-        "For some people it is, and we won't pretend otherwise — that is your doctor's call, and it depends on what your numbers actually do. What's true for almost everyone is that those numbers respond to what happens between appointments, and most people were never given a way to see it. Whether your dose ever changes is up to your doctor. Whether you walk into that appointment with three months of evidence is up to you.",
+        "For some people it is, and that medication saves lives. Much of it depends on how long you have been hypertensive. If you catch it early, put the right measures in place and keep tracking your health, you may be able to reduce your dose or come off the tablets altogether, with your doctor. What makes the difference is having a system that keeps you healthy between appointments, and that is what this call gives you.",
     },
     body: [
       {
         heading: "You were given a diagnosis, not a plan",
         paras: [
-          "The diagnosis took ten minutes. A prescription, a word about salt, and a follow-up in three months. The management is the rest of your life, and nobody handed you a system for it.",
-          "That gap isn't medical. The treatment exists, and your doctor wasn't wrong. It's that nobody is paid to sit with you for twenty minutes and turn “watch your pressure” into something you could actually do on a Tuesday.",
+          "The doctor told you your pressure was high, said watch your salt, and that was it. Nobody gave you a plan, or a system for bringing the number down and keeping it there. That is where the healthcare system fails you, and it is the reason BetterHealth Africa exists.",
+          "The gap is not a medical one. The treatment exists and so does the technology. What Ghana has never had is the system that carries them, the kind of ongoing, curative care people in richer countries take for granted.",
         ],
       },
       {
         heading: "What we'd track, and why",
         paras: [
-          "A single reading is one moment on one morning. What tells you something is the pattern — the same measurement, taken the same way, often enough to show a direction. That is the part almost nobody is doing, and starting costs nothing.",
-          "Alongside it, cholesterol and the related markers give useful clues about cardiovascular risk that a pressure cuff can't. A reading outside the reference range needs context before anyone draws a conclusion, which is why a doctor reads your results alongside your history rather than on their own.",
-          "Your consultant will explain what each one looks at before you decide anything, and what it costs.",
+          "A single blood pressure reading is one moment on one morning. The pattern is what tells you something: the same measurement, taken the same way, often enough to show a trend. Once you have that, you can build a routine around your own numbers instead of around general advice. It is not magic. It is common sense.",
+          "Your cholesterol and the markers around it give useful clues about heart risk that a pressure cuff cannot. So every six months we check them again and see how your body has responded to the changes you made, then adjust from there.",
         ],
       },
     ],
@@ -431,7 +557,7 @@ export const VARIANTS = {
       "We will help you create a customised health plan that gives you back control over your health within 90 days.",
     ],
     hero: {
-      video: { src: null },
+      vimeoId: null,
       poster: dashboardPoster,
       alt: "The BetterHealth dashboard showing a member's health results over time.",
     },
@@ -503,7 +629,7 @@ export const VARIANTS = {
       "In around half of cases there's a male factor involved, and it's one of the more straightforward things to check. Twenty minutes on the phone, for both of you, and you'll know what's worth checking and in what order.",
     ],
     hero: {
-      video: { src: null },
+      vimeoId: null,
       poster: involvedPoster,
       alt: "A BetterHealth consultant talking with a couple at a community health session in Ghana.",
     },

@@ -39,7 +39,7 @@ export default function QualifyChecklist({ heading, items, onCta }) {
       </Fade>
       <Fade delay={0.06}>
         <p className="mb-7 text-[16.5px] leading-relaxed text-text-secondary">
-          Tap anything that's true for you. Nothing is sent anywhere — this is for you to see.
+          Tap anything that's true for you. Nothing is sent anywhere. This is for you to see.
         </p>
       </Fade>
 
@@ -96,9 +96,8 @@ export default function QualifyChecklist({ heading, items, onCta }) {
               : `You've ticked ${count}. That's what the call is for.`}
           </p>
           <p className="mb-5 text-[15px] leading-relaxed text-text-secondary">
-            None of this is a diagnosis and we won't pretend otherwise. What it does mean is that
-            you have specific things to ask about — and your consultant will start from exactly
-            these rather than a script.
+            None of this is a diagnosis. It does mean you have specific things to ask about, and
+            your consultant will start from those rather than a script.
           </p>
           <a
             href="#book"

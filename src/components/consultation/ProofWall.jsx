@@ -1,6 +1,6 @@
-import { Quote, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import Fade from "./Fade";
-import { FOUNDER_QUOTE, MEMBER_STORIES } from "../../data/wellness-consultation";
+import { MEMBER_STORIES } from "../../data/wellness-consultation";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -41,7 +41,7 @@ export default function ProofWall() {
       </Fade>
       <Fade delay={0.06}>
         <p className="mx-auto mb-9 max-w-[620px] text-center text-[14px] leading-relaxed text-text-muted">
-          Members who tested with BetterHealth. Names are shortened to protect privacy — the
+          Members who tested with BetterHealth. Names are shortened to protect privacy, and the
           consultation itself is new, so nobody below is reviewing the call.
         </p>
       </Fade>
@@ -81,19 +81,6 @@ export default function ProofWall() {
           </Fade>
         ))}
       </div>
-
-      <Fade delay={0.1}>
-        <figure className="rounded-card border border-border bg-section-alt p-6 sm:p-8">
-          <Quote size={22} className="mb-3 text-primary" />
-          <blockquote className="mb-4 font-heading text-[17px] font-semibold leading-relaxed text-text-primary sm:text-[19px]">
-            {FOUNDER_QUOTE.quote}
-          </blockquote>
-          <figcaption className="text-[13.5px] text-text-secondary">
-            <strong className="text-text-primary">{FOUNDER_QUOTE.name}</strong> ·{" "}
-            {FOUNDER_QUOTE.title}
-          </figcaption>
-        </figure>
-      </Fade>
 
       <Fade delay={0.14}>
         <div className="mt-9 flex flex-col items-center gap-4">
