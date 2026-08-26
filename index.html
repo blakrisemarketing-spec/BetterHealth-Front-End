@@ -121,18 +121,21 @@
       </noscript>
     </div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      // Handle SPA redirect from 404.html
-      (function(l){
-        if (l.search.length > 1) {
-          var path = l.search.slice(1).split("&").map(function(s) {
-            return s.replace(/%26/g, "&")
-          }).join("?");
-          if (path && !path.startsWith("=")) {
-            window.history.replaceState(null, null, "/" + path + l.hash);
-          }
-        }
-      }(window.location))
-    </script>
+    <!--
+      There was a spa-github-pages redirect decoder here. It paired with
+      public/404.html to smuggle a deep-link path through the query string, which
+      GitHub Pages needed because it serves 404.html for unknown routes.
+
+      The site moved to Hostinger (LiteSpeed). public/.htaccess now does the
+      routing server-side and ErrorDocument points at /index.html, so 404.html is
+      never served and nothing ever produces the encoded format. The decoder was
+      dead code — but it was still running, guarded only by `l.search.length > 1`,
+      so it treated any ordinary query string as an encoded redirect: it split the
+      query on "&", rejoined the parts with "?", and replaceState'd the result over
+      the path. Every URL carrying a query string 404'd, homepage included, which
+      meant 100% of UTM-tagged ad and email traffic landed on Page Not Found.
+
+      Do not reintroduce this without also moving the site back to GitHub Pages.
+    -->
   </body>
 </html>
