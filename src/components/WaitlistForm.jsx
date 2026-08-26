@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { waitlist } from "../data/content";
-import { useWaitlist } from "../context/WaitlistContext";
+import { useWaitlist } from "../context/waitlist-context";
 import { trackLead } from "../lib/analytics";
 
 const HEALTH_INTERESTS = [

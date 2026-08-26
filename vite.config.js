@@ -26,11 +26,15 @@ const priorityFor = (route) =>
 function buildSitemap() {
   const rows = [
     { loc: `${SITE_URL}/`, lastmod: SITE_LASTMOD, priority: '1.0' },
-    ...Object.entries(ROUTE_SEO).map(([route, page]) => ({
-      loc: pageUrl(route),
-      lastmod: page.lastmod || SITE_LASTMOD,
-      priority: priorityFor(route),
-    })),
+    // `noindex` routes (paid-ad landing variants) are excluded — telling Google
+    // a page is in the sitemap and also not to index it is a contradiction.
+    ...Object.entries(ROUTE_SEO)
+      .filter(([, page]) => !page.noindex)
+      .map(([route, page]) => ({
+        loc: pageUrl(route),
+        lastmod: page.lastmod || SITE_LASTMOD,
+        priority: priorityFor(route),
+      })),
   ]
   const body = rows
     .map(
@@ -45,8 +49,11 @@ function buildSitemap() {
 // a one-line description, then linked sections. Generated from the same ROUTE_SEO
 // + article registry as everything else, so it never drifts from the site.
 function buildLlmsTxt() {
-  const pages = Object.entries(ROUTE_SEO).filter(([r]) => !r.startsWith('blog/'))
-  const posts = Object.entries(ROUTE_SEO).filter(([r]) => r.startsWith('blog/'))
+  // Same exclusion as the sitemap: paid-ad landing variants are not part of the
+  // site's public index and shouldn't be advertised to AI crawlers either.
+  const indexable = Object.entries(ROUTE_SEO).filter(([, page]) => !page.noindex)
+  const pages = indexable.filter(([r]) => !r.startsWith('blog/'))
+  const posts = indexable.filter(([r]) => r.startsWith('blog/'))
   const line = ([route, page]) =>
     `- [${page.title.split(/[—|]/)[0].trim()}](${SITE_URL}/${route}): ${page.description}`
   return [
@@ -230,6 +237,10 @@ function prerenderSeoPlugin() {
 
         const extra = [
           `    <meta property="og:image:alt" content="${esc(page.imageAlt || page.title)}" />`,
+          // Must be in the STATIC html, not just the React <head> — Googlebot
+          // reads the prerendered file, and a noindex that only appears after
+          // hydration is a noindex that may never be seen.
+          page.noindex ? '    <meta name="robots" content="noindex, follow" />' : '',
           renderJsonLd(page.jsonld),
         ].filter(Boolean).join('\n')
         html = html.replace('</head>', `${extra}\n  </head>`)

@@ -100,7 +100,7 @@ export const testPanels = [
     concern: "We're trying to conceive",
     why: "A fertility check for couples, covering the hormones and reproductive markers that matter when you're trying to conceive or tracking treatment along the way.",
     internal: "Fertility",
-    price: "GHS 770",
+    price: "GHS 1,500",
     tests: ["Thyroid Function", "Progesterone", "Pelvic Ultrasound", "Sperm Analysis", "Testosterone"],
     concerns: ["fertility", "hormones"],
   },
@@ -118,19 +118,25 @@ export const testPanels = [
   },
 ];
 
+// Static fallbacks only. Live prices come from the backend catalogue via
+// pricing-snapshot.json (baked at build) and the background refresh in
+// lib/pricing-catalogue.js — these values render only when both are missing.
+// Reconciled against country_diagnostic_tests (Ghana) on 2026-08-09; every one
+// had drifted, Thyroid worst at GHS 180 vs an actual GHS 435. Re-check these
+// whenever backend prices change.
 export const singleTests = [
-  { slug: "fbc", name: "Full Blood Count (FBC)", price: "GHS 80", concerns: ["tired", "blood", "general"] },
-  { slug: "fasting-blood-sugar", name: "Fasting Blood Sugar", price: "GHS 50", concerns: ["diabetes", "sugar"] },
-  { slug: "hba1c", name: "HbA1c (3-month sugar average)", price: "GHS 90", concerns: ["diabetes", "sugar"] },
-  { slug: "lipid-panel", name: "Lipid / Cholesterol Panel", price: "GHS 120", concerns: ["heart", "cholesterol"] },
-  { slug: "liver-function", name: "Liver Function Test", price: "GHS 150", concerns: ["liver"] },
-  { slug: "kidney-function", name: "Kidney Function Test", price: "GHS 150", concerns: ["kidney"] },
-  { slug: "thyroid-function", name: "Thyroid Function Test", price: "GHS 180", concerns: ["thyroid", "energy", "weight"] },
-  { slug: "urine-re", name: "Urine Routine Examination", price: "GHS 60", concerns: ["kidney", "general"] },
-  { slug: "malaria-rdt", name: "Malaria RDT", price: "GHS 30", concerns: ["fever", "malaria"] },
-  { slug: "hiv", name: "HIV Screening", price: "GHS 80", concerns: ["sti", "sexual"] },
-  { slug: "hepatitis-b", name: "Hepatitis B (HBsAg)", price: "GHS 80", concerns: ["sti", "liver"] },
-  { slug: "uric-acid", name: "Uric Acid", price: "GHS 60", concerns: ["metabolic", "kidney"] },
+  { slug: "fbc", name: "Full Blood Count (FBC)", price: "GHS 150", concerns: ["tired", "blood", "general"] },
+  { slug: "fasting-blood-sugar", name: "Fasting Blood Sugar", price: "GHS 45", concerns: ["diabetes", "sugar"] },
+  { slug: "hba1c", name: "HbA1c (3-month sugar average)", price: "GHS 170", concerns: ["diabetes", "sugar"] },
+  { slug: "lipid-panel", name: "Lipid / Cholesterol Panel", price: "GHS 195", concerns: ["heart", "cholesterol"] },
+  { slug: "liver-function", name: "Liver Function Test", price: "GHS 190", concerns: ["liver"] },
+  { slug: "kidney-function", name: "Kidney Function Test", price: "GHS 195", concerns: ["kidney"] },
+  { slug: "thyroid-function", name: "Thyroid Function Test", price: "GHS 435", concerns: ["thyroid", "energy", "weight"] },
+  { slug: "urine-re", name: "Urine Routine Examination", price: "GHS 85", concerns: ["kidney", "general"] },
+  { slug: "malaria-rdt", name: "Malaria RDT", price: "GHS 40", concerns: ["fever", "malaria"] },
+  { slug: "hiv", name: "HIV Screening", price: "GHS 100", concerns: ["sti", "sexual"] },
+  { slug: "hepatitis-b", name: "Hepatitis B (HBsAg)", price: "GHS 100", concerns: ["sti", "liver"] },
+  { slug: "uric-acid", name: "Uric Acid", price: "GHS 75", concerns: ["metabolic", "kidney"] },
 ];
 
 export const heroStats = [
