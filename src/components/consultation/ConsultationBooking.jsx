@@ -8,7 +8,11 @@ import {
   toDateParam,
   upcomingDates,
 } from "../../lib/consultation-api";
-import { trackConsultationBooked } from "../../lib/analytics";
+import {
+  trackConsultationBooked,
+  trackBookingStep,
+  trackBookingIntentConsultation,
+} from "../../lib/analytics";
 import { CONSULT_MINUTES, PRE_QUESTIONS, WHATSAPP_URL } from "../../data/wellness-consultation";
 import IntakeQuestions from "./IntakeQuestions";
 import IntakeFields from "./IntakeFields";
@@ -68,6 +72,28 @@ export default function ConsultationBooking({ variant, concern, compact = false 
   const [booking, setBooking] = useState(null);
 
   const tracked = useRef(false);
+  // Funnel steps are one-shot per mount: somebody flicking between days should
+  // not emit day_selected five times and make the drop-off unreadable.
+  const stepsFired = useRef({});
+  const fireStep = useCallback((step, meta) => {
+    if (stepsFired.current[step]) return;
+    stepsFired.current[step] = true;
+    trackBookingStep(step, meta);
+  }, []);
+
+  // The picker used to open on DAYS[0] — today — which is empty by
+  // construction for most of any given day: MIN_LEAD_MINUTES removes the next
+  // two hours, the server holds back a share of what is left, and the working
+  // window ends at 18:00. So the default first paint of the booking section
+  // read "Nothing free on this day", and every visitor arriving from an ad was
+  // shown an empty diary before they had touched anything.
+  //
+  // This walks forward to the first day that actually has a free slot. It is
+  // abandoned the moment the visitor taps a day themselves — their choice is
+  // never overridden — and bounded so a genuinely full fortnight cannot turn
+  // into a request storm.
+  const intentFired = useRef(false);
+  const autoAdvancing = useRef(true);
   const date = DAYS[dayIndex];
   const dateParam = toDateParam(date);
 
@@ -75,13 +101,32 @@ export default function ConsultationBooking({ variant, concern, compact = false 
   // body. The `cancelled` flag matters: tapping through days quickly fires
   // overlapping requests, and without it a slower earlier response can land
   // last and paint the wrong day's availability.
-  const loadSlots = useCallback((param) => {
+  const MAX_AUTO_ADVANCE = 6;
+
+  const loadSlots = useCallback((param, index) => {
     let cancelled = false;
     fetchSlots(param)
       .then((next) => {
         if (cancelled) return;
+
+        // Nothing free on the day we opened on, and the visitor has not chosen
+        // one yet: step forward instead of showing them an empty diary.
+        if (
+          autoAdvancing.current &&
+          index < MAX_AUTO_ADVANCE &&
+          index < DAYS.length - 1 &&
+          !next.some((s) => s.available)
+        ) {
+          setDayIndex(index + 1);
+          return; // the dateParam change re-runs the effect for the next day
+        }
+        autoAdvancing.current = false;
+
         setSlots(next);
         setSlotsState("ready");
+        if (next.some((s) => s.available)) {
+          fireStep("picker_viewed", { variant, concern });
+        }
       })
       .catch(() => {
         if (cancelled) return;
@@ -93,19 +138,24 @@ export default function ConsultationBooking({ variant, concern, compact = false 
     };
   }, []);
 
-  useEffect(() => loadSlots(dateParam), [dateParam, loadSlots]);
+  useEffect(() => loadSlots(dateParam, dayIndex), [dateParam, dayIndex, loadSlots]);
 
   // Clearing the chosen time belongs with the day change that invalidates it,
   // not in an effect — a selected 10:00 on Tuesday means nothing on Wednesday.
   const pickDay = (i) => {
+    // An explicit choice ends the auto-advance for good, even if the day they
+    // picked turns out to be empty. Walking them off their own selection would
+    // be worse than showing them it is full.
+    autoAdvancing.current = false;
     setDayIndex(i);
     setTime(null);
     setSlotsState("loading");
+    fireStep("day_selected", { variant, concern });
   };
 
   const retry = () => {
     setSlotsState("loading");
-    loadSlots(dateParam);
+    loadSlots(dateParam, dayIndex);
   };
 
   const available = slots.filter((s) => s.available);
@@ -139,6 +189,15 @@ export default function ConsultationBooking({ variant, concern, compact = false 
       }
     } catch (err) {
       setStatus("error");
+      // NOT one-shot: a submit that keeps failing is the single most important
+      // thing this instrumentation can surface, and collapsing repeats would
+      // hide how often it happens. The reason travels with it so a race for a
+      // taken slot is distinguishable from a server fault.
+      trackBookingStep("submit_failed", {
+        variant,
+        concern,
+        detail: err.code || "unknown",
+      });
       if (err.code === "slot_unavailable") {
         // Somebody took it while this form was open. Refresh the grid and clear
         // the selection so the next tap is on something that actually exists.
@@ -277,7 +336,16 @@ export default function ConsultationBooking({ variant, concern, compact = false 
               <button
                 key={slot.time}
                 type="button"
-                onClick={() => setTime(slot.time)}
+                onClick={() => {
+                  setTime(slot.time);
+                  fireStep("time_selected", { variant, concern });
+                  // Standard event, so it can later be an optimisation goal —
+                  // Schedule will stay too rare to bid on at this budget.
+                  if (!intentFired.current) {
+                    intentFired.current = true;
+                    trackBookingIntentConsultation({ concern, variant });
+                  }
+                }}
                 aria-pressed={selected}
                 className={`rounded-btn border px-2 py-2.5 text-[13px] font-semibold transition-all cursor-pointer ${
                   selected
@@ -323,7 +391,10 @@ export default function ConsultationBooking({ variant, concern, compact = false 
                 maxLength={200}
                 placeholder="Full name"
                 value={form.fullName}
-                onChange={(e) => setForm({ ...form, fullName: e.target.value })}
+                onChange={(e) => {
+                  fireStep("details_started", { variant, concern });
+                  setForm({ ...form, fullName: e.target.value });
+                }}
                 disabled={status === "saving"}
                 className="w-full rounded-input border border-border bg-section-alt px-4 py-3 text-[14px] text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary"
               />
@@ -337,7 +408,10 @@ export default function ConsultationBooking({ variant, concern, compact = false 
                 maxLength={40}
                 placeholder="0XX XXX XXXX"
                 value={form.whatsapp}
-                onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
+                onChange={(e) => {
+                  fireStep("details_started", { variant, concern });
+                  setForm({ ...form, whatsapp: e.target.value });
+                }}
                 disabled={status === "saving"}
                 className="w-full rounded-input border border-border bg-section-alt px-4 py-3 text-[14px] text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary"
               />
