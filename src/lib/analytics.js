@@ -113,3 +113,52 @@ export function trackConsultationBooked({ channel, concern } = {}) {
     health_concern: concern || null,
   });
 }
+
+/**
+ * Steps between landing on the consultation page and booking.
+ *
+ * WHY THIS EXISTS
+ *   The page fired `Schedule` on success and nothing else, so a day that
+ *   produced 132 landing page views and zero bookings was unreadable: there was
+ *   no way to tell somebody who never scrolled to the picker from somebody who
+ *   chose a time and balked at handing over their number. Those two have
+ *   opposite fixes, and without this we would have spent another day guessing.
+ *
+ * A custom event, not a standard one. Meta's standard events are a small fixed
+ * vocabulary and none of them mean "reached the picker"; forcing a funnel step
+ * into `Lead` or `AddToCart` would corrupt a name the campaign may later want to
+ * optimise on. `trackCustom` keeps the diagnostic separate from the optimisation
+ * surface — these are for reading, not for bidding.
+ *
+ * @param {'picker_viewed'|'day_selected'|'time_selected'|'details_started'|'submit_failed'} step
+ * @param {{ concern?: string, variant?: string, detail?: string }} [meta]
+ */
+export function trackBookingStep(step, meta = {}) {
+  fbq("trackCustom", "BookingStep", { step, ...meta });
+  dataLayerPush({ event: "booking_step", booking_step: step, ...meta });
+}
+
+/**
+ * Genuine booking intent: a specific time has been chosen and the details form
+ * is now in front of them.
+ *
+ * Separate from trackBookingStep because `InitiateCheckout` IS a standard Meta
+ * event, so it can be selected as an optimisation goal. That matters: `Schedule`
+ * will stay too rare to optimise on for a long time at this budget, whereas this
+ * fires for everyone who gets as far as choosing a slot, and it is the closest
+ * upstream signal to a booking that we have.
+ *
+ * Fire once per booking attempt, on time selection only.
+ */
+export function trackBookingIntentConsultation({ concern, variant } = {}) {
+  fbq("track", "InitiateCheckout", {
+    content_category: "wellness_consultation",
+    ...(concern ? { content_name: concern } : {}),
+  });
+  dataLayerPush({
+    event: "begin_checkout",
+    content_type: "wellness_consultation",
+    health_concern: concern || null,
+    landing_variant: variant || null,
+  });
+}
