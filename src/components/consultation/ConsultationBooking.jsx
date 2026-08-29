@@ -15,6 +15,10 @@ import IntakeFields from "./IntakeFields";
 import { flattenAnswers, missingRequired } from "./intake-answers";
 
 const DAYS = upcomingDates(14);
+// How many days forward the picker will look for availability before it stops
+// and shows the visitor an empty day. Six covers a normal week of a thin diary;
+// beyond that the honest answer is "nothing this week, message us".
+const PROBE_LIMIT = 6;
 const TODAY = new Date().toDateString();
 const DAY_LABEL = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const MONTH_LABEL = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -67,7 +71,13 @@ export default function ConsultationBooking({ variant, concern, compact = false 
   const [message, setMessage] = useState("");
   const [booking, setBooking] = useState(null);
 
+  const [autoAdvanced, setAutoAdvanced] = useState(false);
+
   const tracked = useRef(false);
+  // Set the moment we stop hunting for a day with availability — either because
+  // we found one, because the visitor picked a day themselves, or because the
+  // probe ran out of days. Never unset.
+  const settled = useRef(false);
   const date = DAYS[dayIndex];
   const dateParam = toDateParam(date);
 
@@ -75,29 +85,58 @@ export default function ConsultationBooking({ variant, concern, compact = false 
   // body. The `cancelled` flag matters: tapping through days quickly fires
   // overlapping requests, and without it a slower earlier response can land
   // last and paint the wrong day's availability.
-  const loadSlots = useCallback((param) => {
-    let cancelled = false;
-    fetchSlots(param)
-      .then((next) => {
-        if (cancelled) return;
-        setSlots(next);
-        setSlotsState("ready");
-      })
-      .catch(() => {
-        if (cancelled) return;
-        setSlots([]);
-        setSlotsState("error");
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const loadSlots = useCallback(
+    (param, index) => {
+      let cancelled = false;
+      fetchSlots(param)
+        .then((next) => {
+          if (cancelled) return;
 
-  useEffect(() => loadSlots(dateParam), [dateParam, loadSlots]);
+          // Walk forward to the first day that actually has a time on it.
+          //
+          // The picker now sits in the hero, which means whatever it shows is
+          // the first thing a visitor sees after the headline. Opening on today
+          // is only right if today has something left on it; by mid-afternoon it
+          // usually does not, and a consultant roster that is thin or unseeded
+          // makes several days in a row empty. Either way the reader is shown a
+          // closed shop above the fold and leaves — the most expensive failure
+          // on the page, because it happens before a single argument is read.
+          //
+          // So an empty response is not painted; it advances the day and asks
+          // again, up to PROBE_LIMIT days out. `settled` stops the hunt the
+          // moment it succeeds, and any manual tap sets it too, so the visitor
+          // is never dragged off a day they chose themselves.
+          const free = next.filter((slot) => slot.available).length;
+          if (!settled.current && free === 0 && index + 1 < PROBE_LIMIT && index + 1 < DAYS.length) {
+            setDayIndex(index + 1);
+            setAutoAdvanced(true);
+            return;
+          }
+
+          settled.current = true;
+          setSlots(next);
+          setSlotsState("ready");
+        })
+        .catch(() => {
+          if (cancelled) return;
+          settled.current = true;
+          setSlots([]);
+          setSlotsState("error");
+        });
+      return () => {
+        cancelled = true;
+      };
+    },
+    [],
+  );
+
+  useEffect(() => loadSlots(dateParam, dayIndex), [dateParam, dayIndex, loadSlots]);
 
   // Clearing the chosen time belongs with the day change that invalidates it,
   // not in an effect — a selected 10:00 on Tuesday means nothing on Wednesday.
   const pickDay = (i) => {
+    settled.current = true;
+    setAutoAdvanced(false);
     setDayIndex(i);
     setTime(null);
     setSlotsState("loading");
@@ -105,10 +144,26 @@ export default function ConsultationBooking({ variant, concern, compact = false 
 
   const retry = () => {
     setSlotsState("loading");
-    loadSlots(dateParam);
+    loadSlots(dateParam, dayIndex);
   };
 
   const available = slots.filter((s) => s.available);
+
+  // Whether to hide the taken times rather than strike them through.
+  //
+  // Showing the whole diary is the right default: a short list of free times
+  // with nothing to measure it against tells the visitor nothing, and struck-out
+  // slots are honest about how much of the day has gone. That reasoning inverts
+  // once most of the day is gone. On a day with 3 free times out of 15, the grid
+  // opens with six dead buttons, and on the hero picker those six land above the
+  // fold while the bookable ones do not — so the first thing a visitor sees of
+  // the diary is a wall of unavailability.
+  //
+  // Below the halfway mark the grid drops to what can actually be booked. The
+  // scarcity signal is not lost: the count beside "Pick a time" still says how
+  // little is left, which is the same information without the discouragement.
+  const dense = available.length > 0 && available.length < slots.length / 2;
+  const shownSlots = dense ? available : slots;
 
   const submit = async (e) => {
     e.preventDefault();
@@ -213,7 +268,7 @@ export default function ConsultationBooking({ variant, concern, compact = false 
         {/* Scarcity, but only ever the real count off the slots response. A
             countdown or an invented "2 spots left!" would convert today and
             cost more than it earns the first time somebody reloads. */}
-        {slotsState === "ready" && available.length > 0 && available.length <= 4 && (
+        {slotsState === "ready" && available.length > 0 && (available.length <= 4 || dense) && (
           <p className="text-[12px] font-bold text-accent-ink">
             {available.length === 1
               ? "1 time left this day"
@@ -221,6 +276,18 @@ export default function ConsultationBooking({ variant, concern, compact = false 
           </p>
         )}
       </div>
+
+      {/* The probe moves the visitor off the day they expected to see, so it
+          says so. An unexplained jump to Thursday reads as a broken picker. */}
+      {autoAdvanced && slotsState === "ready" && available.length > 0 && (
+        <p className="mb-2 text-[12.5px] leading-snug text-text-secondary">
+          Fully booked until{" "}
+          <strong className="text-text-primary">
+            {DAY_LABEL[date.getDay()]} {date.getDate()} {MONTH_LABEL[date.getMonth()]}
+          </strong>
+          . These are the next free times.
+        </p>
+      )}
 
       {slotsState === "loading" && (
         <div className="flex items-center gap-2 py-6 text-[14px] text-text-secondary">
@@ -247,9 +314,32 @@ export default function ConsultationBooking({ variant, concern, compact = false 
         </div>
       )}
 
+      {/* An empty day is a dead end unless it comes with a way out of it. The
+          probe above has already looked several days forward, so by the time
+          this renders the honest message is "the diary is thin", not "pick
+          another date" — and the WhatsApp line is the only remaining path to a
+          booking, so it is a button here rather than a footnote. */}
       {slotsState === "ready" && available.length === 0 && (
-        <div className="rounded-btn border border-border bg-section-alt px-4 py-4 text-[14px] text-text-secondary">
-          Nothing free on this day. Try another date above.
+        <div className="rounded-btn border border-border bg-section-alt px-4 py-4">
+          <p className="mb-3 text-[14px] leading-relaxed text-text-secondary">
+            Nothing free on this day. Try another date above, or send us a message and we&apos;ll
+            find you a time.
+          </p>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              if (!tracked.current) {
+                tracked.current = true;
+                trackConsultationBooked({ channel: "whatsapp", concern });
+              }
+            }}
+            className="inline-flex items-center gap-2 rounded-btn bg-primary px-5 py-3 font-heading text-[14px] font-bold text-white no-underline transition-all hover:-translate-y-0.5 hover:bg-primary-dark"
+          >
+            <MessageCircle size={15} />
+            Get a time on WhatsApp
+          </a>
         </div>
       )}
 
@@ -260,7 +350,7 @@ export default function ConsultationBooking({ variant, concern, compact = false 
           decoration over it. */}
       {slotsState === "ready" && available.length > 0 && (
         <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
-          {slots.map((slot) => {
+          {shownSlots.map((slot) => {
             const selected = slot.time === time;
             if (!slot.available) {
               return (
