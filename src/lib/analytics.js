@@ -1,7 +1,14 @@
 // Thin analytics layer shared by every conversion touchpoint on the marketing
 // site. One call fans out to BOTH ad/measurement stacks:
 //   - Meta Pixel  (window.fbq)  — base code lives in index.html
-//   - Google      (window.dataLayer) — GTM (GTM-KMH4QTML) + GA4 (G-1KTCH9TZLV)
+//   - Google      (window.dataLayer) — GTM (GTM-MS22RHNF) + GA4 (G-1KTCH9TZLV)
+//
+// The dataLayer pushes below only reach GA4 if a GTM tag forwards them. Until
+// 2026-08-30 index.html loaded GTM-KMH4QTML, which is a *server* container:
+// googletagmanager.com/gtm.js returns 403 for those, so no container ran here at
+// all and every custom event was silently discarded. GTM-MS22RHNF is the web
+// container that replaced it. If a custom event stops appearing in GA4, check
+// that container has a tag for it before suspecting this file.
 //
 // GA4 event names are used for the dataLayer push (begin_checkout,
 // generate_lead) so they map 1:1 to GA4 / Google Ads conversions in the GTM UI
