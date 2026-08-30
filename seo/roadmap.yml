@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-26
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo — these were reported confirmed on 2026-07-05/07-12 but the volume fields were never written back to this file; corrected that week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. 2026-07-26: GSC access unblocked after 6 weeks — sitemap-status shows 70 URLs submitted, 0 indexed; URL Inspection on a 10-article sample reads mostly 'Discovered - currently not indexed' (Google has found the pages via the 2026-07-23 sitemap submission but hasn't crawled/indexed them yet — the ordinary state for a young low-authority domain, not a technical block). Re-checked SERP position for all 51 published articles' primary keywords: unchanged, all 'not in top 20'. No reprioritization made this week — no ranking/impression data yet differentiates one todo keyword from another; see weekly-2026-W31 report.)"
+  updated: 2026-08-30
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. 2026-07-26: GSC access unblocked; nightly routine paused pending indexation (see .claude/skills/seo-nightly/SKILL.md); backlink programme started (seo/backlinks.md). 2026-08-30 (W35): pcos test volume confirmed 210/mo Nigeria (was null), blood test Bloemfontein confirmed 10/mo (was null); Kano/Enugu/Nakuru re-checked, still null. Full 66-keyword SERP re-check: unchanged, all 'not in top 20', 10th straight week. URL Inspection: still 2 of 67 indexed ('Submitted and indexed'), flat for the 3rd straight weekly check since the 0→2 jump around 2026-08-09 — but the sitemap-level indexed count (gsc.mjs sitemap-status) still reads 0 and is the nightly pause's literal resume condition, so the pause may not lift even though real indexation has moved; flagged as an action item in weekly-2026-W35. Backlink programme's Tracking table is still empty 5 weeks in. No roadmap reordering — no ranking/impression data yet differentiates one todo keyword from another; see weekly-2026-W35 report. Note: four weekly-report PRs (#68, #70, #71, #72, covering W32-W34) remain open/unmerged on GitHub as of this run — main is still on the 2026-07-26 state.)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -959,12 +959,12 @@ items:
     slug: pcos-test-explained
     keyword: pcos test
     market: nigeria
-    volume: null
+    volume: 210
     secondary: ["pcos blood test", "pcos test kit", "how do gynecologists check for pcos"]
     intent: informational
     title: "PCOS Testing: The Hormone Panel Behind a Polycystic Ovary Syndrome Diagnosis"
     status: todo
-    notes: "No confirmed standalone volume for 'pcos test' or 'pcos symptoms' in Nigeria (DataForSEO, checked 2026-07-25, both null), but PCOS is a high-interest, high-burden topic worth publishing for AI-citation value; confirm volume again next refine pass. Within BetterHealth's Reproductive Hormones panel (LH, FSH, testosterone, DHEA-S per src/data/content.js) and the existing PCOS Program. Cross-link perimenopause-menopause-test and testosterone-test-explained (once that one ships) for the hormone cluster; avoid diagnostic overreach, PCOS diagnosis needs clinical criteria (Rotterdam) alongside labs, not labs alone."
+    notes: "pcos test 210/mo Nigeria, LOW competition (DataForSEO, confirmed 2026-08-30; was null on 2026-07-25). Within BetterHealth's Reproductive Hormones panel (LH, FSH, testosterone, DHEA-S per src/data/content.js) and the existing PCOS Program. Cross-link perimenopause-menopause-test and testosterone-test-explained for the hormone cluster; avoid diagnostic overreach, PCOS diagnosis needs clinical criteria (Rotterdam) alongside labs, not labs alone."
 
   - id: art-hepatitis-a-test
     type: article
@@ -988,7 +988,7 @@ items:
     intent: local
     title: "Blood Tests and Health Screening in Kano: Your Options"
     status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-25). Still worth publishing per the local-lagos/local-ibadan precedent; Aminu Kano Teaching Hospital is the natural named-once public-facility reference point. Confirm volume next refine pass."
+    notes: "No DataForSEO volume returned yet (checked 2026-07-25, re-checked 2026-08-30, still null). Still worth publishing per the local-lagos/local-ibadan precedent; Aminu Kano Teaching Hospital is the natural named-once public-facility reference point. Confirm volume next refine pass."
 
   - id: local-enugu
     type: article
@@ -1000,7 +1000,7 @@ items:
     intent: local
     title: "Blood Tests and Health Screening in Enugu: Your Options"
     status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-25). Still worth publishing per the local-lagos precedent; University of Nigeria Teaching Hospital (UNTH), Enugu, is the natural named-once public-facility reference point. Confirm volume next refine pass."
+    notes: "No DataForSEO volume returned yet (checked 2026-07-25, re-checked 2026-08-30, still null). Still worth publishing per the local-lagos precedent; University of Nigeria Teaching Hospital (UNTH), Enugu, is the natural named-once public-facility reference point. Confirm volume next refine pass."
 
   - id: local-nakuru
     type: article
@@ -1012,7 +1012,7 @@ items:
     intent: local
     title: "Blood Tests and Health Screening in Nakuru: Your Options"
     status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-25). Still worth publishing per the local-nairobi/local-eldoret precedent; Nakuru Level 5 Hospital is the natural named-once public-facility reference point. Confirm volume next refine pass."
+    notes: "No DataForSEO volume returned yet (checked 2026-07-25, re-checked 2026-08-30, still null). Still worth publishing per the local-nairobi/local-eldoret precedent; Nakuru Level 5 Hospital is the natural named-once public-facility reference point. Confirm volume next refine pass."
 
   - id: local-bloemfontein
     type: article
@@ -1020,11 +1020,11 @@ items:
     slug: blood-test-bloemfontein
     keyword: blood test Bloemfontein
     market: south-africa
-    volume: null
+    volume: 10
     intent: local
     title: "Blood Tests and Health Screening in Bloemfontein: Your Options"
     status: todo
-    notes: "No DataForSEO volume returned yet (checked 2026-07-25). Still worth publishing per the local-pretoria/local-cape-town precedent; Universitas Academic Hospital is the natural named-once public-facility reference point. Confirm volume next refine pass."
+    notes: "blood test Bloemfontein 10/mo, LOW competition (DataForSEO, confirmed 2026-08-30; was null on 2026-07-25). Still worth publishing per the local-pretoria/local-cape-town precedent; Universitas Academic Hospital is the natural named-once public-facility reference point."
 
   # ---- Technical / GEO tasks (interleaved by the weekly routine) ----
   - id: tech-og-images-blog
