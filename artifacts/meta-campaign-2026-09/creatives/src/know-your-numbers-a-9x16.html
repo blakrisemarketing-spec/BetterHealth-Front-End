@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en" style="--W:1080px;--H:1920px;--pad-top:370px;--pad-bottom:370px">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080" />
+    <title>BetterHealth Africa know-your-numbers-a 9x16</title>
+    <style>
+/* Shared base for every BetterHealth Meta creative. Injected into each template by build.mjs. */
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/Quicksand.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --cream: #f5f3ee;
+  --sage: #6b8e7f;
+  --sage-on-dark: #86ab9c;
+  --ink: #2b3a3a;
+  --line: #e0dcd5;
+  --muted: #6b7979;
+  --dark: #0f1724;
+  --dark-card: #1a2537;
+  --pad-x: 90px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+}
+
+body {
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+.frame {
+  position: relative;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+  background: var(--canvas);
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+}
+
+.tick {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--sage);
+  display: grid;
+  place-items: center;
+}
+
+.tick svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+
+      :root {
+        --canvas: var(--cream);
+      }
+
+      .frame {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .brand-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        width: 300px;
+        height: auto;
+        display: block;
+      }
+
+      .badge {
+        border-radius: 999px;
+        padding: 15px 30px 16px;
+        background: var(--sage);
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .headline-group {
+        margin-top: 40px;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 84px;
+        line-height: 1.02;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+
+      .row {
+        margin-top: 36px;
+        display: grid;
+        grid-template-columns: 1fr 372px;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .bullets {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+      }
+
+      .bullets li {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        color: var(--ink);
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+
+      .bullets .tick {
+        margin-top: 4px;
+      }
+
+      /* PDF first-page mock */
+      .mock-wrap {
+        height: 470px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mock {
+        position: relative;
+        width: 306px;
+        height: 432px;
+        background: #ffffff;
+        border: 1.5px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 26px 48px rgba(43, 58, 58, 0.18), 0 4px 10px rgba(43, 58, 58, 0.06);
+        transform: rotate(-4deg);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .mock-head {
+        flex: none;
+        height: 54px;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+      }
+
+      .mock-head img {
+        width: 66px;
+        height: auto;
+        display: block;
+      }
+
+      .mock-tag {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--sage);
+      }
+
+      .mock-body {
+        padding: 14px 16px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .mock-foot {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 8px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: #a3a9a6;
+      }
+
+      .mock-title {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      .mtable {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .mtable th {
+        background: var(--sage);
+        color: #ffffff;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 7px 7px;
+      }
+
+      .mtable th:first-child {
+        border-radius: 4px 0 0 0;
+      }
+
+      .mtable th:last-child {
+        border-radius: 0 4px 0 0;
+      }
+
+      .mtable td {
+        padding: 8px 7px;
+        border-bottom: 1px solid var(--line);
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--ink);
+        vertical-align: middle;
+        height: 32px;
+      }
+
+      .mtable.center th:not(:first-child),
+      .mtable.center td:not(:first-child) {
+        text-align: center;
+      }
+
+      .ph {
+        display: block;
+        height: 7px;
+        border-radius: 4px;
+        background: #e8e5df;
+      }
+
+      .box {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 1.5px solid #cfcac1;
+        border-radius: 3px;
+        vertical-align: middle;
+      }
+
+      .flag {
+        display: inline-block;
+        min-width: 20px;
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      .flag.h {
+        color: #9f3033;
+        background: #f6e7e7;
+      }
+
+      .flag.l {
+        color: #4e6b8a;
+        background: #e8eef4;
+      }
+
+      /* quiz mock */
+      .q-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--sage);
+      }
+
+      .q-bar {
+        height: 5px;
+        border-radius: 3px;
+        background: #e8e5df;
+        overflow: hidden;
+      }
+
+      .q-bar span {
+        display: block;
+        height: 100%;
+        width: 14.3%;
+        background: var(--sage);
+        border-radius: 3px;
+      }
+
+      .q-text {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        margin: 4px 0 2px;
+      }
+
+      .q-text .ph {
+        height: 9px;
+      }
+
+      .q-opt {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1.5px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 12px;
+      }
+
+      .q-opt b {
+        flex: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--cream);
+        color: var(--sage);
+        font-size: 10px;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+      }
+
+      .q-opt .ph {
+        flex: 1;
+      }
+
+      .cta-band {
+        margin-top: 36px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 36px;
+        align-items: center;
+        min-height: 138px;
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        background: #ffffff;
+        padding: 28px 34px;
+        box-shadow: 0 12px 30px rgba(43, 58, 58, 0.06);
+      }
+
+      .cta-copy {
+        color: var(--ink);
+        font-size: 27px;
+        line-height: 1.22;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 200px;
+        min-height: 84px;
+        border-radius: 8px;
+        background: var(--sage);
+        color: #ffffff;
+        padding: 0 30px;
+        font-size: 24px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .disclaimer {
+        position: absolute;
+        left: var(--pad-x);
+        bottom: calc(var(--pad-bottom) - 42px);
+        width: 820px;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.3;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body data-size="9x16" data-mode="g-card">
+    <main class="frame" aria-label="BetterHealth Africa know-your-numbers-a 9x16">
+      <header class="brand-row">
+        <img class="logo" src="../assets/logo.png" alt="BetterHealth Africa" />
+        <div class="badge">Free guide</div>
+      </header>
+
+      <section class="headline-group">
+        <h1 data-fit="84,62,3">The 8 Numbers Every Adult in Ghana Should Know</h1>
+      </section>
+
+      <section class="row">
+        <ul class="bullets">
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>What each number is a clue for</span></li>
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>The ranges clinicians use (WHO, ADA, AHA)</span></li>
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>How often to check, by age</span></li>
+        </ul>
+        <div class="mock-wrap">
+          <div class="mock" aria-hidden="true">
+            <div class="mock-head">
+              <img src="../assets/logo.png" alt="" />
+              <span class="mock-tag">Free guide</span>
+            </div>
+            <div class="mock-body">
+              <div class="mock-title">The 8 Numbers Every Adult in Ghana Should Know</div>
+
+<table class="mtable">
+  <colgroup><col style="width:44%"><col style="width:33%"><col style="width:23%"></colgroup>
+  <tr><th>Number</th><th>Range</th><th>Mine</th></tr>
+  <tr><td>Blood pressure</td><td><span class="ph" style="width:82%"></span></td><td><span class="box"></span></td></tr>
+  <tr><td>HbA1c</td><td><span class="ph" style="width:82%"></span></td><td><span class="box"></span></td></tr>
+  <tr><td>LDL cholesterol</td><td><span class="ph" style="width:82%"></span></td><td><span class="box"></span></td></tr>
+  <tr><td>Creatinine</td><td><span class="ph" style="width:82%"></span></td><td><span class="box"></span></td></tr>
+</table>
+            </div>
+            <div class="mock-foot"><span>betterhealth.africa</span><span>Page 1</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="cta-copy">Yours on WhatsApp in 30 seconds. No sales call.</div>
+        <div class="cta">Get it free</div>
+      </section>
+
+      <div class="disclaimer">General education only. For severe or urgent symptoms, seek medical care.</div>
+    </main>
+
+    <script>
+      window.__fit = function () {
+        var out = [];
+        var els = document.querySelectorAll("[data-fit]");
+        for (var i = 0; i < els.length; i++) {
+          var el = els[i];
+          var spec = el.getAttribute("data-fit").split(",").map(Number);
+          var max = spec[0], min = spec[1], maxLines = spec[2] || 4;
+          var box = el.closest("[data-fit-box]") || document.querySelector(".frame");
+          var size = max, lines = 0;
+          for (;;) {
+            el.style.fontSize = size + "px";
+            var lh = parseFloat(getComputedStyle(el).lineHeight);
+            lines = Math.round(el.getBoundingClientRect().height / lh);
+            var ok =
+              lines <= maxLines &&
+              box.scrollHeight <= box.clientHeight + 1 &&
+              el.scrollWidth <= el.clientWidth + 1;
+            if (ok || size <= min) break;
+            size -= 2;
+          }
+          el.setAttribute("data-fit-size", String(size));
+          el.setAttribute("data-fit-lines", String(lines));
+          out.push({ el: el.className || el.tagName.toLowerCase(), size: size, lines: lines, overflow: box.scrollHeight > box.clientHeight + 1 });
+        }
+        return out;
+      };
+      document.fonts.ready.then(function () { window.__fit(); });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+/* Shared base for every BetterHealth Meta creative. Injected into each template by build.mjs. */
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/Quicksand.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --cream: #f5f3ee;
+  --sage: #6b8e7f;
+  --sage-on-dark: #86ab9c;
+  --ink: #2b3a3a;
+  --line: #e0dcd5;
+  --muted: #6b7979;
+  --dark: #0f1724;
+  --dark-card: #1a2537;
+  --pad-x: 90px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+}
+
+body {
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+.frame {
+  position: relative;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+  background: var(--canvas);
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+}
+
+.tick {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--sage);
+  display: grid;
+  place-items: center;
+}
+
+.tick svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.nowrap {
+  white-space: nowrap;
+}

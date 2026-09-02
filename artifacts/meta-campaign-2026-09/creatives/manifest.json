@@ -1,0 +1,842 @@
+[
+  {
+    "id": "panorama-a",
+    "mode": "P-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/panorama-a-4x5.png",
+    "kb": 124,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "panorama-a",
+    "mode": "P-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/panorama-a-9x16.png",
+    "kb": 128,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "dialics-a",
+    "mode": "P-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/dialics-a-4x5.png",
+    "kb": 110,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "dialics-a",
+    "mode": "P-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/dialics-a-9x16.png",
+    "kb": 114,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "cardion-a",
+    "mode": "P-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/cardion-a-4x5.png",
+    "kb": 120,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "cardion-a",
+    "mode": "P-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/cardion-a-9x16.png",
+    "kb": 124,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "metabolix-a",
+    "mode": "P-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/metabolix-a-4x5.png",
+    "kb": 103,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 1,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "metabolix-a",
+    "mode": "P-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/metabolix-a-9x16.png",
+    "kb": 107,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 1,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "alpha-a",
+    "mode": "P-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/alpha-a-4x5.png",
+    "kb": 115,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "alpha-a",
+    "mode": "P-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/alpha-a-9x16.png",
+    "kb": 119,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "empress-a",
+    "mode": "P-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/empress-a-4x5.png",
+    "kb": 114,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "empress-a",
+    "mode": "P-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/empress-a-9x16.png",
+    "kb": 119,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "shield-a",
+    "mode": "P-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/shield-a-4x5.png",
+    "kb": 114,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 1,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "shield-a",
+    "mode": "P-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/shield-a-9x16.png",
+    "kb": 117,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 1,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "spark-a",
+    "mode": "P-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/spark-a-4x5.png",
+    "kb": 111,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "spark-a",
+    "mode": "P-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/spark-a-9x16.png",
+    "kb": 115,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "panorama-b",
+    "mode": "P-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/panorama-b-4x5.jpg",
+    "kb": 211,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 84,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "panorama-b",
+    "mode": "P-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/panorama-b-9x16.jpg",
+    "kb": 272,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 100,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "cardion-b",
+    "mode": "P-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/cardion-b-4x5.png",
+    "kb": 113,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "cardion-b",
+    "mode": "P-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/cardion-b-9x16.png",
+    "kb": 117,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "shield-b",
+    "mode": "P-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/shield-b-4x5.png",
+    "kb": 94,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "shield-b",
+    "mode": "P-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/shield-b-9x16.png",
+    "kb": 98,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "spark-b",
+    "mode": "P-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/spark-b-4x5.png",
+    "kb": 108,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 110,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "spark-b",
+    "mode": "P-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/spark-b-9x16.png",
+    "kb": 112,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 110,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "dialics-b",
+    "mode": "P-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/dialics-b-4x5.png",
+    "kb": 113,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "dialics-b",
+    "mode": "P-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/dialics-b-9x16.png",
+    "kb": 117,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "metabolix-b",
+    "mode": "P-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/metabolix-b-4x5.png",
+    "kb": 106,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 116,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "metabolix-b",
+    "mode": "P-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/metabolix-b-9x16.png",
+    "kb": 110,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 116,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "alpha-b",
+    "mode": "P-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/alpha-b-4x5.png",
+    "kb": 111,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 114,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "alpha-b",
+    "mode": "P-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/alpha-b-9x16.png",
+    "kb": 115,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 114,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "empress-b",
+    "mode": "P-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/empress-b-4x5.png",
+    "kb": 107,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 114,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "empress-b",
+    "mode": "P-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/empress-b-9x16.png",
+    "kb": 110,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 114,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "know-your-numbers-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/know-your-numbers-a-4x5.png",
+    "kb": 170,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "know-your-numbers-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/know-your-numbers-a-9x16.png",
+    "kb": 174,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "which-test-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/which-test-a-4x5.png",
+    "kb": 159,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "which-test-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/which-test-a-9x16.png",
+    "kb": 164,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "family-health-map-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/family-health-map-a-4x5.png",
+    "kb": 148,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "family-health-map-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/family-health-map-a-9x16.png",
+    "kb": 153,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "blood-sugar-log-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/blood-sugar-log-a-4x5.png",
+    "kb": 154,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "blood-sugar-log-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/blood-sugar-log-a-9x16.png",
+    "kb": 159,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "home-blood-pressure-guide-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/home-blood-pressure-guide-a-4x5.png",
+    "kb": 172,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "home-blood-pressure-guide-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/home-blood-pressure-guide-a-9x16.png",
+    "kb": 176,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "read-your-results-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/read-your-results-a-4x5.png",
+    "kb": 149,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "read-your-results-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/read-your-results-a-9x16.png",
+    "kb": 154,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "know-your-numbers-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/know-your-numbers-b-4x5.png",
+    "kb": 106,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 120,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "know-your-numbers-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/know-your-numbers-b-9x16.png",
+    "kb": 110,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 120,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "which-test-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/which-test-b-4x5.png",
+    "kb": 101,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "which-test-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/which-test-b-9x16.png",
+    "kb": 104,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "family-health-map-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/family-health-map-b-4x5.png",
+    "kb": 96,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "family-health-map-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/family-health-map-b-9x16.png",
+    "kb": 100,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "blood-sugar-log-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/blood-sugar-log-b-4x5.png",
+    "kb": 106,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "blood-sugar-log-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/blood-sugar-log-b-9x16.png",
+    "kb": 110,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "home-blood-pressure-guide-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/home-blood-pressure-guide-b-4x5.png",
+    "kb": 109,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "home-blood-pressure-guide-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/home-blood-pressure-guide-b-9x16.png",
+    "kb": 113,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "read-your-results-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/read-your-results-b-4x5.jpg",
+    "kb": 210,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 84,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "read-your-results-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/read-your-results-b-9x16.jpg",
+    "kb": 271,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 100,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  }
+]

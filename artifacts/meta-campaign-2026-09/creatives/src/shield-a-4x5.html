@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en" style="--W:1080px;--H:1350px;--pad-top:84px;--pad-bottom:84px">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080" />
+    <title>BetterHealth Africa shield-a 4x5</title>
+    <style>
+/* Shared base for every BetterHealth Meta creative. Injected into each template by build.mjs. */
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/Quicksand.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --cream: #f5f3ee;
+  --sage: #6b8e7f;
+  --sage-on-dark: #86ab9c;
+  --ink: #2b3a3a;
+  --line: #e0dcd5;
+  --muted: #6b7979;
+  --dark: #0f1724;
+  --dark-card: #1a2537;
+  --pad-x: 90px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+}
+
+body {
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+.frame {
+  position: relative;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+  background: var(--canvas);
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+}
+
+.tick {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--sage);
+  display: grid;
+  place-items: center;
+}
+
+.tick svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+
+      :root {
+        --canvas: var(--cream);
+      }
+
+      .frame {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .brand-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        width: 300px;
+        height: auto;
+        display: block;
+      }
+
+      .badge {
+        border: 1.5px solid var(--line);
+        border-radius: 999px;
+        padding: 14px 30px 15px;
+        color: var(--muted);
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .headline-group {
+        margin-top: 44px;
+      }
+
+      .eyebrow {
+        color: var(--sage);
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+      }
+
+      h1 {
+        margin: 14px 0 0;
+        color: var(--ink);
+        font-size: 104px;
+        line-height: 0.98;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+
+      .subline {
+        margin-top: 16px;
+        color: var(--sage);
+        font-size: 38px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+      }
+
+      .offer-group {
+        margin-top: 40px;
+      }
+
+      .tests {
+        background: #ffffff;
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        padding: 32px 34px;
+        box-shadow: 0 12px 30px rgba(43, 58, 58, 0.06);
+      }
+
+      .tests ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 28px;
+      }
+
+      .tests li {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        color: var(--ink);
+        font-size: 27px;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+
+      .tests li span:last-child {
+        text-wrap: balance;
+      }
+
+      .tests .tick {
+        margin-top: 1px;
+      }
+
+      .price {
+        margin-top: 40px;
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+      }
+
+      .price .cur {
+        font-size: 44px;
+        font-weight: 600;
+        color: var(--muted);
+        letter-spacing: 0.02em;
+      }
+
+      .price .amount {
+        font-size: 120px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 0.9;
+        color: var(--ink);
+      }
+
+      .price .vat {
+        font-size: 26px;
+        font-weight: 500;
+        color: var(--muted);
+        margin-left: 8px;
+      }
+
+      .cta-band {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 36px;
+        align-items: center;
+        min-height: 138px;
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        background: #ffffff;
+        padding: 28px 34px;
+        box-shadow: 0 12px 30px rgba(43, 58, 58, 0.06);
+      }
+
+      .cta-copy {
+        color: var(--ink);
+        font-size: 27px;
+        line-height: 1.22;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+
+      .cta-copy .turn {
+        display: block;
+        margin-top: 8px;
+        color: var(--sage);
+        font-weight: 600;
+        font-size: 24px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 84px;
+        border-radius: 8px;
+        background: var(--sage);
+        color: #ffffff;
+        padding: 0 30px;
+        font-size: 24px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body data-size="4x5" data-mode="p-card">
+    <main class="frame" aria-label="BetterHealth Africa shield-a 4x5">
+      <header class="brand-row">
+        <img class="logo" src="../assets/logo.png" alt="BetterHealth Africa" />
+        <div class="badge">Home or lab collection</div>
+      </header>
+
+      <section class="headline-group">
+        <div class="eyebrow">Shield</div>
+        <h1 data-fit="104,72,2">Wellness Check</h1>
+        <div class="subline">Malaria + typhoid screen</div>
+      </section>
+
+      <section class="offer-group">
+        <div class="tests">
+          <ul>
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Malaria RDT + Blood Film</span></li>
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Typhoid Antibodies (Widal)</span></li>
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>CRP</span></li>
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Full Blood Count</span></li>
+          </ul>
+        </div>
+        <div class="price">
+          <span class="cur">GHS</span><span class="amount">497</span><span class="vat">excl. VAT</span>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="cta-copy">Doctor-reviewed results, explained in plain English<span class="turn">Same-day malaria result</span></div>
+        <div class="cta">Book on betterhealth.africa</div>
+      </section>
+    </main>
+
+    <script>
+      window.__fit = function () {
+        var out = [];
+        var els = document.querySelectorAll("[data-fit]");
+        for (var i = 0; i < els.length; i++) {
+          var el = els[i];
+          var spec = el.getAttribute("data-fit").split(",").map(Number);
+          var max = spec[0], min = spec[1], maxLines = spec[2] || 4;
+          var box = el.closest("[data-fit-box]") || document.querySelector(".frame");
+          var size = max, lines = 0;
+          for (;;) {
+            el.style.fontSize = size + "px";
+            var lh = parseFloat(getComputedStyle(el).lineHeight);
+            lines = Math.round(el.getBoundingClientRect().height / lh);
+            var ok =
+              lines <= maxLines &&
+              box.scrollHeight <= box.clientHeight + 1 &&
+              el.scrollWidth <= el.clientWidth + 1;
+            if (ok || size <= min) break;
+            size -= 2;
+          }
+          el.setAttribute("data-fit-size", String(size));
+          el.setAttribute("data-fit-lines", String(lines));
+          out.push({ el: el.className || el.tagName.toLowerCase(), size: size, lines: lines, overflow: box.scrollHeight > box.clientHeight + 1 });
+        }
+        return out;
+      };
+      document.fonts.ready.then(function () { window.__fit(); });
+    </script>
+  </body>
+</html>
