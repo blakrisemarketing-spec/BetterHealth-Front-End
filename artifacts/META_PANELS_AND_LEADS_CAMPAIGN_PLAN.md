@@ -160,7 +160,7 @@ Meta ad account `1332108492417465` (all objects PAUSED): two campaigns, 13 ad se
 ## 10. Launch checklist
 
 1. Merge the front-end PR to `main` (Hostinger auto-deploys). Confirm `https://www.betterhealth.africa/guides/know-your-numbers/` returns 200 with the right `<title>`, and the PDF downloads.
-2. Merge the backend PR into `staging`, then `main`; apply migration 172 to production (Supabase MCP, additive). Confirm `OPTIONS` and a test `POST` to `/api/public/marketing-leads` from an allowed origin return 204 and 201.
+2. Merge the backend PR ([BetterHealth-Africa#121](https://github.com/blakrisemarketing-spec/BetterHealth-Africa/pull/121)) into `staging`, then `main`; apply migration 172 to production (Supabase MCP, additive). Confirm `OPTIONS` and a test `POST` to `/api/public/marketing-leads` from an allowed origin return 204 and 201.
 3. Submit one real test lead from a phone on the live site. Confirm the row, the ops email, and a `Lead` event in Events Manager.
 4. Re-run `scripts/build-pricing-snapshot.mjs`; confirm every price in the ads matches the live catalogue.
 5. Put an uptime check on `https://app.betterhealth.africa/api/health` (the host served 503/508 for minutes on 2026-08-30; paid traffic into that is burnt spend).

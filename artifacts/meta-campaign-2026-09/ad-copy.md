@@ -232,7 +232,7 @@ Audience: Ghana, 25 to 55, all genders.
   Answer 7 quick questions (age, family history, what you want checked, budget) and get a straight recommendation: which panel, what it includes, what it costs. Two minutes, free, no account needed.
 - Headline: `Which health test do I need?` (28)
 - Description: `Free 2-minute quiz. 7 questions.`
-- CTA: Get Started
+- CTA: Learn More (Meta does not offer "Get Started" on link ads)
 
 **Ad B (statement)**
 - Primary text:
@@ -241,7 +241,7 @@ Audience: Ghana, 25 to 55, all genders.
   Take the free 2-minute quiz and get a straight recommendation for a first test, based on age, family history and what you want to know. No account, no sales call.
 - Headline: `Find your first test in 2 minutes` (33)
 - Description: `Free quiz. Straight answer.`
-- CTA: Get Started
+- CTA: Learn More (Meta does not offer "Get Started" on link ads)
 
 ### Ad set 3: family-health-map, "Your Family Health Map" (top of funnel)
 
