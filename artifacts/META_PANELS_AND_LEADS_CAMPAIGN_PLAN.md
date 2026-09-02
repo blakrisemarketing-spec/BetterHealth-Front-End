@@ -162,17 +162,19 @@ Marketing site (this repo, branch `claude/meta-campaign-health-tests-f7038d`):
 App backend (`BetterHealth-Africa`, branch `claude/marketing-leads-endpoint`):
 - `migrations/172_marketing_leads.sql` and `POST /api/public/marketing-leads` (CORS allowlist, rate limit, Zod, ops email).
 
-Meta ad account `1332108492417465` (all objects PAUSED): two campaigns, 13 ad sets, 26 ads. IDs and preview links in `meta-campaign-2026-09/meta-objects.md`.
+Meta ad account `1332108492417465` (all objects PAUSED): two campaigns, 14 ad sets, 28 ads (plus 2 archived Cardion ads from before the lipid profile was added). IDs and preview links in `meta-campaign-2026-09/meta-objects.md`.
+
+App backend, same branch: `migrations/173_cardion_add_lipid.sql` adds the lipid profile to the Cardion panel. Apply with 172 on deploy, before Campaign 1 is activated, so the panel page, the ads and the catalogue agree.
 
 ## 10. Launch checklist
 
 1. Merge the front-end PR to `main` (Hostinger auto-deploys). Confirm `https://www.betterhealth.africa/guides/know-your-numbers/` returns 200 with the right `<title>`, and the PDF downloads.
-2. Merge the backend PR ([BetterHealth-Africa#121](https://github.com/blakrisemarketing-spec/BetterHealth-Africa/pull/121)) into `staging`, then `main`; apply migration 172 to production (Supabase MCP, additive). Confirm `OPTIONS` and a test `POST` to `/api/public/marketing-leads` from an allowed origin return 204 and 201.
+2. Merge the backend PR ([BetterHealth-Africa#121](https://github.com/blakrisemarketing-spec/BetterHealth-Africa/pull/121)) into `staging`, then `main`; apply migrations 172 and 173 to production (Supabase MCP, both additive), then confirm `GET /api/public/disease-panels?country=Ghana` lists `LIPID` under `cardion`. Confirm `OPTIONS` and a test `POST` to `/api/public/marketing-leads` from an allowed origin return 204 and 201.
 3. Submit one real test lead from a phone on the live site. Confirm the row, the ops email, and a `Lead` event in Events Manager.
 4. Re-run `scripts/build-pricing-snapshot.mjs`; confirm every price in the ads matches the live catalogue.
 5. Put an uptime check on `https://app.betterhealth.africa/api/health` (the host served 503/508 for minutes on 2026-08-30; paid traffic into that is burnt spend).
 6. Confirm the images and copy in Ads Manager previews on a phone; check the description text is not truncated.
-7. Activation is a separate approval under the spend gate: exact objects, before and after, blast radius ($20/day, $140/week), and the undo. Activate Campaign 2 first for 24 hours, confirm leads arrive, then Campaign 1.
+7. Activation is a separate approval under the spend gate: exact objects, before and after, blast radius ($10/day across both, $140 over the flight), and the undo. At activation, set each campaign's stop time to activation + 14 days (Meta refuses a spend cap under $100, so the stop time is what ends the flight). Activate Campaign 2 first for 24 hours, confirm leads arrive, then Campaign 1.
 8. Day 1 to 3: no edits. Day 4: delivery check and disapprovals. Day 7: first read against section 6. Day 14: scale, iterate, or kill by the gates.
 
 ## 11. Follow-ups not built here
