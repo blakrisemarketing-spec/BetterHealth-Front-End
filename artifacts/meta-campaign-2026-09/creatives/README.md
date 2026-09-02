@@ -131,3 +131,10 @@ Four more P-STATE panel creatives so every panel ad set has a card (A) and a sta
 | `empress-b` | Thyroid and anaemia can only be checked with a blood test. | `public/ads/2026-09/empress-b-4x5.png` (107 KB) | `story/empress-b-9x16.png` (110 KB) |
 
 Total: 26 creatives, 52 files.
+
+## Changes on Damzi's decisions (2026-09-02, later the same day)
+
+- `cardion-a` re-rendered with "Lipid Profile (cholesterol)" in the test list, since the lipid profile was added to the Cardion panel.
+- `spark-a` (P-CARD, badge "Partner lab visit", five tests, GHS 1,500) and `spark-b` (P-STATE, "Fertility testing usually starts with the woman. It doesn't have to.") added, rendered at both sizes with `node build.mjs --only cardion-a,spark-a,spark-b`.
+
+Total: 28 creatives, 56 files.

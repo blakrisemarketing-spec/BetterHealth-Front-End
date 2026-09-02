@@ -56,7 +56,7 @@ const details = {
 
   cardion: {
     description:
-      "The key numbers behind your heart and circulation. Whether you're checking your risk or living with a heart condition, it shows you exactly where you stand.",
+      "The key numbers behind your heart and circulation, cholesterol included. Whether you're checking your risk or living with a heart condition, it shows you exactly where you stand.",
     whoShouldTest: [
       "Family history of heart disease or stroke",
       "High blood pressure or on BP medication",
@@ -69,6 +69,7 @@ const details = {
     testDetails: [
       { name: "Full Blood Count", measures: "Red cells, white cells, platelets, haemoglobin", why: "Anaemia and other blood problems add strain to the heart. This checks the foundation." },
       { name: "Fasting/Random Blood Sugar", measures: "Your blood sugar level", why: "High blood sugar damages blood vessels and raises your heart attack and stroke risk." },
+      { name: "Lipid Profile", measures: "Total cholesterol, LDL, HDL, triglycerides", why: "Cholesterol that settles in artery walls is one of the biggest drivers of heart attack and stroke risk. This shows where yours stands." },
       { name: "Uric Acid", measures: "Uric acid level in blood", why: "High uric acid is linked to gout and to higher cardiovascular risk." },
       { name: "CRP", measures: "C-reactive protein, a marker of inflammation", why: "Chronic inflammation quietly drives heart disease. CRP helps catch it." },
     ],

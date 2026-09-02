@@ -64,7 +64,7 @@
     "mode": "P-CARD",
     "size": "4x5",
     "file": "public/ads/2026-09/cardion-a-4x5.png",
-    "kb": 117,
+    "kb": 120,
     "fit": [
       {
         "el": "h1",
@@ -79,7 +79,7 @@
     "mode": "P-CARD",
     "size": "9x16",
     "file": "artifacts/meta-campaign-2026-09/creatives/story/cardion-a-9x16.png",
-    "kb": 121,
+    "kb": 124,
     "fit": [
       {
         "el": "h1",
@@ -210,6 +210,36 @@
     ]
   },
   {
+    "id": "spark-a",
+    "mode": "P-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/spark-a-4x5.png",
+    "kb": 111,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "spark-a",
+    "mode": "P-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/spark-a-9x16.png",
+    "kb": 115,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 104,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
     "id": "panorama-b",
     "mode": "P-STATE",
     "size": "4x5",
@@ -295,6 +325,36 @@
         "el": "statement",
         "size": 124,
         "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "spark-b",
+    "mode": "P-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/spark-b-4x5.png",
+    "kb": 108,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 110,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "spark-b",
+    "mode": "P-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/spark-b-9x16.png",
+    "kb": 112,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 110,
+        "lines": 4,
         "overflow": false
       }
     ]

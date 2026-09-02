@@ -131,10 +131,10 @@ export default {
       },
       cardion: {
         headline: "Your best fit: the Heart Health Check",
-        why: "Your answers point to heart and circulation, and this panel checks markers that travel with cardiovascular risk: fasting or random blood sugar, uric acid, CRP for inflammation and a full blood count. Read alongside the blood pressure reading taken at every visit, it gives a clear picture of where you stand.",
+        why: "Your answers point to heart and circulation, and this panel checks markers that travel with cardiovascular risk: a lipid (cholesterol) profile, fasting or random blood sugar, uric acid, CRP for inflammation and a full blood count. Read alongside the blood pressure reading taken at every visit, it gives a clear picture of where you stand.",
         alsoConsider: {
           panelSlug: "panorama",
-          text: "For a cholesterol (lipid) profile and kidney function in the same visit, choose the Complete Health Check.",
+          text: "For kidney and liver function in the same visit, choose the Complete Health Check.",
         },
       },
       metabolix: {

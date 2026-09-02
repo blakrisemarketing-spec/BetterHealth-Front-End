@@ -79,7 +79,7 @@ export default {
           [
             "Stroke or heart disease",
             "Lipid profile (cholesterol), blood pressure, blood sugar, and often CRP",
-            "Complete Health Check (Panorama) for the lipid profile; Heart Health Check (Cardion)",
+            "Heart Health Check (Cardion) or Complete Health Check (Panorama), both with a lipid profile",
           ],
           [
             "Kidney disease",

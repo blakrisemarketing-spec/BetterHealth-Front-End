@@ -38,10 +38,10 @@ export const testPanels = [
     displayName: "Heart Health Check",
     subtitle: "Heart & circulation",
     concern: "Check my heart health",
-    why: "The key numbers behind your heart and circulation. Whether you're checking your risk or living with a heart condition, it shows where you stand.",
+    why: "The key numbers behind your heart and circulation, cholesterol included. Whether you're checking your risk or living with a heart condition, it shows where you stand.",
     internal: "Cardiovascular",
     price: "GHS 475",
-    tests: ["Full Blood Count", "Fasting/Random Blood Sugar", "Uric Acid", "CRP"],
+    tests: ["Full Blood Count", "Fasting/Random Blood Sugar", "Lipid Profile", "Uric Acid", "CRP"],
     concerns: ["heart", "cholesterol"],
   },
   {

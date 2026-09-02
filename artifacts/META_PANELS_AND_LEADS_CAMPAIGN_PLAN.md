@@ -34,7 +34,7 @@ Meta ad (guide)  ──> /guides/<slug>/  ──> form ──> guide unlocked + 
 
 ## 3. Campaign 1: BHA — Test Panels — Sep 2026
 
-- Objective: Sales. Budget: campaign-level (CBO), $10.00/day. Bid: lowest cost.
+- Objective: Sales. Budget: campaign-level (CBO), $5.00/day for a 14-day flight (Meta's minimum campaign spend cap is $100, so the end is a stop date set at activation, not a cap). Bid: lowest cost.
 - Optimisation: landing page views, pixel `2118966258986670`. Switch each ad set to conversions on `InitiateCheckout` once the account has seen roughly 50 of them in a week; that event fires on the site every time someone clicks through to the app.
 - Placements: Facebook and Instagram feeds, stories, reels. No Audience Network.
 - Targeting: Ghana, hard age and gender caps per ad set (Advantage+ audience off). No interest layers: Meta removed health-condition targeting in 2022 and the creative does the qualifying.
@@ -48,16 +48,19 @@ Meta ad (guide)  ──> /guides/<slug>/  ──> form ──> guide unlocked + 
 | 5 | Alpha, Men's Health Check | men 40 to 65 | GHS 995 | `alpha` |
 | 6 | Empress, Women's Health Check | women 30 to 60 | GHS 995 | `empress` |
 | 7 | Shield, Wellness Check (malaria and typhoid) | 18 to 55, all | GHS 497 | `shield` |
+| 8 | Spark, Him/Her Fertility Test (added 2026-09-02) | 25 to 45, all | GHS 1,500 | `spark` |
 
 Two ads per ad set: A is the product card (tests, price, turnaround); B is a statement hook. Same destination, `utm_content` differs (`<slug>-a`, `<slug>-b`).
 
-Excluded on purpose: Privara (sexual health; Meta policy and audience privacy) and Spark (fertility; personal-attributes risk and a panel that needs a page to explain). Both stay on the site and in search.
+Excluded on purpose: Privara (sexual health; Meta policy and audience privacy). It stays on the site and in search. Spark was excluded in the first draft and added at Damzi's decision; its copy is third-person throughout and its card says "Partner lab visit" because the ultrasound and semen analysis cannot be collected at home.
 
-CBO trade-off: at $10/day Meta will concentrate spend on two or three ad sets within days. That is the test working. The panels that lose spend are the ones the market did not respond to at this price. If a deliberate even split is wanted for a week, switch the campaign to ad-set budgets at $1.50/day each in Ads Manager.
+Cardion gains a lipid profile at Damzi's decision (2026-09-02). Price stays GHS 475 until the margin is re-checked: the August model put Cardion's cost at GHS 224 against a GHS 251 margin, and the lipid profile's cost price has to be added to that before the ads scale.
+
+CBO trade-off: at $5/day Meta will concentrate spend on two or three ad sets within days. That is the test working. The panels that lose spend are the ones the market did not respond to at this price. If a deliberate even split is wanted for a week, switch the campaign to ad-set budgets at $1.50/day each in Ads Manager.
 
 ## 4. Campaign 2: BHA — Lead Magnets — Sep 2026
 
-- Objective: Leads. Budget: campaign-level (CBO), $10.00/day. Bid: lowest cost.
+- Objective: Leads. Budget: campaign-level (CBO), $5.00/day for a 14-day flight (Meta's minimum campaign spend cap is $100, so the end is a stop date set at activation, not a cap). Bid: lowest cost.
 - Optimisation: conversions on the pixel `Lead` event. It fires once, on form success, from `trackLead` in `src/lib/analytics.js`. It has zero history on the pixel today, so expect "learning limited" for the first two weeks; judge on cost per lead, not on learning status.
 - Conversion location: website. (Meta Instant Forms would give cheaper, lower-intent leads and need no landing page; the MCP cannot create forms, so they are documented in section 11 as a follow-up test, not built.)
 - Placements and geography as Campaign 1.
@@ -77,11 +80,15 @@ Every guide page (`/guides/<slug>/`) has the form directly under the hero, above
 
 ## 5. Budget
 
-| | Daily | 30 days |
+Decided by Damzi on 2026-09-02: $5 per campaign per day for 14 days. Set on both campaigns as a $5.00 daily budget. Meta refuses a campaign spend cap under $100, so the flight length is enforced by setting each campaign's stop time to activation plus 14 days at the moment of activation (step 7 of the launch checklist).
+
+| | Daily | 14 days |
 |---|---|---|
-| Campaign 1: panels | $10.00 | $300 |
-| Campaign 2: lead magnets | $10.00 | $300 |
-| Total | $20.00 | $600 |
+| Campaign 1: panels | $5.00 | $70 |
+| Campaign 2: lead magnets | $5.00 | $70 |
+| Total | $10.00 | $140 |
+
+At this level each campaign will spend on two or three ad sets and starve the rest; read the winners, not the losers. A 14-day flight at $5/day buys roughly 1,500 to 2,500 impressions a day at the August CPMs, so the gates below are sized to that.
 
 The account bills in USD; the site prices in GHS. Meta-reported ROAS will not tie out to Paystack exactly because `firePurchaseConversion` reports `currency: "GHS"`.
 
@@ -96,8 +103,8 @@ Campaign 1 (per ad set, read at 7 days and 14 days):
 | P1 | Link CTR | ≥ 1.5% | Creative or audience problem |
 | P2 | Landing page views ÷ link clicks | ≥ 60% | Page speed or 508 host errors; check `/api/health` uptime |
 | P3 | `InitiateCheckout` ÷ landing page views | ≥ 5% | Page or price problem |
-| P4 | Any `CompleteRegistration` or `Purchase` attributed within 14 days | ≥ 1 per ad set with $40+ spent | Onboarding or payment friction on the app, not the ad |
-| Kill | $40 spent on an ad set with zero `InitiateCheckout` | Pause it | |
+| P4 | Any `CompleteRegistration` or `Purchase` attributed within 14 days | ≥ 1 for the campaign | Onboarding or payment friction on the app, not the ad |
+| Kill | $15 spent on an ad set with zero `InitiateCheckout` | Pause it | |
 
 Campaign 2 (per ad set):
 
@@ -108,7 +115,7 @@ Campaign 2 (per ad set):
 | L3 | Leads ÷ landing page views | ≥ 15% | Form too high a price for the perceived value |
 | L4 | `InitiateCheckout` ÷ leads (panel click after unlock) | ≥ 10% | Guide does not bridge to the test; fix the CTA block |
 | L5 | Leads reached on WhatsApp within 24h | 100% | Ops, not ads |
-| Kill | $30 spent on an ad set with cost per lead above $4 | Pause it | |
+| Kill | $12 spent on an ad set with zero leads, or cost per lead above $4 after $15 | Pause it | |
 
 Overall verdict at day 14: a campaign earns its next 14 days if it has cleared gates 1 to 3. Gate 4 (a real booking) is the business result and will lag; log it, do not wait for it to decide creative.
 
@@ -134,7 +141,7 @@ where created_at > now() - interval '7 days'
 order by created_at desc;
 ```
 
-Nurture, by WhatsApp, from the BetterHealth business number, one person owning it:
+Nurture, by WhatsApp, from 026 859 6410 (+233 26 859 6410, the same number the guide pages fall back to), one person owning it:
 
 | Touch | When | Message (adapt, keep short) |
 |---|---|---|
@@ -174,14 +181,13 @@ Meta ad account `1332108492417465` (all objects PAUSED): two campaigns, 13 ad se
 - **Retargeting**: once the pixel has 30 days of guide traffic, build a website custom audience (all guide visitors, 30 days, minus leads) and a lookalike from leads. No audiences exist on the account today.
 - **Admin view of `marketing_leads`** in the app, with status editing, so nurture does not live in SQL.
 - **`BookingStep` fires on page load** on the consultation pages; fix before reusing that page for ads.
-- **Cardion has no lipid profile.** Either add it to the panel or add a cholesterol add-on prompt at booking; the heart panel undersells without it.
 - **Shield is displayed as "Wellness Check"** but is a malaria and typhoid screen. Rename or add a sub-line on the site; the ad already carries "malaria + typhoid".
 - **Partner forms post to `api.betterhealth.africa`**, a hostname with no DNS record; every doctor, nutritionist and lab signup on the live site fails silently. Separate fix.
 - **Single-test pages (`/test/<slug>/`) return HTTP 404 on the live site** for the same reason the panel pages did (not prerendered, and `.htaccess` returns a real 404 for anything not prerendered). The panel pages are fixed in this branch; the single-test pages are not. Do not point ads at `/test/...` until they are.
 
-## 12. Open questions for Damzi
+## 12. Decisions taken by Damzi, 2026-09-02
 
-1. Budget: $10/day per campaign is a proposal. Say the number and the split.
-2. Who owns the WhatsApp nurture, and from which number?
-3. Cardion and cholesterol (above): add to the panel, or leave the ad as built?
-4. Should Spark run at all this quarter, with a third-person landing page?
+1. Budget: $5 per campaign per day for 14 days. Applied as $5.00 daily on each campaign; the 14-day stop time is set at activation because Meta's minimum spend cap is $100.
+2. WhatsApp nurture runs from 026 859 6410.
+3. Cardion: add the lipid profile. Applied to the site content, the ad copy, the card creative and the catalogue change in the app repo; the margin re-check is the one open item.
+4. Spark runs, as ad set 8 with third-person copy.

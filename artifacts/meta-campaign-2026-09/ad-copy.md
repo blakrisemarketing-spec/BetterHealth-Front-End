@@ -67,24 +67,24 @@ Audience: Ghana, 30 to 60, all genders.
 
 ### Ad set 3: Cardion, Heart Health Check, GHS 475
 
-Audience: Ghana, 35 to 60, all genders. Note: no lipid profile in this panel; never imply cholesterol.
+Audience: Ghana, 35 to 60, all genders. Lipid profile added to the panel on 2026-09-02 (Damzi's decision); price unchanged at GHS 475 pending the margin check in the plan.
 
 **Ad A (card)**
 - Primary text:
-  The Heart Health Check looks at the numbers that raise or lower heart and stroke risk: blood pressure (measured at your visit), blood sugar, CRP (a marker of inflammation), uric acid and a full blood count.
+  The Heart Health Check looks at the numbers that raise or lower heart and stroke risk: blood pressure (measured at your visit), cholesterol (lipid profile), blood sugar, CRP (a marker of inflammation), uric acid and a full blood count.
 
   Whether it is a first look or a check on a condition already being managed, it shows where things stand. Doctor-reviewed results in 48 to 72 hours, explained in plain English.
 
   GHS 475 excl. VAT. Home or lab collection across Ghana.
 - Headline: `Heart Health Check, GHS 475` (27)
-- Description: `BP, sugar, CRP, uric acid, blood count.`
+- Description: `BP, cholesterol, sugar, CRP, blood count.`
 - CTA: Book Now
 
 **Ad B (statement)**
 - Primary text:
   Around 1 in 3 adults in Ghana has high blood pressure, and fewer than half of them know it (Ghana Health Service surveys). It rarely gives a warning. The numbers do.
 
-  The Heart Health Check: blood pressure at the visit, blood sugar, CRP inflammation marker, uric acid, full blood count. GHS 475 excl. VAT. Doctor-reviewed, plain-English results in 48 to 72 hours.
+  The Heart Health Check: blood pressure at the visit, cholesterol (lipid profile), blood sugar, CRP inflammation marker, uric acid, full blood count. GHS 475 excl. VAT. Doctor-reviewed, plain-English results in 48 to 72 hours.
 - Headline: `Know your heart numbers. GHS 475` (32)
 - Description: `Results in 48 to 72 hours.`
 - CTA: Book Now
@@ -185,10 +185,33 @@ Audience: Ghana, 18 to 55, all genders.
 - Description: `GHS 497. Same-day malaria result.`
 - CTA: Book Now
 
+### Ad set 8: Spark, Him/Her Fertility Test, GHS 1,500 (added 2026-09-02 at Damzi's decision)
+
+Audience: Ghana, 25 to 45, all genders. Third-person framing throughout: the ad describes who the test is built for and never implies the reader's situation. No home collection: the panel includes a pelvic ultrasound and semen analysis, so the badge says "Partner lab visit".
+
+**Ad A (card)**
+- Primary text:
+  Fertility testing usually starts with the woman. It doesn't have to. The Him/Her Fertility Test checks both partners in one booking: thyroid function, progesterone and a pelvic ultrasound for her; sperm analysis and testosterone for him.
+
+  Built for couples planning a family or trying to conceive, and for tracking progress during treatment. Every result is reviewed by a doctor and explained in plain English within 48 to 72 hours; the ultrasound is reviewed the same day.
+
+  GHS 1,500 excl. VAT. Partner lab visit. No referral needed.
+- Headline: `Him + her fertility test, GHS 1,500` (35)
+- Description: `Both partners, one booking. Doctor-reviewed.`
+- CTA: Book Now
+
+**Ad B (statement)**
+- Primary text:
+  Many clinicians suggest a fertility check after 12 months of trying, or after 6 months when the woman is over 35, and irregular periods are a reason to check sooner. Testing one partner tells half the story.
+
+  The Him/Her Fertility Test covers both: thyroid, progesterone and pelvic ultrasound for her; sperm analysis and testosterone for him. GHS 1,500 excl. VAT. Doctor-reviewed, plain-English results in 48 to 72 hours.
+- Headline: `Test both partners, one booking` (30)
+- Description: `GHS 1,500 excl. VAT. 48 to 72 hours.`
+- CTA: Book Now
+
 ### Excluded from Campaign 1
 
 - **Privara (Private STI Check).** Meta restricts sexual-health advertising, and the audience needs privacy the feed does not give. Better served by search and by the site.
-- **Spark (Him/Her Fertility Test).** Fertility ads are permitted but the personal-attributes line is hard to hold, and the panel includes a pelvic ultrasound and semen analysis that need a page, not a feed. Revisit with a third-person landing page.
 
 ---
 

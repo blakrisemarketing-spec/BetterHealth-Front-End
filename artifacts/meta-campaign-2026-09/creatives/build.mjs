@@ -138,8 +138,9 @@ const CREATIVES = [
     headline: "Heart Health Check",
     tests: [
       "Blood Pressure (at your visit)",
-      "Full Blood Count",
+      "Lipid Profile (cholesterol)",
       "Fasting/Random Blood Sugar",
+      "Full Blood Count",
       "Uric Acid",
       "CRP (inflammation)",
     ],
@@ -205,6 +206,22 @@ const CREATIVES = [
     price: "497",
     turnaround: "Same-day malaria result",
   },
+  {
+    id: "spark-a",
+    mode: "P-CARD",
+    eyebrow: "Spark",
+    headline: "Him/Her Fertility Test",
+    badge: "Partner lab visit",
+    tests: [
+      "Thyroid Function (TSH, T3, T4)",
+      "Progesterone",
+      "Pelvic Ultrasound",
+      "Sperm Analysis",
+      "Testosterone",
+    ],
+    price: "1,500",
+    turnaround: TURN_48,
+  },
 
   // --- P-STATE: panel statements -------------------------------------------
   {
@@ -227,6 +244,12 @@ const CREATIVES = [
     mode: "P-STATE",
     statement: "Malaria and typhoid share *the same fever.*",
     chips: [["Wellness Check"], ["GHS 497 excl. VAT", "fill"]],
+  },
+  {
+    id: "spark-b",
+    mode: "P-STATE",
+    statement: "Fertility testing usually starts with the woman. *It doesn't have to.*",
+    chips: [["Him/Her Fertility Test"], ["GHS 1,500 excl. VAT", "fill"]],
   },
   {
     id: "dialics-b",

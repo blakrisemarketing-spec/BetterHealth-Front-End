@@ -20,7 +20,7 @@ Method: `.agents/copywriting-council/README.md`. Each lens was run as a separate
 - Health claims: "can help", "checks", "shows where things stand". Never "diagnoses", "reveals", "prevents".
 - Copy rules in `.agents/skills/bh-social-visual-system/references/copy-rules.md`.
 - Every number must come from a source already vetted on the site (the blog articles cite WHO, ADA, AHA/ACC, NCEP, Ghana Health Service, IDF). No invented prevalence, download counts, or testimonials.
-- Cardion (Heart Health Check) does not include a lipid profile. The ad may not imply cholesterol is included.
+- Cardion (Heart Health Check) did not include a lipid profile when this review was written. Damzi decided on 2026-09-02 to add it; the ads now name cholesterol, and the catalogue change ships with the same release.
 - Empress (Women's Health Check) measures haemoglobin through the full blood count, not ferritin. "Iron" must be written as "haemoglobin (anaemia)".
 
 **Proof available.** Doctor-reviewed results; 48 to 72 hours (24 to 48 for Dialics and Shield; same-day malaria rapid result); home collection by a certified phlebotomist (Lab Access Ghana) or a partner lab; results explained in plain English in a private dashboard; GDPC certification under Act 843; MoMo and card via Paystack; no referral needed; fixed prices (excl. VAT).
@@ -93,7 +93,7 @@ Method: `.agents/copywriting-council/README.md`. Each lens was run as a separate
 1. Offer and price in the first 125 characters, every ad, both campaigns.
 2. One proof point per ad, specific.
 3. No education in panel ads; no selling in lead-magnet ads.
-4. Panel ad sets exclude Privara (sexual health: Meta policy risk, and the audience needs privacy the feed cannot give) and Spark (fertility: the personal-attributes line is hard to hold in a fertility ad, and the panel involves an ultrasound and semen analysis that need explaining on a page, not in a feed).
+4. Panel ad sets exclude Privara (sexual health: Meta policy risk, and the audience needs privacy the feed cannot give). Spark (fertility) was excluded in the first pass for the personal-attributes risk; Damzi chose on 2026-09-02 to run it, so it carries the strictest third-person framing in the set: the copy describes who the test is built for ("couples planning a family or trying to conceive") and reuses the approved consultation-page line "Fertility testing usually starts with the woman. It doesn't have to."
 5. Headlines under 40 characters, ideally 27.
 
 ## Material disagreements, and how the Chair resolved them
