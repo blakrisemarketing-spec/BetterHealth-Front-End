@@ -838,5 +838,185 @@
         "overflow": false
       }
     ]
+  },
+  {
+    "id": "genotype-compatibility-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/genotype-compatibility-a-4x5.png",
+    "kb": 156,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "genotype-compatibility-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/genotype-compatibility-a-9x16.png",
+    "kb": 161,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "genotype-compatibility-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/genotype-compatibility-b-4x5.png",
+    "kb": 91,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "genotype-compatibility-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/genotype-compatibility-b-9x16.png",
+    "kb": 95,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 3,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "diabetes-risk-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/diabetes-risk-a-4x5.png",
+    "kb": 134,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 1,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "diabetes-risk-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/diabetes-risk-a-9x16.png",
+    "kb": 138,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 1,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "diabetes-risk-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/diabetes-risk-b-4x5.png",
+    "kb": 83,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "diabetes-risk-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/diabetes-risk-b-9x16.png",
+    "kb": 87,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "heart-age-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/heart-age-a-4x5.png",
+    "kb": 132,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 1,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "heart-age-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/heart-age-a-9x16.png",
+    "kb": 136,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 1,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "heart-age-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/heart-age-b-4x5.png",
+    "kb": 104,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "heart-age-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/heart-age-b-9x16.png",
+    "kb": 108,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 124,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
   }
 ]

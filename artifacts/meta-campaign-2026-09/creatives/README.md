@@ -2,7 +2,7 @@
 
 Static images for the two September campaigns in [`../ad-copy.md`](../ad-copy.md)
 (BHA Test Panels and BHA Lead Magnets). 22 creatives, each rendered at 4:5 for feed
-(the upload set) and 9:16 for stories and reels. 44 images in total, 5995 KB combined,
+(the upload set) and 9:16 for stories and reels. 68 files in total, 5995 KB combined,
 every file under 600 KB.
 
 Ids match the `utm_content` values in the ad copy (`<slug>-a` is the card, `<slug>-b`
@@ -138,3 +138,49 @@ Total: 26 creatives, 52 files.
 - `spark-a` (P-CARD, badge "Partner lab visit", five tests, GHS 1,500) and `spark-b` (P-STATE, "Fertility testing usually starts with the woman. It doesn't have to.") added, rendered at both sizes with `node build.mjs --only cardion-a,spark-a,spark-b`.
 
 Total: 28 creatives, 56 files.
+
+## Calculators replace the PDF lead magnets (2026-09-02, ad sets 7 to 9)
+
+Five PDF guides came out of the paid campaign and three interactive calculators went in
+(see "Ad sets 1 and 3 to 6: retired" in `../ad-copy.md`). Six new creatives, twelve files.
+Cards reuse `G-CARD` and statements reuse the dark hero, so nothing about the modes
+changed; what is new is a third family of mocks. Where the guide mocks draw a PDF first
+page, the calculator mocks draw a tool screen: a wider card (330 px, height sized to its
+contents rather than a fixed 432 px page), and the footer reads "Free tool" instead of
+"Page 1".
+
+| Id | Mode | 4:5 file | KB | 9:16 file | KB |
+|---|---|---|---|---|---|
+| `genotype-compatibility-a` | G-CARD | `public/ads/2026-09/genotype-compatibility-a-4x5.png` | 156 | `artifacts/meta-campaign-2026-09/creatives/story/genotype-compatibility-a-9x16.png` | 161 |
+| `genotype-compatibility-b` | G-STATE | `public/ads/2026-09/genotype-compatibility-b-4x5.png` | 91 | `artifacts/meta-campaign-2026-09/creatives/story/genotype-compatibility-b-9x16.png` | 95 |
+| `diabetes-risk-a` | G-CARD | `public/ads/2026-09/diabetes-risk-a-4x5.png` | 134 | `artifacts/meta-campaign-2026-09/creatives/story/diabetes-risk-a-9x16.png` | 138 |
+| `diabetes-risk-b` | G-STATE | `public/ads/2026-09/diabetes-risk-b-4x5.png` | 83 | `artifacts/meta-campaign-2026-09/creatives/story/diabetes-risk-b-9x16.png` | 87 |
+| `heart-age-a` | G-CARD | `public/ads/2026-09/heart-age-a-4x5.png` | 132 | `artifacts/meta-campaign-2026-09/creatives/story/heart-age-a-9x16.png` | 136 |
+| `heart-age-b` | G-STATE | `public/ads/2026-09/heart-age-b-4x5.png` | 104 | `artifacts/meta-campaign-2026-09/creatives/story/heart-age-b-9x16.png` | 108 |
+
+Re-render just these six:
+
+```bash
+cd "artifacts/meta-campaign-2026-09/creatives"
+node build.mjs --only genotype-compatibility-a,genotype-compatibility-b,diabetes-risk-a,diabetes-risk-b,heart-age-a,heart-age-b
+```
+
+### The three tool mocks
+
+`build.mjs` gains `genotype`, `risk` and `heartage` in `MOCKS`, plus a `TOOL_MOCKS` set
+that switches the card chrome. Creative rows carry `badge`, `button` and `bar`, which
+already existed on `G-CARD`; the badge doubles as the tag inside the mock head.
+
+- `genotype`: two labelled selects ("You: AS", "Partner: AS") over a three-segment odds
+  bar at 25 / 50 / 25 with AA, AS and SS captions. The split is Mendelian, which is the
+  arithmetic the calculator does.
+- `risk`: the line "Your score: 13 of 26" over a five-band scale (Low, Slightly raised,
+  Moderate, High, Very high) with the third band filled and a slider marker on it.
+- `heartage`: "52" under an "Estimated heart age" label, "Your age 44" beneath it, then
+  two factor rows (Blood pressure, Smoking) with sage bars.
+
+The numbers are interface furniture at mock scale, not results and not population
+statistics. As with the PDF mocks, no reference range, threshold or risk percentage
+appears anywhere on the twelve images.
+
+Total: 34 creatives, 68 files, 8761 KB combined. Every file is under 600 KB.

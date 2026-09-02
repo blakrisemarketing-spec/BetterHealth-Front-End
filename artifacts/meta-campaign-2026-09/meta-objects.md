@@ -33,14 +33,22 @@ Archived (superseded when the lipid profile was added to Cardion; never delivere
 
 | Ad set | Id | Audience | Ad A (card) | Ad B (statement) |
 |---|---|---|---|---|
-| LM1 — Know Your Numbers | `120253272651280020` | 25 to 55, all | ad `120253275168620020` / creative `1368791364903003` | ad `120253275169110020` / creative `2893642194339898` |
 | LM2 — Which Test Do I Need? (quiz) | `120253272653090020` | 25 to 55, all | ad `120253275175320020` / creative `1847194586661444` | ad `120253275176310020` / creative `1578490433766023` |
-| LM3 — Family Health Map | `120253272654150020` | 25 to 55, all | ad `120253275169390020` / creative `1431170132408277` | ad `120253275169680020` / creative `1620202892995270` |
-| LM4 — 90-Day Blood Sugar Log | `120253272655030020` | 30 to 65, all | ad `120253275170020020` / creative `1102957819116464` | ad `120253275170510020` / creative `1382478356745898` |
-| LM5 — Home Blood Pressure 7-Day Guide | `120253272656780020` | 30 to 65, all | ad `120253275170760020` / creative `1352794590177575` | ad `120253275171060020` / creative `1113479521211744` |
-| LM6 — Read Your Lab Results | `120253272658220020` | 25 to 60, all | ad `120253275171310020` / creative `1608116440716117` | ad `120253275171740020` / creative `1032721743087621` |
+| LM7 — Genotype Compatibility Calculator | `120253288613440020` | 22 to 45, all | pending images | pending images |
+| LM8 — Diabetes Risk Score | `120253288613870020` | 30 to 60, all | pending images | pending images |
+| LM9 — Heart Age Check | `120253288614480020` | 30 to 65, all | pending images | pending images |
 
-Destination pattern: `https://www.betterhealth.africa/guides/<slug>/?utm_source=meta&utm_medium=paid_social&utm_campaign=leads_sep26&utm_content=<slug>-<a|b>`. CTA button: Download (guides), Learn More (quiz).
+Retired 2026-09-02 when the PDFs were dropped from the campaign. All paused, all renamed with a "(retired)" prefix in Ads Manager, ads left in place so the copy and images are recoverable:
+
+| Retired ad set | Id |
+|---|---|
+| LM1 — Know Your Numbers | `120253272651280020` |
+| LM3 — Family Health Map | `120253272654150020` |
+| LM4 — 90-Day Blood Sugar Log | `120253272655030020` |
+| LM5 — Home Blood Pressure 7-Day Guide | `120253272656780020` |
+| LM6 — Read Your Lab Results | `120253272658220020` |
+
+Destination pattern: `https://www.betterhealth.africa/tools/<slug>/` for the three calculators and `/guides/which-test/` for the quiz, each with `?utm_source=meta&utm_medium=paid_social&utm_campaign=leads_sep26&utm_content=<slug>-<a|b>`. CTA button: Learn More throughout, since the calculators run on the page rather than handing over a file.
 
 ## Previews checked
 
@@ -54,7 +62,7 @@ Preview links expire; regenerate from Ads Manager or `ads_get_ad_preview` with t
 
 ## Totals after Damzi's decisions (2026-09-02)
 
-2 campaigns · 14 ad sets · 28 live-draft ads (all PAUSED) · 2 archived ads. Daily budget $5.00 per campaign. Meta rejected a $70 spend cap ("must be at least $100.00"), so the 14-day flight is enforced by setting each campaign's `stop_time` to activation + 14 days when it is activated.
+2 campaigns · 17 ad sets, 5 of them retired · 34 live-draft ads once the calculator ads are built (all PAUSED) · 2 archived ads. Daily budget $5.00 per campaign. Meta rejected a $70 spend cap ("must be at least $100.00"), so the 14-day flight is enforced by setting each campaign's `stop_time` to activation + 14 days when it is activated.
 
 ## Things to check in Ads Manager before activation
 

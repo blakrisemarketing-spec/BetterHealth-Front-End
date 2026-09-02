@@ -2,7 +2,7 @@
 /**
  * Builds the September 2026 Meta creatives for BetterHealth Africa.
  *
- *   node build.mjs                      all 22 creatives x 2 sizes (44 files)
+ *   node build.mjs                      all 34 creatives x 2 sizes (68 files)
  *   node build.mjs --only panorama-a,shield-b
  *   node build.mjs --size 4x5           one size only (4x5 | 9x16)
  *   node build.mjs --html-only          write the HTML sources, skip rendering
@@ -387,6 +387,69 @@ const CREATIVES = [
     statement: "H does not mean|emergency.|*L does not mean|fine.*",
     chips: [["Free guide · 3 pages"], ["Get it free", "sage"]],
   },
+
+  // --- Calculators (ad sets 7 to 9). Cards reuse G-CARD with a tool mock, ---
+  // --- statements reuse the dark hero. Copy from ../ad-copy.md. ------------
+  {
+    id: "genotype-compatibility-a",
+    mode: "G-CARD",
+    badge: "Free calculator",
+    button: "Try the calculator",
+    bar: "Free. About 30 seconds.",
+    headline: "Genotype Compatibility Calculator",
+    bullets: [
+      "Choose both genotypes, see the odds",
+      "What AA, AS, SS, SC and AC mean",
+      "About 30 seconds, no account",
+    ],
+    mock: "genotype",
+  },
+  {
+    id: "genotype-compatibility-b",
+    mode: "G-STATE",
+    statement: "A sickling test cannot tell *AS from SS.*",
+    chips: [["Free calculator"], ["Try it free", "sage"]],
+  },
+  {
+    id: "diabetes-risk-a",
+    mode: "G-CARD",
+    badge: "Free score",
+    button: "Get your score",
+    bar: "Free. No blood test needed.",
+    headline: "Diabetes Risk Score",
+    bullets: [
+      "8 questions, no blood test",
+      "Age, waist, activity, family history",
+      "About 2 minutes",
+    ],
+    mock: "risk",
+  },
+  {
+    id: "diabetes-risk-b",
+    mode: "G-STATE",
+    statement: "Eight questions. *No blood test.*",
+    chips: [["Free score · 2 minutes"], ["Get your score", "sage"]],
+  },
+  {
+    id: "heart-age-a",
+    mode: "G-CARD",
+    badge: "Free check",
+    button: "Check heart age",
+    bar: "Free. About one minute.",
+    headline: "Heart Age Check",
+    bullets: [
+      "5 questions, about a minute",
+      "No cholesterol result needed",
+      "See what is moving it most",
+    ],
+    mock: "heartage",
+  },
+  {
+    id: "heart-age-b",
+    mode: "G-STATE",
+    statement: "A heart has an age of its own. *It isn't always yours.*",
+    chips: [["Free check · 1 minute"], ["Check heart age", "sage"]],
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -470,7 +533,70 @@ ${["A", "B", "C"]
   <tr><td>ALT</td><td>${PH("50%")}</td><td></td></tr>
   <tr><td>eGFR</td><td>${PH("60%")}</td><td><span class="flag l">L</span></td></tr>
 </table>`,
+
+  // --- tool-interface mocks (calculators) ----------------------------------
+  // Every number below is interface furniture at mock scale, not a claim: the
+  // genotype split is Mendelian, the score and the heart age are placeholders
+  // sitting inside a drawn screen. No reference range or threshold appears.
+  genotype: () => `
+<div class="t-fields">
+  <div class="t-field">
+    <span class="t-flabel">You</span>
+    <span class="t-sel">AS<i class="t-chev"></i></span>
+  </div>
+  <div class="t-field">
+    <span class="t-flabel">Partner</span>
+    <span class="t-sel">AS<i class="t-chev"></i></span>
+  </div>
+</div>
+<div class="t-rule"></div>
+<div class="t-group">
+  <div class="t-cap">Result</div>
+  <div class="t-seg">
+    <span class="s1" style="flex:1">25%</span>
+    <span class="s2" style="flex:2">50%</span>
+    <span class="s3" style="flex:1">25%</span>
+  </div>
+  <div class="t-segcap">
+    <span style="flex:1">AA</span>
+    <span style="flex:2">AS</span>
+    <span style="flex:1">SS</span>
+  </div>
+</div>`,
+
+  risk: () => `
+<div class="t-score">Your score: <b>13</b> of 26</div>
+<div class="t-rule"></div>
+<div class="t-group band">
+  <div class="t-band">
+    <span></span><span></span><span class="on"></span><span></span><span></span>
+    <i class="t-pin"></i>
+  </div>
+  <div class="t-bandcap">
+    <span>Low</span>
+    <span>Slightly<br />raised</span>
+    <span class="on">Moderate</span>
+    <span>High</span>
+    <span>Very<br />high</span>
+  </div>
+</div>`,
+
+  heartage: () => `
+<div class="t-group">
+  <div class="t-cap">Estimated heart age</div>
+  <div class="t-big">52</div>
+  <div class="t-muted">Your age 44</div>
+</div>
+<div class="t-rule"></div>
+<div class="t-group">
+  <div class="t-frow"><span class="t-fname">Blood pressure</span><span class="t-fbar"><i style="width:74%"></i></span></div>
+  <div class="t-frow"><span class="t-fname">Smoking</span><span class="t-fbar"><i style="width:52%"></i></span></div>
+</div>`,
 };
+
+// Mocks that draw a tool screen rather than a PDF page: wider card, and the
+// footer says "Free tool" instead of "Page 1".
+const TOOL_MOCKS = new Set(["genotype", "risk", "heartage"]);
 
 // In-page fitter: shrinks [data-fit="max,min,maxLines"] elements until they fit their
 // line budget and their box ([data-fit-box] or .frame) stops overflowing.
@@ -545,16 +671,19 @@ function buildHtml(c, sizeKey, templates, baseCss) {
   }
 
   if (c.mode === "G-CARD") {
-    const isQuiz = c.mock === "quiz";
+    const isTool = TOOL_MOCKS.has(c.mock);
+    const badge = c.badge || "Free guide";
     return fill(templates["g-card"], {
       ...common,
       sizeVars: varsToStyle(baseVars),
-      badge: esc(c.badge || "Free guide"),
+      badge: esc(badge),
       button: esc(c.button || "Get it free"),
       bar: esc(c.bar || "Yours on WhatsApp in 30 seconds. No sales call."),
       headline: statementHtml(c.headline),
       bullets: listItems(c.bullets),
-      mockTag: isQuiz ? "Free quiz" : "Free guide",
+      mockClass: isTool ? " tool" : "",
+      mockTag: esc(c.mockTag || badge),
+      mockFoot: isTool ? "Free tool" : "Page 1",
       mockTitle: esc(c.headline),
       mock: MOCKS[c.mock](),
     });

@@ -65,14 +65,14 @@ CBO trade-off: at $5/day Meta will concentrate spend on two or three ad sets wit
 - Conversion location: website. (Meta Instant Forms would give cheaper, lower-intent leads and need no landing page; the MCP cannot create forms, so they are documented in section 11 as a follow-up test, not built.)
 - Placements and geography as Campaign 1.
 
-| Ad set | Guide | Stage | Audience | Format | Leads to |
+| Ad set | Tool | Stage | Audience | Format | Leads to |
 |---|---|---|---|---|---|
-| 1 | The 8 Numbers Every Adult in Ghana Should Know | Top | 25 to 55, all | 3-page PDF | Panorama, Metabolix |
-| 2 | Which Health Test Do I Actually Need? (quiz) | Middle | 25 to 55, all | 7-question quiz | Recommended panel |
-| 3 | Your Family Health Map | Top | 25 to 55, all | 2-page worksheet | Panorama, Cardion, Dialics |
-| 4 | The 90-Day Blood Sugar Log | Middle | 30 to 65, all | 4-page PDF | Dialics |
-| 5 | Home Blood Pressure: The 7-Day Reading Guide | Middle | 30 to 65, all | 2-page PDF | Cardion |
-| 6 | How to Read Your Lab Results | Middle | 25 to 60, all | 3-page PDF | Panorama, Metabolix |
+| 2 | Which Health Test Do I Actually Need? | Middle | 25 to 55, all | 7-question quiz | Recommended panel |
+| 7 | Genotype Compatibility Calculator | Top | 22 to 45, all | Two dropdowns, instant odds | HB Electrophoresis, GHS 170 |
+| 8 | Diabetes Risk Score | Middle | 30 to 60, all | 8 questions, no blood test | Dialics, GHS 350 |
+| 9 | Heart Age Check | Middle | 30 to 65, all | 5 questions, no blood test | Cardion, GHS 475 |
+
+**The five PDF guides were retired from the campaign on 2026-09-02.** Damzi reviewed them and called them weak, which they were: a PDF asks for a phone number against a promise of value later, while a calculator returns a personalised number at the moment curiosity peaks, and that number is itself the argument for the test. The five ad sets are renamed "(retired)" and stay paused; the pages stay live at `/guides/<slug>` for organic search, and their approved ad copy is kept in `ad-copy.md` in case a PDF is ever tested again. The quiz stayed because it already works the way the calculators do.
 
 Two ads per ad set, A card and B statement, as in Campaign 1.
 
@@ -154,7 +154,7 @@ Rules: no more than three unsolicited messages; stop on any "stop"; log outcome 
 ## 9. What was built
 
 Marketing site (this repo, branch `claude/meta-campaign-health-tests-f7038d`):
-- `/guides` index and `/guides/<slug>` pages for the six magnets, with the lead form, gated content, quiz engine, PDF links, and panel CTAs. Prerendered `<head>` per route so the ad link preview renders.
+- `/guides` index and `/guides/<slug>` pages for the six original magnets, plus `/tools` and `/tools/<slug>` for the three calculators. Every one has the lead form, gated result, and a panel or test CTA, with a prerendered `<head>` so the ad link preview renders.
 - `src/lib/leads.js`, the lead client (attribution capture, 10s timeout, `Lead` event on success only).
 - `public/guides/*.pdf`, five printable guides. `scripts/build-guide-pdfs.mjs` regenerates them.
 - `public/ads/2026-09/*`, the 4:5 ad images; 9:16 story versions under `artifacts/meta-campaign-2026-09/creatives/story/`.
@@ -162,7 +162,7 @@ Marketing site (this repo, branch `claude/meta-campaign-health-tests-f7038d`):
 App backend (`BetterHealth-Africa`, branch `claude/marketing-leads-endpoint`):
 - `migrations/172_marketing_leads.sql` and `POST /api/public/marketing-leads` (CORS allowlist, rate limit, Zod, ops email).
 
-Meta ad account `1332108492417465` (all objects PAUSED): two campaigns, 14 ad sets, 28 ads (plus 2 archived Cardion ads from before the lipid profile was added). IDs and preview links in `meta-campaign-2026-09/meta-objects.md`.
+Meta ad account `1332108492417465` (all objects PAUSED): two campaigns, 17 ad sets (5 of them retired), 34 ads (plus 2 archived Cardion ads from before the lipid profile was added). IDs and preview links in `meta-campaign-2026-09/meta-objects.md`.
 
 App backend, same branch: `migrations/173_cardion_add_lipid.sql` adds the lipid profile to the Cardion panel. Apply with 172 on deploy, before Campaign 1 is activated, so the panel page, the ads and the catalogue agree.
 
