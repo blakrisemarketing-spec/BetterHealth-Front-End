@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en" style="{{sizeVars}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080" />
+    <title>{{title}}</title>
+    <style>
+{{baseCss}}
+
+      :root {
+        --canvas: var(--cream);
+      }
+
+      .frame {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .brand-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        width: 300px;
+        height: auto;
+        display: block;
+      }
+
+      .badge {
+        border-radius: 999px;
+        padding: 15px 30px 16px;
+        background: var(--sage);
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .headline-group {
+        margin-top: 40px;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 84px;
+        line-height: 1.02;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+
+      .row {
+        margin-top: 36px;
+        display: grid;
+        grid-template-columns: 1fr 372px;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .bullets {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+      }
+
+      .bullets li {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        color: var(--ink);
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+
+      .bullets .tick {
+        margin-top: 4px;
+      }
+
+      /* PDF first-page mock */
+      .mock-wrap {
+        height: 470px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mock {
+        position: relative;
+        width: 306px;
+        height: 432px;
+        background: #ffffff;
+        border: 1.5px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 26px 48px rgba(43, 58, 58, 0.18), 0 4px 10px rgba(43, 58, 58, 0.06);
+        transform: rotate(-4deg);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .mock-head {
+        flex: none;
+        height: 54px;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+      }
+
+      .mock-head img {
+        width: 66px;
+        height: auto;
+        display: block;
+      }
+
+      .mock-tag {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--sage);
+      }
+
+      .mock-body {
+        padding: 14px 16px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .mock-foot {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 8px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: #a3a9a6;
+      }
+
+      .mock-title {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      .mtable {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .mtable th {
+        background: var(--sage);
+        color: #ffffff;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 7px 7px;
+      }
+
+      .mtable th:first-child {
+        border-radius: 4px 0 0 0;
+      }
+
+      .mtable th:last-child {
+        border-radius: 0 4px 0 0;
+      }
+
+      .mtable td {
+        padding: 8px 7px;
+        border-bottom: 1px solid var(--line);
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--ink);
+        vertical-align: middle;
+        height: 32px;
+      }
+
+      .mtable.center th:not(:first-child),
+      .mtable.center td:not(:first-child) {
+        text-align: center;
+      }
+
+      .ph {
+        display: block;
+        height: 7px;
+        border-radius: 4px;
+        background: #e8e5df;
+      }
+
+      .box {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 1.5px solid #cfcac1;
+        border-radius: 3px;
+        vertical-align: middle;
+      }
+
+      .flag {
+        display: inline-block;
+        min-width: 20px;
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      .flag.h {
+        color: #9f3033;
+        background: #f6e7e7;
+      }
+
+      .flag.l {
+        color: #4e6b8a;
+        background: #e8eef4;
+      }
+
+      /* quiz mock */
+      .q-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--sage);
+      }
+
+      .q-bar {
+        height: 5px;
+        border-radius: 3px;
+        background: #e8e5df;
+        overflow: hidden;
+      }
+
+      .q-bar span {
+        display: block;
+        height: 100%;
+        width: 14.3%;
+        background: var(--sage);
+        border-radius: 3px;
+      }
+
+      .q-text {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        margin: 4px 0 2px;
+      }
+
+      .q-text .ph {
+        height: 9px;
+      }
+
+      .q-opt {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1.5px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 12px;
+      }
+
+      .q-opt b {
+        flex: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--cream);
+        color: var(--sage);
+        font-size: 10px;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+      }
+
+      .q-opt .ph {
+        flex: 1;
+      }
+
+      .cta-band {
+        margin-top: 36px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 36px;
+        align-items: center;
+        min-height: 138px;
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        background: #ffffff;
+        padding: 28px 34px;
+        box-shadow: 0 12px 30px rgba(43, 58, 58, 0.06);
+      }
+
+      .cta-copy {
+        color: var(--ink);
+        font-size: 27px;
+        line-height: 1.22;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 200px;
+        min-height: 84px;
+        border-radius: 8px;
+        background: var(--sage);
+        color: #ffffff;
+        padding: 0 30px;
+        font-size: 24px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .disclaimer {
+        position: absolute;
+        left: var(--pad-x);
+        bottom: calc(var(--pad-bottom) - 42px);
+        width: 820px;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.3;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body data-size="{{size}}" data-mode="g-card">
+    <main class="frame" aria-label="{{title}}">
+      <header class="brand-row">
+        <img class="logo" src="../assets/logo.png" alt="BetterHealth Africa" />
+        <div class="badge">{{badge}}</div>
+      </header>
+
+      <section class="headline-group">
+        <h1 data-fit="84,62,3">{{headline}}</h1>
+      </section>
+
+      <section class="row">
+        <ul class="bullets">
+{{bullets}}
+        </ul>
+        <div class="mock-wrap">
+          <div class="mock" aria-hidden="true">
+            <div class="mock-head">
+              <img src="../assets/logo.png" alt="" />
+              <span class="mock-tag">{{mockTag}}</span>
+            </div>
+            <div class="mock-body">
+              <div class="mock-title">{{mockTitle}}</div>
+{{mock}}
+            </div>
+            <div class="mock-foot"><span>betterhealth.africa</span><span>Page 1</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="cta-copy">{{bar}}</div>
+        <div class="cta">{{button}}</div>
+      </section>
+
+      <div class="disclaimer">General education only. For severe or urgent symptoms, seek medical care.</div>
+    </main>
+{{fitScript}}
+  </body>
+</html>

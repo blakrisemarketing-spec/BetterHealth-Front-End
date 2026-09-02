@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" style="--W:1080px;--H:1920px;--pad-top:930px;--pad-bottom:290px;--logo-w:236px;--pill-pad-y:14px;--pill-pad-x:26px;--hero-justify:center;--photo-h:900px;--photo-pos:left top;--fade-start:62%;--fade-mid:92%">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080" />
+    <title>BetterHealth Africa panorama-b 9x16</title>
+    <style>
+/* Shared base for every BetterHealth Meta creative. Injected into each template by build.mjs. */
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/Quicksand.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --cream: #f5f3ee;
+  --sage: #6b8e7f;
+  --sage-on-dark: #86ab9c;
+  --ink: #2b3a3a;
+  --line: #e0dcd5;
+  --muted: #6b7979;
+  --dark: #0f1724;
+  --dark-card: #1a2537;
+  --pad-x: 90px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+}
+
+body {
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+.frame {
+  position: relative;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+  background: var(--canvas);
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+}
+
+.tick {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--sage);
+  display: grid;
+  place-items: center;
+}
+
+.tick svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+
+      :root {
+        --canvas: var(--dark);
+      }
+
+      body {
+        color: var(--cream);
+      }
+
+      .frame {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Photo variants: the photo owns the top of the canvas and fades into the dark ground. */
+      .photo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: var(--photo-h);
+        background: url("../assets/woman-tablet.jpg") var(--photo-pos) / cover no-repeat;
+      }
+
+      .photo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 36, 0.5) 0%,
+          rgba(15, 23, 36, 0) 22%,
+          rgba(15, 23, 36, 0) var(--fade-start),
+          rgba(15, 23, 36, 0.92) var(--fade-mid),
+          #0f1724 100%
+        );
+      }
+
+      .brand-row {
+        position: relative;
+        display: flex;
+      }
+
+      .logo-pill {
+        display: inline-flex;
+        align-items: center;
+        background: var(--cream);
+        border-radius: 999px;
+        padding: var(--pill-pad-y) var(--pill-pad-x);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+      }
+
+      .logo-pill img {
+        width: var(--logo-w);
+        height: auto;
+        display: block;
+      }
+
+      .hero {
+        position: relative;
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: var(--hero-justify);
+        padding: 36px 0 44px;
+      }
+
+      .statement {
+        margin: 0;
+        font-weight: 600;
+        font-size: var(--statement-size);
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+        color: var(--cream);
+        text-wrap: balance;
+      }
+
+      .statement .accent {
+        color: var(--sage-on-dark);
+      }
+
+      .sub {
+        margin-top: 28px;
+        font-size: 58px;
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -0.015em;
+        color: var(--sage-on-dark);
+        text-wrap: balance;
+      }
+
+      .source {
+        margin-top: 30px;
+        font-size: 26px;
+        font-weight: 500;
+        color: rgba(245, 243, 238, 0.62);
+      }
+
+      .chips {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 72px;
+        padding: 0 30px;
+        border-radius: 999px;
+        font-size: 26px;
+        font-weight: 600;
+        border: 1.5px solid rgba(245, 243, 238, 0.4);
+        color: var(--cream);
+        white-space: nowrap;
+        letter-spacing: -0.01em;
+      }
+
+      .chip.fill {
+        background: var(--cream);
+        color: var(--dark);
+        border-color: var(--cream);
+      }
+
+      .chip.sage {
+        background: var(--sage);
+        color: #ffffff;
+        border-color: var(--sage);
+      }
+
+      .url {
+        position: relative;
+        margin-top: 36px;
+        font-size: 24px;
+        font-weight: 500;
+        color: rgba(245, 243, 238, 0.72);
+        letter-spacing: 0.01em;
+      }
+    </style>
+  </head>
+  <body data-size="9x16" data-mode="p-state" data-photo="1">
+    <main class="frame" aria-label="BetterHealth Africa panorama-b 9x16">
+      <div class="photo" aria-hidden="true"></div>
+      <header class="brand-row">
+        <div class="logo-pill"><img src="../assets/logo.png" alt="BetterHealth Africa" /></div>
+      </header>
+
+      <section class="hero" data-fit-box>
+        <h1 class="statement" data-fit="100,72,4">One visit.<br />Eight results.<br /><span class="accent">Every number<br />explained.</span></h1>
+
+
+      </section>
+
+      <div class="chips">
+        <span class="chip">Complete Health Check</span>
+        <span class="chip fill">GHS 1,100 excl. VAT</span>
+      </div>
+
+      <div class="url">betterhealth.africa</div>
+    </main>
+
+    <script>
+      window.__fit = function () {
+        var out = [];
+        var els = document.querySelectorAll("[data-fit]");
+        for (var i = 0; i < els.length; i++) {
+          var el = els[i];
+          var spec = el.getAttribute("data-fit").split(",").map(Number);
+          var max = spec[0], min = spec[1], maxLines = spec[2] || 4;
+          var box = el.closest("[data-fit-box]") || document.querySelector(".frame");
+          var size = max, lines = 0;
+          for (;;) {
+            el.style.fontSize = size + "px";
+            var lh = parseFloat(getComputedStyle(el).lineHeight);
+            lines = Math.round(el.getBoundingClientRect().height / lh);
+            var ok =
+              lines <= maxLines &&
+              box.scrollHeight <= box.clientHeight + 1 &&
+              el.scrollWidth <= el.clientWidth + 1;
+            if (ok || size <= min) break;
+            size -= 2;
+          }
+          el.setAttribute("data-fit-size", String(size));
+          el.setAttribute("data-fit-lines", String(lines));
+          out.push({ el: el.className || el.tagName.toLowerCase(), size: size, lines: lines, overflow: box.scrollHeight > box.clientHeight + 1 });
+        }
+        return out;
+      };
+      document.fonts.ready.then(function () { window.__fit(); });
+    </script>
+  </body>
+</html>
