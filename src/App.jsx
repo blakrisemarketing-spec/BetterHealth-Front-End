@@ -27,6 +27,8 @@ const ForDoctorsPage = lazy(() => import("./pages/ForDoctors"));
 const ForNutritionistsPage = lazy(() => import("./pages/ForNutritionists"));
 const FoundationPage = lazy(() => import("./pages/Foundation"));
 const WellnessConsultationPage = lazy(() => import("./pages/WellnessConsultation"));
+const GuidesPage = lazy(() => import("./pages/Guides"));
+const GuidePage = lazy(() => import("./pages/Guide"));
 const DeleteMePage = lazy(() => import("./pages/DeleteMe"));
 const ReferralRedirectPage = lazy(() => import("./pages/ReferralRedirect"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
@@ -160,6 +162,9 @@ export default function App() {
             element={<RedirectWithSearch to="/wellness-consultation/wellness" />}
           />
           <Route path="/wellness-consultation/:variant" element={<WellnessConsultationPage />} />
+          {/* Free lead-magnet guides for the Meta lead-gen campaign. */}
+          <Route path="/guides" element={<GuidesPage />} />
+          <Route path="/guides/:slug" element={<GuidePage />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="/ref/:code" element={<ReferralRedirectPage />} />
           <Route path="/ref/:code/:partnerType" element={<ReferralRedirectPage />} />
