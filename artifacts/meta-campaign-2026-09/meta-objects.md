@@ -34,9 +34,9 @@ Archived (superseded when the lipid profile was added to Cardion; never delivere
 | Ad set | Id | Audience | Ad A (card) | Ad B (statement) |
 |---|---|---|---|---|
 | LM2 — Which Test Do I Need? (quiz) | `120253272653090020` | 25 to 55, all | ad `120253275175320020` / creative `1847194586661444` | ad `120253275176310020` / creative `1578490433766023` |
-| LM7 — Genotype Compatibility Calculator | `120253288613440020` | 22 to 45, all | pending images | pending images |
-| LM8 — Diabetes Risk Score | `120253288613870020` | 30 to 60, all | pending images | pending images |
-| LM9 — Heart Age Check | `120253288614480020` | 30 to 65, all | pending images | pending images |
+| LM7 — Genotype Compatibility Calculator | `120253288613440020` | 22 to 45, all | ad `120253288657980020` / creative `4396786157210604` | ad `120253288658090020` / creative `1663965192398186` |
+| LM8 — Diabetes Risk Score | `120253288613870020` | 30 to 60, all | ad `120253288658260020` / creative `1731288687985824` | ad `120253288658420020` / creative `2073833823233383` |
+| LM9 — Heart Age Check | `120253288614480020` | 30 to 65, all | ad `120253288658610020` / creative `1471277254831222` | ad `120253288659000020` / creative `1289255333201568` |
 
 Retired 2026-09-02 when the PDFs were dropped from the campaign. All paused, all renamed with a "(retired)" prefix in Ads Manager, ads left in place so the copy and images are recoverable:
 
@@ -62,13 +62,14 @@ Preview links expire; regenerate from Ads Manager or `ads_get_ad_preview` with t
 
 ## Totals after Damzi's decisions (2026-09-02)
 
-2 campaigns · 17 ad sets, 5 of them retired · 34 live-draft ads once the calculator ads are built (all PAUSED) · 2 archived ads. Daily budget $5.00 per campaign. Meta rejected a $70 spend cap ("must be at least $100.00"), so the 14-day flight is enforced by setting each campaign's `stop_time` to activation + 14 days when it is activated.
+2 campaigns · 17 ad sets, 5 of them retired · 34 live-draft ads, all PAUSED · 2 archived ads. Daily budget $5.00 per campaign. Meta rejected a $70 spend cap ("must be at least $100.00"), so the 14-day flight is enforced by setting each campaign's `stop_time` to activation + 14 days when it is activated.
 
 ## Things to check in Ads Manager before activation
 
 - **Instagram identity.** The API exposes no Instagram account for this ad account (`ads_get_ig_accounts` returns an empty list), so every creative was created with the Page identity only. Open one ad in Ads Manager and confirm the Instagram placement shows the BetterHealth Africa account (or the Page-backed identity); set it there if not.
 - **Images are 4:5.** Stories and reels will be auto-adapted by Meta. The 9:16 versions under `creatives/story/` can be attached per placement in Ads Manager ("Edit placement" on the ad) if the auto-crop is poor.
-- **Destinations return 200 only after the front-end PR is deployed.** As of the build date, the panel pages and the guide pages return 404 on the live site until the prerender changes ship. Do not activate before the deploy check in the plan's launch checklist.
+- **The three `/tools/` destinations are not live yet.** Panel and guide pages are deployed and return 200, but the calculators ship in a second front-end PR. Do not activate LM7, LM8 or LM9 before that deploy lands and each URL returns 200.
+- **Heart age needs a clinician's sign-off before LM9 activates.** The risk bands come from a published chart rather than anything invented, but the population-calibration question is real and worth one review. The other two do not need it: the genotype maths is a Punnett square and the diabetes score is a published instrument that the page labels honestly.
 
 ## Notes from the build
 

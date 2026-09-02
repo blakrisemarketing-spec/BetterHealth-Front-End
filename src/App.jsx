@@ -29,6 +29,8 @@ const FoundationPage = lazy(() => import("./pages/Foundation"));
 const WellnessConsultationPage = lazy(() => import("./pages/WellnessConsultation"));
 const GuidesPage = lazy(() => import("./pages/Guides"));
 const GuidePage = lazy(() => import("./pages/Guide"));
+const ToolsPage = lazy(() => import("./pages/Tools"));
+const ToolPage = lazy(() => import("./pages/Tool"));
 const DeleteMePage = lazy(() => import("./pages/DeleteMe"));
 const ReferralRedirectPage = lazy(() => import("./pages/ReferralRedirect"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
@@ -165,6 +167,11 @@ export default function App() {
           {/* Free lead-magnet guides for the Meta lead-gen campaign. */}
           <Route path="/guides" element={<GuidesPage />} />
           <Route path="/guides/:slug" element={<GuidePage />} />
+          {/* Free interactive calculators. Same lead-capture mechanic as the
+              guides, but the payoff is a number worked out from the visitor's
+              own answers rather than a PDF. */}
+          <Route path="/tools" element={<ToolsPage />} />
+          <Route path="/tools/:slug" element={<ToolPage />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="/ref/:code" element={<ReferralRedirectPage />} />
           <Route path="/ref/:code/:partnerType" element={<ReferralRedirectPage />} />

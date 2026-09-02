@@ -51,6 +51,14 @@ export const SINGLE_TEST_CODES = {
   hiv: "RETROSCREEN",
   "hepatitis-b": "HBSAG",
   "uric-acid": "URIC_ACID",
+  // Verified against the Ghana catalogue on 2026-09-02 for the /tools
+  // calculators: HB Electrophoresis (Sickling Included) GHS 170, Blood
+  // Grouping GHS 75, Sickling Test GHS 75. These have no marketing card in
+  // content.js#singleTests yet; they exist here so joinUrl({ test }) can
+  // deep-link a tool's result straight into onboarding.
+  "hb-electrophoresis": "HB_ELECTRO",
+  "blood-group": "BLOOD_GROUP",
+  sickling: "SICKLING",
 };
 
 // Panel code for a marketing panel slug (falls back to the slug itself).
