@@ -71,6 +71,7 @@ CBO trade-off: at $5/day Meta will concentrate spend on two or three ad sets wit
 | 7 | Genotype Compatibility Calculator | Top | 22 to 45, all | Two dropdowns, instant odds | HB Electrophoresis, GHS 170 |
 | 8 | Diabetes Risk Score | Middle | 30 to 60, all | 8 questions, no blood test | Dialics, GHS 350 |
 | 9 | Heart Age Check | Middle | 30 to 65, all | 5 questions, no blood test | Cardion, GHS 475 |
+| 10 | BMI and Waist Calculator | Top | 25 to 55, all | 3 measurements, no blood test | Panorama, GHS 1,100 |
 
 **The five PDF guides were retired from the campaign on 2026-09-02.** Damzi reviewed them and called them weak, which they were: a PDF asks for a phone number against a promise of value later, while a calculator returns a personalised number at the moment curiosity peaks, and that number is itself the argument for the test. The five ad sets are renamed "(retired)" and stay paused; the pages stay live at `/guides/<slug>` for organic search, and their approved ad copy is kept in `ad-copy.md` in case a PDF is ever tested again. The quiz stayed because it already works the way the calculators do.
 
@@ -162,7 +163,7 @@ Marketing site (this repo, branch `claude/meta-campaign-health-tests-f7038d`):
 App backend (`BetterHealth-Africa`, branch `claude/marketing-leads-endpoint`):
 - `migrations/172_marketing_leads.sql` and `POST /api/public/marketing-leads` (CORS allowlist, rate limit, Zod, ops email).
 
-Meta ad account `1332108492417465` (all objects PAUSED): two campaigns, 17 ad sets (5 of them retired), 34 ads (plus 2 archived Cardion ads from before the lipid profile was added). IDs and preview links in `meta-campaign-2026-09/meta-objects.md`.
+Meta ad account `1332108492417465` (all objects PAUSED): two campaigns, 18 ad sets (5 of them retired), 36 ads (plus 2 archived Cardion ads from before the lipid profile was added). IDs and preview links in `meta-campaign-2026-09/meta-objects.md`.
 
 App backend, same branch: `migrations/173_cardion_add_lipid.sql` adds the lipid profile to the Cardion panel. Apply with 172 on deploy, before Campaign 1 is activated, so the panel page, the ads and the catalogue agree.
 

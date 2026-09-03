@@ -50,17 +50,30 @@ export function bmiPoints(bmi) {
   return 3;
 }
 
+/**
+ * The waist cut-points, in centimetres, that the FINDRISC waist item is built
+ * on. They are the WHO/IDF figures: 94cm and 102cm for men, 80cm and 88cm for
+ * women. Exported so /tools/bmi-waist reads the same four numbers from here
+ * rather than retyping them.
+ *
+ * Note the boundary convention differs between the two tools, on purpose.
+ * FINDRISC prints its middle band as "94 to 102" and "80 to 88", so 102 and 88
+ * score 3 here. WHO states its own bands as "94cm or more" and "102cm or more",
+ * so /tools/bmi-waist reads 102 as substantially increased. Same numbers, two
+ * published conventions, and each tool follows the one it cites.
+ */
+export const WAIST_THRESHOLDS = {
+  male: { increased: 94, substantial: 102 },
+  female: { increased: 80, substantial: 88 },
+};
+
 /** FINDRISC waist item, in centimetres, by sex. */
 export function waistPoints(waistCm, sex) {
   const w = Number(waistCm);
   if (!(w > 0)) return 0;
-  if (sex === "female") {
-    if (w < 80) return 0;
-    if (w <= 88) return 3;
-    return 4;
-  }
-  if (w < 94) return 0;
-  if (w <= 102) return 3;
+  const t = WAIST_THRESHOLDS[sex === "female" ? "female" : "male"];
+  if (w < t.increased) return 0;
+  if (w <= t.substantial) return 3;
   return 4;
 }
 

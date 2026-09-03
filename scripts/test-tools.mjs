@@ -22,6 +22,23 @@ import {
   STEPS as FINDRISC_STEPS,
 } from "../src/data/tools/diabetes-risk.js";
 import {
+  bmiBandFor,
+  bmiBandGeneralFor,
+  waistBandFor,
+  whtrFrom,
+  whtrBandFor,
+  whrFrom,
+  whrBandFor,
+  roundTo,
+  computeBmiWaist,
+  BMI_BANDS_ADJUSTED,
+  BMI_BANDS_GENERAL,
+  WAIST_THRESHOLDS,
+  WHR_THRESHOLDS,
+  WHTR_BMI_CEILING,
+  STEPS as BMI_WAIST_STEPS,
+} from "../src/data/tools/bmi-waist.js";
+import {
   computeHeartAge,
   chartRisk,
   ageKeyFor,
@@ -396,6 +413,301 @@ test("answers sent with the lead stay inside the backend's key and length limits
   assert.ok(keys.length <= 16, `${keys.length} answer keys`);
   for (const k of keys) assert.match(k, /^[a-zA-Z][a-zA-Z0-9_]{0,39}$/);
   for (const v of Object.values(r.answers)) assert.ok(String(v).length <= 200);
+});
+
+console.log("\nBMI and waist (NICE adjusted BMI bands, WHO waist cut-points, WHtR 0.5, Ghanaian WHR)");
+
+test("the waist cut-points are the FINDRISC ones, read from one place", () => {
+  assert.deepEqual(WAIST_THRESHOLDS, {
+    male: { increased: 94, substantial: 102 },
+    female: { increased: 80, substantial: 88 },
+  });
+  // The FINDRISC item still scores exactly as published off the same numbers.
+  assert.equal(waistPoints(93, "male"), 0);
+  assert.equal(waistPoints(94, "male"), 3);
+  assert.equal(waistPoints(103, "male"), 4);
+});
+
+test("the leading BMI bands are NICE's 23 and 27.5, not the general 25 and 30", () => {
+  const id = (n) => bmiBandFor(n).id;
+  assert.equal(id(18.4), "underweight");
+  assert.equal(id(18.5), "healthy");
+  assert.equal(id(22.9), "healthy");
+  assert.equal(id(23.0), "overweight");
+  assert.equal(id(27.4), "overweight");
+  assert.equal(id(27.5), "obese");
+  assert.equal(id(45), "obese");
+  assert.equal(bmiBandFor(null), null);
+});
+
+test("the general-population bands are still available, cut at 18.5, 25.0 and 30.0", () => {
+  const id = (n) => bmiBandGeneralFor(n).id;
+  assert.equal(id(18.4), "underweight");
+  assert.equal(id(18.5), "healthy");
+  assert.equal(id(24.9), "healthy");
+  assert.equal(id(25.0), "overweight");
+  assert.equal(id(29.9), "overweight");
+  assert.equal(id(30.0), "obese");
+});
+
+test("a BMI between 23 and 25 is overweight on NICE and healthy on the general bands", () => {
+  // This gap is the whole reason the tool leads with the adjusted thresholds.
+  for (const n of [23.0, 23.5, 24.9]) {
+    assert.equal(bmiBandFor(n).id, "overweight", `${n} on NICE`);
+    assert.equal(bmiBandGeneralFor(n).id, "healthy", `${n} on general`);
+  }
+});
+
+test("only the healthy band is marked healthy, in both sets", () => {
+  for (const bands of [BMI_BANDS_ADJUSTED, BMI_BANDS_GENERAL]) {
+    assert.deepEqual(bands.filter((b) => b.healthy).map((b) => b.id), ["healthy"]);
+    assert.deepEqual(bands.map((b) => b.id), ["underweight", "healthy", "overweight", "obese"]);
+  }
+});
+
+test("men's waist bands break at 94 and 102, on WHO's 'or more' boundary", () => {
+  const id = (n) => waistBandFor(n, "male").id;
+  assert.equal(id(93), "below");
+  assert.equal(id(94), "increased");
+  assert.equal(id(101), "increased");
+  assert.equal(id(102), "substantial");
+  assert.equal(id(120), "substantial");
+  assert.equal(waistBandFor(94, "male").healthy, false);
+  assert.equal(waistBandFor(93, "male").healthy, true);
+});
+
+test("women's waist bands break at 80 and 88, on the same boundary", () => {
+  const id = (n) => waistBandFor(n, "female").id;
+  assert.equal(id(79), "below");
+  assert.equal(id(80), "increased");
+  assert.equal(id(87), "increased");
+  assert.equal(id(88), "substantial");
+  assert.equal(id(110), "substantial");
+  assert.equal(waistBandFor(0, "female"), null);
+});
+
+test("the band carries the two cut-points it was read against", () => {
+  const men = waistBandFor(96, "male");
+  assert.equal(men.increased, 94);
+  assert.equal(men.substantial, 102);
+  const women = waistBandFor(96, "female");
+  assert.equal(women.increased, 80);
+  assert.equal(women.substantial, 88);
+});
+
+test("waist-to-height is waist over height, banded on NICE's three bands", () => {
+  assert.equal(whtrFrom(85, 170), 0.5);
+  assert.equal(whtrFrom(84, 170), 84 / 170);
+  assert.equal(whtrFrom(85, 0), null);
+  assert.equal(whtrBandFor(0.49).id, "healthy");
+  assert.equal(whtrBandFor(0.5).id, "increased");
+  assert.equal(whtrBandFor(0.59).id, "increased");
+  assert.equal(whtrBandFor(0.6).id, "high");
+  assert.equal(whtrBandFor(0.49).healthy, true);
+  assert.equal(whtrBandFor(0.5).healthy, false);
+  assert.equal(whtrBandFor(0.6).healthy, false);
+});
+
+test("exactly half your height is on the raised side, not the healthy one", () => {
+  // 170cm tall, 85cm waist: the ratio is 0.50 exactly.
+  const r = computeBmiWaist({ heightCm: 170, weightKg: 65, waistCm: 85, sex: "male" });
+  assert.equal(r.whtr, 0.5);
+  assert.equal(r.whtrBand.id, "increased");
+  assert.equal(r.halfHeightCm, 85);
+  assert.equal(r.raised, true);
+});
+
+test("one centimetre less puts the same person back inside the rule", () => {
+  const r = computeBmiWaist({ heightCm: 170, weightKg: 65, waistCm: 84, sex: "male" });
+  assert.equal(r.whtr, 0.49);
+  assert.equal(r.whtrBand.id, "healthy");
+  assert.equal(r.bmiBand.id, "healthy");
+  assert.equal(r.waistBand.id, "below");
+  assert.equal(r.raised, false);
+});
+
+test("waist-to-hip uses the Ghanaian study cut-offs, 0.90 for men and 0.88 for women", () => {
+  assert.deepEqual(WHR_THRESHOLDS, { male: 0.9, female: 0.88 });
+  assert.equal(whrFrom(90, 100), 0.9);
+  assert.equal(whrFrom(90, 0), null);
+  assert.equal(whrBandFor(0.89, "male").id, "under");
+  assert.equal(whrBandFor(0.9, "male").id, "over");
+  assert.equal(whrBandFor(0.87, "female").id, "under");
+  assert.equal(whrBandFor(0.88, "female").id, "over");
+  // The same ratio reads differently for the two sexes, and only that changes.
+  assert.equal(whrBandFor(0.89, "male").healthy, true);
+  assert.equal(whrBandFor(0.89, "female").healthy, false);
+  assert.equal(whrBandFor(null, "male"), null);
+  assert.equal(whrBandFor(0.9, "male").cut, 0.9);
+});
+
+test("hip is optional: skipping it still returns the other three numbers", () => {
+  const skipped = computeBmiWaist({ heightCm: 175, weightKg: 70, waistCm: 82, sex: "male", hipCm: "unknown" });
+  assert.equal(skipped.whr, null);
+  assert.equal(skipped.whrBand, null);
+  assert.equal(skipped.hipCm, null);
+  assert.equal(skipped.answers.hipCm, "skipped");
+  // The other three are all present and the result is still complete.
+  assert.ok(skipped.bmi > 0);
+  assert.equal(skipped.bmiBand.id, "healthy");
+  assert.equal(skipped.waistBand.id, "below");
+  assert.equal(skipped.whtrBand.id, "healthy");
+  assert.equal(skipped.raised, false);
+  // Omitting the field entirely behaves the same way as taking the skip path.
+  const omitted = computeBmiWaist({ heightCm: 175, weightKg: 70, waistCm: 82, sex: "male" });
+  assert.equal(omitted.whr, null);
+  assert.equal(omitted.raised, false);
+});
+
+test("a raised waist-to-hip alone is enough to make the result a raised one", () => {
+  // BMI 22.5, waist 88 under the men's 94, ratio 0.50 exactly... so use a case
+  // where only the hip ratio moves: waist 92 over hips 100 is 0.92, over 0.90.
+  const withHip = computeBmiWaist({ heightCm: 190, weightKg: 79, waistCm: 92, sex: "male", hipCm: 100 });
+  assert.equal(withHip.bmiBand.id, "healthy");
+  assert.equal(withHip.waistBand.id, "below");
+  assert.equal(withHip.whtrBand.id, "healthy");
+  assert.equal(withHip.whr, 0.92);
+  assert.equal(withHip.whrBand.id, "over");
+  assert.equal(withHip.raised, true);
+  assert.equal(withHip.healthInterest, "panorama");
+  // The same person who skips the hip step never sees that, and is not pitched.
+  const without = computeBmiWaist({ heightCm: 190, weightKg: 79, waistCm: 92, sex: "male", hipCm: "unknown" });
+  assert.equal(without.raised, false);
+  assert.equal(without.healthInterest, "bmi-waist");
+});
+
+test("NICE scopes waist-to-height to a BMI under 35, so above that nothing is printed", () => {
+  assert.equal(WHTR_BMI_CEILING, 35);
+  const over = computeBmiWaist({ heightCm: 165, weightKg: 100, waistCm: 110, sex: "female" });
+  assert.equal(over.bmi, 36.7);
+  assert.equal(over.whtrApplies, false);
+  assert.equal(over.whtr, null);
+  assert.equal(over.whtrBand, null);
+  // It is still a raised result, on BMI and waist alone.
+  assert.equal(over.raised, true);
+  // Just under the ceiling it is printed as normal.
+  const under = computeBmiWaist({ heightCm: 165, weightKg: 92, waistCm: 105, sex: "female" });
+  assert.ok(under.bmi < 35);
+  assert.equal(under.whtrApplies, true);
+  assert.ok(under.whtr > 0);
+});
+
+test("every figure is banded at the precision it is printed at", () => {
+  assert.equal(roundTo(22.96, 1), 23);
+  assert.equal(roundTo(0.4999, 2), 0.5);
+  assert.equal(roundTo(null, 2), null);
+  // 165cm / 62.6kg is BMI 22.99, which prints as 23.0. It must not print as
+  // 23.0 and be called the healthy range at the same time.
+  const r = computeBmiWaist({ heightCm: 165, weightKg: 62.6, waistCm: 70, sex: "female" });
+  assert.equal(r.bmi, 23);
+  assert.equal(r.bmiBand.id, "overweight");
+  // 98cm waist over 111.4cm hips is 0.8797, which prints as 0.88.
+  const w = computeBmiWaist({ heightCm: 175, weightKg: 70, waistCm: 98, sex: "female", hipCm: 111.4 });
+  assert.equal(w.whr, 0.88);
+  assert.equal(w.whrBand.id, "over");
+});
+
+test("all four inside their healthy bands returns a healthy result and no panel", () => {
+  const r = computeBmiWaist({ heightCm: 175, weightKg: 68, waistCm: 82, sex: "male", hipCm: 98 });
+  assert.equal(r.bmi, 22.2);
+  assert.equal(r.bmiBand.id, "healthy");
+  assert.equal(r.bmiBandGeneral.id, "healthy");
+  assert.equal(r.waistBand.id, "below");
+  assert.equal(r.whtrBand.id, "healthy");
+  assert.equal(r.whrBand.id, "under");
+  assert.equal(r.raised, false);
+  assert.equal(r.healthInterest, "bmi-waist");
+  assert.equal(r.answers.outcome, "healthy");
+});
+
+test("a healthy BMI with a raised waist is still a raised result, which is the point", () => {
+  // 178cm / 72kg -> BMI 22.7, healthy on NICE's 23 as well as on 25. Waist 82cm
+  // is over the women's 80cm cut-point, so the waist alone carries the result.
+  const r = computeBmiWaist({ heightCm: 178, weightKg: 72, waistCm: 82, sex: "female" });
+  assert.equal(r.bmi, 22.7);
+  assert.equal(r.bmiBand.id, "healthy");
+  assert.equal(r.bmiBand.healthy, true);
+  assert.equal(r.bmiBandGeneral.id, "healthy");
+  assert.equal(r.waistBand.id, "increased");
+  assert.equal(r.whtrBand.id, "healthy", "waist-to-height is fine, so only the waist is raised");
+  assert.equal(r.raised, true);
+  assert.equal(r.healthInterest, "panorama");
+  assert.equal(r.answers.outcome, "raised");
+});
+
+test("the adjusted thresholds catch someone the general ones would wave through", () => {
+  // 165cm / 65kg -> BMI 23.9. Overweight on NICE, healthy on 25 and 30, and
+  // every other measure is fine. Without the adjustment this reads as clear.
+  const r = computeBmiWaist({ heightCm: 165, weightKg: 65, waistCm: 76, sex: "female", hipCm: 96 });
+  assert.equal(r.bmi, 23.9);
+  assert.equal(r.bmiBand.id, "overweight");
+  assert.equal(r.bmiBandGeneral.id, "healthy");
+  assert.equal(r.waistBand.id, "below");
+  assert.equal(r.whtrBand.id, "healthy");
+  assert.equal(r.whrBand.id, "under");
+  assert.equal(r.raised, true);
+  assert.equal(r.healthInterest, "panorama");
+});
+
+test("the same waist on the men's cut-points reads differently, and only that changes", () => {
+  const base = { heightCm: 178, weightKg: 72, waistCm: 86 };
+  const asMan = computeBmiWaist({ ...base, sex: "male" });
+  const asWoman = computeBmiWaist({ ...base, sex: "female" });
+  assert.equal(asMan.bmi, asWoman.bmi);
+  assert.equal(asMan.whtr, asWoman.whtr);
+  assert.equal(asMan.waistBand.id, "below");
+  assert.equal(asWoman.waistBand.id, "increased");
+  assert.equal(asMan.raised, false);
+  assert.equal(asWoman.raised, true);
+});
+
+test("an underweight BMI is a raised result too, not a pass", () => {
+  // 175cm / 55kg -> BMI 18.0, under 18.5. Waist and ratio are both fine.
+  const r = computeBmiWaist({ heightCm: 175, weightKg: 55, waistCm: 70, sex: "male" });
+  assert.equal(r.bmi, 18);
+  assert.equal(r.bmiBand.id, "underweight");
+  assert.equal(r.waistBand.id, "below");
+  assert.equal(r.whtrBand.id, "healthy");
+  assert.equal(r.raised, true);
+  assert.equal(r.healthInterest, "panorama");
+});
+
+test("a substantially increased waist reads that band and recommends the panel", () => {
+  const r = computeBmiWaist({ heightCm: 172, weightKg: 96, waistCm: 108, sex: "male", hipCm: 110 });
+  assert.equal(r.bmiBand.id, "obese");
+  assert.equal(r.waistBand.id, "substantial");
+  // 108/172 = 0.63, which is NICE's top waist-to-height band rather than the middle one.
+  assert.equal(r.whtr, 0.63);
+  assert.equal(r.whtrBand.id, "high");
+  assert.equal(r.whrBand.id, "over");
+  assert.equal(r.raised, true);
+  assert.equal(r.healthInterest, "panorama");
+});
+
+test("the tool asks three screens, the hip one is skippable, and sex rides the waist screen", () => {
+  assert.equal(BMI_WAIST_STEPS.length, 3);
+  assert.deepEqual(BMI_WAIST_STEPS.map((s) => s.id), ["body", "waist", "hip"]);
+  assert.equal(BMI_WAIST_STEPS.filter((s) => s.id === "sex").length, 0, "sex still has its own step");
+  const waist = BMI_WAIST_STEPS.find((s) => s.id === "waist");
+  assert.equal(waist.choice.id, "sex");
+  assert.deepEqual(waist.choice.options.map((o) => o.value), ["male", "female"]);
+  for (const o of waist.choice.options) assert.equal(o.points, undefined);
+  // The hip step is the only one carrying a skip path, and it needs one.
+  const skippable = BMI_WAIST_STEPS.filter((s) => s.unknownLabel);
+  assert.deepEqual(skippable.map((s) => s.id), ["hip"]);
+  assert.equal(skippable[0].field.id, "hipCm");
+});
+
+test("answers sent with the lead stay inside the backend's key and length limits", () => {
+  // The fullest case: every optional field present, plus the optIn the form adds.
+  const r = computeBmiWaist({ heightCm: 165, weightKg: 63, waistCm: 86, sex: "female", hipCm: 98 });
+  const keys = [...Object.keys(r.answers), "optIn"];
+  assert.ok(keys.length <= 16, `${keys.length} answer keys`);
+  for (const k of keys) assert.match(k, /^[a-zA-Z][a-zA-Z0-9_]{0,39}$/);
+  for (const v of Object.values(r.answers)) assert.ok(String(v).length <= 200);
+  assert.equal(r.answers.bmi, "23.1");
+  assert.equal(r.answers.whtr, "0.52");
+  assert.equal(r.answers.whr, "0.88");
 });
 
 console.log(`\n${passed} passed, ${failed} failed\n`);

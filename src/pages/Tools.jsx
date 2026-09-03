@@ -24,7 +24,7 @@ export default function ToolsPage() {
                 Put your own numbers in.
               </h1>
               <p className="text-[16px] sm:text-[18px] text-text-secondary leading-relaxed max-w-[620px]">
-                Three calculators built on published instruments and on the thresholds our own health articles cite.
+                Four calculators built on published instruments and on the thresholds our own health articles cite.
                 Each one works out its answer on your device, and says what it can and cannot settle.
               </p>
             </Reveal>
