@@ -68,10 +68,12 @@ CBO trade-off: at $5/day Meta will concentrate spend on two or three ad sets wit
 | Ad set | Tool | Stage | Audience | Format | Leads to |
 |---|---|---|---|---|---|
 | 2 | Which Health Test Do I Actually Need? | Middle | 25 to 55, all | 7-question quiz | Recommended panel |
-| 7 | Genotype Compatibility Calculator | Top | 22 to 45, all | Two dropdowns, instant odds | HB Electrophoresis, GHS 170 |
-| 8 | Diabetes Risk Score | Middle | 30 to 60, all | 8 questions, no blood test | Dialics, GHS 350 |
-| 9 | Heart Age Check | Middle | 30 to 65, all | 5 questions, no blood test | Cardion, GHS 475 |
-| 10 | BMI and Waist Calculator | Top | 25 to 55, all | 3 measurements, no blood test | Panorama, GHS 1,100 |
+| 7 | Genotype Compatibility Calculator | Top | 22 to 45, all | Two genotypes, then two follow-ups that sharpen the advice | HB Electrophoresis, GHS 170 |
+| 8 | Diabetes Risk Score | Middle | 30 to 60, all | FINDRISC (8), then your week on a plate (7) | Dialics, GHS 350 |
+| 9 | Heart Age Check | Middle | 30 to 65, all | WHO chart (5), then heart habits (7) | Cardion, GHS 475 |
+| 10 | BMI and Waist Calculator | Top | 25 to 55, all | 4 measurements, then lifestyle (5) | Panorama, GHS 1,100 |
+
+**Depth pass, 2026-09-03.** Damzi judged the first calculators thin: correct, but nobody shares a form. Each tool now carries a clearly separated Part 2 that never alters the validated score. The diabetes and BMI tools add a plate builder over seventeen Ghanaian staples (kenkey, banku, fufu, gari, kokonte, tuo zaafi, waakye, jollof, rice, red red, yam, plantain, Hausa koko, tom brown, bread), an asanka proportion picker after Ghana's 2023 dietary guidelines, and vegetables, protein, drinks and fried food. Heart age adds seasoning cubes, salted fish, shito, table salt, activity, alcohol, sleep and family history. Every food line traces to a sourced evidence brief (seven Ghanaian in-vivo GI studies, the national guidelines with servings in sardine tins and soup ladles, 24-hour-urine salt data); foods with no published value say so. Results count up and reveal, and every tool ends on a shareable 1080×1350 card carrying the result and nothing personal, sent via Web Share or a WhatsApp fallback. The ads still say "8 questions" and "5 questions", which remains true of Part 1 and is the honest hook; Part 2 is what they find once they arrive.
 
 **The five PDF guides were retired from the campaign on 2026-09-02.** Damzi reviewed them and called them weak, which they were: a PDF asks for a phone number against a promise of value later, while a calculator returns a personalised number at the moment curiosity peaks, and that number is itself the argument for the test. The five ad sets are renamed "(retired)" and stay paused; the pages stay live at `/guides/<slug>` for organic search, and their approved ad copy is kept in `ad-copy.md` in case a PDF is ever tested again. The quiz stayed because it already works the way the calculators do.
 
