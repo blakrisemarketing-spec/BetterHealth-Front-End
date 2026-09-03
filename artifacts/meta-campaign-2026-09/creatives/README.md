@@ -1,8 +1,8 @@
 # Meta creatives, September 2026
 
 Static images for the two September campaigns in [`../ad-copy.md`](../ad-copy.md)
-(BHA Test Panels and BHA Lead Magnets). 22 creatives, each rendered at 4:5 for feed
-(the upload set) and 9:16 for stories and reels. 68 files in total, 5995 KB combined,
+(BHA Test Panels and BHA Lead Magnets). 36 creatives, each rendered at 4:5 for feed
+(the upload set) and 9:16 for stories and reels. 72 files in total, 9265 KB combined,
 every file under 600 KB.
 
 Ids match the `utm_content` values in the ad copy (`<slug>-a` is the card, `<slug>-b`
@@ -59,7 +59,7 @@ Everything is generated from a data table in `build.mjs` plus three templates in
 
 ```bash
 cd "artifacts/meta-campaign-2026-09/creatives"
-node build.mjs                                   # all 22 creatives, both sizes (44 files)
+node build.mjs                                   # all 36 creatives, both sizes (72 files)
 node build.mjs --size 4x5                        # feed set only
 node build.mjs --only panorama-a,shield-b        # a subset, both sizes
 node build.mjs --html-only                       # rewrite src/ without rendering
@@ -184,3 +184,44 @@ statistics. As with the PDF mocks, no reference range, threshold or risk percent
 appears anywhere on the twelve images.
 
 Total: 34 creatives, 68 files, 8761 KB combined. Every file is under 600 KB.
+
+## Ad set 10: the BMI and waist calculator (2026-09-03)
+
+Two creatives, four files, from "Ad set 10: bmi-waist" in `../ad-copy.md`. The card reuses
+`G-CARD` with a fourth tool mock; the statement reuses the dark hero. Nothing about the
+modes changed.
+
+| Id | Mode | 4:5 file | KB | 9:16 file | KB |
+|---|---|---|---|---|---|
+| `bmi-waist-a` | G-CARD | `public/ads/2026-09/bmi-waist-a-4x5.png` | 141 | `artifacts/meta-campaign-2026-09/creatives/story/bmi-waist-a-9x16.png` | 145 |
+| `bmi-waist-b` | G-STATE | `public/ads/2026-09/bmi-waist-b-4x5.png` | 107 | `artifacts/meta-campaign-2026-09/creatives/story/bmi-waist-b-9x16.png` | 111 |
+
+Re-render just these two:
+
+```bash
+cd "artifacts/meta-campaign-2026-09/creatives"
+node build.mjs --only bmi-waist-a,bmi-waist-b
+```
+
+`bmi-waist-b` carries the line the pair exists for, "Your waist should measure less than
+half your height." It fits at 122 px over four lines, sage from "less".
+
+### The fourth tool mock
+
+`bmiwaist` joins `genotype`, `risk` and `heartage` in `MOCKS` and in `TOOL_MOCKS`, so it
+draws the same wider auto-height card with the "Free tool" footer. It is a results
+readout: a "Your results" cap, then three rows of label, value and a short band bar
+(BMI 26.4, Waist 96 cm, Waist to height 0.52), with "Aim under 0.50" as a small sage note
+under the last row. New CSS in `templates/g-card.html`: `.t-reslist`, `.t-res`, `.t-rname`,
+`.t-rval` and `.t-note`. The bar reuses `.t-fbar` from the heart-age mock.
+
+The three values are interface furniture at mock scale, not results, and they stay inside
+the drawn card. "Aim under 0.50" is the tool's own rule and the takeaway the ad sells; no
+other reference range, threshold or category name appears on either image.
+
+Bullet lists now get the hyphen treatment the statements already had: `listItems` runs the
+`nowrapHyphens` helper extracted from `statementHtml`, so "waist-to-height" wraps as a
+whole token instead of breaking after "waist-to-". No file other than the two new ones was
+re-rendered.
+
+Total: 36 creatives, 72 files, 9265 KB combined. Every file is under 600 KB.

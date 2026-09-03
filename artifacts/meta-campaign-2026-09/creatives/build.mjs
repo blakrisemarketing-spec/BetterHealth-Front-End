@@ -2,7 +2,7 @@
 /**
  * Builds the September 2026 Meta creatives for BetterHealth Africa.
  *
- *   node build.mjs                      all 34 creatives x 2 sizes (68 files)
+ *   node build.mjs                      all 36 creatives x 2 sizes (72 files)
  *   node build.mjs --only panorama-a,shield-b
  *   node build.mjs --size 4x5           one size only (4x5 | 9x16)
  *   node build.mjs --html-only          write the HTML sources, skip rendering
@@ -450,6 +450,28 @@ const CREATIVES = [
     statement: "A heart has an age of its own. *It isn't always yours.*",
     chips: [["Free check · 1 minute"], ["Check heart age", "sage"]],
   },
+
+  // --- Ad set 10: BMI and waist calculator (top of funnel) -----------------
+  {
+    id: "bmi-waist-a",
+    mode: "G-CARD",
+    badge: "Free calculator",
+    button: "Run the numbers",
+    bar: "Free. About one minute.",
+    headline: "BMI and Waist Calculator",
+    bullets: [
+      "Height, weight, waist. One minute.",
+      "BMI, waist range and waist-to-height",
+      "What BMI cannot tell you",
+    ],
+    mock: "bmiwaist",
+  },
+  {
+    id: "bmi-waist-b",
+    mode: "G-STATE",
+    statement: "Your waist should measure *less than half your height.*",
+    chips: [["Free calculator · 1 minute"], ["Run the numbers", "sage"]],
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -461,14 +483,17 @@ const esc = (s) =>
 const TICK =
   '<span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
 
+// Hyphenated tokens ("waist-to-height", "7-day") never break at the hyphen.
+const nowrapHyphens = (html) => html.replace(/(\S+-\S+)/g, '<span class="nowrap">$1</span>');
+
 const listItems = (items) =>
-  items.map((t) => `            <li>${TICK}<span>${esc(t)}</span></li>`).join("\n");
+  items
+    .map((t) => `            <li>${TICK}<span>${nowrapHyphens(esc(t))}</span></li>`)
+    .join("\n");
 
 // *accent* -> sage span, | -> <br>
 function statementHtml(text) {
-  let html = esc(text);
-  // Hyphenated tokens ("7-Day", "check-up") must not break at the hyphen.
-  html = html.replace(/(\S+-\S+)/g, '<span class="nowrap">$1</span>');
+  let html = nowrapHyphens(esc(text));
   html = html.replace(/\*([^*]+)\*/g, '<span class="accent">$1</span>');
   html = html.replace(/\|/g, "<br />");
   return html;
@@ -592,11 +617,22 @@ ${["A", "B", "C"]
   <div class="t-frow"><span class="t-fname">Blood pressure</span><span class="t-fbar"><i style="width:74%"></i></span></div>
   <div class="t-frow"><span class="t-fname">Smoking</span><span class="t-fbar"><i style="width:52%"></i></span></div>
 </div>`,
+
+  bmiwaist: () => `
+<div class="t-group">
+  <div class="t-cap">Your results</div>
+  <div class="t-reslist">
+    <div class="t-res"><span class="t-rname">BMI</span><span class="t-rval">26.4</span><span class="t-fbar"><i style="width:62%"></i></span></div>
+    <div class="t-res"><span class="t-rname">Waist</span><span class="t-rval">96 cm</span><span class="t-fbar"><i style="width:70%"></i></span></div>
+    <div class="t-res"><span class="t-rname">Waist to height</span><span class="t-rval">0.52</span><span class="t-fbar"><i style="width:52%"></i></span></div>
+    <div class="t-note">Aim under 0.50</div>
+  </div>
+</div>`,
 };
 
 // Mocks that draw a tool screen rather than a PDF page: wider card, and the
 // footer says "Free tool" instead of "Page 1".
-const TOOL_MOCKS = new Set(["genotype", "risk", "heartage"]);
+const TOOL_MOCKS = new Set(["genotype", "risk", "heartage", "bmiwaist"]);
 
 // In-page fitter: shrinks [data-fit="max,min,maxLines"] elements until they fit their
 // line budget and their box ([data-fit-box] or .frame) stops overflowing.

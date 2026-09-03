@@ -440,6 +440,32 @@ Audience: Ghana, 30 to 65, all genders. Sells Cardion at GHS 475.
 - Description: `Free. No blood test needed.`
 - CTA: Learn More
 
+### Ad set 10: bmi-waist, "BMI and Waist Calculator" (top of funnel)
+
+Audience: Ghana, 25 to 55, all genders. Sells Panorama at GHS 1,100 when the result is raised, and deliberately sells nothing when it is not.
+
+Added 2026-09-03. Damzi named a BMI calculator in his original list and it was left off the options put to him, which was my error rather than his change of mind. Plain BMI is a commodity, so the tool earns its keep two ways: it adds waist-to-height, which almost nobody publishes, and it states what BMI cannot do, which almost nobody admits.
+
+**Ad A (card)**
+- Primary text:
+  Height, weight, waist. About a minute, no blood test. The free BMI and Waist Calculator returns three numbers: your BMI against the WHO ranges, your waist against the thresholds clinicians use, and your waist-to-height ratio.
+
+  That last one is the rule most people have never heard. Your waist should measure less than half your height.
+
+  The result also says what BMI cannot tell you, which is more than most calculators admit.
+- Headline: `BMI, waist and the ratio` (23)
+- Description: `Free. Three numbers in one minute.`
+- CTA: Learn More
+
+**Ad B (statement)**
+- Primary text:
+  Your waist should measure less than half your height. One line, nothing needed but a tape measure, and it says something BMI on its own cannot.
+
+  Free calculator: BMI against the WHO ranges, waist against the thresholds clinicians use, and the waist-to-height ratio. About a minute, no blood test.
+- Headline: `Waist under half your height` (28)
+- Description: `Free BMI and waist calculator.`
+- CTA: Learn More
+
 ---
 
 ## Compliance pass (Meta, health, personal attributes)

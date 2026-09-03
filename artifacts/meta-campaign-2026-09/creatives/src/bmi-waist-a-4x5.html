@@ -1,11 +1,79 @@
 <!doctype html>
-<html lang="en" style="{{sizeVars}}">
+<html lang="en" style="--W:1080px;--H:1350px;--pad-top:84px;--pad-bottom:84px">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080" />
-    <title>{{title}}</title>
+    <title>BetterHealth Africa bmi-waist-a 4x5</title>
     <style>
-{{baseCss}}
+/* Shared base for every BetterHealth Meta creative. Injected into each template by build.mjs. */
+@font-face {
+  font-family: "Quicksand";
+  src: url("../assets/Quicksand.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --cream: #f5f3ee;
+  --sage: #6b8e7f;
+  --sage-on-dark: #86ab9c;
+  --ink: #2b3a3a;
+  --line: #e0dcd5;
+  --muted: #6b7979;
+  --dark: #0f1724;
+  --dark-card: #1a2537;
+  --pad-x: 90px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+}
+
+body {
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+.frame {
+  position: relative;
+  width: var(--W);
+  height: var(--H);
+  overflow: hidden;
+  background: var(--canvas);
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+}
+
+.tick {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--sage);
+  display: grid;
+  place-items: center;
+}
+
+.tick svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
 
       :root {
         --canvas: var(--cream);
@@ -617,43 +685,83 @@
       }
     </style>
   </head>
-  <body data-size="{{size}}" data-mode="g-card">
-    <main class="frame" aria-label="{{title}}">
+  <body data-size="4x5" data-mode="g-card">
+    <main class="frame" aria-label="BetterHealth Africa bmi-waist-a 4x5">
       <header class="brand-row">
         <img class="logo" src="../assets/logo.png" alt="BetterHealth Africa" />
-        <div class="badge">{{badge}}</div>
+        <div class="badge">Free calculator</div>
       </header>
 
       <section class="headline-group">
-        <h1 data-fit="84,62,3">{{headline}}</h1>
+        <h1 data-fit="84,62,3">BMI and Waist Calculator</h1>
       </section>
 
       <section class="row">
         <ul class="bullets">
-{{bullets}}
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Height, weight, waist. One minute.</span></li>
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>BMI, waist range and <span class="nowrap">waist-to-height</span></span></li>
+            <li><span class="tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>What BMI cannot tell you</span></li>
         </ul>
         <div class="mock-wrap">
-          <div class="mock{{mockClass}}" aria-hidden="true">
+          <div class="mock tool" aria-hidden="true">
             <div class="mock-head">
               <img src="../assets/logo.png" alt="" />
-              <span class="mock-tag">{{mockTag}}</span>
+              <span class="mock-tag">Free calculator</span>
             </div>
             <div class="mock-body">
-              <div class="mock-title">{{mockTitle}}</div>
-{{mock}}
+              <div class="mock-title">BMI and Waist Calculator</div>
+
+<div class="t-group">
+  <div class="t-cap">Your results</div>
+  <div class="t-reslist">
+    <div class="t-res"><span class="t-rname">BMI</span><span class="t-rval">26.4</span><span class="t-fbar"><i style="width:62%"></i></span></div>
+    <div class="t-res"><span class="t-rname">Waist</span><span class="t-rval">96 cm</span><span class="t-fbar"><i style="width:70%"></i></span></div>
+    <div class="t-res"><span class="t-rname">Waist to height</span><span class="t-rval">0.52</span><span class="t-fbar"><i style="width:52%"></i></span></div>
+    <div class="t-note">Aim under 0.50</div>
+  </div>
+</div>
             </div>
-            <div class="mock-foot"><span>betterhealth.africa</span><span>{{mockFoot}}</span></div>
+            <div class="mock-foot"><span>betterhealth.africa</span><span>Free tool</span></div>
           </div>
         </div>
       </section>
 
       <section class="cta-band">
-        <div class="cta-copy">{{bar}}</div>
-        <div class="cta">{{button}}</div>
+        <div class="cta-copy">Free. About one minute.</div>
+        <div class="cta">Run the numbers</div>
       </section>
 
       <div class="disclaimer">General education only. For severe or urgent symptoms, seek medical care.</div>
     </main>
-{{fitScript}}
+
+    <script>
+      window.__fit = function () {
+        var out = [];
+        var els = document.querySelectorAll("[data-fit]");
+        for (var i = 0; i < els.length; i++) {
+          var el = els[i];
+          var spec = el.getAttribute("data-fit").split(",").map(Number);
+          var max = spec[0], min = spec[1], maxLines = spec[2] || 4;
+          var box = el.closest("[data-fit-box]") || document.querySelector(".frame");
+          var size = max, lines = 0;
+          for (;;) {
+            el.style.fontSize = size + "px";
+            var lh = parseFloat(getComputedStyle(el).lineHeight);
+            lines = Math.round(el.getBoundingClientRect().height / lh);
+            var ok =
+              lines <= maxLines &&
+              box.scrollHeight <= box.clientHeight + 1 &&
+              el.scrollWidth <= el.clientWidth + 1;
+            if (ok || size <= min) break;
+            size -= 2;
+          }
+          el.setAttribute("data-fit-size", String(size));
+          el.setAttribute("data-fit-lines", String(lines));
+          out.push({ el: el.className || el.tagName.toLowerCase(), size: size, lines: lines, overflow: box.scrollHeight > box.clientHeight + 1 });
+        }
+        return out;
+      };
+      document.fonts.ready.then(function () { window.__fit(); });
+    </script>
   </body>
 </html>

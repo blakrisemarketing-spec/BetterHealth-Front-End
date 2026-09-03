@@ -1018,5 +1018,65 @@
         "overflow": false
       }
     ]
+  },
+  {
+    "id": "bmi-waist-a",
+    "mode": "G-CARD",
+    "size": "4x5",
+    "file": "public/ads/2026-09/bmi-waist-a-4x5.png",
+    "kb": 141,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "bmi-waist-a",
+    "mode": "G-CARD",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/bmi-waist-a-9x16.png",
+    "kb": 145,
+    "fit": [
+      {
+        "el": "h1",
+        "size": 84,
+        "lines": 2,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "bmi-waist-b",
+    "mode": "G-STATE",
+    "size": "4x5",
+    "file": "public/ads/2026-09/bmi-waist-b-4x5.png",
+    "kb": 107,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 122,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "id": "bmi-waist-b",
+    "mode": "G-STATE",
+    "size": "9x16",
+    "file": "artifacts/meta-campaign-2026-09/creatives/story/bmi-waist-b-9x16.png",
+    "kb": 111,
+    "fit": [
+      {
+        "el": "statement",
+        "size": 122,
+        "lines": 4,
+        "overflow": false
+      }
+    ]
   }
 ]
