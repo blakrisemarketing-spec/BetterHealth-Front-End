@@ -3,23 +3,28 @@ import GenotypeResult, { GenotypeQuestions } from "./GenotypeTool";
 import DiabetesRiskResult from "./DiabetesRiskTool";
 import HeartAgeResult from "./HeartAgeTool";
 import BmiWaistResult from "./BmiWaistTool";
-import { STEPS as FINDRISC_STEPS, computeFindrisc } from "../../data/tools/diabetes-risk";
-import { STEPS as HEART_STEPS, computeHeartAge } from "../../data/tools/heart-age";
-import { STEPS as BMI_WAIST_STEPS, computeBmiWaist } from "../../data/tools/bmi-waist";
+import {
+  BMI_PARTS,
+  DIABETES_PARTS,
+  HEART_PARTS,
+  computeBmiFull,
+  computeDiabetesFull,
+  computeHeartFull,
+} from "../../data/tools/compose";
 
 /**
- * Slug -> question UI. The genotype tool answers on one screen; the other two
- * are long enough to need one question per screen, so they drive the shared
- * Stepper from their own STEPS and hand back a scored result.
+ * Slug -> question UI. The genotype tool answers on two screens of its own;
+ * the other three drive the shared Stepper through two parts each. Part 1 is
+ * the validated instrument's own STEPS, untouched; Part 2 is the descriptive
+ * section, and compute*Full staples the two together without changing the
+ * instrument's output (src/data/tools/compose.js).
  */
 export function ToolQuestions({ slug, onFinish }) {
   if (slug === "genotype-compatibility") return <GenotypeQuestions onFinish={onFinish} />;
   if (slug === "diabetes-risk")
-    return <Stepper steps={FINDRISC_STEPS} onFinish={(v) => onFinish(computeFindrisc(v))} />;
-  if (slug === "heart-age")
-    return <Stepper steps={HEART_STEPS} onFinish={(v) => onFinish(computeHeartAge(v))} />;
-  if (slug === "bmi-waist")
-    return <Stepper steps={BMI_WAIST_STEPS} onFinish={(v) => onFinish(computeBmiWaist(v))} />;
+    return <Stepper parts={DIABETES_PARTS} onFinish={(v) => onFinish(computeDiabetesFull(v))} />;
+  if (slug === "heart-age") return <Stepper parts={HEART_PARTS} onFinish={(v) => onFinish(computeHeartFull(v))} />;
+  if (slug === "bmi-waist") return <Stepper parts={BMI_PARTS} onFinish={(v) => onFinish(computeBmiFull(v))} />;
   return null;
 }
 

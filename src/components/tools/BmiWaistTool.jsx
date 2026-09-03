@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
+import { bmiShareSpec } from "../../data/tools/share-card";
 import ToolCta from "./ToolCta";
+import ShareResult from "./ShareResult";
+import PlateSummary, { Cite, LifestyleNote } from "./PlateSummary";
+import { CountUp, ResultCard, RevealAfter } from "./ResultReveal";
 
 /** Centimetres with a decimal only when there is one, so 85 does not print as 85.0. */
 function cm(n) {
@@ -156,6 +160,57 @@ function NothingToActOn() {
   );
 }
 
+/** Part 2, shown back as logged and read against the guidance: a normal day, the last year, the short plate. */
+function LifestyleSection({ lifestyle }) {
+  if (!lifestyle) return null;
+  const { activity, activityGuidance, weightChange, weightChangeNote, plate } = lifestyle;
+  return (
+    <>
+      {(activity || weightChange) && (
+        <div className="rounded-card border border-border bg-card shadow-sm p-5 sm:p-7 mb-4">
+          <span className="block text-[12px] font-bold text-primary uppercase tracking-[0.12em] mb-1">
+            Part 2: a normal day and the last year
+          </span>
+          <h3 className="text-[1.15rem] sm:text-[1.3rem] font-extrabold text-text-primary font-heading leading-snug mb-3">
+            What you told us about a normal day
+          </h3>
+          <LifestyleNote scoreName="BMI and waist result" />
+          <ul className="divide-y divide-border border-y border-border">
+            {activity && (
+              <li className="py-3">
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="text-[14px] font-semibold text-text-primary">A normal day</span>
+                  <span className="text-[15px] font-extrabold text-primary font-heading text-right">{activity.label}</span>
+                </div>
+                {activityGuidance && (
+                  <>
+                    <p className="text-[13px] text-text-secondary leading-relaxed mt-1.5">{activityGuidance.text}</p>
+                    <Cite>{activityGuidance.cite}</Cite>
+                  </>
+                )}
+              </li>
+            )}
+            {weightChange && (
+              <li className="py-3">
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="text-[14px] font-semibold text-text-primary">Weight over the last twelve months</span>
+                  <span className="text-[15px] font-extrabold text-primary font-heading text-right">
+                    {weightChange.label}
+                  </span>
+                </div>
+                {weightChangeNote && (
+                  <p className="text-[13px] text-text-secondary leading-relaxed mt-1.5">{weightChangeNote}</p>
+                )}
+              </li>
+            )}
+          </ul>
+        </div>
+      )}
+      <PlateSummary plate={plate} scoreName="BMI and waist result" short eyebrow="Part 2: a week on your plate" />
+    </>
+  );
+}
+
 /** The result screen, rendered only after a successful lead submit. */
 export default function BmiWaistResult({ result, tool, panel }) {
   const {
@@ -173,6 +228,7 @@ export default function BmiWaistResult({ result, tool, panel }) {
     whrBand,
     halfHeightCm,
     raised,
+    lifestyle,
   } = result;
 
   let headline;
@@ -186,22 +242,26 @@ export default function BmiWaistResult({ result, tool, panel }) {
 
   return (
     <div>
-      <div className="rounded-card border border-border bg-card shadow-sm p-5 sm:p-7 mb-4">
-        <span className="block text-[12px] font-bold text-primary uppercase tracking-[0.12em] mb-1">Your numbers</span>
-        <h2 className="text-[1.3rem] sm:text-[1.6rem] font-extrabold text-text-primary font-heading leading-tight mb-2">
-          {headline}
-        </h2>
-        {whtrApplies && (
-          <p className="text-[15px] text-text-secondary leading-relaxed mb-4">
-            Your waist is {cm(waistCm)}cm and half your height is {cm(halfHeightCm)}cm. You can redo that comparison any
-            time with a tape measure and no calculator.
-          </p>
-        )}
+      <ResultCard>
+        <span className="block text-[12px] font-bold text-primary uppercase tracking-[0.12em] mb-1">
+          Part 1: your numbers
+        </span>
+        <RevealAfter delay={0.85}>
+          <h2 className="text-[1.3rem] sm:text-[1.6rem] font-extrabold text-text-primary font-heading leading-tight mb-2">
+            {headline}
+          </h2>
+          {whtrApplies && (
+            <p className="text-[15px] text-text-secondary leading-relaxed mb-4">
+              Your waist is {cm(waistCm)}cm and half your height is {cm(halfHeightCm)}cm. You can redo that comparison
+              any time with a tape measure and no calculator.
+            </p>
+          )}
+        </RevealAfter>
 
         <ul className="divide-y divide-border border-y border-border mb-4">
           <NumberRow
             label="BMI"
-            value={bmi.toFixed(1)}
+            value={<CountUp value={bmi} decimals={1} />}
             band={bmiBand}
             clue={
               bmiBand.id === bmiBandGeneral.id
@@ -211,7 +271,7 @@ export default function BmiWaistResult({ result, tool, panel }) {
           />
           <NumberRow
             label="Waist"
-            value={cm(waistCm)}
+            value={<CountUp value={waistCm} decimals={Number.isInteger(waistCm) ? 0 : 1} />}
             unit="cm"
             band={waistBand}
             clue={`WHO's cut-points for ${sex === "female" ? "women" : "men"} are ${waistBand.increased}cm and ${waistBand.substantial}cm. A clue about how much fat is stored around the organs.`}
@@ -219,7 +279,7 @@ export default function BmiWaistResult({ result, tool, panel }) {
           {whtrApplies ? (
             <NumberRow
               label="Waist to height"
-              value={whtr.toFixed(2)}
+              value={<CountUp value={whtr} decimals={2} />}
               band={whtrBand}
               clue="NICE puts 0.4 to 0.49 in the healthy band, 0.5 to 0.59 increased and 0.6 or above high, and applies the same bands to both sexes and all ethnicities."
             />
@@ -229,52 +289,60 @@ export default function BmiWaistResult({ result, tool, panel }) {
           {whrBand && (
             <NumberRow
               label="Waist to hip"
-              value={whr.toFixed(2)}
+              value={<CountUp value={whr} decimals={2} />}
               band={whrBand}
               clue={`Your ${cm(waistCm)}cm waist over your ${cm(hipCm)}cm hips, against a cut-off of ${whrBand.cut.toFixed(2)} worked out in Ghanaians.`}
             />
           )}
         </ul>
 
-        {whrBand ? (
-          <p className="text-[13px] text-text-secondary leading-relaxed mb-4">
-            Be careful how much weight you give that last one. A case-control study of 1,221 adults in urban Ghana,
-            looking at type 2 diabetes, found waist-to-hip ratio outperformed both BMI and waist circumference, and
-            reported its own best values as 0.90 for men and 0.88 for women. Those are study-derived optima against one
-            outcome in one sample, and no guideline body has adopted them. They are here because they are the only
-            cut-off on this page derived in Ghanaians at all.
-          </p>
-        ) : (
-          <p className="text-[13px] text-text-secondary leading-relaxed mb-4">
-            You skipped the hip measurement, which is fine. It is worth coming back for, because waist-to-hip is the
-            only number here whose cut-off was worked out in Ghanaians rather than borrowed from Europe.
-          </p>
-        )}
+        <RevealAfter>
+          {whrBand ? (
+            <p className="text-[13px] text-text-secondary leading-relaxed mb-4">
+              Be careful how much weight you give that last one. A case-control study of 1,221 adults in urban Ghana,
+              looking at type 2 diabetes, found waist-to-hip ratio outperformed both BMI and waist circumference, and
+              reported its own best values as 0.90 for men and 0.88 for women. Those are study-derived optima against
+              one outcome in one sample, and no guideline body has adopted them. They are here because they are the
+              only cut-off on this page derived in Ghanaians at all.
+            </p>
+          ) : (
+            <p className="text-[13px] text-text-secondary leading-relaxed mb-4">
+              You skipped the hip measurement, which is fine. It is worth coming back for, because waist-to-hip is the
+              only number here whose cut-off was worked out in Ghanaians rather than borrowed from Europe.
+            </p>
+          )}
 
-        <div className="rounded-card border-l-4 border-primary bg-primary-bg px-4 py-3 text-[14px] text-text-primary leading-relaxed">
-          {raised
-            ? "A raised BMI or waist is a reason to look at the numbers underneath, not a diagnosis. It says something may be worth measuring properly, not that anything is wrong."
-            : "These are screening measurements, not a clean bill of health. They describe your shape, which is a useful clue and needs context alongside your blood pressure and your blood results."}
-        </div>
-      </div>
+          <div className="rounded-card border-l-4 border-primary bg-primary-bg px-4 py-3 text-[14px] text-text-primary leading-relaxed">
+            {raised
+              ? "A raised BMI or waist is a reason to look at the numbers underneath, not a diagnosis. It says something may be worth measuring properly, not that anything is wrong."
+              : "These are screening measurements, not a clean bill of health. They describe your shape, which is a useful clue and needs context alongside your blood pressure and your blood results."}
+          </div>
+        </RevealAfter>
+      </ResultCard>
 
-      <WhyTheseThresholds bmi={bmi} bmiBand={bmiBand} bmiBandGeneral={bmiBandGeneral} />
+      <RevealAfter delay={1.3}>
+        <ShareResult spec={bmiShareSpec(result)} />
 
-      <WhatBmiMisses />
+        <LifestyleSection lifestyle={lifestyle} />
 
-      {raised ? <ToolCta cta={tool.cta} panel={panel} /> : <NothingToActOn />}
+        <WhyTheseThresholds bmi={bmi} bmiBand={bmiBand} bmiBandGeneral={bmiBandGeneral} />
 
-      <p className="mt-4 text-[13px] text-text-secondary leading-relaxed">
-        Read more:{" "}
-        <Link to="/blog/preventive-health-screening-ghana" className="text-primary font-semibold">
-          which tests matter and how often to screen
-        </Link>{" "}
-        and{" "}
-        <Link to="/blog/prediabetes-warning-signs" className="text-primary font-semibold">
-          the prediabetes warning window
-        </Link>
-        .
-      </p>
+        <WhatBmiMisses />
+
+        {raised ? <ToolCta cta={tool.cta} panel={panel} /> : <NothingToActOn />}
+
+        <p className="mt-4 text-[13px] text-text-secondary leading-relaxed">
+          Read more:{" "}
+          <Link to="/blog/preventive-health-screening-ghana" className="text-primary font-semibold">
+            which tests matter and how often to screen
+          </Link>{" "}
+          and{" "}
+          <Link to="/blog/prediabetes-warning-signs" className="text-primary font-semibold">
+            the prediabetes warning window
+          </Link>
+          .
+        </p>
+      </RevealAfter>
     </div>
   );
 }

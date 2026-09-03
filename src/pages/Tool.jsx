@@ -5,7 +5,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import GradientOrb from "../components/ui/GradientOrb";
-import GuideContent, { GuideDisclaimer } from "../components/guides/GuideContent";
+import GuideContent, { GuideDisclaimer, GuideSources } from "../components/guides/GuideContent";
 import ToolLeadForm from "../components/tools/ToolLeadForm";
 import ToolResult, { ToolQuestions } from "../components/tools/ToolRunner";
 import { getTool, TOOL_TRUST_LINE } from "../data/tools";
@@ -129,7 +129,11 @@ function ToolView({ tool, panel }) {
         <section id="tool-result" className="px-5 sm:px-6 py-10 bg-base border-t border-border scroll-mt-20">
           <div className="max-w-[720px] mx-auto">
             <ToolResult slug={tool.slug} result={result} tool={tool} panel={panel} />
-            <div className="mt-6">
+            {/* The Part 2 lines cite studies by short name; the full list is the page's own Sources. */}
+            <div className="mt-8">
+              <GuideSources sources={tool.sources} />
+            </div>
+            <div className="mt-2">
               <GuideDisclaimer />
             </div>
             <p className="mt-3 text-[12px] text-text-muted leading-relaxed">

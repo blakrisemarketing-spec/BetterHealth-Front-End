@@ -64,6 +64,11 @@
 // Blood pressure category wording quoted in the copy comes from the site's own
 // vetted article, src/data/blog/posts/high-blood-pressure-silent-killer.js.
 
+// Part 2 of this tool ("Heart habits") lives in heart-habits.js and never
+// touches the chart reading. Its sources are spread into this tool's list
+// below so they render on the page.
+import { HABIT_SOURCES } from "./heart-habits.js";
+
 /** True when the risk bands come from a real published chart rather than a fallback. */
 export const HEART_AGE_IS_CALIBRATED = true;
 
@@ -400,18 +405,18 @@ export default {
   shortTitle: "Heart Age Check",
   eyebrow: "Free 2-minute calculator",
   promise:
-    "Five questions, no blood test. We read the WHO risk chart for Western Sub-Saharan Africa, the region Ghana sits in. You get the cell your answers land in, what is pushing you there, and the age at which someone with healthy numbers reaches the same cell.",
+    "Part 1 is five questions and no blood test: we read the WHO risk chart for Western Sub-Saharan Africa, the region Ghana sits in. Part 2 is seven taps about the habits the chart cannot see, from seasoning cubes to sleep. You get the cell your answers land in, what is pushing you there, the age at which someone with healthy numbers reaches the same cell, and a card you can share.",
   description:
     "Read your 10-year heart risk off the WHO chart for Western Sub-Saharan Africa. Five questions, no blood test, and it shows what is driving the number.",
-  format: "5 questions, instant result",
+  format: "5 chart questions, then 7 heart habits",
   bullets: [
     "The WHO 2019 chart for Western Sub-Saharan Africa, the region Ghana sits in",
     "No cholesterol result needed, because this chart uses BMI instead",
-    "Your risk band and the factors pushing you into it",
-    "What the chart covers, and what it openly misses",
+    "Part 2: salt, activity, drinks, sleep and family history, which the chart cannot see",
+    "A result card you can share on WhatsApp",
   ],
   intro:
-    "Five questions. There is no blood test in this one: WHO publishes a version of its risk chart that uses BMI in place of a cholesterol result, and that is the chart we read.",
+    "Two parts. Part 1 is five questions and no blood test: WHO publishes a version of its risk chart that uses BMI in place of a cholesterol result, and that is the chart we read. Part 2 logs the habits the chart has no line for, and never changes the reading.",
   sections: [
     {
       heading: "Which chart this is",
@@ -448,6 +453,7 @@ export default {
     { label: "High blood pressure in Ghana: the silent killer", url: "/blog/high-blood-pressure-silent-killer" },
     { label: "Lipid profile: how to read your cholesterol results", url: "/blog/lipid-profile-cholesterol-test" },
     { label: "Home blood pressure: the 7-day reading guide", url: "/guides/home-blood-pressure-guide" },
+    ...HABIT_SOURCES,
   ],
   cta: {
     kind: "panel",

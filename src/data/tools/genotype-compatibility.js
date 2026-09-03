@@ -155,24 +155,119 @@ export function computeGenotype({ you, partner }) {
   };
 }
 
+// ------------------------- Part 2: two follow-up questions -------------------
+//
+// The Punnett square takes exactly two inputs and nothing below changes it.
+// These two answers change the ADVICE: how firmly the result recommends an
+// electrophoresis test, and what the family-history line says. The wording
+// draws on the same three articles as the rest of this file.
+
+export const GENOTYPE_BASIS_OPTIONS = [
+  {
+    value: "electrophoresis",
+    label: "An electrophoresis or HPLC report",
+    hint: "A lab report that names the genotype, for both of us",
+  },
+  { value: "sickling", label: "A sickling test only", hint: "Positive or negative, with no letters" },
+  { value: "clinic", label: "A clinic told us, no paperwork", hint: "Said out loud, never written down" },
+  { value: "guess", label: "Guessing, or going from memory", hint: "Or a test so long ago the report is gone" },
+];
+
+export const FAMILY_SCD_OPTIONS = [
+  { value: "yes", label: "Yes, in one or both families" },
+  { value: "no", label: "No, as far as we know" },
+  { value: "unsure", label: "Not sure" },
+];
+
+// The line under the odds explaining that these two answers moved the advice
+// and nothing else. Every result screen carries it.
+export const FOLLOW_UP_NOTE =
+  "The two follow-up questions do not change the odds above, which come from the two genotypes alone; they change what we suggest doing next.";
+
+/**
+ * Turn the two follow-up answers into the next-step copy.
+ *
+ * @param {{ you, partner, basis, familyScd }} input
+ * @returns {{ id, strength: "standard" | "strong", headline, body, familyLine, ctaLabel }}
+ */
+export function genotypeAdvice({ you, partner, basis, familyScd }) {
+  const anyUnknown = you === "unknown" || partner === "unknown";
+
+  let id = basis || "unspecified";
+  let strength = "standard";
+  let headline;
+  let body;
+  let ctaLabel = "Confirm both genotypes";
+
+  if (anyUnknown) {
+    id = "unknown";
+    strength = "strong";
+    headline = "The first step is a test for each of you.";
+    body =
+      "A Punnett square needs two confirmed results. Haemoglobin electrophoresis or HPLC states a genotype outright, from one small blood sample, with no fasting.";
+    ctaLabel = "Get both genotypes confirmed";
+  } else if (basis === "electrophoresis") {
+    headline = "Both genotypes come from the test that states them outright.";
+    body =
+      "An electrophoresis or HPLC report names the letters, so the odds above stand as calculated. If a report is old or covers only one of you, the other needs the same test.";
+    ctaLabel = "Confirm a missing or old result";
+  } else if (basis === "sickling") {
+    strength = "strong";
+    headline = "A sickling test cannot give the letters these odds rest on.";
+    body =
+      "It comes back positive for both AS and SS, because both contain HbS, so it cannot tell a carrier apart from someone with sickle cell disease. Treat the odds above as provisional until an electrophoresis or HPLC report confirms both genotypes.";
+    ctaLabel = "Confirm both genotypes before relying on this";
+  } else if (basis === "clinic") {
+    strength = "strong";
+    headline = "A genotype given out loud is worth having on paper.";
+    body =
+      "A result with no report cannot be checked, and memory of a two-letter code is easy to get wrong. Electrophoresis or HPLC states the letters and the report is yours to keep, so a decision can rest on it.";
+    ctaLabel = "Get it on paper for both of you";
+  } else if (basis === "guess") {
+    strength = "strong";
+    headline = "A guessed genotype gives a guessed result.";
+    body =
+      "The square above is only as good as the two letters that went into it. Electrophoresis or HPLC replaces the guess with a report, and the test is the same whatever letters it finds.";
+    ctaLabel = "Replace the guess with a test";
+  } else {
+    headline = "Confirm both genotypes before a decision rests on this.";
+    body =
+      "Haemoglobin electrophoresis or HPLC is the test that states a genotype outright: AA, AS, SS, SC or another combination.";
+  }
+
+  let familyLine = null;
+  if (familyScd === "yes") {
+    familyLine =
+      "Sickle cell disease in either family means at least one sickle or haemoglobin C gene is already known to be present, which makes a confirmed result for both of you more useful.";
+  } else if (familyScd === "no") {
+    familyLine =
+      "No known sickle cell disease in either family does not rule out the trait. A carrier usually has no symptoms, which is why the test exists.";
+  } else if (familyScd === "unsure") {
+    familyLine =
+      "Not knowing the family history is common. A genotype test for each of you settles it without needing the family history.";
+  }
+
+  return { id, strength, headline, body, familyLine, ctaLabel };
+}
+
 export default {
   slug: "genotype-compatibility",
   title: "Genotype Compatibility Calculator",
   shortTitle: "Genotype Calculator",
   eyebrow: "Free instant calculator",
   promise:
-    "Pick your genotype and your partner's. See the odds for each pregnancy, worked out as a plain Punnett square, and what that means for the two of you.",
+    "Pick your genotype and your partner's. See the odds for each pregnancy, worked out as a plain Punnett square, then two quick follow-ups that sharpen what to do next. Share the result as a card.",
   description:
     "Enter both genotypes and see the chance of AA, AS, SS, AC, SC or CC in each pregnancy. Free instant Punnett-square calculator from BetterHealth Africa.",
-  format: "Two questions, instant result",
+  format: "Two questions, two follow-ups, instant result",
   bullets: [
     "Two questions, no waiting",
     "The odds for every possible outcome, per pregnancy",
-    "What to do if either of you has not been tested",
-    "No diagnosis, no pressure, no jargon",
+    "Two follow-ups that sharpen the next step, without touching the odds",
+    "A result card you can share on WhatsApp",
   ],
   intro:
-    "Two questions. The calculator does the same Punnett square a genetic counsellor draws on paper, so the numbers are the plain genetics of one pregnancy.",
+    "Two questions, then two follow-ups. The calculator does the same Punnett square a genetic counsellor draws on paper, so the numbers are the plain genetics of one pregnancy. The follow-ups only change the advice.",
   sections: [
     {
       heading: "What this calculator does",

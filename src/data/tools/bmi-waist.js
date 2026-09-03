@@ -186,6 +186,9 @@
 // article, src/data/blog/posts/preventive-health-screening-ghana.js.
 
 import { WAIST_THRESHOLDS } from "./diabetes-risk.js";
+// Part 2 of this tool lives in lifestyle.js and never touches the bands. Its
+// sources are spread into this tool's list below so they render on the page.
+import { LIFESTYLE_SOURCES } from "./lifestyle.js";
 
 export { WAIST_THRESHOLDS };
 
@@ -462,18 +465,18 @@ export default {
   shortTitle: "BMI and Waist",
   eyebrow: "Free 1-minute calculator",
   promise:
-    "Your BMI read against the thresholds NICE sets for Black African backgrounds rather than the general-population ones, your waist against the WHO cut-points, and the number most people have never been shown: whether your waist measures less than half your height.",
+    "Part 1 is your measurements: BMI read against the thresholds NICE sets for Black African backgrounds rather than the general-population ones, your waist against the WHO cut-points, and whether your waist measures less than half your height. Part 2 is five taps about a normal day, the last year, and a week on your plate. Then a card you can share.",
   description:
     "Your BMI on the thresholds NICE uses for Black African backgrounds, your waist against the WHO cut-points, and your waist-to-height ratio. No sign-up.",
-  format: "3 questions, instant result",
+  format: "3 measurements, then 5 lifestyle taps",
   bullets: [
     "BMI read on NICE's lower thresholds, with the general-population figures alongside",
-    "Your waist against the published cut-points for your sex",
-    "Whether your waist is less than half your height",
-    "Optional: waist-to-hip, the one cut-off here worked out in Ghanaians",
+    "Your waist against the published cut-points, and whether it is under half your height",
+    "Part 2: activity, weight change and a short week on a plate",
+    "A result card you can share on WhatsApp",
   ],
   intro:
-    "Three screens, and the third is optional. Have a tape measure to hand if you can, because the waist measurement is the part your phone's BMI calculator leaves out, and the part that carries most of the information.",
+    "Two parts. Part 1 is three screens of measurements, and the third is optional. Part 2 is five quick taps that never change the bands. Have a tape measure to hand if you can, because the waist measurement is the part your phone's BMI calculator leaves out, and the part that carries most of the information.",
   sections: [
     {
       heading: "Why your BMI thresholds are lower here",
@@ -585,6 +588,7 @@ export default {
     { label: "Preventive health screening in Ghana: what to test and how often", url: "/blog/preventive-health-screening-ghana" },
     { label: "Prediabetes: the warning window before diabetes develops", url: "/blog/prediabetes-warning-signs" },
     { label: "Lipid profile: how to read your cholesterol results", url: "/blog/lipid-profile-cholesterol-test" },
+    ...LIFESTYLE_SOURCES,
   ],
   cta: {
     kind: "panel",

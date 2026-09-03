@@ -33,6 +33,11 @@
 // articles (src/data/blog/posts/hba1c-explained.js,
 // prediabetes-warning-signs.js, diabetes-test-types-explained.js).
 
+// Part 2 of this tool ("Your week on a plate") lives in plate.js and never
+// touches the score. Its sources are spread into this tool's list below so
+// they render on the page.
+import { PLATE_SOURCES } from "./plate.js";
+
 /** BMI in kg/m2 from centimetres and kilograms. Null when either is unusable. */
 export function bmiFrom(heightCm, weightKg) {
   const h = Number(heightCm);
@@ -289,18 +294,18 @@ export default {
   shortTitle: "Diabetes Risk Score",
   eyebrow: "Free 2-minute calculator",
   promise:
-    "Eight questions about your age, your body, what you eat and what runs in your family. At the end: your FINDRISC score out of 26, the band it sits in, and the two or three answers doing the most work.",
+    "Part 1 is the eight FINDRISC questions: your age, your body, what you eat and what runs in your family, scored exactly as published. Part 2 is your week on a plate, kenkey to koko, a minute or two of taps. At the end: your score out of 26, the band it sits in, the answers doing the most work, and a picture of your week you can share.",
   description:
     "Score your type 2 diabetes risk out of 26 with the FINDRISC questionnaire. Free, 2 minutes, and it shows which of your answers weigh most. No sign-up.",
-  format: "8 questions, instant score",
+  format: "8 scored questions, then your week on a plate",
   bullets: [
     "The FINDRISC questionnaire, scored exactly as published",
     "Your score out of 26 and the band it falls in",
-    "The two or three answers driving your score",
-    "Where the score is reliable, and where it is not",
+    "Part 2: your week on a plate, in the foods you actually eat",
+    "A result card you can share on WhatsApp",
   ],
   intro:
-    "Eight questions, one screen at a time. Have a tape measure nearby if you have one; if not, an estimate of your waist is better than skipping it.",
+    "Two parts, one screen at a time. Part 1 is the eight FINDRISC questions. Part 2 asks what a typical week looks like on your plate, and it never touches the score. Have a tape measure nearby if you have one; if not, an estimate of your waist is better than skipping it.",
   sections: [
     {
       heading: "What FINDRISC is",
@@ -325,6 +330,7 @@ export default {
     { label: "What is HbA1c? Your 3-month blood sugar average", url: "/blog/hba1c-explained" },
     { label: "Prediabetes: the warning window before diabetes develops", url: "/blog/prediabetes-warning-signs" },
     { label: "Diabetes tests explained: fasting glucose, HbA1c and OGTT compared", url: "/blog/diabetes-test-types-explained" },
+    ...PLATE_SOURCES,
   ],
   cta: {
     kind: "panel",
