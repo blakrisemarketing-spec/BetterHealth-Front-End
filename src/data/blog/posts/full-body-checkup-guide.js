@@ -188,7 +188,7 @@ export default {
     },
     {
       type: "link-internal",
-      to: "/pricing",
+      to: "/book-tests",
       label: "See current full body checkup pricing and packages",
     },
     {

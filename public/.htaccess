@@ -9,6 +9,32 @@
   RewriteCond %{HTTP_HOST} ^betterhealth\.africa$ [NC]
   RewriteRule ^(.*)$ https://www.betterhealth.africa/$1 [L,R=301]
 
+  # Legacy paths and bare parent paths that have no page of their own. These
+  # have to be handled here, above the rules below, for two reasons:
+  #
+  #   * /pricing and /book are <Route>s in src/App.jsx that render a client-side
+  #     <Navigate> to /book-tests, but the 404 rule at the bottom of this file
+  #     fires long before React loads, so a direct hit or a crawler got a hard
+  #     404 and the redirect never ran. /pricing is linked from 31 blog articles
+  #     (and /book from one) in their prerendered, no-JS body, so those internal
+  #     links were pointing crawlers straight at a 404.
+  #   * /wellness-consultation and /test are real directories in dist/ that hold
+  #     only their child pages and no index.html of their own, so they match the
+  #     -d condition below, get served, find no DirectoryIndex, and return 403.
+  #
+  # A server-side 301 is the right answer for all of them anyway: it passes link
+  # equity, which a client-side <Navigate> never did. The <Route>s stay in
+  # src/App.jsx because in-app navigation (the blog articles use react-router
+  # <Link>) never reaches the server. Targets carry a trailing slash to land on
+  # the URL LiteSpeed serves as a 200, instead of chaining through mod_dir's own
+  # add-the-slash 301. mod_rewrite re-appends the original query string, so utm
+  # params and click ids survive the hop.
+  RewriteRule ^pricing/?$ /book-tests/ [L,R=301]
+  RewriteRule ^book/?$ /book-tests/ [L,R=301]
+  RewriteRule ^book/(.+?)/?$ /book-tests/$1/ [L,R=301]
+  RewriteRule ^test/?$ /book-tests/ [L,R=301]
+  RewriteRule ^wellness-consultation/?$ /wellness-consultation/wellness/ [L,R=301]
+
   # Serve real files and directories as-is. Every route in ROUTE_SEO is
   # prerendered to dist/<route>/index.html (a real directory), so legitimate
   # pages match here and are served directly with a 200.
