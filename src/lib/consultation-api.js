@@ -24,8 +24,19 @@ const ATTRIBUTION = {
   referralCode: "ref",
 };
 
-/** Read the utm params, fbclid and ref off the current URL, omitting absent ones. */
-export function captureAttribution(search = typeof window !== "undefined" ? window.location.search : "") {
+// Attribution arrives on the landing URL but is submitted from wherever the
+// visitor ends up, which on an SPA is usually a different path with a clean
+// query string. Reading window.location.search only at submit time therefore
+// loses it, and the loss is permanent: once a lead or booking row is written
+// without utm_source, nothing downstream can recover which ad produced it.
+//
+// Same session-scoped approach as the referral code in partner-signup.js:
+// survives in-site navigation away from the ad's landing URL, does not survive
+// closing the tab. Someone returning in a fresh tab is attributed to whatever
+// their new URL carries, which is also the click Meta would credit.
+const ATTRIBUTION_STORAGE_KEY = "bh:attribution";
+
+function readFromSearch(search) {
   const params = new URLSearchParams(search);
   const out = {};
   for (const [key, param] of Object.entries(ATTRIBUTION)) {
@@ -33,6 +44,49 @@ export function captureAttribution(search = typeof window !== "undefined" ? wind
     if (value) out[key] = value.slice(0, 120);
   }
   return out;
+}
+
+function readStoredAttribution() {
+  try {
+    const raw = sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : null;
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    // sessionStorage unavailable (SSR, private browsing) or a malformed entry.
+    // Attribution is reporting data — never let it break a booking.
+    return {};
+  }
+}
+
+/**
+ * Remember any attribution params on the given URL for the rest of the session.
+ * Call on every navigation, so the landing URL's params survive the walk to
+ * whichever page the visitor finally submits from. Merged per key, so a param
+ * seen on a later URL wins without discarding the ones it doesn't carry.
+ */
+export function rememberAttribution(
+  search = typeof window !== "undefined" ? window.location.search : "",
+) {
+  const fromUrl = readFromSearch(search);
+  if (Object.keys(fromUrl).length === 0) return;
+  try {
+    sessionStorage.setItem(
+      ATTRIBUTION_STORAGE_KEY,
+      JSON.stringify({ ...readStoredAttribution(), ...fromUrl }),
+    );
+  } catch {
+    /* storage unavailable — captureAttribution still reads the live URL */
+  }
+}
+
+/**
+ * Attribution to submit with a booking or lead: everything this session has
+ * seen, with anything on the current URL taking precedence.
+ */
+export function captureAttribution(
+  search = typeof window !== "undefined" ? window.location.search : "",
+) {
+  return { ...readStoredAttribution(), ...readFromSearch(search) };
 }
 
 async function request(path, init) {

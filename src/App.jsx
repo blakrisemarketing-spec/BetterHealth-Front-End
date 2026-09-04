@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from "react-router-dom";
 import { captureReferralFromUrl } from "./lib/partner-signup";
+import { rememberAttribution } from "./lib/consultation-api";
 import { trackPageView, trackBookingIntent } from "./lib/analytics";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -42,16 +43,26 @@ function LoadingSpinner() {
 }
 
 /**
- * Silently captures `?ref=<code>` from the URL on every navigation and
- * stores it in sessionStorage. The code is read by submitPartnerSignup()
- * and silently included with any partner form submission for the rest of
- * the session — survives in-site navigation away from the referral link,
- * doesn't survive closing the tab.
+ * Silently captures campaign attribution from the URL on every navigation and
+ * stores it in sessionStorage, so it survives in-site navigation away from the
+ * landing link and is still attached when a form is submitted several pages
+ * later. Neither survives closing the tab.
+ *
+ * Two stores, because they are consumed by different code paths:
+ *   `?ref=<code>`      → read by submitPartnerSignup() for partner forms.
+ *   utm_* / fbclid     → read by captureAttribution() for consultation bookings
+ *                        and lead-magnet signups.
+ *
+ * This must run on navigation rather than at submit time. Ads land people on a
+ * page carrying utm params, they browse, and they submit from a clean URL — so
+ * reading the query string at submit would record no source at all, and a row
+ * written without one can never be traced back to the ad that bought it.
  */
-function ReferralCapture() {
+function AttributionCapture() {
   const location = useLocation();
   useEffect(() => {
     captureReferralFromUrl(location.search);
+    rememberAttribution(location.search);
   }, [location.search]);
   return null;
 }
@@ -124,7 +135,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <ReferralCapture />
+      <AttributionCapture />
       <RouteAnalytics />
       <BookingClickTracker />
       <Suspense fallback={<LoadingSpinner />}>
