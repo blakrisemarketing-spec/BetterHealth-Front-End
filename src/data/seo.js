@@ -3,7 +3,7 @@
 // so the static HTML that crawlers/social scrapers see and the live <head> can
 // never drift apart. The homepage ('/') uses index.html directly.
 
-import { faqSections, testPanels } from "./content.js";
+import { faqSections, testPanels, singleTests } from "./content.js";
 import {
   getMedicalWebPageSchema,
   getBreadcrumbSchema,
@@ -16,6 +16,7 @@ import { ARTICLES, articleFaqItems } from "./blog/index.js";
 import { WELLNESS_CONSULTATION_SEO } from "./wellness-consultation-seo.js";
 import { GUIDES } from "./guides/index.js";
 import { getTestDetail } from "./test-details.js";
+import { getSingleTestDetail } from "./single-test-details.js";
 
 export const SITE_URL = "https://www.betterhealth.africa";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
@@ -140,6 +141,72 @@ const PANEL_ROUTE_SEO = Object.fromEntries(
   }),
 );
 
+// Single-test detail pages (/test/<slug>). Same defect as the panel pages
+// above, on the other half of the catalogue: without a prerendered file the
+// LiteSpeed rewrite in public/.htaccess returns a real 404 for these URLs, so
+// crawlers, social scrapers and ad reviewers see a 404 even though React still
+// renders the page for humans. Title, description and JSON-LD mirror what
+// src/pages/SingleTestDetail.jsx renders through Helmet (MedicalTest with the
+// static offer price, plus FAQPage when the test has FAQs), so the static <head>
+// and the live one agree. Prices here are the content.js fallbacks; the page
+// swaps in the live catalogue price after hydration, as it does for the price
+// copy. The MedicalWebPage node is declared here rather than via MEDICAL_ROUTES
+// because the auto-derived name would be the whole "<test>: <subtitle>" title.
+const SINGLE_TEST_ROUTE_SEO = Object.fromEntries(
+  singleTests.flatMap((base) => {
+    const test = getSingleTestDetail(base.slug);
+    if (!test) return [];
+    const route = `test/${test.slug}`;
+    const url = pageUrl(route);
+    const title = `${test.name}: ${test.subtitle} | BetterHealth Africa`;
+    const jsonld = [
+      getMedicalWebPageSchema({
+        url,
+        name: test.name,
+        description: test.description,
+      }),
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalTest",
+        name: test.name,
+        description: test.description,
+        url,
+        provider: {
+          "@type": "MedicalOrganization",
+          name: "BetterHealth Africa",
+          url: SITE_URL,
+        },
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "GHS",
+          price: String(test.price).replace(/[^\d.]/g, ""),
+          url,
+          availability: "https://schema.org/InStock",
+        },
+      },
+      ...(test.faqs?.length
+        ? [
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: test.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
+      getBreadcrumbSchema([
+        { name: "Home", url: pageUrl("") },
+        { name: "Book Tests", url: pageUrl("book-tests") },
+        { name: test.name, url },
+      ]),
+    ];
+    return [[route, { title, description: test.description, image: DEFAULT_OG_IMAGE, jsonld }]];
+  }),
+);
+
 // Routes that are primarily medical/health content get a MedicalWebPage node.
 const MEDICAL_ROUTES = new Set([
   "how-it-works",
@@ -228,6 +295,8 @@ const RAW_ROUTE_SEO = {
   },
   // /book-tests/<slug> for all nine panels (Campaign 1 ad destinations).
   ...PANEL_ROUTE_SEO,
+  // /test/<slug> for every single test in content.js#singleTests.
+  ...SINGLE_TEST_ROUTE_SEO,
   programs: {
     title: "Condition Programs: Diabetes, Hypertension & More | BetterHealth Africa",
     description:
