@@ -159,7 +159,7 @@ export default {
     },
     {
       type: "link-internal",
-      to: "/book",
+      to: "/book-tests",
       label: "Book a home draw or lab visit",
     },
     {

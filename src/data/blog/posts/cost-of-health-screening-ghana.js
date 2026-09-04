@@ -126,7 +126,7 @@ export default {
     },
     {
       type: "link-internal",
-      to: "/pricing",
+      to: "/book-tests",
       label: "See current BetterHealth Africa pricing and panels",
     },
     {
