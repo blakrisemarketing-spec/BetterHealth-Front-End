@@ -1,0 +1,252 @@
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, CheckCircle2, Download, Loader2, MessageCircle } from "lucide-react";
+import { submitLead, writeGuideUnlock } from "../../lib/leads";
+import { trackLead } from "../../lib/analytics";
+
+const WHATSAPP_NUMBER = "233268596410";
+
+// Ghana numbers arrive as 024 123 4567, 0241234567, +233 24 123 4567, or
+// 233241234567. Accept anything with 9 to 13 digits after stripping
+// formatting; the backend normalises further.
+function phoneLooksValid(raw) {
+  const digits = String(raw).replace(/\D/g, "");
+  return digits.length >= 9 && digits.length <= 13;
+}
+
+function whatsappFallbackUrl(title) {
+  const text = `Hi, I'd like the free guide: ${title}`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
+/**
+ * Success / already-unlocked card. Rendered in place of the form once a lead
+ * has been captured (this visit or a previous one, via localStorage).
+ */
+export function UnlockedCard({ guide, panel, firstName, returning = false, onJump }) {
+  const isQuiz = guide.kind === "quiz";
+  const name = firstName && firstName !== "1" ? firstName : "";
+  const heading = returning
+    ? `Welcome back${name ? `, ${name}` : ""}.`
+    : `Done${name ? `, ${name}` : ""}.`;
+  const body = isQuiz
+    ? "Your best-fit test is below."
+    : "Your guide is unlocked below.";
+
+  return (
+    <div className="rounded-card border border-border bg-card shadow-sm p-5 sm:p-6">
+      <div className="flex items-start gap-3 mb-4">
+        <div className="w-10 h-10 rounded-full bg-primary-bg flex items-center justify-center shrink-0">
+          <CheckCircle2 size={22} className="text-primary" />
+        </div>
+        <div>
+          <p className="text-[17px] font-extrabold text-text-primary font-heading leading-snug">
+            {heading}
+          </p>
+          <p className="text-[14px] text-text-secondary leading-relaxed">{body}</p>
+        </div>
+      </div>
+      <div className="flex flex-col sm:flex-row gap-3">
+        {guide.pdf && (
+          <a
+            href={guide.pdf}
+            download
+            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-5 py-3 text-[15px] font-bold font-heading transition-all no-underline"
+          >
+            <Download size={16} /> Download the PDF
+          </a>
+        )}
+        {isQuiz ? (
+          <button
+            type="button"
+            onClick={onJump}
+            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-5 py-3 text-[15px] font-bold font-heading transition-all cursor-pointer"
+          >
+            See my result <ArrowRight size={16} />
+          </button>
+        ) : (
+          panel && (
+            <Link
+              to={`/book-tests/${panel.slug}`}
+              className="inline-flex items-center justify-center gap-2 bg-card border border-primary text-primary hover:bg-primary-bg rounded-btn px-5 py-3 text-[15px] font-bold font-heading transition-all no-underline"
+            >
+              Book {panel.displayName} ({panel.price}) <ArrowRight size={16} />
+            </Link>
+          )
+        )}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * The lead-capture form. On success it fires the Meta `Lead` event exactly
+ * once, remembers the unlock in localStorage, and calls `onUnlocked(firstName)`
+ * so the page can swap in the unlocked content.
+ *
+ * @param {{ guide, healthInterest?: string, answers?: Record<string,string>, onUnlocked: (name: string) => void }} props
+ */
+export default function LeadForm({ guide, healthInterest, answers, onUnlocked }) {
+  const [form, setForm] = useState({ firstName: "", whatsapp: "", email: "", optIn: false });
+  const [status, setStatus] = useState("idle"); // idle | loading | error
+  const [fieldError, setFieldError] = useState("");
+  const firedRef = useRef(false);
+
+  const isQuiz = guide.kind === "quiz";
+  const update = (field) => (e) =>
+    setForm((f) => ({ ...f, [field]: e.target.type === "checkbox" ? e.target.checked : e.target.value }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (status === "loading") return;
+
+    const firstName = form.firstName.trim();
+    const whatsapp = form.whatsapp.trim();
+    if (!phoneLooksValid(whatsapp)) {
+      setFieldError("Enter a WhatsApp number we can reach, for example 024 123 4567.");
+      return;
+    }
+    setFieldError("");
+    setStatus("loading");
+
+    try {
+      await submitLead({
+        leadMagnet: guide.slug,
+        fullName: firstName,
+        whatsapp,
+        email: form.email.trim().toLowerCase() || undefined,
+        healthInterest: healthInterest || guide.cta?.panelSlug,
+        answers: { ...(answers || {}), optIn: form.optIn ? "yes" : "no" },
+        source: `guide:${guide.slug}`,
+      });
+      if (!firedRef.current) {
+        firedRef.current = true;
+        trackLead({ source: `guide:${guide.slug}` });
+      }
+      writeGuideUnlock(guide.slug, firstName);
+      setStatus("idle");
+      onUnlocked(firstName);
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  const inputClass = `w-full rounded-btn px-4 py-3.5 text-[16px] transition-all focus:outline-none focus:ring-2 focus:ring-primary bg-section-alt border border-border text-text-primary placeholder:text-text-muted ${
+    status === "loading" ? "opacity-60" : ""
+  }`;
+  const labelClass = "block text-[13px] font-semibold mb-1.5 text-text-primary";
+
+  return (
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4 rounded-card p-5 sm:p-7 bg-card border border-border shadow-sm"
+        noValidate
+      >
+        <div>
+          <label className={labelClass} htmlFor="lead-first-name">First name *</label>
+          <input
+            id="lead-first-name"
+            type="text"
+            name="firstName"
+            autoComplete="given-name"
+            required
+            placeholder="Ama"
+            value={form.firstName}
+            onChange={update("firstName")}
+            disabled={status === "loading"}
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label className={labelClass} htmlFor="lead-whatsapp">WhatsApp number *</label>
+          <input
+            id="lead-whatsapp"
+            type="tel"
+            name="whatsapp"
+            inputMode="tel"
+            autoComplete="tel"
+            required
+            placeholder="024 123 4567"
+            value={form.whatsapp}
+            onChange={update("whatsapp")}
+            disabled={status === "loading"}
+            aria-invalid={fieldError ? "true" : undefined}
+            className={inputClass}
+          />
+          {fieldError && <p className="mt-1.5 text-[13px] text-red-600">{fieldError}</p>}
+        </div>
+        <div>
+          <label className={labelClass} htmlFor="lead-email">
+            Email <span className="font-normal text-text-muted">(optional)</span>
+          </label>
+          <input
+            id="lead-email"
+            type="email"
+            name="email"
+            autoComplete="email"
+            placeholder="you@example.com"
+            value={form.email}
+            onChange={update("email")}
+            disabled={status === "loading"}
+            className={inputClass}
+          />
+        </div>
+        <label className="flex items-start gap-3 text-[14px] text-text-secondary leading-snug cursor-pointer">
+          <input
+            type="checkbox"
+            name="optIn"
+            checked={form.optIn}
+            onChange={update("optIn")}
+            disabled={status === "loading"}
+            className="mt-0.5 w-5 h-5 shrink-0 accent-[#6B8E7F]"
+          />
+          <span>Send me occasional health education on WhatsApp (optional)</span>
+        </label>
+
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className={`w-full rounded-btn px-8 py-4 text-[16px] font-bold font-heading transition-all cursor-pointer flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 ${
+            status === "loading" ? "opacity-80 cursor-not-allowed" : ""
+          }`}
+        >
+          {status === "loading" ? (
+            <>
+              <Loader2 size={18} className="animate-spin" /> Sending...
+            </>
+          ) : (
+            <>
+              {isQuiz ? "Show me my result" : "Send me the free guide"} <ArrowRight size={18} />
+            </>
+          )}
+        </button>
+
+        <p className="text-[12px] text-text-muted leading-relaxed">
+          We use your number to send the guide, and nothing else unless you tick the box.{" "}
+          <Link to="/privacy" className="text-primary font-semibold">Privacy policy</Link>
+        </p>
+      </form>
+
+      {status === "error" && (
+        <div
+          role="alert"
+          className="mt-3 rounded-card border border-border bg-card p-4 text-[14px] text-text-primary leading-relaxed"
+        >
+          <p className="font-semibold mb-1">We could not send that just now.</p>
+          <p className="text-text-secondary mb-3">
+            Please try again. If it keeps failing, message us on WhatsApp and we will send the {isQuiz ? "result" : "guide"} by hand.
+          </p>
+          <a
+            href={whatsappFallbackUrl(guide.title)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-primary font-bold no-underline hover:text-primary-dark"
+          >
+            <MessageCircle size={16} /> Get it on WhatsApp instead
+          </a>
+        </div>
+      )}
+    </div>
+  );
+}

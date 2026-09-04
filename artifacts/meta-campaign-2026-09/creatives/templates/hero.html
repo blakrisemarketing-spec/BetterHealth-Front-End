@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" style="{{sizeVars}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080" />
+    <title>{{title}}</title>
+    <style>
+{{baseCss}}
+
+      :root {
+        --canvas: var(--dark);
+      }
+
+      body {
+        color: var(--cream);
+      }
+
+      .frame {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Photo variants: the photo owns the top of the canvas and fades into the dark ground. */
+      .photo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: var(--photo-h);
+        background: url("../assets/woman-tablet.jpg") var(--photo-pos) / cover no-repeat;
+      }
+
+      .photo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 36, 0.5) 0%,
+          rgba(15, 23, 36, 0) 22%,
+          rgba(15, 23, 36, 0) var(--fade-start),
+          rgba(15, 23, 36, 0.92) var(--fade-mid),
+          #0f1724 100%
+        );
+      }
+
+      .brand-row {
+        position: relative;
+        display: flex;
+      }
+
+      .logo-pill {
+        display: inline-flex;
+        align-items: center;
+        background: var(--cream);
+        border-radius: 999px;
+        padding: var(--pill-pad-y) var(--pill-pad-x);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+      }
+
+      .logo-pill img {
+        width: var(--logo-w);
+        height: auto;
+        display: block;
+      }
+
+      .hero {
+        position: relative;
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: var(--hero-justify);
+        padding: 36px 0 44px;
+      }
+
+      .statement {
+        margin: 0;
+        font-weight: 600;
+        font-size: var(--statement-size);
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+        color: var(--cream);
+        text-wrap: balance;
+      }
+
+      .statement .accent {
+        color: var(--sage-on-dark);
+      }
+
+      .sub {
+        margin-top: 28px;
+        font-size: 58px;
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -0.015em;
+        color: var(--sage-on-dark);
+        text-wrap: balance;
+      }
+
+      .source {
+        margin-top: 30px;
+        font-size: 26px;
+        font-weight: 500;
+        color: rgba(245, 243, 238, 0.62);
+      }
+
+      .chips {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 72px;
+        padding: 0 30px;
+        border-radius: 999px;
+        font-size: 26px;
+        font-weight: 600;
+        border: 1.5px solid rgba(245, 243, 238, 0.4);
+        color: var(--cream);
+        white-space: nowrap;
+        letter-spacing: -0.01em;
+      }
+
+      .chip.fill {
+        background: var(--cream);
+        color: var(--dark);
+        border-color: var(--cream);
+      }
+
+      .chip.sage {
+        background: var(--sage);
+        color: #ffffff;
+        border-color: var(--sage);
+      }
+
+      .url {
+        position: relative;
+        margin-top: 36px;
+        font-size: 24px;
+        font-weight: 500;
+        color: rgba(245, 243, 238, 0.72);
+        letter-spacing: 0.01em;
+      }
+    </style>
+  </head>
+  <body data-size="{{size}}" data-mode="{{mode}}" data-photo="{{photo}}">
+    <main class="frame" aria-label="{{title}}">
+{{photoEl}}
+      <header class="brand-row">
+        <div class="logo-pill"><img src="../assets/logo.png" alt="BetterHealth Africa" /></div>
+      </header>
+
+      <section class="hero" data-fit-box>
+        <h1 class="statement" data-fit="{{statementFit}}">{{statement}}</h1>
+{{sub}}
+{{source}}
+      </section>
+
+      <div class="chips">
+{{chips}}
+      </div>
+
+      <div class="url">betterhealth.africa</div>
+    </main>
+{{fitScript}}
+  </body>
+</html>

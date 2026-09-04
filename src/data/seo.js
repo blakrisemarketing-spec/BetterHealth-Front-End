@@ -14,6 +14,8 @@ import {
 } from "../components/structured-data.js";
 import { ARTICLES, articleFaqItems } from "./blog/index.js";
 import { WELLNESS_CONSULTATION_SEO } from "./wellness-consultation-seo.js";
+import { GUIDES } from "./guides/index.js";
+import { getTestDetail } from "./test-details.js";
 
 export const SITE_URL = "https://www.betterhealth.africa";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
@@ -78,8 +80,77 @@ const FOUNDATION_JSONLD = {
 // "What We Test — BetterHealth Africa" -> "What We Test" (breadcrumb label).
 const shortName = (title) => title.split(/[—|]/)[0].trim();
 
+// Panel detail pages (/book-tests/<slug>). Without a prerendered file the
+// LiteSpeed SPA fallback serves these with a 404 status, which Meta rejects as
+// an ad destination. Title, description and JSON-LD mirror what
+// src/pages/TestDetail.jsx renders through Helmet (MedicalTest with the static
+// offer price, plus FAQPage when the panel has FAQs), so the static <head> and
+// the live one agree. Prices here are the content.js fallbacks; the page swaps
+// in the live catalogue price after hydration, as it does for the price copy.
+const PANEL_ROUTE_SEO = Object.fromEntries(
+  testPanels.flatMap((base) => {
+    const panel = getTestDetail(base.slug);
+    if (!panel) return [];
+    const route = `book-tests/${panel.slug}`;
+    const url = pageUrl(route);
+    const title = `${panel.displayName} (${panel.name}) | BetterHealth Africa`;
+    const jsonld = [
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalTest",
+        name: `${panel.displayName} (${panel.name} Panel)`,
+        description: panel.description,
+        url,
+        provider: {
+          "@type": "MedicalOrganization",
+          name: "BetterHealth Africa",
+          url: SITE_URL,
+        },
+        usesDevice: { "@type": "MedicalDevice", name: "Laboratory analysis" },
+        ...(panel.price && {
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "GHS",
+            price: String(panel.price).replace(/[^\d.]/g, ""),
+            url,
+            availability: "https://schema.org/InStock",
+          },
+        }),
+      },
+      ...(panel.faqs?.length
+        ? [
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: panel.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
+      getBreadcrumbSchema([
+        { name: "Home", url: pageUrl("") },
+        { name: "Book Tests", url: pageUrl("book-tests") },
+        { name: `${panel.displayName} (${panel.name})`, url },
+      ]),
+    ];
+    return [[route, { title, description: panel.description, image: DEFAULT_OG_IMAGE, jsonld }]];
+  }),
+);
+
 // Routes that are primarily medical/health content get a MedicalWebPage node.
-const MEDICAL_ROUTES = new Set(["how-it-works", "what-we-test", "stories", "book-tests"]);
+const MEDICAL_ROUTES = new Set([
+  "how-it-works",
+  "what-we-test",
+  "stories",
+  "book-tests",
+  // Panel detail pages and the free health-education guides are medical
+  // content too.
+  ...testPanels.map((p) => `book-tests/${p.slug}`),
+  ...GUIDES.map((g) => `guides/${g.slug}`),
+]);
 
 // Per-route SEO before auto-derived schema is layered on. Only the page-unique
 // schema (NGO/Product/FAQ/Blog) is declared here; MedicalWebPage and
@@ -92,6 +163,27 @@ const RAW_ROUTE_SEO = {
     Object.entries(WELLNESS_CONSULTATION_SEO).map(([slug, page]) => [
       `wellness-consultation/${slug}`,
       { ...page, image: DEFAULT_OG_IMAGE, noindex: true },
+    ]),
+  ),
+  // Free lead-magnet guides (/guides, /guides/<slug>). Indexable evergreen
+  // pages: unlike the consultation variants these are distinct pieces of
+  // content, so they belong in the index and the sitemap.
+  guides: {
+    title: "Free Health Guides | BetterHealth Africa",
+    description:
+      "Free plain-English health guides for Ghana: know your numbers, read your lab results, log your blood sugar or blood pressure, map your family history, and find the right test.",
+    image: DEFAULT_OG_IMAGE,
+    noindex: false,
+  },
+  ...Object.fromEntries(
+    GUIDES.map((g) => [
+      `guides/${g.slug}`,
+      {
+        title: `${g.title} | ${g.kind === "quiz" ? "Free Quiz" : "Free Guide"} | BetterHealth Africa`,
+        description: g.description,
+        image: DEFAULT_OG_IMAGE,
+        noindex: false,
+      },
     ]),
   ),
   foundation: {
@@ -134,6 +226,8 @@ const RAW_ROUTE_SEO = {
     image: DEFAULT_OG_IMAGE,
     jsonld: [PRICING_JSONLD],
   },
+  // /book-tests/<slug> for all nine panels (Campaign 1 ad destinations).
+  ...PANEL_ROUTE_SEO,
   programs: {
     title: "Condition Programs: Diabetes, Hypertension & More | BetterHealth Africa",
     description:

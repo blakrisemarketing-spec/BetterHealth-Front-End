@@ -1,7 +1,14 @@
 // Thin analytics layer shared by every conversion touchpoint on the marketing
 // site. One call fans out to BOTH ad/measurement stacks:
 //   - Meta Pixel  (window.fbq)  — base code lives in index.html
-//   - Google      (window.dataLayer) — GTM (GTM-KMH4QTML) + GA4 (G-1KTCH9TZLV)
+//   - Google      (window.dataLayer) — GTM (GTM-MS22RHNF) + GA4 (G-1KTCH9TZLV)
+//
+// The dataLayer pushes below only reach GA4 if a GTM tag forwards them. Until
+// 2026-08-30 index.html loaded GTM-KMH4QTML, which is a *server* container:
+// googletagmanager.com/gtm.js returns 403 for those, so no container ran here at
+// all and every custom event was silently discarded. GTM-MS22RHNF is the web
+// container that replaced it. If a custom event stops appearing in GA4, check
+// that container has a tag for it before suspecting this file.
 //
 // GA4 event names are used for the dataLayer push (begin_checkout,
 // generate_lead) so they map 1:1 to GA4 / Google Ads conversions in the GTM UI
@@ -111,5 +118,54 @@ export function trackConsultationBooked({ channel, concern } = {}) {
     event: "schedule_consultation",
     booking_channel: channel || null,
     health_concern: concern || null,
+  });
+}
+
+/**
+ * Steps between landing on the consultation page and booking.
+ *
+ * WHY THIS EXISTS
+ *   The page fired `Schedule` on success and nothing else, so a day that
+ *   produced 132 landing page views and zero bookings was unreadable: there was
+ *   no way to tell somebody who never scrolled to the picker from somebody who
+ *   chose a time and balked at handing over their number. Those two have
+ *   opposite fixes, and without this we would have spent another day guessing.
+ *
+ * A custom event, not a standard one. Meta's standard events are a small fixed
+ * vocabulary and none of them mean "reached the picker"; forcing a funnel step
+ * into `Lead` or `AddToCart` would corrupt a name the campaign may later want to
+ * optimise on. `trackCustom` keeps the diagnostic separate from the optimisation
+ * surface — these are for reading, not for bidding.
+ *
+ * @param {'picker_viewed'|'day_selected'|'time_selected'|'details_started'|'submit_failed'} step
+ * @param {{ concern?: string, variant?: string, detail?: string }} [meta]
+ */
+export function trackBookingStep(step, meta = {}) {
+  fbq("trackCustom", "BookingStep", { step, ...meta });
+  dataLayerPush({ event: "booking_step", booking_step: step, ...meta });
+}
+
+/**
+ * Genuine booking intent: a specific time has been chosen and the details form
+ * is now in front of them.
+ *
+ * Separate from trackBookingStep because `InitiateCheckout` IS a standard Meta
+ * event, so it can be selected as an optimisation goal. That matters: `Schedule`
+ * will stay too rare to optimise on for a long time at this budget, whereas this
+ * fires for everyone who gets as far as choosing a slot, and it is the closest
+ * upstream signal to a booking that we have.
+ *
+ * Fire once per booking attempt, on time selection only.
+ */
+export function trackBookingIntentConsultation({ concern, variant } = {}) {
+  fbq("track", "InitiateCheckout", {
+    content_category: "wellness_consultation",
+    ...(concern ? { content_name: concern } : {}),
+  });
+  dataLayerPush({
+    event: "begin_checkout",
+    content_type: "wellness_consultation",
+    health_concern: concern || null,
+    landing_variant: variant || null,
   });
 }
