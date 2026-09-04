@@ -124,9 +124,6 @@ export default function ConsultationBooking({ variant, concern, compact = false 
 
         setSlots(next);
         setSlotsState("ready");
-        if (next.some((s) => s.available)) {
-          fireStep("picker_viewed", { variant, concern });
-        }
       })
       .catch(() => {
         if (cancelled) return;
@@ -139,6 +136,19 @@ export default function ConsultationBooking({ variant, concern, compact = false 
   }, []);
 
   useEffect(() => loadSlots(dateParam, dayIndex), [dateParam, dayIndex, loadSlots]);
+
+  // `picker_viewed` fires from here rather than from inside the fetch callback
+  // so that `loadSlots` closes over nothing that changes. `variant` and
+  // `concern` are instrumentation labels with no bearing on which slots to
+  // fetch; letting them into the callback made its `[]` dependency list a lie,
+  // and declaring them honestly would have re-issued the slots request every
+  // time the landing variant changed. `fireStep` is one-shot per mount, so
+  // re-running this effect on every slots change still emits exactly one event.
+  useEffect(() => {
+    if (slotsState === "ready" && slots.some((s) => s.available)) {
+      fireStep("picker_viewed", { variant, concern });
+    }
+  }, [slots, slotsState, variant, concern, fireStep]);
 
   // Clearing the chosen time belongs with the day change that invalidates it,
   // not in an effect — a selected 10:00 on Tuesday means nothing on Wednesday.
