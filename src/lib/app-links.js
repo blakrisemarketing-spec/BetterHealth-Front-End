@@ -3,6 +3,7 @@
 // as the funnel evolves (single-test-first → bundles → disease programs).
 
 import { getStoredReferralCode } from "./partner-signup";
+import { getStoredAttribution } from "./attribution";
 
 export const APP_BASE = "https://app.betterhealth.africa";
 
@@ -58,8 +59,11 @@ export function joinUrl({ panel, test, tests } = {}) {
     typeof window !== "undefined"
       ? new URLSearchParams(window.location.search)
       : new URLSearchParams();
+  // utm_*/click ids only sit on the URL of the page the ad landed on, so fall
+  // back to the touch captured earlier this session for anyone who browsed on.
+  const stored = getStoredAttribution();
   for (const key of PRESERVED_PARAMS) {
-    const val = current.get(key);
+    const val = current.get(key) || stored[key];
     if (val && !url.searchParams.has(key)) url.searchParams.set(key, val);
   }
   // ?ref= survives in-site navigation via sessionStorage even after the URL
