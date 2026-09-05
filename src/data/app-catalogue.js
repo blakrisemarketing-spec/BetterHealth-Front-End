@@ -51,6 +51,28 @@ export const SINGLE_TEST_CODES = {
   hiv: "RETROSCREEN",
   "hepatitis-b": "HBSAG",
   "uric-acid": "URIC_ACID",
+  // Verified against the Ghana catalogue on 2026-09-02 for the /tools
+  // calculators: HB Electrophoresis (Sickling Included) GHS 170, Blood
+  // Grouping GHS 75, Sickling Test GHS 75. These have no marketing card in
+  // content.js#singleTests yet; they exist here so joinUrl({ test }) can
+  // deep-link a tool's result straight into onboarding.
+  "hb-electrophoresis": "HB_ELECTRO",
+  "blood-group": "BLOOD_GROUP",
+  sickling: "SICKLING",
+  // Added 2026-09-05 for the family inheritance calculator's G6PD section.
+  // Verified against the Ghana catalogue the same day: G6PD (Quantitative) GHS 150.
+  g6pd: "G6PD",
+  // Added 2026-09-05 for the kidney check calculator. Verified against the
+  // Ghana catalogue the same day: Renal Function Test (creatinine, urea,
+  // electrolytes) GHS 195, Albumin:Creatinine Ratio GHS 150, Urine
+  // Microalbumin GHS 150, Creatinine Clearance 24-Hour GHS 225.
+  // `renal-function` is an alias of the existing `kidney-function` slug above,
+  // both pointing at RFT: the tool names the test the way the catalogue does,
+  // and the marketing single-test card uses the plainer name.
+  "renal-function": "RFT",
+  acr: "ACR",
+  "urine-microalbumin": "URINE_MICROALBUMIN",
+  "creatinine-clearance": "CREATININE_CLEARANCE",
 };
 
 // Panel code for a marketing panel slug (falls back to the slug itself).
