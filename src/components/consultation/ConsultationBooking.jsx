@@ -157,6 +157,17 @@ export default function ConsultationBooking({ variant, concern, compact = false 
     // picked turns out to be empty. Walking them off their own selection would
     // be worse than showing them it is full.
     autoAdvancing.current = false;
+
+    // Re-tapping the day already showing must not touch slotsState. The reload
+    // effect below depends on [dateParam, dayIndex, loadSlots], so when the
+    // index does not change it never re-runs — and nothing else resets the
+    // state. Setting "loading" here stranded the picker on "Loading available
+    // times…" for good, with no request in flight and no Try again button
+    // (that only renders in the error branch). The selected chip is the
+    // largest button in the picker and is still clickable, on the pages paid
+    // traffic lands on.
+    if (i === dayIndex) return;
+
     setDayIndex(i);
     setTime(null);
     setSlotsState("loading");
