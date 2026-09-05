@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { ARTICLES } from "../data/blog";
+import { blogIndexSeo } from "../data/blog/article-seo";
+import { STATIC_ROUTE_SEO } from "../data/seo-static";
 
 const MONTHS = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -18,7 +20,7 @@ function formatDate(iso) {
 export default function BlogPage() {
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Seo route="blog" />
+      <Seo route="blog" seo={blogIndexSeo(STATIC_ROUTE_SEO.blog, ARTICLES)} />
       <Nav />
       <main>
 
