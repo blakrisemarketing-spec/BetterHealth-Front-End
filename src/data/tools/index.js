@@ -26,6 +26,7 @@ import genotypeCompatibility from "./genotype-compatibility.js";
 import diabetesRisk from "./diabetes-risk.js";
 import heartAge from "./heart-age.js";
 import bmiWaist from "./bmi-waist.js";
+import kidneyCheck from "./kidney-check.js";
 
 export const TOOL_DISCLAIMER =
   "General education only. For severe or urgent symptoms, seek medical care.";
@@ -33,7 +34,7 @@ export const TOOL_DISCLAIMER =
 export const TOOL_TRUST_LINE =
   "Built by the BetterHealth Africa editorial team from published instruments. Every number on the result screen is worked out on your device.";
 
-export const TOOLS = [genotypeCompatibility, diabetesRisk, heartAge, bmiWaist];
+export const TOOLS = [genotypeCompatibility, diabetesRisk, heartAge, bmiWaist, kidneyCheck];
 
 export function getTool(slug) {
   return TOOLS.find((t) => t.slug === slug) || null;

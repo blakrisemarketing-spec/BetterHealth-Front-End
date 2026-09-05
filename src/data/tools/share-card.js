@@ -9,6 +9,7 @@ import { TOOL_DISCLAIMER } from "./index.js";
 import { RISK_BANDS as FINDRISC_BANDS } from "./diabetes-risk.js";
 import { RISK_BANDS as HEART_BANDS } from "./heart-age.js";
 import { BMI_BANDS_ADJUSTED } from "./bmi-waist.js";
+import { A_STAGES, G_STAGES } from "./kidney-check.js";
 
 export const SHARE_HOST = "betterhealth.africa";
 
@@ -83,6 +84,116 @@ export function bmiShareSpec(result) {
     band: bmiBand.label,
     meaning: `${waistLine} Read on the thresholds NICE sets for Black African backgrounds, with the waist measurement BMI leaves out.`,
     meter: { count: BMI_BANDS_ADJUSTED.length, active: BMI_BANDS_ADJUSTED.findIndex((x) => x.id === bmiBand.id) },
+  });
+}
+
+// --------------------------------------------------------------------------
+// The kidney card.
+//
+// The one line worth carrying to somebody else's phone is the tool's own
+// point: kidney disease is staged on two numbers and most people only ever get
+// one. So `meaning` says that on every variant of this card, and the headline
+// is whatever the person actually walked away with.
+//
+// Nothing personal goes on it: no name, no phone, no risk factor, and no
+// symptom anyone ticked.
+// --------------------------------------------------------------------------
+
+// Two lengths, because the card's meaning text is drawn into whatever vertical
+// room the rows above it left behind and is cut rather than overflowed. A
+// variant carrying a stage row and a meter has room for about two lines; one
+// carrying neither has room for four. Both say the same thing.
+const KIDNEY_MEANING =
+  "Kidney disease is staged on two numbers: one from blood, one from urine.";
+
+const KIDNEY_MEANING_ROOMY =
+  "Kidney disease is staged on two numbers, one from blood and one from urine. Damage can show in the urine before filtering falls, so one number on its own leaves half the picture out.";
+
+export function kidneyShareSpec(result) {
+  const b = { ...base("kidney-check", "Kidney Check"), meaning: KIDNEY_MEANING };
+  const roomy = { ...b, meaning: KIDNEY_MEANING_ROOMY };
+  const { numbers, screening, urgent, exclusion } = result;
+
+  // Rule 3: nothing that needs prompt clinical attention gets dressed up as a
+  // number on a card somebody forwards.
+  if (urgent) {
+    return withText({
+      ...b,
+      eyebrow: "Kidney check",
+      headline: "One for a clinician",
+      band: urgent.headline,
+      meaning:
+        "A single result is not a diagnosis, and this one is not a thing to sit on either. Chronic kidney disease needs the abnormality to persist beyond three months, which only a repeat can show.",
+    });
+  }
+
+  if (exclusion) {
+    return withText({
+      ...b,
+      eyebrow: "Kidney check",
+      headline: "Not a number to compute",
+      band: "This page will not estimate one here",
+      meaning:
+        "Some situations make an eGFR from creatinine read wrong in both directions, and printing one anyway would be worse than printing nothing.",
+    });
+  }
+
+  // Both numbers staged: the full picture, which is the rarest card.
+  if (numbers.g && numbers.a) {
+    return withText({
+      ...b,
+      eyebrow: "Both halves, staged",
+      headline: `${numbers.g.label} ${numbers.a.label}`,
+      band: numbers.grid ? numbers.grid.label : `${numbers.g.name}, ${numbers.a.name.toLowerCase()}`,
+      meter: { count: G_STAGES.length, active: G_STAGES.findIndex((x) => x.id === numbers.g.id) },
+      rows: [{ label: "Urine albumin", value: numbers.a.label, note: numbers.a.name }],
+    });
+  }
+
+  // An eGFR and a stage, but no urine result: the card that says so.
+  if (numbers.g) {
+    return withText({
+      ...b,
+      eyebrow: "Kidney function, half the picture",
+      headline: `eGFR ${numbers.egfr.low} to ${numbers.egfr.high}`,
+      band: `Stage ${numbers.g.label}, ${numbers.g.name.toLowerCase()}`,
+      meter: { count: G_STAGES.length, active: G_STAGES.findIndex((x) => x.id === numbers.g.id) },
+      rows: [{ label: "Still missing", value: "The urine half", note: "A urine albumin:creatinine ratio" }],
+    });
+  }
+
+  // A urine result and no blood result.
+  if (numbers.a) {
+    return withText({
+      ...b,
+      eyebrow: "Urine albumin, half the picture",
+      headline: `Stage ${numbers.a.label}`,
+      band: numbers.a.name,
+      meter: { count: A_STAGES.length, active: A_STAGES.findIndex((x) => x.id === numbers.a.id) },
+      rows: [{ label: "Still missing", value: "The blood half", note: "A creatinine, for an eGFR" }],
+    });
+  }
+
+  // A creatinine typed in but no eGFR to put it on, because the person ticked
+  // one of the conditions in which KDIGO says the estimate is less accurate.
+  if (numbers.creatinine) {
+    const unit = numbers.creatinine.unit === "mgdl" ? "mg/dL" : "micromol/L";
+    return withText({
+      ...roomy,
+      eyebrow: "Kidney check",
+      headline: `Creatinine ${numbers.creatinine.typed}`,
+      band: `${unit}, and no eGFR estimated from it`,
+    });
+  }
+
+  // No numbers at all, which is what most people will share.
+  return withText({
+    ...roomy,
+    eyebrow: "Kidney check",
+    headline: screening.indicated ? "Worth checking" : "Not on the list today",
+    band: screening.indicated
+      ? `${screening.reasons.length} reason${screening.reasons.length === 1 ? "" : "s"} to test, and no result yet`
+      : "No risk factor from the guideline list",
   });
 }
 
@@ -240,6 +351,7 @@ export function shareSpecFor(slug, result) {
   if (slug === "diabetes-risk") return diabetesShareSpec(result);
   if (slug === "heart-age") return heartShareSpec(result);
   if (slug === "bmi-waist") return bmiShareSpec(result);
+  if (slug === "kidney-check") return kidneyShareSpec(result);
   // The multi-trait result carries a `traits` list; the genotype-only result
   // that computeGenotypeFull returns does not, and keeps its original card.
   if (slug === "genotype-compatibility") return result?.traits ? inheritanceShareSpec(result) : genotypeShareSpec(result);

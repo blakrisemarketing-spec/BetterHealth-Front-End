@@ -97,6 +97,7 @@ import {
   HEART_PARTS,
   BMI_PARTS,
   INHERITANCE_PARTS,
+  KIDNEY_PARTS,
   countQuestions,
   countVisibleQuestions,
   computeDiabetesFull,
@@ -104,7 +105,70 @@ import {
   computeBmiFull,
   computeGenotypeFull,
   computeInheritanceFull,
+  computeKidneyFull,
 } from "../src/data/tools/compose.js";
+import {
+  ACR_RANGES,
+  ACR_REFERRAL,
+  ACR_REFERRAL_HIGH,
+  ACR_TEST,
+  ACR_UNITS,
+  ACUTE_SIGNS,
+  A_BOUNDARY_NOTE,
+  A_STAGES,
+  CKD_EPI_2021,
+  CREATININE_RANGES,
+  CREATININE_UNITS,
+  EGFR_CAVEAT,
+  EGFR_CAVEAT_LOW,
+  EGFR_LOW_THRESHOLD,
+  EGFR_REFERRAL,
+  EKFC,
+  EXCLUSIONS,
+  GRID,
+  GRID_CATEGORIES,
+  GRID_MONITORING,
+  G1_G2_FOOTNOTE,
+  G_STAGES,
+  KIDNEY_EVIDENCE_IS_FINAL,
+  MAX_ANSWER_KEYS,
+  MGG_PER_MGMMOL,
+  MIN_EGFR_AGE,
+  MISSING_HALF,
+  NUMBERS_STEPS,
+  PROVISIONAL,
+  DIABETES_INTERVAL,
+  NO_INTERVAL_NOTE,
+  NO_SCORE_NOTE,
+  RFT_TEST,
+  RISK_FACTORS,
+  RISK_FACTOR_PICKS,
+  SCREENING_STEPS,
+  SIGNS,
+  UMOL_PER_MGDL,
+  UNRELIABLE_CONDITIONS,
+  URGENT_RULES,
+  aStageFor,
+  acrToMgg,
+  acrToMgmmol,
+  ckdEpiFrom,
+  computeKidney,
+  creatinineToMgdl,
+  creatinineToUmol,
+  egfrFrom,
+  ekfcFrom,
+  exclusionFor,
+  gStageFor,
+  gridCellFor,
+  riskFactorOptions,
+  kidneyCta,
+  missingHalfFor,
+  numbersFor,
+  packKidney,
+  screeningFor,
+  signsFor,
+  wants,
+} from "../src/data/tools/kidney-check.js";
 import {
   genotypeAdvice,
   FOLLOW_UP_NOTE,
@@ -152,6 +216,7 @@ import {
   selectedTraits,
 } from "../src/data/tools/inheritance.js";
 import { shareSpecFor, SHARE_HOST } from "../src/data/tools/share-card.js";
+import { SINGLE_TEST_CODES } from "../src/data/app-catalogue.js";
 import { TOOL_DISCLAIMER, TOOLS } from "../src/data/tools/index.js";
 
 let passed = 0;
@@ -2389,6 +2454,965 @@ test("the option lists are all taps, and every one offers an honest way out", ()
     for (const step of part.steps) {
       assert.ok(["choice", "multi"].includes(step.kind), `${step.id} is ${step.kind}`);
     }
+  }
+});
+
+
+// ---------------------------------------------------------------------------
+// Tool 5: the Kidney Check.
+//
+// The point of the tool is that kidney disease is staged on two numbers and
+// most people only get one, so the tests that matter most are the ones that
+// pin what the page says when only half of it is there.
+//
+// Every figure asserted below is traced to the sourced evidence brief and to
+// the guideline or paper behind it. Where the brief left something open, the
+// provenance test is what stops the gap being quietly filled in later.
+// ---------------------------------------------------------------------------
+
+// A complete, ordinary answer map, so each test can vary one thing.
+const kidneyAnswers = (over = {}) => ({
+  age: 52,
+  sex: "female",
+  pregnant: "no",
+  nephrologyCare: "no",
+  diabetes: "no",
+  bloodPressure: "no",
+  familyKidney: "no",
+  riskFactors: [],
+  signs: [],
+  acute: [],
+  haveNumbers: "no",
+  ...over,
+});
+
+const withCreatinine = (value, unit = "umol", over = {}) =>
+  kidneyAnswers({
+    haveNumbers: "yes",
+    whichNumbers: ["creatinine"],
+    creatinine: value,
+    creatinineUnit: unit,
+    egfrReliability: [],
+    ...over,
+  });
+
+const withAcr = (value, unit = "mgmmol", over = {}) =>
+  kidneyAnswers({ haveNumbers: "yes", whichNumbers: ["acr"], acr: value, acrUnit: unit, ...over });
+
+test("the kidney tool is registered and keeps the URL the campaign will point at", () => {
+  const tool = TOOLS.find((t) => t.slug === "kidney-check");
+  assert.ok(tool, "kidney-check is not in TOOLS");
+  assert.equal(TOOLS.length, 5);
+  assert.equal(tool.title, "Kidney Check");
+  // The search terms people actually use have to survive into the <title>.
+  assert.match(tool.seoTitle, /kidney function/i);
+  assert.match(tool.seoTitle, /eGFR/);
+  assert.ok(tool.description.length <= 155, `meta description is ${tool.description.length} chars`);
+});
+
+test("the provenance flags and the tables they describe cannot drift apart", () => {
+  // Everything the brief settled is in place.
+  assert.equal(PROVISIONAL.egfrEquation, false);
+  assert.ok(CKD_EPI_2021.constant === 142 && EKFC.constant === 107.3);
+  assert.equal(PROVISIONAL.gStages, false);
+  assert.equal(G_STAGES.length, 6);
+  assert.equal(PROVISIONAL.aStages, false);
+  assert.equal(A_STAGES.length, 3);
+  assert.equal(PROVISIONAL.grid, false);
+  assert.equal(Object.keys(GRID).length, 6);
+  assert.equal(PROVISIONAL.urgentThresholds, false);
+  assert.ok(URGENT_RULES.length > 0);
+  assert.equal(PROVISIONAL.screeningIntervals, false);
+  assert.equal(KIDNEY_EVIDENCE_IS_FINAL, true);
+  // Part 1 never produces a number of any kind.
+  const screening = screeningFor(kidneyAnswers({ diabetes: "yes", bloodPressure: "treated" }));
+  assert.equal(typeof screening.score, "undefined", "part 1 must not produce a score");
+  assert.equal(typeof screening.percent, "undefined", "part 1 must not produce a percentage");
+});
+
+// ---------------------------------------------------------------------------
+// Units.
+// ---------------------------------------------------------------------------
+
+test("creatinine converts both ways, and 1 mg/dL is 88.4 micromol/L", () => {
+  // KDIGO's own conversion table: creatinine mg/dL x 88.4 = micromol/L.
+  assert.equal(UMOL_PER_MGDL, 88.4);
+  assert.equal(creatinineToUmol(88.4, "umol"), 88.4);
+  assert.ok(Math.abs(creatinineToMgdl(88.4, "umol") - 1) < 1e-9);
+  assert.equal(creatinineToMgdl(1, "mgdl"), 1);
+  assert.ok(Math.abs(creatinineToUmol(1, "mgdl") - 88.4) < 1e-9);
+  for (const umol of [45, 62, 88, 106, 140, 265, 620]) {
+    const mgdl = creatinineToMgdl(umol, "umol");
+    assert.ok(Math.abs(creatinineToUmol(mgdl, "mgdl") - umol) < 1e-9, `${umol}`);
+  }
+  // Nothing usable in, null out. No zero, no negative, no blank.
+  for (const bad of [0, -1, "", null, undefined, "abc"]) {
+    assert.equal(creatinineToMgdl(bad, "umol"), null, String(bad));
+    assert.equal(creatinineToUmol(bad, "mgdl"), null, String(bad));
+  }
+});
+
+test("the same creatinine reaches the same eGFR whichever unit it was typed in", () => {
+  const a = numbersFor(withCreatinine(88.4, "umol"));
+  const b = numbersFor(withCreatinine(1, "mgdl"));
+  assert.ok(Math.abs(a.creatinine.mgdl - b.creatinine.mgdl) < 1e-9);
+  assert.ok(Math.abs(a.creatinine.umol - b.creatinine.umol) < 1e-9);
+  assert.deepEqual(a.egfr, b.egfr);
+  assert.equal(a.g.id, b.g.id);
+  // The unit typed is remembered, so the result screen can show the other one.
+  assert.equal(a.creatinine.unit, "umol");
+  assert.equal(b.creatinine.unit, "mgdl");
+});
+
+test("ACR converts both ways on KDIGO's exact factor, mg/g x 0.113 = mg/mmol", () => {
+  assert.ok(Math.abs(MGG_PER_MGMMOL - 1 / 0.113) < 1e-12);
+  assert.ok(Math.abs(acrToMgg(1, "mgmmol") - 8.8496) < 1e-3);
+  // KDIGO's own "approximately equivalent" columns are not exact: 30 mg/g is
+  // strictly 3.39 mg/mmol, which is the whole reason banding happens in the
+  // reported unit rather than after a conversion.
+  assert.ok(Math.abs(acrToMgmmol(30, "mgg") - 3.39) < 0.01);
+  for (const mgmmol of [0, 0.5, 3, 12.5, 30, 100, 340]) {
+    const mgg = acrToMgg(mgmmol, "mgmmol");
+    assert.ok(Math.abs(acrToMgmmol(mgg, "mgg") - mgmmol) < 1e-9, `${mgmmol}`);
+  }
+  // Zero albumin is a real, good result, unlike a zero creatinine.
+  assert.equal(acrToMgg(0, "mgmmol"), 0);
+  assert.equal(acrToMgmmol(0, "mgg"), 0);
+  for (const bad of [-1, "", null, undefined, "abc"]) assert.equal(acrToMgg(bad, "mgmmol"), null, String(bad));
+});
+
+test("an ACR is banded in the unit it was reported in, never after a conversion", () => {
+  // This is KDIGO's instruction and it changes answers. 3 mg/mmol is A2 on the
+  // mg/mmol row. Convert it first and it becomes 26.5 mg/g, which is A1. The
+  // guideline does not move that person across the line, so neither does this.
+  assert.equal(aStageFor(3, "mgmmol").id, "A2");
+  assert.equal(aStageFor(acrToMgg(3, "mgmmol"), "mgg").id, "A1", "converting first would change the band");
+  assert.equal(aStageFor(30, "mgg").id, "A2");
+  // Both boundary rows are read off KDIGO 2024 Table 3 as printed.
+  assert.equal(A_STAGES[1].bands.mgmmol.min, 3);
+  assert.equal(A_STAGES[1].bands.mgg.min, 30);
+  assert.match(A_BOUNDARY_NOTE, /approximately equivalent/);
+});
+
+// ---------------------------------------------------------------------------
+// The staging tables.
+// ---------------------------------------------------------------------------
+
+test("every G band boundary lands where KDIGO 2024 Table 2 puts it", () => {
+  // G1 >=90, G2 60-89, G3a 45-59, G3b 30-44, G4 15-29, G5 <15. Unchanged from
+  // KDIGO 2012, which is what the site's own article cites.
+  const cases = [
+    [200, "G1"], [90, "G1"],
+    [89.9, "G2"], [89, "G2"], [60, "G2"],
+    [59.9, "G3a"], [59, "G3a"], [45, "G3a"],
+    [44.9, "G3b"], [44, "G3b"], [30, "G3b"],
+    [29.9, "G4"], [29, "G4"], [15, "G4"],
+    [14.9, "G5"], [14, "G5"], [0, "G5"],
+  ];
+  for (const [egfr, id] of cases) assert.equal(gStageFor(egfr)?.id, id, `eGFR ${egfr}`);
+  for (const none of [null, undefined, NaN, "abc"]) assert.equal(gStageFor(none), null, String(none));
+  // Ordered best to worst, with no gap and no overlap.
+  assert.deepEqual(G_STAGES.map((g) => g.id), ["G1", "G2", "G3a", "G3b", "G4", "G5"]);
+  for (let i = 1; i < G_STAGES.length; i += 1) {
+    assert.ok(G_STAGES[i].max < G_STAGES[i - 1].min, `${G_STAGES[i].id} overlaps ${G_STAGES[i - 1].id}`);
+    assert.ok(G_STAGES[i - 1].min - G_STAGES[i].max < 0.01, `gap under ${G_STAGES[i - 1].id}`);
+    assert.ok(G_STAGES[i].name && G_STAGES[i].meaning, G_STAGES[i].id);
+  }
+  // The footnote that stops an ordinary eGFR reading as a disease finding.
+  assert.match(G1_G2_FOOTNOTE, /neither G1 nor G2 fulfills the criteria/);
+  assert.match(G_STAGES[0].meaning, /neither G1 nor G2/);
+  assert.match(G_STAGES[1].meaning, /unless there is evidence of kidney damage/);
+});
+
+test("every A band boundary lands where KDIGO 2024 Table 3 puts it, in both units", () => {
+  // A1 <3 mg/mmol (<30 mg/g), A2 3 to 30 (30 to 300), A3 above.
+  const mgmmol = [
+    [0, "A1"], [1, "A1"], [2.9, "A1"], [2.99, "A1"],
+    [3, "A2"], [10, "A2"], [29.9, "A2"],
+    [30, "A3"], [70, "A3"], [500, "A3"],
+  ];
+  for (const [value, id] of mgmmol) assert.equal(aStageFor(value, "mgmmol")?.id, id, `${value} mg/mmol`);
+  const mgg = [
+    [0, "A1"], [10, "A1"], [29, "A1"], [29.9, "A1"],
+    [30, "A2"], [100, "A2"], [299, "A2"], [299.9, "A2"],
+    [300, "A3"], [700, "A3"], [5000, "A3"],
+  ];
+  for (const [value, id] of mgg) assert.equal(aStageFor(value, "mgg")?.id, id, `${value} mg/g`);
+  // An unrecognised unit falls back to mg/mmol, the default on the form, and
+  // never to no band at all.
+  assert.equal(aStageFor(5, "nonsense")?.id, "A2");
+  for (const none of [null, undefined, "", "abc", -1]) assert.equal(aStageFor(none, "mgmmol"), null, String(none));
+  // Contiguous in both units, starting at zero and ending open.
+  for (const unit of ["mgmmol", "mgg"]) {
+    assert.equal(A_STAGES[0].bands[unit].min, 0);
+    assert.equal(A_STAGES[A_STAGES.length - 1].bands[unit].below, Infinity);
+    for (let i = 1; i < A_STAGES.length; i += 1) {
+      assert.equal(A_STAGES[i].bands[unit].min, A_STAGES[i - 1].bands[unit].below, `${unit} gap at ${A_STAGES[i].id}`);
+    }
+  }
+  for (const a of A_STAGES) assert.ok(a.name && a.meaning, a.id);
+  // A2 is where albuminuria becomes a marker of kidney damage in the
+  // definition, so it has to say so.
+  assert.match(A_STAGES[1].meaning, /marker of kidney damage/);
+  assert.match(A_STAGES[1].meaning, /even where the eGFR is entirely normal/);
+});
+
+test("the combined grid is KDIGO's own, cell for cell", () => {
+  // Read off the colour figure on p. S126 of the KDIGO 2024 guideline.
+  const expected = {
+    G1: { A1: "low", A2: "moderate", A3: "high" },
+    G2: { A1: "low", A2: "moderate", A3: "high" },
+    G3a: { A1: "moderate", A2: "high", A3: "veryHigh" },
+    G3b: { A1: "high", A2: "veryHigh", A3: "veryHigh" },
+    G4: { A1: "veryHigh", A2: "veryHigh", A3: "veryHigh" },
+    G5: { A1: "veryHigh", A2: "veryHigh", A3: "veryHigh" },
+  };
+  assert.deepEqual(GRID, expected);
+  // Every G stage has a row, every row a cell per A stage, every cell a
+  // category that exists, and every cell a monitoring frequency.
+  const ids = GRID_CATEGORIES.map((c) => c.id);
+  for (const g of G_STAGES) {
+    for (const a of A_STAGES) {
+      const cell = gridCellFor(g.id, a.id);
+      assert.ok(cell && cell.label, `${g.id} ${a.id} does not resolve`);
+      assert.ok(ids.includes(GRID[g.id][a.id]), `${g.id} ${a.id} names an unknown category`);
+      assert.ok(GRID_MONITORING[g.id][a.id], `${g.id} ${a.id} has no monitoring frequency`);
+      assert.equal(cell.testsPerYear, GRID_MONITORING[g.id][a.id]);
+    }
+  }
+  // The whole point of the tool, on the grid: a normal eGFR with heavy
+  // albuminuria is a high-risk cell, not a green one.
+  assert.equal(gridCellFor("G1", "A3").id, "high");
+  assert.equal(gridCellFor("G2", "A3").id, "high");
+  assert.equal(gridCellFor("G1", "A2").id, "moderate");
+  // KDIGO's legend footnote on the green cells has to travel with them.
+  assert.match(GRID_CATEGORIES.find((c) => c.id === "low").meaning, /not chronic kidney disease at all/);
+  // One letter is never enough for a cell.
+  assert.equal(gridCellFor("G1", null), null);
+  assert.equal(gridCellFor(null, "A1"), null);
+  assert.equal(gridCellFor("G9", "A1"), null);
+});
+
+// ---------------------------------------------------------------------------
+// The equations.
+// ---------------------------------------------------------------------------
+
+test("CKD-EPI 2021 reproduces its published reference points", () => {
+  // At a creatinine equal to kappa both power terms collapse to 1, which makes
+  // these two the cleanest published anchors the equation has.
+  //   female, 50: 142 x 0.9938^50 x 1.012 = 105
+  //   male,   50: 142 x 0.9938^50         = 104
+  assert.equal(Math.round(ckdEpiFrom({ creatinineMgdl: 0.7, age: 50, sex: "female" })), 105);
+  assert.equal(Math.round(ckdEpiFrom({ creatinineMgdl: 0.9, age: 50, sex: "male" })), 104);
+  // The upper branch, above kappa, where the -1.200 exponent takes over.
+  assert.equal(Math.round(ckdEpiFrom({ creatinineMgdl: 1.5, age: 60, sex: "male" })), 53);
+  assert.equal(Math.round(ckdEpiFrom({ creatinineMgdl: 1.9, age: 65, sex: "female" })), 29);
+  // The coefficients are the published ones and no others.
+  assert.equal(CKD_EPI_2021.constant, 142);
+  assert.equal(CKD_EPI_2021.ageBase, 0.9938);
+  assert.equal(CKD_EPI_2021.upperExponent, -1.2);
+  assert.deepEqual(CKD_EPI_2021.bySex.female, { kappa: 0.7, alpha: -0.241, sexFactor: 1.012 });
+  assert.deepEqual(CKD_EPI_2021.bySex.male, { kappa: 0.9, alpha: -0.302, sexFactor: 1 });
+  // Continuous at the knee. The exponent changes there, so the slope kinks,
+  // but the value does not jump. That is the property the ratio form has and
+  // the SI table's rounded branch points (61.9 against a kappa of 61.88) do
+  // not, which is why the ratio form is the one implemented.
+  const below = ckdEpiFrom({ creatinineMgdl: 0.8999, age: 50, sex: "male" });
+  const at = ckdEpiFrom({ creatinineMgdl: 0.9, age: 50, sex: "male" });
+  const above = ckdEpiFrom({ creatinineMgdl: 0.9001, age: 50, sex: "male" });
+  assert.ok(below > at && at > above, "the equation has to fall monotonically through the knee");
+  assert.ok(Math.abs(below - above) < 0.05, `discontinuity at kappa: ${below} vs ${above}`);
+  // Moves the right way with creatinine and with age.
+  assert.ok(
+    ckdEpiFrom({ creatinineMgdl: 2.4, age: 50, sex: "female" }) <
+      ckdEpiFrom({ creatinineMgdl: 0.8, age: 50, sex: "female" }),
+    "a higher creatinine has to give a lower eGFR",
+  );
+  assert.ok(
+    ckdEpiFrom({ creatinineMgdl: 1, age: 70, sex: "male" }) < ckdEpiFrom({ creatinineMgdl: 1, age: 30, sex: "male" }),
+    "the same creatinine has to give a lower eGFR at a greater age",
+  );
+});
+
+test("EKFC uses the published Black African reference values and its own definition point", () => {
+  // At SCr = Q and age 40 or under, EKFC is its constant exactly.
+  assert.ok(Math.abs(ekfcFrom({ creatinineMgdl: 0.96, age: 30, sex: "male" }) - 107.3) < 1e-9);
+  assert.ok(Math.abs(ekfcFrom({ creatinineMgdl: 0.72, age: 30, sex: "female" }) - 107.3) < 1e-9);
+  // Above 40 the age factor is 0.990 per year past 40, and nothing before it.
+  assert.ok(Math.abs(ekfcFrom({ creatinineMgdl: 0.96, age: 40, sex: "male" }) - 107.3) < 1e-9);
+  assert.ok(Math.abs(ekfcFrom({ creatinineMgdl: 0.96, age: 50, sex: "male" }) - 107.3 * 0.99 ** 10) < 1e-9);
+  // The Q values are the published mg/dL figures for Black Africans, from 470
+  // healthy individuals in the DR Congo plus a Cote d'Ivoire cohort.
+  assert.deepEqual(EKFC.q, { male: 0.96, female: 0.72 });
+  assert.equal(EKFC.constant, 107.3);
+  assert.equal(EKFC.lowerExponent, -0.322);
+  assert.equal(EKFC.upperExponent, -1.132);
+  assert.equal(EKFC.ageBase, 0.99);
+  assert.match(EKFC.citation, /Pottel/);
+  assert.match(EKFC.citation, /Delanaye/);
+});
+
+test("the race coefficient is not implemented anywhere, in any form", () => {
+  // The 2009 equation multiplied by 1.159 for anyone recorded as Black. KDIGO
+  // 2024 Practice Point 1.2.4.2: race should not be used in computing an eGFR.
+  const source = JSON.stringify([CKD_EPI_2021, EKFC]);
+  assert.doesNotMatch(source, /1\.159/, "the race coefficient must not appear");
+  assert.doesNotMatch(source, /\brace\b/i);
+  assert.doesNotMatch(source, /ethnic/i);
+  // No input to either equation can carry it: the only inputs are creatinine,
+  // age and sex.
+  const args = { creatinineMgdl: 1.2, age: 50, sex: "male" };
+  assert.equal(ckdEpiFrom({ ...args, race: "black" }), ckdEpiFrom(args));
+  assert.equal(ekfcFrom({ ...args, race: "black" }), ekfcFrom(args));
+  // And no question in the flow asks for it.
+  const questions = JSON.stringify([...SCREENING_STEPS, ...NUMBERS_STEPS].map((s) => [s.text, s.help, s.options]));
+  assert.doesNotMatch(questions, /\brace\b/i);
+  assert.doesNotMatch(questions, /ethnic/i);
+});
+
+test("an eGFR is a range of whole numbers, never one confident decimal", () => {
+  const { egfr } = numbersFor(withCreatinine(106, "umol", { age: 60, sex: "male" }));
+  // Both figures are integers: the brief's rule is never to display a decimal.
+  for (const key of ["reported", "ckdEpi", "ekfc", "low", "high"]) {
+    assert.equal(egfr[key], Math.round(egfr[key]), `${key} is not a whole number`);
+  }
+  assert.ok(egfr.low <= egfr.reported && egfr.reported <= egfr.high);
+  // The reported figure is CKD-EPI 2021, because that is what a lab reports
+  // and therefore the number least likely to conflict with the person's own.
+  assert.equal(egfr.reported, egfr.ckdEpi);
+  // Where the two published equations land in different bands, the result says
+  // so. Male, 52, creatinine 91 micromol/L: CKD-EPI 89 is G2, EKFC 90 is G1.
+  const split = numbersFor(withCreatinine(91, "umol", { age: 50, sex: "male" }));
+  assert.equal(split.egfr.ckdEpi, 89);
+  assert.equal(split.egfr.ekfc, 90);
+  assert.equal(split.egfr.equationsDisagree, true);
+  assert.equal(split.g.id, "G2", "the band follows the reported equation");
+  // And where they agree, it does not manufacture a disagreement.
+  const agreed = numbersFor(withCreatinine(133, "umol", { age: 60, sex: "male" }));
+  assert.equal(agreed.egfr.equationsDisagree, false);
+  assert.equal(agreed.egfr.low, agreed.egfr.high);
+});
+
+test("every eGFR carries its caveat, and below 60 the caveat gets stronger", () => {
+  // The ARK figures, which are the reason the caveat exists at all.
+  assert.match(EGFR_CAVEAT, /has been validated against measured kidney function in Ghanaian adults/);
+  assert.match(EGFR_CAVEAT, /2,578 adults/);
+  assert.match(EGFR_CAVEAT, /30%/);
+  assert.match(EGFR_CAVEAT_LOW, /25%/);
+  assert.match(EGFR_CAVEAT_LOW, /14%/);
+  assert.equal(EGFR_LOW_THRESHOLD, 60);
+  // The flag the result screen reads to decide which caveat to print.
+  assert.equal(numbersFor(withCreatinine(62, "umol", { age: 50, sex: "female" })).egfrLow, false);
+  assert.equal(numbersFor(withCreatinine(133, "umol", { age: 60, sex: "male" })).egfrLow, true);
+});
+
+test("the tool refuses to estimate for anyone under 18", () => {
+  // Both equations were derived and validated in adults of 18 and over.
+  assert.equal(MIN_EGFR_AGE, 18);
+  assert.equal(ckdEpiFrom({ creatinineMgdl: 1, age: 17, sex: "male" }), null);
+  assert.equal(ekfcFrom({ creatinineMgdl: 1, age: 17, sex: "male" }), null);
+  assert.equal(egfrFrom({ creatinineMgdl: 1, age: 17, sex: "male" }), null);
+  assert.equal(ckdEpiFrom({ creatinineMgdl: 1, age: 18, sex: "male" }) > 0, true);
+  // And nothing usable in, null out.
+  assert.equal(egfrFrom({ creatinineMgdl: 0, age: 50, sex: "male" }), null);
+  assert.equal(egfrFrom({ creatinineMgdl: 1, age: 0, sex: "male" }), null);
+});
+
+// ---------------------------------------------------------------------------
+// When the tool must not compute at all.
+// ---------------------------------------------------------------------------
+
+test("under 18, pregnancy and nephrology care each stop the calculator dead", () => {
+  assert.deepEqual(EXCLUSIONS.map((e) => e.id), ["under18", "pregnant", "nephrology"]);
+  for (const e of EXCLUSIONS) {
+    assert.ok(e.headline && e.body.length > 80 && e.source, e.id);
+  }
+  assert.equal(exclusionFor(kidneyAnswers({ age: 15 })).id, "under18");
+  assert.equal(exclusionFor(kidneyAnswers({ pregnant: "yes" })).id, "pregnant");
+  assert.equal(exclusionFor(kidneyAnswers({ nephrologyCare: "yes" })).id, "nephrology");
+  assert.equal(exclusionFor(kidneyAnswers()), null);
+
+  for (const over of [{ age: 15 }, { pregnant: "yes" }, { nephrologyCare: "yes" }]) {
+    const values = withCreatinine(140, "umol", over);
+    const result = computeKidney(values);
+    assert.ok(result.exclusion, JSON.stringify(over));
+    // Nothing is computed from the numbers, even though a number was typed.
+    assert.equal(result.numbers.have, "none");
+    assert.equal(result.numbers.egfr, null);
+    assert.equal(result.numbers.g, null);
+    // Nothing is sold either.
+    assert.equal(result.cta.kind, "none");
+    assert.equal(result.missingHalf, null);
+    // And the whole of part 2 drops out of the flow rather than being asked
+    // and then ignored.
+    const visible = NUMBERS_STEPS.filter((s) => typeof s.skipIf !== "function" || !s.skipIf(values));
+    assert.deepEqual(visible, [], JSON.stringify(over));
+  }
+  // Pregnancy is only asked of anyone whose lab reference is the female one.
+  const pregnantStep = SCREENING_STEPS.find((s) => s.id === "pregnant");
+  assert.equal(pregnantStep.skipIf({ sex: "male" }), true);
+  assert.equal(pregnantStep.skipIf({ sex: "female" }), false);
+});
+
+test("the conditions KDIGO says make an eGFR less accurate suppress the number", () => {
+  assert.equal(UNRELIABLE_CONDITIONS.length, 7);
+  for (const c of UNRELIABLE_CONDITIONS) assert.ok(c.id && c.label && c.short, c.id);
+  const flagged = computeKidney(withCreatinine(106, "umol", { egfrReliability: ["muscleHigh"] }));
+  assert.deepEqual(flagged.numbers.unreliable.map((c) => c.id), ["muscleHigh"]);
+  assert.equal(flagged.numbers.egfr, null, "no number where the estimate is known to be unreliable");
+  assert.equal(flagged.numbers.g, null);
+  // The creatinine itself still survives, because converting the unit is real
+  // help and does not depend on any equation.
+  assert.equal(flagged.numbers.creatinine.typed, 106);
+  assert.equal(flagged.numbers.have, "creatinine");
+  assert.equal(flagged.numbers.missing, "acr");
+  // With nothing ticked, the number comes back.
+  assert.ok(computeKidney(withCreatinine(106, "umol")).numbers.egfr);
+});
+
+// ---------------------------------------------------------------------------
+// The branch, which is the point of the tool.
+// ---------------------------------------------------------------------------
+
+test("the no-numbers path is the ordinary one, and it says which half is missing", () => {
+  const r = computeKidney(kidneyAnswers({ diabetes: "yes" }));
+  assert.equal(r.numbers.have, "none");
+  assert.equal(r.numbers.missing, "both");
+  assert.equal(r.numbers.creatinine, null);
+  assert.equal(r.numbers.acr, null);
+  assert.equal(r.numbers.egfr, null);
+  assert.equal(r.numbers.g, null);
+  assert.equal(r.numbers.a, null);
+  assert.equal(r.missingHalf, MISSING_HALF.both);
+  // Both tests are offered, not one.
+  assert.equal(r.cta.kind, "tests");
+  assert.deepEqual(r.cta.items.map((t) => t.testCode), ["RFT", "ACR"]);
+  // Saying no ends part 2, so nothing after the gate is asked.
+  const values = kidneyAnswers({ haveNumbers: "no" });
+  const visible = NUMBERS_STEPS.filter((s) => typeof s.skipIf !== "function" || !s.skipIf(values));
+  assert.deepEqual(visible.map((s) => s.id), ["haveNumbers"]);
+});
+
+test("one number only is the case the tool exists for, and it names the missing half", () => {
+  // Blood only: the urine half is what is missing, and the copy carries the
+  // Ghanaian figures that make the argument.
+  const blood = computeKidney(withCreatinine(88, "umol"));
+  assert.equal(blood.numbers.have, "creatinine");
+  assert.equal(blood.numbers.missing, "acr");
+  assert.equal(blood.missingHalf, MISSING_HALF.acr);
+  assert.match(blood.missingHalf.heading, /urine half is missing/i);
+  assert.match(blood.missingHalf.body, /3\.7%/);
+  assert.match(blood.missingHalf.body, /8\.4%/);
+  assert.match(blood.missingHalf.body, /10\.9%/);
+  assert.equal(blood.cta.kind, "test");
+  assert.equal(blood.cta.testCode, "ACR");
+  assert.equal(blood.numbers.g.id, "G2");
+  // A perfectly normal eGFR still gets told the picture is half done, which is
+  // the failure mode the whole tool is built against. Female, 52, creatinine
+  // 62 micromol/L reads 104, squarely in G1.
+  const normal = computeKidney(withCreatinine(62, "umol"));
+  assert.equal(normal.numbers.g.id, "G1");
+  assert.equal(normal.numbers.missing, "acr");
+  assert.equal(normal.missingHalf, MISSING_HALF.acr, "a normal eGFR must still be told what is missing");
+  assert.equal(normal.cta.testCode, "ACR");
+
+  // Urine only: the blood half is what is missing.
+  const urine = computeKidney(withAcr(2, "mgmmol"));
+  assert.equal(urine.numbers.have, "acr");
+  assert.equal(urine.numbers.missing, "creatinine");
+  assert.equal(urine.missingHalf, MISSING_HALF.creatinine);
+  assert.match(urine.missingHalf.heading, /blood half is missing/i);
+  assert.equal(urine.cta.kind, "test");
+  assert.equal(urine.cta.testCode, "RFT");
+  // One letter does not place anyone on the grid.
+  assert.equal(urine.numbers.grid, null);
+  assert.equal(blood.numbers.grid, null);
+
+  // Both: nothing is missing, there is nothing to sell, and the grid answers.
+  const both = computeKidney(
+    kidneyAnswers({
+      haveNumbers: "yes",
+      whichNumbers: ["creatinine", "acr"],
+      creatinine: 88,
+      creatinineUnit: "umol",
+      egfrReliability: [],
+      acr: 2,
+      acrUnit: "mgmmol",
+    }),
+  );
+  assert.equal(both.numbers.have, "both");
+  assert.equal(both.numbers.missing, null);
+  assert.equal(both.missingHalf, null);
+  assert.ok(both.numbers.grid);
+  assert.equal(both.cta.kind, "none");
+  assert.match(both.cta.body, /three months/);
+
+  // Every missing-half text makes the tool's central claim.
+  for (const half of Object.values(MISSING_HALF)) {
+    assert.ok(half.heading.length > 10 && half.body.length > 80);
+  }
+  assert.match(MISSING_HALF.acr.body, /free-standing marker of kidney damage/);
+  assert.match(`${MISSING_HALF.both.heading} ${MISSING_HALF.both.body}`, /two numbers/);
+});
+
+test("a half-answered part 2 does not invent the half that was not asked for", () => {
+  const picked = kidneyAnswers({ haveNumbers: "yes", whichNumbers: ["creatinine"] });
+  assert.equal(wants(picked, "creatinine"), true);
+  assert.equal(wants(picked, "acr"), false);
+  // Before the pick is made, neither is ruled out, so the chapter screen can
+  // count the questions honestly.
+  const undecided = kidneyAnswers({ haveNumbers: "yes" });
+  assert.equal(wants(undecided, "creatinine"), true);
+  assert.equal(wants(undecided, "acr"), true);
+  const no = kidneyAnswers({ haveNumbers: "no" });
+  assert.equal(wants(no, "creatinine"), false);
+  assert.equal(wants(no, "acr"), false);
+  // A stray typed value from a back-then-change is not read.
+  const stray = numbersFor(kidneyAnswers({ haveNumbers: "no", creatinine: 88, creatinineUnit: "umol", acr: 5 }));
+  assert.equal(stray.have, "none");
+  assert.equal(stray.creatinine, null);
+  assert.equal(stray.acr, null);
+});
+
+// ---------------------------------------------------------------------------
+// Part 1.
+// ---------------------------------------------------------------------------
+
+test("part 1 counts guideline risk factors and never scores them", () => {
+  const none = screeningFor(kidneyAnswers());
+  assert.equal(none.indicated, false);
+  assert.equal(none.tier, "none");
+  assert.deepEqual(none.reasons, []);
+
+  // KDIGO names three highest-priority conditions for detection: hypertension,
+  // diabetes, and cardiovascular disease including heart failure.
+  const both = screeningFor(kidneyAnswers({ diabetes: "yes", bloodPressure: "untreated" }));
+  assert.equal(both.indicated, true);
+  assert.equal(both.tier, "priority");
+  assert.deepEqual(both.priority.map((r) => r.id), ["diabetes", "hypertension"]);
+  assert.equal(screeningFor(kidneyAnswers({ riskFactors: ["cardiovascular"] })).tier, "priority");
+  assert.deepEqual(
+    RISK_FACTORS.filter((f) => f.tier === "priority").map((f) => f.id),
+    ["diabetes", "hypertension", "cardiovascular"],
+  );
+  // Treated hypertension still counts: the treatment is why it is known about.
+  assert.equal(screeningFor(kidneyAnswers({ bloodPressure: "treated" })).tier, "priority");
+
+  // Prediabetes is on the list, but it is not one of the two.
+  const pre = screeningFor(kidneyAnswers({ diabetes: "prediabetes" }));
+  assert.equal(pre.indicated, true);
+  assert.equal(pre.tier, "listed");
+  assert.equal(pre.reasons[0].label, "Prediabetes");
+
+  // "Not sure" is a gap, not a risk factor. It never counts against anyone.
+  const unsure = screeningFor(kidneyAnswers({ diabetes: "unsure", bloodPressure: "unsure", familyKidney: "unsure" }));
+  assert.equal(unsure.indicated, false);
+  assert.deepEqual(unsure.unknowns, ["bloodPressure", "diabetes", "familyKidney"]);
+
+  const many = screeningFor(
+    kidneyAnswers({ diabetes: "yes", bloodPressure: "treated", familyKidney: "yes", riskFactors: ["ancestry", "cystic"] }),
+  );
+  assert.equal(many.reasons.length, 5);
+
+  // The only re-check interval any source supports is the annual one for
+  // diabetes. KDIGO says outright that there are no evidence-based
+  // recommendations on how often to screen anyone else, so nobody else gets a
+  // date and the page says why rather than going quiet.
+  assert.equal(screeningFor(kidneyAnswers({ diabetes: "yes" })).interval, DIABETES_INTERVAL);
+  assert.match(DIABETES_INTERVAL.text, /Once a year/);
+  assert.match(DIABETES_INTERVAL.text, /type 2/);
+  assert.match(DIABETES_INTERVAL.text, /five years/);
+  assert.match(DIABETES_INTERVAL.source, /ADA[/]KDIGO/);
+  for (const over of [{}, { bloodPressure: "treated" }, { diabetes: "prediabetes" }, { familyKidney: "yes" }]) {
+    assert.equal(screeningFor(kidneyAnswers(over)).interval, null, JSON.stringify(over));
+  }
+  assert.match(NO_INTERVAL_NOTE, /no evidence-based recommendations/);
+  // No score either, with the reason on the page rather than in a comment.
+  assert.match(NO_SCORE_NOTE, /not a score/);
+  assert.match(NO_SCORE_NOTE, /93%/);
+  assert.match(NO_SCORE_NOTE, /0[.]64/);
+  assert.match(NO_SCORE_NOTE, /0[.]75/);
+  // The registry figures the copy leans on, quoted from Table 1 rather than
+  // from the paper's own abstract.
+  const hypertension = RISK_FACTORS.find((f) => f.id === "hypertension");
+  assert.match(hypertension.why, /260 of 687/);
+  assert.match(hypertension.why, /37\.8%/);
+  assert.doesNotMatch(JSON.stringify(RISK_FACTORS), /39\.9/, "the abstract's figure does not match its own table");
+  // And the framing the brief called for: recorded causes, not "caused by".
+  const page = JSON.stringify(TOOLS.find((t) => t.slug === "kidney-check"));
+  assert.match(page, /most commonly recorded cause/);
+  assert.doesNotMatch(page, /most kidney disease in Ghana is caused by/i);
+
+  // KDIGO Table 5, and the three things routinely assumed into it that are not
+  // in it: obesity, hepatitis and NSAID use. Herbal medicine IS on this list,
+  // on Ghanaian evidence, and it says so rather than borrowing KDIGO's name.
+  const ids = RISK_FACTORS.map((f) => f.id);
+  for (const required of [
+    "cardiovascular", "aki", "hiv", "autoimmune", "obstruction", "cystic",
+    "occupational", "pregnancyHistory", "ancestry",
+  ]) {
+    assert.ok(ids.includes(required), `KDIGO Table 5 factor missing: ${required}`);
+  }
+  const factors = JSON.stringify(RISK_FACTORS);
+  assert.doesNotMatch(factors, /obesity/i, "obesity is not in KDIGO Table 5");
+  assert.doesNotMatch(factors, /hepatitis/i, "hepatitis is not in KDIGO Table 5; HIV is");
+  const herbal = RISK_FACTORS.find((f) => f.id === "herbal");
+  assert.doesNotMatch(herbal.source, /KDIGO/, "herbal medicine is a local addition, not a Table 5 entry");
+  assert.match(herbal.why, /1[.]39/);
+  assert.match(herbal.why, /2,781/);
+  // KDIGO's gestational row only reaches whoever could have been pregnant.
+  assert.ok(riskFactorOptions({ sex: "female" }).some((o) => o.value === "pregnancyHistory"));
+  assert.ok(!riskFactorOptions({ sex: "male" }).some((o) => o.value === "pregnancyHistory"));
+  assert.equal(riskFactorOptions({ sex: "female" }).length, riskFactorOptions({ sex: "male" }).length + 1);
+});
+
+test("the signs list separates the slow kind from the sudden kind", () => {
+  const s = signsFor(kidneyAnswers({ signs: ["foamy", "blood"], acute: ["vomiting"] }));
+  assert.deepEqual(s.picked.map((x) => x.id), ["foamy", "blood"]);
+  assert.deepEqual(s.redFlags.map((x) => x.id), ["blood"]);
+  assert.deepEqual(s.acute.map((x) => x.id), ["vomiting"]);
+  const empty = signsFor(kidneyAnswers());
+  assert.deepEqual(empty.picked, []);
+  assert.deepEqual(empty.acute, []);
+  for (const x of [...SIGNS, ...ACUTE_SIGNS]) assert.ok(x.label.length > 5 && x.short.length > 2, x.id);
+  // Exactly one sign is a referral criterion on its own.
+  assert.deepEqual(SIGNS.filter((x) => x.redFlag).map((x) => x.id), ["blood"]);
+});
+
+// ---------------------------------------------------------------------------
+// Rule 3: prompt clinical attention, and the selling stops.
+// ---------------------------------------------------------------------------
+
+test("every KDIGO referral circumstance the tool can see fires, and stops the selling", () => {
+  for (const rule of URGENT_RULES) {
+    assert.ok(rule.id && rule.headline && rule.body.length > 80 && rule.source, rule.id);
+    assert.equal(typeof rule.applies, "function");
+  }
+  const fires = (over) => computeKidney(over).urgent?.id || null;
+
+  // eGFR below 30. Male, 70, creatinine 3.5 mg/dL is 18.
+  assert.equal(EGFR_REFERRAL, 30);
+  assert.equal(fires(withCreatinine(3.5, "mgdl", { age: 70, sex: "male" })), "egfrLow");
+  // The line is strict: male, 45, creatinine 2.6 mg/dL reads exactly 30 and
+  // does not fire, while female, 65, 1.9 mg/dL reads 29 and does.
+  assert.equal(fires(withCreatinine(2.6, "mgdl", { age: 45, sex: "male" })), null);
+  assert.equal(fires(withCreatinine(1.9, "mgdl", { age: 65, sex: "female" })), "egfrLow");
+
+  // A3, at or above 300 mg/g or 30 mg/mmol.
+  assert.deepEqual(ACR_REFERRAL, { mgmmol: 30, mgg: 300 });
+  assert.equal(fires(withAcr(35, "mgmmol")), "acrHigh");
+  assert.equal(fires(withAcr(350, "mgg")), "acrHigh");
+  assert.equal(fires(withAcr(29, "mgmmol")), null);
+
+  // Above 700 mg/g or 70 mg/mmol, which KDIGO names on its own, and which
+  // outranks the plain A3 rule.
+  assert.deepEqual(ACR_REFERRAL_HIGH, { mgmmol: 70, mgg: 700 });
+  assert.equal(fires(withAcr(80, "mgmmol")), "acrVeryHigh");
+  assert.equal(fires(withAcr(800, "mgg")), "acrVeryHigh");
+  assert.equal(fires(withAcr(70, "mgmmol")), "acrHigh", "the referral-in-its-own-right rule is strictly above");
+
+  // The two that must be reachable with no lab result at all.
+  assert.equal(fires(kidneyAnswers({ signs: ["blood"] })), "haematuria");
+  assert.equal(fires(kidneyAnswers({ acute: ["contrast"] })), "acute");
+  assert.equal(fires(kidneyAnswers({ acute: ["lessUrine", "vomiting"] })), "acute");
+  // Sudden injury outranks everything, because it is a different timescale.
+  assert.equal(fires(withCreatinine(3.5, "mgdl", { age: 70, sex: "male", acute: ["nsaids"] })), "acute");
+
+  // Nothing fires on an ordinary run.
+  assert.equal(fires(kidneyAnswers()), null);
+  assert.equal(fires(withCreatinine(88, "umol")), null);
+
+  // And whichever fires, the page stops selling.
+  for (const values of [
+    kidneyAnswers({ signs: ["blood"] }),
+    kidneyAnswers({ acute: ["vomiting"] }),
+    withAcr(80, "mgmmol"),
+    withCreatinine(3.5, "mgdl", { age: 70, sex: "male" }),
+  ]) {
+    const r = computeKidney(values);
+    assert.ok(r.urgent);
+    assert.equal(r.cta.kind, "none", r.urgent.id);
+    assert.match(r.cta.label, /clinician/i);
+  }
+});
+
+// ---------------------------------------------------------------------------
+// The plumbing.
+// ---------------------------------------------------------------------------
+
+test("the lead payload stays inside the endpoint's limits, even fully loaded", () => {
+  // Backend contract, restated in src/lib/leads.js: at most 16 keys, keys
+  // ^[a-zA-Z][a-zA-Z0-9_]{0,39}$, values up to 200 characters. ToolLeadForm
+  // adds optIn on top, so this tool gets 15 and uses at most 14.
+  const KEY_RE = /^[a-zA-Z][a-zA-Z0-9_]{0,39}$/;
+  const worst = kidneyAnswers({
+    diabetes: "yes",
+    bloodPressure: "untreated",
+    familyKidney: "yes",
+    riskFactors: RISK_FACTOR_PICKS.map((f) => f.id),
+    signs: SIGNS.map((s) => s.id),
+    acute: ACUTE_SIGNS.map((s) => s.id),
+    haveNumbers: "yes",
+    whichNumbers: ["creatinine", "acr"],
+    creatinine: 265,
+    creatinineUnit: "umol",
+    egfrReliability: UNRELIABLE_CONDITIONS.map((c) => c.id),
+    acr: 45.5,
+    acrUnit: "mgmmol",
+  });
+  const runs = [
+    kidneyAnswers(),
+    worst,
+    withAcr(0, "mgg"),
+    withCreatinine(106, "umol"),
+    kidneyAnswers({ pregnant: "yes" }),
+    kidneyAnswers({
+      haveNumbers: "yes",
+      whichNumbers: ["creatinine", "acr"],
+      creatinine: 133,
+      creatinineUnit: "umol",
+      egfrReliability: [],
+      acr: 12,
+      acrUnit: "mgmmol",
+      age: 60,
+      sex: "male",
+    }),
+  ];
+  for (const values of runs) {
+    const result = computeKidney(values);
+    const keys = Object.keys(result.answers);
+    assert.ok(keys.length <= MAX_ANSWER_KEYS, `${keys.length} keys, cap is ${MAX_ANSWER_KEYS}`);
+    assert.ok(MAX_ANSWER_KEYS + 1 <= 16, "optIn has to fit alongside");
+    for (const [k, v] of Object.entries(result.answers)) {
+      assert.match(k, KEY_RE, k);
+      assert.equal(typeof v, "string", k);
+      assert.ok(v.length <= 200, `${k} is ${v.length} chars: ${v}`);
+    }
+  }
+  // Nothing identifying rides along in the answers.
+  const blob = JSON.stringify(computeKidney(worst).answers).toLowerCase();
+  for (const forbidden of ["whatsapp", "phone", "firstname", "email"]) {
+    assert.ok(!blob.includes(forbidden), forbidden);
+  }
+  // packKidney survives being handed nothing at all.
+  assert.ok(Object.keys(packKidney()).length <= MAX_ANSWER_KEYS);
+  // The staged pair is what ops actually needs to see.
+  const staged = computeKidney(runs[runs.length - 1]).answers;
+  assert.match(staged.egfr, /CKD-EPI 2021/);
+  assert.match(staged.egfr, /EKFC/);
+  assert.match(staged.kdigo, /G3a A2/);
+});
+
+test("the flow is two parts, and the branch is the second one's first question", () => {
+  assert.equal(KIDNEY_PARTS.length, 2);
+  assert.equal(KIDNEY_PARTS[0].id, "screening");
+  assert.equal(KIDNEY_PARTS[1].id, "numbers");
+  assert.equal(SCREENING_STEPS.length, 10);
+  assert.equal(NUMBERS_STEPS.length, 5);
+  assert.equal(countQuestions(KIDNEY_PARTS), 15);
+  // The branch is explicit, and it is asked before anything is typed.
+  assert.equal(NUMBERS_STEPS[0].id, "haveNumbers");
+  for (const step of NUMBERS_STEPS.slice(1)) assert.equal(typeof step.skipIf, "function", step.id);
+
+  // What people actually answer. A man skips the pregnancy question.
+  const man = kidneyAnswers({ sex: "male", haveNumbers: "no" });
+  assert.equal(countVisibleQuestions(KIDNEY_PARTS, man), 10);
+  const woman = kidneyAnswers({ sex: "female", haveNumbers: "no" });
+  assert.equal(countVisibleQuestions(KIDNEY_PARTS, woman), 11);
+  assert.equal(countVisibleQuestions(KIDNEY_PARTS, withCreatinine(88, "umol", { sex: "male" })), 13);
+  assert.equal(
+    countVisibleQuestions(
+      KIDNEY_PARTS,
+      kidneyAnswers({ sex: "male", haveNumbers: "yes", whichNumbers: ["creatinine", "acr"] }),
+    ),
+    14,
+  );
+  // An exclusion drops the whole of part 2, so the run is part 1 alone.
+  assert.equal(countVisibleQuestions(KIDNEY_PARTS, kidneyAnswers({ sex: "male", nephrologyCare: "yes" })), 9);
+
+  // Every step is answerable: a tap list, or a number box with a unit beside it.
+  for (const step of [...SCREENING_STEPS, ...NUMBERS_STEPS]) {
+    assert.ok(["choice", "multi", "number"].includes(step.kind), `${step.id} is ${step.kind}`);
+    assert.ok(step.text && step.text.length > 5, step.id);
+    if (step.kind === "choice") assert.ok(step.options.length >= 2, step.id);
+  }
+  // Only three screens ask anyone to type, and each one is a lab value.
+  const typed = [...SCREENING_STEPS, ...NUMBERS_STEPS].filter((s) => s.kind === "number");
+  assert.deepEqual(typed.map((s) => s.id), ["ageStep", "creatinineStep", "acrStep"]);
+});
+
+test("both number boxes carry a unit selector, and the range follows the unit", () => {
+  const creat = NUMBERS_STEPS.find((s) => s.id === "creatinineStep");
+  const acr = NUMBERS_STEPS.find((s) => s.id === "acrStep");
+  assert.equal(creat.choice.id, "creatinineUnit");
+  assert.equal(acr.choice.id, "acrUnit");
+  assert.deepEqual(CREATININE_UNITS.map((u) => u.value), ["umol", "mgdl"]);
+  assert.deepEqual(ACR_UNITS.map((u) => u.value), ["mgmmol", "mgg"]);
+  // A creatinine of 90 is ordinary in micromol/L and impossible in mg/dL, so
+  // the box has to move with the unit rather than accept both.
+  const umol = creat.fieldFor({ creatinineUnit: "umol" });
+  const mgdl = creat.fieldFor({ creatinineUnit: "mgdl" });
+  assert.equal(umol.unit, "micromol/L");
+  assert.equal(mgdl.unit, "mg/dL");
+  assert.ok(90 >= umol.min && 90 <= umol.max, "90 micromol/L must be accepted");
+  assert.ok(90 > mgdl.max, "90 mg/dL must be rejected");
+  assert.ok(1 >= mgdl.min && 1 <= mgdl.max, "1 mg/dL must be accepted");
+  assert.ok(1 < umol.min, "1 micromol/L must be rejected");
+  // And the error says which way to fix it.
+  assert.match(CREATININE_RANGES.umol.error, /mg\/dL/);
+  assert.match(CREATININE_RANGES.mgdl.error, /micromol\/L/);
+  // Zero albumin is a real result, so the ACR box has to start at zero.
+  assert.equal(ACR_RANGES.mgmmol.min, 0);
+  assert.equal(ACR_RANGES.mgg.min, 0);
+  assert.equal(acr.fieldFor({ acrUnit: "mgg" }).unit, "mg/g");
+  assert.equal(acr.fieldFor({}).unit, "mg/mmol");
+  // Decimals survive: a creatinine of 1.02 mg/dL is not 1.
+  assert.equal(creat.field.step, "any");
+  assert.equal(acr.field.step, "any");
+  assert.equal(numbersFor(withCreatinine(1.02, "mgdl")).creatinine.typed, 1.02);
+});
+
+test("the next step follows what is missing, and the codes deep-link", () => {
+  assert.equal(RFT_TEST.testCode, "RFT");
+  assert.equal(RFT_TEST.slug, "renal-function");
+  assert.equal(ACR_TEST.testCode, "ACR");
+  assert.equal(ACR_TEST.slug, "acr");
+  // Both slugs have to resolve, or ToolCta prices them at the static fallback
+  // for ever and joinUrl sends nobody anywhere.
+  assert.equal(SINGLE_TEST_CODES[RFT_TEST.slug], "RFT");
+  assert.equal(SINGLE_TEST_CODES[ACR_TEST.slug], "ACR");
+  // Static fallback prices, verified against the Ghana catalogue 2026-09-05.
+  assert.equal(RFT_TEST.price, "GHS 195");
+  assert.equal(ACR_TEST.price, "GHS 150");
+  // healthInterest carries the code the result is pointing at, and defaults to
+  // the urine test, which is the one the evidence says matters most.
+  assert.equal(computeKidney(withCreatinine(88, "umol")).healthInterest, "ACR");
+  assert.equal(computeKidney(withAcr(2, "mgmmol")).healthInterest, "RFT");
+  assert.equal(computeKidney(kidneyAnswers()).healthInterest, "ACR");
+  // An exclusion sells nothing, and says why rather than going silent.
+  const blocked = kidneyCta({
+    screening: screeningFor(kidneyAnswers()),
+    numbers: numbersFor(kidneyAnswers({ pregnant: "yes" })),
+    urgent: null,
+    exclusion: { id: "pregnant", body: "Take any result you have to your antenatal appointment." },
+  });
+  assert.equal(blocked.kind, "none");
+  assert.match(blocked.body, /antenatal/);
+});
+
+test("the kidney share card carries the result and the point, and nothing personal", () => {
+  const cases = [
+    kidneyAnswers({ diabetes: "yes" }),
+    withCreatinine(88, "umol"),
+    withAcr(12, "mgmmol"),
+    kidneyAnswers({
+      haveNumbers: "yes",
+      whichNumbers: ["creatinine", "acr"],
+      creatinine: 140,
+      creatinineUnit: "umol",
+      egfrReliability: [],
+      acr: 12,
+      acrUnit: "mgmmol",
+      age: 60,
+      sex: "male",
+    }),
+    kidneyAnswers({ pregnant: "yes" }),
+    kidneyAnswers({ signs: ["blood"] }),
+    withCreatinine(106, "umol", { egfrReliability: ["creatine"] }),
+  ];
+  for (const values of cases) {
+    const result = computeKidney(values);
+    const spec = shareSpecFor("kidney-check", result);
+    assert.ok(spec, "no share spec");
+    assert.equal(spec.slug, "kidney-check");
+    assert.equal(spec.url, `${SHARE_HOST}/tools/kidney-check`);
+    assert.equal(spec.disclaimer, TOOL_DISCLAIMER);
+    assert.equal(spec.fileName, "betterhealth-kidney-check.png");
+    assert.ok(spec.headline && spec.band && spec.meaning);
+    assert.ok(spec.text.includes(spec.headline) && spec.text.includes(spec.href));
+    // Nothing from part 1 reaches the card: no risk factor, no symptom, no age.
+    const blob = JSON.stringify(spec).toLowerCase();
+    for (const leaked of ["diabetes", "family", "swelling", "foamy", "pregnan"]) {
+      assert.ok(!blob.includes(leaked), `${leaked} leaked onto the card`);
+    }
+  }
+  // The card with one number says which half is still missing, on the card.
+  for (const values of [withCreatinine(88, "umol"), withAcr(12, "mgmmol")]) {
+    const spec = shareSpecFor("kidney-check", computeKidney(values));
+    assert.match(JSON.stringify(spec), /Still missing/, "the one-number card has to name the gap");
+  }
+  // An eGFR on a card is a range, never one confident figure.
+  const banded = shareSpecFor("kidney-check", computeKidney(withCreatinine(91, "umol", { age: 50, sex: "male" })));
+  assert.match(banded.headline, /^eGFR \d+ to \d+$/, banded.headline);
+});
+
+test("every kidney claim on the page traces to a source on the page's own list", () => {
+  const tool = TOOLS.find((t) => t.slug === "kidney-check");
+  const labels = tool.sources.map((s) => s.label).join(" ");
+  for (const cited of [
+    "KDIGO 2024", // the stages, the grid, the three-month rule, the referrals
+    "Inker", // CKD-EPI 2021
+    "Pottel", // EKFC
+    "Delanaye", // the Black African Q values
+    "Fabian", // ARK, the accuracy figures behind every caveat
+    "Zingano", // 61.9% with the race coefficient, 72.9% without
+    "Delgado", // the NKF-ASN task force
+    "Adjei", // RODAM, the Ghanaian eGFR and albuminuria split
+    "Boima", // the Ghana Renal Registry
+    "Gbadegesin", // APOL1 in West Africans
+    "Tannor", // dialysis capacity in Ghana, and the herbal-medicine odds ratio
+    "Ahn", // why nothing is computed in pregnancy
+    "Standard Treatment Guidelines", // Ghana's own detection paragraph
+    "de Boer", // the ADA/KDIGO annual interval for diabetes
+    "Vosters", // HELIUS, including 1,417 Ghanaian women and 896 Ghanaian men
+    "Aparcana-Granda", // why there is no score
+    "Moyer", // USPSTF, the counterweight for the no-risk-factor group
+    "Matsushita", // the outcome data the grid is built on
+  ]) {
+    assert.ok(labels.includes(cited), `missing source: ${cited}`);
+  }
+  for (const cited of [
+    "/blog/creatinine-egfr-kidney-function",
+    "/blog/urinalysis-explained",
+    "/blog/high-blood-pressure-silent-killer",
+    "/blog/prediabetes-warning-signs",
+  ]) {
+    assert.ok(tool.sources.some((s) => s.url === cited), `missing source: ${cited}`);
+  }
+  for (const s of tool.sources) {
+    assert.ok(s.label && s.label.length > 10, s.label);
+    assert.ok(s.url, `${s.label} needs a link`);
+    assert.doesNotMatch(s.label, /—/, s.label);
+  }
+  // Every risk factor names where it came from.
+  for (const f of RISK_FACTORS) assert.ok(f.source, `${f.id} has no source`);
+
+  const page = JSON.stringify([tool.intro, tool.promise, tool.sections, tool.bullets]);
+  // The three rules that hold whatever else changes have to be on the page.
+  assert.match(page, /not a diagnosis/i);
+  assert.match(page, /three months/);
+  assert.match(page, /estimate/i);
+  // The tool's whole point.
+  assert.match(page, /two numbers/i);
+  // KDIGO's detection practice point asks for BOTH tests, which is the tool's
+  // whole argument, so it has to be on the page in the guideline's own words.
+  assert.match(page, /both urine albumin measurement and assessment of glomerular filtration rate/);
+  // The prevalence figures the brief warned about are not quoted as facts
+  // about the reader: no national prevalence percentage appears at all.
+  assert.doesNotMatch(page, /19% of Ghanaians|one in five Ghanaians/i);
+  // Nothing the brief listed as overreach appears anywhere on the page.
+  for (const overreach of [
+    /you have chronic kidney disease/i,
+    /CKD detected/i,
+    /kidney age/i,
+    /retest in 12 months/i,
+    /rules out kidney disease/i,
+  ]) {
+    assert.doesNotMatch(page, overreach, String(overreach));
+  }
+  // Copy guardrails: nothing claims a test diagnoses or proves anything.
+  for (const banned of [/\bwill reveal\b/i, /\bproves\b/i, /\bdiagnoses\b/i, /rules out everything/i]) {
+    assert.doesNotMatch(page, banned, String(banned));
   }
 });
 

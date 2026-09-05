@@ -17,12 +17,18 @@ import { cubesLabel } from "../../data/tools/heart-habits";
  *
  * Step shapes (src/data/tools/*.js):
  *   { kind: "choice", id, text, help?, layout?: "grid", options: [{ value, label, hint?, points? }] }
- *   { kind: "number", id, text, help?, field, choice?, unknownLabel?, unknownNote?, unknownLink? }
+ *   { kind: "number", id, text, help?, field, fieldFor?, choice?, unknownLabel?, unknownNote?, unknownLink? }
+ *     `field` is { id, label, unit, min, max, placeholder, step?, error? }.
+ *     `fieldFor(values)` optionally overrides parts of it once an earlier
+ *     answer is in, which is how one input box takes two different units.
  *   { kind: "measurements", id, text, help?, fields: [field, field] }
  *   { kind: "tiles", id, text, help?, foods, groups }          value: { code: n }
  *   { kind: "plate", id, text, help?, options }                value: option.value
  *   { kind: "scales", id, text, help?, rows, options }         value: { rowId: option.value }
- *   { kind: "multi", id, text, help?, options }                value: [option.value]
+ *   { kind: "multi", id, text, help?, options, optionsFor? }   value: [option.value]
+ *     `optionsFor(values)` optionally replaces `options` once an earlier
+ *     answer is in, which is how one list drops the entries that cannot
+ *     apply to the person answering it.
  *   { kind: "counters", id, text, help?, options }             value: { code: n }
  *   { kind: "counter", id, text, help?, unit, max }            value: n
  * Any step may carry `feedback(value, values)`, a one-line observation shown
@@ -109,7 +115,13 @@ export default function Stepper({ steps, parts, onFinish, initialValues }) {
   const set = (id, v) => setValues((prev) => ({ ...prev, [id]: v }));
   const chooseOption = (value) => advance({ ...values, [step.id]: value });
 
-  const numberFields = step?.kind === "measurements" ? step.fields : step?.field ? [step.field] : [];
+  // A number step may narrow its own field once an earlier answer is in: the
+  // kidney tool's creatinine box accepts a different range in micromol/L than
+  // it does in mg/dL, and the label and the error message have to follow the
+  // unit that was picked. `fieldFor(values)` returns the field to use; a step
+  // without one keeps its static `field` exactly as before.
+  const resolveField = (f) => (typeof step?.fieldFor === "function" ? { ...f, ...step.fieldFor(values) } : f);
+  const numberFields = step?.kind === "measurements" ? step.fields : step?.field ? [resolveField(step.field)] : [];
 
   const submitNumbers = (e) => {
     e.preventDefault();
@@ -122,7 +134,7 @@ export default function Stepper({ steps, parts, onFinish, initialValues }) {
       const raw = String(values[f.id] ?? "").trim();
       const n = Number(raw);
       if (!raw || Number.isNaN(n) || n < f.min || n > f.max) {
-        setError(`Enter a ${f.label.toLowerCase()} between ${f.min} and ${f.max} ${f.unit}.`);
+        setError(f.error || `Enter a ${f.label.toLowerCase()} between ${f.min} and ${f.max} ${f.unit}.`);
         return;
       }
       next[f.id] = n;
@@ -191,7 +203,14 @@ export default function Stepper({ steps, parts, onFinish, initialValues }) {
   if (current.kind === "chapter") {
     const part = current.part;
     const previous = shownParts[shownParts.indexOf(part) - 1];
-    const count = visibleSteps(part, values).length;
+    const shown = visibleSteps(part, values);
+    const count = shown.length;
+    // A part whose later questions are still gated by an answer nobody has
+    // given yet cannot promise an exact count, so it says "up to".
+    const capped = shown.some((s) => typeof s.skipIf === "function");
+    // Only promise taps when the part really is all taps. A part that asks for
+    // a number off a lab report says so instead.
+    const typing = shown.some((s) => s.kind === "number" || s.kind === "measurements");
     return (
       <div className="rounded-card border border-border bg-card shadow-sm p-5 sm:p-7">
         {header}
@@ -214,7 +233,8 @@ export default function Stepper({ steps, parts, onFinish, initialValues }) {
           </h2>
           {part.intro && <p className="text-[14.5px] text-text-secondary leading-relaxed mb-3">{part.intro}</p>}
           <p className="text-[13px] text-text-muted mb-1">
-            {count === 1 ? "One quick question" : `${count} quick questions`}. Taps only, no typing.
+            {count === 1 ? "One quick question" : `${capped ? "Up to " : ""}${count} quick questions`}.{" "}
+            {typing ? "Taps, plus any numbers you have to hand." : "Taps only, no typing."}
           </p>
           <button type="button" onClick={() => setIndex(move(index, values, 1))} className={continueClass}>
             Start part {partNumber(part)} <ArrowRight size={16} />
@@ -311,7 +331,7 @@ export default function Stepper({ steps, parts, onFinish, initialValues }) {
           <MultiPick
             name={step.text}
             layout={step.layout}
-            options={step.options}
+            options={typeof step.optionsFor === "function" ? step.optionsFor(values) : step.options}
             value={value || []}
             onChange={(v) => set(step.id, v)}
           />
@@ -395,7 +415,10 @@ export default function Stepper({ steps, parts, onFinish, initialValues }) {
                     inputMode="numeric"
                     min={f.min}
                     max={f.max}
-                    step="1"
+                    // Whole numbers unless a field says otherwise. A lab value
+                    // typed off a report (creatinine at 1.02 mg/dL, an ACR at
+                    // 2.5 mg/mmol) sets step: "any" so the decimal survives.
+                    step={f.step || "1"}
                     placeholder={f.placeholder}
                     value={values[f.id] ?? ""}
                     onChange={setField(f.id)}

@@ -10,6 +10,7 @@
 import { STEPS as FINDRISC_STEPS, computeFindrisc } from "./diabetes-risk.js";
 import { STEPS as HEART_STEPS, computeHeartAge } from "./heart-age.js";
 import { STEPS as BMI_WAIST_STEPS, computeBmiWaist } from "./bmi-waist.js";
+import { NUMBERS_STEPS, SCREENING_STEPS, computeKidney } from "./kidney-check.js";
 import { GENOTYPE_STEPS, computeGenotype, genotypeAdvice } from "./genotype-compatibility.js";
 import { PLATE_STEPS, packPlate, summarisePlate } from "./plate.js";
 import { HABIT_STEPS, packHabits, summariseHabits } from "./heart-habits.js";
@@ -63,6 +64,22 @@ export const BMI_PARTS = [
     intro:
       "Your bands are worked out. Five quick taps about a normal day, the last year, and what a week looks like on your plate. Nothing here changes the bands.",
     steps: LIFESTYLE_STEPS,
+  },
+];
+
+// The kidney check is the one flow whose second part is a branch rather than a
+// bonus. Part 1 needs no test at all; Part 2 opens with "do you have a recent
+// kidney result?" and everything after that question skips when the answer is
+// no, which is what most answers will be.
+export const KIDNEY_PARTS = [
+  { id: "screening", number: 1, title: "Who should be checked", steps: SCREENING_STEPS },
+  {
+    id: "numbers",
+    number: 2,
+    title: "Your numbers, if you have them",
+    intro:
+      "One question decides whether the rest of this part applies to you. If you have never had a kidney result, say so and we skip straight to what the answers above mean.",
+    steps: NUMBERS_STEPS,
   },
 ];
 
@@ -148,6 +165,18 @@ export function computeBmiFull(values) {
     lifestyle: summariseLifestyle(values),
     answers: { ...bmi.answers, ...packLifestyle(values) },
   };
+}
+
+/**
+ * The kidney check.
+ *
+ * Unlike the other four, both parts of this one are the instrument: Part 1 is
+ * the guideline risk-factor list and Part 2 is the staging, so there is no
+ * descriptive section to staple on and computeKidney reads the whole flat map
+ * on its own. This wrapper exists so ToolRunner treats all five the same way.
+ */
+export function computeKidneyFull(values) {
+  return computeKidney(values);
 }
 
 export function computeGenotypeFull({ you, partner, basis, familyScd }) {

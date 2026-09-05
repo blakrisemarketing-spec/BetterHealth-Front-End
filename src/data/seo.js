@@ -194,7 +194,7 @@ const RAW_ROUTE_SEO = {
   tools: {
     title: "Free Health Tools | BetterHealth Africa",
     description:
-      "Four free calculators for Ghana: genotype compatibility odds, your FINDRISC diabetes risk score, a heart age estimate, and BMI with waist. No sign-up.",
+      "Five free calculators for Ghana: genotype compatibility odds, your FINDRISC diabetes risk score, a heart age estimate, BMI with waist, and a kidney check with eGFR. No sign-up.",
     image: DEFAULT_OG_IMAGE,
     noindex: false,
   },
