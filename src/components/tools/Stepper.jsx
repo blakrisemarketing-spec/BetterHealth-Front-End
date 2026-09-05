@@ -38,8 +38,17 @@ function buildScreens(parts) {
   return screens;
 }
 
+const stepSkipped = (step, values) => typeof step.skipIf === "function" && Boolean(step.skipIf(values));
+
+// A chapter screen goes with its part: when every question in a part has
+// skipped out, the part is not in this run at all and its chapter screen would
+// announce nothing. That is what makes a set of parts selectable rather than fixed.
 const isSkipped = (screen, values) =>
-  screen.kind === "step" && typeof screen.step.skipIf === "function" && Boolean(screen.step.skipIf(values));
+  screen.kind === "chapter"
+    ? screen.part.steps.every((s) => stepSkipped(s, values))
+    : screen.kind === "step" && stepSkipped(screen.step, values);
+
+const visibleSteps = (part, values) => part.steps.filter((s) => !stepSkipped(s, values));
 
 const CONTINUE_KINDS = new Set(["tiles", "scales", "multi", "counters", "counter"]);
 
@@ -51,20 +60,25 @@ const optionClass = (active) =>
 const continueClass =
   "mt-4 w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading cursor-pointer transition-all";
 
-export default function Stepper({ steps, parts, onFinish }) {
+export default function Stepper({ steps, parts, onFinish, initialValues }) {
   const partList = useMemo(() => parts || [{ id: "main", number: 1, steps }], [parts, steps]);
   const screens = useMemo(() => buildScreens(partList), [partList]);
-  const multiPart = partList.length > 1;
   const reduce = useReducedMotion();
 
   const [index, setIndex] = useState(0);
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState(() => ({ ...(initialValues || {}) }));
   const [error, setError] = useState("");
   const [note, setNote] = useState(null);
 
   const questions = screens.filter((s) => s.kind === "step" && !isSkipped(s, values));
   const total = questions.length;
   const current = screens[index];
+
+  // Parts numbered by what this run actually shows, so a flow whose parts are
+  // chosen by an earlier answer never says "Part 5 of 5" after three of them.
+  const shownParts = partList.filter((p) => visibleSteps(p, values).length > 0);
+  const multiPart = shownParts.length > 1;
+  const partNumber = (part) => shownParts.indexOf(part) + 1;
   const step = current.kind === "step" ? current.step : null;
   const answeredBefore = questions.filter((s) => screens.indexOf(s) < index).length;
   const number = step ? answeredBefore + 1 : answeredBefore;
@@ -125,6 +139,10 @@ export default function Stepper({ steps, parts, onFinish }) {
         return;
       }
     }
+    if (step.kind === "multi" && step.min > 0 && (!Array.isArray(v) || v.length < step.min)) {
+      setError(step.min === 1 ? "Pick at least one to carry on." : `Pick at least ${step.min} to carry on.`);
+      return;
+    }
     const next = { ...values };
     if (step.kind === "counter") next[step.id] = Number(v) || 0;
     else if (step.kind === "multi") next[step.id] = Array.isArray(v) ? v : [];
@@ -141,7 +159,7 @@ export default function Stepper({ steps, parts, onFinish }) {
     <>
       <div className="flex items-center justify-between mb-3">
         <span className="text-[12px] font-bold text-primary uppercase tracking-[0.12em]">
-          {multiPart && current.part ? `Part ${current.part.number} · ` : ""}
+          {multiPart && current.part ? `Part ${partNumber(current.part)} · ` : ""}
           {step ? `Question ${number} of ${total}` : `${answeredBefore} of ${total} answered`}
         </span>
         {index > 0 ? (
@@ -172,7 +190,8 @@ export default function Stepper({ steps, parts, onFinish }) {
   // Chapter screen: announces the next part before its first question.
   if (current.kind === "chapter") {
     const part = current.part;
-    const previous = partList[partList.indexOf(part) - 1];
+    const previous = shownParts[shownParts.indexOf(part) - 1];
+    const count = visibleSteps(part, values).length;
     return (
       <div className="rounded-card border border-border bg-card shadow-sm p-5 sm:p-7">
         {header}
@@ -184,21 +203,21 @@ export default function Stepper({ steps, parts, onFinish }) {
         >
           {previous && (
             <p className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-text-secondary mb-3">
-              <Check size={14} className="text-primary" /> Part {previous.number} done: {previous.title.toLowerCase()}
+              <Check size={14} className="text-primary" /> Part {partNumber(previous)} done: {previous.title.toLowerCase()}
             </p>
           )}
           <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-primary uppercase tracking-[0.12em] mb-1">
-            <Sparkles size={13} /> Part {part.number} of {partList.length}
+            <Sparkles size={13} /> Part {partNumber(part)} of {shownParts.length}
           </span>
           <h2 className="text-[1.4rem] sm:text-[1.7rem] font-extrabold text-text-primary font-heading leading-tight mb-2">
             {part.title}
           </h2>
           {part.intro && <p className="text-[14.5px] text-text-secondary leading-relaxed mb-3">{part.intro}</p>}
           <p className="text-[13px] text-text-muted mb-1">
-            {part.steps.length} quick questions. Taps only, no typing.
+            {count === 1 ? "One quick question" : `${count} quick questions`}. Taps only, no typing.
           </p>
           <button type="button" onClick={() => setIndex(move(index, values, 1))} className={continueClass}>
-            Start part {part.number} <ArrowRight size={16} />
+            Start part {partNumber(part)} <ArrowRight size={16} />
           </button>
         </motion.div>
       </div>
@@ -289,7 +308,13 @@ export default function Stepper({ steps, parts, onFinish }) {
         )}
 
         {step.kind === "multi" && (
-          <MultiPick name={step.text} options={step.options} value={value || []} onChange={(v) => set(step.id, v)} />
+          <MultiPick
+            name={step.text}
+            layout={step.layout}
+            options={step.options}
+            value={value || []}
+            onChange={(v) => set(step.id, v)}
+          />
         )}
 
         {step.kind === "counters" && (

@@ -96,13 +96,61 @@ import {
   DIABETES_PARTS,
   HEART_PARTS,
   BMI_PARTS,
+  INHERITANCE_PARTS,
   countQuestions,
+  countVisibleQuestions,
   computeDiabetesFull,
   computeHeartFull,
   computeBmiFull,
   computeGenotypeFull,
+  computeInheritanceFull,
 } from "../src/data/tools/compose.js";
-import { genotypeAdvice, FOLLOW_UP_NOTE } from "../src/data/tools/genotype-compatibility.js";
+import {
+  genotypeAdvice,
+  FOLLOW_UP_NOTE,
+  GENOTYPE_STEPS,
+} from "../src/data/tools/genotype-compatibility.js";
+import {
+  ABO_ANY_GROUP_NOTE,
+  ABO_DETERMINED,
+  ABO_EXCEPTIONS_NOTE,
+  ABO_GROUPS,
+  ABO_HALF_CERTAIN_NOTE,
+  ABO_OPTIONS,
+  CANNOT_PREDICT,
+  EXPECTED_CAVEAT,
+  EXPECTED_LABEL,
+  G6PD_FATHER_OPTIONS,
+  G6PD_GHANA_NOTE,
+  G6PD_MOTHER_OPTIONS,
+  G6PD_READING,
+  G6PD_TRIGGERS_NOTE,
+  GHANA_ABO,
+  GHANA_RH,
+  RH_ANTI_D_NOTE,
+  RH_GHANA_NOTE,
+  RH_OPTIONS,
+  RUNS_IN_FAMILIES,
+  SEX_LINES,
+  TRAITS,
+  TRAIT_IDS,
+  aboExpected,
+  aboHiddenOShare,
+  aboOutcomes,
+  aboPhenotype,
+  computeAbo,
+  computeG6pd,
+  computeRh,
+  g6pdOutcomes,
+  inheritanceCta,
+  openQuestions,
+  packInheritance,
+  rhExpected,
+  rhHiddenDShare,
+  rhOutcomes,
+  rhPregnancyFlag,
+  selectedTraits,
+} from "../src/data/tools/inheritance.js";
 import { shareSpecFor, SHARE_HOST } from "../src/data/tools/share-card.js";
 import { TOOL_DISCLAIMER, TOOLS } from "../src/data/tools/index.js";
 
@@ -1395,6 +1443,953 @@ test("the band meter on the card points at the band the instrument chose", () =>
   assert.deepEqual(b.meter, { count: 4, active: 2 });
   assert.equal(shareSpecFor("heart-age", shareCases[2][1]).meter, null);
   assert.equal(shareSpecFor("genotype-compatibility", shareCases[5][1]).meter, null);
+});
+
+// ---------------------------------------------------------------------------
+// The other three traits: ABO, Rh and G6PD.
+//
+// Every expected row below is worked out by hand from the published rule, not
+// read back out of the implementation, so a change to the counting fails here.
+// ---------------------------------------------------------------------------
+
+console.log("\nABO blood group");
+
+/** Possible groups for a pair, as a sorted string, for readable asserts. */
+const aboPossible = (a, b) => aboOutcomes(a, b).possible.join(",");
+const aboImpossible = (a, b) => aboOutcomes(a, b).impossible.join(",");
+
+test("a two-allele pair reads to the right group, with O hiding behind A and B", () => {
+  assert.equal(aboPhenotype("AA"), "A");
+  assert.equal(aboPhenotype("AO"), "A");
+  assert.equal(aboPhenotype("OA"), "A");
+  assert.equal(aboPhenotype("BB"), "B");
+  assert.equal(aboPhenotype("BO"), "B");
+  assert.equal(aboPhenotype("AB"), "AB");
+  assert.equal(aboPhenotype("BA"), "AB");
+  assert.equal(aboPhenotype("OO"), "O");
+});
+
+test("the full ABO phenotype matrix: which child groups each pairing can produce", () => {
+  // Worked out from the three alleles: A and B co-dominant, O recessive.
+  const expected = {
+    "A+A": "A,O",
+    "A+B": "A,B,AB,O",
+    "A+AB": "A,B,AB",
+    "A+O": "A,O",
+    "B+B": "B,O",
+    "B+AB": "A,B,AB",
+    "B+O": "B,O",
+    "AB+AB": "A,B,AB",
+    "AB+O": "A,B",
+    "O+O": "O",
+  };
+  for (const [key, possible] of Object.entries(expected)) {
+    const [a, b] = key.split("+");
+    assert.equal(aboPossible(a, b), possible, key);
+    assert.equal(aboPossible(b, a), possible, `${b}+${a} (order must not matter)`);
+  }
+});
+
+test("the impossible list is the useful half, and it is exact for every pairing", () => {
+  const expected = {
+    "A+A": "B,AB",
+    "A+B": "",
+    "A+AB": "O",
+    "A+O": "B,AB",
+    "B+B": "A,AB",
+    "B+AB": "O",
+    "B+O": "A,AB",
+    "AB+AB": "O",
+    "AB+O": "AB,O",
+    "O+O": "A,B,AB",
+  };
+  for (const [key, impossible] of Object.entries(expected)) {
+    const [a, b] = key.split("+");
+    assert.equal(aboImpossible(a, b), impossible, key);
+    assert.equal(aboImpossible(b, a), impossible, `${b}+${a}`);
+  }
+  // The two everyone gets wrong, stated outright.
+  assert.ok(aboOutcomes("AB", "O").impossible.includes("O"), "an AB and an O cannot have an O child");
+  assert.ok(aboOutcomes("AB", "O").impossible.includes("AB"), "an AB and an O cannot have an AB child");
+  assert.deepEqual(aboOutcomes("A", "B").impossible, [], "an A and a B rule nothing out");
+});
+
+test("possible and impossible always partition the four groups, with no overlap", () => {
+  for (const a of ABO_GROUPS) {
+    for (const b of ABO_GROUPS) {
+      const { possible, impossible } = aboOutcomes(a, b);
+      assert.equal(possible.length + impossible.length, 4, `${a} x ${b}`);
+      assert.equal(possible.filter((g) => impossible.includes(g)).length, 0, `${a} x ${b} overlap`);
+      assert.ok(possible.length > 0, `${a} x ${b} must allow something`);
+    }
+  }
+});
+
+test("only AB and O settle a genotype, so only three pairings get an exact percentage", () => {
+  const determinable = [];
+  for (const a of ABO_GROUPS) {
+    for (const b of ABO_GROUPS) {
+      const out = aboOutcomes(a, b);
+      if (out.determinable) determinable.push(`${a}+${b}`);
+      // The invariant the whole section rests on: a figure exists only when
+      // the phenotypes fix the genotypes, and is null otherwise.
+      assert.equal(out.determinable, out.percentages !== null, `${a} x ${b}`);
+    }
+  }
+  assert.deepEqual(determinable.sort(), ["AB+AB", "AB+O", "O+AB", "O+O"]);
+  assert.deepEqual(ABO_DETERMINED, ["AB", "O"]);
+});
+
+test("the three exact pairings give the exact splits, summing to 100", () => {
+  const pct = (a, b) => Object.fromEntries(aboOutcomes(a, b).percentages.map((r) => [r.group, r.percent]));
+  assert.deepEqual(pct("O", "O"), { O: 100 });
+  assert.deepEqual(pct("AB", "O"), { A: 50, B: 50 });
+  assert.deepEqual(pct("AB", "AB"), { A: 25, B: 25, AB: 50 });
+  for (const [a, b] of [["O", "O"], ["AB", "O"], ["AB", "AB"]]) {
+    const total = aboOutcomes(a, b).percentages.reduce((s, r) => s + r.percent, 0);
+    assert.equal(total, 100, `${a} x ${b}`);
+  }
+});
+
+test("a pairing with a hidden allele names which side is hiding it and prints no full split", () => {
+  const aO = aboOutcomes("A", "O");
+  assert.equal(aO.percentages, null);
+  assert.deepEqual(aO.hiddenIn, ["A"]);
+  const aB = aboOutcomes("A", "B");
+  assert.deepEqual(aB.hiddenIn, ["A", "B"]);
+  assert.equal(aboOutcomes("AB", "O").hiddenIn.length, 0);
+});
+
+// The row a developer gets wrong by default. Evidence brief §1.2 row 7: if the
+// group A parent is AA the children are 1/2 A and 1/2 AB; if AO they are 1/2 A,
+// 1/4 AB and 1/4 B. P(group A) is 50% either way, and only the other half moves.
+test("group A with group AB gives exactly 50% group A, whichever allele the A parent hides", () => {
+  const out = aboOutcomes("A", "AB");
+  assert.deepEqual(out.certain, [{ group: "A", percent: 50 }]);
+  assert.equal(out.certainTotal, 50);
+  assert.equal(out.determinable, false, "the other half is not settled, so this is not a full split");
+  assert.equal(out.percentages, null, "a half answer must never be printed as a whole one");
+  assert.deepEqual(out.undecided, ["B", "AB"], "AB and B are the half that moves");
+  assert.deepEqual(out.impossible, ["O"], "an AB parent cannot have a group O child");
+  // Worked by hand from the two consistent parental genotypes.
+  //   AA x AB -> 1/2 A, 1/2 AB          AO x AB -> 1/2 A, 1/4 AB, 1/4 B
+  assert.deepEqual(aboOutcomes("AB", "A").certain, [{ group: "A", percent: 50 }], "order must not matter");
+  // The mirror row, 9: a group B parent with a group AB parent.
+  const mirror = aboOutcomes("B", "AB");
+  assert.deepEqual(mirror.certain, [{ group: "B", percent: 50 }]);
+  assert.deepEqual(mirror.undecided, ["A", "AB"]);
+  assert.deepEqual(mirror.impossible, ["O"]);
+});
+
+test("exactly five ABO pairings carry an exact figure: three whole splits and two halves", () => {
+  const whole = [];
+  const half = [];
+  const none = [];
+  for (const a of ABO_GROUPS) {
+    for (const b of ABO_GROUPS) {
+      const out = aboOutcomes(a, b);
+      const key = `${a}+${b}`;
+      if (out.determinable) whole.push(key);
+      else if (out.certainTotal > 0) half.push(key);
+      else none.push(key);
+      // Whatever the pairing, a certain figure never contradicts the possible list.
+      for (const row of out.certain) assert.ok(out.possible.includes(row.group), `${key} ${row.group}`);
+    }
+  }
+  assert.deepEqual(whole.sort(), ["AB+AB", "AB+O", "O+AB", "O+O"]);
+  assert.deepEqual(half.sort(), ["A+AB", "AB+A", "AB+B", "B+AB"]);
+  assert.equal(none.length, 8, "the remaining five unordered pairings turn entirely on hidden alleles");
+});
+
+// Evidence brief §1.2 row 6, and the most useful thing this section can say.
+test("a group A parent and a group B parent rule nothing out, including a group neither of them has", () => {
+  const out = aboOutcomes("A", "B");
+  assert.deepEqual(out.impossible, []);
+  assert.deepEqual(out.possible, ["A", "B", "AB", "O"]);
+  assert.deepEqual(out.certain, []);
+  assert.equal(out.percentages, null);
+  // The copy leads on that rather than reporting an empty list of exclusions.
+  assert.match(ABO_ANY_GROUP_NOTE, /rules nothing out/);
+  assert.match(ABO_ANY_GROUP_NOTE, /a group the two of you do not have between you/);
+  assert.match(ABO_ANY_GROUP_NOTE, /matches neither parent/);
+});
+
+console.log("\nExpected probabilities, which are a different kind of answer");
+
+// Nkansah et al. 2024, 134,227 Ghanaians. The derived table is evidence brief
+// §1.5, and every figure below is checked against it to one decimal place.
+test("the Ghanaian frequencies are the published ones and nothing is rounded into them", () => {
+  assert.equal(GHANA_ABO.n, 134227);
+  assert.deepEqual(GHANA_ABO.phenotype, { O: 54.72, B: 21.74, A: 19.65, AB: 3.89 });
+  assert.deepEqual(GHANA_ABO.allele, { A: 0.1227, B: 0.1376, O: 0.7397 });
+  assert.equal(GHANA_RH.negative, 7.72);
+  assert.equal(GHANA_RH.positive, 92.28);
+  assert.deepEqual(GHANA_RH.allele, { D: 0.7222, d: 0.2778 });
+  // Roughly nine in ten Ghanaian group A or group B people carry a hidden O.
+  assert.equal(aboHiddenOShare("A").toFixed(1), "92.3");
+  assert.equal(aboHiddenOShare("B").toFixed(1), "91.5");
+  assert.equal(aboHiddenOShare("AB"), 0);
+  assert.equal(rhHiddenDShare().toFixed(1), "43.5");
+});
+
+test("every expected distribution reproduces the published table, to a decimal place", () => {
+  const table = {
+    "O+O": { O: "100.0" },
+    "O+A": { A: "53.8", O: "46.2" },
+    "O+B": { B: "54.3", O: "45.7" },
+    "O+AB": { A: "50.0", B: "50.0" },
+    "A+A": { A: "78.7", O: "21.3" },
+    "A+B": { A: "24.6", B: "25.0", AB: "29.2", O: "21.1" },
+    "A+AB": { A: "50.0", B: "23.1", AB: "26.9" },
+    "B+B": { B: "79.1", O: "20.9" },
+    "B+AB": { A: "22.9", B: "50.0", AB: "27.1" },
+    "AB+AB": { A: "25.0", B: "25.0", AB: "50.0" },
+  };
+  for (const [key, want] of Object.entries(table)) {
+    const [a, b] = key.split("+");
+    const got = Object.fromEntries(aboExpected(a, b).map((r) => [r.group, r.percent.toFixed(1)]));
+    assert.deepEqual(got, want, key);
+    // Order-independent, and always a complete distribution.
+    assert.deepEqual(Object.fromEntries(aboExpected(b, a).map((r) => [r.group, r.percent.toFixed(1)])), want, key);
+    const total = aboExpected(a, b).reduce((s, r) => s + r.percent, 0);
+    assert.ok(Math.abs(total - 100) < 1e-9, `${key} sums to ${total}`);
+  }
+  // Two Rh positive Ghanaian parents: an expected 4.7% chance of an Rh negative child.
+  const rhPos = Object.fromEntries(rhExpected("pos", "pos").map((r) => [r.value, r.percent.toFixed(1)]));
+  assert.deepEqual(rhPos, { pos: "95.3", neg: "4.7" });
+  assert.deepEqual(
+    Object.fromEntries(rhExpected("neg", "neg").map((r) => [r.value, r.percent])),
+    { neg: 100 },
+  );
+});
+
+test("an expected figure never contradicts an impossible one, and never becomes the exact answer", () => {
+  for (const a of ABO_GROUPS) {
+    for (const b of ABO_GROUPS) {
+      const out = aboOutcomes(a, b);
+      const expected = Object.fromEntries(out.expected.map((r) => [r.group, r.percent]));
+      // The zeroes come from the impossibility rules, so they are real.
+      for (const group of out.impossible) assert.equal(expected[group], undefined, `${a} x ${b} ${group}`);
+      for (const group of out.possible) assert.ok(expected[group] > 0, `${a} x ${b} ${group}`);
+      // Where a share IS exact, the population average agrees with it exactly.
+      for (const row of out.certain) {
+        assert.ok(Math.abs(expected[row.group] - row.percent) < 1e-9, `${a} x ${b} ${row.group}`);
+      }
+      // And an expected figure is never promoted into the exact split.
+      if (!out.determinable) assert.equal(out.percentages, null, `${a} x ${b}`);
+    }
+  }
+});
+
+test("the expected block is labelled as a population average, in the interface and not a footnote", () => {
+  assert.match(EXPECTED_LABEL, /Ghanaian couples/);
+  assert.match(EXPECTED_CAVEAT, /It is not your figure/);
+  assert.match(EXPECTED_CAVEAT, /134,227/);
+  assert.match(EXPECTED_CAVEAT, /approximate/);
+  assert.doesNotMatch(EXPECTED_CAVEAT, /—/);
+});
+
+console.log("\nRh factor");
+
+test("two Rh negatives can have only Rh negative children, and that is exact", () => {
+  const out = rhOutcomes("neg", "neg");
+  assert.equal(out.determinable, true);
+  assert.deepEqual(out.possible, ["neg"]);
+  assert.deepEqual(out.impossible, ["pos"]);
+  assert.deepEqual(out.percentages, [{ value: "neg", percent: 100 }]);
+});
+
+test("every other Rh pairing leaves both results possible and gives no figure", () => {
+  for (const [a, b] of [["pos", "pos"], ["pos", "neg"], ["neg", "pos"]]) {
+    const out = rhOutcomes(a, b);
+    assert.equal(out.determinable, false, `${a} x ${b}`);
+    assert.deepEqual(out.possible, ["pos", "neg"], `${a} x ${b}`);
+    assert.deepEqual(out.impossible, [], `${a} x ${b}`);
+    assert.equal(out.percentages, null, `${a} x ${b}`);
+  }
+  // Two Rh positives can have an Rh negative child, which is the surprise.
+  assert.ok(rhOutcomes("pos", "pos").possible.includes("neg"));
+});
+
+test("the pregnancy flag fires on an Rh negative mother and on nothing else", () => {
+  assert.equal(rhPregnancyFlag("neg", "pos"), "plan");
+  assert.equal(rhPregnancyFlag("neg", "neg"), "cleared");
+  assert.equal(rhPregnancyFlag("neg", "unknown"), "unknown");
+  assert.equal(rhPregnancyFlag("pos", "pos"), null);
+  assert.equal(rhPregnancyFlag("pos", "neg"), null);
+  assert.equal(rhPregnancyFlag("unknown", "neg"), null);
+});
+
+test("who is the mother decides the Rh pregnancy flag, and the possible list ignores it", () => {
+  const base = { traits: ["rh"], rhYou: "neg", rhPartner: "pos" };
+  const youAreMother = computeRh({ ...base, motherIs: "you" });
+  const partnerIsMother = computeRh({ ...base, motherIs: "partner" });
+  assert.equal(youAreMother.pregnancy, "plan");
+  assert.equal(partnerIsMother.pregnancy, null);
+  assert.deepEqual(youAreMother.possible, partnerIsMother.possible);
+});
+
+console.log("\nG6PD, split by the sex of the child");
+
+const g6 = (m, f) => {
+  const out = g6pdOutcomes(m, f);
+  const row = (rows) => Object.fromEntries(rows.map((r) => [r.status, r.percent]));
+  return { sons: row(out.sons), daughters: row(out.daughters) };
+};
+
+test("the full G6PD table, worked out by hand from the X-linked rule", () => {
+  // A son takes his one X from his mother; a daughter takes one X from each.
+  assert.deepEqual(g6("normal", "normal"), { sons: { normal: 100 }, daughters: { normal: 100 } });
+  assert.deepEqual(g6("normal", "deficient"), { sons: { normal: 100 }, daughters: { carrier: 100 } });
+  assert.deepEqual(g6("carrier", "normal"), {
+    sons: { normal: 50, deficient: 50 },
+    daughters: { normal: 50, carrier: 50 },
+  });
+  assert.deepEqual(g6("carrier", "deficient"), {
+    sons: { normal: 50, deficient: 50 },
+    daughters: { carrier: 50, deficient: 50 },
+  });
+  assert.deepEqual(g6("deficient", "normal"), { sons: { deficient: 100 }, daughters: { carrier: 100 } });
+  assert.deepEqual(g6("deficient", "deficient"), { sons: { deficient: 100 }, daughters: { deficient: 100 } });
+});
+
+test("a father's G6PD status never reaches a son, in any of the six combinations", () => {
+  for (const mother of ["normal", "carrier", "deficient"]) {
+    assert.deepEqual(
+      g6pdOutcomes(mother, "normal").sons,
+      g6pdOutcomes(mother, "deficient").sons,
+      `sons must not move with the father (mother ${mother})`,
+    );
+  }
+  assert.equal(g6pdOutcomes("carrier", "normal").fatherReachesSons, false);
+});
+
+test("a deficient father makes every daughter a carrier at least, whatever the mother is", () => {
+  for (const mother of ["normal", "carrier", "deficient"]) {
+    const daughters = g6pdOutcomes(mother, "deficient").daughters;
+    assert.equal(daughters.some((r) => r.status === "normal"), false, `mother ${mother}`);
+    assert.equal(daughters.reduce((s, r) => s + r.percent, 0), 100, `mother ${mother}`);
+  }
+});
+
+test("both halves of every G6PD table sum to 100 within their own sex", () => {
+  for (const mother of ["normal", "carrier", "deficient"]) {
+    for (const father of ["normal", "deficient"]) {
+      const out = g6pdOutcomes(mother, father);
+      assert.equal(out.sons.reduce((s, r) => s + r.percent, 0), 100, `${mother} x ${father} sons`);
+      assert.equal(out.daughters.reduce((s, r) => s + r.percent, 0), 100, `${mother} x ${father} daughters`);
+    }
+  }
+});
+
+test("a woman's normal or deficient reading carries the caveat; an intermediate one does not need it", () => {
+  assert.match(G6PD_READING.normal, /does not rule out carrying one affected copy/);
+  // Errigo et al.: enzyme activity in a heterozygote runs on a continuum, and
+  // StatPearls: the fluorescent spot test may miss heterozygous women.
+  assert.match(G6PD_READING.normal, /clearly deficient to fully normal/);
+  assert.match(G6PD_READING.normal, /fluorescent spot test may miss/);
+  assert.match(G6PD_READING.normal, /quantitative assay is the one recommended for women/);
+  assert.match(G6PD_READING.deficient, /can also read deficient/);
+  assert.equal(G6PD_READING.carrier, null);
+  for (const key of ["normal", "deficient"]) assert.doesNotMatch(G6PD_READING[key], /—/, key);
+  // The mother's option list has the intermediate reading; the father's does not,
+  // because a man has one X and there is nothing in between.
+  assert.deepEqual(G6PD_MOTHER_OPTIONS.map((o) => o.value), ["normal", "carrier", "deficient", "unknown"]);
+  assert.deepEqual(G6PD_FATHER_OPTIONS.map((o) => o.value), ["normal", "deficient", "unknown"]);
+});
+
+test("the G6PD section reads the mother's answer from whichever side she is on", () => {
+  const a = computeG6pd({ motherIs: "you", g6pdYouMother: "carrier", g6pdPartnerFather: "normal" });
+  const b = computeG6pd({ motherIs: "partner", g6pdPartnerMother: "carrier", g6pdYouFather: "normal" });
+  assert.deepEqual(a.sons, b.sons);
+  assert.deepEqual(a.daughters, b.daughters);
+  assert.equal(a.mother, "carrier");
+  assert.equal(a.father, "normal");
+});
+
+console.log("\nNo section prints a figure it cannot stand behind");
+
+/** Every numeric percent anywhere in a section, however deeply nested. */
+function percentsIn(value) {
+  if (Array.isArray(value)) return value.flatMap(percentsIn);
+  if (value && typeof value === "object")
+    return Object.entries(value).flatMap(([k, v]) => (k === "percent" ? [v] : percentsIn(v)));
+  return [];
+}
+
+/** The same, minus the population-average layer, which is labelled separately. */
+function exactPercentsIn(section) {
+  const { expected, ...rest } = section;
+  return percentsIn(rest);
+}
+
+test("a pairing with no exact figure carries none outside the labelled expected block", () => {
+  for (const you of ABO_GROUPS) {
+    for (const partner of ABO_GROUPS) {
+      const section = computeAbo({ traits: ["abo"], aboYou: you, aboPartner: partner });
+      const found = exactPercentsIn(section);
+      const key = `${you} x ${partner}`;
+      if (section.determinable) {
+        // A full split appears twice, once in `certain` and once in `percentages`.
+        assert.equal(found.reduce((s, n) => s + n, 0), 200, key);
+      } else if (section.certainTotal > 0) {
+        // The half-exact rows: one figure, and only one.
+        assert.deepEqual(found, [50], `${key} must print its exact half and nothing more`);
+      } else {
+        assert.deepEqual(found, [], `${key} must print no exact figure`);
+      }
+      // The expected layer exists for every pairing and is always complete.
+      const total = section.expected.reduce((s, r) => s + r.percent, 0);
+      assert.ok(Math.abs(total - 100) < 1e-9, `${key} expected sums to ${total}`);
+    }
+  }
+  for (const you of ["pos", "neg"]) {
+    for (const partner of ["pos", "neg"]) {
+      const section = computeRh({ traits: ["rh"], rhYou: you, rhPartner: partner });
+      const found = exactPercentsIn(section);
+      if (section.determinable) assert.deepEqual(found, [100, 100], `${you} x ${partner}`);
+      else assert.deepEqual(found, [], `${you} x ${partner} must print no exact figure`);
+    }
+  }
+});
+
+test("an unknown answer returns the explainer branch rather than a fabricated one", () => {
+  for (const pair of [["A", "unknown"], ["unknown", "O"], ["unknown", "unknown"]]) {
+    const s = computeAbo({ traits: ["abo"], aboYou: pair[0], aboPartner: pair[1] });
+    assert.equal(s.kind, "unknown", pair.join("+"));
+    assert.deepEqual(percentsIn(s), [], pair.join("+"));
+  }
+  assert.equal(computeRh({ traits: ["rh"], rhYou: "unknown", rhPartner: "neg" }).kind, "unknown");
+  assert.equal(
+    computeG6pd({ motherIs: "you", g6pdYouMother: "unknown", g6pdPartnerFather: "normal" }).kind,
+    "unknown",
+  );
+  // Nothing answered yet is not the same as answered "unknown": no section at all.
+  assert.equal(computeAbo({ traits: ["abo"] }), null);
+  assert.equal(computeRh({ traits: ["rh"] }), null);
+  assert.equal(computeG6pd({ traits: ["g6pd"] }), null);
+});
+
+console.log("\nThe family inheritance flow");
+
+const GENOTYPE_ONLY = { traits: ["genotype"], you: "AS", partner: "AS", basis: "electrophoresis", familyScd: "no" };
+const ALL_TRAITS = {
+  traits: ["genotype", "abo", "rh", "g6pd", "sex"],
+  motherIs: "you",
+  you: "AS",
+  partner: "AS",
+  basis: "sickling",
+  familyScd: "yes",
+  aboYou: "A",
+  aboPartner: "B",
+  rhYou: "neg",
+  rhPartner: "pos",
+  g6pdYouMother: "carrier",
+  g6pdPartnerFather: "normal",
+};
+
+test("the flow is five parts, and genotype is always the first one with questions", () => {
+  assert.equal(INHERITANCE_PARTS.length, 5);
+  assert.deepEqual(INHERITANCE_PARTS.map((p) => p.id), ["pick", "genotype", "abo", "rh", "g6pd"]);
+  // Fourteen steps are defined; the G6PD part carries a mother-side and a
+  // father-side version of each question and only ever shows one of each pair.
+  assert.equal(countQuestions(INHERITANCE_PARTS), 14);
+  assert.equal(INHERITANCE_PARTS[4].steps.length, 4);
+  // The genotype part asks the instrument's own four questions, in its own order.
+  assert.deepEqual(
+    INHERITANCE_PARTS[1].steps.map((s) => s.id),
+    GENOTYPE_STEPS.map((s) => s.id),
+  );
+  assert.deepEqual(GENOTYPE_STEPS.map((s) => s.id), ["you", "partner", "basis", "familyScd"]);
+  const ids = INHERITANCE_PARTS.flatMap((p) => p.steps.map((s) => s.id));
+  assert.equal(new Set(ids).size, ids.length, "step ids unique across the whole flow");
+  for (const p of INHERITANCE_PARTS.slice(1)) {
+    assert.ok(p.intro.length > 40, p.id);
+    assert.doesNotMatch(p.intro, /—/, p.id);
+  }
+});
+
+test("step counts: genotype alone is 5 screens, every trait is 12, and sex adds none", () => {
+  assert.equal(countVisibleQuestions(INHERITANCE_PARTS, GENOTYPE_ONLY), 5);
+  assert.equal(countVisibleQuestions(INHERITANCE_PARTS, ALL_TRAITS), 12);
+  // Sex is answered by the picker and asks nothing of its own.
+  assert.equal(
+    countVisibleQuestions(INHERITANCE_PARTS, { ...GENOTYPE_ONLY, traits: ["genotype", "sex"] }),
+    5,
+  );
+  // The mother question appears only when Rh or G6PD is on.
+  assert.equal(countVisibleQuestions(INHERITANCE_PARTS, { traits: ["abo"] }), 3);
+  assert.equal(countVisibleQuestions(INHERITANCE_PARTS, { traits: ["rh"] }), 4);
+  assert.equal(countVisibleQuestions(INHERITANCE_PARTS, { traits: ["g6pd"], motherIs: "you" }), 4);
+  assert.equal(TRAITS.reduce((n, t) => n + t.questions, 0), 10);
+});
+
+test("only the inheritance flow has parts that drop out, so the other three still number the same way", () => {
+  // The Stepper hides a part's chapter screen when every question in it has
+  // skipped out, and numbers the remaining parts by what is shown. For the
+  // three older tools no part can empty, so their headers are unchanged.
+  const emptyable = (parts, values) =>
+    parts.filter((p) => p.steps.every((s) => typeof s.skipIf === "function" && s.skipIf(values)));
+  const probes = [{}, { protein: "never", ...GENOTYPE_ONLY }, ALL_TRAITS, { traits: ["abo"] }];
+  for (const values of probes) {
+    for (const [name, parts] of [["diabetes", DIABETES_PARTS], ["heart", HEART_PARTS], ["bmi", BMI_PARTS]]) {
+      assert.deepEqual(emptyable(parts, values), [], `${name} must never lose a whole part`);
+    }
+  }
+  // The inheritance flow is the one that does, which is the point of it.
+  assert.deepEqual(
+    emptyable(INHERITANCE_PARTS, GENOTYPE_ONLY).map((p) => p.id),
+    ["abo", "rh", "g6pd"],
+  );
+  assert.deepEqual(emptyable(INHERITANCE_PARTS, ALL_TRAITS), []);
+});
+
+test("the picker defaults to genotype and can never come back empty", () => {
+  assert.deepEqual(selectedTraits({}), ["genotype"]);
+  assert.deepEqual(selectedTraits({ traits: [] }), ["genotype"]);
+  // Always returned in TRAITS order, whatever order they were tapped in.
+  assert.deepEqual(selectedTraits({ traits: ["sex", "abo", "genotype"] }), ["genotype", "abo", "sex"]);
+  assert.deepEqual(selectedTraits({ traits: ["nonsense"] }), ["genotype"]);
+  assert.deepEqual(TRAIT_IDS, ["genotype", "abo", "rh", "g6pd", "sex"]);
+});
+
+test("the combined result prints exactly the Punnett square the genotype tool always printed", () => {
+  for (const values of [GENOTYPE_ONLY, ALL_TRAITS]) {
+    const alone = computeGenotypeFull(values);
+    const full = computeInheritanceFull(values);
+    assert.deepEqual(full.genotype.rows, alone.rows);
+    assert.deepEqual(full.genotype.groups, alone.groups);
+    assert.equal(full.genotype.pairingLine, alone.pairingLine);
+    assert.deepEqual(full.genotype.advice, alone.advice);
+    assert.equal(full.genotype.kind, alone.kind);
+    for (const [k, v] of Object.entries(alone.answers)) assert.equal(full.answers[k], v, `answers.${k}`);
+  }
+  // AS + AS is still 25 / 50 / 25, alongside four other traits.
+  const rows = Object.fromEntries(computeInheritanceFull(ALL_TRAITS).genotype.rows.map((r) => [r.genotype, r.percent]));
+  assert.deepEqual(rows, { AA: 25, AS: 50, SS: 25 });
+});
+
+test("a result carries a section for every picked trait and for no other", () => {
+  const full = computeInheritanceFull(ALL_TRAITS);
+  assert.deepEqual(full.traits, ["genotype", "abo", "rh", "g6pd", "sex"]);
+  for (const id of full.traits) assert.ok(full[id], `missing section ${id}`);
+  const only = computeInheritanceFull(GENOTYPE_ONLY);
+  assert.deepEqual(only.traits, ["genotype"]);
+  for (const id of ["abo", "rh", "g6pd", "sex"]) assert.equal(only[id], undefined, id);
+});
+
+test("the sex of the child is a fixed 50, framed as the setup for G6PD rather than a finding", () => {
+  const sex = computeInheritanceFull({ ...ALL_TRAITS }).sex;
+  assert.equal(sex.percent, 50);
+  assert.equal(sex.kind, "fixed");
+  assert.match(SEX_LINES.headline, /50 and 50/);
+  assert.match(SEX_LINES.whyItMatters, /X chromosome/);
+  assert.match(SEX_LINES.perPregnancy, /resets with every pregnancy/);
+  for (const line of Object.values(SEX_LINES)) assert.doesNotMatch(line, /—/);
+});
+
+test("lead answers pack one key per trait and stay inside the backend's limits", () => {
+  const full = computeInheritanceFull(ALL_TRAITS);
+  assert.deepEqual(
+    Object.keys(full.answers),
+    ["traits", "motherIs", "abo", "rh", "g6pd", "yourGenotype", "partnerGenotype", "outcomes", "basis", "familyScd"],
+  );
+  assertAnswerLimits(full.answers, "inheritance all traits");
+  assert.equal(full.answers.traits, "genotype,abo,rh,g6pd,sex");
+  assert.equal(full.answers.abo, "A+B|no:none");
+  assert.equal(full.answers.rh, "neg+pos|pos.neg");
+  assert.match(full.answers.g6pd, /^m:carrier\|f:normal\|s:/);
+  // Genotype alone packs only the genotype keys plus the trait list.
+  const only = computeInheritanceFull(GENOTYPE_ONLY);
+  assert.deepEqual(Object.keys(only.answers), ["traits", "yourGenotype", "partnerGenotype", "outcomes", "basis", "familyScd"]);
+  assertAnswerLimits(only.answers, "inheritance genotype only");
+  // Ten keys leaves room for the form's own optIn inside the 16-key limit.
+  assert.ok(Object.keys(full.answers).length <= 14, `${Object.keys(full.answers).length} keys`);
+  assert.deepEqual(Object.keys(packInheritance({ traits: ["genotype"] }, {})), ["traits"]);
+});
+
+console.log("\nWhat the result recommends, and when it recommends nothing");
+
+test("one unconfirmed answer leans on the one test that settles it, at the catalogue price", () => {
+  const cases = [
+    [{ ...GENOTYPE_ONLY, you: "unknown" }, "HB_ELECTRO", "GHS 170"],
+    [{ ...GENOTYPE_ONLY, basis: "sickling" }, "HB_ELECTRO", "GHS 170"],
+    [{ traits: ["abo"], aboYou: "unknown", aboPartner: "O" }, "BLOOD_GROUP", "GHS 75"],
+    [{ traits: ["rh"], motherIs: "you", rhYou: "unknown", rhPartner: "neg" }, "BLOOD_GROUP", "GHS 75"],
+    [
+      { traits: ["g6pd"], motherIs: "you", g6pdYouMother: "unknown", g6pdPartnerFather: "normal" },
+      "G6PD",
+      "GHS 150",
+    ],
+  ];
+  for (const [values, testCode, price] of cases) {
+    const cta = computeInheritanceFull(values).cta;
+    assert.equal(cta.kind, "test", testCode);
+    assert.equal(cta.testCode, testCode);
+    assert.equal(cta.price, price, testCode);
+    assert.ok(cta.label.length > 8 && cta.body.length > 20, testCode);
+  }
+});
+
+test("blood group and Rh share one test, so two unknowns there are still one recommendation", () => {
+  const cta = computeInheritanceFull({
+    traits: ["abo", "rh"],
+    motherIs: "you",
+    aboYou: "unknown",
+    aboPartner: "unknown",
+    rhYou: "unknown",
+    rhPartner: "unknown",
+  }).cta;
+  assert.equal(cta.kind, "test");
+  assert.equal(cta.testCode, "BLOOD_GROUP");
+});
+
+test("more than one open question names all three tests and their individual prices", () => {
+  const cta = computeInheritanceFull({
+    ...ALL_TRAITS,
+    you: "unknown",
+    aboYou: "unknown",
+    g6pdYouMother: "unknown",
+  }).cta;
+  assert.equal(cta.kind, "tests");
+  assert.deepEqual(cta.items.map((t) => t.testCode), ["HB_ELECTRO", "BLOOD_GROUP", "G6PD"]);
+  assert.deepEqual(cta.items.map((t) => t.price), ["GHS 170", "GHS 75", "GHS 150"]);
+  assert.deepEqual(cta.items.map((t) => t.slug), ["hb-electrophoresis", "blood-group", "g6pd"]);
+  assert.match(cta.body, /premarital/i);
+});
+
+test("when everything is confirmed, the result does not push a test", () => {
+  const settled = {
+    traits: ["genotype", "abo", "rh", "g6pd", "sex"],
+    motherIs: "you",
+    you: "AA",
+    partner: "AS",
+    basis: "electrophoresis",
+    familyScd: "no",
+    aboYou: "O",
+    aboPartner: "O",
+    rhYou: "pos",
+    rhPartner: "pos",
+    g6pdYouMother: "normal",
+    g6pdPartnerFather: "normal",
+  };
+  const full = computeInheritanceFull(settled);
+  assert.deepEqual(openQuestions(full), []);
+  assert.equal(full.cta.kind, "none");
+  assert.equal(full.healthInterest, "HB_ELECTRO");
+  assert.equal(full.cta.testCode, undefined, "no test is attached");
+  assert.equal(full.cta.items, undefined, "no basket of tests either");
+  assert.doesNotMatch(full.cta.body, /GHS/, "no price is quoted");
+  assert.match(full.cta.body, /nothing to book today/);
+});
+
+test("a clinic-said-so or guessed genotype counts as an open question, an electrophoresis report does not", () => {
+  const open = (basis) => openQuestions(computeInheritanceFull({ ...GENOTYPE_ONLY, basis })).map((o) => o.id);
+  for (const basis of ["sickling", "clinic", "guess"]) assert.deepEqual(open(basis), ["genotype"], basis);
+  assert.deepEqual(open("electrophoresis"), []);
+  assert.deepEqual(inheritanceCta({}).kind, "none");
+});
+
+console.log("\nThe closing sections, and the share card with more than one trait");
+
+test("the polygenic section explains why there is no square, and hands off to the tools that do score it", () => {
+  assert.match(RUNS_IN_FAMILIES.intro, /polygenic/);
+  assert.match(RUNS_IN_FAMILIES.intro, /no percentage to hand a couple/);
+  // Suzuki et al. 2024 and Keaton et al. 2024, so "polygenic" is a number.
+  assert.match(RUNS_IN_FAMILIES.intro, /1,289 independent signals across 611/);
+  assert.match(RUNS_IN_FAMILIES.intro, /2,103 signals/);
+  // Framingham, as odds across families and never a per-child figure.
+  assert.match(RUNS_IN_FAMILIES.handoff, /roughly tripled the odds/);
+  assert.match(RUNS_IN_FAMILIES.handoff, /roughly sextupled/);
+  assert.match(RUNS_IN_FAMILIES.handoff, /describes thousands of families rather than yours/);
+  // The FINDRISC family-history item, quoted at the weight the instrument gives it.
+  assert.match(RUNS_IN_FAMILIES.scored, /5 points of a possible 26/);
+  assert.match(RUNS_IN_FAMILIES.scored, /further out in the family is 3/);
+  assert.deepEqual(RUNS_IN_FAMILIES.links.map((l) => l.to), [
+    "/tools/diabetes-risk",
+    "/tools/heart-age",
+    "/guides/family-health-map",
+  ]);
+  for (const v of [RUNS_IN_FAMILIES.intro, RUNS_IN_FAMILIES.handoff, RUNS_IN_FAMILIES.scored, RUNS_IN_FAMILIES.mody])
+    assert.doesNotMatch(v, /—/);
+});
+
+// GeneReviews: monogenic, autosomal dominant, 50% per child, at least 1% to 3%
+// of all diabetes. Mentioned because it is the real exception, and kept to two
+// sentences because the Exeter calculator over-calls badly outside white
+// European cohorts and GCK-MODY needs no medication: a reader who
+// self-diagnosed and eased off treating real type 2 diabetes would be harmed.
+test("MODY gets a mention and nothing the reader can score themselves against", () => {
+  const mody = RUNS_IN_FAMILIES.mody;
+  assert.match(mody, /1% to 3%/);
+  assert.match(mody, /50% chance per child/);
+  assert.match(mody, /mistaken for type 1 or type 2 diabetes/);
+  assert.match(mody, /[Oo]nly a genetic test can confirm it/);
+  assert.match(mody, /a question for a doctor/);
+  // Two sentences, and no feature list to tick off.
+  assert.ok(mody.split(". ").length <= 2, `${mody.split(". ").length} sentences`);
+  assert.doesNotMatch(mody, /under 25|under 35|age 25|age 35/, "no onset age, because that is a feature to tick");
+  assert.doesNotMatch(mody, /autoantibod|C-peptide|obesity|three generation/i, "no diagnostic criteria");
+  assert.doesNotMatch(mody, /calculator|probability of MODY|score yourself|check whether you/i);
+  // No prevalence figure, because every published one is from a UK or US cohort
+  // and none has been measured in West Africa.
+  assert.doesNotMatch(mody, /per million|1\.2%|108/);
+});
+
+test("the cannot-predict section makes the Ghanaian point about eye colour without overstating the record", () => {
+  const eye = CANNOT_PREDICT.items.find((i) => i.label === "Eye colour");
+  assert.match(eye.text, /many genes/);
+  assert.match(eye.text, /brown against black/);
+  assert.match(eye.text, /melanin/);
+  assert.match(eye.text, /no percentage to give/);
+  // Beleza et al.: the claim that survives is that the derived allele is absent
+  // from African populations, NOT that OCA2/HERC2 says nothing about brown.
+  assert.match(eye.text, /absent from African populations/);
+  assert.match(eye.text, /shifts the shade of brown in mixed-ancestry populations/);
+  assert.doesNotMatch(eye.text, /nothing about (the )?shades? of brown/i);
+  // No study has measured iris pigmentation in an unadmixed African population,
+  // so melanin density is the current understanding rather than a finding.
+  assert.match(eye.text, /As best anyone can currently tell/);
+  assert.match(eye.text, /nobody has yet measured/);
+  assert.doesNotMatch(eye.text, /studies have shown|research shows|it is known that/i);
+  // Simcoe et al. scored dark brown as the darkest category; black is not one.
+  assert.match(eye.text, /no genetic basis for that distinction has been established/);
+  // Still no eye-colour probability anywhere.
+  assert.doesNotMatch(JSON.stringify(eye), /\d+\s?%/);
+});
+
+test("the school myths split into the four with evidence against them and the two never demonstrated", () => {
+  assert.equal(CANNOT_PREDICT.items.length, 5);
+  const disproven = CANNOT_PREDICT.items.find((i) => /tongue rolling/i.test(i.text) && /earlobes/i.test(i.label));
+  const unsupported = CANNOT_PREDICT.items.find((i) => /dimples/i.test(i.label));
+  assert.ok(disproven && unsupported, "the two groups must be two separate items");
+  assert.notEqual(disproven.label, unsupported.label);
+
+  // Group 1: real disconfirming data, named study by named study.
+  assert.match(disproven.text, /49 genetic regions across 74,660/);
+  assert.match(disproven.text, /No evidence for a genetic basis of tongue rolling/);
+  assert.match(disproven.text, /7 of 33 identical twin pairs/);
+  assert.match(disproven.text, /smooth range of angles/);
+  assert.match(disproven.text, /two smooth-chinned parents/);
+  // NOT in the evidence: that two non-rollers can have a tongue-rolling child.
+  assert.doesNotMatch(disproven.text, /parents both cannot|neither parent can roll|cannot do it/i);
+  assert.doesNotMatch(JSON.stringify(CANNOT_PREDICT), /Adhikari/i, "Adhikari 2016 does not cover cleft chin");
+
+  // Group 2: the weaker and more defensible charge.
+  assert.match(unsupported.text, /never disproven/);
+  assert.match(unsupported.text, /no study ever supported them/);
+  assert.match(unsupported.text, /no genetic evidence published/);
+  assert.match(unsupported.text, /3 and 81 in every hundred/);
+  assert.doesNotMatch(unsupported.text, /debunk/i, "these two were never demonstrated, not debunked");
+
+  for (const item of CANNOT_PREDICT.items) {
+    assert.ok(item.text.length > 80, item.label);
+    assert.doesNotMatch(item.text, /—/, item.label);
+  }
+});
+
+test("the G6PD prevalence figure is worded as a genotype prevalence and never as a deficiency rate", () => {
+  // Amoah et al. 2021: 1,225 of 6,108 across all ten regions, counting
+  // hemizygous deficient men, homozygous deficient women and carrier women.
+  assert.match(G6PD_GHANA_NOTE, /20\.06%/);
+  assert.match(G6PD_GHANA_NOTE, /1,225 of 6,108/);
+  assert.match(G6PD_GHANA_NOTE, /all ten regions/);
+  assert.match(G6PD_GHANA_NOTE, /carries a G6PD A-minus variant/);
+  assert.match(G6PD_GHANA_NOTE, /carriers rather than cases/);
+  // The one sentence it must contain, and only as the thing it is denying.
+  assert.match(G6PD_GHANA_NOTE, /not the same as saying one in five Ghanaians is G6PD deficient/);
+  assert.equal(
+    (G6PD_GHANA_NOTE.match(/one in five Ghanaians is G6PD deficient/g) || []).length,
+    1,
+    "the wrong phrasing appears once, inside its own correction",
+  );
+  // StatPearls' named triggers, with the two that make this Ghana-specific.
+  assert.match(G6PD_TRIGGERS_NOTE, /primaquine/);
+  assert.match(G6PD_TRIGGERS_NOTE, /tafenoquine/);
+  assert.match(G6PD_TRIGGERS_NOTE, /antimalarials/);
+});
+
+test("the Rh copy carries the Ghanaian prevalence and the BCSH anti-D figures, in the right direction", () => {
+  assert.match(RH_GHANA_NOTE, /7\.72%/);
+  assert.match(RH_GHANA_NOTE, /134,227/);
+  assert.match(RH_ANTI_D_NOTE, /16%/);
+  assert.match(RH_ANTI_D_NOTE, /about 2%/);
+  assert.match(RH_ANTI_D_NOTE, /0\.17% and 0\.28%/);
+  assert.match(RH_ANTI_D_NOTE, /BCSH/);
+  assert.match(RH_ANTI_D_NOTE, /second Rh positive baby/);
+  // The UK's 40% unnecessary-prophylaxis figure does not transfer to Ghana.
+  assert.doesNotMatch(RH_ANTI_D_NOTE, /40%/);
+  for (const v of [RH_GHANA_NOTE, RH_ANTI_D_NOTE, ABO_EXCEPTIONS_NOTE, ABO_HALF_CERTAIN_NOTE])
+    assert.doesNotMatch(v, /—/);
+});
+
+test("the blood group section says once that no table of this kind settles parentage", () => {
+  assert.match(ABO_EXCEPTIONS_NOTE, /Bombay/);
+  assert.match(ABO_EXCEPTIONS_NOTE, /Weak A subgroups/);
+  assert.match(ABO_EXCEPTIONS_NOTE, /cis-AB/);
+  assert.match(ABO_EXCEPTIONS_NOTE, /never settle a question about parentage/);
+});
+
+test("the card carries the two most consequential traits and says the rest are on the page", () => {
+  const spec = shareSpecFor("genotype-compatibility", computeInheritanceFull(ALL_TRAITS));
+  // AS + AS puts a sickle cell condition on the table, so genotype leads.
+  assert.equal(spec.headline, "25%");
+  assert.match(spec.band, /^Genotype: chance of a sickle cell condition/);
+  assert.equal(spec.rows.length, 1);
+  assert.equal(spec.rows[0].label, "G6PD");
+  assert.equal(spec.rows[0].value, "50% of sons");
+  assert.match(spec.more, /^Plus .+ on the page\.$/);
+  assert.equal(spec.slug, "genotype-compatibility");
+  assert.equal(spec.disclaimer, TOOL_DISCLAIMER);
+  assert.doesNotMatch(JSON.stringify(spec), /—/);
+});
+
+test("a card for one trait keeps the single-result shape, with no extra rows", () => {
+  const spec = shareSpecFor("genotype-compatibility", computeInheritanceFull(GENOTYPE_ONLY));
+  assert.equal(spec.headline, "25%");
+  assert.equal(spec.eyebrow, "AS and AS");
+  assert.deepEqual(spec.rows, []);
+  assert.equal(spec.more, null);
+});
+
+test("the card leads with whichever trait changes a decision, not with whichever was picked first", () => {
+  // No sickle cell condition possible, so the Rh planning line outranks it.
+  const spec = shareSpecFor(
+    "genotype-compatibility",
+    computeInheritanceFull({
+      traits: ["genotype", "rh"],
+      motherIs: "you",
+      you: "AA",
+      partner: "AA",
+      basis: "electrophoresis",
+      familyScd: "no",
+      rhYou: "neg",
+      rhPartner: "pos",
+    }),
+  );
+  assert.equal(spec.headline, "Worth planning for");
+  assert.match(spec.band, /^Rh factor: an Rh negative mother/);
+  assert.equal(spec.rows[0].label, "Genotype");
+  assert.equal(spec.rows[0].value, "0%");
+});
+
+test("the card carries no result of either partner's, only what a child could inherit", () => {
+  for (const values of [ALL_TRAITS, GENOTYPE_ONLY]) {
+    const spec = shareSpecFor("genotype-compatibility", computeInheritanceFull(values));
+    const blob = JSON.stringify(spec);
+    assert.doesNotMatch(blob, /motherIs|g6pdYou|aboYou|rhYou/, "no raw answer keys");
+    assert.doesNotMatch(blob, /\b0\d{2}\s?\d{3}\s?\d{4}\b/, "no phone shape");
+    assert.match(spec.text, /Try yours free at https:\/\/betterhealth\.africa\/tools\/genotype-compatibility$/);
+  }
+});
+
+test("no blood group percentage reaches the card unless the pairing settles one", () => {
+  const vague = shareSpecFor(
+    "genotype-compatibility",
+    computeInheritanceFull({ traits: ["abo"], aboYou: "A", aboPartner: "O" }),
+  );
+  assert.equal(vague.headline, "B and AB ruled out");
+  assert.doesNotMatch(`${vague.headline} ${vague.band}`, /\d+\s?%/);
+  const exact = shareSpecFor(
+    "genotype-compatibility",
+    computeInheritanceFull({ traits: ["abo"], aboYou: "AB", aboPartner: "O" }),
+  );
+  assert.equal(exact.headline, "A 50%, B 50%");
+});
+
+test("the exact half from an A with AB pairing reaches the card, and a vague pairing still does not", () => {
+  const half = shareSpecFor(
+    "genotype-compatibility",
+    computeInheritanceFull({ traits: ["abo"], aboYou: "A", aboPartner: "AB" }),
+  );
+  assert.equal(half.headline, "Group A exactly 50%");
+  assert.match(half.band, /whichever gene is hidden, and O ruled out/);
+  // The mirror row.
+  const mirror = shareSpecFor(
+    "genotype-compatibility",
+    computeInheritanceFull({ traits: ["abo"], aboYou: "AB", aboPartner: "B" }),
+  );
+  assert.equal(mirror.headline, "Group B exactly 50%");
+  // A x B settles nothing, and the card must not imply otherwise.
+  const anyGroup = shareSpecFor(
+    "genotype-compatibility",
+    computeInheritanceFull({ traits: ["abo"], aboYou: "A", aboPartner: "B" }),
+  );
+  assert.equal(anyGroup.headline, "All four possible");
+  assert.doesNotMatch(`${anyGroup.headline} ${anyGroup.band}`, /\d+\s?%/);
+  // No population average ever reaches the card.
+  for (const spec of [half, mirror, anyGroup]) {
+    assert.doesNotMatch(JSON.stringify(spec), /21\.3|92\.3|4\.7%/);
+  }
+});
+
+console.log("\nMessage match with the paid campaign, and the sourced Sources list");
+
+test("the H1 keeps the phrase the ads promise, and the breadth rides underneath it", () => {
+  const tool = TOOLS.find((t) => t.slug === "genotype-compatibility");
+  // The creatives read "Genotype Compatibility Calculator" and "Genotype
+  // compatibility, free", so the ad's promise is the H1 near verbatim.
+  assert.equal(tool.title, "Genotype Compatibility Calculator");
+  assert.equal(tool.subtitle, "Now also blood group, Rh factor and G6PD.");
+  for (const word of ["blood group", "Rh factor", "G6PD"]) assert.ok(tool.subtitle.includes(word), word);
+  // The <title> mechanism added in Phase 1 stays, carrying both phrases.
+  assert.equal(tool.seoTitle, "Genotype Compatibility Calculator | Family Inheritance | BetterHealth Africa");
+  assert.match(tool.description, /^Genotype compatibility/);
+  assert.match(tool.intro, /^Genotype compatibility/);
+  assert.equal(tool.slug, "genotype-compatibility", "the URL the campaign points at does not move");
+});
+
+test("every inheritance rule and figure on the page has a source on the page's Sources list", () => {
+  const tool = TOOLS.find((t) => t.slug === "genotype-compatibility");
+  const has = (text) => tool.sources.some((s) => s.label.includes(text));
+  for (const cited of [
+    "Dean L", // ABO alleles, the Rh mechanisms, and HDN
+    "StatPearls", // the O allele, weak A, and G6PD
+    "Nkansah", // the Ghanaian ABO and Rh frequencies
+    "Qureshi", // BCSH: the anti-D figures and schedule
+    "Amoah", // 20.06% of 6,108 across all ten regions
+    "Errigo", // X-inactivation and the carrier continuum
+    "Suzuki", // 611 loci for type 2 diabetes
+    "Keaton", // 2,103 signals for blood pressure
+    "Meigs", // Framingham parental odds ratios
+    "Naylor", // GeneReviews on MODY
+    "Simcoe", // 124 eye-colour associations
+    "Beleza", // the derived HERC2 allele is absent from African populations
+    "Yengo", // 12,111 height variants
+    "Crawford", // skin pigmentation in African populations
+    "Shaffer", // 49 loci for earlobe attachment
+    "Martin NG", // no evidence for a genetic basis of tongue rolling
+    "McDonald", // the compilation, named as a compilation
+  ]) {
+    assert.ok(has(cited), `missing source: ${cited}`);
+  }
+  // McDonald is an educational compilation, and the list says so rather than
+  // passing it off as a peer-reviewed paper.
+  const mcdonald = tool.sources.find((s) => s.label.includes("McDonald"));
+  assert.match(mcdonald.label, /educational compilation rather than a peer-reviewed paper/);
+  // Nothing from the brief's "could not verify" list is quoted as a figure.
+  const blob = JSON.stringify(tool.sources);
+  assert.doesNotMatch(blob, /Green-top Guideline No\. 22\b(?!.*archived)/);
+  assert.doesNotMatch(blob, /Adhikari/i, "not a source on cleft chin");
+  assert.doesNotMatch(blob, /Evangelou|901 loci/i);
+  for (const s of tool.sources) {
+    assert.ok(s.label && s.label.length > 10, s.label);
+    assert.ok(s.url, `${s.label} needs a link`);
+    assert.doesNotMatch(s.label, /—/, s.label);
+  }
+});
+
+test("the option lists are all taps, and every one offers an honest way out", () => {
+  for (const options of [ABO_OPTIONS, RH_OPTIONS, G6PD_MOTHER_OPTIONS, G6PD_FATHER_OPTIONS]) {
+    assert.ok(options.some((o) => o.value === "unknown"), "every list needs an I-don't-know");
+    for (const o of options) assert.ok(o.label.length > 0);
+  }
+  // Nothing in the flow asks anyone to type.
+  for (const part of INHERITANCE_PARTS) {
+    for (const step of part.steps) {
+      assert.ok(["choice", "multi"].includes(step.kind), `${step.id} is ${step.kind}`);
+    }
+  }
 });
 
 console.log(`\n${passed} passed, ${failed} failed\n`);

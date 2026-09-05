@@ -229,8 +229,45 @@ export function ScaleRows({ rows, options, value = {}, onChange }) {
 }
 
 /** Pick any number of chips. */
-export function MultiPick({ options, value = [], onChange, name }) {
+export function MultiPick({ options, value = [], onChange, name, layout }) {
   const toggle = (v) => onChange(value.includes(v) ? value.filter((x) => x !== v) : [...value, v]);
+
+  // "cards" is the roomier variant, for a pick where each option needs a line
+  // of explanation next to it rather than a two-word pill.
+  if (layout === "cards") {
+    return (
+      <div className="flex flex-col gap-2.5" role="group" aria-label={name}>
+        {options.map((o) => {
+          const active = value.includes(o.value);
+          return (
+            <button
+              key={o.value}
+              type="button"
+              onClick={() => toggle(o.value)}
+              aria-pressed={active}
+              className={`w-full text-left rounded-btn border px-4 py-3.5 transition-all cursor-pointer min-h-[56px] flex items-center justify-between gap-3 active:scale-[0.99] ${
+                active ? "border-primary bg-primary-bg" : "border-border bg-section-alt hover:border-primary/50"
+              }`}
+            >
+              <span>
+                <span className="block text-[15px] font-bold text-text-primary font-heading">{o.label}</span>
+                {o.hint && <span className="block text-[12.5px] text-text-secondary leading-snug mt-0.5">{o.hint}</span>}
+              </span>
+              <span
+                aria-hidden="true"
+                className={`w-6 h-6 rounded-md border-2 shrink-0 flex items-center justify-center transition-all ${
+                  active ? "border-primary bg-primary text-white" : "border-border bg-card"
+                }`}
+              >
+                {active && <Check size={15} />}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-wrap gap-2" role="group" aria-label={name}>
       {options.map((o) => {

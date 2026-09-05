@@ -59,6 +59,9 @@ export const SINGLE_TEST_CODES = {
   "hb-electrophoresis": "HB_ELECTRO",
   "blood-group": "BLOOD_GROUP",
   sickling: "SICKLING",
+  // Added 2026-09-05 for the family inheritance calculator's G6PD section.
+  // Verified against the Ghana catalogue the same day: G6PD (Quantitative) GHS 150.
+  g6pd: "G6PD",
 };
 
 // Panel code for a marketing panel slug (falls back to the slug itself).

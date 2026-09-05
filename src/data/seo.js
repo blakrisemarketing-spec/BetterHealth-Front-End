@@ -202,7 +202,11 @@ const RAW_ROUTE_SEO = {
     TOOLS.map((t) => [
       `tools/${t.slug}`,
       {
-        title: `${t.title} | Free Tool | BetterHealth Africa`,
+        // A tool may set `seoTitle` when its on-page name and its search-facing
+        // name are not the same thing. The inheritance calculator does: the URL
+        // and the <title> keep the phrase the campaign and the search demand
+        // sit behind, while the page itself carries the wider name.
+        title: t.seoTitle || `${t.title} | Free Tool | BetterHealth Africa`,
         description: t.description,
         image: DEFAULT_OG_IMAGE,
         noindex: false,

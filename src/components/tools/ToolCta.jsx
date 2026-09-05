@@ -37,6 +37,36 @@ export default function ToolCta({ cta, panel, tone = "primary" }) {
     ? "inline-flex items-center gap-2 bg-white text-primary rounded-btn px-5 py-3 text-[15px] font-bold font-heading no-underline transition-all hover:-translate-y-0.5"
     : "inline-flex items-center gap-2 bg-card border border-primary text-primary hover:bg-primary-bg rounded-btn px-5 py-3 text-[15px] font-bold font-heading no-underline transition-all";
 
+  // Several single tests under one card, for a result with more than one thing
+  // still unconfirmed. Each price is read live by slug, same as the single-test
+  // card below, and the button deep-links all of them into onboarding at once.
+  if (cta.kind === "tests") {
+    const items = cta.items.map((t) => ({ ...t, livePrice: singleTestPrice(catalogue, t.slug, t.price) }));
+    return (
+      <div className={wrap}>
+        <p className={eyebrow}>Next step</p>
+        <p className={heading}>{cta.label}</p>
+        <p className={bodyClass}>{cta.body}</p>
+        <ul className={`${solid ? "text-white/90" : "text-text-secondary"} text-[14px] mb-4 space-y-1`}>
+          {items.map((t) => (
+            <li key={t.testCode} className="flex items-baseline justify-between gap-3">
+              <span>{t.name}</span>
+              <span className="font-bold shrink-0">{t.livePrice}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href={joinUrl({ tests: items.map((t) => t.testCode) })}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={button}
+        >
+          Book all {items.length} <ArrowRight size={16} />
+        </a>
+      </div>
+    );
+  }
+
   if (cta.kind === "panel") {
     if (!panel) return null;
     return (

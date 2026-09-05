@@ -34,6 +34,14 @@ function Hero({ tool }) {
         <h1 className="text-[1.6rem] sm:text-[2.3rem] font-extrabold font-heading leading-[1.12] text-text-primary mb-2">
           {tool.title}
         </h1>
+        {/* A tool sets `subtitle` when its H1 has to stay narrower than its
+            scope: the H1 carries the phrase the campaign and the search demand
+            sit behind, and this line carries the rest of what it covers. */}
+        {tool.subtitle && (
+          <p className="text-[15px] sm:text-[17px] font-bold font-heading leading-snug text-text-secondary mb-2">
+            {tool.subtitle}
+          </p>
+        )}
         <p className="text-[14.5px] sm:text-[16px] leading-relaxed text-text-secondary font-body">
           {tool.intro}
         </p>

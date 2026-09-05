@@ -145,24 +145,71 @@ function drawShareCard(canvas, spec, logo) {
     y += 62;
   }
 
-  // Meaning.
+  // Extra trait rows, for a result that answered more than one question. Each
+  // is a labelled outcome on a tinted strip so the two read as a pair rather
+  // than as a headline with an afterthought under it.
+  const rows = Array.isArray(spec.rows) ? spec.rows.slice(0, 2) : [];
+  for (const row of rows) {
+    y += 20;
+    const rowH = row.note ? 150 : 104;
+    roundRect(ctx, left, y, width, rowH, 24);
+    ctx.fillStyle = C.alt;
+    ctx.fill();
+    ctx.fillStyle = C.sage;
+    ctx.font = `700 26px ${FONT}`;
+    if ("letterSpacing" in ctx) ctx.letterSpacing = "2px";
+    ctx.fillText(String(row.label).toUpperCase(), left + 32, y + 46);
+    if ("letterSpacing" in ctx) ctx.letterSpacing = "0px";
+    ctx.fillStyle = C.ink;
+    const rowSize = fitFont(ctx, row.value, width - 64, 44, 26, 800);
+    ctx.font = `800 ${rowSize}px ${FONT}`;
+    ctx.fillText(row.value, left + 32, y + 88);
+    if (row.note) {
+      ctx.fillStyle = C.body;
+      ctx.font = `500 27px ${FONT}`;
+      ctx.fillText(wrapLines(ctx, row.note, width - 64)[0], left + 32, y + 128);
+    }
+    y += rowH;
+  }
+
+  if (spec.more) {
+    y += 46;
+    ctx.fillStyle = C.muted;
+    ctx.font = `600 27px ${FONT}`;
+    ctx.fillText(wrapLines(ctx, spec.more, width)[0], left, y);
+  }
+
+  // Meaning, filling whatever vertical room the rows above left behind. The
+  // last line the card can hold is the last one drawn, so a sentence is never
+  // cut off halfway.
+  const urlY = cardY + cardH - 56;
+  const meaningFloor = urlY - 56;
   ctx.fillStyle = C.body;
   ctx.font = `500 34px ${FONT}`;
-  for (const line of wrapLines(ctx, spec.meaning, width).slice(0, 4)) {
+  for (const line of wrapLines(ctx, spec.meaning, width)) {
+    if (y + 48 > meaningFloor) break;
     y += 40;
     ctx.fillText(line, left, y);
     y += 8;
   }
 
-  // URL, pinned to the bottom of the card.
-  ctx.fillStyle = C.sage;
-  ctx.font = `700 32px ${FONT}`;
-  ctx.fillText(spec.url, left, cardY + cardH - 56);
-  ctx.fillStyle = C.muted;
+  // URL, pinned to the bottom of the card. The badge beside it is dropped
+  // rather than allowed to overlap a long URL.
+  const badge = "Free, no sign-up";
   ctx.font = `600 24px ${FONT}`;
-  ctx.textAlign = "right";
-  ctx.fillText("Free, no sign-up", cardX + cardW - 64, cardY + cardH - 56);
-  ctx.textAlign = "left";
+  const badgeW = ctx.measureText(badge).width + 32;
+  const urlSize = fitFont(ctx, spec.url, width - badgeW, 32, 22, 700);
+  const urlFits = ctx.measureText(spec.url).width <= width - badgeW;
+  ctx.fillStyle = C.sage;
+  ctx.font = `700 ${urlSize}px ${FONT}`;
+  ctx.fillText(spec.url, left, urlY);
+  if (urlFits) {
+    ctx.fillStyle = C.muted;
+    ctx.font = `600 24px ${FONT}`;
+    ctx.textAlign = "right";
+    ctx.fillText(badge, cardX + cardW - 64, urlY);
+    ctx.textAlign = "left";
+  }
 
   // Disclaimer under the card.
   ctx.fillStyle = C.body;

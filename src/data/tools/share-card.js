@@ -108,10 +108,140 @@ export function genotypeShareSpec(result) {
   });
 }
 
+// --------------------------------------------------------------------------
+// The family inheritance card.
+//
+// The card has room for two outcomes and no more, so when a couple picks three
+// or four traits it carries the two that change a decision and says the rest
+// are on the page. Nothing personal goes on it: no name, no phone, no raw
+// answers, and no test result of either partner's, only what the pairing means
+// for a future child.
+// --------------------------------------------------------------------------
+
+/** "a, b and c" for the line naming what did not fit on the card. */
+function listOf(items) {
+  if (items.length === 1) return items[0];
+  return `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
+
+/** How much a section changes what a couple does. Highest goes on the headline. */
+function consequence(section) {
+  if (!section) return -1;
+  switch (section.id || "genotype") {
+    case "genotype": {
+      if (section.kind === "unknown") return 65;
+      const disease = section.groups?.find((g) => g.id === "disease");
+      return disease && disease.percent > 0 ? 100 : 30;
+    }
+    case "g6pd":
+      if (section.kind === "unknown") return 60;
+      return section.sons.some((r) => r.status !== "normal") || section.daughters.some((r) => r.status !== "normal")
+        ? 80
+        : 25;
+    case "rh":
+      if (section.kind === "unknown") return 45;
+      return section.pregnancy === "plan" ? 70 : 40;
+    case "abo":
+      if (section.kind === "unknown") return 44;
+      return section.impossible.length > 0 ? 50 : 35;
+    case "sex":
+      return 5;
+    default:
+      return 0;
+  }
+}
+
+/** One trait's outcome, compressed to a value and a line under it. */
+function traitLine(id, section) {
+  if (id === "genotype") {
+    if (section.kind === "unknown") return { label: "Genotype", value: "Not yet", band: "One genotype still unconfirmed" };
+    const disease = section.groups.find((g) => g.id === "disease");
+    const pct = disease ? disease.percent : 0;
+    return {
+      label: "Genotype",
+      value: `${pct}%`,
+      band: pct > 0 ? "chance of a sickle cell condition, per pregnancy" : "no sickle cell condition possible from this pairing",
+    };
+  }
+  if (id === "abo") {
+    if (section.kind === "unknown") return { label: "Blood group", value: "Not known yet", band: "One blood group still untested" };
+    if (section.determinable)
+      return {
+        label: "Blood group",
+        value: section.percentages.map((p) => `${p.group} ${p.percent}%`).join(", "),
+        band: "the only groups possible from this pairing",
+      };
+    // A x AB and B x AB: one share holds whichever allele the A or B parent
+    // hides, so the card carries that exact figure rather than only the
+    // exclusion. See aboOutcomes in src/data/tools/inheritance.js.
+    if (section.certain?.length > 0)
+      return {
+        label: "Blood group",
+        value: `Group ${section.certain[0].group} exactly ${section.certain[0].percent}%`,
+        band: `whichever gene is hidden, and ${section.impossible.join(" and ")} ruled out`,
+      };
+    if (section.impossible.length > 0)
+      return {
+        label: "Blood group",
+        value: `${section.impossible.join(" and ")} ruled out`,
+        band: `${section.possible.join(", ")} all still possible`,
+      };
+    return { label: "Blood group", value: "All four possible", band: "A, B, AB and O all stay on the table" };
+  }
+  if (id === "rh") {
+    if (section.kind === "unknown") return { label: "Rh factor", value: "Not known yet", band: "One Rh status still untested" };
+    if (section.determinable) return { label: "Rh factor", value: "Rh negative", band: "the only result two Rh negatives can have" };
+    if (section.pregnancy === "plan")
+      return { label: "Rh factor", value: "Worth planning for", band: "an Rh negative mother, so antenatal care plans for it" };
+    return { label: "Rh factor", value: "Either is possible", band: "positive and negative both stay on the table" };
+  }
+  if (id === "g6pd") {
+    if (section.kind === "unknown") return { label: "G6PD", value: "Not tested yet", band: "The result splits by sons and daughters" };
+    const sonsDeficient = section.sons.find((r) => r.status === "deficient")?.percent || 0;
+    const daughtersAffected = section.daughters
+      .filter((r) => r.status !== "normal")
+      .reduce((sum, r) => sum + r.percent, 0);
+    if (sonsDeficient > 0) return { label: "G6PD", value: `${sonsDeficient}% of sons`, band: "would be G6PD deficient" };
+    if (daughtersAffected > 0)
+      return { label: "G6PD", value: `${daughtersAffected}% of daughters`, band: "would carry a copy, and no son is affected" };
+    return { label: "G6PD", value: "No child affected", band: "on the G6PD table for this pairing" };
+  }
+  return { label: "Boy or girl", value: "50 / 50", band: "every pregnancy, whatever came before" };
+}
+
+export function inheritanceShareSpec(result) {
+  const b = base("genotype-compatibility", "Family Inheritance Calculator");
+  const ranked = result.traits
+    .map((id) => ({ id, section: result[id] }))
+    .filter((t) => t.section)
+    .map((t) => ({ ...t, line: traitLine(t.id, t.section), rank: consequence(t.section) }))
+    .sort((a, b2) => b2.rank - a.rank);
+
+  const [top, second] = ranked;
+  const rest = ranked.slice(2).map((t) => t.line.label.toLowerCase());
+
+  const single = ranked.length === 1;
+  const meaning = single
+    ? "Counted, not modelled: the same square a genetic counsellor draws on paper. A statement about probability, not a verdict on two people."
+    : "Every line is counted from a published rule. Where there is no exact figure, the page says so.";
+
+  return withText({
+    ...b,
+    eyebrow: single && result.genotype ? `${result.genotype.you} and ${result.genotype.partner}` : "What a child could inherit",
+    headline: top.line.value,
+    band: `${top.line.label}: ${top.line.band}`,
+    rows: second ? [{ label: second.line.label, value: second.line.value, note: second.line.band }] : [],
+    more: rest.length > 0 ? `Plus ${listOf(rest)} on the page.` : null,
+    meaning,
+  });
+}
+
 export function shareSpecFor(slug, result) {
   if (slug === "diabetes-risk") return diabetesShareSpec(result);
   if (slug === "heart-age") return heartShareSpec(result);
   if (slug === "bmi-waist") return bmiShareSpec(result);
-  if (slug === "genotype-compatibility") return genotypeShareSpec(result);
+  // The multi-trait result carries a `traits` list; the genotype-only result
+  // that computeGenotypeFull returns does not, and keeps its original card.
+  if (slug === "genotype-compatibility") return result?.traits ? inheritanceShareSpec(result) : genotypeShareSpec(result);
   return null;
 }
