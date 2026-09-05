@@ -10,7 +10,7 @@ import { getTestDetail } from "../data/test-details";
 import { testPanels, singleTests } from "../data/content";
 import { joinUrl } from "../lib/app-links";
 import { panelCode } from "../data/app-catalogue";
-import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo";
+import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo-static";
 import {
   usePricingCatalogue,
   withBackendPanelPrice,

@@ -9,7 +9,7 @@ import GradientOrb from "../components/ui/GradientOrb";
 import { getSingleTestDetail } from "../data/single-test-details";
 import { joinUrl } from "../lib/app-links";
 import { testCode } from "../data/app-catalogue";
-import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo";
+import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo-static";
 import {
   usePricingCatalogue,
   withBackendPanelPrices,

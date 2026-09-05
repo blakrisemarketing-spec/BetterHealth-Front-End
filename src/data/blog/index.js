@@ -193,11 +193,9 @@ export function articleToPlainText(article) {
 }
 
 // FAQ pairs extracted from an article's faq blocks (for FAQPage schema).
-export function articleFaqItems(article) {
-  return article.body
-    .filter((b) => b.type === "faq")
-    .flatMap((b) => b.items);
-}
+// Moved to ./article-seo.js so seo-static.js can reach it without the corpus.
+// Re-exported here because callers already import it from this module.
+export { articleFaqItems } from "./article-seo.js";
 
 // HTML escaping for build-time body prerender (see articleToHtml).
 const htmlEsc = (s) =>

@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from "react-router-dom";
 import { captureReferralFromUrl } from "./lib/partner-signup";
+import { captureAttributionFromUrl } from "./lib/attribution";
 import { trackPageView, trackBookingIntent } from "./lib/analytics";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -52,6 +53,7 @@ function ReferralCapture() {
   const location = useLocation();
   useEffect(() => {
     captureReferralFromUrl(location.search);
+    captureAttributionFromUrl(location.search);
   }, [location.search]);
   return null;
 }

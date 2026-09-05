@@ -5,6 +5,9 @@
 // widget *open* — which would train ad delivery toward people who open a
 // calendar and leave.
 
+import { getStoredAttribution } from "./attribution";
+import { getStoredReferralCode } from "./partner-signup";
+
 const DEFAULT_BASE = "https://app.betterhealth.africa/api/public";
 const BASE = (
   import.meta.env.VITE_PUBLIC_CATALOGUE_API_BASE ||
@@ -24,13 +27,24 @@ const ATTRIBUTION = {
   referralCode: "ref",
 };
 
-/** Read the utm params, fbclid and ref off the current URL, omitting absent ones. */
+/**
+ * Read the utm params, fbclid and ref for this booking, omitting absent ones.
+ * The current URL wins; anything missing falls back to the touch stored earlier
+ * this session, so a booking made after browsing still names the ad that bought
+ * it. ?ref= keeps its own store, so it is read separately.
+ */
 export function captureAttribution(search = typeof window !== "undefined" ? window.location.search : "") {
   const params = new URLSearchParams(search);
+  const stored = getStoredAttribution();
   const out = {};
   for (const [key, param] of Object.entries(ATTRIBUTION)) {
-    const value = params.get(param);
-    if (value) out[key] = value.slice(0, 120);
+    const value = params.get(param) || stored[param];
+    if (value) out[key] = String(value).slice(0, 120);
+  }
+  // ?ref= lives in its own session store, owned by partner-signup.js.
+  if (!out.referralCode) {
+    const storedRef = getStoredReferralCode();
+    if (storedRef) out.referralCode = storedRef.slice(0, 120);
   }
   return out;
 }
