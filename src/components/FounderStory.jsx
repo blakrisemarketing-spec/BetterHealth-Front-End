@@ -2,7 +2,25 @@ import Reveal from "./ui/Reveal";
 import { founderQuote, founderStory } from "../data/content";
 import founderPhoto from "../assets/founder.webp";
 
+// The clause we tint sage inside the mission quote. It must appear verbatim in
+// `founderQuote`; if the copy is reworded and this is not updated, we fall back
+// to rendering the quote untinted rather than emitting the phrase twice, which
+// is what happened when the quote changed to "had to change" and this string
+// still said "needed to change".
+const HIGHLIGHT = "I knew things had to change";
+
+function splitQuote(quote) {
+  const at = quote.indexOf(HIGHLIGHT);
+  if (at === -1) return { before: quote, highlight: null, after: "" };
+  return {
+    before: quote.slice(0, at),
+    highlight: HIGHLIGHT,
+    after: quote.slice(at + HIGHLIGHT.length),
+  };
+}
+
 export default function FounderStory() {
+  const { before, highlight, after } = splitQuote(founderQuote);
   return (
     <section id="about" className="py-20 lg:py-[120px] px-6 bg-section-alt">
       <div className="max-w-[900px] mx-auto flex flex-wrap items-center gap-12">
@@ -28,9 +46,9 @@ export default function FounderStory() {
               Our Mission
             </p>
             <h2 className="text-[clamp(24px,3.5vw,34px)] font-extrabold text-text-primary font-heading tracking-tight mb-5 leading-[1.2]">
-              &ldquo;{founderQuote.split("I knew things needed to change")[0]}
-              <span className="text-primary">I knew things needed to change</span>
-              {founderQuote.split("I knew things needed to change")[1]}&rdquo;
+              &ldquo;{before}
+              {highlight && <span className="text-primary">{highlight}</span>}
+              {after}&rdquo;
             </h2>
 
             {founderStory.map((p, i) => (
