@@ -171,7 +171,7 @@ export default {
     },
     {
       type: "link-internal",
-      to: "/pricing",
+      to: "/book-tests",
       label: "View current BetterHealth Africa test pricing",
     },
     {
