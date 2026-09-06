@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
+import { appUrl } from "../lib/app-links";
 
 const NAV_ITEMS = [
   { label: "How It Works", route: "/how-it-works" },
@@ -65,7 +66,7 @@ export default function Nav({ dark = false }) {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <a href="https://app.betterhealth.africa" className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
+            <a href={appUrl()} className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
               Sign in
             </a>
             <Link to="/book-tests" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
@@ -109,7 +110,7 @@ export default function Nav({ dark = false }) {
               Book a test
             </Link>
             <a
-              href="https://app.betterhealth.africa"
+              href={appUrl()}
               className="w-full text-center text-text-secondary text-base font-medium hover:text-primary transition-colors py-2 no-underline"
             >
               Sign in

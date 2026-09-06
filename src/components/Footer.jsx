@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { joinUrl } from "../lib/app-links";
 import { ShieldCheck } from "lucide-react";
 import { footerColumns } from "../data/content";
 import logo from "../assets/logo.png";
@@ -24,7 +25,6 @@ const ROUTE_MAP = {
 
 // External links — open in a new tab
 const EXTERNAL_MAP = {
-  "Download App": "https://app.betterhealth.africa/join",
   "WhatsApp": "https://wa.me/message/MJ3HXLS2NDQEJ1",
 };
 
@@ -89,7 +89,9 @@ export default function Footer() {
               </h4>
               {col.links.map((link) => {
                 const route = ROUTE_MAP[link];
-                const external = EXTERNAL_MAP[link];
+                // "Download App" is resolved at render, not from the static
+                // map, so the hop to the app carries the visit's utm_*/click ids.
+                const external = link === "Download App" ? joinUrl() : EXTERNAL_MAP[link];
                 if (route) {
                   return (
                     <Link

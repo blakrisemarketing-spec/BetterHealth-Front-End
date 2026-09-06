@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { testPanels, singleTests } from "../data/content";
-import { SIGN_UP_URL } from "../lib/app-links";
+import { joinUrl } from "../lib/app-links";
 import {
   usePricingCatalogue,
   withBackendPanelPrices,
@@ -249,7 +249,7 @@ export default function BookTestPage() {
             <Reveal delay={0.1}>
               <div className="text-center mt-5">
                 <a
-                  href={SIGN_UP_URL}
+                  href={joinUrl()}
                   className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3 text-[14px] font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
                 >
                   Book a single test <ArrowRight size={16} />
