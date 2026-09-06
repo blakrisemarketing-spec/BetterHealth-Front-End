@@ -245,7 +245,7 @@ function QuizResult({ guide, result, catalogue }) {
 
         <div className="flex items-baseline gap-2 mb-4">
           <span className="text-[28px] font-extrabold text-primary font-heading">{panel.price}</span>
-          <span className="text-[12px] text-text-muted">Excl. VAT · {panel.tests.length} tests</span>
+          <span className="text-[12px] text-text-muted">{panel.tests.length} tests · Excludes VAT. You'll see the exact total before you pay.</span>
         </div>
 
         <p className="text-[12px] font-bold text-text-secondary uppercase tracking-[0.1em] mb-2">Tests included</p>

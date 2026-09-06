@@ -115,12 +115,18 @@ const RESPONSE_TIMES = [
 
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [whatsAppUrl, setWhatsAppUrl] = useState("");
   const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const text = `Hi BetterHealth Africa! 👋\n\nName: ${form.name}\nEmail: ${form.email}${form.phone ? `\nPhone: ${form.phone}` : ""}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`;
     const encoded = encodeURIComponent(text);
+    // This opens a prefilled WhatsApp draft — it does not send anything. The
+    // confirmation copy below says so, because previously it claimed "Message
+    // sent! ... We have your message", which is untrue for anyone whose popup
+    // is blocked, who has no WhatsApp, or who closes the draft without sending.
+    setWhatsAppUrl(`https://wa.me/message/MJ3HXLS2NDQEJ1?text=${encoded}`);
     window.open(`https://wa.me/message/MJ3HXLS2NDQEJ1?text=${encoded}`, "_blank");
     setSubmitted(true);
   };
@@ -131,14 +137,18 @@ function ContactForm() {
         <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 size={24} className="text-green-600" />
         </div>
-        <h3 className="text-[18px] font-bold text-text-primary font-heading mb-2">Message sent!</h3>
+        <h3 className="text-[18px] font-bold text-text-primary font-heading mb-2">Almost there — press send in WhatsApp</h3>
         <p className="text-[14px] text-text-secondary leading-relaxed">
-          Thanks for reaching out. We have your message and will get back to you within 24 hours.
-          If it is urgent, WhatsApp us at{" "}
+          We have opened WhatsApp with your message ready. Press send there and we will
+          reply within 24 hours.{" "}
+          <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
+            WhatsApp did not open? Tap here
+          </a>
+          , or message us directly at{" "}
           <a href="https://wa.me/233268596410" rel="noopener noreferrer" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
             +233 268 596 410
-          </a>{" "}
-          for the fastest response.
+          </a>
+          .
         </p>
       </div>
     );
@@ -272,7 +282,9 @@ export default function ContactPage() {
                       </span>
                     )}
                     <div className="w-10 h-10 rounded-card bg-primary/10 flex items-center justify-center mb-4">
-                      <Icon size={18} className="text-white" />
+                      {/* bg-primary/10 over white is ~#F0F3F2; a white glyph on it
+                          is ~1.05:1, so these four tiles rendered empty. */}
+                      <Icon size={18} className="text-primary" />
                     </div>
                     <h3 className="text-[15px] font-bold text-text-primary font-heading mb-2">{ch.label}</h3>
                     <p className="text-[13px] text-text-secondary leading-relaxed mb-4 flex-1">{ch.body}</p>

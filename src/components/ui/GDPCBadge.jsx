@@ -1,24 +1,30 @@
 import { ShieldCheck } from "lucide-react";
 
 export default function GDPCBadge({ variant = "inline", className = "" }) {
+  // Light-ground banner. Every token here was originally the dark-ground set
+  // (text-on-dark #F1F5F9, text-muted-dark #94A3B8, primary-light #7BA898) but
+  // the only call site renders it on bg-base (#F5F3EE) — so the heading was
+  // white-on-cream at roughly 1:1 contrast and the whole band read as blank.
+  // That band is the homepage's strongest trust signal and the only one with a
+  // verifiable registry link, so it has to be legible.
   if (variant === "banner") {
     return (
       <div className={`flex flex-col sm:flex-row items-center gap-4 sm:gap-5 text-center sm:text-left ${className}`}>
         <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
-          <ShieldCheck size={22} className="text-primary-light" />
+          <ShieldCheck size={22} className="text-primary" />
         </div>
         <div>
-          <p className="text-[17px] sm:text-[19px] font-bold text-text-on-dark font-heading leading-snug mb-1">
+          <p className="text-[17px] sm:text-[19px] font-bold text-text-primary font-heading leading-snug mb-1">
             Your health data is protected by Ghana&apos;s Data Protection Commission
           </p>
-          <p className="text-[13px] sm:text-[14px] text-text-muted-dark leading-relaxed font-body">
+          <p className="text-[13px] sm:text-[14px] text-text-secondary leading-relaxed font-body">
             BetterHealth Africa is certified under the Data Protection Act, 2012 (Act 843). Your results are encrypted, never sold, and only accessible to you.
           </p>
           <a
             href="https://app.dataprotection.org.gh/company/dpdZwcRth19j7oQFxmwoDj1ELCOABE"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[12px] sm:text-[13px] text-primary-light hover:text-white font-semibold font-heading mt-1.5 no-underline transition-colors"
+            className="inline-flex items-center gap-1.5 text-[12px] sm:text-[13px] text-primary hover:text-primary-dark font-semibold font-heading mt-1.5 no-underline transition-colors"
           >
             Verify our certification →
           </a>
