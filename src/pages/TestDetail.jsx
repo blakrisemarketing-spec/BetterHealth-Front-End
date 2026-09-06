@@ -205,7 +205,7 @@ export default function TestDetailPage() {
               <div className="flex flex-col sm:flex-row items-start gap-3">
                 <div>
                   <span className="text-[32px] font-extrabold text-primary font-heading">{panel.price}</span>
-                  <span className="text-[12px] text-text-muted ml-2">Excl. VAT</span>
+                  <span className="text-[12px] text-text-muted ml-2">Excludes VAT. You'll see the exact total before you pay.</span>
                 </div>
                 <a
                   href={joinUrl({ panel: panelCode(panel.slug) })}

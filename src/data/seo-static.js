@@ -10,8 +10,6 @@ import { faqSections, testPanels, singleTests } from "./content.js";
 import {
   getMedicalWebPageSchema,
   getBreadcrumbSchema,
-  getArticleSchema,
-  getFaqPageSchema,
   pageUrl,
 } from "../components/structured-data.js";
 import { WELLNESS_CONSULTATION_SEO } from "./wellness-consultation-seo.js";

@@ -55,6 +55,19 @@ export function joinUrl({ panel, test, tests } = {}) {
     url.searchParams.set("test", String(test));
   }
 
+  return withAttribution(url);
+}
+
+/**
+ * Append the current visit's attribution to any app URL.
+ *
+ * Split out of joinUrl so that every hop to the app — not just onboarding —
+ * carries the ad information. Links that hardcoded APP_BASE were arriving with
+ * no utm_* at all, so a visitor who clicked a Facebook ad and then used the
+ * nav, the footer, or the "Book a single test" button looked like organic
+ * traffic to the app.
+ */
+function withAttribution(url) {
   const current =
     typeof window !== "undefined"
       ? new URLSearchParams(window.location.search)
@@ -74,4 +87,14 @@ export function joinUrl({ panel, test, tests } = {}) {
   }
 
   return url.toString();
+}
+
+/** App home (the "Sign in" destination), carrying attribution. */
+export function appUrl() {
+  return withAttribution(new URL(APP_BASE));
+}
+
+/** App login page, carrying attribution. */
+export function loginUrl() {
+  return withAttribution(new URL(LOGIN_URL));
 }

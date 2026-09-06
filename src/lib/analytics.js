@@ -83,6 +83,37 @@ export function trackBookingIntent({ content, contentType } = {}) {
  *
  * @param {{ source?: string }} [opts] source label, e.g. 'waitlist', 'partner:doctor'
  */
+/**
+ * The health concern a visitor selects about themselves is NOT sent to the ad
+ * platforms.
+ *
+ * Values like "Blood sugar / diabetes" or "Trying to conceive" are a
+ * self-declared health condition. Attaching them to a Meta or GA4 event ties
+ * that condition to the browser's _fbp/fbc cookie and IP. Two reasons not to:
+ *
+ *   1. Meta's Business Tools Terms prohibit sending health-related data, and
+ *      the enforcement is pixel or ad-account disablement.
+ *   2. /privacy tells visitors "We do not use your health data for
+ *      advertising, and we never share your health results with advertising
+ *      platforms."
+ *
+ * It leaked from `picker_viewed` in particular, which fires when someone
+ * merely scrolls the picker into view — so the condition was being reported
+ * before any form was touched.
+ *
+ * The concern is still sent to our own API on the booking (`healthConcern`),
+ * which is where it belongs. Callers may keep passing it; it is dropped here
+ * so there is one place to audit rather than ten call sites.
+ *
+ * `variant` is kept: it identifies the ad creative, and it is already the page
+ * URL the pixel sees regardless.
+ */
+function stripHealthConcern(meta = {}) {
+  const safe = { ...meta };
+  delete safe.concern;
+  return safe;
+}
+
 export function trackLead({ source } = {}) {
   fbq("track", "Lead", source ? { content_category: source } : {});
   dataLayerPush({ event: "generate_lead", lead_source: source || null });
@@ -105,11 +136,13 @@ export function trackLead({ source } = {}) {
  * Callers must fire this once per booking, on success only — never on form
  * render or on a failed submit — or the campaign will optimise toward noise.
  *
- * @param {{ channel?: 'form'|'whatsapp', concern?: string }} [opts]
+ * @param {{ channel?: 'form'|'whatsapp' }} [opts]
  *   channel — which path the person took, so we can compare form vs WhatsApp
- *   concern — the health concern they selected, for creative/audience feedback
+ *
+ * A `concern` may still be passed by callers and is deliberately ignored — see
+ * stripHealthConcern above for why it must not reach the ad platforms.
  */
-export function trackConsultationBooked({ channel, concern } = {}) {
+export function trackConsultationBooked({ channel } = {}) {
   fbq("track", "Schedule", {
     content_category: "wellness_consultation",
     ...(channel ? { content_name: channel } : {}),
@@ -117,7 +150,6 @@ export function trackConsultationBooked({ channel, concern } = {}) {
   dataLayerPush({
     event: "schedule_consultation",
     booking_channel: channel || null,
-    health_concern: concern || null,
   });
 }
 
@@ -138,11 +170,14 @@ export function trackConsultationBooked({ channel, concern } = {}) {
  * surface — these are for reading, not for bidding.
  *
  * @param {'picker_viewed'|'day_selected'|'time_selected'|'details_started'|'submit_failed'} step
- * @param {{ concern?: string, variant?: string, detail?: string }} [meta]
+ * @param {{ variant?: string, detail?: string }} [meta]
+ *   A `concern` in meta is stripped before the event is sent — see
+ *   stripHealthConcern above.
  */
 export function trackBookingStep(step, meta = {}) {
-  fbq("trackCustom", "BookingStep", { step, ...meta });
-  dataLayerPush({ event: "booking_step", booking_step: step, ...meta });
+  const safe = stripHealthConcern(meta);
+  fbq("trackCustom", "BookingStep", { step, ...safe });
+  dataLayerPush({ event: "booking_step", booking_step: step, ...safe });
 }
 
 /**
@@ -157,15 +192,13 @@ export function trackBookingStep(step, meta = {}) {
  *
  * Fire once per booking attempt, on time selection only.
  */
-export function trackBookingIntentConsultation({ concern, variant } = {}) {
+export function trackBookingIntentConsultation({ variant } = {}) {
   fbq("track", "InitiateCheckout", {
     content_category: "wellness_consultation",
-    ...(concern ? { content_name: concern } : {}),
   });
   dataLayerPush({
     event: "begin_checkout",
     content_type: "wellness_consultation",
-    health_concern: concern || null,
     landing_variant: variant || null,
   });
 }
