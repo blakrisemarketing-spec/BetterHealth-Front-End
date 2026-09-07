@@ -52,11 +52,41 @@ function FaqItem({ q, a }) {
   );
 }
 
+/**
+ * Scroll `id` up to just below the fixed nav.
+ *
+ * The smooth animation is requested but never trusted. `body` carries
+ * `overflow-x: hidden` (src/index.css), which makes the body its own scroll box,
+ * and in that arrangement a `behavior: "smooth"` scroll can stall part-way or
+ * never start; an instant scroll to the same offset always lands. When it does
+ * stall, the reader is left looking at the button they just pressed with nothing
+ * apparently happening, which is the whole failure this guards against — so if
+ * we have not arrived shortly after, finish the trip instantly.
+ *
+ * The fallback stands down as soon as the reader scrolls themselves, so it can
+ * never yank a page out from under a wheel or a thumb.
+ */
 function scrollToId(id) {
   const el = document.getElementById(id);
   if (!el) return;
   const top = el.getBoundingClientRect().top + window.scrollY - 84;
   window.scrollTo({ top, behavior: "smooth" });
+
+  let userScrolled = false;
+  const stand = () => { userScrolled = true; };
+  window.addEventListener("wheel", stand, { passive: true, once: true });
+  window.addEventListener("touchstart", stand, { passive: true, once: true });
+  window.addEventListener("keydown", stand, { once: true });
+
+  window.setTimeout(() => {
+    window.removeEventListener("wheel", stand);
+    window.removeEventListener("touchstart", stand);
+    window.removeEventListener("keydown", stand);
+    if (userScrolled) return;
+    if (Math.abs(window.scrollY - top) > 8) {
+      window.scrollTo({ top, behavior: "instant" });
+    }
+  }, 700);
 }
 
 // No entrance animation on the hero: it is the above-the-fold content on a
