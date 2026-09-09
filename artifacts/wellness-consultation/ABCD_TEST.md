@@ -19,10 +19,10 @@ market.
 
 | Cell | Condition | URL | Leads to | Margin |
 |---|---|---|---|---:|
-| **A** | Blood sugar / diabetes | `/wellness-consultation/blood-sugar` | Dialics 350 → Metabolix 697 | 166 → 321 |
-| **B** | Blood pressure / hypertension | `/wellness-consultation/blood-pressure` | Cardion 475 | 251 |
-| **C** | General wellness | `/wellness-consultation/wellness` | Shield 497 → Panorama 1,100 | 297 → 540 |
-| **D** | Trying to conceive | `/wellness-consultation/fertility` | Spark 1,500 | 820 |
+| **A** | Blood sugar / diabetes | `/consultation/blood-sugar` | Dialics 350 → Metabolix 697 | 166 → 321 |
+| **B** | Blood pressure / hypertension | `/consultation/blood-pressure` | Cardion 475 | 251 |
+| **C** | General wellness | `/consultation/wellness` | Shield 497 → Panorama 1,100 | 297 → 540 |
+| **D** | Trying to conceive | `/consultation/fertility` | Spark 1,500 | 820 |
 
 ### Why fertility is the fourth
 

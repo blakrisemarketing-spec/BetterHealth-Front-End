@@ -18,9 +18,9 @@
   #     404 and the redirect never ran. /pricing is linked from 31 blog articles
   #     (and /book from one) in their prerendered, no-JS body, so those internal
   #     links were pointing crawlers straight at a 404.
-  #   * /wellness-consultation and /test are real directories in dist/ that hold
-  #     only their child pages and no index.html of their own, so they match the
-  #     -d condition below, get served, find no DirectoryIndex, and return 403.
+  #   * /consultation and /test are real directories in dist/ that hold only
+  #     their child pages and no index.html of their own, so they match the -d
+  #     condition below, get served, find no DirectoryIndex, and return 403.
   #
   # A server-side 301 is the right answer for all of them anyway: it passes link
   # equity, which a client-side <Navigate> never did. The <Route>s stay in
@@ -33,7 +33,23 @@
   RewriteRule ^book/?$ /book-tests/ [L,R=301]
   RewriteRule ^book/(.+?)/?$ /book-tests/$1/ [L,R=301]
   RewriteRule ^test/?$ /book-tests/ [L,R=301]
-  RewriteRule ^wellness-consultation/?$ /wellness-consultation/wellness/ [L,R=301]
+  RewriteRule ^consultation/?$ /consultation/wellness/ [L,R=301]
+
+  # /wellness-consultation was renamed to /consultation on 2026-09-09: the old
+  # path was long enough that Meta truncated it in the ad's displayed URL. Both
+  # legacy forms 301 to the new path. The variant rule must keep its slug — the
+  # four cells are separate audiences and collapsing them would destroy the
+  # A/B/C/D read. mod_rewrite re-appends the query string, which is not
+  # cosmetic here: captureAttribution() in src/lib/consultation-api.js reads
+  # utm/fbclid/ref off window.location.search, so a hop that dropped it would
+  # silently orphan every booking from a paid click. Trailing slash on the
+  # targets so LiteSpeed serves a 200 instead of chaining through mod_dir's own
+  # add-the-slash 301 — two hops on a Ghanaian 3G connection, on a click we paid
+  # for. Keep these until no live creative points at the old path; the creatives
+  # are page-post SHARE objects whose destination cannot be edited after
+  # publishing, so some will ride this redirect for their whole life.
+  RewriteRule ^wellness-consultation/?$ /consultation/wellness/ [L,R=301]
+  RewriteRule ^wellness-consultation/(.+?)/?$ /consultation/$1/ [L,R=301]
 
   # Serve real files and directories as-is. Every route in ROUTE_SEO is
   # prerendered to dist/<route>/index.html (a real directory), so legitimate
