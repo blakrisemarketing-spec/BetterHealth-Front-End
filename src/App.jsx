@@ -120,6 +120,14 @@ function LegacyBookDetailRedirect() {
   return <Navigate to={`/book-tests/${slug}${location.search}`} replace />;
 }
 
+// /wellness-consultation/<variant> -> /consultation/<variant>, renamed 2026-09-09.
+// Only fires on in-app navigation; a direct hit is 301'd by .htaccess first.
+function LegacyConsultationRedirect() {
+  const { variant } = useParams();
+  const location = useLocation();
+  return <Navigate to={`/consultation/${variant}${location.search}`} replace />;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -156,12 +164,27 @@ export default function App() {
           <Route path="/waitlist" element={<WaitlistPage />} />
           {/* Paid-campaign landing variants (A/B/C/D by audience). The bare path
               redirects to whichever cell is currently winning, keeping the
-              search string so the utm params and click ids survive the hop. */}
+              search string so the utm params and click ids survive the hop.
+
+              Renamed from /wellness-consultation on 2026-09-09 — the old path
+              was long enough to be truncated in an ad's displayed URL. The old
+              paths 301 in public/.htaccess; the <Route>s below are only ever
+              reached by in-app navigation, which never hits the server. */}
+          <Route
+            path="/consultation"
+            element={<RedirectWithSearch to="/consultation/wellness" />}
+          />
+          <Route path="/consultation/:variant" element={<WellnessConsultationPage />} />
+          {/* Legacy paths, for in-app navigation only. Direct hits and crawlers
+              are 301'd by .htaccess long before React loads. */}
           <Route
             path="/wellness-consultation"
-            element={<RedirectWithSearch to="/wellness-consultation/wellness" />}
+            element={<RedirectWithSearch to="/consultation/wellness" />}
           />
-          <Route path="/wellness-consultation/:variant" element={<WellnessConsultationPage />} />
+          <Route
+            path="/wellness-consultation/:variant"
+            element={<LegacyConsultationRedirect />}
+          />
           {/* Free lead-magnet guides for the Meta lead-gen campaign. */}
           <Route path="/guides" element={<GuidesPage />} />
           <Route path="/guides/:slug" element={<GuidePage />} />
