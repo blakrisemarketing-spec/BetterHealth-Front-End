@@ -84,6 +84,10 @@ function buildLlmsFullTxt() {
   ]
   for (const [route, page] of Object.entries(ROUTE_SEO)) {
     if (route.startsWith('blog/')) continue
+    // Same `noindex` exclusion as buildSitemap() and buildLlmsTxt(). This file
+    // was the odd one out, listing the paid-ad landing variants for AI engines
+    // to ingest while the other two generators deliberately withheld them.
+    if (page.noindex) continue
     out.push(`### ${page.title.split(/[—|]/)[0].trim()}`, page.description, `URL: ${SITE_URL}/${route}`, '')
   }
   out.push('## Health education articles', '')

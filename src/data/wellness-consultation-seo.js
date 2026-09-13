@@ -1,4 +1,4 @@
-// Per-route SEO for the wellness-consultation landing variants.
+// Per-route SEO for the /consultation landing variants.
 //
 // Deliberately separate from wellness-consultation.js: this module is pulled
 // into src/data/seo.js, which vite.config.js imports in a plain Node context at
@@ -8,7 +8,7 @@
 // All four are `noindex`: four near-identical pages targeting one intent is the
 // textbook doorway-page pattern, and they would compete with each other. They
 // still get full Open Graph tags so the ad's link preview renders correctly.
-// When a winner emerges, promote it to an indexed page at /wellness-consultation.
+// When a winner emerges, promote it to an indexed page at /consultation.
 
 export const WELLNESS_CONSULTATION_SEO = {
   // Slug stays `blood-sugar` although the cell is now diagnosed diabetes: the

@@ -130,7 +130,7 @@ diagnosis moment there.*
 
 # 1 · Blood pressure
 
-**Page:** `/wellness-consultation/blood-pressure` · **1:50** · 258 words
+**Page:** `/consultation/blood-pressure` · **1:50** · 258 words
 
 ### Hook · 0:00–0:12
 
@@ -160,7 +160,7 @@ tablets and a warning about salt, and not much else.*
 
 # 2 · Diabetes
 
-**Page:** `/wellness-consultation/blood-sugar` · **2:00** · 285 words
+**Page:** `/consultation/blood-sugar` · **2:00** · 285 words
 
 > On this page your story stops being a bridge and becomes the direct evidence.
 > That's why Block B carries the "not a promise" caveat here and nowhere else. If
@@ -198,7 +198,7 @@ a relative go through it first. That's what makes it frightening.*
 
 # 3 · General wellness / constant tiredness
 
-**Page:** `/wellness-consultation/wellness` · **1:52** · 262 words
+**Page:** `/consultation/wellness` · **1:52** · 262 words
 
 > Different audience: no diagnosis, just a symptom nobody has taken seriously.
 > Block A doesn't apply — there was no appointment and no diagnosis moment. The
@@ -256,7 +256,7 @@ malaria. Then as typhoid. Then as stress.*
 
 ## Not written yet
 
-**Fertility** (`/wellness-consultation/fertility`) has no script: the page is
+**Fertility** (`/consultation/fertility`) has no script: the page is
 still on the old early-detection positioning and hasn't been decided on. It also
 needs the most careful handling of the four — that audience has been sold hope by
 people with no business selling it, so the script must promise nothing and must

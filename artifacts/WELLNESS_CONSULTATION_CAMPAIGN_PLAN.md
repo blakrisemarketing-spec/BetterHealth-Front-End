@@ -23,7 +23,7 @@ campaign fails, we must be able to say *which* of traffic or felt-need failed �
 
 ```
 Meta/Google ad
-   └─> /wellness-consultation          (dedicated landing page — NOT the site nav)
+   └─> /consultation                   (dedicated landing page — NOT the site nav)
          └─> Booking form OR WhatsApp   [CONVERSION EVENT: Schedule]
                └─> Reminder sequence    (cut no-shows)
                      └─> Consultation   (30 min, Wellness Consultant)
@@ -213,7 +213,9 @@ and that path fires the same event cleanly on click-out.
       event `Schedule`, GA4 `schedule_consultation`. Standard event so Meta can
       optimise delivery toward it.
 - [ ] **5.2** Create the custom conversion in Meta Events Manager on `Schedule`,
-      scoped to the `/wellness-consultation` URL so it never collides with other traffic.
+      scoped to the `/consultation` URL so it never collides with other traffic.
+      **Renamed from `/wellness-consultation` on 2026-09-09** — if a URL rule already
+      exists anywhere in Events Manager, it has to be repointed or it stops matching.
 - [ ] **5.3** Campaign UTM taxonomy — lock it once, use it everywhere:
       `utm_source=meta|google` · `utm_medium=paid_social|paid_search` ·
       `utm_campaign=wellness_consult_v1` · `utm_content=<creative_id>`
@@ -236,8 +238,8 @@ and that path fires the same event cleanly on click-out.
 
 - [ ] **6.1** **Four** condition routes, not one — the A/B/C/D cells are audiences, because
       the campaign tests traffic and felt need rather than copywriting technique:
-      `/wellness-consultation/blood-sugar` · `/blood-pressure` · `/wellness` · `/fertility`.
-      Bare `/wellness-consultation` redirects to the winner. Copy: `wellness-consultation/ABCD_TEST.md`.
+      `/consultation/blood-sugar` · `/blood-pressure` · `/wellness` · `/fertility`.
+      Bare `/consultation` redirects to the winner. Copy: `wellness-consultation/ABCD_TEST.md`.
 - [ ] **6.2** Landing page sections, in this order:
       1. Hero — the promise is *the plan*, not the test
       2. "What you get" — the three deliverables, concrete

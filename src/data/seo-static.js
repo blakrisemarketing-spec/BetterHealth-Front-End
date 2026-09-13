@@ -229,7 +229,7 @@ const RAW_ROUTE_SEO = {
   // them a prerendered <head> so the ad's link preview renders.
   ...Object.fromEntries(
     Object.entries(WELLNESS_CONSULTATION_SEO).map(([slug, page]) => [
-      `wellness-consultation/${slug}`,
+      `consultation/${slug}`,
       { ...page, image: DEFAULT_OG_IMAGE, noindex: true },
     ]),
   ),

@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useLocation, useParams } from "react-router-dom";
 import {
   ArrowRight,
   BadgeCheck,
@@ -107,6 +107,7 @@ const BOOKING_ANCHORS = ["#book", "#book-2"];
  */
 export default function WellnessConsultationPage() {
   const { variant: slug } = useParams();
+  const location = useLocation();
   const v = VARIANTS[slug];
 
   // Send the reader to the closer of the two pickers. Scrolling nine screens
@@ -127,12 +128,15 @@ export default function WellnessConsultationPage() {
   }, []);
 
   // Unknown slug — send to the general-wellness cell rather than a 404. A
-  // mistyped URL in a live ad should still land somewhere that converts.
-  if (!v) return <Navigate to="/wellness-consultation/wellness" replace />;
+  // mistyped URL in a live ad should still land somewhere that converts, and it
+  // has to carry the search string with it: captureAttribution() reads utm and
+  // fbclid off window.location, so dropping it here would land the click on a
+  // working page with no idea which ad bought it.
+  if (!v) return <Navigate to={`/consultation/wellness${location.search}`} replace />;
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Seo route={`wellness-consultation/${slug}`} />
+      <Seo route={`consultation/${slug}`} />
       <CampaignNav onCta={scrollToBooking} />
       <main>
         {/* ── Hero ──
