@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T02:56:14.590Z",
+  "generatedAt": "2026-09-18T04:14:33.387Z",
   "panelsByCode": {
     "alpha": {
       "amount": 995,
@@ -737,11 +737,6 @@
       "amount": 75,
       "currency": "GHS",
       "formatted": "GHS 75"
-    },
-    "URINALYSIS": {
-      "amount": 80,
-      "currency": "GHS",
-      "formatted": "GHS 80"
     },
     "URINE_24HR_PROTEIN": {
       "amount": 150,
