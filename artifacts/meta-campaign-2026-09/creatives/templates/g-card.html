@@ -301,6 +301,273 @@
         flex: 1;
       }
 
+      /* ------------------------------------------------------------------ */
+      /* Tool-interface mocks (the three calculators). Same tilted card as the  */
+      /* PDF mocks, but the chrome and contents read as a screen, not a page.   */
+      /* ------------------------------------------------------------------ */
+      .mock.tool {
+        width: 330px;
+        height: auto;
+      }
+
+      .mock.tool .mock-body {
+        padding: 18px 18px 46px;
+        gap: 18px;
+      }
+
+      .t-fields {
+        display: flex;
+        gap: 12px;
+      }
+
+      .t-field {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .t-flabel {
+        display: block;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      .t-sel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 36px;
+        padding: 0 11px;
+        border: 1.5px solid var(--line);
+        border-radius: 7px;
+        background: #ffffff;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .t-chev {
+        flex: none;
+        width: 8px;
+        height: 8px;
+        border-right: 1.6px solid #b6b1a8;
+        border-bottom: 1.6px solid #b6b1a8;
+        transform: translateY(-3px) rotate(45deg);
+      }
+
+      .t-rule {
+        height: 1px;
+        background: var(--line);
+      }
+
+      .t-cap {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--sage);
+      }
+
+      .t-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .t-group.band {
+        gap: 14px;
+      }
+
+      /* genotype: three-segment odds bar */
+      .t-seg {
+        display: flex;
+        gap: 4px;
+        height: 34px;
+      }
+
+      .t-seg span {
+        display: grid;
+        place-items: center;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .t-seg .s1 {
+        background: #dfe8e4;
+        color: var(--ink);
+      }
+
+      .t-seg .s2 {
+        background: #a9c3b8;
+        color: var(--ink);
+      }
+
+      .t-seg .s3 {
+        background: var(--sage);
+        color: #ffffff;
+      }
+
+      .t-segcap {
+        display: flex;
+        gap: 4px;
+      }
+
+      .t-segcap span {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--muted);
+      }
+
+      /* diabetes: score line + five-band scale with a marker */
+      .t-score {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+      }
+
+      .t-score b {
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      .t-band {
+        position: relative;
+        display: flex;
+        gap: 5px;
+        height: 20px;
+      }
+
+      .t-band span {
+        flex: 1;
+        border-radius: 4px;
+        background: #e8e5df;
+      }
+
+      .t-band span.on {
+        background: var(--sage);
+      }
+
+      .t-pin {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 9px;
+        height: 32px;
+        margin: -16px 0 0 -4.5px;
+        border-radius: 5px;
+        background: var(--ink);
+        border: 2.5px solid #ffffff;
+        box-shadow: 0 2px 6px rgba(43, 58, 58, 0.3);
+      }
+
+      .t-bandcap {
+        display: flex;
+        gap: 5px;
+      }
+
+      .t-bandcap span {
+        flex: 1;
+        text-align: center;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--muted);
+      }
+
+      .t-bandcap span.on {
+        color: var(--sage);
+      }
+
+      /* heart age: big estimate + factor rows */
+      .t-big {
+        font-size: 76px;
+        font-weight: 700;
+        line-height: 0.92;
+        letter-spacing: -0.03em;
+        color: var(--ink);
+      }
+
+      .t-muted {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .t-frow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .t-fname {
+        flex: none;
+        width: 116px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .t-fbar {
+        flex: 1;
+        height: 10px;
+        border-radius: 5px;
+        background: #e8e5df;
+        overflow: hidden;
+      }
+
+      .t-fbar i {
+        display: block;
+        height: 100%;
+        background: var(--sage);
+        border-radius: 5px;
+      }
+
+      /* BMI and waist: three result rows, each a small value and a band bar */
+      .t-reslist {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .t-res {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .t-rname {
+        flex: none;
+        width: 112px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .t-rval {
+        flex: none;
+        width: 58px;
+        text-align: right;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      .t-note {
+        margin-top: -2px;
+        margin-left: 112px;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--sage);
+      }
+
       .cta-band {
         margin-top: 36px;
         display: grid;
@@ -366,7 +633,7 @@
 {{bullets}}
         </ul>
         <div class="mock-wrap">
-          <div class="mock" aria-hidden="true">
+          <div class="mock{{mockClass}}" aria-hidden="true">
             <div class="mock-head">
               <img src="../assets/logo.png" alt="" />
               <span class="mock-tag">{{mockTag}}</span>
@@ -375,7 +642,7 @@
               <div class="mock-title">{{mockTitle}}</div>
 {{mock}}
             </div>
-            <div class="mock-foot"><span>betterhealth.africa</span><span>Page 1</span></div>
+            <div class="mock-foot"><span>betterhealth.africa</span><span>{{mockFoot}}</span></div>
           </div>
         </div>
       </section>

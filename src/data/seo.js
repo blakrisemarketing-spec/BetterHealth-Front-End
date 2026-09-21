@@ -15,6 +15,7 @@ import {
 import { ARTICLES, articleFaqItems } from "./blog/index.js";
 import { WELLNESS_CONSULTATION_SEO } from "./wellness-consultation-seo.js";
 import { GUIDES } from "./guides/index.js";
+import { TOOLS } from "./tools/index.js";
 import { getTestDetail } from "./test-details.js";
 import { getSingleTestDetail } from "./single-test-details.js";
 
@@ -214,9 +215,10 @@ const MEDICAL_ROUTES = new Set([
   "stories",
   "book-tests",
   // Panel detail pages and the free health-education guides are medical
-  // content too.
+  // content too, as are the interactive calculators under /tools.
   ...testPanels.map((p) => `book-tests/${p.slug}`),
   ...GUIDES.map((g) => `guides/${g.slug}`),
+  ...TOOLS.map((t) => `tools/${t.slug}`),
 ]);
 
 // Per-route SEO before auto-derived schema is layered on. Only the page-unique
@@ -248,6 +250,31 @@ const RAW_ROUTE_SEO = {
       {
         title: `${g.title} | ${g.kind === "quiz" ? "Free Quiz" : "Free Guide"} | BetterHealth Africa`,
         description: g.description,
+        image: DEFAULT_OG_IMAGE,
+        noindex: false,
+      },
+    ]),
+  ),
+  // Free interactive calculators (/tools, /tools/<slug>). Indexable for the
+  // same reason as the guides: each one is a distinct piece of content that
+  // answers a query on its own.
+  tools: {
+    title: "Free Health Tools | BetterHealth Africa",
+    description:
+      "Five free calculators for Ghana: genotype compatibility odds, your FINDRISC diabetes risk score, a heart age estimate, BMI with waist, and a kidney check with eGFR. No sign-up.",
+    image: DEFAULT_OG_IMAGE,
+    noindex: false,
+  },
+  ...Object.fromEntries(
+    TOOLS.map((t) => [
+      `tools/${t.slug}`,
+      {
+        // A tool may set `seoTitle` when its on-page name and its search-facing
+        // name are not the same thing. The inheritance calculator does: the URL
+        // and the <title> keep the phrase the campaign and the search demand
+        // sit behind, while the page itself carries the wider name.
+        title: t.seoTitle || `${t.title} | Free Tool | BetterHealth Africa`,
+        description: t.description,
         image: DEFAULT_OG_IMAGE,
         noindex: false,
       },

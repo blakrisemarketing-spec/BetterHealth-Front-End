@@ -33,14 +33,23 @@ Archived (superseded when the lipid profile was added to Cardion; never delivere
 
 | Ad set | Id | Audience | Ad A (card) | Ad B (statement) |
 |---|---|---|---|---|
-| LM1 — Know Your Numbers | `120253272651280020` | 25 to 55, all | ad `120253275168620020` / creative `1368791364903003` | ad `120253275169110020` / creative `2893642194339898` |
 | LM2 — Which Test Do I Need? (quiz) | `120253272653090020` | 25 to 55, all | ad `120253275175320020` / creative `1847194586661444` | ad `120253275176310020` / creative `1578490433766023` |
-| LM3 — Family Health Map | `120253272654150020` | 25 to 55, all | ad `120253275169390020` / creative `1431170132408277` | ad `120253275169680020` / creative `1620202892995270` |
-| LM4 — 90-Day Blood Sugar Log | `120253272655030020` | 30 to 65, all | ad `120253275170020020` / creative `1102957819116464` | ad `120253275170510020` / creative `1382478356745898` |
-| LM5 — Home Blood Pressure 7-Day Guide | `120253272656780020` | 30 to 65, all | ad `120253275170760020` / creative `1352794590177575` | ad `120253275171060020` / creative `1113479521211744` |
-| LM6 — Read Your Lab Results | `120253272658220020` | 25 to 60, all | ad `120253275171310020` / creative `1608116440716117` | ad `120253275171740020` / creative `1032721743087621` |
+| LM7 — Genotype Compatibility Calculator | `120253288613440020` | 22 to 45, all | ad `120253288657980020` / creative `4396786157210604` | ad `120253288658090020` / creative `1663965192398186` |
+| LM8 — Diabetes Risk Score | `120253288613870020` | 30 to 60, all | ad `120253288658260020` / creative `1731288687985824` | ad `120253288658420020` / creative `2073833823233383` |
+| LM9 — Heart Age Check | `120253288614480020` | 30 to 65, all | ad `120253288658610020` / creative `1471277254831222` | ad `120253288659000020` / creative `1289255333201568` |
+| LM10 — BMI and Waist Calculator | `120253293432130020` | 25 to 55, all | ad `120253293502450020` / creative `1596227718707006` | ad `120253293503330020` / creative `4549414572010134` |
 
-Destination pattern: `https://www.betterhealth.africa/guides/<slug>/?utm_source=meta&utm_medium=paid_social&utm_campaign=leads_sep26&utm_content=<slug>-<a|b>`. CTA button: Download (guides), Learn More (quiz).
+Retired 2026-09-02 when the PDFs were dropped from the campaign. All paused, all renamed with a "(retired)" prefix in Ads Manager, ads left in place so the copy and images are recoverable:
+
+| Retired ad set | Id |
+|---|---|
+| LM1 — Know Your Numbers | `120253272651280020` |
+| LM3 — Family Health Map | `120253272654150020` |
+| LM4 — 90-Day Blood Sugar Log | `120253272655030020` |
+| LM5 — Home Blood Pressure 7-Day Guide | `120253272656780020` |
+| LM6 — Read Your Lab Results | `120253272658220020` |
+
+Destination pattern: `https://www.betterhealth.africa/tools/<slug>/` for the three calculators and `/guides/which-test/` for the quiz, each with `?utm_source=meta&utm_medium=paid_social&utm_campaign=leads_sep26&utm_content=<slug>-<a|b>`. CTA button: Learn More throughout, since the calculators run on the page rather than handing over a file.
 
 ## Previews checked
 
@@ -54,13 +63,14 @@ Preview links expire; regenerate from Ads Manager or `ads_get_ad_preview` with t
 
 ## Totals after Damzi's decisions (2026-09-02)
 
-2 campaigns · 14 ad sets · 28 live-draft ads (all PAUSED) · 2 archived ads. Daily budget $5.00 per campaign. Meta rejected a $70 spend cap ("must be at least $100.00"), so the 14-day flight is enforced by setting each campaign's `stop_time` to activation + 14 days when it is activated.
+2 campaigns · 18 ad sets, 5 of them retired · 36 live-draft ads, all PAUSED · 2 archived ads. Daily budget $5.00 per campaign. Meta rejected a $70 spend cap ("must be at least $100.00"), so the 14-day flight is enforced by setting each campaign's `stop_time` to activation + 14 days when it is activated.
 
 ## Things to check in Ads Manager before activation
 
 - **Instagram identity.** The API exposes no Instagram account for this ad account (`ads_get_ig_accounts` returns an empty list), so every creative was created with the Page identity only. Open one ad in Ads Manager and confirm the Instagram placement shows the BetterHealth Africa account (or the Page-backed identity); set it there if not.
 - **Images are 4:5.** Stories and reels will be auto-adapted by Meta. The 9:16 versions under `creatives/story/` can be attached per placement in Ads Manager ("Edit placement" on the ad) if the auto-crop is poor.
-- **Destinations return 200 only after the front-end PR is deployed.** As of the build date, the panel pages and the guide pages return 404 on the live site until the prerender changes ship. Do not activate before the deploy check in the plan's launch checklist.
+- **The four `/tools/` destinations are not live yet.** Panel and guide pages are deployed and return 200, but the calculators ship in a second front-end PR. Do not activate LM7, LM8, LM9 or LM10 before that deploy lands and each URL returns 200.
+- **Heart age needs a clinician's sign-off before LM9 activates.** The risk bands come from a published chart rather than anything invented, but the population-calibration question is real and worth one review. The other two do not need it: the genotype maths is a Punnett square and the diabetes score is a published instrument that the page labels honestly.
 
 ## Notes from the build
 
