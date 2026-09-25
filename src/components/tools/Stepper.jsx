@@ -58,13 +58,31 @@ const visibleSteps = (part, values) => part.steps.filter((s) => !stepSkipped(s, 
 
 const CONTINUE_KINDS = new Set(["tiles", "scales", "multi", "counters", "counter"]);
 
+// Options arrive one after another rather than all at once, which gives the
+// eye time to read down the list before the thumb reaches it. Seconds, because
+// that is what framer-motion's `delay` takes.
+const OPTION_STAGGER = 0.08;
+const OPTION_LEAD_IN = 0.1;
+
+// Two changes from the plain row this used to be. `transition-all` animated
+// every property that happened to change, including layout ones; naming the
+// four that actually move keeps the colour change instant. And the row now
+// dips 3px under the thumb, which is the acknowledgement the tiles and pills
+// in PlateBuilder already give through `active:scale-*`.
+//
+// The press is CSS rather than framer-motion's `whileTap` on purpose: it has
+// to work on a frame the browser never renders. The entrance animation below
+// does hold an inline transform, so a press lands nowhere for the 300ms it is
+// running, and from then on the class has the property to itself.
+const PRESS = "active:translate-y-[3px] motion-reduce:active:translate-y-0";
+
 const optionClass = (active) =>
-  `w-full text-left rounded-btn border px-4 py-3.5 text-[15px] font-semibold transition-all cursor-pointer flex items-center justify-between gap-3 min-h-[52px] ${
+  `w-full text-left rounded-btn border px-4 py-3.5 text-[15px] font-semibold cursor-pointer flex items-center justify-between gap-3 min-h-[52px] transition-[background-color,border-color,color,transform] duration-150 ${PRESS} ${
     active ? "border-primary bg-primary-bg text-text-primary" : "border-border bg-section-alt text-text-primary hover:border-primary/50"
   }`;
 
 const continueClass =
-  "mt-4 w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading cursor-pointer transition-all";
+  `mt-4 w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading cursor-pointer transition-[background-color,transform] duration-150 ${PRESS}`;
 
 export default function Stepper({ steps, parts, onFinish, initialValues }) {
   const partList = useMemo(() => parts || [{ id: "main", number: 1, steps }], [parts, steps]);
@@ -88,7 +106,29 @@ export default function Stepper({ steps, parts, onFinish, initialValues }) {
   const step = current.kind === "step" ? current.step : null;
   const answeredBefore = questions.filter((s) => screens.indexOf(s) < index).length;
   const number = step ? answeredBefore + 1 : answeredBefore;
-  const progress = total > 0 ? Math.min(1, (step ? number : answeredBefore) / total) : 0;
+  // One progress segment per part the reader will actually see, so a long tool
+  // reads as two or three short stretches rather than one bar creeping across
+  // the whole thing. A single-part tool renders one full-width segment, which
+  // is what the bar looked like before.
+  //
+  // Parts behind you are full and parts ahead are empty, which leaves only the
+  // one you are standing in to calculate. Its denominator is the part's
+  // DECLARED step count, not the count currently visible: a part whose later
+  // questions are still gated behind an answer nobody has given yet shows one
+  // visible question at the start, and dividing by that would paint the
+  // segment full on the first screen. The `reached + 1` floor is the second
+  // half of the same guard, so the segment you are working through can never
+  // read as finished however the gating resolves.
+  const segmentFill = (part) => {
+    const here = shownParts.indexOf(current.part);
+    const pos = shownParts.indexOf(part);
+    if (here > pos) return 1;
+    if (here < pos) return 0;
+    const qs = questions.filter((s) => s.part === part);
+    const done = qs.filter((s) => screens.indexOf(s) < index).length;
+    const reached = done + (step ? 1 : 0);
+    return Math.min(1, reached / Math.max(part.steps.length, reached + 1));
+  };
 
   const move = (from, vals, dir) => {
     let i = from + dir;
@@ -188,13 +228,20 @@ export default function Stepper({ steps, parts, onFinish, initialValues }) {
       </div>
 
       <div
-        className="h-1.5 w-full rounded-pill bg-section-alt mb-5"
+        className="flex items-center gap-1.5 mb-5"
         role="progressbar"
         aria-valuemin={0}
         aria-valuemax={total}
         aria-valuenow={step ? number : answeredBefore}
       >
-        <div className="h-1.5 rounded-pill bg-primary transition-all duration-300" style={{ width: `${progress * 100}%` }} />
+        {shownParts.map((p) => (
+          <div key={p.id} className="h-1.5 flex-1 rounded-pill bg-section-alt overflow-hidden" aria-hidden="true">
+            <div
+              className="h-1.5 rounded-pill bg-primary transition-[width] duration-200"
+              style={{ width: `${segmentFill(p) * 100}%` }}
+            />
+          </div>
+        ))}
       </div>
     </>
   );
@@ -281,22 +328,28 @@ export default function Stepper({ steps, parts, onFinish, initialValues }) {
             role="group"
             aria-label={step.text}
           >
-            {step.options.map((opt) => {
+            {step.options.map((opt, i) => {
               const active = value === opt.value;
               return (
-                <button
+                <motion.button
                   key={opt.value}
                   type="button"
                   onClick={() => chooseOption(opt.value)}
                   aria-pressed={active}
                   className={optionClass(active)}
+                  // The rise is on a different axis from the card's own slide,
+                  // so the two motions read as one arrival rather than a
+                  // double take.
+                  initial={reduce ? false : { opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, ease: "easeOut", delay: reduce ? 0 : OPTION_LEAD_IN + i * OPTION_STAGGER }}
                 >
                   <span>
                     {opt.label}
                     {opt.hint && <span className="block text-[12px] font-normal text-text-secondary leading-snug mt-0.5">{opt.hint}</span>}
                   </span>
                   {active && <Check size={18} className="text-primary shrink-0" />}
-                </button>
+                </motion.button>
               );
             })}
           </div>
