@@ -482,6 +482,9 @@ export const screeningBundles = {
   eyebrow: "Popular packages",
   headline: "Screening bundles that cost less than booking one by one",
   body: "Combinations that give you a full picture in a single visit, at a bundle price. One booking, one sample collection.",
+  // Each card lists the tests from its matching `testPanels` entry (by slug),
+  // the same list the /book-tests detail pages show. Do not add an `includes`
+  // list here; a second copy drifts from the catalogue.
   bundles: [
     {
       slug: "panorama",
@@ -489,40 +492,18 @@ export const screeningBundles = {
       tagline: "A complete snapshot of your core health.",
       price: "from GHS 450",
       popular: true,
-      includes: [
-        "Full blood count",
-        "Blood sugar (Fasting / HbA1c)",
-        "Lipid / cholesterol panel",
-        "Kidney function",
-        "Liver function",
-        "Urinalysis",
-      ],
     },
     {
       slug: "alpha",
       name: "Men\u2019s Health",
       tagline: "Heart, metabolic, and prostate essentials for men.",
       price: "from GHS 400",
-      includes: [
-        "Lipid / cholesterol panel",
-        "Blood sugar (HbA1c)",
-        "Liver & kidney function",
-        "PSA (prostate)",
-        "Testosterone",
-      ],
     },
     {
       slug: "empress",
       name: "Women\u2019s Health",
       tagline: "Hormone, iron, and metabolic essentials for women.",
       price: "from GHS 400",
-      includes: [
-        "Full blood count + ferritin (iron)",
-        "Blood sugar (HbA1c)",
-        "Lipid / cholesterol panel",
-        "Thyroid panel",
-        "Vitamin D",
-      ],
     },
   ],
   note: "Prices exclude VAT and vary by location. You\u2019ll see the exact price for your area before you pay. Home collection is available as an add-on from GHS 150.",

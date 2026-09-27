@@ -37,6 +37,9 @@ export default function ScreeningBundles() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 items-stretch">
           {pricedBundles.map((b, i) => {
             const panel = panelsBySlug.get(b.slug);
+            // The test list comes from the panel itself so the card can never
+            // promise a test the panel does not run.
+            const tests = panel?.tests || [];
             return (
               <Reveal key={b.name} delay={i * 0.08}>
                 <div
@@ -74,7 +77,7 @@ export default function ScreeningBundles() {
                     <p className="text-[22px] font-extrabold text-primary font-heading mb-4">{b.price}</p>
 
                     <ul className="flex flex-col gap-2 flex-1 mb-5">
-                      {b.includes.map((it, ii) => (
+                      {tests.map((it, ii) => (
                         <li key={ii} className="flex items-start gap-2 text-[13px] text-text-secondary">
                           <Check size={14} className="shrink-0 mt-0.5 text-primary" />
                           <span>{it}</span>
