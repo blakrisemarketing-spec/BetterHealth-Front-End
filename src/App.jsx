@@ -4,6 +4,7 @@ import { captureReferralFromUrl } from "./lib/partner-signup";
 import { rememberAttribution } from "./lib/consultation-api";
 import { trackPageView, trackBookingIntent } from "./lib/analytics";
 import ScrollToTop from "./components/ScrollToTop";
+import RouteErrorBoundary from "./components/RouteErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home"));
 const HowItWorksPage = lazy(() => import("./pages/HowItWorks"));
@@ -120,6 +121,13 @@ function BookingClickTracker() {
   return null;
 }
 
+// Keyed on pathname so a failed chunk on one route clears when the visitor
+// navigates elsewhere. Must sit inside <BrowserRouter> to read the location.
+function RoutedErrorBoundary({ children }) {
+  const { pathname } = useLocation();
+  return <RouteErrorBoundary resetKey={pathname}>{children}</RouteErrorBoundary>;
+}
+
 function RedirectWithSearch({ to }) {
   const location = useLocation();
   return <Navigate to={`${to}${location.search}`} replace />;
@@ -146,65 +154,67 @@ export default function App() {
       <AttributionCapture />
       <RouteAnalytics />
       <BookingClickTracker />
-      <Suspense fallback={<LoadingSpinner />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/how-it-works" element={<HowItWorksPage />} />
-          <Route path="/what-we-test" element={<WhatWeTestPage />} />
-          <Route path="/stories" element={<StoriesPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/pricing" element={<RedirectWithSearch to="/book-tests" />} />
-          <Route path="/programs" element={<ProgramsPage />} />
-          <Route path="/book-tests" element={<BookTestPage />} />
-          <Route path="/book-tests/:slug" element={<TestDetailPage />} />
-          <Route path="/book" element={<RedirectWithSearch to="/book-tests" />} />
-          <Route path="/book/:slug" element={<LegacyBookDetailRedirect />} />
-          <Route path="/test/:slug" element={<SingleTestDetailPage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogPostPage />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/download-app" element={<DownloadAppPage />} />
-          <Route path="/for-labs" element={<ForLabsPage />} />
-          <Route path="/for-doctors" element={<ForDoctorsPage />} />
-          <Route path="/for-nutritionists" element={<ForNutritionistsPage />} />
-          <Route path="/foundation" element={<FoundationPage />} />
-          <Route path="/waitlist" element={<WaitlistPage />} />
-          {/* Paid-campaign landing variants (A/B/C/D by audience). The bare path
-              redirects to whichever cell is currently winning, keeping the
-              search string so the utm params and click ids survive the hop.
+      <RoutedErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/what-we-test" element={<WhatWeTestPage />} />
+            <Route path="/stories" element={<StoriesPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/pricing" element={<RedirectWithSearch to="/book-tests" />} />
+            <Route path="/programs" element={<ProgramsPage />} />
+            <Route path="/book-tests" element={<BookTestPage />} />
+            <Route path="/book-tests/:slug" element={<TestDetailPage />} />
+            <Route path="/book" element={<RedirectWithSearch to="/book-tests" />} />
+            <Route path="/book/:slug" element={<LegacyBookDetailRedirect />} />
+            <Route path="/test/:slug" element={<SingleTestDetailPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/download-app" element={<DownloadAppPage />} />
+            <Route path="/for-labs" element={<ForLabsPage />} />
+            <Route path="/for-doctors" element={<ForDoctorsPage />} />
+            <Route path="/for-nutritionists" element={<ForNutritionistsPage />} />
+            <Route path="/foundation" element={<FoundationPage />} />
+            <Route path="/waitlist" element={<WaitlistPage />} />
+            {/* Paid-campaign landing variants (A/B/C/D by audience). The bare path
+                redirects to whichever cell is currently winning, keeping the
+                search string so the utm params and click ids survive the hop.
 
-              Renamed from /wellness-consultation on 2026-09-09 — the old path
-              was long enough to be truncated in an ad's displayed URL. The old
-              paths 301 in public/.htaccess; the <Route>s below are only ever
-              reached by in-app navigation, which never hits the server. */}
-          <Route
-            path="/consultation"
-            element={<RedirectWithSearch to="/consultation/wellness" />}
-          />
-          <Route path="/consultation/:variant" element={<WellnessConsultationPage />} />
-          {/* Legacy paths, for in-app navigation only. Direct hits and crawlers
-              are 301'd by .htaccess long before React loads. */}
-          <Route
-            path="/wellness-consultation"
-            element={<RedirectWithSearch to="/consultation/wellness" />}
-          />
-          <Route
-            path="/wellness-consultation/:variant"
-            element={<LegacyConsultationRedirect />}
-          />
-          {/* Free lead-magnet guides for the Meta lead-gen campaign. */}
-          <Route path="/guides" element={<GuidesPage />} />
-          <Route path="/guides/:slug" element={<GuidePage />} />
-          <Route path="/deleteme" element={<DeleteMePage />} />
-          <Route path="/ref/:code" element={<ReferralRedirectPage />} />
-          <Route path="/ref/:code/:partnerType" element={<ReferralRedirectPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
+                Renamed from /wellness-consultation on 2026-09-09 — the old path
+                was long enough to be truncated in an ad's displayed URL. The old
+                paths 301 in public/.htaccess; the <Route>s below are only ever
+                reached by in-app navigation, which never hits the server. */}
+            <Route
+              path="/consultation"
+              element={<RedirectWithSearch to="/consultation/wellness" />}
+            />
+            <Route path="/consultation/:variant" element={<WellnessConsultationPage />} />
+            {/* Legacy paths, for in-app navigation only. Direct hits and crawlers
+                are 301'd by .htaccess long before React loads. */}
+            <Route
+              path="/wellness-consultation"
+              element={<RedirectWithSearch to="/consultation/wellness" />}
+            />
+            <Route
+              path="/wellness-consultation/:variant"
+              element={<LegacyConsultationRedirect />}
+            />
+            {/* Free lead-magnet guides for the Meta lead-gen campaign. */}
+            <Route path="/guides" element={<GuidesPage />} />
+            <Route path="/guides/:slug" element={<GuidePage />} />
+            <Route path="/deleteme" element={<DeleteMePage />} />
+            <Route path="/ref/:code" element={<ReferralRedirectPage />} />
+            <Route path="/ref/:code/:partnerType" element={<ReferralRedirectPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </RoutedErrorBoundary>
     </BrowserRouter>
   );
 }
