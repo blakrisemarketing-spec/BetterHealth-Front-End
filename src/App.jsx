@@ -4,6 +4,7 @@ import { captureReferralFromUrl } from "./lib/partner-signup";
 import { captureAttributionFromUrl } from "./lib/attribution";
 import { trackPageView, trackBookingIntent } from "./lib/analytics";
 import ScrollToTop from "./components/ScrollToTop";
+import RouteErrorBoundary from "./components/RouteErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home"));
 const HowItWorksPage = lazy(() => import("./pages/HowItWorks"));
@@ -122,6 +123,11 @@ function BookingClickTracker() {
   return null;
 }
 
+function RoutedErrorBoundary({ children }) {
+  const { pathname } = useLocation();
+  return <RouteErrorBoundary resetKey={pathname}>{children}</RouteErrorBoundary>;
+}
+
 function RedirectWithSearch({ to }) {
   const location = useLocation();
   return <Navigate to={`${to}${location.search}`} replace />;
@@ -148,6 +154,7 @@ export default function App() {
       <AttributionCapture />
       <RouteAnalytics />
       <BookingClickTracker />
+      <RoutedErrorBoundary>
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -212,6 +219,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      </RoutedErrorBoundary>
     </BrowserRouter>
   );
 }

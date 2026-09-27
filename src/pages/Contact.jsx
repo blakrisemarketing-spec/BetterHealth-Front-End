@@ -6,6 +6,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
+import { whatsappUrl } from "../lib/whatsapp";
 
 const CHANNELS = [
   {
@@ -121,13 +122,12 @@ function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const text = `Hi BetterHealth Africa! 👋\n\nName: ${form.name}\nEmail: ${form.email}${form.phone ? `\nPhone: ${form.phone}` : ""}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`;
-    const encoded = encodeURIComponent(text);
-    // This opens a prefilled WhatsApp draft — it does not send anything. The
-    // confirmation copy below says so, because previously it claimed "Message
-    // sent! ... We have your message", which is untrue for anyone whose popup
-    // is blocked, who has no WhatsApp, or who closes the draft without sending.
-    setWhatsAppUrl(`https://wa.me/message/MJ3HXLS2NDQEJ1?text=${encoded}`);
-    window.open(`https://wa.me/message/MJ3HXLS2NDQEJ1?text=${encoded}`, "_blank");
+    // This opens a prefilled WhatsApp draft; it does not send anything, so the
+    // confirmation copy below asks the visitor to press send. The link must use
+    // the number, not the wa.me/message short link, which drops ?text=.
+    const url = whatsappUrl(text);
+    setWhatsAppUrl(url);
+    window.open(url, "_blank");
     setSubmitted(true);
   };
 
@@ -145,7 +145,7 @@ function ContactForm() {
             WhatsApp did not open? Tap here
           </a>
           , or message us directly at{" "}
-          <a href="https://wa.me/233268596410" rel="noopener noreferrer" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
+          <a href={whatsappUrl()} rel="noopener noreferrer" className="text-primary font-semibold underline-offset-2 hover:underline no-underline">
             +233 268 596 410
           </a>
           .

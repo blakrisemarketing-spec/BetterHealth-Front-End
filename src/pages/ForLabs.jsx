@@ -21,8 +21,11 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { submitPartnerSignup, HEARD_ABOUT_OPTIONS } from "../lib/partner-signup";
+import { whatsappUrl } from "../lib/whatsapp";
 
-const WHATSAPP_URL = "https://wa.me/message/MJ3HXLS2NDQEJ1";
+const WHATSAPP_URL = whatsappUrl(
+  "Hello, I'm interested in partnering as a lab with BetterHealth Africa.",
+);
 const WHATSAPP_NUMBER = "+233 268 596 410";
 
 /* ------------------------------------------------------------------ */

@@ -1,11 +1,12 @@
 import { MapPin, Mail, Phone } from "lucide-react";
 import logoFoundation from "../../assets/foundation/logo-foundation.png";
+import { whatsappUrl } from "../../lib/whatsapp";
 
 // Contact details mirror the main BetterHealth Africa site.
 const EMAIL = "hello@betterhealth.africa";
 const PHONE_DISPLAY = "+233 26 859 6410";
 const PHONE_HREF = "+233268596410";
-const WHATSAPP = "https://wa.me/message/MJ3HXLS2NDQEJ1";
+const WHATSAPP = whatsappUrl("Hello, I'd like to know more about the BetterHealth Foundation.");
 
 const SOCIALS = [
   {
