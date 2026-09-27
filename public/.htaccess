@@ -86,3 +86,19 @@ ErrorDocument 404 /index.html
   # HTTPS, so setting it unconditionally is safe. Not preloaded yet.
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
+
+# HTML documents must be revalidated on every visit. Every deploy (including the
+# daily price-snapshot commit) renames the hashed chunks in /assets and deletes
+# the old ones. With no Cache-Control the browser heuristically reused stale
+# HTML, which then asked for chunks that no longer exist, and a lazy route
+# rendered a blank page (seen on /guides/which-test/, 2026-09-27). "no-cache"
+# still allows storing and 304 revalidation, so a repeat visit on 3G costs a
+# conditional request, not a full download. Matches the file actually served,
+# so it covers directory indexes (dist/<route>/index.html) and the 404 shell.
+# `always` so the 404 responses carry it too. Scoped to .html only: hashed
+# /assets files keep whatever caching they get today.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header always set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
