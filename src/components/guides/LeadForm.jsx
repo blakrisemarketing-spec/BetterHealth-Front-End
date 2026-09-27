@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Download, Loader2, MessageCircle } from "lucide-react";
 import { submitLead, writeGuideUnlock } from "../../lib/leads";
 import { trackLead } from "../../lib/analytics";
-
-const WHATSAPP_NUMBER = "233268596410";
+import { whatsappUrl } from "../../lib/whatsapp";
 
 // Ghana numbers arrive as 024 123 4567, 0241234567, +233 24 123 4567, or
 // 233241234567. Accept anything with 9 to 13 digits after stripping
@@ -16,7 +15,7 @@ function phoneLooksValid(raw) {
 
 function whatsappFallbackUrl(title) {
   const text = `Hi, I'd like the free guide: ${title}`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  return whatsappUrl(text);
 }
 
 /**
