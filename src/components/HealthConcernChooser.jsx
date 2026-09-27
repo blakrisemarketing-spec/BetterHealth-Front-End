@@ -19,12 +19,12 @@ const concernCards = [
   {
     icon: HeartPulse,
     title: "Blood pressure or heart risk",
-    body: "Check heart strain, inflammation, uric acid, blood count, and sugar signals linked to circulation risk.",
+    body: "Check cholesterol, inflammation, uric acid, blood count, and sugar signals linked to circulation risk.",
     route: "/book-tests/cardion",
   },
   {
     icon: Stethoscope,
-    title: "Kidney, liver, or cholesterol",
+    title: "Kidney or liver",
     body: "Check kidney function, liver enzymes, blood count, HbA1c, and the core numbers behind everyday organ health.",
     route: "/book-tests/metabolix",
   },
