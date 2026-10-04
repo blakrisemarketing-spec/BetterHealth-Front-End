@@ -31,7 +31,7 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-26
+  updated: 2026-10-04
   keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo — these were reported confirmed on 2026-07-05/07-12 but the volume fields were never written back to this file; corrected that week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. 2026-07-26: GSC access unblocked after 6 weeks — sitemap-status shows 70 URLs submitted, 0 indexed; URL Inspection on a 10-article sample reads mostly 'Discovered - currently not indexed' (Google has found the pages via the 2026-07-23 sitemap submission but hasn't crawled/indexed them yet — the ordinary state for a young low-authority domain, not a technical block). Re-checked SERP position for all 51 published articles' primary keywords: unchanged, all 'not in top 20'. No reprioritization made this week — no ranking/impression data yet differentiates one todo keyword from another; see weekly-2026-W31 report.)"
 
 items:
@@ -947,7 +947,7 @@ items:
     slug: prolactin-test-explained
     keyword: prolactin test
     market: nigeria
-    volume: 720
+    volume: 590
     intent: informational
     title: "Prolactin Test: What a High or Low Result Means for Fertility and Cycles"
     status: todo
@@ -959,12 +959,24 @@ items:
     slug: pcos-test-explained
     keyword: pcos test
     market: nigeria
-    volume: null
+    volume: 210
     secondary: ["pcos blood test", "pcos test kit", "how do gynecologists check for pcos"]
     intent: informational
     title: "PCOS Testing: The Hormone Panel Behind a Polycystic Ovary Syndrome Diagnosis"
     status: todo
-    notes: "No confirmed standalone volume for 'pcos test' or 'pcos symptoms' in Nigeria (DataForSEO, checked 2026-07-25, both null), but PCOS is a high-interest, high-burden topic worth publishing for AI-citation value; confirm volume again next refine pass. Within BetterHealth's Reproductive Hormones panel (LH, FSH, testosterone, DHEA-S per src/data/content.js) and the existing PCOS Program. Cross-link perimenopause-menopause-test and testosterone-test-explained (once that one ships) for the hormone cluster; avoid diagnostic overreach, PCOS diagnosis needs clinical criteria (Rotterdam) alongside labs, not labs alone."
+    notes: "pcos test 210/mo Nigeria, LOW competition (DataForSEO, confirmed 2026-10-04; 'pcos symptoms' still null). Moved up to 3rd on the 2026-10-04 reprioritization: it now has real volume. PCOS is a high-interest, high-burden topic worth publishing for AI-citation value; confirm volume again next refine pass. Within BetterHealth's Reproductive Hormones panel (LH, FSH, testosterone, DHEA-S per src/data/content.js) and the existing PCOS Program. Cross-link perimenopause-menopause-test and testosterone-test-explained (once that one ships) for the hormone cluster; avoid diagnostic overreach, PCOS diagnosis needs clinical criteria (Rotterdam) alongside labs, not labs alone."
+
+  - id: art-hiv-test-south-africa
+    type: article
+    cluster: screening
+    slug: hiv-test-south-africa
+    keyword: hiv test
+    market: south-africa
+    volume: 5400
+    intent: informational
+    title: "HIV Testing in South Africa: Where to Test, Window Periods and What Results Mean"
+    status: todo
+    notes: "Added 2026-10-04 weekly pass. hiv test 5,400/mo South Africa (DataForSEO), HIGH competition, vs 320/mo in the pan-Africa market the existing hiv-test-explained targets. Highest-volume gap found this week. Do not duplicate hiv-test-explained: lead with South African context (clinic/public testing, self-test kits, window periods, 4th-gen vs rapid tests), cross-link it. Clinical-safety gate applies: no diagnosis, point to confirmatory testing and linkage to care."
 
   - id: art-hepatitis-a-test
     type: article
