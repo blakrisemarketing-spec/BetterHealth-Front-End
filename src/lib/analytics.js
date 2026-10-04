@@ -61,18 +61,22 @@ export function trackPageView(path) {
  * (the actual purchase completes on app.betterhealth.africa and must be tracked
  * there, ideally via Meta CAPI + Google Enhanced Conversions).
  *
- * @param {{ content?: string, contentType?: 'panel'|'test'|'tests' }} [opts]
+ * @param {{ contentType?: 'panel'|'test'|'tests' }} [opts]
  */
-export function trackBookingIntent({ content, contentType } = {}) {
-  const contents = content
-    ? { content_name: content, content_category: contentType || "lab_test" }
-    : {};
-
-  fbq("track", "InitiateCheckout", { currency: "GHS", ...contents });
+export function trackBookingIntent({ contentType } = {}) {
+  // Which test or panel is NOT sent. The code is read from the booking link,
+  // and codes like RETROSCREEN (HIV), HBSAG (hepatitis B), spark (fertility)
+  // or empress (PCOS) name a health condition. Sending them ties that
+  // condition to the browser's Meta and Google identity, for the same reasons
+  // the self-declared concern is stripped below. The kind of booking (panel,
+  // single test) carries no condition and is kept.
+  fbq("track", "InitiateCheckout", {
+    currency: "GHS",
+    content_category: contentType || "lab_test",
+  });
   dataLayerPush({
     event: "begin_checkout",
     currency: "GHS",
-    content_name: content || null,
     content_type: contentType || null,
   });
 }
