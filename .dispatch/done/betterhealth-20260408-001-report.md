@@ -14,7 +14,7 @@ All 4 objectives completed successfully. Build passes with zero errors.
 
 ## 1. Live App Screenshots Captured
 
-Logged into `https://app.betterhealth.africa` as `peter.dag@gmail.com`.
+Logged into `https://app.betterhealth.africa` as `<BH_DEMO_EMAIL>`.
 
 **Tool used:** Python + Playwright (headless Chromium)  
 **Resolution:** 1170×2532px (390×844 @ 3× DPR — true Retina / iPhone 14 Pro quality)  

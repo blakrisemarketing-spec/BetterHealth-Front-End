@@ -92,8 +92,8 @@ function RouteAnalytics() {
  * A single delegated click listener that catches every click-out to the app's
  * /join onboarding (the site's primary conversion) and fires a booking-intent
  * event — so we don't have to wire onClick into each scattered CTA, and future
- * CTAs are covered automatically. The panel/test being booked is read from the
- * outbound URL for content attribution.
+ * CTAs are covered automatically. Only the kind of booking (panel or test) is
+ * read from the outbound URL; which one is never sent (see trackBookingIntent).
  */
 function BookingClickTracker() {
   useEffect(() => {
@@ -104,7 +104,6 @@ function BookingClickTracker() {
       if (!href.includes("app.betterhealth.africa") || !href.includes("/join")) return;
       try {
         const params = new URL(href, window.location.origin).searchParams;
-        const content = params.get("panel") || params.get("test") || params.get("tests");
         const contentType = params.has("panel")
           ? "panel"
           : params.has("tests")
@@ -112,7 +111,7 @@ function BookingClickTracker() {
             : params.has("test")
               ? "test"
               : undefined;
-        trackBookingIntent({ content: content || undefined, contentType });
+        trackBookingIntent({ contentType });
       } catch {
         trackBookingIntent();
       }

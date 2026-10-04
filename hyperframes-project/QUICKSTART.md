@@ -25,7 +25,7 @@ Get screenshots of the BetterHealth app in mobile view:
 ```bash
 # Option A: Using Chrome DevTools
 # 1. Open https://app.betterhealth.africa in Chrome
-# 2. Login with: peter.dag@gmail.com / Pass.1234
+# 2. Login with: <BH_DEMO_EMAIL> / <BH_DEMO_PASSWORD>
 # 3. Toggle iPhone 12 emulation (375x812)
 # 4. Take screenshots of each screen
 # 5. Save to: assets/mobile-screens/
@@ -119,7 +119,7 @@ bun run --filter @hyperframes/player dev
     {
       "type": "text_input",
       "target": "email_field",
-      "value": "peter.dag@gmail.com",
+      "value": "<BH_DEMO_EMAIL>",
       "timestamp": 500
     },
     {

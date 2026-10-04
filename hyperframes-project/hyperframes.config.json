@@ -11,8 +11,8 @@
   "basePath": "/Users/greatdamzi/Projects/BetterHealth-Front-End/hyperframes-project",
   "outputDir": "./dist",
   "demoCredentials": {
-    "email": "peter.dag@gmail.com",
-    "password": "Pass.1234",
+    "email": "<BH_DEMO_EMAIL>",
+    "password": "<BH_DEMO_PASSWORD>",
     "appUrl": "https://app.betterhealth.africa"
   },
   "workflows": [
