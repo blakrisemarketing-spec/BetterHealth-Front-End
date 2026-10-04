@@ -143,7 +143,7 @@ The project has undergone a major design system alignment (May 2026) and now ref
 
 ## Credentials
 
-- **Patient Interface:** `app.betterhealth.africa` (Email: peter.dag@gmail.com) — stored in project credentials file
+- **Patient Interface:** `app.betterhealth.africa` (Email: <BH_DEMO_EMAIL>) — stored in project credentials file
 
 ---
 

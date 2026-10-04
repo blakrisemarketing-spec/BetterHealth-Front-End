@@ -43,8 +43,8 @@ Main project configuration file with:
     "type": "mobile"
   },
   "demoCredentials": {
-    "email": "peter.dag@gmail.com",
-    "password": "Pass.1234",
+    "email": "<BH_DEMO_EMAIL>",
+    "password": "<BH_DEMO_PASSWORD>",
     "appUrl": "https://app.betterhealth.africa"
   }
 }
@@ -76,7 +76,7 @@ Example scene with interactions:
       "id": "email_input",
       "type": "text_input",
       "target": "email_field",
-      "value": "peter.dag@gmail.com",
+      "value": "<BH_DEMO_EMAIL>",
       "timestamp": 1000
     },
     {
