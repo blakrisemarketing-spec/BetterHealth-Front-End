@@ -5,7 +5,7 @@
   <text x="70" y="56" font-size="30" font-weight="700" fill="#2B3A3A">Iron panel reference ranges</text>
   <text x="70" y="88" font-size="18" fill="#6B7979">Standard clinical thresholds used in Ghanaian practice</text>
 
-  <!-- ---- Row 1: Ferritin ---- -->
+  <!-- Row 1: Ferritin -->
   <text x="70" y="138" font-size="20" font-weight="700" fill="#2B3A3A">Ferritin</text>
   <text x="70" y="160" font-size="15" fill="#6B7979">Iron storage protein</text>
 
@@ -36,7 +36,7 @@
   <!-- Divider -->
   <line x1="70" y1="198" x2="1130" y2="198" stroke="#E8E3DA" stroke-width="1"/>
 
-  <!-- ---- Row 2: Serum Iron ---- -->
+  <!-- Row 2: Serum Iron -->
   <text x="70" y="234" font-size="20" font-weight="700" fill="#2B3A3A">Serum Iron</text>
   <text x="70" y="256" font-size="15" fill="#6B7979">Iron circulating in the blood right now</text>
 
@@ -53,7 +53,7 @@
   <!-- Divider -->
   <line x1="70" y1="294" x2="1130" y2="294" stroke="#E8E3DA" stroke-width="1"/>
 
-  <!-- ---- Row 3: Transferrin Saturation ---- -->
+  <!-- Row 3: Transferrin Saturation -->
   <text x="70" y="330" font-size="20" font-weight="700" fill="#2B3A3A">Transferrin Saturation</text>
   <text x="70" y="352" font-size="15" fill="#6B7979">% of iron-binding sites occupied — rises when deficient falls below 20%; above 45% suggests excess</text>
 
