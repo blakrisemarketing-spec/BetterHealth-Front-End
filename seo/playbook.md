@@ -78,14 +78,32 @@ to five patients-led articles in a single reviewable pull request.
 
 Trigger when fewer than 10 `todo` article items remain. Scope is all of Africa.
 
+- **Prefer long-tail over head terms (2026-08-09 direction change).** All 66
+  published articles' primary keywords remain "not in top 20" after 7+ weeks (see
+  `seo/reports/weekly-2026-W32.md`) — the domain has no authority yet to compete on
+  broad 1-2 word terms like "fatty liver disease" or "lipid profile test". Long-tail,
+  question-phrased, often Ghana-specific queries (3+ words, lower volume, far less
+  competition) are the realistically winnable target now, and they double as GEO bait
+  since AI Overviews/answer engines lift exactly this kind of self-contained phrasing.
+  Ghana is the home market, so weight Ghana-specific long-tail queries first; still
+  cover the other priority markets for the pan-African items already in the queue.
 - For each priority market (Ghana, Nigeria, Kenya, South Africa, …) run
   `seo/tools/dataforseo.mjs ideas "<seed>"` with that market's `DFS_LOCATION_CODE` to
-  surface real patient queries. Seeds: malaria test, typhoid test, hepatitis B test,
-  genotype test, premarital screening, PSA test, pap smear, HIV test, full body
-  checkup, plus existing biomarker seeds.
+  surface real patient queries — **seed with a topic phrase (2-3 words: "diabetes
+  test", "hepatitis b symptoms", "kidney disease symptoms"), not a single word**, and
+  read the *ideas the tool returns* for long-tail candidates (question phrasing: "is
+  X curable", "early warning signs of X", "N stages of X"; Ghana-specific: "cost of X
+  in Ghana", "X price in Ghana") rather than defaulting to the shortest/highest-volume
+  idea in the list. Seeds: malaria test, typhoid test, hepatitis B test, genotype
+  test, premarital screening, PSA test, pap smear, HIV test, full body checkup, plus
+  existing biomarker/condition seeds.
 - Append new `status: todo` items at the right priority (never reorder `done`), each
   with a DataForSEO-confirmed `volume` and the market in `notes` (or `volume: null` +
-  a "confirm" note if no data). Favour high-burden, low-competition African terms.
+  a "confirm" note if no data). Favour high-burden, low-competition African terms —
+  and among those, favour the long-tail variant over the head term when both exist.
+  Skip ideas that are treatment/medication-directive (e.g. "high blood pressure
+  medication") — this is a patients-led testing/education brand, not a prescribing
+  one; stay on symptoms, testing, and understanding-results ground.
 
 ## Maintenance pass (weekly routine; or when no `todo` content items remain)
 

@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-26
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo — these were reported confirmed on 2026-07-05/07-12 but the volume fields were never written back to this file; corrected that week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. 2026-07-26: GSC access unblocked after 6 weeks — sitemap-status shows 70 URLs submitted, 0 indexed; URL Inspection on a 10-article sample reads mostly 'Discovered - currently not indexed' (Google has found the pages via the 2026-07-23 sitemap submission but hasn't crawled/indexed them yet — the ordinary state for a young low-authority domain, not a technical block). Re-checked SERP position for all 51 published articles' primary keywords: unchanged, all 'not in top 20'. No reprioritization made this week — no ranking/impression data yet differentiates one todo keyword from another; see weekly-2026-W31 report.)"
+  updated: 2026-08-09
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo — these were reported confirmed on 2026-07-05/07-12 but the volume fields were never written back to this file; corrected that week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. 2026-07-26: GSC access unblocked after 6 weeks — sitemap-status shows 70 URLs submitted, 0 indexed; URL Inspection on a 10-article sample reads mostly 'Discovered - currently not indexed'. Re-checked SERP position for all 51 published articles' primary keywords: unchanged, all 'not in top 20'. 2026-08-09: first indexation confirmed — URL Inspection on a 16-article sample found 2 pages now 'Submitted and indexed' (fasting-blood-sugar-explained, lipid-profile-cholesterol-test), vs 0/10 last week; sitemap-status report itself still lags at 0/85 (known GSC reporting delay — direct URL Inspection is the more current signal). GSC pages report shows the first-ever blog page impression (fasting-blood-sugar-explained, pos 78) and the first content-topic query ('fasting blood sugar how many hours fasting', pos 78). Re-checked SERP position for all 66 published articles' primary keywords (grew from 51): unchanged, all still 'not in top 20' — expected, since ranking follows indexation with a lag and only 2 pages are indexed so far. No reprioritization made in the weekly pass itself — indexation is too early-stage (2 pages) to differentiate one todo keyword from another; todo queue is down to 8 content items, below the nightly's 10-item refill trigger — flagged for the next nightly run. See weekly-2026-W32 report. 2026-08-09 (same day, follow-up direction change): reprioritized the todo queue toward long-tail Ghana searches per updated guidance in seo/playbook.md 'Queue-refill pass' — broad head terms (all 66 published keywords still 'not in top 20') aren't winnable yet for a new domain, long-tail question-phrased Ghana queries are. Added 3 long-tail items at the FRONT of the queue (is-hepatitis-b-curable 720/mo, kidney-disease-warning-signs 390/mo, typhoid-fever-stages-recovery 1000/mo — all DataForSEO-confirmed, Ghana), each a distinct angle from an already-published test-focused article on the same condition. The 2026-07-25 refill batch (dengue fever, prolactin test, etc.) now sits behind these.)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -919,6 +919,56 @@ items:
     status: done
     completed: 2026-07-25
     notes: "Published 2026-07-25. No DataForSEO volume returned (re-checked 2026-07-25), published per the local-nairobi precedent. Moi Teaching and Referral Hospital named once as the public-facility reference point; Kenya disease-burden framing reuses figures already published in health-screening-kenya.js. Article + BreadcrumbList + FAQPage schema, 2 images, 4 internal links, 6 FAQ."
+
+  # ==========================================================================
+  # Long-tail Ghana direction change (added 2026-08-09) — see
+  # seo/reports/weekly-2026-W32.md and seo/playbook.md "Queue-refill pass". All 66
+  # published articles' primary (mostly head-term) keywords are still "not in top
+  # 20" after 7+ weeks; a brand-new domain can't compete there yet. These 3 items
+  # target long-tail, question-phrased Ghana searches (DataForSEO, location 2288,
+  # confirmed 2026-08-09) that are realistic to rank for and are each a distinct
+  # angle from an already-published test-focused article on the same condition —
+  # placed FIRST so the next unpaused nightly run picks them up before the
+  # 2026-07-25 refill batch below. Never reorder done items above.
+  # ==========================================================================
+  - id: art-hepatitis-b-curable
+    type: article
+    cluster: conditions
+    slug: is-hepatitis-b-curable
+    keyword: is hepatitis b curable
+    market: ghana
+    volume: 720
+    secondary: ["how to convert hepatitis b positive to negative (390)", "hepatitis b treatment (880)", "hepatitis b causes (1000)"]
+    intent: informational
+    title: "Is Hepatitis B Curable? What 'Positive to Negative' Really Means"
+    status: todo
+    notes: "Long-tail companion to the published hepatitis-b-test.js (which covers testing) — this covers the living-with/misconception angle real patients search for. CAUTION for clinical-safety-review: must not overstate cure for chronic HBV; correct the 'positive to negative' misconception against WHO guidance (functional cure / seroconversion is real but rare and must not be framed as typical or guaranteed). Cross-link hepatitis-b-test-explained."
+
+  - id: art-kidney-disease-symptoms
+    type: article
+    cluster: conditions
+    slug: kidney-disease-warning-signs
+    keyword: early warning signs of kidney disease
+    market: ghana
+    volume: 390
+    secondary: ["kidney disease symptoms (590)", "kidney disease symptoms in females (480)", "stage 3 kidney disease symptoms (50)"]
+    intent: informational
+    title: "Early Warning Signs of Kidney Disease: When to Get Tested"
+    status: todo
+    notes: "Long-tail companion to the published creatinine-egfr-kidney-function.js (test-focused) — this covers the symptoms-first search patients do before they know eGFR/creatinine is the relevant test. Cross-link creatinine-egfr-kidney-function, plus hypertension and diabetes articles (leading causes of CKD)."
+
+  - id: art-typhoid-stages
+    type: article
+    cluster: conditions
+    slug: typhoid-fever-stages-recovery
+    keyword: 4 stages of typhoid fever
+    market: ghana
+    volume: 1000
+    secondary: ["signs of recovery from typhoid (480)", "symptoms of malaria and typhoid in a woman (260)", "types of malaria and their symptoms (260)"]
+    intent: informational
+    title: "The 4 Stages of Typhoid Fever, and How to Tell It Apart From Malaria"
+    status: todo
+    notes: "Long-tail companion to the published typhoid-widal-test.js and malaria-test-explained.js (both test-focused) — this covers disease progression/recovery timeline and the malaria-vs-typhoid symptom differential patients search for, since the two overlap and co-circulate in Ghana. Cross-link both existing test articles."
 
   # ==========================================================================
   # Queue refill (added 2026-07-25) — all 10 prior todo article items (mammogram/
