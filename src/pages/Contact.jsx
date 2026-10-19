@@ -6,6 +6,8 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
+import PhoneField from "../components/ui/PhoneField";
+import { composeE164, defaultPhoneValue, validatePhone } from "../lib/phone";
 
 const CHANNELS = [
   {
@@ -115,11 +117,34 @@ const RESPONSE_TIMES = [
 
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  // Optional here, unlike the booking and lead forms — so an empty field is
+  // allowed through, and only a half-typed one is stopped.
+  const [phone, setPhone] = useState(() => defaultPhoneValue());
+  const [phoneError, setPhoneError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const text = `Hi BetterHealth Africa! 👋\n\nName: ${form.name}\nEmail: ${form.email}${form.phone ? `\nPhone: ${form.phone}` : ""}\nSubject: ${form.subject}\n\nMessage:\n${form.message}`;
+
+    const e164 = composeE164(phone);
+    if (e164) {
+      const check = validatePhone(phone);
+      if (!check.ok) {
+        setPhoneError(check.message);
+        return;
+      }
+    }
+    setPhoneError("");
+
+    const text = `Hi BetterHealth Africa! 👋
+
+Name: ${form.name}
+Email: ${form.email}${e164 ? `
+Phone: ${e164}` : ""}
+Subject: ${form.subject}
+
+Message:
+${form.message}`;
     const encoded = encodeURIComponent(text);
     window.open(`https://wa.me/message/MJ3HXLS2NDQEJ1?text=${encoded}`, "_blank");
     setSubmitted(true);
@@ -174,18 +199,17 @@ function ContactForm() {
           />
         </div>
       </div>
-      <div>
-        <label htmlFor="contact-phone" className="block text-[13px] font-semibold text-text-primary mb-1.5">Phone <span className="text-text-muted font-normal">(optional)</span></label>
-        <input
-          id="contact-phone"
-          name="phone"
-          type="tel"
-          placeholder="+233 30 396 0000"
-          value={form.phone}
-          onChange={e => setForm({ ...form, phone: e.target.value })}
-          className="w-full border border-border rounded-btn px-4 py-3 text-[14px] text-text-primary bg-section-alt focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all"
-        />
-      </div>
+      <PhoneField
+        id="contact-phone"
+        label="Phone (optional)"
+        fieldClass="px-4 py-3 text-[14px]"
+        value={phone}
+        onChange={(next) => {
+          setPhoneError("");
+          setPhone(next);
+        }}
+        error={phoneError}
+      />
       <div>
         <label htmlFor="contact-subject" className="block text-[13px] font-semibold text-text-primary mb-1.5">Subject *</label>
         <select

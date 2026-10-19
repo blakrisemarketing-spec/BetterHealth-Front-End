@@ -3,6 +3,8 @@ import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { waitlist } from "../data/content";
 import { useWaitlist } from "../context/waitlist-context";
 import { trackLead } from "../lib/analytics";
+import PhoneField from "./ui/PhoneField";
+import { composeE164, defaultPhoneValue, formatE164ForDisplay, validatePhone } from "../lib/phone";
 
 const HEALTH_INTERESTS = [
   "Diabetes & Blood Sugar",
@@ -25,7 +27,11 @@ export default function WaitlistForm({
   initialInterest = "",
   helperText = "Join 200+ Ghanaians on the waitlist",
 }) {
-  const [form, setForm] = useState({ name: "", email: "", whatsapp: "", healthInterest: initialInterest });
+  const [form, setForm] = useState({ name: "", email: "", healthInterest: initialInterest });
+  // Country and number are held apart so the sheet gets +233…/+234… rather than
+  // whichever local format the visitor happens to type.
+  const [phone, setPhone] = useState(() => defaultPhoneValue());
+  const [phoneError, setPhoneError] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | success | duplicate | error
   const { submitted, markSubmitted } = useWaitlist();
 
@@ -37,6 +43,13 @@ export default function WaitlistForm({
     e.preventDefault();
     if (status === "loading") return;
 
+    const check = validatePhone(phone);
+    if (!check.ok) {
+      setPhoneError(check.message);
+      return;
+    }
+    setPhoneError("");
+
     setStatus("loading");
 
     try {
@@ -46,7 +59,7 @@ export default function WaitlistForm({
         body: JSON.stringify({
           name: form.name.trim(),
           email: form.email.trim().toLowerCase(),
-          whatsapp: form.whatsapp.trim(),
+          whatsapp: composeE164(phone),
           healthInterest: form.healthInterest,
           programInterest: form.healthInterest,
           source,
@@ -131,19 +144,20 @@ export default function WaitlistForm({
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div>
-            <label className={labelClass}>WhatsApp Number *</label>
-            <input
-              type="tel"
-              inputMode="tel"
-              required
-              placeholder="+233 XX XXX XXXX"
-              value={form.whatsapp}
-              onChange={update("whatsapp")}
-              disabled={status === "loading"}
-              className={inputClass}
-            />
-          </div>
+          <PhoneField
+            label="WhatsApp Number *"
+            tone={isDark ? "dark" : "light"}
+            fieldClass="px-4 py-3.5 text-[14px]"
+            value={phone}
+            onChange={(next) => {
+              setPhoneError("");
+              setPhone(next);
+            }}
+            error={phoneError}
+            hint={composeE164(phone) ? `We'll save this as ${formatE164ForDisplay(phone)}` : undefined}
+            disabled={status === "loading"}
+            required
+          />
           <div>
             <label className={labelClass}>{interestLabel} *</label>
             <select

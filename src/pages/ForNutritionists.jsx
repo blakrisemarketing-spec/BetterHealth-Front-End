@@ -18,6 +18,13 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { submitPartnerSignup, HEARD_ABOUT_OPTIONS } from "../lib/partner-signup";
+import PhoneField from "../components/ui/PhoneField";
+import {
+  composeE164,
+  defaultPhoneValue,
+  formatE164ForDisplay,
+  validatePhone,
+} from "../lib/phone";
 
 const WHATSAPP_URL = "https://wa.me/message/MJ3HXLS2NDQEJ1";
 const WHATSAPP_NUMBER = "+233 268 596 410";
@@ -86,7 +93,6 @@ const INITIAL_FORM = {
   qualification: "",
   practice: "",
   email: "",
-  whatsapp: "",
   license: "",
   experience: "",
   partnership: "",
@@ -99,11 +105,21 @@ function RegistrationForm() {
   const [errorMessage, setErrorMessage] = useState("");
   const [form, setForm] = useState(INITIAL_FORM);
 
+  const [phone, setPhone] = useState(() => defaultPhoneValue());
+  const [phoneError, setPhoneError] = useState("");
+
   const set = (field) => (e) => setForm({ ...form, [field]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (status === "loading") return;
+
+    const phoneCheck = validatePhone(phone);
+    if (!phoneCheck.ok) {
+      setPhoneError(phoneCheck.message);
+      return;
+    }
+    setPhoneError("");
 
     setStatus("loading");
     setErrorMessage("");
@@ -114,7 +130,7 @@ function RegistrationForm() {
       qualification: form.qualification,
       practice: form.practice.trim(),
       email: form.email.trim().toLowerCase(),
-      whatsapp: form.whatsapp.trim(),
+      whatsapp: composeE164(phone),
       license: form.license.trim(),
       experience: form.experience,
       partnership: form.partnership,
@@ -240,21 +256,19 @@ function RegistrationForm() {
             className={inputCls}
           />
         </div>
-        <div>
-          <label htmlFor="nut-whatsapp" className={labelCls}>
-            WhatsApp Number *
-          </label>
-          <input
-            id="nut-whatsapp"
-            name="whatsapp"
-            required
-            type="tel"
-            placeholder="+233 XX XXX XXXX"
-            value={form.whatsapp}
-            onChange={set("whatsapp")}
-            className={inputCls}
-          />
-        </div>
+        <PhoneField
+          id="nut-whatsapp"
+          label="WhatsApp Number *"
+          fieldClass="px-4 py-3 text-[14px]"
+          value={phone}
+          onChange={(next) => {
+            setPhoneError("");
+            setPhone(next);
+          }}
+          error={phoneError}
+          hint={composeE164(phone) ? `We'll save this as ${formatE164ForDisplay(phone)}` : undefined}
+          required
+        />
       </div>
 
       {/* Row 4: License + Experience */}

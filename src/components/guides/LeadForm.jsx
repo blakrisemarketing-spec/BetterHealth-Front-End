@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Download, Loader2, MessageCircle } from "lucide-react";
 import { submitLead, writeGuideUnlock } from "../../lib/leads";
 import { trackLead } from "../../lib/analytics";
+import PhoneField from "../ui/PhoneField";
+import {
+  composeE164,
+  defaultPhoneValue,
+  formatE164ForDisplay,
+  validatePhone,
+} from "../../lib/phone";
 
 const WHATSAPP_NUMBER = "233268596410";
-
-// Ghana numbers arrive as 024 123 4567, 0241234567, +233 24 123 4567, or
-// 233241234567. Accept anything with 9 to 13 digits after stripping
-// formatting; the backend normalises further.
-function phoneLooksValid(raw) {
-  const digits = String(raw).replace(/\D/g, "");
-  return digits.length >= 9 && digits.length <= 13;
-}
 
 function whatsappFallbackUrl(title) {
   const text = `Hi, I'd like the free guide: ${title}`;
@@ -87,7 +86,8 @@ export function UnlockedCard({ guide, panel, firstName, returning = false, onJum
  * @param {{ guide, healthInterest?: string, answers?: Record<string,string>, onUnlocked: (name: string) => void }} props
  */
 export default function LeadForm({ guide, healthInterest, answers, onUnlocked }) {
-  const [form, setForm] = useState({ firstName: "", whatsapp: "", email: "", optIn: false });
+  const [form, setForm] = useState({ firstName: "", email: "", optIn: false });
+  const [phone, setPhone] = useState(() => defaultPhoneValue());
   const [status, setStatus] = useState("idle"); // idle | loading | error
   const [fieldError, setFieldError] = useState("");
   const firedRef = useRef(false);
@@ -101,12 +101,13 @@ export default function LeadForm({ guide, healthInterest, answers, onUnlocked })
     if (status === "loading") return;
 
     const firstName = form.firstName.trim();
-    const whatsapp = form.whatsapp.trim();
-    if (!phoneLooksValid(whatsapp)) {
-      setFieldError("Enter a WhatsApp number we can reach, for example 024 123 4567.");
+    const check = validatePhone(phone);
+    if (!check.ok) {
+      setFieldError(check.message);
       return;
     }
     setFieldError("");
+    const whatsapp = composeE164(phone);
     setStatus("loading");
 
     try {
@@ -158,24 +159,20 @@ export default function LeadForm({ guide, healthInterest, answers, onUnlocked })
             className={inputClass}
           />
         </div>
-        <div>
-          <label className={labelClass} htmlFor="lead-whatsapp">WhatsApp number *</label>
-          <input
-            id="lead-whatsapp"
-            type="tel"
-            name="whatsapp"
-            inputMode="tel"
-            autoComplete="tel"
-            required
-            placeholder="024 123 4567"
-            value={form.whatsapp}
-            onChange={update("whatsapp")}
-            disabled={status === "loading"}
-            aria-invalid={fieldError ? "true" : undefined}
-            className={inputClass}
-          />
-          {fieldError && <p className="mt-1.5 text-[13px] text-red-600">{fieldError}</p>}
-        </div>
+        <PhoneField
+          id="lead-whatsapp"
+          label="WhatsApp number *"
+          fieldClass="px-4 py-3.5 text-[16px]"
+          value={phone}
+          onChange={(next) => {
+            setFieldError("");
+            setPhone(next);
+          }}
+          error={fieldError}
+          hint={composeE164(phone) ? `We'll save this as ${formatE164ForDisplay(phone)}` : undefined}
+          disabled={status === "loading"}
+          required
+        />
         <div>
           <label className={labelClass} htmlFor="lead-email">
             Email <span className="font-normal text-text-muted">(optional)</span>
