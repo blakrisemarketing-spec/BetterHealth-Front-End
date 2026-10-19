@@ -1,0 +1,270 @@
+// Country dial codes for the phone inputs.
+//
+// Hand-maintained rather than pulled from libphonenumber: the whole metadata
+// set is ~145KB gzipped, and this site's performance budget is written for
+// Ghana on 3G. What a booking form needs is the dial code, a name to search by,
+// and a rough digit count to catch a number typed one digit short — about 6KB
+// of data, not a parsing library.
+//
+// `len` is the national significant number length (what remains after the
+// trunk "0" is dropped), given only for the markets we actually see traffic
+// from. Everywhere else falls back to GENERIC_LEN, which is wide enough never
+// to reject a real number — the field's job is to catch the obvious slip, not
+// to be an authority on the world's numbering plans.
+//
+// NANP entries carry their area code in `dial` (Jamaica is 1876, not 1) so that
+// pasting +18765551234 resolves to Jamaica rather than the United States.
+
+export const GENERIC_LEN = [4, 14];
+
+/** ISO 3166-1 alpha-2, display name, dial code without "+", optional NSN length range. */
+export const COUNTRIES = [
+  { iso: "AF", name: "Afghanistan", dial: "93" },
+  { iso: "AL", name: "Albania", dial: "355" },
+  { iso: "DZ", name: "Algeria", dial: "213" },
+  { iso: "AD", name: "Andorra", dial: "376" },
+  { iso: "AO", name: "Angola", dial: "244", ex: "923 123 456", len: [9, 9] },
+  { iso: "AG", name: "Antigua and Barbuda", dial: "1268", len: [7, 7] },
+  { iso: "AR", name: "Argentina", dial: "54" },
+  { iso: "AM", name: "Armenia", dial: "374" },
+  { iso: "AW", name: "Aruba", dial: "297" },
+  { iso: "AU", name: "Australia", dial: "61", ex: "0412 345 678", len: [9, 9] },
+  { iso: "AT", name: "Austria", dial: "43" },
+  { iso: "AZ", name: "Azerbaijan", dial: "994" },
+  { iso: "BS", name: "Bahamas", dial: "1242", len: [7, 7] },
+  { iso: "BH", name: "Bahrain", dial: "973", len: [8, 8] },
+  { iso: "BD", name: "Bangladesh", dial: "880", ex: "01812 345678" },
+  { iso: "BB", name: "Barbados", dial: "1246", len: [7, 7] },
+  { iso: "BY", name: "Belarus", dial: "375" },
+  { iso: "BE", name: "Belgium", dial: "32", ex: "0470 12 34 56" },
+  { iso: "BZ", name: "Belize", dial: "501" },
+  { iso: "BJ", name: "Benin", dial: "229", ex: "01 97 12 34 56", len: [10, 10], keepLeadingZero: true },
+  { iso: "BM", name: "Bermuda", dial: "1441", len: [7, 7] },
+  { iso: "BT", name: "Bhutan", dial: "975" },
+  { iso: "BO", name: "Bolivia", dial: "591", alt: "Plurinational State of Bolivia" },
+  { iso: "BA", name: "Bosnia and Herzegovina", dial: "387" },
+  { iso: "BW", name: "Botswana", dial: "267", ex: "71 123 456", len: [7, 8] },
+  { iso: "BR", name: "Brazil", dial: "55", ex: "11 91234 5678", len: [10, 11] },
+  { iso: "BN", name: "Brunei", dial: "673" },
+  { iso: "BG", name: "Bulgaria", dial: "359" },
+  { iso: "BF", name: "Burkina Faso", dial: "226", ex: "70 12 34 56", len: [8, 8] },
+  { iso: "BI", name: "Burundi", dial: "257", len: [8, 8] },
+  { iso: "KH", name: "Cambodia", dial: "855" },
+  { iso: "CM", name: "Cameroon", dial: "237", ex: "6 71 23 45 67", len: [9, 9] },
+  { iso: "CA", name: "Canada", dial: "1", ex: "(416) 555 0123", len: [10, 10] },
+  { iso: "CV", name: "Cape Verde", dial: "238", alt: "Cabo Verde", len: [7, 7] },
+  { iso: "KY", name: "Cayman Islands", dial: "1345", len: [7, 7] },
+  { iso: "CF", name: "Central African Republic", dial: "236" },
+  { iso: "TD", name: "Chad", dial: "235", len: [8, 8] },
+  { iso: "CL", name: "Chile", dial: "56" },
+  { iso: "CN", name: "China", dial: "86", ex: "131 2345 6789", len: [11, 11] },
+  { iso: "CO", name: "Colombia", dial: "57", len: [10, 10] },
+  { iso: "KM", name: "Comoros", dial: "269" },
+  { iso: "CG", name: "Congo – Brazzaville", dial: "242", alt: "Republic of the Congo", len: [9, 9] },
+  { iso: "CD", name: "Congo – Kinshasa", dial: "243", alt: "DRC Zaire Democratic Republic of the Congo", ex: "0812 345 678", len: [9, 9] },
+  { iso: "CR", name: "Costa Rica", dial: "506" },
+  { iso: "CI", name: "Côte d'Ivoire", dial: "225", alt: "Ivory Coast", ex: "01 23 45 67 89", len: [10, 10], keepLeadingZero: true },
+  { iso: "HR", name: "Croatia", dial: "385" },
+  { iso: "CU", name: "Cuba", dial: "53" },
+  { iso: "CW", name: "Curaçao", dial: "599", alt: "Curacao" },
+  { iso: "CY", name: "Cyprus", dial: "357" },
+  { iso: "CZ", name: "Czechia", dial: "420", alt: "Czech Republic", len: [9, 9] },
+  { iso: "DK", name: "Denmark", dial: "45", ex: "32 12 34 56", len: [8, 8] },
+  { iso: "DJ", name: "Djibouti", dial: "253" },
+  { iso: "DM", name: "Dominica", dial: "1767", len: [7, 7] },
+  { iso: "DO", name: "Dominican Republic", dial: "1809", len: [7, 7] },
+  { iso: "EC", name: "Ecuador", dial: "593" },
+  { iso: "EG", name: "Egypt", dial: "20", ex: "0100 123 4567", len: [9, 10] },
+  { iso: "SV", name: "El Salvador", dial: "503" },
+  { iso: "GQ", name: "Equatorial Guinea", dial: "240" },
+  { iso: "ER", name: "Eritrea", dial: "291" },
+  { iso: "EE", name: "Estonia", dial: "372" },
+  { iso: "SZ", name: "Eswatini", dial: "268", alt: "Swaziland", ex: "7612 3456", len: [8, 8] },
+  { iso: "ET", name: "Ethiopia", dial: "251", ex: "091 123 4567", len: [9, 9] },
+  { iso: "FJ", name: "Fiji", dial: "679" },
+  { iso: "FI", name: "Finland", dial: "358" },
+  { iso: "FR", name: "France", dial: "33", ex: "06 12 34 56 78", len: [9, 9] },
+  { iso: "GF", name: "French Guiana", dial: "594" },
+  { iso: "PF", name: "French Polynesia", dial: "689" },
+  { iso: "GA", name: "Gabon", dial: "241" },
+  { iso: "GM", name: "Gambia", dial: "220", ex: "301 2345", len: [7, 7] },
+  { iso: "GE", name: "Georgia", dial: "995" },
+  { iso: "DE", name: "Germany", dial: "49", ex: "0151 234 5678", len: [6, 11] },
+  { iso: "GH", name: "Ghana", dial: "233", alt: "Accra", ex: "024 123 4567", len: [9, 9] },
+  { iso: "GI", name: "Gibraltar", dial: "350" },
+  { iso: "GR", name: "Greece", dial: "30", len: [10, 10] },
+  { iso: "GL", name: "Greenland", dial: "299" },
+  { iso: "GD", name: "Grenada", dial: "1473", len: [7, 7] },
+  { iso: "GP", name: "Guadeloupe", dial: "590" },
+  { iso: "GU", name: "Guam", dial: "1671", len: [7, 7] },
+  { iso: "GT", name: "Guatemala", dial: "502" },
+  { iso: "GN", name: "Guinea", dial: "224", len: [9, 9] },
+  { iso: "GW", name: "Guinea-Bissau", dial: "245" },
+  { iso: "GY", name: "Guyana", dial: "592" },
+  { iso: "HT", name: "Haiti", dial: "509" },
+  { iso: "HN", name: "Honduras", dial: "504" },
+  { iso: "HK", name: "Hong Kong", dial: "852", alt: "Hong Kong SAR", ex: "5123 4567", len: [8, 8] },
+  { iso: "HU", name: "Hungary", dial: "36" },
+  { iso: "IS", name: "Iceland", dial: "354" },
+  { iso: "IN", name: "India", dial: "91", ex: "081234 56789", len: [10, 10] },
+  { iso: "ID", name: "Indonesia", dial: "62" },
+  { iso: "IR", name: "Iran", dial: "98", alt: "Islamic Republic of Iran" },
+  { iso: "IQ", name: "Iraq", dial: "964" },
+  { iso: "IE", name: "Ireland", dial: "353", ex: "085 012 3456", len: [7, 9] },
+  { iso: "IL", name: "Israel", dial: "972", len: [9, 9] },
+  { iso: "IT", name: "Italy", dial: "39", ex: "06 1234 5678", len: [6, 11], keepLeadingZero: true },
+  { iso: "JM", name: "Jamaica", dial: "1876", ex: "876 555 1234", len: [7, 7] },
+  { iso: "JP", name: "Japan", dial: "81", ex: "090 1234 5678", len: [9, 10] },
+  { iso: "JO", name: "Jordan", dial: "962" },
+  { iso: "KZ", name: "Kazakhstan", dial: "7", len: [10, 10] },
+  { iso: "KE", name: "Kenya", dial: "254", alt: "Nairobi", ex: "0712 345 678", len: [9, 9] },
+  { iso: "KI", name: "Kiribati", dial: "686" },
+  { iso: "KW", name: "Kuwait", dial: "965", ex: "500 12345", len: [8, 8] },
+  { iso: "KG", name: "Kyrgyzstan", dial: "996" },
+  { iso: "LA", name: "Laos", dial: "856", alt: "Lao PDR" },
+  { iso: "LV", name: "Latvia", dial: "371" },
+  { iso: "LB", name: "Lebanon", dial: "961" },
+  { iso: "LS", name: "Lesotho", dial: "266", ex: "5012 3456", len: [8, 8] },
+  { iso: "LR", name: "Liberia", dial: "231", ex: "077 123 456", len: [7, 9] },
+  { iso: "LY", name: "Libya", dial: "218", len: [9, 9] },
+  { iso: "LI", name: "Liechtenstein", dial: "423" },
+  { iso: "LT", name: "Lithuania", dial: "370" },
+  { iso: "LU", name: "Luxembourg", dial: "352" },
+  { iso: "MO", name: "Macao", dial: "853", alt: "Macau" },
+  { iso: "MG", name: "Madagascar", dial: "261", len: [9, 9] },
+  { iso: "MW", name: "Malawi", dial: "265", ex: "0991 234 567", len: [7, 9] },
+  { iso: "MY", name: "Malaysia", dial: "60", ex: "012 345 6789" },
+  { iso: "MV", name: "Maldives", dial: "960" },
+  { iso: "ML", name: "Mali", dial: "223", ex: "65 01 23 45", len: [8, 8] },
+  { iso: "MT", name: "Malta", dial: "356" },
+  { iso: "MH", name: "Marshall Islands", dial: "692" },
+  { iso: "MQ", name: "Martinique", dial: "596" },
+  { iso: "MR", name: "Mauritania", dial: "222", len: [8, 8] },
+  { iso: "MU", name: "Mauritius", dial: "230", len: [7, 8] },
+  { iso: "MX", name: "Mexico", dial: "52", len: [10, 10] },
+  { iso: "FM", name: "Micronesia", dial: "691" },
+  { iso: "MD", name: "Moldova", dial: "373", alt: "Republic of Moldova" },
+  { iso: "MC", name: "Monaco", dial: "377" },
+  { iso: "MN", name: "Mongolia", dial: "976" },
+  { iso: "ME", name: "Montenegro", dial: "382" },
+  { iso: "MA", name: "Morocco", dial: "212", ex: "0612 345 678", len: [9, 9] },
+  { iso: "MZ", name: "Mozambique", dial: "258", ex: "084 123 4567", len: [9, 9] },
+  { iso: "MM", name: "Myanmar", dial: "95", alt: "Burma" },
+  { iso: "NA", name: "Namibia", dial: "264", ex: "081 123 4567", len: [8, 9] },
+  { iso: "NP", name: "Nepal", dial: "977" },
+  { iso: "NL", name: "Netherlands", dial: "31", alt: "Holland", ex: "06 1234 5678", len: [9, 9] },
+  { iso: "NC", name: "New Caledonia", dial: "687" },
+  { iso: "NZ", name: "New Zealand", dial: "64", ex: "021 123 456" },
+  { iso: "NI", name: "Nicaragua", dial: "505" },
+  { iso: "NE", name: "Niger", dial: "227", ex: "93 12 34 56", len: [8, 8] },
+  { iso: "NG", name: "Nigeria", dial: "234", alt: "Lagos Abuja", ex: "0801 234 5678", len: [7, 10] },
+  { iso: "MK", name: "North Macedonia", dial: "389", alt: "Macedonia" },
+  { iso: "NO", name: "Norway", dial: "47", ex: "406 12 345", len: [8, 8] },
+  { iso: "OM", name: "Oman", dial: "968", ex: "9212 3456", len: [8, 8] },
+  { iso: "PK", name: "Pakistan", dial: "92", ex: "0301 2345678", len: [10, 10] },
+  { iso: "PW", name: "Palau", dial: "680" },
+  { iso: "PS", name: "Palestine", dial: "970", alt: "Palestinian Territory" },
+  { iso: "PA", name: "Panama", dial: "507" },
+  { iso: "PG", name: "Papua New Guinea", dial: "675" },
+  { iso: "PY", name: "Paraguay", dial: "595" },
+  { iso: "PE", name: "Peru", dial: "51", len: [9, 9] },
+  { iso: "PH", name: "Philippines", dial: "63", ex: "0905 123 4567", len: [10, 10] },
+  { iso: "PL", name: "Poland", dial: "48", ex: "512 345 678", len: [9, 9] },
+  { iso: "PT", name: "Portugal", dial: "351", ex: "912 345 678", len: [9, 9] },
+  { iso: "PR", name: "Puerto Rico", dial: "1787", len: [7, 7] },
+  { iso: "QA", name: "Qatar", dial: "974", ex: "3312 3456", len: [8, 8] },
+  { iso: "RE", name: "Réunion", dial: "262", alt: "Reunion" },
+  { iso: "RO", name: "Romania", dial: "40", len: [9, 9] },
+  { iso: "RU", name: "Russia", dial: "7", alt: "Russian Federation", len: [10, 10] },
+  { iso: "RW", name: "Rwanda", dial: "250", ex: "0788 123 456", len: [9, 9] },
+  { iso: "KN", name: "Saint Kitts and Nevis", dial: "1869", len: [7, 7] },
+  { iso: "LC", name: "Saint Lucia", dial: "1758", len: [7, 7] },
+  { iso: "VC", name: "Saint Vincent and the Grenadines", dial: "1784", len: [7, 7] },
+  { iso: "WS", name: "Samoa", dial: "685" },
+  { iso: "SM", name: "San Marino", dial: "378" },
+  { iso: "ST", name: "São Tomé and Príncipe", dial: "239", alt: "Sao Tome and Principe" },
+  { iso: "SA", name: "Saudi Arabia", dial: "966", ex: "051 234 5678", len: [9, 9] },
+  { iso: "SN", name: "Senegal", dial: "221", ex: "77 123 45 67", len: [9, 9] },
+  { iso: "RS", name: "Serbia", dial: "381" },
+  { iso: "SC", name: "Seychelles", dial: "248" },
+  { iso: "SL", name: "Sierra Leone", dial: "232", ex: "076 123 456", len: [8, 8] },
+  { iso: "SG", name: "Singapore", dial: "65", ex: "8123 4567", len: [8, 8] },
+  { iso: "SX", name: "Sint Maarten", dial: "1721", len: [7, 7] },
+  { iso: "SK", name: "Slovakia", dial: "421", len: [9, 9] },
+  { iso: "SI", name: "Slovenia", dial: "386" },
+  { iso: "SB", name: "Solomon Islands", dial: "677" },
+  { iso: "SO", name: "Somalia", dial: "252", ex: "907 123 456" },
+  { iso: "ZA", name: "South Africa", dial: "27", alt: "Johannesburg Cape Town", ex: "071 234 5678", len: [9, 9] },
+  { iso: "KR", name: "South Korea", dial: "82", alt: "Korea Republic of Korea", ex: "010 1234 5678" },
+  { iso: "SS", name: "South Sudan", dial: "211", ex: "0977 123 456", len: [9, 9] },
+  { iso: "ES", name: "Spain", dial: "34", ex: "612 345 678", len: [9, 9] },
+  { iso: "LK", name: "Sri Lanka", dial: "94" },
+  { iso: "SD", name: "Sudan", dial: "249", ex: "091 123 4567", len: [9, 9] },
+  { iso: "SR", name: "Suriname", dial: "597" },
+  { iso: "SE", name: "Sweden", dial: "46", ex: "070 123 45 67", len: [7, 9] },
+  { iso: "CH", name: "Switzerland", dial: "41", ex: "078 123 45 67", len: [9, 9] },
+  { iso: "SY", name: "Syria", dial: "963", alt: "Syrian Arab Republic" },
+  { iso: "TW", name: "Taiwan", dial: "886" },
+  { iso: "TJ", name: "Tajikistan", dial: "992" },
+  { iso: "TZ", name: "Tanzania", dial: "255", alt: "Zanzibar", ex: "0712 345 678", len: [9, 9] },
+  { iso: "TH", name: "Thailand", dial: "66", len: [9, 9] },
+  { iso: "TL", name: "Timor-Leste", dial: "670", alt: "East Timor" },
+  { iso: "TG", name: "Togo", dial: "228", ex: "90 11 23 45", len: [8, 8] },
+  { iso: "TO", name: "Tonga", dial: "676" },
+  { iso: "TT", name: "Trinidad and Tobago", dial: "1868", len: [7, 7] },
+  { iso: "TN", name: "Tunisia", dial: "216", len: [8, 8] },
+  { iso: "TR", name: "Türkiye", dial: "90", alt: "Turkey", ex: "0501 234 5678", len: [10, 10] },
+  { iso: "TM", name: "Turkmenistan", dial: "993" },
+  { iso: "TC", name: "Turks and Caicos Islands", dial: "1649", len: [7, 7] },
+  { iso: "UG", name: "Uganda", dial: "256", ex: "0712 345 678", len: [9, 9] },
+  { iso: "UA", name: "Ukraine", dial: "380", len: [9, 9] },
+  { iso: "AE", name: "United Arab Emirates", dial: "971", alt: "UAE Dubai Abu Dhabi Emirates", ex: "050 123 4567", len: [9, 9] },
+  { iso: "GB", name: "United Kingdom", dial: "44", alt: "UK Britain England Scotland Wales Great Britain", ex: "07911 123456", len: [9, 10] },
+  { iso: "US", name: "United States", dial: "1", alt: "USA United States of America America", ex: "(415) 555 0123", len: [10, 10] },
+  { iso: "UY", name: "Uruguay", dial: "598" },
+  { iso: "UZ", name: "Uzbekistan", dial: "998" },
+  { iso: "VU", name: "Vanuatu", dial: "678" },
+  { iso: "VA", name: "Vatican City", dial: "379", alt: "Holy See" },
+  { iso: "VE", name: "Venezuela", dial: "58", alt: "Bolivarian Republic of Venezuela" },
+  { iso: "VN", name: "Vietnam", dial: "84", alt: "Viet Nam", len: [9, 10] },
+  { iso: "VG", name: "British Virgin Islands", dial: "1284", len: [7, 7] },
+  { iso: "VI", name: "U.S. Virgin Islands", dial: "1340", len: [7, 7] },
+  { iso: "YE", name: "Yemen", dial: "967" },
+  { iso: "ZM", name: "Zambia", dial: "260", ex: "097 123 4567", len: [9, 9] },
+  { iso: "ZW", name: "Zimbabwe", dial: "263", ex: "071 234 5678", len: [9, 9] },
+];
+
+// Shown above the full list, in this order. Ghana leads because it is the
+// market; the rest are the African countries the city blog pages already rank
+// for, then the diaspora corridors that actually book calls for a relative
+// back home.
+export const PRIORITY_ISO = [
+  "GH", "NG", "KE", "ZA", "TZ", "UG", "RW", "CI", "SN", "CM", "ET", "ZM", "ZW",
+  "GB", "US", "CA", "AE", "DE", "NL", "IT", "AU",
+];
+
+// Ghana, not a guess from the browser. Most phones in Accra report en-US or
+// en-GB, so locale detection would hand the majority of this traffic the wrong
+// country while looking clever.
+export const DEFAULT_ISO = "GH";
+
+// When two countries share a dial code, this one wins when parsing a pasted
+// +1… or +7… number. Without it the longest-match search returns whichever
+// entry sorts first, which made every US number come back as Canadian.
+export const PRIMARY_FOR_DIAL = { 1: "US", 7: "RU", 262: "RE", 590: "GP", 599: "CW" };
+
+export const BY_ISO = Object.fromEntries(COUNTRIES.map((c) => [c.iso, c]));
+
+export function getCountry(iso) {
+  return BY_ISO[iso] || BY_ISO[DEFAULT_ISO];
+}
+
+/** 🇬🇭 from "GH" — regional indicator pair, so no flag assets ship. */
+export function flagEmoji(iso) {
+  return String.fromCodePoint(
+    ...String(iso)
+      .toUpperCase()
+      .split("")
+      .map((ch) => 0x1f1e6 + ch.charCodeAt(0) - 65),
+  );
+}

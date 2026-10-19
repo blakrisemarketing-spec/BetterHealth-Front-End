@@ -1,12 +1,47 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2, AlertCircle, HandHeart, Stethoscope, Building2 } from "lucide-react";
 import { submitPartnerSignup } from "../../lib/partner-signup";
+import PhoneField from "../ui/PhoneField";
+import {
+  composeE164,
+  defaultPhoneValue,
+  formatE164ForDisplay,
+  validatePhone,
+} from "../../lib/phone";
 
 const FALLBACK_EMAIL = "hello@betterhealth.africa";
 
 const inputClass =
   "w-full rounded-input px-4 py-3 text-[14px] font-inter bg-section-alt border border-border text-text-primary placeholder:text-text-muted transition-all focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent";
 const labelClass = "block text-[13px] font-semibold text-text-primary mb-1.5 font-inter";
+
+/**
+ * Country-aware phone state, shared by all three forms here.
+ *
+ * Volunteers and community organisers write in from across the region, and the
+ * plain field they used to fill in recorded "0801 234 5678" with nothing to say
+ * which country that belonged to.
+ */
+function usePhone() {
+  const [phone, setPhone] = useState(() => defaultPhoneValue());
+  const [phoneError, setPhoneError] = useState("");
+  const field = {
+    value: phone,
+    onChange: (next) => {
+      setPhoneError("");
+      setPhone(next);
+    },
+    error: phoneError,
+    hint: composeE164(phone) ? `We'll save this as ${formatE164ForDisplay(phone)}` : undefined,
+  };
+  /** @returns {boolean} true when the number is good enough to send. */
+  const check = () => {
+    const result = validatePhone(phone);
+    if (!result.ok) setPhoneError(result.message);
+    return result.ok;
+  };
+  return { phone, field, check };
+}
 
 function SubmitButton({ status, children }) {
   return (
@@ -50,19 +85,21 @@ function ErrorNote() {
 }
 
 export function VolunteerForm() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", profession: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", profession: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const phone = usePhone();
   const update = (field) => (e) => setForm({ ...form, [field]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (status === "loading") return;
+    if (!phone.check()) return;
     setStatus("loading");
     const res = await submitPartnerSignup({
       partnerType: "foundation_volunteer",
       name: form.name.trim(),
       email: form.email.trim().toLowerCase(),
-      phone: form.phone.trim(),
+      phone: composeE164(phone.phone),
       profession: form.profession.trim(),
       notes: form.message.trim(),
     });
@@ -91,10 +128,7 @@ export function VolunteerForm() {
         <label htmlFor="vol-email" className={labelClass}>Email</label>
         <input id="vol-email" type="email" required value={form.email} onChange={update("email")} className={inputClass} placeholder="you@example.com" />
       </div>
-      <div>
-        <label htmlFor="vol-phone" className={labelClass}>Phone number</label>
-        <input id="vol-phone" type="tel" required value={form.phone} onChange={update("phone")} className={inputClass} placeholder="+233 20 000 0000" />
-      </div>
+      <PhoneField id="vol-phone" label="Phone number" required {...phone.field} />
       <div>
         <label htmlFor="vol-profession" className={labelClass}>Profession</label>
         <input id="vol-profession" type="text" required value={form.profession} onChange={update("profession")} className={inputClass} placeholder="Doctor, nurse, health worker" />
@@ -168,14 +202,16 @@ const COMMUNITY_TYPES = ["Church", "School", "Workplace", "Community or neighbou
 
 export function ScreeningRequestForm() {
   const [form, setForm] = useState({
-    name: "", group: "", type: "", location: "", email: "", phone: "", people: "", message: "",
+    name: "", group: "", type: "", location: "", email: "", people: "", message: "",
   });
   const [status, setStatus] = useState("idle");
+  const phone = usePhone();
   const update = (field) => (e) => setForm({ ...form, [field]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (status === "loading") return;
+    if (!phone.check()) return;
     setStatus("loading");
     const res = await submitPartnerSignup({
       partnerType: "foundation_screening_request",
@@ -184,7 +220,7 @@ export function ScreeningRequestForm() {
       communityType: form.type,
       location: form.location.trim(),
       email: form.email.trim().toLowerCase(),
-      phone: form.phone.trim(),
+      phone: composeE164(phone.phone),
       estimatedPeople: form.people.trim(),
       notes: form.message.trim(),
     });
@@ -231,10 +267,7 @@ export function ScreeningRequestForm() {
         <label htmlFor="req-email" className={labelClass}>Email</label>
         <input id="req-email" type="email" required value={form.email} onChange={update("email")} className={inputClass} placeholder="you@example.com" />
       </div>
-      <div>
-        <label htmlFor="req-phone" className={labelClass}>Phone number</label>
-        <input id="req-phone" type="tel" required value={form.phone} onChange={update("phone")} className={inputClass} placeholder="+233 20 000 0000" />
-      </div>
+      <PhoneField id="req-phone" label="Phone number" required {...phone.field} />
       <div>
         <label htmlFor="req-people" className={labelClass}>Roughly how many people? <span className="font-normal text-text-muted">(optional)</span></label>
         <input id="req-people" type="text" value={form.people} onChange={update("people")} className={inputClass} placeholder="e.g. 150" />
@@ -251,14 +284,16 @@ export function ScreeningRequestForm() {
 
 export function ScreeningPartnerForm() {
   const [form, setForm] = useState({
-    name: "", organisation: "", date: "", location: "", email: "", phone: "", people: "", message: "",
+    name: "", organisation: "", date: "", location: "", email: "", people: "", message: "",
   });
   const [status, setStatus] = useState("idle");
+  const phone = usePhone();
   const update = (field) => (e) => setForm({ ...form, [field]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (status === "loading") return;
+    if (!phone.check()) return;
     setStatus("loading");
     const res = await submitPartnerSignup({
       partnerType: "foundation_screening_partner",
@@ -267,7 +302,7 @@ export function ScreeningPartnerForm() {
       screeningDate: form.date,
       location: form.location.trim(),
       email: form.email.trim().toLowerCase(),
-      phone: form.phone.trim(),
+      phone: composeE164(phone.phone),
       expectedPeople: form.people.trim(),
       notes: form.message.trim(),
     });
@@ -309,10 +344,7 @@ export function ScreeningPartnerForm() {
         <label htmlFor="sp-email" className={labelClass}>Email</label>
         <input id="sp-email" type="email" required value={form.email} onChange={update("email")} className={inputClass} placeholder="you@organisation.com" />
       </div>
-      <div>
-        <label htmlFor="sp-phone" className={labelClass}>Phone number</label>
-        <input id="sp-phone" type="tel" required value={form.phone} onChange={update("phone")} className={inputClass} placeholder="+233 20 000 0000" />
-      </div>
+      <PhoneField id="sp-phone" label="Phone number" required {...phone.field} />
       <div>
         <label htmlFor="sp-people" className={labelClass}>Expected number of people <span className="font-normal text-text-muted">(optional)</span></label>
         <input id="sp-people" type="text" value={form.people} onChange={update("people")} className={inputClass} placeholder="e.g. 300" />

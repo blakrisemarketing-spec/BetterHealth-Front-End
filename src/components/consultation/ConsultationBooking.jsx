@@ -17,6 +17,13 @@ import { CONSULT_MINUTES, PRE_QUESTIONS, WHATSAPP_URL } from "../../data/wellnes
 import IntakeQuestions from "./IntakeQuestions";
 import IntakeFields from "./IntakeFields";
 import { flattenAnswers, missingRequired } from "./intake-answers";
+import PhoneField from "../ui/PhoneField";
+import {
+  composeE164,
+  defaultPhoneValue,
+  formatE164ForDisplay,
+  validatePhone,
+} from "../../lib/phone";
 
 const DAYS = upcomingDates(14);
 const TODAY = new Date().toDateString();
@@ -65,7 +72,13 @@ export default function ConsultationBooking({ variant, concern, compact = false 
   const [slots, setSlots] = useState([]);
   const [slotsState, setSlotsState] = useState("loading"); // loading | ready | error
   const [time, setTime] = useState(null);
-  const [form, setForm] = useState({ fullName: "", whatsapp: "" });
+  const [form, setForm] = useState({ fullName: "" });
+  // Country and number are kept apart so the box can hold what the visitor
+  // actually types while the submission carries +<dial><national>. Bookings
+  // were arriving as "0801 234 5678" with no country anywhere on the row, and
+  // nobody in Accra could ring them back.
+  const [phone, setPhone] = useState(() => defaultPhoneValue());
+  const [phoneError, setPhoneError] = useState("");
   const [preAnswers, setPreAnswers] = useState({});
   const [status, setStatus] = useState("idle"); // idle | saving | done | error
   const [message, setMessage] = useState("");
@@ -185,13 +198,25 @@ export default function ConsultationBooking({ variant, concern, compact = false 
     e.preventDefault();
     if (status === "saving" || !time) return;
 
+    const phoneCheck = validatePhone(phone);
+    if (!phoneCheck.ok) {
+      setPhoneError(phoneCheck.message);
+      // Not one-shot, and separate from submit_failed: a number rejected here
+      // never reached the server, so counting it as a server failure would
+      // hide a form problem inside an API problem.
+      trackBookingStep("phone_rejected", { variant, concern, detail: phone.iso });
+      return;
+    }
+    setPhoneError("");
+
     setStatus("saving");
     setMessage("");
 
     try {
       const result = await bookConsultation({
         fullName: form.fullName.trim(),
-        whatsapp: form.whatsapp.trim(),
+        // E.164, always — never the local form that was typed.
+        whatsapp: composeE164(phone),
         healthConcern: concern,
         date: dateParam,
         time,
@@ -420,23 +445,30 @@ export default function ConsultationBooking({ variant, concern, compact = false 
                 className="w-full rounded-input border border-border bg-section-alt px-4 py-3 text-[14px] text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </label>
-            <label className="flex flex-col gap-1.5">
-              <span className="text-[13px] font-semibold text-text-primary">WhatsApp number</span>
-              <input
-                type="tel"
-                inputMode="tel"
-                required
-                maxLength={40}
-                placeholder="0XX XXX XXXX"
-                value={form.whatsapp}
-                onChange={(e) => {
-                  fireStep("details_started", { variant, concern });
-                  setForm({ ...form, whatsapp: e.target.value });
-                }}
-                disabled={status === "saving"}
-                className="w-full rounded-input border border-border bg-section-alt px-4 py-3 text-[14px] text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-            </label>
+            <PhoneField
+              // Full width even in the two-column row: a country code plus a
+              // 10-digit number needs more room than a name does, and the
+              // sidebar card on desktop is only wide enough for one of them.
+              className="sm:col-span-2"
+              label="WhatsApp number"
+              value={phone}
+              onChange={(next) => {
+                fireStep("details_started", { variant, concern });
+                setPhoneError("");
+                setPhone(next);
+              }}
+              error={phoneError}
+              // Reading the international form back is the confirmation that
+              // the country code is right, which is the whole point of the
+              // selector. Shown only once there is something to confirm.
+              hint={
+                composeE164(phone)
+                  ? `We'll save this as ${formatE164ForDisplay(phone)}`
+                  : "Pick your country, then type your number as you normally would."
+              }
+              disabled={status === "saving"}
+              required
+            />
           </div>
 
           <button
