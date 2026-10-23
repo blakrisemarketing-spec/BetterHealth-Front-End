@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T04:14:33.387Z",
+  "generatedAt": "2026-10-23T04:19:21.073Z",
   "panelsByCode": {
     "alpha": {
       "amount": 995,
@@ -109,9 +109,9 @@
       "formatted": "GHS 70"
     },
     "BG_FASTING": {
-      "amount": 45,
+      "amount": 24,
       "currency": "GHS",
-      "formatted": "GHS 45"
+      "formatted": "GHS 24"
     },
     "BILIRUBIN": {
       "amount": 75,
@@ -299,9 +299,9 @@
       "formatted": "GHS 225"
     },
     "FBC": {
-      "amount": 150,
+      "amount": 49,
       "currency": "GHS",
-      "formatted": "GHS 150"
+      "formatted": "GHS 49"
     },
     "FERRITIN": {
       "amount": 330,
@@ -374,9 +374,9 @@
       "formatted": "GHS 170"
     },
     "HBA1C": {
-      "amount": 170,
+      "amount": 130,
       "currency": "GHS",
-      "formatted": "GHS 170"
+      "formatted": "GHS 130"
     },
     "HBSAG": {
       "amount": 100,
@@ -459,9 +459,9 @@
       "formatted": "GHS 525"
     },
     "LFT": {
-      "amount": 190,
+      "amount": 123.5,
       "currency": "GHS",
-      "formatted": "GHS 190"
+      "formatted": "GHS 123.50"
     },
     "LH": {
       "amount": 180,
@@ -479,9 +479,9 @@
       "formatted": "GHS 170"
     },
     "LIPID": {
-      "amount": 195,
+      "amount": 123.5,
       "currency": "GHS",
-      "formatted": "GHS 195"
+      "formatted": "GHS 123.50"
     },
     "MAGNESIUM": {
       "amount": 75,
@@ -579,9 +579,9 @@
       "formatted": "GHS 100"
     },
     "RFT": {
-      "amount": 195,
+      "amount": 123.5,
       "currency": "GHS",
-      "formatted": "GHS 195"
+      "formatted": "GHS 123.50"
     },
     "RHEUMATOID_FACTOR": {
       "amount": 75,
@@ -734,9 +734,9 @@
       "formatted": "GHS 75"
     },
     "URIC_ACID": {
-      "amount": 75,
+      "amount": 84,
       "currency": "GHS",
-      "formatted": "GHS 75"
+      "formatted": "GHS 84"
     },
     "URINE_24HR_PROTEIN": {
       "amount": 150,
@@ -754,9 +754,9 @@
       "formatted": "GHS 150"
     },
     "URINE_RE": {
-      "amount": 85,
+      "amount": 42.25,
       "currency": "GHS",
-      "formatted": "GHS 85"
+      "formatted": "GHS 42.25"
     },
     "VDRL": {
       "amount": 100,
