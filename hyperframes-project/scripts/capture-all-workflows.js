@@ -15,13 +15,19 @@ const __dirname = path.dirname(__filename);
 
 const config = {
   appUrl: 'https://app.betterhealth.africa',
-  email: 'peter.dag@gmail.com',
-  password: 'Pass.1234',
+  email: process.env.BH_DEMO_EMAIL,
+  password: process.env.BH_DEMO_PASSWORD,
   viewport: { width: 375, height: 812 },
   screenshotDir: path.join(__dirname, '../assets/mobile-screens'),
   timeout: 30000,
   headless: false
 };
+
+// The demo login is never committed: it once was, in this public repo.
+if (!config.email || !config.password) {
+  throw new Error('Set BH_DEMO_EMAIL and BH_DEMO_PASSWORD to run this script.');
+}
+
 
 if (!fs.existsSync(config.screenshotDir)) {
   fs.mkdirSync(config.screenshotDir, { recursive: true });
@@ -264,7 +270,7 @@ async function captureAllWorkflows() {
     console.error('\n❌ Error during screenshot capture:', error.message);
     console.log('\nTroubleshooting:');
     console.log('- Check if app.betterhealth.africa is accessible');
-    console.log('- Verify demo credentials: peter.dag@gmail.com / Pass.1234');
+    console.log('- Verify demo credentials: <BH_DEMO_EMAIL> / <BH_DEMO_PASSWORD>');
     console.log('- Check your internet connection\n');
   } finally {
     await context.close();

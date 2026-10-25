@@ -6,6 +6,7 @@ import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import NotFoundPage from "./NotFound";
 import { getArticle, ARTICLES } from "../data/blog";
+import { blogRouteSeo } from "../data/blog/article-seo";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -147,7 +148,7 @@ export default function BlogPostPage() {
 
   return (
     <div className="bg-base min-h-screen overflow-x-hidden">
-      <Seo route={`blog/${article.slug}`} />
+      <Seo route={`blog/${article.slug}`} seo={blogRouteSeo(article)} />
       <Nav />
       <main>
         {/* Header */}

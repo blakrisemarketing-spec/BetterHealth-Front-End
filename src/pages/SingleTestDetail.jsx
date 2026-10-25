@@ -9,7 +9,7 @@ import GradientOrb from "../components/ui/GradientOrb";
 import { getSingleTestDetail } from "../data/single-test-details";
 import { joinUrl } from "../lib/app-links";
 import { testCode } from "../data/app-catalogue";
-import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo";
+import { SITE_URL, DEFAULT_OG_IMAGE } from "../data/seo-static";
 import {
   usePricingCatalogue,
   withBackendPanelPrices,
@@ -163,7 +163,7 @@ export default function SingleTestDetailPage() {
               <div className="flex flex-col sm:flex-row items-start gap-3">
                 <div>
                   <span className="text-[32px] font-extrabold text-primary font-heading">{test.price}</span>
-                  <span className="text-[12px] text-text-muted ml-2">Excl. VAT</span>
+                  <span className="text-[12px] text-text-muted ml-2">Excludes VAT. You'll see the exact total before you pay.</span>
                 </div>
                 <a
                   href={joinUrl({ test: testCode(test.slug) })}

@@ -1,11 +1,11 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "./ui/Reveal";
+import { appUrl } from "../lib/app-links";
 import communityConversationPhoto from "../assets/about/community-conversation.jpg";
 import diyaImpactTeamPhoto from "../assets/about/diya-impact-team.jpg";
 import communityIntakePhoto from "../assets/about/community-intake.jpg";
 
-const APP_URL = "https://app.betterhealth.africa";
 
 const valueProps = [
   {
@@ -56,7 +56,7 @@ export default function PurposeIntro() {
               Start with the concern on your mind. When your results are ready, sign in with
               email, phone, or Google to review them at{" "}
               <a
-                href={APP_URL}
+                href={appUrl()}
                 className="text-primary font-semibold no-underline hover:text-primary-dark transition-colors"
               >
                 app.betterhealth.africa
@@ -74,7 +74,7 @@ export default function PurposeIntro() {
                 Book a test <ArrowRight size={18} />
               </Link>
               <a
-                href={APP_URL}
+                href={appUrl()}
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-white border border-border text-text-primary hover:-translate-y-0.5 hover:shadow-md transition-all no-underline"
               >
                 Sign in

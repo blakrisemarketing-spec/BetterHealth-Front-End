@@ -28,8 +28,11 @@ import {
   formatE164ForDisplay,
   validatePhone,
 } from "../lib/phone";
+import { whatsappUrl } from "../lib/whatsapp";
 
-const WHATSAPP_URL = "https://wa.me/message/MJ3HXLS2NDQEJ1";
+const WHATSAPP_URL = whatsappUrl(
+  "Hello, I'm a doctor interested in partnering with BetterHealth Africa.",
+);
 const WHATSAPP_NUMBER = "+233 268 596 410";
 
 /* ------------------------------------------------------------------ */

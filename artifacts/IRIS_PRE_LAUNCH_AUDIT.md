@@ -59,7 +59,7 @@ Overall Score: 78/100
 | Finding | Severity | Recommended Action |
 | --- | --- | --- |
 | Environmental Vars | 🟢 | Using `import.meta.env.BASE_URL` properly. |
-| Patient Interface Credentials | 🔴 | The CONTEXT.md file openly logs `app.betterhealth.africa` credentials (peter.dag@gmail.com). Remove/suppress in repo. |
+| Patient Interface Credentials | 🔴 | The CONTEXT.md file openly logs `app.betterhealth.africa` credentials (<BH_DEMO_EMAIL>). Remove/suppress in repo. |
 | CSP Headers | 🟡 | No Content-Security-Policy headers explicitly defined in final deploy artifacts. |
 
 ## 8. ACCESSIBILITY (A11y) — Score: 6/10

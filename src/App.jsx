@@ -1,9 +1,10 @@
 import { lazy, Suspense, useEffect, useRef } from "react";
 import { BrowserRouter, Routes, Route, useLocation, useParams, Navigate } from "react-router-dom";
 import { captureReferralFromUrl } from "./lib/partner-signup";
-import { rememberAttribution } from "./lib/consultation-api";
+import { captureAttributionFromUrl } from "./lib/attribution";
 import { trackPageView, trackBookingIntent } from "./lib/analytics";
 import ScrollToTop from "./components/ScrollToTop";
+import RouteErrorBoundary from "./components/RouteErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home"));
 const HowItWorksPage = lazy(() => import("./pages/HowItWorks"));
@@ -30,6 +31,8 @@ const FoundationPage = lazy(() => import("./pages/Foundation"));
 const WellnessConsultationPage = lazy(() => import("./pages/WellnessConsultation"));
 const GuidesPage = lazy(() => import("./pages/Guides"));
 const GuidePage = lazy(() => import("./pages/Guide"));
+const ToolsPage = lazy(() => import("./pages/Tools"));
+const ToolPage = lazy(() => import("./pages/Tool"));
 const DeleteMePage = lazy(() => import("./pages/DeleteMe"));
 const ReferralRedirectPage = lazy(() => import("./pages/ReferralRedirect"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
@@ -62,7 +65,7 @@ function AttributionCapture() {
   const location = useLocation();
   useEffect(() => {
     captureReferralFromUrl(location.search);
-    rememberAttribution(location.search);
+    captureAttributionFromUrl(location.search);
   }, [location.search]);
   return null;
 }
@@ -89,8 +92,8 @@ function RouteAnalytics() {
  * A single delegated click listener that catches every click-out to the app's
  * /join onboarding (the site's primary conversion) and fires a booking-intent
  * event — so we don't have to wire onClick into each scattered CTA, and future
- * CTAs are covered automatically. The panel/test being booked is read from the
- * outbound URL for content attribution.
+ * CTAs are covered automatically. Only the kind of booking (panel or test) is
+ * read from the outbound URL; which one is never sent (see trackBookingIntent).
  */
 function BookingClickTracker() {
   useEffect(() => {
@@ -101,7 +104,6 @@ function BookingClickTracker() {
       if (!href.includes("app.betterhealth.africa") || !href.includes("/join")) return;
       try {
         const params = new URL(href, window.location.origin).searchParams;
-        const content = params.get("panel") || params.get("test") || params.get("tests");
         const contentType = params.has("panel")
           ? "panel"
           : params.has("tests")
@@ -109,7 +111,7 @@ function BookingClickTracker() {
             : params.has("test")
               ? "test"
               : undefined;
-        trackBookingIntent({ content: content || undefined, contentType });
+        trackBookingIntent({ contentType });
       } catch {
         trackBookingIntent();
       }
@@ -118,6 +120,11 @@ function BookingClickTracker() {
     return () => document.removeEventListener("click", onClick, { capture: true });
   }, []);
   return null;
+}
+
+function RoutedErrorBoundary({ children }) {
+  const { pathname } = useLocation();
+  return <RouteErrorBoundary resetKey={pathname}>{children}</RouteErrorBoundary>;
 }
 
 function RedirectWithSearch({ to }) {
@@ -146,6 +153,7 @@ export default function App() {
       <AttributionCapture />
       <RouteAnalytics />
       <BookingClickTracker />
+      <RoutedErrorBoundary>
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -199,12 +207,18 @@ export default function App() {
           {/* Free lead-magnet guides for the Meta lead-gen campaign. */}
           <Route path="/guides" element={<GuidesPage />} />
           <Route path="/guides/:slug" element={<GuidePage />} />
+          {/* Free interactive calculators. Same lead-capture mechanic as the
+              guides, but the payoff is a number worked out from the visitor's
+              own answers rather than a PDF. */}
+          <Route path="/tools" element={<ToolsPage />} />
+          <Route path="/tools/:slug" element={<ToolPage />} />
           <Route path="/deleteme" element={<DeleteMePage />} />
           <Route path="/ref/:code" element={<ReferralRedirectPage />} />
           <Route path="/ref/:code/:partnerType" element={<ReferralRedirectPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      </RoutedErrorBoundary>
     </BrowserRouter>
   );
 }

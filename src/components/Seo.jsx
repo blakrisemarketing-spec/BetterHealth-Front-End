@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ROUTE_SEO, DEFAULT_OG_IMAGE } from "../data/seo";
+import { STATIC_ROUTE_SEO, DEFAULT_OG_IMAGE } from "../data/seo-static";
 import { pageUrl } from "./structured-data.js";
 
 /**
@@ -9,8 +9,10 @@ import { pageUrl } from "./structured-data.js";
  *
  * Usage: <Seo route="book-tests" />
  */
-export default function Seo({ route }) {
-  const page = ROUTE_SEO[route];
+export default function Seo({ route, seo }) {
+  // Blog pages pass `seo` directly: their entries are built from the article
+  // registry, which must not be reachable from the other 22 pages' bundles.
+  const page = seo || STATIC_ROUTE_SEO[route];
   if (!page) return null;
 
   const url = pageUrl(route);

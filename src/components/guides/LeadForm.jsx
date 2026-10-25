@@ -10,12 +10,11 @@ import {
   formatE164ForDisplay,
   validatePhone,
 } from "../../lib/phone";
-
-const WHATSAPP_NUMBER = "233268596410";
+import { whatsappUrl } from "../../lib/whatsapp";
 
 function whatsappFallbackUrl(title) {
   const text = `Hi, I'd like the free guide: ${title}`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  return whatsappUrl(text);
 }
 
 /**

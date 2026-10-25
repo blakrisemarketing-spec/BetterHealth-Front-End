@@ -5,7 +5,7 @@
   <text x="70" y="58" font-size="30" font-weight="700" fill="#2B3A3A">Key FBC reference ranges</text>
   <text x="70" y="90" font-size="18" fill="#6B7979">Normal values used in Ghanaian clinical practice (WHO / standard clinical thresholds)</text>
 
-  <!-- ---- Row 1: Haemoglobin ---- -->
+  <!-- Row 1: Haemoglobin -->
   <text x="70" y="144" font-size="20" font-weight="700" fill="#2B3A3A">Haemoglobin</text>
   <text x="70" y="166" font-size="15" fill="#6B7979">Oxygen-carrying protein in red cells</text>
 
@@ -36,7 +36,7 @@
   <!-- Divider -->
   <line x1="70" y1="204" x2="1130" y2="204" stroke="#E8E3DA" stroke-width="1"/>
 
-  <!-- ---- Row 2: WBC ---- -->
+  <!-- Row 2: WBC -->
   <text x="70" y="240" font-size="20" font-weight="700" fill="#2B3A3A">White Blood Cells (WBC)</text>
   <text x="70" y="262" font-size="15" fill="#6B7979">Immune defence cells</text>
 
@@ -53,7 +53,7 @@
   <!-- Divider -->
   <line x1="70" y1="300" x2="1130" y2="300" stroke="#E8E3DA" stroke-width="1"/>
 
-  <!-- ---- Row 3: Platelets ---- -->
+  <!-- Row 3: Platelets -->
   <text x="70" y="336" font-size="20" font-weight="700" fill="#2B3A3A">Platelets</text>
   <text x="70" y="358" font-size="15" fill="#6B7979">Blood-clotting cells</text>
 
@@ -67,7 +67,7 @@
   <text x="550" y="375" font-size="14" font-weight="700" fill="#2B3A3A" text-anchor="middle">150–400 ×10⁹/L</text>
   <text x="790" y="375" font-size="13" fill="#6B7979" text-anchor="middle">High</text>
 
-  <!-- ---- Row 4: MCV ---- -->
+  <!-- Row 4: MCV -->
   <line x1="70" y1="396" x2="1130" y2="396" stroke="#E8E3DA" stroke-width="1"/>
   <text x="70" y="430" font-size="20" font-weight="700" fill="#2B3A3A">MCV (red cell size)</text>
 

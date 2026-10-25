@@ -362,6 +362,110 @@ Audience: Ghana, 25 to 60, all genders.
 - Description: `Free 3-page plain-English guide.`
 - CTA: Download
 
+### Ad sets 1 and 3 to 6: retired from the campaign 2026-09-02
+
+Damzi's call after reviewing the PDFs: the five PDF guides come out of the paid campaign and are replaced by three calculators. The pages stay live for organic search; their ad sets stay paused and are renamed "(retired)". The quiz (ad set 2) stays, because it already works the way the calculators do.
+
+The retired sets are LM1 know-your-numbers, LM3 family-health-map, LM4 blood-sugar-log, LM5 home-blood-pressure-guide and LM6 read-your-results. Their copy is kept above for reuse if a PDF is ever tested again.
+
+### Ad set 7: genotype-compatibility, "Genotype Compatibility Calculator" (top of funnel)
+
+Audience: Ghana, 22 to 45, all genders. Sells HB Electrophoresis at GHS 170.
+
+**Ad A (card)**
+- Primary text:
+  In Ghana, asking about genotype early in a relationship has become normal. Working out what two genotypes mean together is the part where most people get stuck.
+
+  The free Genotype Compatibility Calculator does that bit: choose both genotypes, see the odds for each future child, and read what AA, AS, SS, SC and AC actually mean. About 30 seconds, no account.
+
+  If either genotype is unknown, the calculator explains which test confirms it. HB Electrophoresis is GHS 170 excl. VAT.
+- Headline: `Genotype compatibility, free` (28)
+- Description: `AA, AS, SS, SC, AC. About 30 seconds.`
+- CTA: Learn More
+
+**Ad B (statement)**
+- Primary text:
+  A sickling test cannot tell AS from SS. It only shows whether sickle haemoglobin is present at all, which is why a positive result always needs electrophoresis or HPLC to confirm the actual genotype.
+
+  Free calculator: choose two genotypes, see the odds for each future child, and see which test confirms a result properly. About 30 seconds. HB Electrophoresis is GHS 170 excl. VAT.
+- Headline: `Sickling can't tell AS from SS` (29)
+- Description: `Free genotype compatibility calculator.`
+- CTA: Learn More
+
+### Ad set 8: diabetes-risk, "Diabetes Risk Score" (middle of funnel)
+
+Audience: Ghana, 30 to 60, all genders. Sells Dialics at GHS 350.
+
+**Ad A (card)**
+- Primary text:
+  Eight questions, no blood test, about two minutes. The free Diabetes Risk Score uses age, waist, weight, activity, diet, blood pressure medication and family history to place a score in a risk band.
+
+  It is the FINDRISC score, developed in Finland, and the result says plainly where it is less reliable outside the population it was built on. It is a reason to test rather than an answer.
+
+  The test that settles it is HbA1c, included in the Blood Sugar Check at GHS 350 excl. VAT.
+- Headline: `8 questions. No blood test.` (27)
+- Description: `Free diabetes risk score, about 2 minutes.`
+- CTA: Learn More
+
+**Ad B (statement)**
+- Primary text:
+  Prediabetes is the stage where things can still be turned around, and routine glucose screening is not standard practice in most primary care in Ghana, so it is the stage least often picked up.
+
+  Free score: eight questions about age, waist, activity and family history. No blood test, about two minutes, and it ends by naming the one test that gives a definite answer.
+- Headline: `Check diabetes risk, free` (24)
+- Description: `8 questions, no blood test needed.`
+- CTA: Learn More
+
+### Ad set 9: heart-age, "Heart Age Check" (middle of funnel)
+
+Audience: Ghana, 30 to 65, all genders. Sells Cardion at GHS 475.
+
+**Ad A (card)**
+- Primary text:
+  A heart has an age of its own, and it is not always the one on the birth certificate. Five questions, no cholesterol result needed: age, sex, smoking, blood pressure and body size.
+
+  Free, about a minute. The result gives an estimated heart age, the factors moving it most, and what a clinician usually checks next.
+
+  The Heart Health Check is GHS 475 excl. VAT and now includes a cholesterol profile.
+- Headline: `How old is your heart?` (22)
+- Description: `Free. 5 questions, no blood test.`
+- CTA: Learn More
+
+**Ad B (statement)**
+- Primary text:
+  Blood pressure and smoking shape heart risk more than most people expect, and both can be checked without drawing a drop of blood.
+
+  Free heart age check: five questions, about a minute, no cholesterol result needed. The result shows an estimated heart age and which factors are moving it most.
+- Headline: `Your heart age, in one minute` (28)
+- Description: `Free. No blood test needed.`
+- CTA: Learn More
+
+### Ad set 10: bmi-waist, "BMI and Waist Calculator" (top of funnel)
+
+Audience: Ghana, 25 to 55, all genders. Sells Panorama at GHS 1,100 when the result is raised, and deliberately sells nothing when it is not.
+
+Added 2026-09-03. Damzi named a BMI calculator in his original list and it was left off the options put to him, which was my error rather than his change of mind. Plain BMI is a commodity, so the tool earns its keep two ways: it adds waist-to-height, which almost nobody publishes, and it states what BMI cannot do, which almost nobody admits.
+
+**Ad A (card)**
+- Primary text:
+  Height, weight, waist. About a minute, no blood test. The free BMI and Waist Calculator returns three numbers: your BMI against the WHO ranges, your waist against the thresholds clinicians use, and your waist-to-height ratio.
+
+  That last one is the rule most people have never heard. Your waist should measure less than half your height.
+
+  The result also says what BMI cannot tell you, which is more than most calculators admit.
+- Headline: `BMI, waist and the ratio` (23)
+- Description: `Free. Three numbers in one minute.`
+- CTA: Learn More
+
+**Ad B (statement)**
+- Primary text:
+  Your waist should measure less than half your height. One line, nothing needed but a tape measure, and it says something BMI on its own cannot.
+
+  Free calculator: BMI against the WHO ranges, waist against the thresholds clinicians use, and the waist-to-height ratio. About a minute, no blood test.
+- Headline: `Waist under half your height` (28)
+- Description: `Free BMI and waist calculator.`
+- CTA: Learn More
+
 ---
 
 ## Compliance pass (Meta, health, personal attributes)

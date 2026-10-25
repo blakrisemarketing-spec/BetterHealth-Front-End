@@ -30,7 +30,6 @@ import hypertensionVideoPoster from "../assets/foundation/hero-hypertension-vide
 import diabetesVideoPoster from "../assets/foundation/hero-diabetes-video.webp";
 import dashboardPoster from "../assets/how-it-works/step-3-dashboard.jpg";
 import involvedPoster from "../assets/foundation/get-involved.webp";
-import planPhoto from "../assets/about/community-intake.jpg";
 import consultPhoto from "../assets/about/community-conversation.jpg";
 
 export const CONSULT_MINUTES = 20;
@@ -40,7 +39,11 @@ export const WHATSAPP_URL =
 
 // Shared imagery, used across every variant.
 export const SHARED_IMAGES = {
-  plan: { src: planPhoto, alt: "A BetterHealth consultant writing up notes at a community health session in Ghana." },
+  // `plan` (assets/about/community-intake.jpg) was dropped on 2026-08-29 when the
+  // promise section and the session sheet merged into one two-column block. A
+  // third element in that block crowded it, and leaving the entry here would
+  // have pulled the asset into this route's chunk for nothing. The file is still
+  // used by PurposeIntro.
   consult: { src: consultPhoto, alt: "A BetterHealth consultant greeting a member at a community health screening in Accra." },
 };
 
@@ -76,7 +79,37 @@ export const HERO_CHECKS = [
  * FAQ still answers "Do I have to do a test?" honestly — that's answering a
  * question the reader asked, not a promise the page volunteered.
  */
-export const HERO_CTA_NOTE = `Free · ${CONSULT_MINUTES} minutes`;
+export const HERO_CTA_NOTE = `Free · ${CONSULT_MINUTES} minutes · no card`;
+
+/**
+ * The deliverable, stated in the hero rather than argued for six screens down.
+ *
+ * The old hero described the outcome ("take back control of your health within
+ * 90 days") and left what you actually receive to a section 6,286px into the
+ * page. A visitor deciding whether to give up twenty minutes is deciding about
+ * the concrete thing, not the outcome, so the concrete thing moved up.
+ *
+ * Three items, and each one answers a different objection: what it costs me in
+ * time, what I hold afterwards, what it costs me in money. Adding a fourth
+ * dilutes all three.
+ */
+export const OFFER_STACK = [
+  {
+    icon: "phone",
+    title: `A ${CONSULT_MINUTES}-minute call`,
+    body: "With a BetterHealth Wellness Consultant, on Google Meet or an ordinary phone call. You pick the time.",
+  },
+  {
+    icon: "file",
+    title: "A written plan within 24 hours",
+    body: "Sent on WhatsApp: where you stand, three things to start on, and a date to check whether they worked.",
+  },
+  {
+    icon: "gift",
+    title: "Free, with nothing to pay later",
+    body: "Paid for by the BetterHealth Foundation. No card, no deposit, nothing to cancel.",
+  },
+];
 
 /** Institutional trust, compressed into a strip, directly under the hero. */
 export const TRUST_POINTS = [
@@ -86,12 +119,13 @@ export const TRUST_POINTS = [
   { icon: "science", label: "Science-backed techniques" },
 ];
 
-/**
- * Heading for the second section. Shared across cells: it names the offer, not
- * the condition, so the condition-specific argument underneath stays the only
- * thing that varies.
- */
-export const PLAN_SECTION_HEADING = "A plan for wellness";
+// PLAN_SECTION_HEADING ("A plan for wellness") was removed on 2026-08-29. It was
+// shared across all four cells so that only the argument underneath varied —
+// which meant the first heading a visitor read after the hero named the offer in
+// the vaguest possible terms, identically on four pages selling four different
+// things. The heading is now `agitate.heading`, per cell, and it carries that
+// cell's sharpest sentence. Structure is still held constant across the cells;
+// only the words inside it change, so the test is unaffected.
 
 /**
  * Qualifying questions, split either side of the Confirm button.
@@ -316,16 +350,16 @@ export const FAQ = [
     a: "Yes. The call and your written plan are paid for by the BetterHealth Foundation, not by you. We don't ask for card details, there is no deposit, and there is nothing to cancel later. Lab tests are charged separately, and only if you decide to do one.",
   },
   {
+    q: "Is this a sales call?",
+    a: "It's a health conversation that ends with a recommendation. We'll tell you what we think is worth checking and why, then leave you to decide. No pressure, and no chasing unless you ask us to.",
+  },
+  {
     q: "I'm already on medication. Is this for me?",
-    a: "Yes. That is exactly who it is for. We don't start, stop or change any medication; that is between you and your doctor. What we do is build the system around it: what to track, what to change, and how to tell whether it is working.",
+    a: "Yes. That is who it is for. We don't start, stop or change any medication; that is between you and your doctor. What we do is build the system around it: what to track, what to change, and how to tell whether it is working.",
   },
   {
     q: "Do I have to do a test?",
     a: "No. The plan is yours either way. Most plans start with a baseline blood test, because that is how you stop guessing about whether anything is moving. But it is your call, and it will keep.",
-  },
-  {
-    q: "Is this a sales call?",
-    a: "It's a health conversation that ends with a recommendation. We'll tell you what we think is worth checking and why, then leave you to decide. No pressure, and no chasing unless you ask us to.",
   },
   {
     q: "What will the tests cost if I do them?",
@@ -406,12 +440,9 @@ export const VARIANTS = {
   "blood-sugar": {
     variant: "blood-sugar",
     concern: "Blood sugar / diabetes",
-    eyebrow: "Get your health plan",
+    eyebrow: "Living with diabetes",
     h1: "Diabetes is not a death sentence",
-    heroSub: [
-      "Early detection and effective management can help you take back control of your blood sugar and live a long, healthy life. Our founder was told his own diabetes was in reversal within 18 months of his diagnosis.",
-      "We will help you create a customised health plan that gives you back control over your health within 90 days.",
-    ],
+    lede: "You were told to avoid sugar and starchy food. In a country that runs on banku, rice and kenkey, that advice was never going to survive the week. This call builds a plan around the food you actually eat.",
     hero: {
       // vimeo.com/1219554916 — "Diabetes Consultation Explainer" (2:20).
       vimeoId: "1219554916",
@@ -423,6 +454,7 @@ export const VARIANTS = {
       alt: "A man smiling during a free blood sugar screening at a BetterHealth community event in Ghana.",
     },
     agitate: {
+      heading: "A sentence read out, with no plan attached",
       lead: "For most people, a diabetes diagnosis feels like a sentence being read out. Because they have watched it happen to somebody in their own family — the eyes, the kidneys, the foot that didn't heal — and they assume they are simply next in the queue.",
       turn: [
         "The fear is logical and understandable.",
@@ -494,12 +526,9 @@ export const VARIANTS = {
   "blood-pressure": {
     variant: "blood-pressure",
     concern: "Blood pressure / heart",
-    eyebrow: "Get your health plan",
+    eyebrow: "Living with high blood pressure",
     h1: "High blood pressure is not a death sentence",
-    heroSub: [
-      "Early detection and effective management can help you reverse high blood pressure and live a long, healthy life.",
-      "We will help you create a customised health plan that gives you back control over your health within 90 days.",
-    ],
+    lede: "The diagnosis took ten minutes. Managing it is the rest of your life, and nobody handed you a system for it. This call is where you get one.",
     hero: {
       // TO ADD THE PROMO VIDEO: paste the Vimeo ID here (the digits in
       // vimeo.com/123456789). Nothing else changes — the play button and the
@@ -516,6 +545,7 @@ export const VARIANTS = {
       alt: "A BetterHealth nurse running a free health screening for a woman at a community event in Ghana.",
     },
     agitate: {
+      heading: "You were given a diagnosis, not a plan",
       lead: "For most people, being diagnosed with something like high blood pressure or high cholesterol feels like a death sentence. Because they have seen others diagnosed with the same thing go on to have a stroke or a heart attack, and die shortly after.",
       turn: [
         "The fear is logical and understandable.",
@@ -566,10 +596,10 @@ export const VARIANTS = {
     },
     body: [
       {
-        heading: "You were given a diagnosis, not a plan",
+        heading: "The gap is not a medical one",
         paras: [
-          "The doctor told you your pressure was high, said watch your salt, and that was it. Nobody gave you a plan, or a system for bringing the number down and keeping it there. That is where the healthcare system fails you, and it is the reason BetterHealth Africa exists.",
-          "The gap is not a medical one. The treatment exists and so does the technology. What Ghana has never had is the system that carries them, the kind of ongoing, curative care people in richer countries take for granted.",
+          "The doctor told you your pressure was high, said watch your salt, and that was it. No plan, and no system for bringing the number down and keeping it there.",
+          "The treatment exists and so does the technology. Ghana has never had the system that carries them between appointments, the kind of ongoing, curative care people in richer countries take for granted. That gap is the reason BetterHealth Africa exists.",
         ],
       },
       {
@@ -586,12 +616,9 @@ export const VARIANTS = {
   wellness: {
     variant: "wellness",
     concern: "General wellness / low energy",
-    eyebrow: "Get your health plan",
+    eyebrow: "Tired all the time",
     h1: "Being tired all the time is not normal",
-    heroSub: [
-      "Constant tiredness, poor sleep and weight that won't shift usually have causes that can be measured. Most people get treated for what it looked like, without anyone testing for what it actually is.",
-      "We will help you create a customised health plan that gives you back control over your health within 90 days.",
-    ],
+    lede: "Treated for malaria, then typhoid, then stress, and nobody has measured anything yet. This call is where you find out what is worth checking.",
     hero: {
       vimeoId: null,
       poster: dashboardPoster,
@@ -602,6 +629,7 @@ export const VARIANTS = {
       alt: "A woman in Ghana booking a health consultation on her phone at home.",
     },
     agitate: {
+      heading: "Another year of being told it is stress",
       lead: "For most people, feeling run down for months on end turns into a routine. Another course of antimalarials. Another box of supplements bought on somebody's advice. Another week of promising yourself an early night. Nobody measures anything, so nothing ever changes.",
       turn: [
         "The tiredness is real, and it isn't laziness.",
@@ -679,9 +707,7 @@ export const VARIANTS = {
     concern: "Trying to conceive",
     eyebrow: "Trying to conceive",
     h1: "Fertility testing usually starts with the woman. It doesn't have to.",
-    heroSub: [
-      "In around half of cases there's a male factor involved, and it's one of the more straightforward things to check. Twenty minutes on the phone, for both of you, and you'll know what's worth checking and in what order.",
-    ],
+    lede: "In around half of cases there is a male factor, and it is one of the more straightforward things to check. Twenty minutes, for both of you, and you will know what is worth checking and in what order.",
     hero: {
       vimeoId: null,
       poster: involvedPoster,
@@ -692,6 +718,7 @@ export const VARIANTS = {
       alt: "A BetterHealth consultant going through a health plan with a member on a tablet in Ghana.",
     },
     agitate: {
+      heading: "The tests land on the woman",
       lead: "In around half of cases there's a male factor involved, and it's one of the more straightforward things to check. Starting with both of you gets to a clearer picture, sooner.",
       paras: [
         "The questions land on the woman. The advice nobody asked for lands on the woman. The tests, when they finally happen, land on the woman. And one of the simplest, quickest things to check gets left until last, or never gets checked at all.",

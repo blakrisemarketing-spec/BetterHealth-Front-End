@@ -48,7 +48,7 @@
           "id": "email_input",
           "type": "text_input",
           "target": "email_field",
-          "value": "peter.dag@gmail.com",
+          "value": "<BH_DEMO_EMAIL>",
           "timestamp": 500,
           "duration": 1500
         }
@@ -69,7 +69,7 @@
           "id": "password_input",
           "type": "text_input",
           "target": "password_field",
-          "value": "Pass.1234",
+          "value": "<BH_DEMO_PASSWORD>",
           "timestamp": 500,
           "duration": 1500
         }
