@@ -262,19 +262,38 @@ Trigger this when **fewer than 10 `todo` article items remain** after a batch (s
 queue never starves at five-per-night). The program scope is **all of Africa**, so
 refill draws from the whole continent, not just Ghana.
 
+- **Prefer long-tail over head terms (2026-08-09 direction change).** All 66
+  published articles' primary keywords remain "not in top 20" after 7+ weeks (see
+  `seo/reports/weekly-2026-W32.md`) — a brand-new domain has no authority to compete
+  on broad 1-2 word terms ("fatty liver disease", "lipid profile test"). Long-tail,
+  question-phrased, often Ghana-specific queries (3+ words: "is hepatitis b curable",
+  "early warning signs of kidney disease", "4 stages of typhoid fever", "cost of
+  medical checkup in Ghana") carry far less competition and are the realistically
+  winnable target now — they also double as GEO bait, since AI Overviews/answer
+  engines lift exactly this kind of self-contained question phrasing. Ghana is the
+  home market: weight Ghana-specific long-tail queries first, while still covering
+  the other priority markets for pan-African items already in the queue.
 - **Expand the keyword universe across markets.** For each priority market (Ghana,
   Nigeria, Kenya, South Africa, and add others as warranted), use
   `seo/tools/dataforseo.mjs ideas "<seed>"` with that market's `DFS_LOCATION_CODE` to
-  surface real patient-led screening/biomarker/condition queries. Good seeds: malaria
-  test, typhoid test, hepatitis B test, genotype test, premarital screening, PSA test,
-  pap smear, HIV test, full body checkup, plus the existing biomarker seeds.
+  surface real patient-led screening/biomarker/condition queries. **Seed with a 2-3
+  word topic phrase** ("diabetes test", "hepatitis b symptoms", "kidney disease
+  symptoms") and read the *returned ideas* for long-tail/question-phrased candidates
+  rather than defaulting to the shortest/highest-volume idea in the list. Good seeds:
+  malaria test, typhoid test, hepatitis B test, genotype test, premarital screening,
+  PSA test, pap smear, HIV test, full body checkup, plus the existing biomarker seeds.
 - **Append, don't reorder.** Add new `status: todo` items at the right priority below
   the current queue. Each gets a real DataForSEO-confirmed `volume` and the market in
   `notes` (or `volume: null` with a note if no data, still worth long-tail/AI value).
-- **Prefer high-burden, low-competition African terms.** Conditions with high African
+- **Prefer high-burden, low-competition African terms — and long-tail phrasing over
+  head terms when both exist for the same condition.** Conditions with high African
   disease burden and thin local editorial competition (malaria, typhoid, hepatitis B,
   sickle cell, genotype/premarital screening) are the strongest AI-citation and
-  ranking opportunities.
+  ranking opportunities; a long-tail angle on one of these beats a head-term angle on
+  a lower-burden condition.
+- **Skip treatment/medication-directive ideas** (e.g. "high blood pressure
+  medication") — this is a patients-led testing/education brand, not a prescribing
+  one. Stay on symptoms, testing, and understanding-results ground.
 - If DataForSEO creds are absent, still append curated pan-African targets from the
   seed list with `volume: null` and a "confirm volume" note, so the queue keeps
   moving; the next run with creds confirms volumes.
