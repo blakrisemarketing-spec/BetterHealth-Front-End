@@ -71,7 +71,7 @@
   "manuallyPublished": [
     "preventable-diseases-preventive-healthcare-ghana"
   ],
-  "lastWeeklyRun": "2026-07-26",
+  "lastWeeklyRun": "2026-08-30",
   "inFlightPRs": [],
   "publishedCount": 67,
   "notes": "2026-07-25 nightly batch: published yellow-fever-explained, cholera-symptoms-test, blood-test-cape-town, blood-test-ibadan, blood-test-eldoret (5/5, none dropped). These were the only 5 unclaimed todo article items left in roadmap.yml; the other 10 todo items (mammogram/colon-cancer/allergy/breast-cancer-screening/tuberculosis/abuja/port-harcourt/mombasa/kisumu/testosterone) are already claimed by open PRs #63 (2026-07-23) and #64 (2026-07-24), so this run skipped them per the dedup rule. npm ci && npm run build green; all 5 dist/blog/<slug>/index.html confirmed with correct title, og:type=article, canonical, and Article+BreadcrumbList+FAQPage JSON-LD; all 5 routes present in dist/sitemap.xml and dist/llms.txt; zero spaced em dashes in all 5 article files; lint clean apart from the two pre-existing unrelated errors. Ran a queue-refill pass since the queue would otherwise starve on the next run: appended 8 new todo items (art-dengue-fever 4,400/mo Kenya confirmed, art-prolactin-test 720/mo Nigeria confirmed, art-pcos-test, art-hepatitis-a-test 10/mo Ghana confirmed, local-kano, local-enugu, local-nakuru, local-bloemfontein) below the existing queue, DataForSEO-confirmed where volume exists. FLAG FOR A HUMAN: this run's PR brings the unmerged SEO PR count to 3 (#63, #64, and this one) — per the seo-nightly playbook's backlog rule, please merge or close some of these before the next nightly run adds a 4th, so drafts don't pile up faster than they're reviewed."
