@@ -9,6 +9,8 @@ import GradientOrb from "../components/ui/GradientOrb";
 import PhoneField from "../components/ui/PhoneField";
 import { composeE164, defaultPhoneValue, validatePhone } from "../lib/phone";
 import { whatsappUrl } from "../lib/whatsapp";
+import PhoneField from "../components/ui/PhoneField";
+import { composeE164, defaultPhoneValue, validatePhone } from "../lib/phone";
 
 const CHANNELS = [
   {
