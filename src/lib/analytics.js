@@ -10,6 +10,12 @@
 // container that replaced it. If a custom event stops appearing in GA4, check
 // that container has a tag for it before suspecting this file.
 //
+// FULL SPEC: BetterHealth-Africa repo, docs/ops/analytics-event-reference.md
+// Maps every event to its Meta payload, dataLayer payload, GTM trigger/tag and
+// GA4 custom dimension, and lists the four steps needed to add a new one.
+// Adding an event here is only step one of four — a helper with no GTM tag and
+// no registered GA4 custom dimension collects nothing readable.
+//
 // GA4 event names are used for the dataLayer push (begin_checkout,
 // generate_lead) so they map 1:1 to GA4 / Google Ads conversions in the GTM UI
 // with no extra transformation. Meta standard event names (InitiateCheckout,
