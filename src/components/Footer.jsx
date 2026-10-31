@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { joinUrl } from "../lib/app-links";
 import { ShieldCheck } from "lucide-react";
 import { footerColumns } from "../data/content";
 import logo from "../assets/logo.png";
@@ -7,6 +6,7 @@ import logo from "../assets/logo.png";
 // Map footer link labels to internal routes
 const ROUTE_MAP = {
   "How It Works": "/how-it-works",
+  "Download App": "/download-app",
   "Tests": "/book-tests",
   "What We Test": "/what-we-test",
   "Stories": "/stories",
@@ -89,9 +89,7 @@ export default function Footer() {
               </h4>
               {col.links.map((link) => {
                 const route = ROUTE_MAP[link];
-                // "Download App" is resolved at render, not from the static
-                // map, so the hop to the app carries the visit's utm_*/click ids.
-                const external = link === "Download App" ? joinUrl() : EXTERNAL_MAP[link];
+                const external = EXTERNAL_MAP[link];
                 if (route) {
                   return (
                     <Link

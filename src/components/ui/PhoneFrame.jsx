@@ -6,7 +6,8 @@ import { useEffect, useMemo, useState } from "react";
  * Props:
  *  src       — single image src (if not using screens[])
  *  alt       — alt text for single image
- *  screens[] — array of { src, alt } for auto-cycling carousel
+ *  screens[] — array of { src, alt } for auto-cycling carousel. An item may
+ *              carry `node` (a rendered screen) instead of `src`, plus a `key`.
  *  interval  — ms between slides (default 3500)
  *  className — outer wrapper className
  */
@@ -14,7 +15,7 @@ export default function PhoneFrame({ src, alt, screens, interval = 3500, classNa
   const [active, setActive] = useState(0);
   const isMulti = Array.isArray(screens) && screens.length > 1;
   const screenItems = useMemo(
-    () => (isMulti ? screens : [{ src, alt }].filter((screen) => screen.src)),
+    () => (isMulti ? screens : (screens?.length ? screens : [{ src, alt }]).filter((screen) => screen.src || screen.node)),
     [alt, isMulti, screens, src]
   );
 
@@ -185,7 +186,24 @@ export default function PhoneFrame({ src, alt, screens, interval = 3500, classNa
             boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.5)",
           }}
         >
-          {screenItems.map((screen, index) => (
+          {screenItems.map((screen, index) => screen.node ? (
+            <div
+              key={screen.key}
+              role="img"
+              aria-label={screen.alt}
+              aria-hidden={index !== active}
+              style={{
+                position: "absolute",
+                inset: 0,
+                opacity: index === active ? 1 : 0,
+                transition: isMulti ? "opacity 320ms cubic-bezier(0.16, 1, 0.3, 1)" : "none",
+                pointerEvents: "none",
+                userSelect: "none",
+              }}
+            >
+              {screen.node}
+            </div>
+          ) : (
             <img
               key={screen.src}
               src={screen.src}

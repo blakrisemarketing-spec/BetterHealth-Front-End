@@ -163,16 +163,17 @@ export const conditions2 = [
 ];
 
 export const howItWorksSteps = [
-  { num: "01", icon: "FlaskConical", title: "Book a test", desc: "Choose a single test, a bundle, or a condition program. Pay with Mobile Money or card." },
+  { num: "01", icon: "FlaskConical", title: "Book a test", desc: "Choose a single test, a package, or a condition program in the app or on the web. Pay with Mobile Money or card." },
   { num: "02", icon: "Home", title: "Get Tested", desc: "Visit a partner lab or book home sample collection anywhere in Ghana. It takes about 15 minutes." },
-  { num: "03", icon: "BarChart3", title: "Understand Your Results", desc: "A doctor reviews your results and they land in your dashboard within 48 to 72 hours, with each health indicator explained in plain language." },
-  { num: "04", icon: "HeartPulse", title: "Manage What Matters", desc: "Use your results to choose the right next step, from a Diabetes or Hypertension program to a follow-up conversation with your doctor." },
+  { num: "03", icon: "BarChart3", title: "Understand Your Results", desc: "A clinician reads your results and they arrive in the app within 48 to 72 hours, each one explained in plain language." },
+  { num: "04", icon: "HeartPulse", title: "Keep Going Every Day", desc: "Track the food, readings, medicines and activity that move those numbers, then retest to see what changed." },
 ];
 
 export const showcaseFeatures = [
-  { title: "Organ System Health View", desc: "See your heart, liver, kidney, and metabolic health at a glance with clear scores." },
-  { title: "Health Indicator Tracking", desc: "Watch how your key numbers change over months and years, so you can catch a worrying trend early." },
-  { title: "Plain-Language Explanations", desc: "Every result comes with clear explanations." },
+  { title: "Read by a clinician", desc: "Every result is checked before it reaches you, and you get a notification when it is ready." },
+  { title: "Results grouped by organ", desc: "Heart, kidneys, liver, blood sugar and more, each result shown against its range with what it measures and what helps." },
+  { title: "Results from other labs too", desc: "Upload a PDF or photo of a report from another lab. Our clinical team checks it before it joins your record." },
+  { title: "Download and share", desc: "Keep your lab report as a PDF and share it with your doctor or family." },
 ];
 
 export const testCategories = [
@@ -640,12 +641,13 @@ export const diseasePrograms = {
 };
 
 export const faqs = [
+  { q: "Is the BetterHealth app free?", a: "Yes. Food logging, home readings, medicine reminders, activity, period and mood tracking, meal plans and challenges are free. You pay only for the lab tests you book. The app is in beta on iPhone and Android, and you can join the beta from our Download App page." },
   { q: "How does home sample collection work?", a: "A certified phlebotomist from our partner Lab Access Ghana comes to your home at your scheduled time. The process takes about 15 minutes. You\u2019ll receive a confirmation SMS with your collector\u2019s name and estimated arrival time." },
   { q: "How do I pay?", a: "We accept Mobile Money (MTN MoMo, Vodafone Cash, AirtelTigo Money), debit/credit cards, and bank transfers. All payments are processed securely through Paystack, Ghana\u2019s leading payment platform." },
   { q: "How long until I get my results?", a: "Most results are available within 48 to 72 hours after your sample is collected. You\u2019ll receive an SMS and email notification when your results are ready to view in your health dashboard." },
   { q: "Is my health data private and secure?", a: "Yes. BetterHealth Africa is certified by the Ghana Data Protection Commission (GDPC) under the Data Protection Act, 2012 (Act 843). You can verify our certification at https://app.dataprotection.org.gh/company/dpdZwcRth19j7oQFxmwoDj1ELCOABE. Your data is encrypted at rest and in transit. Only you and the healthcare providers you authorize can access your results. We never sell your data." },
   { q: "Do I need a doctor\u2019s referral?", a: "No referral needed. BetterHealth Africa is a direct-to-consumer health platform. You can choose a single test, a focused panel, or a condition program and book independently." },
-  { q: "What if my results show something concerning?", a: "Our platform flags results outside the normal range. For critical findings, you\u2019ll receive an immediate notification. We recommend discussing concerning results with a healthcare provider, and our Premium plan includes a doctor consultation." },
+  { q: "What if my results show something concerning?", a: "Our platform flags results outside the normal range. For critical findings, you\u2019ll receive an immediate notification. We recommend discussing concerning results with a healthcare provider. When you book a test you can add a call with a doctor to talk it through." },
 ];
 
 export const founderQuote = "After watching diabetes and kidney disease take so many beloved aunties and uncles, then come for my parents, I knew things had to change.";
@@ -656,7 +658,7 @@ export const founderStory = [
 ];
 
 export const footerColumns = [
-  { title: "Product", links: ["Tests", "How It Works", "What We Test", "Stories", "Download App"] },
+  { title: "Product", links: ["Download App", "Tests", "How It Works", "What We Test", "Stories"] },
   { title: "Partners", links: ["For Doctors", "For Nutritionists", "For Labs", "Foundation"] },
   { title: "Company", links: ["About Us", "Careers", "FAQ", "Contact", "WhatsApp", "Privacy Policy", "Terms of Service"] },
 ];
@@ -1309,11 +1311,40 @@ export const waitlist = {
 
 export const faqSections = [
   {
+    category: "The BetterHealth App",
+    items: [
+      {
+        q: "Is the app free?",
+        a: "Yes. Downloading and using the app is free, including food logging, home readings, medicine reminders, activity, period and mood tracking, meal plans, challenges and health articles. You pay only for lab tests, and for a consultation if you book one.",
+      },
+      {
+        q: "How do I get the app?",
+        a: "The app is in beta on iPhone and Android while it waits for its public App Store and Google Play listings. Join the beta testing program from our Download App page and we will send you instructions to install it.",
+      },
+      {
+        q: "Can I log Ghanaian food?",
+        a: "Yes. The food list covers over 480 Ghanaian, Nigerian and West African foods and understands local names. You can log a meal by searching, by taking a photo of your plate, by describing it in a few words, or by scanning a barcode. Calories and nutrients are estimates for your own tracking.",
+      },
+      {
+        q: "Does it connect to Apple Health or Health Connect?",
+        a: "Yes, if you allow it. The app can read steps, distance, active calories, sleep, resting heart rate and workouts from Apple Health on iPhone or Health Connect on Android. Blood pressure, blood sugar and weight are recorded in the app itself.",
+      },
+      {
+        q: "Can I share my data with my family or consultant?",
+        a: "You can create a family in the app and choose what each person shares. If you book a wellness consultation, you can share your food, activity and readings with your consultant, and stop sharing at any time.",
+      },
+      {
+        q: "Do I still need the website?",
+        a: "No. Everything you need is in the app, but you can also book tests and view results on the web at app.betterhealth.africa with the same account.",
+      },
+    ],
+  },
+  {
     category: "Getting Started",
     items: [
       {
         q: "What is BetterHealth?",
-        a: "BetterHealth is Ghana's first health intelligence platform. You can book lab tests, get doctor-reviewed results, understand your health indicators in plain language, and track the numbers that matter over time. We partner with accredited labs across Ghana to process samples and deliver results to your dashboard within 48 to 72 hours.",
+        a: "BetterHealth is a health app for iPhone and Android, built in Ghana. Use it every day to log your food (including Ghanaian dishes), record blood pressure, blood sugar and weight, get medicine reminders, and track your steps, workouts, period and mood. When you need a lab test, book it in the app. We partner with accredited labs in Ghana, and your results arrive in the app within 48 to 72 hours after a clinician has read them.",
       },
       {
         q: "Who is BetterHealth for?",
@@ -1375,7 +1406,7 @@ export const faqSections = [
       },
       {
         q: "How do I access my results?",
-        a: "Log into your BetterHealth dashboard at app.betterhealth.africa using the same email and password you signed up with. Your results are organized by body system (Heart, Liver, Kidneys, Thyroid, Metabolic, Hormones, Blood, Nutrients) with colour-coded indicators and plain-language explanations.",
+        a: "Open My Health in the BetterHealth app, or sign in on the web at app.betterhealth.africa with the same account. Your results are grouped by body system (heart, liver, kidneys, blood sugar and more), each shown against its normal range with a plain-language explanation.",
       },
       {
         q: "What do the colours in my dashboard mean?",

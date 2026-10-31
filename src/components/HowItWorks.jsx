@@ -16,7 +16,7 @@ export default function HowItWorks() {
         <Reveal>
           <div className="text-center mb-16">
             <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">
-              How It Works
+              How lab tests work
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               From a single test to{" "}

@@ -20,25 +20,29 @@ import GDPCBadge from "../components/ui/GDPCBadge";
 import { WaitlistProvider } from "../context/WaitlistContext";
 import HealthConcernChooser from "../components/HealthConcernChooser";
 import TrustBar from "../components/TrustBar";
+import AppFeatures from "../components/app/AppFeatures";
+import AppLoop from "../components/app/AppLoop";
 
 export default function Home() {
   return (
     <WaitlistProvider>
     <div className="bg-base min-h-screen overflow-x-hidden">
       <Helmet>
-        <title>BetterHealth Africa | Know Your Health Before Symptoms Appear</title>
-        <meta name="description" content="BetterHealth Africa is Ghana's first health intelligence platform. Book lab tests, get doctor-reviewed results, and understand your health indicators from your phone." />
+        <title>BetterHealth Africa | Your Everyday Health App, With Lab Tests Built In</title>
+        <meta name="description" content="The BetterHealth app for iPhone and Android: log Ghanaian meals by photo, track blood pressure and blood sugar, get medicine reminders, and book lab tests with results a clinician has read." />
       </Helmet>
       <Nav />
       <main>
         <Hero />
+        <PurposeIntro />
+        <AppFeatures limit={8} />
+        <AppLoop />
+        <ProductShowcase />
+        <HowItWorks />
         <HealthConcernChooser />
         <TrustBar />
-        <PurposeIntro />
-        <HowItWorks />
         <ScreeningBundles />
         <DiseasePrograms compact />
-        <ProductShowcase />
         <WhatWeTest />
 
         <section className="py-10 px-6 bg-base border-y border-border">

@@ -332,7 +332,7 @@ const RAW_ROUTE_SEO = {
   faq: {
     title: "FAQ | BetterHealth Africa",
     description:
-      "Answers to common questions about BetterHealth Africa: how it works, what we test, pricing, sample collection, and your results.",
+      "Answers to common questions about BetterHealth Africa: the app, how lab testing works, what we test, pricing, sample collection, and your results.",
     image: DEFAULT_OG_IMAGE,
     jsonld: [FAQ_JSONLD],
   },
@@ -355,9 +355,9 @@ const RAW_ROUTE_SEO = {
     image: DEFAULT_OG_IMAGE,
   },
   "download-app": {
-    title: "Download the App | BetterHealth Africa",
+    title: "The BetterHealth App for iPhone & Android | BetterHealth Africa",
     description:
-      "Get notified when the BetterHealth app launches for iOS and Android. Track health indicators, book tests, and review results from your phone.",
+      "A free everyday health app built in Ghana: log local meals by photo, track blood pressure and blood sugar, get medicine reminders, and book lab tests with clinician-read results. Join the beta.",
     image: DEFAULT_OG_IMAGE,
   },
   "for-labs": {

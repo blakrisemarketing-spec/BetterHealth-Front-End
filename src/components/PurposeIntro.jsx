@@ -9,16 +9,16 @@ import communityIntakePhoto from "../assets/about/community-intake.jpg";
 
 const valueProps = [
   {
-    title: "Real lab results",
-    desc: "Accredited partner laboratories run your tests. These are real lab numbers, not estimates.",
+    title: "Daily tracking, free",
+    desc: "Food, readings, medicines, activity, period and mood tracking cost nothing. You pay only for lab tests you book.",
   },
   {
-    title: "Reviewed by doctors",
-    desc: "A doctor reviews your result before it reaches you.",
+    title: "Real lab results",
+    desc: "Accredited partner laboratories run your tests, and a clinician reads each result before it reaches you.",
   },
   {
     title: "Results in 48 to 72 hours",
-    desc: "Your full results show up in your dashboard within 48 to 72 hours of collection.",
+    desc: "Your results arrive in the app within 48 to 72 hours of collection, with a notification when they are ready.",
   },
   {
     title: "Private & confidential",
@@ -40,21 +40,21 @@ export default function PurposeIntro() {
               About BetterHealth Africa
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight mb-6">
-              Understand your body like{" "}
-              <span className="italic text-primary tracking-normal">never before</span>.
+              Daily tracking and lab tests,{" "}
+              <span className="italic text-primary tracking-normal">in one place</span>.
             </h2>
           </Reveal>
 
           <Reveal delay={0.1}>
             <p className="text-lg leading-[1.75] text-text-secondary font-body max-w-[720px] mb-4">
-              BetterHealth Africa gives you the tools to understand your body like never before and turn that data into actionable insight, helping you live a healthier, longer life.
+              BetterHealth Africa is a health app for iPhone and Android, built in Ghana. It helps you look after your health every day, with food logging, home readings, medicine reminders and activity tracking, and it connects you to accredited labs when you need a test.
             </p>
           </Reveal>
 
           <Reveal delay={0.15}>
             <p className="text-[15px] leading-[1.7] text-text-muted font-body max-w-[660px] mb-8">
-              Start with the concern on your mind. When your results are ready, sign in with
-              email, phone, or Google to review them at{" "}
+              Sign in to the app with email, phone, Google or Apple. You can also book tests
+              and review your results on the web at{" "}
               <a
                 href={appUrl()}
                 className="text-primary font-semibold no-underline hover:text-primary-dark transition-colors"
