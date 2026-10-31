@@ -1,40 +1,74 @@
+import { Link } from "react-router-dom";
+import { ArrowRight, Check, ShieldCheck, Smartphone, Trash2, Wallet } from "lucide-react";
 import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
+import PhoneFrame from "../components/ui/PhoneFrame";
+import AppLoop from "../components/app/AppLoop";
+import AppFeatures from "../components/app/AppFeatures";
+import StoreBadges from "../components/app/StoreBadges";
+import { APP_SCREENS, heroAppScreens } from "../components/app/screens";
+import { APP_BETA_URL, appDisclaimer, appIsLive } from "../data/app";
 
-const FEATURES = [
+const DEEP_DIVES = [
   {
-    icon: "📊",
-    title: "Your health dashboard",
-    body: "All your health results in one place, sorted by organ system, colour-coded so you can see what matters, and explained in plain language.",
+    screen: APP_SCREENS.food,
+    eyebrow: "Food",
+    title: "Built for the food on your plate",
+    body: "The food list covers over 480 Ghanaian, Nigerian and West African foods, from banku to kelewele, and understands the names people use for them.",
+    points: [
+      "Take a photo of your plate and check what the app found",
+      "Or describe it: \"2 balls of kenkey and fried fish\"",
+      "Scan a barcode, or read a packet's nutrition label",
+      "A daily calorie target set from your goal, with advice for diabetes, blood pressure and kidney disease",
+      "Weekly meal plans and local recipes, with healthier swaps",
+    ],
   },
   {
-    icon: "📈",
-    title: "Trend tracking",
-    body: "See how your numbers move over time. Notice what's getting better, catch what's slipping, and see whether the changes you're making are paying off.",
+    screen: APP_SCREENS.readings,
+    eyebrow: "Readings",
+    title: "Your home readings in one place",
+    body: "If you check your blood pressure or sugar at home, the numbers usually end up on scraps of paper. Log them in seconds and see the pattern.",
+    points: [
+      "Blood pressure, blood sugar and weight",
+      "Day, week and month charts",
+      "Reminders at the times you choose",
+      "Clear safety advice if a reading is very high or very low",
+    ],
   },
   {
-    icon: "🔔",
-    title: "Smart alerts",
-    body: "We let you know the moment your results are ready, and send a priority alert if anything falls into a critical range.",
+    screen: APP_SCREENS.medicines,
+    eyebrow: "Medicines",
+    title: "Know whether you took your medicine",
+    body: "Add each medicine once, with a photo of the pack. The app reminds you at the exact time and keeps a record of every dose.",
+    points: [
+      "Exact-time reminders",
+      "Mark each dose taken or skipped",
+      "A list you can show your doctor",
+    ],
   },
   {
-    icon: "📄",
-    title: "Shareable reports",
-    body: "Download a clean PDF report and share it with your doctor, a specialist, or your family, whenever you need it.",
+    screen: APP_SCREENS.results,
+    eyebrow: "Lab tests",
+    title: "Book a test and read the result in the app",
+    body: "Pick a package or a single test, choose home collection or a partner lab, and pay with Mobile Money or card. Your results arrive in 48 to 72 hours, after a clinician has read them.",
+    points: [
+      "Results grouped by organ, each against its normal range",
+      "What each result measures and what helps",
+      "Compare with your earlier results",
+      "Upload results from another lab for our clinical team to check",
+      "Download your report as a PDF",
+    ],
+    cta: { to: "/book-tests", label: "See lab tests and prices" },
   },
-  {
-    icon: "📅",
-    title: "Booking & scheduling",
-    body: "Book your next test, home collection, or lab visit from the app. Pick a date, pick a time, and you're set.",
-  },
-  {
-    icon: "💬",
-    title: "Doctor consultations",
-    body: "Premium members can book a video or phone call with a doctor through the app to talk through their results.",
-  },
+];
+
+const TRUST = [
+  { Icon: Wallet, title: "Free to use", body: "Tracking, reminders, meal plans, challenges and articles cost nothing. You pay only for the lab tests and consultations you book." },
+  { Icon: ShieldCheck, title: "You choose what it reads", body: "The app asks before it reads steps or sleep from your phone, and you can change your mind at any time. We never sell your data." },
+  { Icon: Trash2, title: "Leave whenever you like", body: "Delete your account from inside the app or on our website." },
 ];
 
 export default function DownloadAppPage() {
@@ -51,127 +85,121 @@ export default function DownloadAppPage() {
           <GradientOrb className="bottom-[-60px] left-[-60px] opacity-20" size={320} />
           <div className="max-w-[1280px] mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold tracking-wide mb-6">
-COMING SOON ON iOS &amp; ANDROID
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary-light text-xs font-semibold tracking-wide mb-6">
+                {appIsLive ? "NOW ON iPHONE & ANDROID" : "BETA ON iPHONE & ANDROID"}
               </div>
               <h1 className="text-4xl sm:text-5xl font-bold font-heading leading-tight mb-6">
-                Health intelligence,<br />
-                <span className="text-primary">in your pocket.</span>
+                One app for your<br />
+                <span className="text-primary-light">everyday health.</span>
               </h1>
-              <p className="text-lg text-text-muted-dark leading-relaxed max-w-[480px] mb-10">
-                The BetterHealth app keeps your test bookings, doctor-reviewed results, plain explanations, and trend tracking in one place. Coming to iOS and Android in 2026.
+              <p className="text-lg text-text-muted-dark leading-relaxed max-w-[500px] mb-10">
+                Food, home readings, medicines, steps, your cycle and your mood, next to lab results a clinician has read. Built in Ghana, with Ghanaian food in its food list.
               </p>
 
-              <div className="flex flex-wrap gap-4">
-                {/* App Store */}
-                <a
-                  href="#notify"
-                  className="flex items-center gap-3 px-5 py-3 rounded-card bg-white/10 border border-white/20 text-gray-300 font-semibold text-sm hover:bg-white/20 hover:text-white transition-colors"
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                  </svg>
-                  <span className="flex flex-col leading-tight">
-                    <span className="text-xs font-normal">Download on the</span>
-                    <span className="text-base font-bold">App Store</span>
-                  </span>
-                </a>
+              <StoreBadges />
 
-                {/* Google Play */}
-                <a
-                  href="#notify"
-                  className="flex items-center gap-3 px-5 py-3 rounded-card bg-white/10 border border-white/20 text-gray-300 font-semibold text-sm hover:bg-white/20 hover:text-white transition-colors"
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3.18 23.76c.3.17.64.22.98.14l11.65-11.65L12.1 9.54 3.18 23.76zm16.4-12.37L16.8 9.83 4.34.55C4.01.34 3.6.3 3.22.5L14.93 12.21l4.65-4.65c.35.2.6.55.6.98v.02c0 .43-.24.78-.6.83zM3.22.5C2.84.7 2.6 1.1 2.6 1.55v20.9c0 .45.24.85.62 1.05L14.93 12.21 3.22.5zm13.58 7.33l2.79 1.56c.79.44.79 1.16 0 1.6l-2.79 1.56-3.13-3.13 3.13-1.59z" />
-                  </svg>
-                  <span className="flex flex-col leading-tight">
-                    <span className="text-xs font-normal">Get it on</span>
-                    <span className="text-base font-bold">Google Play</span>
-                  </span>
-                </a>
-              </div>
-
-              <p className="text-xs text-text-muted-dark/60 mt-4">
-                The app isn't live yet. Tap either button to sign up for early access.
-              </p>
+              {!appIsLive && (
+                <p className="text-sm text-text-muted-dark mt-4 max-w-[460px]">
+                  The app is not in the public stores yet. Either button opens the beta sign-up, and we will send you instructions to install it.
+                </p>
+              )}
             </Reveal>
 
-            {/* Phone mockup placeholder */}
             <Reveal delay={0.15}>
               <div className="flex justify-center">
-                <div className="relative w-[240px] h-[480px] rounded-[40px] bg-white/5 border border-white/10 shadow-2xl flex flex-col items-center justify-center gap-4">
-                  <div className="w-16 h-16 rounded-card bg-primary/20 flex items-center justify-center text-3xl">
-                    📱
-                  </div>
-                  <p className="text-text-muted-dark text-sm text-center px-6">
-                    App preview coming soon
-                  </p>
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-1.5 rounded-full bg-white/10" />
-                </div>
+                <PhoneFrame screens={heroAppScreens} interval={3500} />
               </div>
             </Reveal>
           </div>
         </section>
 
-        {/* Features */}
-        <section className="py-20 px-6">
-          <div className="max-w-[1280px] mx-auto">
-            <Reveal>
-              <h2 className="text-3xl font-bold font-heading text-center mb-4">
-                Everything in one app
-              </h2>
-              <p className="text-center text-text-secondary max-w-[520px] mx-auto mb-14">
-                The app is built around your results, so it's easy to understand what your numbers mean, follow them over time, and know what to do next.
-              </p>
-            </Reveal>
+        <AppLoop />
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {FEATURES.map((f, i) => (
-                <Reveal key={f.title} delay={i * 0.07}>
-                  <div className="p-6 rounded-card border border-border bg-white hover:shadow-md transition-shadow">
-                    <div className="text-3xl mb-4">{f.icon}</div>
-                    <h3 className="font-bold font-heading text-lg mb-2">{f.title}</h3>
-                    <p className="text-text-secondary text-sm leading-relaxed">{f.body}</p>
-                  </div>
+        <AppFeatures
+          eyebrow="Features"
+          heading={
+            <>
+              Everything the app <span className="italic text-primary tracking-normal">does</span>
+            </>
+          }
+          intro="Each part works on its own, so use what you need. Pick the tabs that matter to you and the app arranges itself around them."
+        />
+
+        {/* Deep dives */}
+        {DEEP_DIVES.map((d, i) => (
+          <section key={d.eyebrow} className={`py-20 lg:py-24 px-6 ${i % 2 ? "bg-bg-alt" : "bg-base"}`}>
+            <div className={`max-w-[1100px] mx-auto flex flex-col ${i % 2 ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 lg:gap-20`}>
+              <Reveal direction={i % 2 ? "right" : "left"} className="w-full md:w-[320px] md:flex-shrink-0 flex justify-center">
+                <PhoneFrame screens={[d.screen]} />
+              </Reveal>
+              <div className="flex-1">
+                <Reveal>
+                  <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">{d.eyebrow}</p>
+                  <h2 className="text-[clamp(28px,4vw,40px)] font-extrabold font-heading tracking-tight leading-[1.15] mb-4">{d.title}</h2>
+                  <p className="text-[17px] leading-[1.7] text-text-secondary font-body mb-6">{d.body}</p>
+                  <ul className="flex flex-col gap-3 list-none p-0 m-0">
+                    {d.points.map((pt) => (
+                      <li key={pt} className="flex gap-3 text-[15px] text-text-secondary font-body">
+                        <Check size={18} className="text-primary mt-0.5 shrink-0" />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                  {d.cta && (
+                    <Link
+                      to={d.cta.to}
+                      className="inline-flex items-center gap-2 mt-8 text-primary font-bold font-heading no-underline hover:text-primary-dark transition-colors"
+                    >
+                      {d.cta.label} <ArrowRight size={18} />
+                    </Link>
+                  )}
                 </Reveal>
-              ))}
+              </div>
             </div>
+          </section>
+        ))}
+
+        {/* Free / privacy */}
+        <section className="py-20 px-6 bg-base border-t border-border">
+          <div className="max-w-[1100px] mx-auto grid md:grid-cols-3 gap-6">
+            {TRUST.map((t, i) => (
+              <Reveal key={t.title} delay={i * 0.08}>
+                <div className="h-full p-6 rounded-card border border-border bg-white">
+                  <t.Icon size={24} className="text-primary mb-4" />
+                  <h3 className="font-bold font-heading text-lg mb-2">{t.title}</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed m-0">{t.body}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </section>
 
-        {/* Notify CTA */}
-        <section id="notify" className="py-20 px-6 bg-bg-alt">
-          <div className="max-w-[560px] mx-auto text-center">
+        {/* Beta CTA */}
+        <section id="beta" className="py-20 px-6 bg-bg-alt">
+          <div className="max-w-[600px] mx-auto text-center">
             <Reveal>
-              <div className="text-4xl mb-4">🔔</div>
+              <Smartphone size={36} className="text-primary mx-auto mb-4" />
               <h2 className="text-3xl font-bold font-heading mb-4">
-                Be first to know when we launch.
+                {appIsLive ? "Get BetterHealth on your phone." : "Help us finish the app."}
               </h2>
               <p className="text-text-secondary mb-8">
-                The app lands on iOS and Android in 2026. Leave your email below and we'll tell you the moment it's live.
+                {appIsLive
+                  ? "Download it free from the App Store or Google Play."
+                  : "Join the beta testing program to use the app before it reaches the stores. Tell us what works and what does not, and we will use it to fix and improve the app."}
               </p>
-              <form
-                onSubmit={(e) => { e.preventDefault(); const email = e.target.elements.email.value; window.open(`mailto:hello@betterhealth.africa?subject=App%20Early%20Access&body=Hi%2C%20please%20notify%20me%20at%20${encodeURIComponent(email)}%20when%20the%20app%20launches.`, "_blank"); }}
-                className="flex flex-col sm:flex-row gap-3"
-              >
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Your email address"
-                  className="flex-1 px-4 py-3 rounded-card border border-border bg-white text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 text-sm"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 rounded-card bg-primary text-white font-semibold text-sm hover:bg-primary-dark transition-colors whitespace-nowrap"
+              {appIsLive ? (
+                <StoreBadges dark={false} className="justify-center" />
+              ) : (
+                <a
+                  href={APP_BETA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-btn px-8 py-4 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 transition-all no-underline"
                 >
-                  Notify me
-                </button>
-              </form>
-              <p className="text-xs text-text-muted mt-4">
-                No spam. Unsubscribe anytime.
-              </p>
+                  Join the beta <ArrowRight size={18} />
+                </a>
+              )}
+              <p className="text-xs text-text-muted mt-8 leading-relaxed">{appDisclaimer}</p>
             </Reveal>
           </div>
         </section>

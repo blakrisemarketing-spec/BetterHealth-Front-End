@@ -5,10 +5,10 @@ import logo from "../assets/logo.png";
 import { appUrl } from "../lib/app-links";
 
 const NAV_ITEMS = [
+  { label: "The App", route: "/download-app" },
+  { label: "Lab Tests", route: "/book-tests" },
   { label: "How It Works", route: "/how-it-works" },
-  { label: "Tests", route: "/book-tests" },
   { label: "About", route: "/about" },
-  { label: "Stories", route: "/stories" },
   { label: "FAQ", route: "/faq" },
 ];
 
@@ -69,8 +69,8 @@ export default function Nav({ dark = false }) {
             <a href={appUrl()} className={`hidden md:inline-block text-sm font-medium hover:text-primary transition-colors px-4 py-2 no-underline ${!navActive && dark ? "text-white/90" : "text-text-secondary"}`}>
               Sign in
             </a>
-            <Link to="/book-tests" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
-              Book a test
+            <Link to="/download-app" className="bg-primary hover:bg-primary-dark text-white border-none rounded-btn px-5 py-3 min-h-[44px] text-sm font-semibold font-heading transition-all hover:-translate-y-0.5 cursor-pointer no-underline inline-flex items-center">
+              Get the app
             </Link>
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
@@ -103,11 +103,11 @@ export default function Nav({ dark = false }) {
 
           <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
             <Link
-              to="/book-tests"
+              to="/download-app"
               onClick={() => setMobileMenu(false)}
               className="w-full text-center bg-primary hover:bg-primary-dark text-white rounded-btn px-6 py-4 text-base font-bold font-heading transition-all no-underline"
             >
-              Book a test
+              Get the app
             </Link>
             <a
               href={appUrl()}

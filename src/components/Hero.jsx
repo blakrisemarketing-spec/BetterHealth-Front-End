@@ -1,43 +1,13 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { ArrowRight, Smartphone } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import GradientOrb from "./ui/GradientOrb";
 import Badge from "./ui/Badge";
 import PhoneFrame from "./ui/PhoneFrame";
-import { heroStats, trustedPartners } from "../data/content";
+import { trustedPartners } from "../data/content";
+import { appHeroStats, appIsLive, GET_APP_URL } from "../data/app";
+import { heroAppScreens } from "./app/screens";
 import GDPCBadge from "./ui/GDPCBadge";
-
-const heroScreens = [
-  { src: `${import.meta.env.BASE_URL}screenshots/mobile-healthscore.webp`, alt: "Health Score 83/100 with organ system breakdown" },
-  { src: `${import.meta.env.BASE_URL}screenshots/mobile-focus.webp`, alt: "Today's Focus and Celebrate Your Wins" },
-  { src: `${import.meta.env.BASE_URL}screenshots/mobile-biomarker.webp`, alt: "Blood Urea Nitrogen health indicator detail" },
-];
-
-function CountUp({ end, duration = 1800 }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const step = end / (duration / 16);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [inView, end, duration]);
-
-  return <span ref={ref}>{count}</span>;
-}
 
 export default function Hero() {
   return (
@@ -52,39 +22,41 @@ export default function Hero() {
           <Reveal>
             <Badge variant="primary" className="mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-dot" />
-              Ghana&apos;s first health intelligence platform
+              {appIsLive ? "Now on iPhone and Android" : "The BetterHealth app is in beta"}
             </Badge>
           </Reveal>
 
           <Reveal delay={0.1}>
             <h1 className="text-h1 font-extrabold leading-[1.1] font-heading text-text-primary mb-6">
-              Know what&apos;s happening{" "}
+              Your health,{" "}
               <span className="text-primary italic tracking-normal pr-[0.15em]">
-                inside
-              </span>{" "}
-              your body.
+                every day
+              </span>
+              , in one app.
             </h1>
           </Reveal>
 
           <Reveal delay={0.2}>
             <p className="text-lg leading-[1.7] text-text-secondary max-w-[520px] mb-8 font-body">
-              If you are concerned about diabetes, blood pressure, kidney disease, high cholesterol, liver health, fertility, or a private STI concern, BetterHealth gives you the tools to take back control of your health. Book lab tests with a few taps and get easy-to-understand, doctor-reviewed results in the app, with clear explanations and practical next steps.
+              Log your waakye by photo. Record your blood pressure and sugar. Get reminded to take your medicines. Track your steps, your period and your mood. When it is time for a lab test, book it in the same app and get results a clinician has read, explained in plain words.
             </p>
           </Reveal>
 
           <Reveal delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-3 mb-6">
-              <Link
-                to="/how-it-works"
-                className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-white border border-border text-text-primary hover:-translate-y-0.5 hover:shadow-md transition-all no-underline"
-              >
-                See how it works
-              </Link>
-              <Link
-                to="/book-tests"
+              <a
+                href={GET_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-primary hover:bg-primary-dark text-white hover:-translate-y-0.5 hover:shadow-glow-green transition-all no-underline"
               >
-                Book a test <ArrowRight size={18} />
+                <Smartphone size={18} /> {appIsLive ? "Get the app" : "Join the beta"}
+              </a>
+              <Link
+                to="/book-tests"
+                className="inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading bg-white border border-border text-text-primary hover:-translate-y-0.5 hover:shadow-md transition-all no-underline"
+              >
+                Book a lab test <ArrowRight size={18} />
               </Link>
             </div>
           </Reveal>
@@ -98,14 +70,10 @@ export default function Hero() {
 
           <Reveal delay={0.4}>
             <div className="flex gap-8 flex-wrap">
-              {heroStats.map((stat, i) => (
-                <div key={i} className="flex flex-col">
+              {appHeroStats.map((stat) => (
+                <div key={stat.label} className="flex flex-col">
                   <span className="text-xl sm:text-[28px] font-extrabold text-text-primary font-heading tracking-tight">
-                    {stat.value === "127" ? (
-                      <CountUp end={127} />
-                    ) : (
-                      stat.value
-                    )}
+                    {stat.value}
                   </span>
                   <span className="text-[11px] sm:text-[13px] text-text-muted font-medium tracking-wider uppercase">
                     {stat.label}
@@ -130,7 +98,7 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* Right - Phone mockup with real screenshot */}
+        {/* Right - Phone mockup of the app */}
         <Reveal delay={0.3} direction="right" className="w-full md:w-[380px] md:flex-shrink-0 flex justify-center">
           <div
             className="relative md:animate-float"
@@ -142,11 +110,11 @@ export default function Hero() {
               willChange: "transform",
             }}
           >
-            <PhoneFrame screens={heroScreens} interval={3500} />
+            <PhoneFrame screens={heroAppScreens} interval={3500} />
             {/* Floating badge */}
             <div className="absolute -bottom-4 -right-4 bg-primary text-white text-xs font-bold font-heading px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-white animate-pulse-dot" />
-              42 Health Indicators
+              iPhone &amp; Android
             </div>
           </div>
         </Reveal>
