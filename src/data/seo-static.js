@@ -17,6 +17,8 @@ import { GUIDES } from "./guides/index.js";
 import { TOOLS } from "./tools/index.js";
 import { getTestDetail } from "./test-details.js";
 import { getSingleTestDetail } from "./single-test-details.js";
+import { SINGLE_TEST_CODES } from "./app-catalogue.js";
+import pricingSnapshot from "./pricing-snapshot.json";
 
 export const SITE_URL = "https://www.betterhealth.africa";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
@@ -150,7 +152,10 @@ const PANEL_ROUTE_SEO = Object.fromEntries(
 // static offer price, plus FAQPage when the test has FAQs), so the static <head>
 // and the live one agree. Prices here are the content.js fallbacks; the page
 // swaps in the live catalogue price after hydration, as it does for the price
-// copy. The MedicalWebPage node is declared here rather than via MEDICAL_ROUTES
+// copy. The offer price is the baked catalogue snapshot (what the page shows on
+// first paint), falling back to content.js only for a test the snapshot lacks:
+// the content.js fallbacks drift, and crawlers were reading FBC at GHS 150 when
+// it sells for GHS 49. The MedicalWebPage node is declared here rather than via MEDICAL_ROUTES
 // because the auto-derived name would be the whole "<test>: <subtitle>" title.
 const SINGLE_TEST_ROUTE_SEO = Object.fromEntries(
   singleTests.flatMap((base) => {
@@ -179,7 +184,9 @@ const SINGLE_TEST_ROUTE_SEO = Object.fromEntries(
         offers: {
           "@type": "Offer",
           priceCurrency: "GHS",
-          price: String(test.price).replace(/[^\d.]/g, ""),
+          price: String(
+            pricingSnapshot.testsByCode?.[SINGLE_TEST_CODES[test.slug]]?.amount ?? test.price,
+          ).replace(/[^\d.]/g, ""),
           url,
           availability: "https://schema.org/InStock",
         },
