@@ -118,9 +118,22 @@ function stripHealthConcern(meta = {}) {
   return safe;
 }
 
+/**
+ * Tool and guide slugs name a condition (`tool:diabetes-risk`,
+ * `guide:hepatitis-b`), so only the kind of form leaves the site, for the same
+ * reasons as stripHealthConcern. The full slug still reaches our own API with
+ * the lead. Waitlist and partner sources carry no condition and are kept.
+ */
+function adSafeLeadSource(source) {
+  if (!source) return null;
+  const kind = source.split(":")[0];
+  return kind === "tool" || kind === "guide" ? kind : source;
+}
+
 export function trackLead({ source } = {}) {
-  fbq("track", "Lead", source ? { content_category: source } : {});
-  dataLayerPush({ event: "generate_lead", lead_source: source || null });
+  const safe = adSafeLeadSource(source);
+  fbq("track", "Lead", safe ? { content_category: safe } : {});
+  dataLayerPush({ event: "generate_lead", lead_source: safe });
 }
 
 /**
