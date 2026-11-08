@@ -149,7 +149,7 @@ export default function Footer() {
           <span className="text-[13px] text-text-muted-dark/60">
             &copy; 2026 BetterHealth Africa. All rights reserved. Made in Ghana 🇬🇭
           </span>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {["MTN MoMo", "Vodafone Cash", "AirtelTigo", "Visa", "Mastercard"].map((m) => (
               <span
                 key={m}
