@@ -69,6 +69,12 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window,document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
+        // Meta's automatic events read button text and page metadata on every
+        // page (a time slot on /consultation/wellness/ was sent as innerText),
+        // which can carry a health concern past stripHealthConcern(). Off here,
+        // before init, so only the events in src/lib/analytics.js are sent.
+        // Automatic advanced matching is a separate switch in Events Manager.
+        fbq('set', 'autoConfig', false, '2118966258986670');
         fbq('init', '2118966258986670');
         fbq('track', 'PageView');
       }
