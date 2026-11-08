@@ -31,8 +31,8 @@ meta:
   primary_language: en
   focus: patients-led
   cadence: "5 articles/night, one PR (batch); see seo/playbook.md"
-  updated: 2026-07-26
-  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo — these were reported confirmed on 2026-07-05/07-12 but the volume fields were never written back to this file; corrected that week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. 2026-07-26: GSC access unblocked after 6 weeks — sitemap-status shows 70 URLs submitted, 0 indexed; URL Inspection on a 10-article sample reads mostly 'Discovered - currently not indexed' (Google has found the pages via the 2026-07-23 sitemap submission but hasn't crawled/indexed them yet — the ordinary state for a young low-authority domain, not a technical block). Re-checked SERP position for all 51 published articles' primary keywords: unchanged, all 'not in top 20'. No reprioritization made this week — no ranking/impression data yet differentiates one todo keyword from another; see weekly-2026-W31 report.)"
+  updated: 2026-11-08
+  keyword_data: "DataForSEO multi-market (Ghana 2026-06 confirmed; Nigeria/Kenya pan-Africa expansion volumes confirmed 2026-07-05 for blood group/widal/genotype/PSA/G6PD/malaria/HIV/uric acid/hepatitis B/urinalysis/premarital/Nairobi/hepatitis C; 2026-07-12 confirmed G6PD 390/mo, urinalysis 110/mo, vitamin B12 10/mo, antenatal blood tests 10/mo, blood test Lagos 10/mo Ghana/Nigeria; 2026-07-19 re-confirmed malaria test 320/mo, widal test 1000/mo, hepatitis B test 110/mo, liver function test results explained 10/mo — these were reported confirmed on 2026-07-05/07-12 but the volume fields were never written back to this file; corrected that week. h pylori/stool/CRP/screening-nigeria/screening-kenya/cost-of-screening/full-body-checkup/home-vs-lab/local-accra/local-kumasi still show no DataForSEO data. 2026-07-26: GSC access unblocked after 6 weeks — sitemap-status shows 70 URLs submitted, 0 indexed; URL Inspection on a 10-article sample reads mostly 'Discovered - currently not indexed' (Google has found the pages via the 2026-07-23 sitemap submission but hasn't crawled/indexed them yet — the ordinary state for a young low-authority domain, not a technical block). Re-checked SERP position for all 51 published articles' primary keywords: unchanged, all 'not in top 20'. No reprioritization made this week — no ranking/impression data yet differentiates one todo keyword from another; see weekly-2026-W31 report. 2026-11-08: first GSC content queries (lipid panel, uric acid, KFT); 66 published article keywords re-checked, all still not in top 20; added art-kft-uric-acid and art-lipid-panel-cost from GSC gaps and moved them ahead of pcos/local items; see weekly-2026-W45 report.)"
 
 items:
   # ---- Published (foundation PR) — never reorder ----
@@ -952,6 +952,32 @@ items:
     title: "Prolactin Test: What a High or Low Result Means for Fertility and Cycles"
     status: todo
     notes: "prolactin test 720/mo Nigeria, LOW competition (DataForSEO, confirmed 2026-07-25). Genuinely within BetterHealth's catalogue (Reproductive Hormones panel per src/data/content.js). Cross-link perimenopause-menopause-test and sperm-count-fertility-test for the hormone-panel cluster."
+
+  - id: art-kft-uric-acid
+    type: article
+    cluster: biomarkers
+    slug: kft-test-uric-acid-kidney-function
+    keyword: kft test
+    market: nigeria
+    volume: 110
+    secondary: ["does kft show uric acid (GSC, no volume data)", "kidney function test uric acid", "uric acid test normal range (90 Nigeria)"]
+    intent: informational
+    title: "KFT (Kidney Function Test): What It Includes and Whether It Shows Uric Acid"
+    status: todo
+    notes: "Added 2026-11-08 from GSC: 'does kft show uric acid' got 3 impressions (pos 40.7) with no matching page. kft test 110/mo Nigeria, 70 Ghana, LOW competition. Link to creatinine-egfr-kidney-function and uric-acid-gout-test."
+
+  - id: art-lipid-panel-cost
+    type: article
+    cluster: decision
+    slug: lipid-panel-test-cost-africa
+    keyword: lipid panel test cost
+    market: nigeria
+    volume: 110
+    secondary: ["lipid profile test price (110 Nigeria, 90 Kenya, 40 Ghana)", "lipid panel test (2400 Nigeria)"]
+    intent: commercial
+    title: "Lipid Panel Test Cost: What Affects the Price and What You Get"
+    status: todo
+    notes: "Added 2026-11-08 from GSC: /test/lipid-panel/ has 18 impressions at pos 39.6 and the site is being shown for lipid panel cost/price/testing queries. Do not state prices unless verifiable; explain price drivers and what is included. Link to lipid-profile-cholesterol-test."
 
   - id: art-pcos-test
     type: article
