@@ -146,3 +146,15 @@ body {
 [data-look="dark"] .l-logo {
   filter: brightness(0) invert(1);
 }
+@keyframes skyA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6%, 4%) scale(1.08); }
+}
+@keyframes skyB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6%, 6%) scale(1.1); }
+}
+[data-look="dark"] .l-sky { opacity: 0.22; }
+[data-look="dark"] .bento { background: var(--l-card) !important; }
+[data-look="dark"] .bento h3 { color: var(--l-ink) !important; }
+[data-look="dark"] .bento p { color: var(--l-muted) !important; }

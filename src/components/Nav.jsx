@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
 import { loginUrl } from "../lib/app-links";
 import StoreButtons from "./launch/StoreButtons";
+import { GET_APP_URL, appIsLive } from "../data/app";
 
 const NAV_ITEMS = [
   { label: "The App", route: "/download-app" },
@@ -36,44 +37,57 @@ export default function Nav({ dark = false }) {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${solid ? "shadow-[0_1px_0_var(--l-line)]" : ""}`}
-        style={solid ? { background: "var(--l-nav)", backdropFilter: "saturate(180%) blur(18px)", WebkitBackdropFilter: "saturate(180%) blur(18px)" } : {}}
-      >
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 h-[68px] md:h-[76px] flex items-center justify-between gap-6">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3">
+        <div
+          className={`max-w-[1080px] mx-auto pl-4 pr-2 sm:pl-6 h-[60px] flex items-center justify-between gap-6 rounded-full border transition-all duration-300 ${
+            solid || !onDark ? "border-l-line shadow-[0_8px_30px_-12px_rgba(0,0,0,0.18)]" : "border-white/15"
+          }`}
+          style={{
+            background: solid || !onDark ? "var(--l-nav)" : "rgba(255,255,255,0.08)",
+            backdropFilter: "saturate(180%) blur(18px)",
+            WebkitBackdropFilter: "saturate(180%) blur(18px)",
+          }}
+        >
           <Link to="/" className="flex items-center shrink-0" aria-label="BetterHealth Africa home">
             <img
               src={logo}
               alt="BetterHealth Africa"
-              className={`l-logo h-9 md:h-10 w-auto object-contain max-w-[170px] transition-all duration-300 ${onDark ? "brightness-0 invert" : ""}`}
+              className={`l-logo h-8 md:h-9 w-auto object-contain max-w-[160px] transition-all duration-300 ${onDark ? "brightness-0 invert" : ""}`}
             />
           </Link>
 
-          <div className="hidden lg:flex gap-8 items-center">
+          <div className="hidden lg:flex gap-7 items-center">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.route}
                 to={item.route}
-                className={`text-[15px] font-semibold no-underline transition-colors ${onDark ? "text-white/90 hover:text-white" : "text-l-muted hover:text-l-ink"}`}
+                className={`text-[14.5px] font-semibold no-underline transition-colors ${onDark ? "text-white/90 hover:text-white" : "text-l-muted hover:text-l-ink"}`}
               >
                 {item.label}
               </Link>
             ))}
             <a
               href={loginUrl()}
-              className={`text-[15px] font-semibold no-underline transition-colors ${onDark ? "text-white/90 hover:text-white" : "text-l-muted hover:text-l-ink"}`}
+              className={`text-[14.5px] font-semibold no-underline transition-colors ${onDark ? "text-white/90 hover:text-white" : "text-l-muted hover:text-l-ink"}`}
             >
               Sign in
             </a>
           </div>
 
           <div className="flex items-center gap-2">
-            <StoreButtons size="sm" tone={onDark ? "light" : "dark"} className="hidden md:flex !gap-2 flex-nowrap" />
+            <a
+              href={GET_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`hidden sm:inline-flex items-center h-11 px-5 rounded-full text-[14.5px] font-bold no-underline transition-all hover:opacity-90 ${onDark ? "bg-white text-[#0A0A0A]" : "bg-l-btn text-l-btn-fg"}`}
+            >
+              {appIsLive ? "Download the app" : "Join the beta"}
+            </a>
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
               aria-label={mobileMenu ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenu}
-              className={`lg:hidden w-11 h-11 rounded-full flex items-center justify-center border-none cursor-pointer transition-colors ${onDark ? "bg-white/10 text-white" : "bg-l-card text-l-ink"}`}
+              className={`lg:hidden w-11 h-11 rounded-full flex items-center justify-center border-none cursor-pointer transition-colors ${onDark ? "bg-white/10 text-white" : "bg-l-alt text-l-ink"}`}
             >
               {mobileMenu ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -82,7 +96,7 @@ export default function Nav({ dark = false }) {
       </nav>
 
       {mobileMenu && (
-        <div className="fixed top-[68px] md:top-[76px] left-0 right-0 bottom-0 px-5 pt-4 pb-8 flex flex-col lg:hidden z-[9999] overflow-y-auto bg-l-bg">
+        <div className="fixed top-[76px] left-0 right-0 bottom-0 px-5 pt-4 pb-8 flex flex-col lg:hidden z-[9999] overflow-y-auto bg-l-bg">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.route}

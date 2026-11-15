@@ -44,9 +44,9 @@ export default function StoreButtons({ size = "md", className = "", tone = "dark
     tone === "light"
       ? "bg-white text-[#0A0A0A] hover:bg-white/90"
       : "bg-l-btn text-l-btn-fg hover:opacity-90";
-  const pad = big ? "h-[60px] px-5 gap-3 rounded-[14px]" : sm ? "h-[40px] px-3 gap-2 rounded-[10px]" : "h-[52px] px-4 gap-2.5 rounded-[12px]";
+  const pad = big ? "h-[50px] px-3.5 gap-2 rounded-[12px] sm:h-[60px] sm:px-5 sm:gap-3 sm:rounded-[14px]" : sm ? "h-[40px] px-3 gap-2 rounded-[10px]" : "h-[52px] px-4 gap-2.5 rounded-[12px]";
   return (
-    <div className={`flex flex-wrap gap-3 ${className}`}>
+    <div className={`flex flex-wrap gap-2.5 sm:gap-3 ${className}`}>
       {badges.map((b) => (
         <a
           key={b.name}
@@ -57,8 +57,8 @@ export default function StoreButtons({ size = "md", className = "", tone = "dark
         >
           {b.icon}
           <span className="flex flex-col leading-none text-left">
-            <span className={`${big ? "text-[11px]" : sm ? "text-[8.5px]" : "text-[10px]"} font-semibold opacity-80 mb-[3px]`}>{b.top}</span>
-            <span className={`${big ? "text-[21px]" : sm ? "text-[14px]" : "text-[18px]"} font-bold tracking-[-0.01em]`}>{b.name}</span>
+            <span className={`${big ? "text-[9.5px] sm:text-[11px]" : sm ? "text-[8.5px]" : "text-[10px]"} font-semibold opacity-80 mb-[3px]`}>{b.top}</span>
+            <span className={`${big ? "text-[17px] sm:text-[21px]" : sm ? "text-[14px]" : "text-[18px]"} font-bold tracking-[-0.01em]`}>{b.name}</span>
           </span>
         </a>
       ))}

@@ -2,6 +2,7 @@ import { Check, Activity, UtensilsCrossed } from "lucide-react";
 import Phone from "./Phone";
 import StoreButtons from "./StoreButtons";
 import { FoodScreen, HomeScreen, ReadingsScreen } from "../app/AppScreenMockups";
+import { Sky } from "./LaunchExtras";
 import heroPerson from "../../assets/launch/hero-person.webp";
 
 const COPY = {
@@ -40,7 +41,7 @@ const MED_CHIP = { icon: <Check size={18} strokeWidth={3} />, title: "Metformin 
 
 function Pill() {
   return (
-    <div className="inline-flex items-center gap-2 bg-l-card rounded-full pl-2.5 pr-4 py-1.5 border border-l-line mb-7">
+    <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur rounded-full pl-2.5 pr-4 py-1.5 border border-l-line mb-7">
       <span className="text-base leading-none" aria-hidden="true">🇬🇭</span>
       <span className="text-[13px] font-semibold text-l-ink">{COPY.pill}</span>
     </div>
@@ -62,15 +63,11 @@ function Checks({ className = "" }) {
 /* Variant A: centred headline, one big phone with two more fanned behind it. */
 function CentredHero() {
   return (
-    <section className="relative overflow-hidden pt-[112px] md:pt-[140px] px-4 sm:px-6">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(50% 40% at 50% 78%, var(--l-tint) 0%, transparent 72%)" }}
-      />
+    <section className="relative overflow-hidden pt-[124px] md:pt-[150px] px-4 sm:px-6">
+      <Sky />
       <div className="relative max-w-[860px] mx-auto text-center">
         <Pill />
-        <h1 className="l-head text-l-ink leading-[0.98] text-[54px] sm:text-[78px] lg:text-[96px] mb-6"><Title /></h1>
+        <h1 className="l-head text-l-ink leading-[0.96] text-[56px] sm:text-[84px] lg:text-[108px] mb-7"><Title /></h1>
         <p className="text-[18px] sm:text-[20px] leading-[1.55] text-l-muted font-medium max-w-[540px] mx-auto mb-9">{COPY.sub}</p>
         <StoreButtons size="lg" className="justify-center mb-6" />
         <Checks className="justify-center" />
