@@ -7,7 +7,7 @@
 function Shot({ src }) {
   return (
     <img
-      src={`/app-screens/${src}-v1.webp`}
+      src={`/app-screens/${src}.webp`}
       alt=""
       decoding="async"
       draggable="false"
@@ -17,37 +17,41 @@ function Shot({ src }) {
 }
 
 export function HomeScreen() {
-  return <Shot src="home" />;
+  return <Shot src="home-v2" />;
 }
 
 export function FoodScreen() {
-  return <Shot src="food" />;
+  return <Shot src="food-v1" />;
 }
 
 export function FoodMealsScreen() {
-  return <Shot src="food-meals" />;
+  return <Shot src="food-meals-v1" />;
 }
 
 export function FoodTotalScreen() {
-  return <Shot src="food" />;
+  return <Shot src="food-v1" />;
 }
 
 export function ReadingsScreen() {
-  return <Shot src="bp" />;
+  return <Shot src="bp-v1" />;
 }
 
 export function ResultsScreen() {
-  return <Shot src="myhealth" />;
+  return <Shot src="myhealth-v1" />;
 }
 
 export function MedicinesScreen() {
-  return <Shot src="medicines" />;
+  return <Shot src="medicines-v1" />;
 }
 
 export function WaterScreen() {
-  return <Shot src="water" />;
+  return <Shot src="water-v2" />;
+}
+
+export function ExerciseScreen() {
+  return <Shot src="exercise-v1" />;
 }
 
 export function PlanScreen() {
-  return <Shot src="onb-plan" />;
+  return <Shot src="onb-plan-v1" />;
 }

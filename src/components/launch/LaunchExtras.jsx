@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Apple, HeartPulse, Smartphone, CreditCard } from "lucide-react";
 import Reveal from "../ui/Reveal";
 import Phone from "./Phone";
-import { HomeScreen, FoodScreen, ReadingsScreen, MedicinesScreen } from "../app/AppScreenMockups";
+import { HomeScreen, FoodScreen, WaterScreen, ExerciseScreen } from "../app/AppScreenMockups";
 
 /* A soft morning sky behind the hero: warm sun, mint and blue light that
    drift slowly, fading to the page colour at the bottom. Pure CSS. */
@@ -72,13 +72,13 @@ export function Statement() {
 /* Feature cards in a bento grid, each with a phone rising from the bottom. */
 const CARDS = [
   { title: "Log food with a photo", desc: "Snap it, describe it or scan it. Over 480 local foods, even TZ and gob3.", from: "#FFEBDC", to: "#FFD9BF", screen: <FoodScreen />, label: "Food log with Ghanaian meals" },
-  { title: "Blood pressure and sugar", desc: "Record a reading in seconds. See your week at a glance.", from: "#F4E8F6", to: "#E6D3EE", screen: <ReadingsScreen />, label: "Blood pressure readings over a week" },
-  { title: "Medicine reminders", desc: "A reminder at the exact time. Mark each dose taken.", from: "#FCE6EE", to: "#F6D0DE", screen: <MedicinesScreen />, label: "Medicine reminders with doses marked taken" },
+  { title: "Drink enough water", desc: "Tap a sachet each time you drink. See how close you are to the day's amount.", from: "#E3EEFB", to: "#CFE1F7", screen: <WaterScreen />, label: "Water log showing four sachets today" },
+  { title: "Move every day", desc: "Record a walk or start a workout. Watch your minutes add up.", from: "#EFE8FA", to: "#DFD3F3", screen: <ExerciseScreen />, label: "Workouts screen with 22 minutes of exercise today" },
 ];
 
 function BentoPhone({ children, label }) {
   return (
-    <div className="mt-8 flex justify-center h-[300px] sm:h-[340px] overflow-hidden">
+    <div className="mt-auto pt-8 flex justify-center h-[332px] sm:h-[372px] overflow-hidden">
       <div className="translate-y-0 transition-transform duration-500 group-hover:-translate-y-3">
         <Phone label={label} scale={0.78}>{children}</Phone>
       </div>
@@ -97,8 +97,8 @@ export function Bento() {
       </Reveal>
       <div className="max-w-[1180px] mx-auto mt-14 grid md:grid-cols-3 gap-4">
         {CARDS.map((c, i) => (
-          <Reveal key={c.title} delay={i * 0.08}>
-            <div className="bento group h-full rounded-[32px] overflow-hidden px-7 sm:px-8 pt-8 sm:pt-9" style={{ background: `linear-gradient(180deg, ${c.from}, ${c.to})` }}>
+          <Reveal key={c.title} delay={i * 0.08} className="h-full">
+            <div className="bento group h-full flex flex-col rounded-[32px] overflow-hidden px-7 sm:px-8 pt-8 sm:pt-9" style={{ background: `linear-gradient(180deg, ${c.from}, ${c.to})` }}>
               <h3 className="l-head text-[#0A0A0A] text-[26px] sm:text-[28px] leading-[1.1] !tracking-[-0.025em] mb-2">{c.title}</h3>
               <p className="text-[15.5px] leading-[1.55] text-[#0A0A0A]/60 font-medium">{c.desc}</p>
               <BentoPhone label={c.label}>{c.screen}</BentoPhone>
@@ -115,7 +115,7 @@ export function Bento() {
             </div>
             <div className="flex justify-center md:justify-end h-[320px] sm:h-[380px] overflow-hidden md:pt-10">
               <div className="transition-transform duration-500 group-hover:-translate-y-3">
-                <Phone label="Home screen with food, water and exercise rings" scale={0.82}><HomeScreen /></Phone>
+                <Phone label="Home screen with a full week of healthy days and food, water and exercise rings" scale={0.82}><HomeScreen /></Phone>
               </div>
             </div>
           </div>
