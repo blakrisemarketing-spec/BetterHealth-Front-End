@@ -23,7 +23,6 @@ export default function Phone({ children, label, scale = 1, className = "", styl
           }}
         >
           <div className="relative w-full h-full rounded-[39px] overflow-hidden bg-cream" style={{ isolation: "isolate" }}>
-            <div aria-hidden="true" className="absolute top-[10px] left-1/2 -translate-x-1/2 w-[86px] h-[25px] rounded-full bg-black z-20" />
             {children}
           </div>
         </div>

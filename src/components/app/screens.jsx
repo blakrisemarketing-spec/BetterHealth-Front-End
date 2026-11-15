@@ -5,9 +5,9 @@ import { HomeScreen, FoodScreen, ReadingsScreen, ResultsScreen, MedicinesScreen 
 
 export const APP_SCREENS = {
   home: { key: "home", node: <HomeScreen />, alt: "BetterHealth app home: food, water and exercise rings and today's three healthy-day goals" },
-  food: { key: "food", node: <FoodScreen />, alt: "Food log with Ghanaian meals and photo, describe and barcode logging" },
-  readings: { key: "readings", node: <ReadingsScreen />, alt: "Blood pressure readings charted over a week with reminders" },
-  results: { key: "results", node: <ResultsScreen />, alt: "Lab results read by a clinician, each shown against its range" },
+  food: { key: "food", node: <FoodScreen />, alt: "Food log with hausa koko, koose, waakye and egg" },
+  readings: { key: "readings", node: <ReadingsScreen />, alt: "Blood pressure readings falling over a week" },
+  results: { key: "results", node: <ResultsScreen />, alt: "My Health: lab results with a health score and each result against its range" },
   medicines: { key: "medicines", node: <MedicinesScreen />, alt: "Medicine reminders with doses marked taken" },
 };
 
