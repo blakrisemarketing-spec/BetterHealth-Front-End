@@ -56,3 +56,93 @@ body {
     transition: none;
   }
 }
+
+/* ── Launch homepage looks (src/lib/home-experiment.js) ──
+   :root holds the cream look the rest of the site uses, so the shared nav and
+   footer keep it on other pages. The homepage sets data-look on its wrapper. */
+:root {
+  --l-bg: #F7F4EC;
+  --l-alt: #FFFFFF;
+  --l-card: #FFFFFF;
+  --l-ink: #1E2A27;
+  --l-muted: #5F6B67;
+  --l-accent: #1F5C48;
+  --l-tint: #E1EEE7;
+  --l-line: #E6E0D4;
+  --l-btn: #1E2A27;
+  --l-btn-fg: #FFFFFF;
+  --l-band: #1F5C48;
+  --l-band-soft: #9CCBB5;
+  --l-nav: rgba(247, 244, 236, 0.82);
+  --l-font: "Quicksand", system-ui, -apple-system, sans-serif;
+  --l-head-weight: 700;
+  --l-track: -0.035em;
+}
+[data-look="white"] {
+  --l-bg: #FFFFFF;
+  --l-alt: #F5F5F3;
+  --l-card: #F5F5F3;
+  --l-ink: #0A0A0A;
+  --l-muted: #5C5C5C;
+  --l-accent: #1F7A55;
+  --l-tint: #E7F3EC;
+  --l-line: #E8E8E6;
+  --l-btn: #0A0A0A;
+  --l-btn-fg: #FFFFFF;
+  --l-band: #0A0A0A;
+  --l-band-soft: #7FD3A8;
+  --l-nav: rgba(255, 255, 255, 0.85);
+  --l-font: "Inter", system-ui, -apple-system, sans-serif;
+  --l-head-weight: 700;
+  --l-track: -0.045em;
+}
+[data-look="dark"] {
+  --l-bg: #0C110F;
+  --l-alt: #121916;
+  --l-card: #171F1B;
+  --l-ink: #F3EFE7;
+  --l-muted: #A2ACA7;
+  --l-accent: #5BE0A4;
+  --l-tint: rgba(91, 224, 164, 0.12);
+  --l-line: rgba(255, 255, 255, 0.09);
+  --l-btn: #F3EFE7;
+  --l-btn-fg: #0C110F;
+  --l-band: #171F1B;
+  --l-band-soft: #5BE0A4;
+  --l-nav: rgba(12, 17, 15, 0.78);
+  --l-font: "Quicksand", system-ui, -apple-system, sans-serif;
+  --l-head-weight: 700;
+  --l-track: -0.035em;
+}
+[data-look="bright"] {
+  --l-bg: #EEF6F0;
+  --l-alt: #FFFFFF;
+  --l-card: #FFFFFF;
+  --l-ink: #0F2219;
+  --l-muted: #56645D;
+  --l-accent: #0E9F5A;
+  --l-tint: #CDEFD9;
+  --l-line: #D9E7DD;
+  --l-btn: #0F2219;
+  --l-btn-fg: #FFFFFF;
+  --l-band: #0E9F5A;
+  --l-band-soft: #C9F2DA;
+  --l-nav: rgba(238, 246, 240, 0.85);
+  --l-font: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --l-head-weight: 800;
+  --l-track: -0.04em;
+}
+[data-look] {
+  font-family: var(--l-font);
+}
+[data-look] .font-heading,
+[data-look] .font-body {
+  font-family: var(--l-font);
+}
+.l-head {
+  font-weight: var(--l-head-weight);
+  letter-spacing: var(--l-track);
+}
+[data-look="dark"] .l-logo {
+  filter: brightness(0) invert(1);
+}

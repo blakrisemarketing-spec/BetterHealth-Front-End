@@ -219,3 +219,16 @@ export function trackBookingIntentConsultation({ variant } = {}) {
     landing_variant: variant || null,
   });
 }
+
+/**
+ * Which homepage design a visitor was shown (look and hero), once per
+ * session, so GA4 can split sign-ups and app-store clicks by variant. Only
+ * the variant names are sent, never anything about the person.
+ */
+export function trackExperimentView({ experiment, variant } = {}) {
+  dataLayerPush({
+    event: "experiment_view",
+    experiment_id: String(experiment || "").slice(0, 40),
+    variant_id: String(variant || "").slice(0, 40),
+  });
+}

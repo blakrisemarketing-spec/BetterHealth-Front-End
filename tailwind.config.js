@@ -4,6 +4,25 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Launch homepage looks: CSS variables set in index.css per data-look
+        "l-bg": "var(--l-bg)",
+        "l-alt": "var(--l-alt)",
+        "l-card": "var(--l-card)",
+        "l-ink": "var(--l-ink)",
+        "l-muted": "var(--l-muted)",
+        "l-accent": "var(--l-accent)",
+        "l-tint": "var(--l-tint)",
+        "l-line": "var(--l-line)",
+        "l-btn": "var(--l-btn)",
+        "l-btn-fg": "var(--l-btn-fg)",
+        "l-band": "var(--l-band)",
+        "l-band-soft": "var(--l-band-soft)",
+        // Launch palette, taken from the mobile app (mobile/src/ui/theme.ts)
+        cream: "#F7F4EC",
+        ink: "#1E2A27",
+        forest: "#1F5C48",
+        "forest-dark": "#17483A",
+        mint: "#E1EEE7",
         // Page & Layout
         base: "#F5F3EE",
         "section-alt": "#EBE9E3",

@@ -5,16 +5,16 @@
 import { Home, HeartPulse, Trophy, BookOpen, Plus, Camera, MessageSquareText, ScanBarcode, Check, Bell } from "lucide-react";
 
 const C = {
-  bg: "#F4F0E8",
+  bg: "#F5F1E8",
   card: "#FFFFFF",
   chip: "#EAE4D8",
-  green: "#1F5C4A",
-  ink: "#1E2A26",
-  muted: "#6F6A62",
-  food: "#2E8B67",
-  water: "#3B82C4",
-  move: "#7B5CC8",
-  orange: "#E07A2E",
+  green: "#1F5C48",
+  ink: "#1E2A27",
+  muted: "#5F6B67",
+  food: "#2F8F6B",
+  water: "#3B86C8",
+  move: "#7B62C9",
+  orange: "#D9772B",
   amber: "#B7791F",
 };
 
