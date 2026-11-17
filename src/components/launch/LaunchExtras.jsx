@@ -69,6 +69,75 @@ export function Statement() {
   );
 }
 
+/* Photo to food log: the phone camera on a plate of ampesi, then the app's
+   real result for that photo. The kcal labels are the values the app
+   returned for this exact photo (staging, 17 Nov 2026); keep them in step
+   with food-scan-v1.webp if either changes. The plate photo is AI-made. */
+const SCAN_LABELS = [
+  { name: "Boiled plantain", kcal: 272, className: "left-[318px] top-[96px] [animation-delay:0s]" },
+  { name: "Kontomire stew", kcal: 505, className: "left-[586px] top-[58px] [animation-delay:1.2s]" },
+  { name: "Boiled yam", kcal: 391, className: "left-[292px] top-[180px] [animation-delay:2.4s]" },
+  { name: "Egg", kcal: 72, className: "left-[640px] top-[204px] [animation-delay:0.6s]" },
+];
+
+function CameraView() {
+  const corner = "absolute w-12 h-12 border-white border-[3px]";
+  return (
+    <div className="absolute inset-0">
+      <img src="/app-screens/ampesi-camera-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" width="552" height="1208" />
+      <div className="absolute inset-0 bg-black/10" />
+      <div className="absolute left-[14%] right-[14%] top-[28%] bottom-[30%]">
+        <span className={`${corner} left-0 top-0 border-r-0 border-b-0 rounded-tl-2xl`} />
+        <span className={`${corner} right-0 top-0 border-l-0 border-b-0 rounded-tr-2xl`} />
+        <span className={`${corner} left-0 bottom-0 border-r-0 border-t-0 rounded-bl-2xl`} />
+        <span className={`${corner} right-0 bottom-0 border-l-0 border-t-0 rounded-br-2xl`} />
+      </div>
+      <div className="absolute bottom-[34px] left-1/2 -translate-x-1/2 w-[66px] h-[66px] rounded-full border-[4px] border-white flex items-center justify-center">
+        <span className="w-[52px] h-[52px] rounded-full bg-white" />
+      </div>
+    </div>
+  );
+}
+
+export function ScanShowcase() {
+  return (
+    <section className="pt-8 pb-24 md:pb-32 px-4 sm:px-6 overflow-hidden">
+      <Reveal>
+        <div className="text-center max-w-[720px] mx-auto px-2">
+          <h2 className="l-head leading-[1.04] text-[38px] sm:text-[52px] lg:text-[60px] text-l-ink">Snap your plate.</h2>
+          <p className="mt-5 text-[17px] sm:text-[19px] leading-[1.55] font-medium text-l-muted">
+            Take a photo of your food. BetterHealth names each food and estimates how much, then you check it and save.
+          </p>
+        </div>
+      </Reveal>
+      <Reveal>
+        <div className="relative mx-auto mt-10 md:mt-14 w-full h-[318px] sm:h-[560px] lg:h-[700px]">
+          <div className="absolute left-1/2 top-0 w-[760px] h-[700px] -translate-x-1/2 origin-top scale-[0.45] sm:scale-[0.8] lg:scale-100">
+            <div className="absolute left-[10px] top-[60px] rotate-[-7deg]">
+              <Phone label="The phone camera pointed at a plate of ampesi and kontomire stew"><CameraView /></Phone>
+            </div>
+            <svg aria-hidden="true" className="absolute left-[292px] top-[330px] w-[120px] h-[90px] text-l-ink" viewBox="0 0 120 90" fill="none">
+              <path d="M4 60 C 30 70, 52 64, 58 40 C 63 20, 44 14, 40 32 C 36 52, 70 66, 108 52" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+              <path d="M96 44 L 110 51 L 98 62" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div className="absolute left-[420px] top-0 rotate-[5deg]">
+              <Phone label="BetterHealth result: ampesi and kontomire stew, about 1,396 kcal across five foods">
+                <img src="/app-screens/food-scan-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
+              </Phone>
+            </div>
+            {SCAN_LABELS.map((l) => (
+              <div key={l.name} aria-hidden="true" className={`absolute z-10 bg-white rounded-[20px] px-5 py-3 text-center shadow-[0_18px_40px_-12px_rgba(0,0,0,0.3)] animate-float ${l.className}`}>
+                <div className="text-[19px] font-bold text-[#1E2A27] whitespace-nowrap leading-tight">{l.name}</div>
+                <div className="text-[24px] font-extrabold text-[#1E2A27] leading-tight">{l.kcal} <span className="text-[16px] font-bold text-[#5F6B67]">kcal</span></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 /* Feature cards in a bento grid, each with a phone rising from the bottom. */
 const CARDS = [
   { title: "Log food with a photo", desc: "Snap it, describe it or scan it. Over 480 local foods, even TZ and gob3.", from: "#FFEBDC", to: "#FFD9BF", screen: <FoodScreen />, label: "Food log with Ghanaian meals" },

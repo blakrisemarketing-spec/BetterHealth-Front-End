@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import LaunchHero from "../components/launch/LaunchHero";
-import { WorksWith, Statement, Bento } from "../components/launch/LaunchExtras";
+import { WorksWith, Statement, ScanShowcase, Bento } from "../components/launch/LaunchExtras";
 import {
   WhyCards, LabBand, Bundles, Testimonials, Founder, MoreGrid, LaunchFAQ, LaunchCTA,
 } from "../components/launch/LaunchSections";
@@ -71,6 +71,7 @@ export default function Home() {
         <LaunchHero variant={variant.hero} />
         <WorksWith />
         <Statement />
+        <ScanShowcase />
         <Bento />
         <WhyCards />
         <LabBand />
