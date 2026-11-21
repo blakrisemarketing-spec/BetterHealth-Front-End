@@ -1,9 +1,6 @@
-import { Check, Activity } from "lucide-react";
-import Phone from "./Phone";
+import { Check } from "lucide-react";
 import StoreButtons from "./StoreButtons";
-import { FoodScreen } from "../app/AppScreenMockups";
 import { Sky, ScanStage } from "./LaunchExtras";
-import heroPerson from "../../assets/launch/hero-person.webp";
 
 const COPY = {
   pill: "Made in Ghana",
@@ -20,23 +17,6 @@ function Title() {
     </>
   );
 }
-
-function Chip({ icon, title, sub, className = "", tint }) {
-  return (
-    <div className={`absolute z-30 flex items-center gap-2.5 bg-white rounded-2xl pl-2.5 pr-4 py-2.5 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.3)] ${className}`}>
-      <span className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: tint.bg, color: tint.fg }}>
-        {icon}
-      </span>
-      <span className="flex flex-col leading-tight">
-        <span className="text-[13px] font-bold text-[#1E2A27] whitespace-nowrap">{title}</span>
-        <span className="text-[11.5px] font-semibold text-[#5F6B67] whitespace-nowrap">{sub}</span>
-      </span>
-    </div>
-  );
-}
-
-const BP_CHIP = { icon: <Activity size={18} strokeWidth={2.4} />, title: "124/80 mmHg", sub: "Blood pressure, 7:40 am", tint: { bg: "#F1E3EF", fg: "#8E4585" } };
-const MED_CHIP = { icon: <Check size={18} strokeWidth={3} />, title: "Metformin 500 mg", sub: "Taken at 8:00 am", tint: { bg: "#E1EEE7", fg: "#1F5C48" } };
 
 function Pill() {
   return (
@@ -80,7 +60,7 @@ function CentredHero() {
   );
 }
 
-/* Variant B: copy on the left, a photo of someone using the app on the right. */
+/* Variant B: copy on the left, the photo scan on the right. */
 function PhotoHero() {
   return (
     <section className="relative overflow-hidden pt-[104px] md:pt-[132px] pb-16 md:pb-24 px-4 sm:px-6">
@@ -93,24 +73,7 @@ function PhotoHero() {
           <Checks className="justify-center lg:justify-start" />
         </div>
 
-        <div className="relative mx-auto w-full max-w-[520px] pl-10 sm:pl-20 pb-12">
-          <div className="relative rounded-[36px] overflow-hidden aspect-[4/5] bg-l-card">
-            <img
-              src={heroPerson}
-              alt="A woman at her table checking her phone, with a plate of waakye and a glass of water in front of her"
-              className="absolute inset-0 w-full h-full object-cover object-[center_88%]"
-              width="900"
-              height="1350"
-              fetchPriority="high"
-            />
-          </div>
-          <div className="absolute left-0 bottom-0 rotate-[-5deg] z-10">
-            <Phone label="Food log with Ghanaian meals" scale={0.55} className="sm:hidden"><FoodScreen /></Phone>
-            <Phone label="Food log with Ghanaian meals" scale={0.7} className="hidden sm:block"><FoodScreen /></Phone>
-          </div>
-          <Chip {...MED_CHIP} className="right-[-6px] sm:right-[-28px] top-[8%] animate-float" />
-          <Chip {...BP_CHIP} className="right-[-6px] sm:right-[-28px] top-[44%] animate-float [animation-delay:2s] hidden sm:flex" />
-        </div>
+        <ScanStage size="column" />
       </div>
     </section>
   );

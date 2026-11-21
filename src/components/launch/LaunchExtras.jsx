@@ -101,10 +101,17 @@ function CameraView() {
 
 /* The hero visual: camera on the plate, then the app's result. A fixed
    760x700 stage scaled down per breakpoint so every label stays in place. */
-export function ScanStage({ className = "" }) {
+const STAGE_SIZES = {
+  full: { box: "h-[318px] sm:h-[560px] lg:h-[700px]", stage: "scale-[0.45] sm:scale-[0.8] lg:scale-100" },
+  // Half of a two-column hero: the column is about 570px wide at lg.
+  column: { box: "h-[318px] sm:h-[560px] lg:h-[520px]", stage: "scale-[0.45] sm:scale-[0.8] lg:scale-[0.74]" },
+};
+
+export function ScanStage({ size = "full", className = "" }) {
+  const sz = STAGE_SIZES[size];
   return (
-    <div className={`relative mx-auto w-full h-[318px] sm:h-[560px] lg:h-[700px] ${className}`}>
-      <div className="absolute left-1/2 top-0 w-[760px] h-[700px] -translate-x-1/2 origin-top scale-[0.45] sm:scale-[0.8] lg:scale-100">
+    <div className={`relative mx-auto w-full ${sz.box} ${className}`}>
+      <div className={`absolute left-1/2 top-0 w-[760px] h-[700px] -translate-x-1/2 origin-top ${sz.stage}`}>
         <div className="absolute left-[10px] top-[60px] rotate-[-7deg]">
           <Phone label="The phone camera pointed at a plate of ampesi and kontomire stew"><CameraView /></Phone>
         </div>
