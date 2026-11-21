@@ -71,12 +71,12 @@ export function Statement() {
 
 /* Photo to food log: the phone camera on a plate of ampesi, then the app's
    real result for that photo. The kcal labels are the values the app
-   returned for this exact photo (staging, 17 Nov 2026); keep them in step
-   with food-scan-v1.webp if either changes. The plate photo is AI-made. */
+   returned for this exact photo (staging, 21 Nov 2026); keep them in step
+   with food-meal-v1.webp if either changes. The plate photo is AI-made. */
 const SCAN_LABELS = [
   { name: "Boiled plantain", kcal: 272, className: "left-[318px] top-[96px] [animation-delay:0s]" },
   { name: "Kontomire stew", kcal: 505, className: "left-[586px] top-[58px] [animation-delay:1.2s]" },
-  { name: "Boiled yam", kcal: 391, className: "left-[292px] top-[180px] [animation-delay:2.4s]" },
+  { name: "Boiled yam", kcal: 586, className: "left-[292px] top-[180px] [animation-delay:2.4s]" },
   { name: "Egg", kcal: 72, className: "left-[640px] top-[204px] [animation-delay:0.6s]" },
 ];
 
@@ -120,8 +120,8 @@ export function ScanStage({ size = "full", className = "" }) {
           <path d="M96 44 L 110 51 L 98 62" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         <div className="absolute left-[420px] top-0 rotate-[5deg]">
-          <Phone label="BetterHealth result: ampesi and kontomire stew, about 1,396 kcal across five foods">
-            <img src="/app-screens/food-scan-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-top" width="600" height="1304" />
+          <Phone label="BetterHealth meal page: ampesi and kontomire stew, 1,591 kcal, with protein, carbs, fat and fibre">
+            <img src="/app-screens/food-meal-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-top" width="600" height="1304" />
           </Phone>
         </div>
         {SCAN_LABELS.map((l) => (
