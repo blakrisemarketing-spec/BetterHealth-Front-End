@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Apple, HeartPulse, Smartphone, CreditCard } from "lucide-react";
 import Reveal from "../ui/Reveal";
 import Phone from "./Phone";
 import { HomeScreen, FoodScreen, WaterScreen, ExerciseScreen } from "../app/AppScreenMockups";
@@ -18,22 +17,33 @@ export function Sky() {
   );
 }
 
-/* What the app connects to and how people pay. Plain words, no logos. */
-export function WorksWith() {
-  const items = [
-    { icon: Apple, label: "Apple Health" },
-    { icon: HeartPulse, label: "Health Connect" },
-    { icon: Smartphone, label: "Mobile Money" },
-    { icon: CreditCard, label: "Visa and Mastercard" },
-  ];
+/* Partner organisations, the same logos as the TrustBar on the old homepage
+   (public/logos). Greyscale so mixed brand colours sit quietly together. */
+const TRUSTED_BY = [
+  { name: "Methodist Church Ghana", logo: "methodist-church-ghana.png", h: "h-11 sm:h-12" },
+  { name: "Wesley Girls Senior High School", logo: "wesley-girls.png", h: "h-11 sm:h-12" },
+  { name: "Project Management Institute Ghana", logo: "pmi-ghana.png", h: "h-8 sm:h-9" },
+  { name: "Diya Impact Foundation", logo: "diya-impact-foundation.png", h: "h-8 sm:h-9" },
+  { name: "Dexwin", logo: "dexwin.svg", h: "h-7 sm:h-8", mono: true },
+  { name: "SavingGrains", logo: "savinggrains.svg", h: "h-7 sm:h-8" },
+  { name: "Skillitgh", logo: "skillitgh.png", h: "h-7 sm:h-8" },
+  { name: "vire.agency", logo: "vire.png", h: "h-7 sm:h-8", mono: true }, // white "vire" lettering: shown as one solid colour
+];
+
+export function TrustedBy() {
   return (
     <section className="px-4 sm:px-6 pt-6 pb-4">
-      <p className="text-center text-[14px] font-semibold text-l-muted mb-5">Works with</p>
-      <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">
-        {items.map((it) => (
-          <span key={it.label} className="inline-flex items-center gap-2 text-[17px] sm:text-[19px] font-bold text-l-ink opacity-75 tracking-[-0.01em]">
-            <it.icon size={20} strokeWidth={2.2} /> {it.label}
-          </span>
+      <p className="text-center text-[14px] font-semibold text-l-muted mb-6">Trusted by</p>
+      <div className="max-w-[1240px] mx-auto flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+        {TRUSTED_BY.map((t) => (
+          <img
+            key={t.name}
+            src={`/logos/${t.logo}`}
+            alt={t.name}
+            title={t.name}
+            loading="lazy"
+            className={`${t.mono ? "l-partner-mono" : "l-partner"} w-auto max-w-[170px] object-contain ${t.h}`}
+          />
         ))}
       </div>
     </section>
