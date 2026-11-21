@@ -4,7 +4,7 @@ import { Sky, ScanStage } from "./LaunchExtras";
 
 const COPY = {
   pill: "Made in Ghana",
-  sub: "Log your food by photo, track your blood pressure and sugar, and book lab tests. Built for Ghana.",
+  sub: "Track the calories in your meals simply by taking a picture, book lab tests and see your health trends. Managing your health has never been this easy.",
   checks: ["Free to download", "480+ local foods", "iPhone and Android"],
 };
 
