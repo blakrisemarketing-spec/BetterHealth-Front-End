@@ -1,8 +1,8 @@
-import { Check, Activity, UtensilsCrossed } from "lucide-react";
+import { Check, Activity } from "lucide-react";
 import Phone from "./Phone";
 import StoreButtons from "./StoreButtons";
-import { FoodScreen, HomeScreen, ReadingsScreen } from "../app/AppScreenMockups";
-import { Sky } from "./LaunchExtras";
+import { FoodScreen } from "../app/AppScreenMockups";
+import { Sky, ScanStage } from "./LaunchExtras";
 import heroPerson from "../../assets/launch/hero-person.webp";
 
 const COPY = {
@@ -35,7 +35,6 @@ function Chip({ icon, title, sub, className = "", tint }) {
   );
 }
 
-const FOOD_CHIP = { icon: <UtensilsCrossed size={18} strokeWidth={2.4} />, title: "Waakye and egg", sub: "640 kcal, logged by photo", tint: { bg: "#F8E8DA", fg: "#D9772B" } };
 const BP_CHIP = { icon: <Activity size={18} strokeWidth={2.4} />, title: "124/80 mmHg", sub: "Blood pressure, 7:40 am", tint: { bg: "#F1E3EF", fg: "#8E4585" } };
 const MED_CHIP = { icon: <Check size={18} strokeWidth={3} />, title: "Metformin 500 mg", sub: "Taken at 8:00 am", tint: { bg: "#E1EEE7", fg: "#1F5C48" } };
 
@@ -73,20 +72,9 @@ function CentredHero() {
         <Checks className="justify-center" />
       </div>
 
-      <div className="relative mx-auto mt-14 md:mt-20 h-[440px] sm:h-[560px] max-w-[900px]">
-        <div className="hidden sm:block absolute left-1/2 top-16 -translate-x-[128%] rotate-[-8deg]">
-          <Phone label="Food log with Ghanaian meals" scale={0.82}><FoodScreen /></Phone>
-        </div>
-        <div className="hidden sm:block absolute left-1/2 top-16 translate-x-[28%] rotate-[8deg]">
-          <Phone label="Blood pressure readings over a week" scale={0.82}><ReadingsScreen /></Phone>
-        </div>
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 z-10">
-          <Phone label="The BetterHealth app home screen" scale={0.95} className="hidden sm:block"><HomeScreen /></Phone>
-          <Phone label="The BetterHealth app home screen" scale={0.78} className="sm:hidden"><HomeScreen /></Phone>
-        </div>
-        <Chip {...FOOD_CHIP} className="left-0 sm:left-[2%] top-[26%] animate-float" />
-        <Chip {...BP_CHIP} className="right-0 sm:right-[2%] top-[56%] animate-float [animation-delay:2s]" />
-        <div className="absolute inset-x-0 bottom-0 h-28 z-20 pointer-events-none" style={{ background: "linear-gradient(to top, var(--l-bg), transparent)" }} />
+      <div className="relative mt-12 md:mt-16">
+        <ScanStage />
+        <div className="absolute inset-x-0 bottom-0 h-24 z-20 pointer-events-none" style={{ background: "linear-gradient(to top, var(--l-bg), transparent)" }} />
       </div>
     </section>
   );

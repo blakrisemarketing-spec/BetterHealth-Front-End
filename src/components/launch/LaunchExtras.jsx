@@ -84,7 +84,7 @@ function CameraView() {
   const corner = "absolute w-12 h-12 border-white border-[3px]";
   return (
     <div className="absolute inset-0">
-      <img src="/app-screens/ampesi-camera-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" width="552" height="1208" />
+      <img src="/app-screens/ampesi-camera-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover" width="552" height="1208" />
       <div className="absolute inset-0 bg-black/10" />
       <div className="absolute left-[14%] right-[14%] top-[28%] bottom-[30%]">
         <span className={`${corner} left-0 top-0 border-r-0 border-b-0 rounded-tl-2xl`} />
@@ -99,42 +99,32 @@ function CameraView() {
   );
 }
 
-export function ScanShowcase() {
+/* The hero visual: camera on the plate, then the app's result. A fixed
+   760x700 stage scaled down per breakpoint so every label stays in place. */
+export function ScanStage({ className = "" }) {
   return (
-    <section className="pt-8 pb-24 md:pb-32 px-4 sm:px-6 overflow-hidden">
-      <Reveal>
-        <div className="text-center max-w-[720px] mx-auto px-2">
-          <h2 className="l-head leading-[1.04] text-[38px] sm:text-[52px] lg:text-[60px] text-l-ink">Snap your plate.</h2>
-          <p className="mt-5 text-[17px] sm:text-[19px] leading-[1.55] font-medium text-l-muted">
-            Take a photo of your food. BetterHealth names each food and estimates how much, then you check it and save.
-          </p>
+    <div className={`relative mx-auto w-full h-[318px] sm:h-[560px] lg:h-[700px] ${className}`}>
+      <div className="absolute left-1/2 top-0 w-[760px] h-[700px] -translate-x-1/2 origin-top scale-[0.45] sm:scale-[0.8] lg:scale-100">
+        <div className="absolute left-[10px] top-[60px] rotate-[-7deg]">
+          <Phone label="The phone camera pointed at a plate of ampesi and kontomire stew"><CameraView /></Phone>
         </div>
-      </Reveal>
-      <Reveal>
-        <div className="relative mx-auto mt-10 md:mt-14 w-full h-[318px] sm:h-[560px] lg:h-[700px]">
-          <div className="absolute left-1/2 top-0 w-[760px] h-[700px] -translate-x-1/2 origin-top scale-[0.45] sm:scale-[0.8] lg:scale-100">
-            <div className="absolute left-[10px] top-[60px] rotate-[-7deg]">
-              <Phone label="The phone camera pointed at a plate of ampesi and kontomire stew"><CameraView /></Phone>
-            </div>
-            <svg aria-hidden="true" className="absolute left-[292px] top-[330px] w-[120px] h-[90px] text-l-ink" viewBox="0 0 120 90" fill="none">
-              <path d="M4 60 C 30 70, 52 64, 58 40 C 63 20, 44 14, 40 32 C 36 52, 70 66, 108 52" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              <path d="M96 44 L 110 51 L 98 62" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <div className="absolute left-[420px] top-0 rotate-[5deg]">
-              <Phone label="BetterHealth result: ampesi and kontomire stew, about 1,396 kcal across five foods">
-                <img src="/app-screens/food-scan-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
-              </Phone>
-            </div>
-            {SCAN_LABELS.map((l) => (
-              <div key={l.name} aria-hidden="true" className={`absolute z-10 bg-white rounded-[20px] px-5 py-3 text-center shadow-[0_18px_40px_-12px_rgba(0,0,0,0.3)] animate-float ${l.className}`}>
-                <div className="text-[19px] font-bold text-[#1E2A27] whitespace-nowrap leading-tight">{l.name}</div>
-                <div className="text-[24px] font-extrabold text-[#1E2A27] leading-tight">{l.kcal} <span className="text-[16px] font-bold text-[#5F6B67]">kcal</span></div>
-              </div>
-            ))}
+        <svg aria-hidden="true" className="absolute left-[292px] top-[330px] w-[120px] h-[90px] text-l-ink" viewBox="0 0 120 90" fill="none">
+          <path d="M4 60 C 30 70, 52 64, 58 40 C 63 20, 44 14, 40 32 C 36 52, 70 66, 108 52" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+          <path d="M96 44 L 110 51 L 98 62" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <div className="absolute left-[420px] top-0 rotate-[5deg]">
+          <Phone label="BetterHealth result: ampesi and kontomire stew, about 1,396 kcal across five foods">
+            <img src="/app-screens/food-scan-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-top" width="600" height="1304" />
+          </Phone>
+        </div>
+        {SCAN_LABELS.map((l) => (
+          <div key={l.name} aria-hidden="true" className={`absolute z-10 bg-white rounded-[20px] px-5 py-3 text-center shadow-[0_18px_40px_-12px_rgba(0,0,0,0.3)] animate-float ${l.className}`}>
+            <div className="text-[19px] font-bold text-[#1E2A27] whitespace-nowrap leading-tight">{l.name}</div>
+            <div className="text-[24px] font-extrabold text-[#1E2A27] leading-tight">{l.kcal} <span className="text-[16px] font-bold text-[#5F6B67]">kcal</span></div>
           </div>
-        </div>
-      </Reveal>
-    </section>
+        ))}
+      </div>
+    </div>
   );
 }
 
