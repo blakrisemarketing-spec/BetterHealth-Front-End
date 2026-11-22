@@ -64,7 +64,7 @@ export function Statement() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.85", "end 0.45"] });
   const text =
-    "Most people only see a doctor when something is already wrong. BetterHealth puts your food, your readings and your lab results on your phone, so you can see changes early.";
+    "Most people only see a doctor when something is already wrong. BetterHealth helps you track the daily habits that affect your health, all on your phone, so you can spot changes early.";
   const words = text.split(" ");
   return (
     <section ref={ref} className="px-5 sm:px-6 py-28 md:py-40">
@@ -147,9 +147,9 @@ export function ScanStage({ size = "full", className = "" }) {
 
 /* Feature cards in a bento grid, each with a phone rising from the bottom. */
 const CARDS = [
-  { title: "Log food with a photo", desc: "Snap it, describe it or scan it. Over 480 local foods, even TZ and gob3.", from: "#FFEBDC", to: "#FFD9BF", screen: <FoodScreen />, label: "Food log with Ghanaian meals" },
-  { title: "Drink enough water", desc: "Tap a sachet each time you drink. See how close you are to the day's amount.", from: "#E3EEFB", to: "#CFE1F7", screen: <WaterScreen />, label: "Water log showing four sachets today" },
-  { title: "Move every day", desc: "Record a walk or start a workout. Watch your minutes add up.", from: "#EFE8FA", to: "#DFD3F3", screen: <ExerciseScreen />, label: "Workouts screen with 22 minutes of exercise today" },
+  { title: "Log food with a photo", desc: "Snap it, describe it or scan it. Over 480 local foods it can identify, even TZ and gob3, each with its calorie count.", from: "#FFEBDC", to: "#FFD9BF", screen: <FoodScreen />, label: "Food log with Ghanaian meals" },
+  { title: "Drink enough water", desc: "Tap a sachet each time you drink. See how much water you drink each day.", from: "#E3EEFB", to: "#CFE1F7", screen: <WaterScreen />, label: "Water log showing four sachets today" },
+  { title: "Move every day", desc: "Record a walk or start a workout. It syncs with your wearable device.", from: "#EFE8FA", to: "#DFD3F3", screen: <ExerciseScreen />, label: "Workouts screen with 22 minutes of exercise today" },
 ];
 
 function BentoPhone({ children, label }) {
@@ -168,35 +168,49 @@ export function Bento() {
       <Reveal>
         <div className="text-center max-w-[720px] mx-auto px-2">
           <h2 className="l-head leading-[1.04] text-[38px] sm:text-[52px] lg:text-[60px] text-l-ink">Everything in one place.</h2>
-          <p className="mt-5 text-[17px] sm:text-[19px] leading-[1.55] font-medium text-l-muted">Daily tracking for Ghanaian life, with lab tests in the same app.</p>
+          <p className="mt-5 text-[17px] sm:text-[19px] leading-[1.55] font-medium text-l-muted">Daily tracking for life. You can only improve what you can measure, and BetterHealth helps you easily measure how your daily activities affect your health.</p>
         </div>
       </Reveal>
       <div className="max-w-[1180px] mx-auto mt-14 grid md:grid-cols-3 gap-4">
         {CARDS.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.08} className="h-full">
-            <div className="bento group h-full flex flex-col rounded-[32px] overflow-hidden px-7 sm:px-8 pt-8 sm:pt-9" style={{ background: `linear-gradient(180deg, ${c.from}, ${c.to})` }}>
+            <div className="bento group h-full flex flex-col text-center rounded-[32px] overflow-hidden px-7 sm:px-8 pt-8 sm:pt-9" style={{ background: `linear-gradient(180deg, ${c.from}, ${c.to})` }}>
               <h3 className="l-head text-[#0A0A0A] text-[26px] sm:text-[28px] leading-[1.1] !tracking-[-0.025em] mb-2">{c.title}</h3>
               <p className="text-[15.5px] leading-[1.55] text-[#0A0A0A]/60 font-medium">{c.desc}</p>
               <BentoPhone label={c.label}>{c.screen}</BentoPhone>
             </div>
           </Reveal>
         ))}
-        <Reveal className="md:col-span-3">
-          <div className="bento group rounded-[32px] overflow-hidden grid md:grid-cols-2 items-end gap-6 px-7 sm:px-12 pt-10 md:pt-0" style={{ background: "linear-gradient(135deg, #E3F4EA, #CDEBDB)" }}>
-            <div className="md:py-14">
-              <h3 className="l-head text-[#0A0A0A] text-[30px] sm:text-[40px] leading-[1.06] !tracking-[-0.03em] mb-3">Three small things a day.</h3>
-              <p className="text-[16px] sm:text-[17px] leading-[1.55] text-[#0A0A0A]/60 font-medium max-w-[420px]">
-                Move, eat your meals, drink your water. Tick them off on your home screen and keep your streak going.
-              </p>
-            </div>
-            <div className="flex justify-center md:justify-end h-[320px] sm:h-[380px] overflow-hidden md:pt-10">
-              <div className="transition-transform duration-500 group-hover:-translate-y-3">
-                <Phone label="Home screen with a full week of healthy days and food, water and exercise rings" scale={0.82}><HomeScreen /></Phone>
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </div>
+    </section>
+  );
+}
+
+/* Three small things a day: its own section, with room for the launch video.
+   Set LAUNCH_VIDEO to the file in public/ (e.g. "/video/launch.mp4") and its
+   poster frame; until then the home screen phone stands in. */
+const LAUNCH_VIDEO = null; // { src: "/video/launch.mp4", poster: "/video/launch-poster.webp" }
+
+export function DailyThree() {
+  return (
+    <section className="pb-24 md:pb-32 px-3 sm:px-6">
+      <Reveal>
+        <div className="max-w-[1180px] mx-auto rounded-[32px] overflow-hidden text-center px-6 sm:px-12 pt-14 sm:pt-16" style={{ background: "linear-gradient(135deg, #E3F4EA, #CDEBDB)" }}>
+          <h2 className="l-head text-[#0A0A0A] text-[34px] sm:text-[48px] leading-[1.06] !tracking-[-0.03em] mb-4">Three small things a day.</h2>
+          <p className="text-[16px] sm:text-[18px] leading-[1.55] text-[#0A0A0A]/60 font-medium max-w-[520px] mx-auto">
+            Move, eat your meals, drink your water. Tick them off on your home screen and keep your healthy streak going.
+          </p>
+          {LAUNCH_VIDEO ? (
+            <div className="max-w-[900px] mx-auto mt-10 mb-12 rounded-[24px] overflow-hidden shadow-[0_30px_60px_-30px_rgba(0,0,0,0.45)] bg-black aspect-video">
+              <video src={LAUNCH_VIDEO.src} poster={LAUNCH_VIDEO.poster} controls playsInline preload="none" className="w-full h-full" />
+            </div>
+          ) : (
+            <div className="flex justify-center h-[320px] sm:h-[400px] overflow-hidden mt-10">
+              <Phone label="Home screen with a full week of healthy days and food, water and exercise rings" scale={0.82}><HomeScreen /></Phone>
+            </div>
+          )}
+        </div>
+      </Reveal>
     </section>
   );
 }

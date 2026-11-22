@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Camera, Activity, Pill, FlaskConical, Home as HomeIcon, ShieldCheck, Stethoscope, Soup,
-  Footprints, ChefHat, CalendarHeart, Smile, Trophy, Users, Droplets, BookOpen, Plus, Smartphone, Truck, Clock, Check, Quote,
+  Footprints, ChefHat, Wallet, CalendarHeart, Smile, Trophy, Users, Droplets, BookOpen, Plus, Smartphone, Truck, Clock, Check, Quote,
 } from "lucide-react";
 import Reveal from "../ui/Reveal";
 import Phone from "./Phone";
 import StoreButtons from "./StoreButtons";
 import { HomeScreen, FoodScreen, ReadingsScreen, ResultsScreen, MedicinesScreen } from "../app/AppScreenMockups";
 import { appDisclaimer } from "../../data/app";
-import { screeningBundles, testPanels, testimonials, founderQuote } from "../../data/content";
+import { screeningBundles, testPanels } from "../../data/content";
 import { usePricingCatalogue, withBackendPanelPrices } from "../../lib/pricing-catalogue";
 import founderPhoto from "../../assets/founder.webp";
 import panoramaPhoto from "../../assets/screening-bundles/panorama-bundle.webp";
@@ -90,8 +90,8 @@ export function FeatureTour() {
 /* ── Why BetterHealth ── */
 
 const WHY = [
-  { icon: Soup, title: "Built for our food", desc: "Local dishes, local names, local portions. Meal plans with swaps like cabbage banku." },
-  { icon: Stethoscope, title: "A clinician reads every result", desc: "No lab result reaches you before a clinician has read it." },
+  { icon: Soup, title: "Built for our food", desc: "Local dishes, local names, local portions. Understand and track the nutrients in the food you eat every day." },
+  { icon: Wallet, title: "Pay your way", desc: "Pay for tests with Mobile Money or card, right in the app." },
   {
     icon: ShieldCheck,
     title: "Protected by law",
@@ -102,14 +102,14 @@ const WHY = [
 
 export function WhyCards() {
   return (
-    <section className="py-24 md:py-32 px-4 sm:px-6 bg-l-alt">
+    <section className="py-24 md:py-32 px-4 sm:px-6">
       <Reveal>
         <Title title="Why BetterHealth?" />
       </Reveal>
       <div className="max-w-[1100px] mx-auto mt-14 grid md:grid-cols-3 gap-4">
         {WHY.map((w, i) => (
           <Reveal key={w.title} delay={i * 0.08}>
-            <div className="h-full bg-l-bg rounded-[28px] p-8 border border-l-line">
+            <div className="h-full bg-l-card rounded-[28px] p-8 border border-l-line">
               <span className="w-14 h-14 rounded-2xl bg-l-tint text-l-accent flex items-center justify-center mb-8">
                 <w.icon size={26} strokeWidth={2.1} />
               </span>
@@ -146,7 +146,7 @@ export function LabBand() {
               <p className="text-[13px] font-bold uppercase tracking-[0.14em] mb-4 text-l-band-soft">Lab tests</p>
               <h2 className="l-head text-white leading-[1.04] text-[38px] sm:text-[52px] mb-5">Need a test? Book it in the app.</h2>
               <p className="text-[17px] leading-[1.6] text-white/75 font-medium max-w-[480px] mx-auto lg:mx-0 mb-9">
-                Pay with Mobile Money or card. Your results sit next to your readings, so you can see what is changing.
+                With hundreds of partner labs across the country, we will send a lab to your home or office, wherever you are. Your results come straight to the app, where you can track how your health changes over time.
               </p>
             </Reveal>
             <Reveal delay={0.08}>
@@ -178,6 +178,7 @@ export function LabBand() {
 
 /* ── Screening bundles ── */
 
+const BUNDLE_NOTE = "Prices include VAT. Home collection is available as an add-on from GHS 150.";
 const BUNDLE_PHOTOS = { panorama: panoramaPhoto, alpha: alphaPhoto, empress: empressPhoto };
 
 export function Bundles() {
@@ -187,7 +188,7 @@ export function Bundles() {
   return (
     <section className="py-24 md:py-32 px-4 sm:px-6">
       <Reveal>
-        <Title eyebrow="Popular packages" title="Check everything at once." sub="One booking, one sample, one bundle price." />
+        <Title eyebrow="Popular packages" title="Check everything at once." sub="Check everything in your body for a fraction of the price." />
       </Reveal>
       <div className="max-w-[1100px] mx-auto mt-14 grid md:grid-cols-3 gap-4">
         {bundles.map((b, i) => {
@@ -225,25 +226,32 @@ export function Bundles() {
           );
         })}
       </div>
-      <p className="text-center text-[12.5px] text-l-muted mt-6 max-w-[640px] mx-auto">{screeningBundles.note}</p>
+      <p className="text-center text-[12.5px] text-l-muted mt-6 max-w-[640px] mx-auto">{BUNDLE_NOTE}</p>
     </section>
   );
 }
 
 /* ── Testimonials ── */
 
+// Homepage-only quotes (the older ones in data/content.js still serve other pages).
+const HOME_TESTIMONIALS = [
+  { name: "Ama K.", age: 34, location: "Accra", discovery: "Diabetes", quote: "I got diagnosed with diabetes in 2019 and have struggled to manage my meals and blood sugar levels since. After joining the BetterHealth 90 Days Program, my sugar levels are now under control. Thank you BetterHealth!" },
+  { name: "Andy A.", age: 35, location: "Tema", discovery: "Hypertension & Diabetes", quote: "My father had a stroke before he turned 44. So when I got diagnosed with diabetes and hypertension at 35 I got really scared. Fortunately, I saw BetterHealth on TikTok and signed up, now I am confident that this disease won\u2019t kill me like it killed my dad. God bless the BetterHealth team." },
+  { name: "Naa D.", age: 28, location: "Kumasi", discovery: "Diabetes", quote: "I was diagnosed with gestational diabetes during my pregnancy and told it will go away after giving birth, it didn\u2019t. It\u2019s been 2 years now and I have struggled to control my blood sugar level since. But within 2 months of joining the BetterHealth 90 Days Program my blood levels are back to a healthy range. Now I can\u2019t wait to get pregnant again!" },
+];
+
 export function Testimonials() {
   return (
     <section className="py-24 md:py-32 px-4 sm:px-6 bg-l-alt">
       <Reveal>
-        <Title title="What people found." sub="From people who tested with us." />
+        <Title title="What people say about us." sub="From people who have used the app." />
       </Reveal>
       <div className="max-w-[1100px] mx-auto mt-14 grid md:grid-cols-3 gap-4">
-        {testimonials.map((t, i) => (
+        {HOME_TESTIMONIALS.map((t, i) => (
           <Reveal key={t.name} delay={i * 0.08}>
             <figure className="h-full bg-l-bg rounded-[28px] p-8 border border-l-line flex flex-col">
               <Quote size={28} className="text-l-accent mb-5" />
-              <blockquote className="text-[18px] leading-[1.5] text-l-ink font-semibold flex-1">{t.quote}</blockquote>
+              <blockquote className="text-[17px] leading-[1.55] text-l-ink font-semibold flex-1">{t.quote}</blockquote>
               <figcaption className="mt-7 flex items-center justify-between gap-3">
                 <span>
                   <span className="block font-bold text-l-ink text-[15px]">{t.name}</span>
@@ -261,20 +269,22 @@ export function Testimonials() {
 
 /* ── Founder ── */
 
+const FOUNDER_QUOTE = "After watching diabetes and hypertension take so many beloved aunties, uncles, and in 2019, my father, I knew things had to change. But it was not until I also got diagnosed with diabetes at 27 that I finally decided to fight back. I built BetterHealth to put an end to diabetes and hypertension for good.";
+
 export function Founder() {
   return (
     <section className="py-24 md:py-32 px-4 sm:px-6">
       <div className="max-w-[1000px] mx-auto grid md:grid-cols-[320px_1fr] gap-10 md:gap-16 items-center">
         <Reveal>
           <div className="relative w-[260px] md:w-full mx-auto aspect-[4/5] rounded-[32px] overflow-hidden">
-            <img src={founderPhoto} alt="Damzi, Founder and CEO of BetterHealth Africa" loading="lazy" className="w-full h-full object-cover object-top" />
+            <img src={founderPhoto} alt="Great Damzi, Founder and CEO of BetterHealth Africa" loading="lazy" className="w-full h-full object-cover object-top" />
           </div>
         </Reveal>
         <Reveal delay={0.08}>
           <div className="text-center md:text-left">
             <p className="text-[13px] font-bold uppercase tracking-[0.14em] mb-5 text-l-accent">Why we built this</p>
-            <blockquote className="l-head text-l-ink text-[28px] sm:text-[36px] leading-[1.18] !tracking-[-0.025em] mb-7">&ldquo;{founderQuote}&rdquo;</blockquote>
-            <p className="font-bold text-l-ink text-[16px]">Damzi</p>
+            <blockquote className="l-head text-l-ink text-[21px] sm:text-[28px] leading-[1.3] !tracking-[-0.025em] mb-7">&ldquo;{FOUNDER_QUOTE}&rdquo;</blockquote>
+            <p className="font-bold text-l-ink text-[16px]">Great Damzi</p>
             <p className="text-l-muted text-[14.5px] font-medium mb-6">Founder and CEO, BetterHealth Africa</p>
             <Link to="/about" className="inline-flex items-center gap-1 text-[15px] font-bold text-l-accent no-underline hover:gap-2 transition-all">
               Read our story <ArrowRight size={16} />

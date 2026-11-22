@@ -5,13 +5,13 @@ import { Sky, ScanStage } from "./LaunchExtras";
 const COPY = {
   pill: "Made in Ghana",
   sub: "Track the calories in your meals simply by taking a picture, book lab tests and see your health trends. Managing your health has never been this easy.",
-  checks: ["Free to use", "480+ local foods", "100+ Diagnostic Labs"],
+  checks: ["Free to use", "AI powered", "Personal health assistant"],
 };
 
 function Title() {
   return (
     <>
-      Your health.
+      All your health needs.
       <br />
       <span className="text-l-accent">One app.</span>
     </>
@@ -44,9 +44,9 @@ function CentredHero() {
   return (
     <section className="relative overflow-hidden pt-[124px] md:pt-[150px] px-4 sm:px-6">
       <Sky />
-      <div className="relative max-w-[860px] mx-auto text-center">
+      <div className="relative max-w-[1100px] mx-auto text-center">
         <Pill />
-        <h1 className="l-head text-l-ink leading-[0.96] text-[56px] sm:text-[84px] lg:text-[108px] mb-7"><Title /></h1>
+        <h1 className="l-head text-l-ink leading-[0.96] text-[48px] sm:text-[72px] lg:text-[84px] xl:text-[96px] mb-7"><Title /></h1>
         <p className="text-[18px] sm:text-[20px] leading-[1.55] text-l-muted font-medium max-w-[540px] mx-auto mb-9">{COPY.sub}</p>
         <StoreButtons size="lg" className="justify-center mb-6" />
         <Checks className="justify-center" />
@@ -67,7 +67,7 @@ function PhotoHero() {
       <div className="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-12 lg:gap-14 items-center">
         <div className="text-center lg:text-left">
           <Pill />
-          <h1 className="l-head text-l-ink leading-[0.98] text-[54px] sm:text-[74px] lg:text-[86px] mb-6"><Title /></h1>
+          <h1 className="l-head text-l-ink leading-[0.98] text-[48px] sm:text-[66px] lg:text-[70px] mb-6"><Title /></h1>
           <p className="text-[18px] sm:text-[20px] leading-[1.55] text-l-muted font-medium max-w-[500px] mx-auto lg:mx-0 mb-9">{COPY.sub}</p>
           <StoreButtons size="lg" className="justify-center lg:justify-start mb-6" />
           <Checks className="justify-center lg:justify-start" />
