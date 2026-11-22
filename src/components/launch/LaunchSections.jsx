@@ -166,8 +166,8 @@ export function LabBand() {
           </div>
           <div className="flex justify-center lg:justify-end self-end h-[330px] sm:h-[420px] lg:h-[520px] overflow-hidden">
             <div>
-              <Phone label="Lab results read by a clinician" scale={0.95} className="hidden sm:block"><ResultsScreen /></Phone>
-              <Phone label="Lab results read by a clinician" scale={0.8} className="sm:hidden"><ResultsScreen /></Phone>
+              <Phone label="BetterHealth HbA1c trend: five results over a year, falling from 8.4% to 5.2%, into the usual range" scale={0.95} className="hidden sm:block"><img src="/app-screens/hba1c-trend-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-top" width="600" height="1304" loading="lazy" /></Phone>
+              <Phone label="BetterHealth HbA1c trend: five results over a year, falling from 8.4% to 5.2%, into the usual range" scale={0.8} className="sm:hidden"><img src="/app-screens/hba1c-trend-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-top" width="600" height="1304" loading="lazy" /></Phone>
             </div>
           </div>
         </div>
