@@ -37,22 +37,26 @@ export default function Nav({ dark = false }) {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 pt-3">
+      {/* At the top the bar is a plain full-width strip on the page; once the
+          page scrolls it shrinks into the floating pill. */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-[padding] duration-300 ${solid ? "px-3 sm:px-6 pt-3" : "px-0 pt-0"}`}>
         <div
-          className={`max-w-[1080px] mx-auto pl-4 pr-2 sm:pl-6 h-[60px] flex items-center justify-between gap-6 rounded-full border transition-all duration-300 ${
-            solid || !onDark ? "border-l-line shadow-[0_8px_30px_-12px_rgba(0,0,0,0.18)]" : "border-white/15"
+          className={`mx-auto flex items-center justify-between gap-6 border transition-all duration-300 ${
+            solid
+              ? "max-w-[1080px] h-[60px] pl-4 pr-2 sm:pl-6 rounded-full border-l-line shadow-[0_8px_30px_-12px_rgba(0,0,0,0.18)]"
+              : "max-w-[1600px] h-[84px] px-4 sm:px-8 lg:px-12 rounded-none border-transparent shadow-none"
           }`}
           style={{
-            background: solid || !onDark ? "var(--l-nav)" : "rgba(255,255,255,0.08)",
-            backdropFilter: "saturate(180%) blur(18px)",
-            WebkitBackdropFilter: "saturate(180%) blur(18px)",
+            background: solid ? "var(--l-nav)" : "transparent",
+            backdropFilter: solid ? "saturate(180%) blur(18px)" : "none",
+            WebkitBackdropFilter: solid ? "saturate(180%) blur(18px)" : "none",
           }}
         >
           <Link to="/" className="flex items-center shrink-0" aria-label="BetterHealth Africa home">
             <img
               src={logo}
               alt="BetterHealth Africa"
-              className={`l-logo h-8 md:h-9 w-auto object-contain max-w-[160px] transition-all duration-300 ${onDark ? "brightness-0 invert" : ""}`}
+              className={`l-logo w-auto object-contain transition-all duration-300 ${solid ? "h-10 md:h-11" : "h-11 md:h-[52px]"} ${onDark ? "brightness-0 invert" : ""}`}
             />
           </Link>
 
