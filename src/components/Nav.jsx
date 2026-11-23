@@ -7,8 +7,8 @@ import StoreButtons from "./launch/StoreButtons";
 import { GET_APP_URL, appIsLive } from "../data/app";
 
 const NAV_ITEMS = [
-  { label: "The App", route: "/download-app" },
-  { label: "Lab Tests", route: "/book-tests" },
+  { label: "Home", route: "/" },
+  { label: "Book a test", route: "/book-tests" },
   { label: "Blog", route: "/blog" },
   { label: "About", route: "/about" },
   { label: "FAQ", route: "/faq" },

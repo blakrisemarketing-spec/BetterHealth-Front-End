@@ -58,7 +58,7 @@ export default function WhatWeTest() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               127 health indicators across{" "}
-              <span className="italic text-primary tracking-normal">
+              <span className="text-primary tracking-normal">
                 17 body systems
               </span>
             </h2>

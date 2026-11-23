@@ -76,30 +76,30 @@ export default function DownloadAppPage() {
     <>
       <Seo route="download-app" />
 
-      <Nav dark />
+      <Nav />
 
       <main className="bg-bg-light text-text-primary overflow-x-hidden">
         {/* Hero */}
-        <section className="relative pt-28 pb-20 px-6 bg-bg-dark text-text-on-dark overflow-hidden">
+        <section className="relative pt-36 pb-20 px-6 bg-base text-text-primary overflow-hidden">
           <GradientOrb className="top-[-80px] right-[-80px] opacity-30" />
           <GradientOrb className="bottom-[-60px] left-[-60px] opacity-20" size={320} />
-          <div className="max-w-[1280px] mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div className="max-w-[900px] mx-auto flex flex-col items-center text-center gap-12 relative z-10">
             <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary-light text-xs font-semibold tracking-wide mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-bg border border-primary/20 text-primary text-xs font-semibold tracking-wide mb-6">
                 {appIsLive ? "NOW ON iPHONE & ANDROID" : "BETA ON iPHONE & ANDROID"}
               </div>
-              <h1 className="text-4xl sm:text-5xl font-bold font-heading leading-tight mb-6">
+              <h1 className="text-5xl sm:text-[64px] font-bold font-heading leading-[1.05] mb-6">
                 One app for your<br />
-                <span className="text-primary-light">everyday health.</span>
+                <span className="text-primary">everyday health.</span>
               </h1>
-              <p className="text-lg text-text-muted-dark leading-relaxed max-w-[500px] mb-10">
+              <p className="text-lg text-text-secondary leading-relaxed max-w-[560px] mx-auto mb-10">
                 Food, home readings, medicines, steps, your cycle and your mood, next to lab results a clinician has read. Built in Ghana, with Ghanaian food in its food list.
               </p>
 
-              <StoreBadges />
+              <StoreBadges dark={false} className="justify-center" />
 
               {!appIsLive && (
-                <p className="text-sm text-text-muted-dark mt-4 max-w-[460px]">
+                <p className="text-sm text-text-secondary mt-4 max-w-[460px] mx-auto">
                   The app is not in the public stores yet. Either button opens the beta sign-up, and we will send you instructions to install it.
                 </p>
               )}
@@ -119,7 +119,7 @@ export default function DownloadAppPage() {
           eyebrow="Features"
           heading={
             <>
-              Everything the app <span className="italic text-primary tracking-normal">does</span>
+              Everything the app <span className="text-primary tracking-normal">does</span>
             </>
           }
           intro="Each part works on its own, so use what you need. Pick the tabs that matter to you and the app arranges itself around them."

@@ -10,10 +10,9 @@ import {
 } from "../components/launch/LaunchSections";
 import { getHomeVariant, reportHomeVariant, LOOKS, HEROES } from "../lib/home-experiment";
 
-// Fonts a look needs beyond the Quicksand and Inter 400-600 that index.html
+// Fonts a look needs beyond the Quicksand and Inter 400-800 that index.html
 // already loads. Added once, only when that look is shown.
 const LOOK_FONTS = {
-  white: "https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap",
   bright: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
 };
 

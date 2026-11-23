@@ -73,7 +73,7 @@ export default function FAQPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
               Everything you{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 need to know.
               </span>
             </h1>

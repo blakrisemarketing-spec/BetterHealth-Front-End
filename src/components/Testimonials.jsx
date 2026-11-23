@@ -14,7 +14,7 @@ export default function Testimonials() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               Discoveries that{" "}
-              <span className="italic text-primary tracking-normal">
+              <span className="text-primary tracking-normal">
                 changed lives
               </span>
             </h2>

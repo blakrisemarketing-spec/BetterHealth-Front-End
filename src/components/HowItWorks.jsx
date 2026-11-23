@@ -20,7 +20,7 @@ export default function HowItWorks() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               From a single test to{" "}
-              <span className="italic text-primary tracking-normal">
+              <span className="text-primary tracking-normal">
                 taking control
               </span>
             </h2>

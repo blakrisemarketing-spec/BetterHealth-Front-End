@@ -29,7 +29,7 @@ export default function Hero() {
           <Reveal delay={0.1}>
             <h1 className="text-h1 font-extrabold leading-[1.1] font-heading text-text-primary mb-6">
               Your health,{" "}
-              <span className="text-primary italic tracking-normal pr-[0.15em]">
+              <span className="text-primary tracking-normal pr-[0.15em]">
                 every day
               </span>
               , in one app.

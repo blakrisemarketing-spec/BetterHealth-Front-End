@@ -13,7 +13,7 @@ export default function ComparisonTable() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight">
               How we differ from a{" "}
-              <span className="italic text-primary tracking-normal">
+              <span className="text-primary tracking-normal">
                 hospital checkup
               </span>
             </h2>

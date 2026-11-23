@@ -464,7 +464,7 @@ export default function ForNutritionistsPage() {
             <Reveal delay={0.1}>
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-4">
                 Grow your nutrition practice with{" "}
-                <span className="text-primary italic tracking-normal pb-2 inline-block">
+                <span className="text-primary tracking-normal pb-2 inline-block">
                   BetterHealth Africa
                 </span>
               </h1>

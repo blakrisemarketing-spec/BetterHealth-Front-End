@@ -19,7 +19,7 @@ export default function AppLoop() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight mb-5 leading-[1.1]">
               Small things,{" "}
-              <span className="italic text-primary tracking-normal pr-[0.12em]">done daily</span>
+              <span className="text-primary tracking-normal pr-[0.12em]">done daily</span>
             </h2>
             <p className="text-[17px] leading-[1.7] text-text-secondary font-body mb-10 max-w-[560px]">
               Pick a few habits you can keep, then watch your numbers to see whether they are working.

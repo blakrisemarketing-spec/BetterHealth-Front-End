@@ -100,7 +100,7 @@ export default function PricingPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               {hero.headline}{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 Pay once.
               </span>
             </h1>

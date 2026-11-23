@@ -23,7 +23,7 @@ export default function FinalCTA() {
         <Reveal>
           <h2 className="text-[clamp(32px,5vw,52px)] font-extrabold text-text-on-dark font-heading leading-[1.15] mb-5">
             Start looking after your health{" "}
-            <span className="italic text-primary-light">today</span>.
+            <span className="text-primary-light">today</span>.
           </h2>
         </Reveal>
 

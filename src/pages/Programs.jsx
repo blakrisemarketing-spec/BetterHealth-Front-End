@@ -47,7 +47,7 @@ export default function ProgramsPage() {
             <Reveal delay={0.1}>
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
                 A program for the condition{" "}
-                <span className="text-primary italic tracking-normal">you’re managing.</span>
+                <span className="text-primary tracking-normal">you’re managing.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.2}>

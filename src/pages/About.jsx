@@ -40,7 +40,7 @@ export default function AboutPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[2.4rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.1] text-text-primary mb-5">
               Africans deserve to know what is happening{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 inside their bodies.
               </span>
             </h1>

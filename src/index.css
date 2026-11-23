@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Quicksand font is loaded via Google Fonts in index.html — no @font-face needed */
+/* Inter is loaded via Google Fonts in index.html */
 
 * {
   margin: 0;
@@ -15,18 +15,23 @@ html {
 }
 
 body {
-  font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 400;
-  background: #F5F3EE;
-  color: #2B3A3A;
+  background: #FFFFFF;
+  color: #0A0A0A;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(107, 142, 127, 0.2);
-  color: #2B3A3A;
+  background: rgba(31, 122, 85, 0.18);
+  color: #0A0A0A;
+}
+
+/* White look headings everywhere: tight Inter */
+h1, h2, h3, .font-heading {
+  letter-spacing: -0.035em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -58,25 +63,25 @@ body {
 }
 
 /* ── Launch homepage looks (src/lib/home-experiment.js) ──
-   :root holds the cream look the rest of the site uses, so the shared nav and
-   footer keep it on other pages. The homepage sets data-look on its wrapper. */
+   :root holds the white look, which every page uses. The homepage can still
+   show the others with ?look=. */
 :root {
-  --l-bg: #F7F4EC;
-  --l-alt: #FFFFFF;
-  --l-card: #FFFFFF;
-  --l-ink: #1E2A27;
-  --l-muted: #5F6B67;
-  --l-accent: #1F5C48;
-  --l-tint: #E1EEE7;
-  --l-line: #E6E0D4;
-  --l-btn: #1E2A27;
+  --l-bg: #FFFFFF;
+  --l-alt: #F5F5F3;
+  --l-card: #F5F5F3;
+  --l-ink: #0A0A0A;
+  --l-muted: #5C5C5C;
+  --l-accent: #1F7A55;
+  --l-tint: #E7F3EC;
+  --l-line: #E8E8E6;
+  --l-btn: #0A0A0A;
   --l-btn-fg: #FFFFFF;
-  --l-band: #1F5C48;
-  --l-band-soft: #9CCBB5;
-  --l-nav: rgba(247, 244, 236, 0.82);
-  --l-font: "Quicksand", system-ui, -apple-system, sans-serif;
+  --l-band: #0A0A0A;
+  --l-band-soft: #7FD3A8;
+  --l-nav: rgba(255, 255, 255, 0.85);
+  --l-font: "Inter", system-ui, -apple-system, sans-serif;
   --l-head-weight: 700;
-  --l-track: -0.035em;
+  --l-track: -0.045em;
 }
 [data-look="white"] {
   --l-bg: #FFFFFF;

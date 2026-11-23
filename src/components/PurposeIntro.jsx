@@ -41,7 +41,7 @@ export default function PurposeIntro() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight mb-6">
               Daily tracking and lab tests,{" "}
-              <span className="italic text-primary tracking-normal">in one place</span>.
+              <span className="text-primary tracking-normal">in one place</span>.
             </h2>
           </Reveal>
 

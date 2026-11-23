@@ -35,7 +35,7 @@ export default function CareersPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
               Build the future of{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 African healthcare.
               </span>
             </h1>

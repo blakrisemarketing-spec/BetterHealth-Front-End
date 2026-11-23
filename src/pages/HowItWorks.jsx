@@ -302,7 +302,7 @@ export default function HowItWorksPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[2.2rem] md:text-[3.6rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               {hero.headline}{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 {hero.highlight}
               </span>
             </h1>
@@ -353,7 +353,7 @@ export default function HowItWorksPage() {
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">Your Health, Visualised</p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight">
                 Health intelligence you can{" "}
-                <span className="text-primary italic tracking-normal">
+                <span className="text-primary tracking-normal">
                   use after the test.
                 </span>
               </h2>
@@ -409,7 +409,7 @@ export default function HowItWorksPage() {
               <p className="text-[13px] text-primary uppercase tracking-[0.12em] font-semibold mb-3">FAQ</p>
               <h2 className="text-[2rem] md:text-[2.4rem] font-extrabold text-white font-heading tracking-tight">
                 Your questions,{" "}
-                <span className="italic text-primary tracking-normal">
+                <span className="text-primary tracking-normal">
                   answered.
                 </span>
               </h2>

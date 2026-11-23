@@ -493,7 +493,7 @@ export default function ForLabsPage() {
             <Reveal delay={0.1}>
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-5">
                 Your lab, finally running on{" "}
-                <span className="text-primary italic tracking-normal pb-2 inline-block">
+                <span className="text-primary tracking-normal pb-2 inline-block">
                   software made for it.
                 </span>
               </h1>

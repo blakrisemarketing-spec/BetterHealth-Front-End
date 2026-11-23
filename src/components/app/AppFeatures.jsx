@@ -25,7 +25,7 @@ export default function AppFeatures({ limit, eyebrow = "Inside the app", heading
             {heading || (
               <>
                 Everything that happens{" "}
-                <span className="italic text-primary tracking-normal">between your tests</span>
+                <span className="text-primary tracking-normal">between your tests</span>
               </>
             )}
           </h2>

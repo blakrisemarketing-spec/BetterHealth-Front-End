@@ -23,7 +23,7 @@ export default function ProductShowcase() {
             </p>
             <h2 className="text-h2 font-extrabold text-text-primary font-heading tracking-tight mb-5 leading-[1.1]">
               Lab results in{" "}
-              <span className="italic text-primary tracking-normal pr-[0.12em]">
+              <span className="text-primary tracking-normal pr-[0.12em]">
                 plain words
               </span>
             </h2>

@@ -37,7 +37,7 @@ export default function BlogPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
               Know your numbers.{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 Know your health.
               </span>
             </h1>
