@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ChevronLeft, FlaskConical, Home as HomeIcon, Building2, Activity, Bell } from "lucide-react";
+import { Check, ChevronLeft, FlaskConical, Home as HomeIcon, Building2, Activity } from "lucide-react";
 
 /*
  * Coded copy of the app's booking → collection → result flow, drawn for the
@@ -183,14 +183,14 @@ function CollectScreen() {
 /* ── 3. Result + trend ── */
 
 const RESULTS = [
-  { date: "12 Nov 2025", v: 8.4, tag: "Needs attention", c: C.red },
-  { date: "11 Feb 2026", v: 7.6, tag: "Needs attention", c: C.red },
-  { date: "13 May 2026", v: 6.7, tag: "Needs attention", c: C.red },
-  { date: "12 Aug 2026", v: 5.9, tag: "Slightly off", c: C.amber },
+  { date: "12 Nov 2025", v: 6.8, tag: "Needs attention", c: C.red },
+  { date: "11 Feb 2026", v: 5.6, tag: "Normal", c: C.brand },
+  { date: "13 May 2026", v: 5.4, tag: "Normal", c: C.brand },
+  { date: "12 Aug 2026", v: 5.3, tag: "Normal", c: C.brand },
   { date: "10 Nov 2026", v: 5.2, tag: "Normal", c: C.brand },
 ];
 
-const W = 228, H = 96, MIN = 4.4, MAX = 8.8;
+const W = 228, H = 96, MIN = 4.6, MAX = 7.2;
 const px = (i) => 6 + (i * (W - 12)) / (RESULTS.length - 1);
 const py = (v) => 6 + ((MAX - v) / (MAX - MIN)) * (H - 12);
 const LINE = RESULTS.map((r, i) => `${i ? "L" : "M"}${px(i)},${py(r.v)}`).join(" ");
@@ -201,20 +201,6 @@ function TrendScreen() {
       <StatusBar />
       <Header title="Hemoglobin A1c" />
 
-      {/* notification */}
-      <motion.div
-        className="absolute left-2.5 right-2.5 top-2 z-20 rounded-[18px] bg-white/95 backdrop-blur px-3 py-2.5 flex items-center gap-2.5 shadow-[0_10px_30px_-8px_rgba(0,0,0,0.25)]"
-        initial={{ y: -90, opacity: 0 }}
-        animate={{ y: [-90, 0, 0, -90], opacity: [0, 1, 1, 0] }}
-        transition={{ duration: 2.2, times: [0, 0.15, 0.8, 1], ease }}
-      >
-        <span className="w-8 h-8 rounded-[9px] flex items-center justify-center shrink-0" style={{ background: C.deep }}><Bell size={15} color="#fff" /></span>
-        <span className="min-w-0">
-          <span className="block text-[11.5px] font-bold" style={{ color: C.ink }}>BetterHealth</span>
-          <span className="block text-[11px] font-medium leading-snug" style={{ color: C.muted }}>Your HbA1c result is ready. A clinician has read it.</span>
-        </span>
-      </motion.div>
-
       <div className="px-3 pt-1 flex flex-col gap-3">
         <div className="rounded-2xl bg-white p-3">
           <div className="flex items-center gap-2 mb-2">
@@ -223,13 +209,13 @@ function TrendScreen() {
           </div>
           <svg viewBox={`0 0 ${W} ${H}`} width="100%" className="block overflow-visible">
             <rect x="0" y={py(5.7)} width={W} height={H - py(5.7) - 2} rx="6" fill={C.tint} />
-            <motion.path d={LINE} fill="none" stroke={C.faint} strokeWidth="1.5" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.9, duration: 1.6, ease: "easeInOut" }} />
+            <motion.path d={LINE} fill="none" stroke={C.faint} strokeWidth="1.5" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.3, duration: 1.4, ease: "easeInOut" }} />
             {RESULTS.map((r, i) => (
               <motion.circle key={r.date} cx={px(i)} cy={py(r.v)} r="3.6" fill={r.c} stroke="#fff" strokeWidth="1.5"
                 initial={{ scale: 0 }} animate={{ scale: 1 }} style={{ transformOrigin: `${px(i)}px ${py(r.v)}px` }}
-                transition={{ delay: 0.9 + i * 0.38, type: "spring", stiffness: 500, damping: 18 }} />
+                transition={{ delay: 0.3 + i * 0.32, type: "spring", stiffness: 500, damping: 18 }} />
             ))}
-            <motion.text x={px(4) - 4} y={py(5.2) - 8} textAnchor="end" fontSize="9" fontWeight="700" fill={C.ink} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.6 }}>5.2</motion.text>
+            <motion.text x={px(4) - 4} y={py(5.2) - 8} textAnchor="end" fontSize="9" fontWeight="700" fill={C.ink} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.7 }}>5.2</motion.text>
           </svg>
           <div className="flex justify-between text-[8.5px] font-medium mt-1.5" style={{ color: C.muted }}>
             <span>Nov 2025</span><span>Shaded: usual range</span><span>Nov 2026</span>
@@ -240,7 +226,7 @@ function TrendScreen() {
         <div className="rounded-2xl bg-white overflow-hidden">
           {[...RESULTS].reverse().map((r, i) => (
             <motion.div key={r.date} className="flex items-center justify-between px-3 py-2 border-b last:border-0" style={{ borderColor: C.ground }}
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.4 + i * 0.12, duration: 0.35 }}>
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.5 + i * 0.1, duration: 0.35 }}>
               <span className="text-[11.5px] font-medium" style={{ color: C.ink }}>{r.date}</span>
               <span className="text-right">
                 <span className="block text-[11.5px] font-bold" style={{ color: C.ink }}>{r.v} %</span>
@@ -268,4 +254,4 @@ export default function LabStoryScreen({ step }) {
 }
 
 /* How long each step stays on screen, in ms. */
-export const LAB_STEP_MS = [3400, 3800, 5600];
+export const LAB_STEP_MS = [3400, 3800, 5000];

@@ -149,7 +149,7 @@ export function LabBand() {
     return () => clearTimeout(t);
   }, [step, inView, reduce, cycle]);
   const pick = (i) => { setStep(i); setCycle((c) => c + 1); };
-  const label = "BetterHealth app: book an HbA1c test at home, track the sample collection, then see the result and a year of HbA1c falling from 8.4% to 5.2%";
+  const label = "BetterHealth app: book an HbA1c test at home, track the sample collection, then see a year of HbA1c results: one high reading of 6.8%, then four in the usual range down to 5.2%";
   return (
     <section className="px-3 sm:px-6 pt-24 md:pt-32">
       <div className="max-w-[1240px] mx-auto rounded-[36px] bg-l-band overflow-hidden relative">
