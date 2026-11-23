@@ -3,7 +3,7 @@ import { useInView, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Camera, Activity, Pill, FlaskConical, Home as HomeIcon, ShieldCheck, Stethoscope, Soup,
-  Footprints, ChefHat, Wallet, CalendarHeart, Smile, Trophy, Users, Droplets, BookOpen, Plus, Smartphone, Truck, Clock, Check, Quote,
+  Footprints, ChefHat, CalendarHeart, Smile, Trophy, Users, Droplets, BookOpen, Plus, Smartphone, Truck, Clock, Check, Quote,
 } from "lucide-react";
 import Reveal from "../ui/Reveal";
 import Phone from "./Phone";
@@ -92,15 +92,15 @@ export function FeatureTour() {
 /* ── Why BetterHealth ── */
 
 const WHY = [
-  { icon: Soup, title: "Built for our food", desc: "Local dishes, local names, local portions. Understand and track the nutrients in the food you eat every day." },
-  { icon: Wallet, title: "Pay your way", desc: "Pay for tests with Mobile Money or card, right in the app." },
-  {
-    icon: ShieldCheck,
-    title: "Protected by law",
-    desc: "Certified by the Ghana Data Protection Commission under Act 843. You choose who sees what.",
-    link: { href: "https://app.dataprotection.org.gh/company/dpdZwcRth19j7oQFxmwoDj1ELCOABE", label: "Verify our certificate" },
-  },
+  { icon: Soup, title: "Eat what you love, know what's in it", desc: "See the calories, carbs and protein in banku or waakye, and make better choices without giving up the food you grew up on." },
+  { icon: Activity, title: "See changes between doctor visits", desc: "Log your blood pressure and sugar. After a few weeks, you and your doctor can see if they're moving." },
+  { icon: Pill, title: "Take your medicine on time", desc: "A reminder at the exact time each day. Mark each dose taken and keep your streak." },
+  { icon: FlaskConical, title: "Results you can understand", desc: "The app explains each lab result in plain words: what the test measures and what your number means." },
+  { icon: Truck, title: "Tests without the queue", desc: "Book in the app, a lab comes to your home or office, and you pay with Mobile Money." },
+  { icon: BookOpen, title: "Your health history in one place", desc: "Your results and readings stay saved, ready to show your doctor." },
 ];
+
+const DPC_CERT = "https://app.dataprotection.org.gh/company/dpdZwcRth19j7oQFxmwoDj1ELCOABE";
 
 export function WhyCards() {
   return (
@@ -108,24 +108,28 @@ export function WhyCards() {
       <Reveal>
         <Title title="Why BetterHealth?" />
       </Reveal>
-      <div className="max-w-[1100px] mx-auto mt-14 grid md:grid-cols-3 gap-4">
+      <div className="max-w-[1100px] mx-auto mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {WHY.map((w, i) => (
-          <Reveal key={w.title} delay={i * 0.08}>
+          <Reveal key={w.title} delay={(i % 3) * 0.08}>
             <div className="h-full bg-l-card rounded-[28px] p-8 border border-l-line">
-              <span className="w-14 h-14 rounded-2xl bg-l-tint text-l-accent flex items-center justify-center mb-8">
+              <span className="w-14 h-14 rounded-2xl bg-l-tint text-l-accent flex items-center justify-center mb-7">
                 <w.icon size={26} strokeWidth={2.1} />
               </span>
-              <h3 className="l-head text-l-ink text-[24px] !tracking-[-0.02em] mb-3">{w.title}</h3>
+              <h3 className="l-head text-l-ink text-[22px] !tracking-[-0.02em] mb-3">{w.title}</h3>
               <p className="text-[16px] leading-[1.6] text-l-muted font-medium">{w.desc}</p>
-              {w.link && (
-                <a href={w.link.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-5 text-[14px] font-bold text-l-accent no-underline hover:gap-2 transition-all">
-                  {w.link.label} <ArrowRight size={15} />
-                </a>
-              )}
             </div>
           </Reveal>
         ))}
       </div>
+      <Reveal>
+        <p className="max-w-[1100px] mx-auto mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-[15px] font-medium text-l-muted">
+          <ShieldCheck size={18} className="text-l-accent shrink-0" />
+          Certified by the Ghana Data Protection Commission under Act 843.
+          <a href={DPC_CERT} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-bold text-l-accent no-underline hover:gap-2 transition-all">
+            Verify our certificate <ArrowRight size={15} />
+          </a>
+        </p>
+      </Reveal>
     </section>
   );
 }
