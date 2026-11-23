@@ -180,3 +180,8 @@ body {
 [data-look="dark"] .bento { background: var(--l-card) !important; }
 [data-look="dark"] .bento h3 { color: var(--l-ink) !important; }
 [data-look="dark"] .bento p { color: var(--l-muted) !important; }
+
+@keyframes labProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}

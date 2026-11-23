@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useInView, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Camera, Activity, Pill, FlaskConical, Home as HomeIcon, ShieldCheck, Stethoscope, Soup,
@@ -6,6 +7,7 @@ import {
 } from "lucide-react";
 import Reveal from "../ui/Reveal";
 import Phone from "./Phone";
+import LabStoryScreen, { LAB_STEP_MS } from "./LabStoryScreen";
 import StoreButtons from "./StoreButtons";
 import { HomeScreen, FoodScreen, ReadingsScreen, ResultsScreen, MedicinesScreen } from "../app/AppScreenMockups";
 import { appDisclaimer } from "../../data/app";
@@ -136,6 +138,18 @@ export function LabBand() {
     { icon: Truck, title: "Home or partner lab", desc: "We come to you, or walk in" },
     { icon: Clock, title: "Results in 48 to 72 hours", desc: "Read by a clinician first" },
   ];
+  const reduce = useReducedMotion();
+  const phoneRef = useRef(null);
+  const inView = useInView(phoneRef, { amount: 0.4 });
+  const [step, setStep] = useState(reduce ? 2 : 0);
+  const [cycle, setCycle] = useState(0);
+  useEffect(() => {
+    if (reduce || !inView) return undefined;
+    const t = setTimeout(() => setStep((s) => (s + 1) % 3), LAB_STEP_MS[step]);
+    return () => clearTimeout(t);
+  }, [step, inView, reduce, cycle]);
+  const pick = (i) => { setStep(i); setCycle((c) => c + 1); };
+  const label = "BetterHealth app: book an HbA1c test at home, track the sample collection, then see the result and a year of HbA1c falling from 8.4% to 5.2%";
   return (
     <section className="px-3 sm:px-6 pt-24 md:pt-32">
       <div className="max-w-[1240px] mx-auto rounded-[36px] bg-l-band overflow-hidden relative">
@@ -151,23 +165,40 @@ export function LabBand() {
             </Reveal>
             <Reveal delay={0.08}>
               <div className="grid sm:grid-cols-3 gap-3 mb-9 text-left">
-                {points.map((p) => (
-                  <div key={p.title} className="rounded-2xl bg-white/[0.08] p-4">
-                    <p.icon size={20} className="text-l-band-soft mb-3" />
-                    <p className="text-white font-bold text-[15px] leading-tight">{p.title}</p>
-                    <p className="text-white/60 text-[13px] font-medium mt-1">{p.desc}</p>
-                  </div>
-                ))}
+                {points.map((p, i) => {
+                  const on = i === step;
+                  return (
+                    <button
+                      type="button"
+                      key={p.title}
+                      onClick={() => pick(i)}
+                      aria-pressed={on}
+                      className={`relative overflow-hidden rounded-2xl p-4 text-left transition-colors duration-300 ${on ? "bg-white/[0.16]" : "bg-white/[0.06] hover:bg-white/[0.1]"}`}
+                    >
+                      <p.icon size={20} className={`mb-3 transition-colors ${on ? "text-white" : "text-l-band-soft"}`} />
+                      <p className="text-white font-bold text-[15px] leading-tight">{p.title}</p>
+                      <p className="text-white/60 text-[13px] font-medium mt-1">{p.desc}</p>
+                      {on && !reduce && (
+                        <span
+                          key={`${step}-${cycle}`}
+                          aria-hidden="true"
+                          className="absolute left-0 bottom-0 h-[3px] bg-l-band-soft origin-left"
+                          style={{ width: "100%", animation: inView ? `labProgress ${LAB_STEP_MS[step]}ms linear forwards` : "none" }}
+                        />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
               <Link to="/book-tests" className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] rounded-full px-7 py-4 text-[16px] font-bold no-underline hover:gap-3 transition-all">
                 See tests and prices <ArrowRight size={18} />
               </Link>
             </Reveal>
           </div>
-          <div className="flex justify-center lg:justify-end self-end h-[330px] sm:h-[420px] lg:h-[520px] overflow-hidden">
+          <div ref={phoneRef} className="flex justify-center lg:justify-end self-end h-[330px] sm:h-[420px] lg:h-[520px] overflow-hidden">
             <div>
-              <Phone label="BetterHealth HbA1c trend: five results over a year, falling from 8.4% to 5.2%, into the usual range" scale={0.95} className="hidden sm:block"><img src="/app-screens/hba1c-trend-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-top" width="600" height="1304" loading="lazy" /></Phone>
-              <Phone label="BetterHealth HbA1c trend: five results over a year, falling from 8.4% to 5.2%, into the usual range" scale={0.8} className="sm:hidden"><img src="/app-screens/hba1c-trend-v1.webp" alt="" className="absolute inset-0 w-full h-full object-cover object-top" width="600" height="1304" loading="lazy" /></Phone>
+              <Phone label={label} scale={0.95} className="hidden sm:block"><LabStoryScreen step={step} /></Phone>
+              <Phone label={label} scale={0.8} className="sm:hidden"><LabStoryScreen step={step} /></Phone>
             </div>
           </div>
         </div>
