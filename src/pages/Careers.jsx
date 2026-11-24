@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Briefcase, MapPin } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 
@@ -23,7 +24,7 @@ export default function CareersPage() {
       <Nav />
 
       {/* Hero */}
-      <section className="min-h-[50vh] flex items-center pt-[120px] pb-14 px-6 bg-base relative overflow-hidden">
+      <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
         <GradientOrb color="green" size="540px" className="top-[-10%] right-[-8%]" />
         <div className="max-w-[720px] mx-auto text-center relative z-10">
           <Reveal>
@@ -35,7 +36,7 @@ export default function CareersPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
               Build the future of{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 African healthcare.
               </span>
             </h1>
@@ -47,6 +48,7 @@ export default function CareersPage() {
           </Reveal>
         </div>
       </section>
+      <PagePhoto src="/photos/real-two.webp" alt="Two BetterHealth Africa team members in green team t-shirts at a screening" className="pb-6" />
 
       {/* Values */}
       <section className="py-16 px-6 bg-section-alt">

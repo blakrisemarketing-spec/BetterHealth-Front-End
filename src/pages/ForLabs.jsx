@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { submitPartnerSignup, HEARD_ABOUT_OPTIONS } from "../lib/partner-signup";
@@ -480,7 +481,7 @@ export default function ForLabsPage() {
       <main>
 
         {/* ──────────── Hero ──────────── */}
-        <section className="min-h-[52vh] flex items-center pt-[120px] pb-14 px-6 bg-base relative overflow-hidden">
+        <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
           <GradientOrb color="green" size="560px" className="top-[-10%] right-[-8%]" />
           <GradientOrb color="blue" size="340px" className="bottom-[-10%] left-[-5%]" />
           <div className="max-w-[700px] mx-auto text-center relative z-10">
@@ -493,7 +494,7 @@ export default function ForLabsPage() {
             <Reveal delay={0.1}>
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-5">
                 Your lab, finally running on{" "}
-                <span className="text-primary italic tracking-normal pb-2 inline-block">
+                <span className="text-primary tracking-normal pb-2 inline-block">
                   software made for it.
                 </span>
               </h1>
@@ -515,6 +516,7 @@ export default function ForLabsPage() {
             </Reveal>
           </div>
         </section>
+        <PagePhoto src="/photos/page-labs.webp" alt="Two lab scientists working at an analyser in a laboratory" className="pb-6" />
 
         {/* ──────────── Trust strip ──────────── */}
         <section className="py-8 px-6 border-y border-border bg-white">

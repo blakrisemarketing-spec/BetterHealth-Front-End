@@ -3,14 +3,15 @@ import Seo from "../components/Seo";
 import {
   ArrowRight,
   HandHeart,
-  ScanSearch,
-  ClipboardCheck,
   MapPin,
   Stethoscope,
   Sparkles,
   Building2,
   Users,
   Smartphone,
+  Truck,
+  BookOpen,
+  FlaskConical,
 } from "lucide-react";
 import FoundationNav from "../components/foundation/FoundationNav";
 import FoundationFooter from "../components/foundation/FoundationFooter";
@@ -30,42 +31,48 @@ import getInvolvedPhoto from "../assets/foundation/get-involved.webp";
 import proofScreening from "../assets/foundation/proof-screening.webp";
 
 
+// What the foundation brings to a partner's screening. The partner covers the lab tests.
 const PILLARS = [
   {
-    icon: HandHeart,
-    title: "Free community screening.",
-    body: "We come to your community. No cost, no referral, no barrier.",
+    icon: Truck,
+    title: "Setup and logistics.",
+    body: "Equipment, sample collection and the running of the day, planned with you from start to finish.",
   },
   {
-    icon: ScanSearch,
-    title: "Early detection.",
-    body: "We check for the silent conditions that do the most damage when they go unseen.",
+    icon: Stethoscope,
+    title: "Doctors and nurses.",
+    body: "Our clinical team runs the checks and talks each person through what was tested.",
   },
   {
-    icon: ClipboardCheck,
-    title: "Clear guidance.",
-    body: "Plain-language results and a real next step, never a confusing report.",
+    icon: Smartphone,
+    title: "The BetterHealth platform.",
+    body: "Each person gets their results on the platform, explained in plain language, with a clear next step.",
+  },
+  {
+    icon: BookOpen,
+    title: "Health education.",
+    body: "Short talks on the conditions we screen for, so people know what their numbers mean and what to change.",
   },
 ];
 
 const STEPS = [
   {
     num: "01",
-    icon: MapPin,
-    title: "We come to your community.",
-    body: "We work with local communities to set up free screening days.",
+    icon: Users,
+    title: "Tell us who you want to reach.",
+    body: "Your staff, members or community. Together we agree the tests, the numbers and a date, and you cover the lab costs.",
   },
   {
     num: "02",
-    icon: Stethoscope,
-    title: "We check what matters.",
-    body: "Our health workers run quick, essential health checks and talk you through every result.",
+    icon: MapPin,
+    title: "We set up and run the day.",
+    body: "We bring the equipment, the doctors and nurses, and a health talk for everyone who attends.",
   },
   {
     num: "03",
     icon: Sparkles,
-    title: "We point the way forward.",
-    body: "You leave knowing where you stand and exactly what to do next.",
+    title: "Everyone gets results and a next step.",
+    body: "Results arrive on the BetterHealth platform in plain language, with guidance on what to do next.",
   },
 ];
 
@@ -102,26 +109,26 @@ export default function FoundationPage() {
               </Reveal>
               <Reveal delay={160}>
                 <p className="text-[17px] md:text-[19px] leading-relaxed text-text-secondary max-w-[560px] mb-8 font-inter">
-                  Not just a longer life. A healthier one. We bring free health screening to
-                  communities across Ghana, so the conditions that quietly steal good years get
-                  caught early, while there is still time to act.
+                  We help organisations offer free health screening to the people they care about.
+                  You cover the lab tests. We bring the doctors, the logistics, the platform and the
+                  health education, so the conditions that quietly steal good years get caught early.
                 </p>
               </Reveal>
               <Reveal delay={240}>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     type="button"
-                    onClick={openSupport}
+                    onClick={openScreening}
                     className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-text-primary rounded-btn px-7 py-4 text-[16px] font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                   >
-                    Support the mission <ArrowRight size={18} />
+                    Host a screening <ArrowRight size={18} />
                   </button>
                   <button
                     type="button"
-                    onClick={openVolunteer}
+                    onClick={openSupport}
                     className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-btn px-7 py-4 text-[16px] font-bold font-heading transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   >
-                    Volunteer with us
+                    Support the mission
                   </button>
                 </div>
               </Reveal>
@@ -130,7 +137,7 @@ export default function FoundationPage() {
               <div className="rounded-card overflow-hidden border border-border shadow-card" style={{ aspectRatio: "4 / 3" }}>
                 <img
                   src={heroScreening}
-                  alt="A volunteer screens a smiling community member at a free BetterHealth Africa Foundation health screening in Ghana."
+                  alt="A volunteer screens a smiling community member at a BetterHealth Africa Foundation health screening in Ghana."
                   width={1280}
                   height={960}
                   fetchPriority="high"
@@ -189,11 +196,11 @@ export default function FoundationPage() {
                 </Reveal>
                 <Reveal delay={80}>
                   <p className="text-[17px] md:text-[18px] leading-relaxed text-text-secondary font-inter">
-                    The 100 Healthy Years Foundation brings free health screening directly to
-                    underserved communities in Ghana. Our volunteer doctors and nurses meet people where
-                    they are, check the things that matter most, and explain the results in plain
-                    language. When something needs attention, we help people understand their next step
-                    before it becomes a crisis.
+                    The 100 Healthy Years Foundation runs health screenings with organisations that
+                    want to look after their people: companies, churches, schools, associations and
+                    community groups. The organisation pays for the lab tests and its people are
+                    screened free of charge. We handle everything else, and when a result needs
+                    attention, we help the person understand their next step before it becomes a crisis.
                   </p>
                 </Reveal>
               </div>
@@ -210,7 +217,10 @@ export default function FoundationPage() {
                 </div>
               </Reveal>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Reveal>
+              <p className="text-[13px] text-accent-ink uppercase tracking-[0.14em] font-semibold mb-5 font-heading">What we bring</p>
+            </Reveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {PILLARS.map((p, i) => {
                 const Icon = p.icon;
                 return (
@@ -226,6 +236,19 @@ export default function FoundationPage() {
                 );
               })}
             </div>
+            <Reveal delay={120}>
+              <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 rounded-card bg-accent-bg border border-accent/30 p-6 lg:p-7">
+                <div className="w-12 h-12 rounded-card bg-white border border-accent/25 flex items-center justify-center shrink-0">
+                  <FlaskConical size={24} className="text-accent-ink" />
+                </div>
+                <div>
+                  <h3 className="text-[18px] font-bold text-text-primary font-heading mb-1">What you bring: the lab tests.</h3>
+                  <p className="text-[15px] text-text-secondary leading-relaxed font-inter">
+                    You choose the tests with us, cover the lab costs and invite your people. They pay nothing.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -236,7 +259,7 @@ export default function FoundationPage() {
               <div className="rounded-card overflow-hidden ring-1 ring-white/15 shadow-card" style={{ aspectRatio: "4 / 5" }}>
                 <img
                   src={proofScreening}
-                  alt="A BetterHealth Africa Foundation volunteer performs a finger-prick blood test during a free community screening."
+                  alt="A BetterHealth Africa Foundation volunteer performs a finger-prick blood test during a community screening."
                   width={800}
                   height={1000}
                   loading="lazy"
@@ -254,26 +277,27 @@ export default function FoundationPage() {
               <div className="grid grid-cols-2 gap-6 lg:gap-8 mb-8">
                 <Reveal>
                   <CountUp end={2000} suffix="+" className="block text-[2.4rem] lg:text-[2.8rem] font-bold text-accent-light font-heading leading-none mb-2" />
-                  <p className="text-[14px] text-white/70 font-inter">people screened for free</p>
+                  <p className="text-[14px] text-white/70 font-inter">people screened so far</p>
                 </Reveal>
                 <Reveal delay={90}>
                   <CountUp end={0} className="block text-[2.4rem] lg:text-[2.8rem] font-bold text-accent-light font-heading leading-none mb-2" />
-                  <p className="text-[14px] text-white/70 font-inter">cost to the people we serve</p>
+                  <p className="text-[14px] text-white/70 font-inter">cost to the people screened</p>
                 </Reveal>
                 <Reveal delay={180}>
-                  <CountUp end={100} suffix="%" className="block text-[2.4rem] lg:text-[2.8rem] font-bold text-accent-light font-heading leading-none mb-2" />
-                  <p className="text-[14px] text-white/70 font-inter">self-funded, so far</p>
+                  <span className="block text-[2.4rem] lg:text-[2.8rem] font-bold text-accent-light font-heading leading-none mb-2">Doctors</span>
+                  <p className="text-[14px] text-white/70 font-inter">and nurses at every screening</p>
                 </Reveal>
                 <Reveal delay={270}>
-                  <span className="block text-[2.4rem] lg:text-[2.8rem] font-bold text-accent-light font-heading leading-none mb-2">Volunteer</span>
-                  <p className="text-[14px] text-white/70 font-inter">doctors and nurses on every screening</p>
+                  <CountUp end={1} className="block text-[2.4rem] lg:text-[2.8rem] font-bold text-accent-light font-heading leading-none mb-2" />
+                  <p className="text-[14px] text-white/70 font-inter">thing partners pay for: the lab tests</p>
                 </Reveal>
               </div>
               <Reveal delay={120}>
                 <p className="text-[17px] md:text-[18px] text-white/80 leading-relaxed font-inter">
-                  We started with what we had: a team willing to show up, and a belief that prevention
-                  should not be a luxury. Everything so far has been financed out of our own pockets.
-                  Imagine what we do next with partners behind us.
+                  We paid for our first 2,000+ screenings ourselves, with a team willing to show up and
+                  a belief that prevention should not be a luxury. Now we run screenings with
+                  organisations that want the same for their people. They cover the lab tests and we
+                  bring the rest.
                 </p>
               </Reveal>
             </div>
@@ -301,9 +325,9 @@ export default function FoundationPage() {
           <div className="max-w-[1100px] mx-auto">
             <Reveal>
               <div className="text-center mb-14">
-                <p className="text-[13px] text-accent-ink uppercase tracking-[0.14em] font-semibold mb-3 font-heading">How a screening works</p>
+                <p className="text-[13px] text-accent-ink uppercase tracking-[0.14em] font-semibold mb-3 font-heading">How a partner screening works</p>
                 <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-text-primary font-heading tracking-tight">
-                  Simple, free, and close to home
+                  From first call to results
                 </h2>
               </div>
             </Reveal>
@@ -336,11 +360,10 @@ export default function FoundationPage() {
               <div className="text-center mb-12 max-w-[700px] mx-auto">
                 <p className="text-[13px] text-accent-ink uppercase tracking-[0.14em] font-semibold mb-3 font-heading">Work with us</p>
                 <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-text-primary font-heading tracking-tight mb-4 leading-[1.12]">
-                  Bring a free screening to your community
+                  Offer free screening to your people
                 </h2>
                 <p className="text-[16px] md:text-[17px] text-text-secondary leading-relaxed font-inter">
-                  Invite us to run a free screening where you are, or partner with us on a screening
-                  you already have planned.
+                  Host a screening with us, or bring our platform to a screening you already run.
                 </p>
               </div>
             </Reveal>
@@ -348,19 +371,19 @@ export default function FoundationPage() {
               <Reveal>
                 <div className="bg-white border border-border rounded-card p-7 lg:p-8 h-full flex flex-col">
                   <div className="w-12 h-12 rounded-card bg-accent-bg border border-accent/25 flex items-center justify-center mb-5">
-                    <Users size={24} className="text-accent-ink" />
+                    <Building2 size={24} className="text-accent-ink" />
                   </div>
-                  <h3 className="text-[20px] font-bold text-text-primary font-heading mb-2">Request a screening</h3>
+                  <h3 className="text-[20px] font-bold text-text-primary font-heading mb-2">Host a screening</h3>
                   <p className="text-[15px] text-text-secondary leading-relaxed font-inter mb-6 flex-1">
-                    Are you a church, school, workplace, or community group? Invite our volunteer
-                    doctors and nurses to run a free health screening for your people.
+                    For companies, churches, schools, associations and community groups. You cover the
+                    lab tests. We bring the doctors, the logistics, the platform and the health education.
                   </p>
                   <button
                     type="button"
                     onClick={openScreening}
                     className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-text-primary rounded-btn px-6 py-3.5 text-[15px] font-bold font-heading transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 self-start"
                   >
-                    Request a screening <ArrowRight size={16} />
+                    Host a screening <ArrowRight size={16} />
                   </button>
                 </div>
               </Reveal>
@@ -371,8 +394,8 @@ export default function FoundationPage() {
                   </div>
                   <h3 className="text-[20px] font-bold text-text-primary font-heading mb-2">Partner on your screening</h3>
                   <p className="text-[15px] text-text-secondary leading-relaxed font-inter mb-6 flex-1">
-                    Already planning a screening? Let us bring our platform so everyone you screen gets
-                    their results, explained in plain language, with a path to follow-up.
+                    Already running a screening? We bring our platform so everyone you screen gets their
+                    results in plain language, with a path to follow-up.
                   </p>
                   <button
                     type="button"
@@ -397,8 +420,8 @@ export default function FoundationPage() {
                   Real moments from our screenings
                 </h2>
                 <p className="text-[16px] md:text-[17px] text-text-secondary leading-relaxed font-inter">
-                  Free health checks, brought to communities across Ghana by our volunteer doctors and
-                  nurses. Tap any photo to take a closer look.
+                  Screening days across Ghana, run by our doctors and nurses. Tap any photo to take a
+                  closer look.
                 </p>
               </div>
             </Reveal>
@@ -455,8 +478,8 @@ export default function FoundationPage() {
                   </div>
                   <h3 className="text-[19px] font-bold text-text-primary font-heading mb-2">Partner</h3>
                   <p className="text-[15px] text-text-secondary leading-relaxed font-inter mb-6 flex-1">
-                    Foundations, companies, and institutions: help us reach more communities and prove
-                    what prevention can do at scale.
+                    Foundations, companies and institutions: sponsor a screening for a community, or
+                    help us show what prevention can do at scale.
                   </p>
                   <button
                     type="button"
@@ -474,7 +497,7 @@ export default function FoundationPage() {
                   </div>
                   <h3 className="text-[19px] font-bold text-text-primary font-heading mb-2">Support</h3>
                   <p className="text-[15px] text-text-secondary leading-relaxed font-inter mb-6 flex-1">
-                    Every contribution puts another screening day in another community.
+                    Your support helps us bring doctors, logistics and health education to more screenings.
                   </p>
                   <button
                     type="button"
@@ -535,7 +558,7 @@ export default function FoundationPage() {
       <Modal open={modal === "partner"} onClose={closeModal} title="Partner with us">
         <PartnerForm />
       </Modal>
-      <Modal open={modal === "screening"} onClose={closeModal} title="Request a screening">
+      <Modal open={modal === "screening"} onClose={closeModal} title="Host a screening">
         <ScreeningRequestForm />
       </Modal>
       <Modal open={modal === "screening-partner"} onClose={closeModal} title="Partner on a screening">

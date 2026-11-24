@@ -15,7 +15,7 @@ blogger, or partner can run with — pair it with data and a named spokesperson.
    hospitals — out of reach for most Ghanaians." Frame BetterHealth as closing the
    gap. Target: development/health-policy outlets, op-eds.
 
-3. **100 Healthy Years Foundation.** Free community screening events → local-news
+3. **100 Healthy Years Foundation.** Partner-funded community screening events → local-news
    coverage and partner link pages (NGOs, faith orgs, employers, universities).
    Each event is a citation + backlink opportunity.
 

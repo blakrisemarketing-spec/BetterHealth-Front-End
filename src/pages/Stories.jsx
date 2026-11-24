@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Quote, MapPin, ChevronDown, TrendingUp, TrendingDown, Minus } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { storiesPage } from "../data/content";
@@ -150,7 +151,7 @@ export default function StoriesPage() {
       <main>
 
       {/* ── Hero ── */}
-      <section className="min-h-[52vh] flex items-center pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
+      <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
         <GradientOrb color="green" size="560px" className="top-[-10%] right-[-8%]" />
         <GradientOrb color="blue" size="360px" className="bottom-[-10%] left-[-5%]" />
         <div className="max-w-[720px] mx-auto text-center relative z-10">
@@ -163,7 +164,7 @@ export default function StoriesPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.4rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-5">
               {hero.headline}{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 {hero.highlight}
               </span>
             </h1>
@@ -180,6 +181,7 @@ export default function StoriesPage() {
           </Reveal>
         </div>
       </section>
+      <PagePhoto src="/photos/real-screening.webp" alt="A woman having a finger-prick test at a BetterHealth community screening" className="pb-6" />
 
       {/* ── Stories Grid ── */}
       <section className="py-16 lg:py-20 px-6 bg-section-alt">

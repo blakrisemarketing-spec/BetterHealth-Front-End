@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { submitPartnerSignup, HEARD_ABOUT_OPTIONS } from "../lib/partner-signup";
@@ -486,7 +487,7 @@ export default function ForDoctorsPage() {
 
       <main>
         {/* ──────────── Hero ──────────── */}
-        <section className="min-h-[52vh] flex items-center pt-[120px] pb-14 px-6 bg-base relative overflow-hidden">
+        <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
           <GradientOrb
             color="green"
             size="560px"
@@ -508,7 +509,7 @@ export default function ForDoctorsPage() {
             <Reveal delay={0.1}>
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-5">
                 Your patients' results,{" "}
-                <span className="text-primary italic tracking-normal pb-2 inline-block">
+                <span className="text-primary tracking-normal pb-2 inline-block">
                   in your hands.
                 </span>{" "}
                 Not on a paper slip.
@@ -531,6 +532,7 @@ export default function ForDoctorsPage() {
             </Reveal>
           </div>
         </section>
+        <PagePhoto src="/photos/page-doctors.webp" alt="A doctor reviewing a patient's results at his desk" className="pb-6" />
 
         {/* ──────────── Trust strip ──────────── */}
         <section className="py-8 px-6 border-y border-border bg-white">

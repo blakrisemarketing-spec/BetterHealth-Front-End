@@ -7,8 +7,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="BetterHealth Africa is a digital health platform that makes diagnostic testing and clinical guidance accessible across Africa. Book lab tests (127 biomarkers), get results reviewed by qualified clinicians, and access them from your phone. Create an account or sign in with email, phone, or Google at app.betterhealth.africa." />
-    <title>BetterHealth Africa | Know Your Health</title>
+    <meta name="description" content="BetterHealth Africa is an everyday health app for iPhone and Android, built in Ghana. Log local meals, track blood pressure and blood sugar, get medicine reminders, and book lab tests with results read by qualified clinicians. Create an account or sign in with email, phone, or Google at app.betterhealth.africa." />
+    <title>BetterHealth Africa | Your Everyday Health App</title>
     <link rel="canonical" href="https://www.betterhealth.africa/" />
     <!-- Quicksand variable font + Inter (Google Fonts CDN). Inter is the body face on /foundation.
          Loaded non-render-blocking: preload the stylesheet, then apply it async via
@@ -16,9 +16,9 @@
          which matters most for the mobile/3G Ghana audience). display=swap avoids FOIT. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Quicksand:wght@300..700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Quicksand:wght@300..700&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Quicksand:wght@300..700&display=swap" /></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Quicksand:wght@300..700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Quicksand:wght@300..700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Quicksand:wght@300..700&display=swap" /></noscript>
     <!--
       Analytics host gate — tracking is PRODUCTION ONLY.
 
@@ -69,6 +69,12 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window,document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
+        // Meta's automatic events read button text and page metadata on every
+        // page (a time slot on /consultation/wellness/ was sent as innerText),
+        // which can carry a health concern past stripHealthConcern(). Off here,
+        // before init, so only the events in src/lib/analytics.js are sent.
+        // Automatic advanced matching is a separate switch in Events Manager.
+        fbq('set', 'autoConfig', false, '2118966258986670');
         fbq('init', '2118966258986670');
         fbq('track', 'PageView');
       }
@@ -77,12 +83,12 @@
 <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.betterhealth.africa/" />
-    <meta property="og:title" content="BetterHealth Africa | Know Your Health Before Symptoms Appear" />
-    <meta property="og:description" content="A digital health platform making diagnostic testing and clinical guidance accessible across Africa. Book lab tests, get results reviewed by qualified clinicians, and view them on your phone. Sign in with email, phone, or Google at app.betterhealth.africa." />
+    <meta property="og:title" content="BetterHealth Africa | Your Everyday Health App, With Lab Tests Built In" />
+    <meta property="og:description" content="An everyday health app built in Ghana: log local meals, track blood pressure and blood sugar, get medicine reminders, and book lab tests with results read by qualified clinicians. Sign in with email, phone, or Google at app.betterhealth.africa." />
     <meta property="og:image" content="https://www.betterhealth.africa/og-image.png" />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="BetterHealth Africa | Know Your Health Before Symptoms Appear" />
-    <meta property="twitter:description" content="A digital health platform making diagnostic testing and clinical guidance accessible across Africa. Book lab tests, get results reviewed by qualified clinicians, and view them on your phone. Sign in with email, phone, or Google at app.betterhealth.africa." />
+    <meta property="twitter:title" content="BetterHealth Africa | Your Everyday Health App, With Lab Tests Built In" />
+    <meta property="twitter:description" content="An everyday health app built in Ghana: log local meals, track blood pressure and blood sugar, get medicine reminders, and book lab tests with results read by qualified clinicians. Sign in with email, phone, or Google at app.betterhealth.africa." />
     <meta property="twitter:image" content="https://www.betterhealth.africa/og-image.png" />
   </head>
   <body>

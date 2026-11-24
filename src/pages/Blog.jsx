@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { ARTICLES } from "../data/blog";
+import { articleThumbnail } from "../data/blog/thumbnails";
 import { blogIndexSeo } from "../data/blog/article-seo";
 import { STATIC_ROUTE_SEO } from "../data/seo-static";
 
@@ -37,7 +38,7 @@ export default function BlogPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.4rem] md:text-[3rem] font-extrabold font-heading leading-[1.08] text-text-primary mb-4">
               Know your numbers.{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 Know your health.
               </span>
             </h1>
@@ -69,8 +70,19 @@ export default function BlogPage() {
                 <Reveal key={article.slug} delay={i * 0.05}>
                   <Link
                     to={`/blog/${article.slug}`}
-                    className="group flex flex-col h-full rounded-card border border-border bg-white p-6 hover:border-primary/40 hover:-translate-y-1 transition-all"
+                    className="group flex flex-col h-full rounded-card border border-border bg-white overflow-hidden hover:border-primary/40 hover:-translate-y-1 transition-all"
                   >
+                    <div className="aspect-[3/2] overflow-hidden bg-section-alt">
+                      <img
+                        src={articleThumbnail(article.slug)}
+                        alt=""
+                        loading={i < 3 ? "eager" : "lazy"}
+                        width="600"
+                        height="400"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="flex flex-col flex-1 p-6">
                     <div className="flex flex-wrap gap-2 mb-3">
                       {article.tags?.slice(0, 2).map((tag) => (
                         <span
@@ -95,6 +107,7 @@ export default function BlogPage() {
                           <span>{article.readingMinutes} min read</span>
                         </>
                       )}
+                    </div>
                     </div>
                   </Link>
                 </Reveal>

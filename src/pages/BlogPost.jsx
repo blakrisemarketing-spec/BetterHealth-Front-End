@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import NotFoundPage from "./NotFound";
+import { articleThumbnail } from "../data/blog/thumbnails";
 import { getArticle, ARTICLES } from "../data/blog";
 import { blogRouteSeo } from "../data/blog/article-seo";
 
@@ -198,6 +199,16 @@ export default function BlogPostPage() {
             </div>
           </header>
 
+          <div className="px-6 pb-10 bg-base">
+            <img
+              src={articleThumbnail(article.slug)}
+              alt=""
+              width="1200"
+              height="800"
+              className="max-w-[880px] w-full mx-auto aspect-[3/2] object-cover rounded-card"
+            />
+          </div>
+
           {/* Body */}
           <div className="px-6 pb-16 bg-base">
             <div className="max-w-[720px] mx-auto">
@@ -220,14 +231,17 @@ export default function BlogPostPage() {
                   <Link
                     key={a.slug}
                     to={`/blog/${a.slug}`}
-                    className="block rounded-card border border-border bg-white p-5 hover:border-primary/40 hover:-translate-y-0.5 transition-all"
+                    className="block rounded-card border border-border bg-white overflow-hidden hover:border-primary/40 hover:-translate-y-0.5 transition-all"
                   >
+                    <img src={articleThumbnail(a.slug)} alt="" loading="lazy" width="600" height="400" className="w-full aspect-[3/2] object-cover" />
+                    <div className="p-5">
                     <p className="font-heading font-bold text-text-primary leading-snug mb-2">
                       {a.title}
                     </p>
                     <p className="text-[13px] text-text-secondary font-body line-clamp-2">
                       {a.excerpt}
                     </p>
+                    </div>
                   </Link>
                 ))}
               </div>

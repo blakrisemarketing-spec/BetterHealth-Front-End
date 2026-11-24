@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Quicksand font is loaded via Google Fonts in index.html — no @font-face needed */
+/* Inter is loaded via Google Fonts in index.html */
 
 * {
   margin: 0;
@@ -15,18 +15,23 @@ html {
 }
 
 body {
-  font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 400;
-  background: #F5F3EE;
-  color: #2B3A3A;
+  background: #FFFFFF;
+  color: #0A0A0A;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(107, 142, 127, 0.2);
-  color: #2B3A3A;
+  background: rgba(31, 122, 85, 0.18);
+  color: #0A0A0A;
+}
+
+/* White look headings everywhere: tight Inter */
+h1, h2, h3, .font-heading {
+  letter-spacing: -0.035em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -55,4 +60,133 @@ body {
     transform: none;
     transition: none;
   }
+}
+
+/* ── Launch homepage looks (src/lib/home-experiment.js) ──
+   :root holds the white look, which every page uses. The homepage can still
+   show the others with ?look=. */
+:root {
+  --l-bg: #FFFFFF;
+  --l-alt: #F5F5F3;
+  --l-card: #F5F5F3;
+  --l-ink: #0A0A0A;
+  --l-muted: #5C5C5C;
+  --l-accent: #1F7A55;
+  --l-tint: #E7F3EC;
+  --l-line: #E8E8E6;
+  --l-btn: #0A0A0A;
+  --l-btn-fg: #FFFFFF;
+  --l-band: #0A0A0A;
+  --l-band-soft: #7FD3A8;
+  --l-nav: rgba(255, 255, 255, 0.85);
+  --l-font: "Inter", system-ui, -apple-system, sans-serif;
+  --l-head-weight: 700;
+  --l-track: -0.045em;
+}
+[data-look="white"] {
+  --l-bg: #FFFFFF;
+  --l-alt: #F5F5F3;
+  --l-card: #F5F5F3;
+  --l-ink: #0A0A0A;
+  --l-muted: #5C5C5C;
+  --l-accent: #1F7A55;
+  --l-tint: #E7F3EC;
+  --l-line: #E8E8E6;
+  --l-btn: #0A0A0A;
+  --l-btn-fg: #FFFFFF;
+  --l-band: #0A0A0A;
+  --l-band-soft: #7FD3A8;
+  --l-nav: rgba(255, 255, 255, 0.85);
+  --l-font: "Inter", system-ui, -apple-system, sans-serif;
+  --l-head-weight: 700;
+  --l-track: -0.045em;
+}
+[data-look="dark"] {
+  --l-bg: #0C110F;
+  --l-alt: #121916;
+  --l-card: #171F1B;
+  --l-ink: #F3EFE7;
+  --l-muted: #A2ACA7;
+  --l-accent: #5BE0A4;
+  --l-tint: rgba(91, 224, 164, 0.12);
+  --l-line: rgba(255, 255, 255, 0.09);
+  --l-btn: #F3EFE7;
+  --l-btn-fg: #0C110F;
+  --l-band: #171F1B;
+  --l-band-soft: #5BE0A4;
+  --l-nav: rgba(12, 17, 15, 0.78);
+  --l-font: "Quicksand", system-ui, -apple-system, sans-serif;
+  --l-head-weight: 700;
+  --l-track: -0.035em;
+}
+[data-look="bright"] {
+  --l-bg: #EEF6F0;
+  --l-alt: #FFFFFF;
+  --l-card: #FFFFFF;
+  --l-ink: #0F2219;
+  --l-muted: #56645D;
+  --l-accent: #0E9F5A;
+  --l-tint: #CDEFD9;
+  --l-line: #D9E7DD;
+  --l-btn: #0F2219;
+  --l-btn-fg: #FFFFFF;
+  --l-band: #0E9F5A;
+  --l-band-soft: #C9F2DA;
+  --l-nav: rgba(238, 246, 240, 0.85);
+  --l-font: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --l-head-weight: 800;
+  --l-track: -0.04em;
+}
+[data-look] {
+  font-family: var(--l-font);
+}
+[data-look] .font-heading,
+[data-look] .font-body {
+  font-family: var(--l-font);
+}
+.l-head {
+  font-weight: var(--l-head-weight);
+  letter-spacing: var(--l-track);
+}
+[data-look="dark"] .l-logo {
+  filter: brightness(0) invert(1);
+}
+.l-partner {
+  filter: grayscale(1);
+  opacity: 0.6;
+  transition: filter 0.2s, opacity 0.2s;
+}
+.l-partner:hover {
+  filter: none;
+  opacity: 1;
+}
+.l-partner-mono {
+  filter: brightness(0);
+  opacity: 0.45;
+}
+[data-look="dark"] .l-partner,
+[data-look="dark"] .l-partner:hover {
+  filter: grayscale(1) invert(1);
+  opacity: 0.7;
+}
+[data-look="dark"] .l-partner-mono {
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+}
+@keyframes skyA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6%, 4%) scale(1.08); }
+}
+@keyframes skyB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6%, 6%) scale(1.1); }
+}
+[data-look="dark"] .l-sky { opacity: 0.22; }
+[data-look="dark"] .bento { background: var(--l-card) !important; }
+[data-look="dark"] .bento h3 { color: var(--l-ink) !important; }
+[data-look="dark"] .bento p { color: var(--l-muted) !important; }
+
+@keyframes labProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }

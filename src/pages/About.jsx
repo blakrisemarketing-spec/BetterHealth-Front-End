@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ShieldCheck, Eye, Globe, ExternalLink } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import AdvisoryTeam from "../components/AdvisoryTeam";
@@ -27,7 +28,7 @@ export default function AboutPage() {
       <main>
 
       {/* ── Hero ── */}
-      <section className="min-h-[60vh] flex items-center pt-[80px] md:pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
+      <section className="flex items-center pt-[80px] md:pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
         <GradientOrb color="green" size="600px" className="top-[-10%] right-[-8%]" />
         <GradientOrb color="blue" size="360px" className="bottom-[-10%] left-[-5%]" />
         <div className="max-w-[800px] mx-auto text-center relative z-10">
@@ -40,7 +41,7 @@ export default function AboutPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[2.4rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.1] text-text-primary mb-5">
               Africans deserve to know what is happening{" "}
-              <span className="text-primary italic tracking-normal">
+              <span className="text-primary tracking-normal">
                 inside their bodies.
               </span>
             </h1>
@@ -52,6 +53,7 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
+      <PagePhoto src="/photos/real-team.webp" alt="The BetterHealth Africa team with volunteers at a community health screening in Ghana" className="pb-6" />
 
       {/* ── The Problem ── */}
       <section className="py-20 lg:py-[100px] px-6 bg-section-alt">

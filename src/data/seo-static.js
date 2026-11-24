@@ -17,6 +17,8 @@ import { GUIDES } from "./guides/index.js";
 import { TOOLS } from "./tools/index.js";
 import { getTestDetail } from "./test-details.js";
 import { getSingleTestDetail } from "./single-test-details.js";
+import { SINGLE_TEST_CODES } from "./app-catalogue.js";
+import pricingSnapshot from "./pricing-snapshot.json";
 
 export const SITE_URL = "https://www.betterhealth.africa";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
@@ -68,7 +70,7 @@ const FOUNDATION_JSONLD = {
   url: `${SITE_URL}/foundation`,
   logo: `${SITE_URL}/foundation-og.jpg`,
   description:
-    "Free community health screening for working-age adults in underserved communities across Ghana.",
+    "Community health screening for working-age adults across Ghana, run with partner organisations. Partners cover the lab tests; the foundation provides the doctors, logistics, results platform and health education.",
   areaServed: { "@type": "Country", name: "Ghana" },
   sameAs: [
     "https://www.facebook.com/betterhealth.africa",
@@ -150,7 +152,10 @@ const PANEL_ROUTE_SEO = Object.fromEntries(
 // static offer price, plus FAQPage when the test has FAQs), so the static <head>
 // and the live one agree. Prices here are the content.js fallbacks; the page
 // swaps in the live catalogue price after hydration, as it does for the price
-// copy. The MedicalWebPage node is declared here rather than via MEDICAL_ROUTES
+// copy. The offer price is the baked catalogue snapshot (what the page shows on
+// first paint), falling back to content.js only for a test the snapshot lacks:
+// the content.js fallbacks drift, and crawlers were reading FBC at GHS 150 when
+// it sells for GHS 49. The MedicalWebPage node is declared here rather than via MEDICAL_ROUTES
 // because the auto-derived name would be the whole "<test>: <subtitle>" title.
 const SINGLE_TEST_ROUTE_SEO = Object.fromEntries(
   singleTests.flatMap((base) => {
@@ -179,7 +184,9 @@ const SINGLE_TEST_ROUTE_SEO = Object.fromEntries(
         offers: {
           "@type": "Offer",
           priceCurrency: "GHS",
-          price: String(test.price).replace(/[^\d.]/g, ""),
+          price: String(
+            pricingSnapshot.testsByCode?.[SINGLE_TEST_CODES[test.slug]]?.amount ?? test.price,
+          ).replace(/[^\d.]/g, ""),
           url,
           availability: "https://schema.org/InStock",
         },
@@ -280,12 +287,12 @@ const RAW_ROUTE_SEO = {
     ]),
   ),
   foundation: {
-    title: "100 Healthy Years Foundation | Free Health Screening in Ghana",
+    title: "100 Healthy Years Foundation | Community Health Screening in Ghana",
     description:
-      "The 100 Healthy Years Foundation runs free community health screenings across Ghana, catching preventable conditions early. Volunteer, partner, or request a free screening for your community.",
+      "Offer free health screening to your staff, members or community. You cover the lab tests; the 100 Healthy Years Foundation brings the doctors, logistics, platform and health education.",
     image: `${SITE_URL}/foundation-og.jpg`,
     imageAlt:
-      "A volunteer runs a free health screening for a smiling community member in Ghana.",
+      "A volunteer runs a health screening for a smiling community member in Ghana.",
     jsonld: [FOUNDATION_JSONLD],
   },
   "how-it-works": {
@@ -332,7 +339,7 @@ const RAW_ROUTE_SEO = {
   faq: {
     title: "FAQ | BetterHealth Africa",
     description:
-      "Answers to common questions about BetterHealth Africa: how it works, what we test, pricing, sample collection, and your results.",
+      "Answers to common questions about BetterHealth Africa: the app, how lab testing works, what we test, pricing, sample collection, and your results.",
     image: DEFAULT_OG_IMAGE,
     jsonld: [FAQ_JSONLD],
   },
@@ -355,9 +362,9 @@ const RAW_ROUTE_SEO = {
     image: DEFAULT_OG_IMAGE,
   },
   "download-app": {
-    title: "Download the App | BetterHealth Africa",
+    title: "The BetterHealth App for iPhone & Android | BetterHealth Africa",
     description:
-      "Get notified when the BetterHealth app launches for iOS and Android. Track health indicators, book tests, and review results from your phone.",
+      "A free everyday health app built in Ghana: log local meals by photo, track blood pressure and blood sugar, get medicine reminders, and book lab tests with clinician-read results. Join the beta.",
     image: DEFAULT_OG_IMAGE,
   },
   "for-labs": {

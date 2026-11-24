@@ -77,7 +77,9 @@ const BOOKING_ANCHORS = ["#book", "#book-2"];
  *   1. The hero now carries the conversion. Headline, one line of lede, then the
  *      live picker — real availability inside the first screen on a phone. The
  *      hero is dark so the white picker card is the brightest object on it and
- *      the eye lands on the booking rather than hunting for it.
+ *      the eye lands on the booking rather than hunting for it. (Nov 2026: the
+ *      hero went white with the rest of the site; the picker card now stands
+ *      out by its border and shadow instead.)
  *   2. Everything below the hero is for the reader who did not book on sight.
  *      Nothing was deleted to make room; the argument was resequenced so it
  *      builds toward a second picker rather than trailing off after the first.
@@ -150,10 +152,8 @@ export default function WellnessConsultationPage() {
             blank screen at exactly the moment the click is regretted. */}
         <section
           id="book"
-          className="relative overflow-hidden bg-bg-dark px-5 pb-14 pt-[104px] sm:px-6 lg:pb-20"
+          className="relative overflow-hidden bg-base px-5 pb-14 pt-[104px] sm:px-6 lg:pb-20"
         >
-          <GradientOrb color="green" size="680px" className="right-[-14%] top-[-18%] opacity-70" />
-          <GradientOrb color="gold" size="420px" className="bottom-[-14%] left-[-10%] opacity-50" />
 
           {/* Explicit row/column placement rather than source order, because the
               two orders differ. On a phone the reader gets headline → picker →
@@ -162,19 +162,19 @@ export default function WellnessConsultationPage() {
           <div className="relative z-10 mx-auto grid max-w-[1160px] gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:items-start lg:gap-x-14 lg:gap-y-10">
             {/* 1 · Headline */}
             <div className="lg:col-start-1 lg:row-start-1">
-              <span className="mb-4 inline-flex items-center gap-2 rounded-pill border border-white/20 bg-white/10 px-4 py-1.5 font-heading text-[11.5px] font-bold uppercase tracking-wider text-primary-light">
-                <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-primary-light" />
+              <span className="mb-4 inline-flex items-center gap-2 rounded-pill border border-primary/20 bg-primary-bg px-4 py-1.5 font-heading text-[11.5px] font-bold uppercase tracking-wider text-primary">
+                <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-primary" />
                 {v.eyebrow}
               </span>
 
-              <h1 className="mb-4 font-heading text-[2.15rem] font-extrabold leading-[1.04] tracking-tight text-white sm:text-[2.7rem] lg:text-[3.15rem]">
+              <h1 className="mb-4 font-heading text-[2.15rem] font-extrabold leading-[1.04] tracking-tight text-text-primary sm:text-[2.7rem] lg:text-[3.15rem]">
                 {v.h1}
               </h1>
 
               {/* One paragraph, and it carries this cell's sharpest sentence
                   rather than the shared "take back control within 90 days"
                   abstraction the old hero ran on all four pages. */}
-              <p className="max-w-[560px] font-body text-[17px] leading-relaxed text-white/75 sm:text-[18px]">
+              <p className="max-w-[560px] font-body text-[17px] leading-relaxed text-text-secondary sm:text-[18px]">
                 {v.lede}
               </p>
             </div>
@@ -182,7 +182,7 @@ export default function WellnessConsultationPage() {
             {/* 2 · The picker — the conversion point, above the fold on a phone */}
             <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:row-span-3">
               <ConsultationBooking variant={v.variant} concern={v.concern} />
-              <p className="mt-3 text-center text-[12.5px] font-semibold text-white/55">
+              <p className="mt-3 text-center text-[12.5px] font-semibold text-text-secondary">
                 {HERO_CTA_NOTE}
               </p>
             </div>
@@ -199,16 +199,16 @@ export default function WellnessConsultationPage() {
                 return (
                   <li
                     key={item.title}
-                    className="flex gap-3.5 rounded-card border border-white/10 bg-white/[0.06] p-4"
+                    className="flex gap-3.5 rounded-card border border-border bg-section-alt p-4"
                   >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/25">
-                      <Icon size={15} className="text-primary-light" />
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-bg">
+                      <Icon size={15} className="text-primary" />
                     </span>
                     <div>
-                      <p className="mb-0.5 font-heading text-[15px] font-bold text-white">
+                      <p className="mb-0.5 font-heading text-[15px] font-bold text-text-primary">
                         {item.title}
                       </p>
-                      <p className="text-[14.5px] leading-relaxed text-white/65">{item.body}</p>
+                      <p className="text-[14.5px] leading-relaxed text-text-secondary">{item.body}</p>
                     </div>
                   </li>
                 );

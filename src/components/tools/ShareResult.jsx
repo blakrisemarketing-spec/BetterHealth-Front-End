@@ -250,10 +250,12 @@ function toBlob(canvas) {
 
 // GA4's recommended `share` event, gated the same way src/lib/analytics.js
 // gates everything: index.html sets the flag on production only.
-function trackShare(method, slug) {
+function trackShare(method) {
   if (typeof window === "undefined" || window.__BH_TRACKING_ENABLED__ !== true) return;
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: "share", method, content_type: "tool_result", item_id: slug });
+  // item_id stays "tool": the slug names a condition (diabetes-risk), which
+  // GA4 must not get, the same rule as adSafeLeadSource in analytics.js.
+  window.dataLayer.push({ event: "share", method, content_type: "tool_result", item_id: "tool" });
 }
 
 export default function ShareResult({ spec }) {
@@ -297,7 +299,7 @@ export default function ShareResult({ spec }) {
       if (canShareFiles) {
         try {
           await navigator.share({ files: [file], title: spec.title, text: spec.text });
-          trackShare("web_share", spec.slug);
+          trackShare("web_share");
           setState("shared");
           return;
         } catch (err) {

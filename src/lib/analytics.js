@@ -118,9 +118,22 @@ function stripHealthConcern(meta = {}) {
   return safe;
 }
 
+/**
+ * Tool and guide slugs name a condition (`tool:diabetes-risk`,
+ * `guide:hepatitis-b`), so only the kind of form leaves the site, for the same
+ * reasons as stripHealthConcern. The full slug still reaches our own API with
+ * the lead. Waitlist and partner sources carry no condition and are kept.
+ */
+function adSafeLeadSource(source) {
+  if (!source) return null;
+  const kind = source.split(":")[0];
+  return kind === "tool" || kind === "guide" ? kind : source;
+}
+
 export function trackLead({ source } = {}) {
-  fbq("track", "Lead", source ? { content_category: source } : {});
-  dataLayerPush({ event: "generate_lead", lead_source: source || null });
+  const safe = adSafeLeadSource(source);
+  fbq("track", "Lead", safe ? { content_category: safe } : {});
+  dataLayerPush({ event: "generate_lead", lead_source: safe });
 }
 
 /**
@@ -204,5 +217,18 @@ export function trackBookingIntentConsultation({ variant } = {}) {
     event: "begin_checkout",
     content_type: "wellness_consultation",
     landing_variant: variant || null,
+  });
+}
+
+/**
+ * Which homepage design a visitor was shown (look and hero), once per
+ * session, so GA4 can split sign-ups and app-store clicks by variant. Only
+ * the variant names are sent, never anything about the person.
+ */
+export function trackExperimentView({ experiment, variant } = {}) {
+  dataLayerPush({
+    event: "experiment_view",
+    experiment_id: String(experiment || "").slice(0, 40),
+    variant_id: String(variant || "").slice(0, 40),
   });
 }

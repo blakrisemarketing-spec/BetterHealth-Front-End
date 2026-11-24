@@ -33,7 +33,7 @@ export default function Waitlist() {
             <div className="max-w-[640px] mx-auto text-center relative z-10">
               <Reveal>
                 <h1 className="text-[clamp(32px,5vw,52px)] font-extrabold text-text-primary font-heading leading-[1.1] mb-5">
-                  Join the condition program <span className="text-primary italic">waitlist</span>.
+                  Join the condition program <span className="text-primary">waitlist</span>.
                 </h1>
               </Reveal>
 

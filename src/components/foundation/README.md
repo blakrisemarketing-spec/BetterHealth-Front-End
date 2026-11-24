@@ -83,7 +83,7 @@ same backend the For Doctors / For Labs forms use (`VITE_PARTNER_API_URL`), whic
 - `foundation_volunteer` — Volunteer signup
 - `foundation_partner` — Partner / funder enquiry
 - `foundation_newsletter` — Newsletter signup
-- `foundation_screening_request` — a community (church/school/etc.) requesting a free screening
+- `foundation_screening_request` — an organisation (company/church/school/etc.) asking to host a partner-funded screening (they cover the lab tests)
 - `foundation_screening_partner` — a group with an upcoming screening wanting our platform
 
 On failure the form shows an error with a `mailto:hello@betterhealth.africa` fallback.

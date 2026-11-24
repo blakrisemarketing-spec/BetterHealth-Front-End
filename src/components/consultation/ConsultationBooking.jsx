@@ -262,7 +262,7 @@ export default function ConsultationBooking({ variant, concern, compact = false 
 
   return (
     <div
-      className={`rounded-card border border-border bg-card shadow-card ${
+      className={`rounded-card border border-border bg-card shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)] ${
         compact ? "p-5" : "p-5 sm:p-7"
       }`}
     >

@@ -198,7 +198,14 @@ export function PartnerForm() {
   );
 }
 
-const COMMUNITY_TYPES = ["Church", "School", "Workplace", "Community or neighbourhood", "Other"];
+const COMMUNITY_TYPES = [
+  "Company or workplace",
+  "Church or mosque",
+  "School",
+  "Association or NGO",
+  "Community or neighbourhood",
+  "Other",
+];
 
 export function ScreeningRequestForm() {
   const [form, setForm] = useState({
@@ -230,8 +237,8 @@ export function ScreeningRequestForm() {
   if (status === "success") {
     return (
       <SuccessNote>
-        Thank you. We have your request and our team will be in touch to plan a free screening for
-        your community.
+        Thank you. Our team will be in touch to plan the screening with you, including which lab tests
+        to run and what they cost.
       </SuccessNote>
     );
   }
@@ -239,19 +246,19 @@ export function ScreeningRequestForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
       <p className="text-[14px] text-text-secondary leading-relaxed font-inter -mt-1">
-        Churches, schools, workplaces, and neighbourhoods all welcome. Tell us about your community
-        and we will plan a free screening with you.
+        Tell us who you want to screen. We will come back with a plan, including the lab tests and
+        their cost. We bring the doctors, logistics, platform and health education.
       </p>
       <div>
         <label htmlFor="req-name" className={labelClass}>Your name</label>
         <input id="req-name" type="text" required value={form.name} onChange={update("name")} className={inputClass} placeholder="Your name" />
       </div>
       <div>
-        <label htmlFor="req-group" className={labelClass}>Church, school, or group name</label>
-        <input id="req-group" type="text" required value={form.group} onChange={update("group")} className={inputClass} placeholder="The community you represent" />
+        <label htmlFor="req-group" className={labelClass}>Organisation name</label>
+        <input id="req-group" type="text" required value={form.group} onChange={update("group")} className={inputClass} placeholder="Company, church, school or group" />
       </div>
       <div>
-        <label htmlFor="req-type" className={labelClass}>Type of community</label>
+        <label htmlFor="req-type" className={labelClass}>Type of organisation</label>
         <select id="req-type" required value={form.type} onChange={update("type")} className={inputClass}>
           <option value="" disabled>Select one</option>
           {COMMUNITY_TYPES.map((t) => (
@@ -277,7 +284,7 @@ export function ScreeningRequestForm() {
         <textarea id="req-message" rows={3} value={form.message} onChange={update("message")} className={`${inputClass} resize-none`} placeholder="Dates you have in mind, the people you serve, anything that helps us plan" />
       </div>
       {status === "error" && <ErrorNote />}
-      <SubmitButton status={status}>Request a screening</SubmitButton>
+      <SubmitButton status={status}>Host a screening</SubmitButton>
     </form>
   );
 }
@@ -321,7 +328,7 @@ export function ScreeningPartnerForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
       <p className="text-[14px] text-text-secondary leading-relaxed font-inter -mt-1">
-        Already planning a screening? Tell us about it and we will bring our platform so everyone you
+        Already running a screening? Tell us about it and we will bring our platform so everyone you
         screen gets clear results and a path to follow-up.
       </p>
       <div>
@@ -426,8 +433,8 @@ export function SupportContent({ onVolunteer, onPartner }) {
   return (
     <div className="flex flex-col gap-5">
       <p className="text-[15px] text-text-secondary leading-relaxed font-inter">
-        Every contribution puts another screening day in another community. Online giving is opening
-        soon. In the meantime, here is how you can help right now.
+        Your support helps us bring doctors, logistics and health education to more screenings.
+        Online giving is opening soon. In the meantime, here is how you can help right now.
       </p>
 
       <button

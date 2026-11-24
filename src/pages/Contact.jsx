@@ -4,6 +4,7 @@ import { MessageCircle, Mail, Phone, Camera, ArrowRight, Clock, CheckCircle2 } f
 import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import PhoneField from "../components/ui/PhoneField";
@@ -257,7 +258,7 @@ export default function ContactPage() {
       <main>
 
       {/* Hero */}
-      <section className="min-h-[48vh] flex items-center pt-[120px] pb-14 px-6 bg-base relative overflow-hidden">
+      <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
         <GradientOrb color="green" size="560px" className="top-[-10%] right-[-8%]" />
         <GradientOrb color="blue" size="340px" className="bottom-[-10%] left-[-5%]" />
         <div className="max-w-[680px] mx-auto text-center relative z-10">
@@ -270,7 +271,7 @@ export default function ContactPage() {
           <Reveal delay={0.1}>
             <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-4">
               We are here when{" "}
-              <span className="text-primary italic tracking-normal pb-2 inline-block">
+              <span className="text-primary tracking-normal pb-2 inline-block">
                 you need us.
               </span>
             </h1>
@@ -282,6 +283,7 @@ export default function ContactPage() {
           </Reveal>
         </div>
       </section>
+      <PagePhoto src="/photos/page-contact.webp" alt="A BetterHealth support team member smiling on a call" className="pb-6" />
 
       {/* Channel Cards */}
       <section className="py-16 px-6 bg-section-alt">
