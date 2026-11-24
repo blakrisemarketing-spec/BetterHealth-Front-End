@@ -370,19 +370,19 @@ const RAW_ROUTE_SEO = {
   "for-labs": {
     title: "For Labs | Free Lab Management Software | BetterHealth Africa",
     description:
-      "Replace your paper logs and spreadsheets with a full LIMS that is free forever. Instrument interfaces, automated QC, digital reporting, and access to the BetterHealth patient network.",
+      "Free lab management software for labs in Ghana: samples, result entry with critical-value warnings, Westgard QC, branded PDF reports, financials, and bookings from BetterHealth patients.",
     image: `${SITE_URL}/for-labs-og.jpg`,
   },
   "for-doctors": {
     title: "For Doctors | Partner with BetterHealth Africa",
     description:
-      "Stop chasing lab results. BetterHealth delivers validated results directly to your dashboard, with full patient history, AI clinical notes, and referral income. Free to partner.",
+      "Follow patients between visits: see the meals they photograph, their steps and water in the BetterHealth app. Build test panels with your own fee and hold paid consultations. Free to partner.",
     image: `${SITE_URL}/for-doctors-og.jpg`,
   },
   "for-nutritionists": {
     title: "For Nutritionists & Dieticians | Partner with BetterHealth Africa",
     description:
-      "Register as a BetterHealth Africa nutrition partner. Receive client lab results digitally, refer clients for testing, earn from every referral, and build data-driven meal plans.",
+      "Coach clients between appointments: review each meal they photograph in the BetterHealth app, send notes, and run group challenges for up to 50 people. Free to partner.",
     image: `${SITE_URL}/for-nutritionists-og.jpg`,
   },
   privacy: {

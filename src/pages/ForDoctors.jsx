@@ -3,13 +3,11 @@ import Seo from "../components/Seo";
 import {
   Stethoscope,
   Activity,
-  TestTubes,
-  Home,
-  ShieldCheck,
-  BrainCircuit,
+  Camera,
+  Footprints,
+  Users,
   ArrowRight,
   CheckCircle2,
-  TrendingUp,
   Banknote,
   ClipboardList,
   ChevronDown,
@@ -42,79 +40,83 @@ const WHATSAPP_NUMBER = "+233 268 596 410";
 
 const BENEFITS = [
   {
+    icon: Camera,
+    title: "What they eat, meal by meal",
+    body: "A patient with diabetes can set a low-carb or no-added-sugar goal and invite you. You see each meal they photograph and whether the day stayed within the goal.",
+  },
+  {
+    icon: Footprints,
+    title: "Movement and water",
+    body: "Steps and water goals work the same way. You see daily steps, the length and distance of each workout, or the water they drank against their target.",
+  },
+  {
+    icon: Users,
+    title: "Group challenges for your patients",
+    body: "Start a challenge for up to 50 patients and share the code. They compete on steps, water or a food rule for up to 92 days.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Test panels you design",
+    body: "Choose the tests, add your own fee, and bill once or every 1, 3, 6 or 12 months. Invite patients by email, and they pay through BetterHealth.",
+  },
+  {
     icon: Activity,
-    title: "Stop chasing results",
-    body: "Lab results land in your dashboard the moment a doctor validates them. No WhatsApp threads, no phone calls, no paper slips. Out-of-range values come flagged, so nothing slips past you.",
-  },
-  {
-    icon: TrendingUp,
-    title: "See trends, not snapshots",
-    body: "Every result sits in order against the patient's profile. You can watch HbA1c, kidney function, or a lipid panel move over months or years. That kind of history is often what changes the decision.",
-  },
-  {
-    icon: BrainCircuit,
-    title: "Clinical notes, drafted for you",
-    body: "BetterHealth drafts a structured note from each result set. You review it, edit what you want, and sign off in seconds. That leaves more of your time for the patient and less for the paperwork.",
+    title: "Results for patients on your panel",
+    body: "Released results come to your dashboard in date order. Critical values are flagged for you to acknowledge, and you can add notes and sign off.",
   },
   {
     icon: Banknote,
-    title: "Earn from every referral",
-    body: "You earn a clear commission on every test your patient books through BetterHealth. No invoicing, no chasing, no awkward conversations. We pay out monthly.",
-  },
-  {
-    icon: Home,
-    title: "Patients follow through",
-    body: "When a phlebotomist comes to the home or office, patients go through with the tests you ordered instead of putting them off. Compliance climbs, and the gaps in your clinical picture shrink.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Results are reviewed before they reach you",
-    body: "Every result set passes a four-eyes clinical review before release. You get validated, quality-checked results, not raw lab output. Critical values are flagged and escalated for you.",
+    title: "Paid consultations",
+    body: "Patients can add a doctor consultation when they book tests. We assign it to a partner doctor, you hold the call once results are in, and BetterHealth pays you for it.",
   },
 ];
 
 const HOW_IT_WORKS = [
   {
     step: "01",
-    title: "Refer your patient",
-    body: "Prescribe a test from BetterHealth's 127 health indicator menu. Your patient books sample collection at home, at the office, or at a clinic. No paper form, no lab visit needed.",
+    title: "Your patient invites you",
+    body: "Your patient sets a goal in the BetterHealth app, such as low carb or no sugary drinks, and invites you as their accountability partner. You use the same app on your phone.",
   },
   {
     step: "02",
-    title: "We handle everything in between",
-    body: "A phlebotomist collects the sample, the lab processes it, and a doctor reviews it before sign-off. Quality control runs from start to finish.",
+    title: "You see what they log",
+    body: "You get their meal photos with the foods in them, and each day kept or missed with the reason. If the goal is steps or water, you see those instead.",
   },
   {
     step: "03",
-    title: "Results in your dashboard",
-    body: "You get them structured, flagged, and linked to the patient's full history. Add a note, track trends, and act, all without leaving BetterHealth.",
+    title: "You respond between visits",
+    body: "Mark each meal or workout as seen and add a short note. Your patient gets it on their phone before the next appointment.",
   },
 ];
 
 const FAQS = [
   {
     q: "Do I need to install anything or pay a setup fee?",
-    a: "No. Your BetterHealth partner dashboard runs in the browser. Partnering is free, and you earn commission on every patient referral. We never charge you.",
+    a: "There's no fee. Your dashboard for panels, results and consultations runs in the browser. To follow patients between visits, install the BetterHealth app on your phone.",
   },
   {
-    q: "What happens if a result is critically abnormal?",
-    a: "The system flags critical values before a result is released. The reviewing doctor is notified, and you see the flag in your dashboard the moment the result lands.",
+    q: "What can I see when a patient invites me?",
+    a: "The goal they set, the meals they photograph with the foods in them, and each day kept or missed with the reason. When the goal is steps or water, you see their steps and workouts or their water. The invite doesn't show you lab results, weight or other readings.",
   },
   {
     q: "Can I see my patient's full history, not just the latest results?",
-    a: "Yes. Every result ever run on a BetterHealth patient is kept in order. You can view trends across any health indicator over any period, alongside their medications and allergies.",
+    a: "For patients on your panel, yes. You see every released result in date order, plus the health history they gave when they joined.",
   },
   {
-    q: "How long does it take to get results back?",
-    a: "Most routine panels are turned around within 24 hours of sample collection. You're notified as soon as results are released.",
+    q: "What happens if a result is critically abnormal?",
+    a: "For patients on your panel, the result comes to your dashboard flagged as critical, and you're asked to acknowledge it.",
+  },
+  {
+    q: "How do I get paid?",
+    a: "BetterHealth pays you for the consultations you hold. If you add a fee to a test panel, it's part of what the patient pays.",
   },
 ];
 
 const TRUST_STATS = [
-  { value: "127", label: "Health indicators available" },
-  { value: "4-eyes", label: "Clinical review on every result" },
-  { value: "24 hrs", label: "Average turnaround" },
-  { value: "Free", label: "To partner, forever" },
+  { value: "Free", label: "To partner" },
+  { value: "No cap", label: "On patients you can follow" },
+  { value: "50", label: "Patients in one group challenge" },
+  { value: "1–12 mo", label: "Panel billing you choose" },
 ];
 
 const SPECIALTY_OPTIONS = [
@@ -129,9 +131,10 @@ const SPECIALTY_OPTIONS = [
 ];
 
 const PARTNERSHIP_OPTIONS = [
-  "Refer patients for lab work",
-  "Integrate lab results into my practice",
-  "Both",
+  "Follow patients between visits in the app",
+  "Build test panels for my patients",
+  "Hold paid consultations",
+  "All of these",
   "Other",
 ];
 
@@ -508,18 +511,17 @@ export default function ForDoctorsPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-5">
-                Your patients' results,{" "}
+                Follow your patients{" "}
                 <span className="text-primary tracking-normal pb-2 inline-block">
-                  in your hands.
-                </span>{" "}
-                Not on a paper slip.
+                  between visits
+                </span>
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-lg text-text-secondary font-body max-w-[560px] mx-auto mb-8">
-                BetterHealth gives you a clear, ordered view of every patient's
-                lab history while we handle sample collection, processing, and
-                clinical review. You get to be the doctor.
+                See the meals your patients photograph, their steps and the
+                water they drink. Put them on a test panel you design, and hold
+                paid consultations through BetterHealth.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
@@ -555,11 +557,11 @@ export default function ForDoctorsPage() {
           <div className="max-w-[1000px] mx-auto">
             <Reveal>
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-2 text-center">
-                How it works
+                How follow-up between visits works
               </h2>
               <p className="text-[14px] text-text-muted mb-12 text-center max-w-[480px] mx-auto">
-                From referral to results in your dashboard. This is how it goes
-                for you and your patients.
+                Your patients choose who can watch, and they can remove you at
+                any time.
               </p>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -590,8 +592,8 @@ export default function ForDoctorsPage() {
                 Built around how you practise
               </h2>
               <p className="text-[14px] text-text-muted mb-10 text-center max-w-[520px] mx-auto">
-                Every feature in BetterHealth is here to close the gap between
-                ordering a test and acting on the result with confidence.
+                Follow-up happens in the app. Panels, results and consultations
+                live in your BetterHealth dashboard.
               </p>
             </Reveal>
 
@@ -626,7 +628,7 @@ export default function ForDoctorsPage() {
                 Common questions
               </h2>
               <p className="text-[14px] text-text-muted mb-8 text-center">
-                Everything you need to know before applying.
+                What doctors ask before applying.
               </p>
             </Reveal>
             <div className="flex flex-col gap-3">
@@ -667,14 +669,13 @@ export default function ForDoctorsPage() {
           <div className="max-w-[580px] mx-auto text-center relative z-10">
             <Reveal>
               <h2 className="text-[1.7rem] sm:text-[2.2rem] md:text-[2.6rem] font-extrabold text-white font-heading tracking-tight mb-4">
-                Your patients deserve results that reach you, not a filing
-                cabinet.
+                Stay with your patients between visits
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-[16px] text-white/80 font-body mb-8">
-                Doctors across Ghana use BetterHealth to close the loop between
-                ordering a test and acting on the result. You can too.
+                Apply below, then ask your first patient to invite you from the
+                BetterHealth app.
               </p>
             </Reveal>
             <Reveal delay={0.2}>

@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import {
   Apple,
   Activity,
-  TrendingUp,
-  ClipboardList,
+  Camera,
+  MessageSquareText,
   Users,
-  ShieldCheck,
-  HeadphonesIcon,
+  Bell,
+  Footprints,
+  Trophy,
   ArrowRight,
   CheckCircle2,
+  ChevronDown,
   Loader2,
   AlertCircle,
 } from "lucide-react";
@@ -37,36 +40,84 @@ const WHATSAPP_NUMBER = "+233 268 596 410";
 /*  Data                                                               */
 /* ------------------------------------------------------------------ */
 
+const COACHING_STEPS = [
+  {
+    step: "01",
+    title: "You and your clients get the app",
+    body: "Download BetterHealth on Android or iPhone and make a free account. Ask your clients to do the same.",
+  },
+  {
+    step: "02",
+    title: "Your client invites you",
+    body: "Your client sets a goal, such as no sugary drinks or vegetables every day, and sends you an invite to be their accountability partner. They decide who can watch and can remove you at any time.",
+  },
+  {
+    step: "03",
+    title: "You review what they eat",
+    body: "Each meal they photograph reaches you with the foods the app found in it and whether the day stayed within their goal. Mark it as seen and leave a short note, which they get on their phone.",
+  },
+];
+
 const BENEFITS = [
   {
-    icon: Activity,
-    title: "Client lab results, delivered digitally",
-    body: "You see your clients' health indicator results the moment they're released. No more chasing PDFs or waiting on clients to forward an attachment.",
+    icon: Camera,
+    title: "Meal photos as they're logged",
+    body: "You see the photo, the foods in it, and whether the day met the goal. If a client went over a carbohydrate limit, the app tells you so.",
   },
   {
-    icon: TrendingUp,
-    title: "Earn from every referral",
-    body: "You earn a clear commission for every client you refer for lab work, paid out monthly. Your income grows alongside your practice.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Build meal plans on real data",
-    body: "Stop guessing. Use real health data, from vitamin D and iron stores to the lipid panel and HbA1c, to design plans that hold up.",
+    icon: MessageSquareText,
+    title: "Feedback on the meal itself",
+    body: "Mark a meal as seen and add a note of up to 280 characters. Your client reads it next to the photo.",
   },
   {
     icon: Users,
-    title: "Get new client referrals",
-    body: "Get listed in the BetterHealth nutritionist directory. Clients whose results call for dietary guidance come straight to you.",
+    title: "All your clients on one screen",
+    body: "The app lists each client you follow, with a count of meals waiting for your review. There's no cap on how many clients you follow.",
   },
   {
-    icon: ShieldCheck,
-    title: "Trusted, certified lab partners",
-    body: "CLIA/CAP compliant partner laboratories process every sample under strict quality controls, so you get results you can stand behind.",
+    icon: Bell,
+    title: "Alerts on your terms",
+    body: "Get each meal as it comes, one summary at 7 pm, or no alerts. Anything logged overnight waits until 7 am.",
   },
   {
-    icon: HeadphonesIcon,
-    title: "Priority partner support",
-    body: "Nutrition partners get a dedicated WhatsApp line. We answer result questions, client onboarding, and pricing queries the same day.",
+    icon: Footprints,
+    title: "Water and movement goals too",
+    body: "Clients can set a daily water target or a steps goal instead. You follow those the same way, workouts included.",
+  },
+  {
+    icon: Activity,
+    title: "Lab results for patients doctors send you",
+    body: "When a patient on a doctor's BetterHealth panel needs nutrition advice, we can assign them to you. You see their released results and add your nutrition note.",
+  },
+];
+
+const GROUP_POINTS = [
+  "Up to 50 people in one challenge, for up to 92 days",
+  "Ready-made food rules: no added sugar, no sugary drinks, no fried food, low carb, vegetables every day, or a rule you write",
+  "Steps and water challenges as well",
+  "A leaderboard with gold, silver and bronze, and photos members add as proof",
+];
+
+const FAQS = [
+  {
+    q: "What does it cost?",
+    a: "Nothing. Partnering is free, and so is the app for you and your clients.",
+  },
+  {
+    q: "What exactly can I see?",
+    a: "The goal your client set, their meal photos with the foods the app found, and each day kept or missed with the reason. In a water or steps challenge you see their water or their steps and workouts. You don't see their calorie and nutrient figures, lab results, weight or other health readings.",
+  },
+  {
+    q: "Do meals my clients type in show up?",
+    a: "No. Photos are what reach you, so ask clients to photograph their meals.",
+  },
+  {
+    q: "Do I need special software?",
+    a: "No. You use the same BetterHealth app on your phone. Alerts come to the phone, so install the app rather than relying on the website.",
+  },
+  {
+    q: "How many clients can I follow?",
+    a: "As many as invite you. A group challenge holds up to 50 people, you included.",
   },
 ];
 
@@ -82,11 +133,41 @@ const QUALIFICATION_OPTIONS = [
 const EXPERIENCE_OPTIONS = ["0-2 years", "3-5 years", "6-10 years", "10+ years"];
 
 const PARTNERSHIP_OPTIONS = [
-  "Refer clients for lab work",
-  "Receive client results from BetterHealth users",
-  "Both",
+  "Coach clients one-to-one in the app",
+  "Run group challenges",
+  "Advise patients sent by doctors",
+  "All of these",
   "Other",
 ];
+
+/* ------------------------------------------------------------------ */
+/*  FAQ Item                                                           */
+/* ------------------------------------------------------------------ */
+
+function FaqItem({ q, a }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-border rounded-card overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left bg-white hover:bg-section-alt transition-colors"
+      >
+        <span className="text-[14px] font-semibold text-text-primary font-heading">
+          {q}
+        </span>
+        <ChevronDown
+          size={16}
+          className={`text-text-muted flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <div className="px-5 pb-4 bg-white">
+          <p className="text-[13px] text-text-secondary leading-relaxed">{a}</p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 /* ------------------------------------------------------------------ */
 /*  Registration Form                                                  */
@@ -464,33 +545,82 @@ export default function ForNutritionistsPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-4">
-                Grow your nutrition practice with{" "}
+                See what your clients eat{" "}
                 <span className="text-primary tracking-normal pb-2 inline-block">
-                  BetterHealth Africa
+                  between appointments
                 </span>
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-lg text-text-secondary font-body max-w-[540px] mx-auto">
-                Get your clients&rsquo; lab results digitally, design plans
-                backed by real health data, earn from every referral, and
-                grow your client list, all without leaving your practice.
+              <p className="text-lg text-text-secondary font-body max-w-[560px] mx-auto mb-8">
+                Your clients photograph their meals in the BetterHealth app and
+                invite you as their accountability partner. You review each
+                meal, send a note, and run group challenges for the people you
+                coach.
               </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href="#nut-name"
+                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
+                >
+                  Apply to partner <ArrowRight size={16} />
+                </a>
+                <Link
+                  to="/download-app"
+                  className="inline-flex items-center gap-2 border border-primary/30 text-primary rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:bg-primary-bg no-underline"
+                >
+                  Get the app
+                </Link>
+              </div>
             </Reveal>
           </div>
         </section>
         <PagePhoto src="/photos/page-nutritionists.webp" alt="A nutritionist talking a client through a plate of waakye" className="pb-6" />
+
+        {/* ──────────── One-to-one coaching ──────────── */}
+        <section className="py-16 px-6 bg-base">
+          <div className="max-w-[1000px] mx-auto">
+            <Reveal>
+              <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-2 text-center">
+                One-to-one coaching in the app
+              </h2>
+              <p className="text-[14px] text-text-muted mb-12 text-center max-w-[520px] mx-auto">
+                Your client photographs a meal, and you can see it and reply
+                the same day.
+              </p>
+            </Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {COACHING_STEPS.map((step, i) => (
+                <Reveal key={i} delay={i * 0.1}>
+                  <div className="relative bg-section-alt border border-border rounded-card p-6 h-full">
+                    <span className="text-[2.2rem] font-extrabold text-primary/15 font-heading leading-none block mb-3">
+                      {step.step}
+                    </span>
+                    <h3 className="text-[15px] font-bold text-text-primary font-heading mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-[13px] text-text-secondary leading-relaxed">
+                      {step.body}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* ──────────── Benefits ──────────── */}
         <section className="py-16 px-6 bg-section-alt">
           <div className="max-w-[1100px] mx-auto">
             <Reveal>
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-2 text-center">
-                Why nutritionists partner with us
+                What you get as a partner
               </h2>
               <p className="text-[14px] text-text-muted mb-10 text-center max-w-[520px] mx-auto">
-                The tools to move from guesswork to data, and to grow your
-                practice while you&rsquo;re at it.
+                Your clients choose who can watch, and they can remove a
+                partner at any time.
               </p>
             </Reveal>
 
@@ -513,6 +643,54 @@ export default function ForNutritionistsPage() {
                   </Reveal>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* ──────────── Group coaching ──────────── */}
+        <section className="py-16 px-6 bg-base">
+          <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <Reveal>
+              <span className="inline-flex items-center gap-2 text-primary text-xs font-bold font-heading tracking-wider uppercase mb-3">
+                <Trophy size={14} />
+                Group coaching
+              </span>
+              <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-3">
+                Run a group as a challenge
+              </h2>
+              <p className="text-[14px] text-text-secondary leading-relaxed">
+                Create a challenge in the app and share its link or code with
+                your clients. Use it for a sugar-free month or a 12-week
+                programme.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <ul className="bg-section-alt border border-border rounded-card p-6 flex flex-col gap-3 list-none m-0">
+                {GROUP_POINTS.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-[14px] text-text-secondary leading-relaxed">
+                    <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ──────────── FAQ ──────────── */}
+        <section className="py-16 px-6 bg-section-alt">
+          <div className="max-w-[680px] mx-auto">
+            <Reveal>
+              <h2 className="text-[1.5rem] font-extrabold text-text-primary font-heading mb-8 text-center">
+                Common questions
+              </h2>
+            </Reveal>
+            <div className="flex flex-col gap-3">
+              {FAQS.map((faq, i) => (
+                <Reveal key={i} delay={i * 0.05}>
+                  <FaqItem q={faq.q} a={faq.a} />
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
@@ -545,14 +723,13 @@ export default function ForNutritionistsPage() {
           <div className="max-w-[560px] mx-auto text-center relative z-10">
             <Reveal>
               <h2 className="text-[1.7rem] sm:text-[2.2rem] md:text-[2.6rem] font-extrabold text-white font-heading tracking-tight mb-4">
-                Ready to grow your practice?
+                Coach your clients between appointments
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-[16px] text-white/80 font-body mb-8">
-                Dieticians and nutritionists across Africa use BetterHealth to
-                give their clients care grounded in real data. You can join
-                them.
+                Apply below, then ask your first client to send you an invite
+                from the BetterHealth app.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
