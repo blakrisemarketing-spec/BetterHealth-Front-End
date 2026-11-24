@@ -5,7 +5,7 @@ import logoFoundation from "../../assets/foundation/logo-foundation.png";
 const LINKS = [
   { label: "The Problem", href: "#problem" },
   { label: "What We Do", href: "#what-we-do" },
-  { label: "Request a Screening", href: "#request" },
+  { label: "Host a Screening", href: "#request" },
   { label: "Our Work", href: "#gallery" },
   { label: "Get Involved", href: "#get-involved" },
 ];

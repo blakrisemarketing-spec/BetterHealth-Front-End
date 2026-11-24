@@ -70,7 +70,7 @@ const FOUNDATION_JSONLD = {
   url: `${SITE_URL}/foundation`,
   logo: `${SITE_URL}/foundation-og.jpg`,
   description:
-    "Free community health screening for working-age adults in underserved communities across Ghana.",
+    "Community health screening for working-age adults across Ghana, run with partner organisations. Partners cover the lab tests; the foundation provides the doctors, logistics, results platform and health education.",
   areaServed: { "@type": "Country", name: "Ghana" },
   sameAs: [
     "https://www.facebook.com/betterhealth.africa",
@@ -287,12 +287,12 @@ const RAW_ROUTE_SEO = {
     ]),
   ),
   foundation: {
-    title: "100 Healthy Years Foundation | Free Health Screening in Ghana",
+    title: "100 Healthy Years Foundation | Community Health Screening in Ghana",
     description:
-      "The 100 Healthy Years Foundation runs free community health screenings across Ghana, catching preventable conditions early. Volunteer, partner, or request a free screening for your community.",
+      "Offer free health screening to your staff, members or community. You cover the lab tests; the 100 Healthy Years Foundation brings the doctors, logistics, platform and health education.",
     image: `${SITE_URL}/foundation-og.jpg`,
     imageAlt:
-      "A volunteer runs a free health screening for a smiling community member in Ghana.",
+      "A volunteer runs a health screening for a smiling community member in Ghana.",
     jsonld: [FOUNDATION_JSONLD],
   },
   "how-it-works": {
