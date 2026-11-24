@@ -3,6 +3,7 @@ import { ArrowRight, Check, ShieldCheck, Smartphone, Trash2, Wallet } from "luci
 import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import PhoneFrame from "../components/ui/PhoneFrame";
@@ -80,7 +81,7 @@ export default function DownloadAppPage() {
 
       <main className="bg-bg-light text-text-primary overflow-x-hidden">
         {/* Hero */}
-        <section className="relative pt-36 pb-20 px-6 bg-base text-text-primary overflow-hidden">
+        <section className="relative pt-36 pb-10 px-6 bg-base text-text-primary overflow-hidden">
           <GradientOrb className="top-[-80px] right-[-80px] opacity-30" />
           <GradientOrb className="bottom-[-60px] left-[-60px] opacity-20" size={320} />
           <div className="max-w-[900px] mx-auto flex flex-col items-center text-center gap-12 relative z-10">
@@ -112,6 +113,7 @@ export default function DownloadAppPage() {
             </Reveal>
           </div>
         </section>
+        <PagePhoto src="/photos/page-app.webp" alt="A woman photographing her plate of jollof rice with her phone" className="pb-6" />
 
         <AppLoop />
 

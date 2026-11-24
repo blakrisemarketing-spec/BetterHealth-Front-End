@@ -3,6 +3,7 @@ import { ArrowRight, FlaskConical, LineChart, Stethoscope } from "lucide-react";
 import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import DiseasePrograms from "../components/DiseasePrograms";
 import FinalCTA from "../components/FinalCTA";
 import Reveal from "../components/ui/Reveal";
@@ -34,7 +35,7 @@ export default function ProgramsPage() {
       <Nav />
       <main>
         {/* ── Hero ── */}
-        <section className="min-h-[46vh] flex items-center pt-[120px] pb-16 px-6 bg-base relative overflow-hidden">
+        <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
           <GradientOrb color="green" size="560px" className="top-[-10%] right-[-8%]" />
           <GradientOrb color="blue" size="360px" className="bottom-[-10%] left-[-5%]" />
           <div className="max-w-[720px] mx-auto text-center relative z-10">
@@ -68,6 +69,7 @@ export default function ProgramsPage() {
             </Reveal>
           </div>
         </section>
+        <PagePhoto src="/photos/page-programs.webp" alt="A morning walking group on a quiet road in Accra" className="pb-6" />
 
         {/* ── Programs grid (page provides its own hero, so hide the section header) ── */}
         <DiseasePrograms showHeader={false} />

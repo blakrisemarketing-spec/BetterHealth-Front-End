@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, MessageCircle, Mail, Phone, ArrowRight } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { faqSections as FAQ_SECTIONS } from "../data/content";
@@ -60,7 +61,7 @@ export default function FAQPage() {
       <main>
 
       {/* Hero */}
-      <section className="min-h-[46vh] flex items-center pt-[120px] pb-14 px-6 bg-base relative overflow-hidden">
+      <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
         <GradientOrb color="green" size="540px" className="top-[-10%] right-[-8%]" />
         <GradientOrb color="blue" size="320px" className="bottom-[-15%] left-[-5%]" />
         <div className="max-w-[680px] mx-auto text-center relative z-10">
@@ -92,6 +93,7 @@ export default function FAQPage() {
           </Reveal>
         </div>
       </section>
+      <PagePhoto src="/photos/page-faq.webp" alt="A man reading on his phone in a shaded courtyard" className="pb-6" />
 
       {/* Category filter pills */}
       <section className="py-4 sm:py-6 px-4 sm:px-6 bg-section-alt border-y border-border sticky top-[64px] z-20">

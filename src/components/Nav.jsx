@@ -1,18 +1,66 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "../assets/logo.png";
 import { loginUrl } from "../lib/app-links";
 import StoreButtons from "./launch/StoreButtons";
 import { GET_APP_URL, appIsLive } from "../data/app";
 
+const PARTNERS = [
+  { label: "For Doctors", route: "/for-doctors" },
+  { label: "For Labs", route: "/for-labs" },
+  { label: "For Nutritionists", route: "/for-nutritionists" },
+];
+
+// `children` turns an item into a dropdown (a plain list in the mobile menu).
 const NAV_ITEMS = [
   { label: "Home", route: "/" },
   { label: "Book a test", route: "/book-tests" },
-  { label: "Blog", route: "/blog" },
   { label: "About", route: "/about" },
-  { label: "FAQ", route: "/faq" },
+  { label: "Partners", children: PARTNERS },
+  { label: "Foundation", route: "/foundation" },
 ];
+
+function PartnersMenu({ item, linkClass }) {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={close}
+      onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) close(); }}
+      onKeyDown={(e) => { if (e.key === "Escape") close(); }}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => setOpen((o) => !o)}
+        className={`${linkClass} inline-flex items-center gap-1 bg-transparent border-none cursor-pointer p-0`}
+      >
+        {item.label}
+        <ChevronDown size={15} className={`transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3">
+          <div className="min-w-[200px] rounded-2xl border border-l-line bg-white p-2 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.25)]">
+            {item.children.map((c) => (
+              <Link
+                key={c.route}
+                to={c.route}
+                onClick={close}
+                className="block rounded-xl px-4 py-2.5 text-[14.5px] font-semibold text-l-ink no-underline hover:bg-l-alt"
+              >
+                {c.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 // `dark` is for pages whose hero is dark: the bar starts with light words and
 // turns cream once the page scrolls.
@@ -61,15 +109,16 @@ export default function Nav({ dark = false }) {
           </Link>
 
           <div className="hidden lg:flex gap-7 items-center">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.route}
-                to={item.route}
-                className={`text-[14.5px] font-semibold no-underline transition-colors ${onDark ? "text-white/90 hover:text-white" : "text-l-muted hover:text-l-ink"}`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const linkClass = `text-[14.5px] font-semibold no-underline transition-colors ${onDark ? "text-white/90 hover:text-white" : "text-l-muted hover:text-l-ink"}`;
+              return item.children ? (
+                <PartnersMenu key={item.label} item={item} linkClass={linkClass} />
+              ) : (
+                <Link key={item.route} to={item.route} className={linkClass}>
+                  {item.label}
+                </Link>
+              );
+            })}
             <a
               href={loginUrl()}
               className={`text-[14.5px] font-semibold no-underline transition-colors ${onDark ? "text-white/90 hover:text-white" : "text-l-muted hover:text-l-ink"}`}
@@ -101,16 +150,32 @@ export default function Nav({ dark = false }) {
 
       {mobileMenu && (
         <div className="fixed top-[76px] left-0 right-0 bottom-0 px-5 pt-4 pb-8 flex flex-col lg:hidden z-[9999] overflow-y-auto bg-l-bg">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.route}
-              to={item.route}
-              onClick={() => setMobileMenu(false)}
-              className="text-l-ink text-[22px] font-bold font-heading py-4 border-b border-l-line no-underline tracking-[-0.01em]"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) =>
+            item.children ? (
+              <div key={item.label} className="py-4 border-b border-l-line">
+                <p className="text-l-ink text-[22px] font-bold font-heading tracking-[-0.01em] mb-2">{item.label}</p>
+                {item.children.map((c) => (
+                  <Link
+                    key={c.route}
+                    to={c.route}
+                    onClick={() => setMobileMenu(false)}
+                    className="block text-l-muted text-[17px] font-semibold py-2 pl-1 no-underline"
+                  >
+                    {c.label}
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <Link
+                key={item.route}
+                to={item.route}
+                onClick={() => setMobileMenu(false)}
+                className="text-l-ink text-[22px] font-bold font-heading py-4 border-b border-l-line no-underline tracking-[-0.01em]"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
           <a href={loginUrl()} className="text-l-muted text-[18px] font-semibold py-4 no-underline">
             Sign in
           </a>

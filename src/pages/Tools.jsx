@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Calculator } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Seo from "../components/Seo";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
@@ -30,6 +31,7 @@ export default function ToolsPage() {
             </Reveal>
           </div>
         </section>
+        <PagePhoto src="/photos/page-tools.webp" alt="A woman measuring her waist at home with her phone beside her" className="pb-6" />
 
         <section className="pb-16 px-6">
           <div className="max-w-[880px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">

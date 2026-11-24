@@ -4,6 +4,7 @@ import { ArrowRight, Check, Sparkles } from "lucide-react";
 import Seo from "../components/Seo";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import PagePhoto from "../components/ui/PagePhoto";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { testPanels, singleTests } from "../data/content";
@@ -76,6 +77,7 @@ export default function BookTestPage() {
             </Reveal>
           </div>
         </section>
+        <PagePhoto src="/photos/page-book.webp" alt="A BetterHealth phlebotomist taking a blood sample from a woman at her office desk" className="pb-10" />
 
         {/* ── "Not sure? Start here" — Panorama spotlight ── */}
         <section className="pb-6 px-6 bg-base relative z-10">
