@@ -17,7 +17,8 @@ import {
 } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import PagePhoto from "../components/ui/PagePhoto";
+import PartnerHero from "../components/partners/PartnerHero";
+import { BrowserShot, CropShot } from "../components/partners/AppShot";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { submitPartnerSignup, HEARD_ABOUT_OPTIONS } from "../lib/partner-signup";
@@ -51,31 +52,37 @@ const BENEFITS = [
   {
     icon: FlaskConical,
     title: "Lab software at no cost",
+    shot: { src: "/partners/web-lab-worklist.webp", alt: "The results worklist in the BetterHealth lab dashboard", ratio: "16 / 10" },
     body: "Samples, worklist, result entry, inventory and reports in one system, free, for one branch or several. Switch each part on when your team is ready for it.",
   },
   {
     icon: AlertTriangle,
     title: "Checks as you enter results",
+    shot: { src: "/partners/web-lab-entry-warning.webp", alt: "A warning that a potassium value is past the critical threshold, before submission", ratio: "16 / 10" },
     body: "BetterHealth checks the unit on each value and warns your team when a result crosses a critical threshold, before anyone releases it.",
   },
   {
     icon: BarChart3,
     title: "QC with Westgard rules",
+    shot: { src: "/partners/web-lab-qc.webp", alt: "A Levey-Jennings chart for HbA1c QC runs", ratio: "16 / 10" },
     body: "Record QC runs and see them on Levey-Jennings charts with Westgard rules applied. Staff get a warning if they release results without an approved QC run in the past 24 hours.",
   },
   {
     icon: ClipboardCheck,
     title: "A second person checks each result",
+    shot: { src: "/partners/web-lab-review.webp", alt: "A reviewer approving results, with the audit history", ratio: "16 / 10" },
     body: "Switch on review, and a second member of staff approves each result before release. The person who entered a result can't approve it.",
   },
   {
     icon: FileText,
     title: "Reports with your letterhead",
+    shot: { src: "/partners/web-lab-report.webp", alt: "A results report carrying the lab's logo and letterhead", ratio: "16 / 10" },
     body: "PDF reports carry your logo, signature and letterhead. BetterHealth patients get their results in the app, so nobody has to come back for a printout.",
   },
   {
     icon: Wallet,
     title: "Know where the money goes",
+    shot: { src: "/partners/web-lab-financials.webp", alt: "Revenue, expenses and net profit for the month", ratio: "16 / 10" },
     body: "See revenue, expenses, test costs and profit and loss for your lab, including what each BetterHealth booking pays you.",
   },
 ];
@@ -84,17 +91,20 @@ const HOW_IT_WORKS = [
   {
     step: "01",
     title: "Register in minutes",
+    shot: { src: "/partners/web-lab-dashboard.webp", alt: "A lab owner's dashboard in BetterHealth", ratio: "16 / 10" },
     body: "Fill in the form below. Our lab partnerships team sets up your account within 24 hours. You need no IT team and pay no setup fee.",
   },
   {
     step: "02",
     title: "Set it up your way",
+    shot: { src: "/partners/web-lab-report-branding.webp", alt: "Report branding settings: logo, letterhead and signature", ratio: "16 / 10" },
     body: "Add your tests, prices and letterhead. Then switch on samples, worklist, QC and review as your team gets comfortable.",
   },
   {
     step: "03",
     title: "Take BetterHealth bookings",
-    body: "We send home-collection and test bookings from BetterHealth patients to partner labs, at a rate per test we agree with you.",
+    shot: { src: "/partners/web-lab-appointments.webp", alt: "BetterHealth patient bookings in the lab's appointments", ratio: "16 / 10" },
+    body: "We send home-collection and test bookings from BetterHealth patients to your lab, at a rate per test we agree with you.",
   },
 ];
 
@@ -122,10 +132,10 @@ const FAQS = [
 ];
 
 const TRUST_STATS = [
-  { value: "Free", label: "For good, not a trial" },
-  { value: "24 hrs", label: "To get your lab set up" },
-  { value: "Your logo", label: "On every report" },
-  { value: "Multi-branch", label: "Under one account" },
+  { value: "Free", label: "For good, no setup fee" },
+  { value: "New patients", label: "Bookings sent to your lab" },
+  { value: "QC built in", label: "Westgard rules and charts" },
+  { value: "No printouts", label: "Results go to patients' phones" },
 ];
 
 const STAFF_OPTIONS = ["1-5", "6-15", "16-50", "50+"];
@@ -480,42 +490,21 @@ export default function ForLabsPage() {
       <main>
 
         {/* ──────────── Hero ──────────── */}
-        <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
-          <GradientOrb color="green" size="560px" className="top-[-10%] right-[-8%]" />
-          <GradientOrb color="blue" size="340px" className="bottom-[-10%] left-[-5%]" />
-          <div className="max-w-[700px] mx-auto text-center relative z-10">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill bg-primary-bg border border-primary/25 text-primary text-xs font-bold font-heading tracking-wider uppercase mb-6">
-                <FlaskConical size={13} />
-                For Lab Owners
-              </span>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-5">
-                Your lab, finally running on{" "}
-                <span className="text-primary tracking-normal pb-2 inline-block">
-                  software made for it.
-                </span>
-              </h1>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <p className="text-lg text-text-secondary font-body max-w-[560px] mx-auto mb-8">
-                BetterHealth replaces the spreadsheets, WhatsApp threads and
-                paper logs your lab runs on today. It&rsquo;s free, and it
-                brings you bookings from BetterHealth patients.
-              </p>
-            </Reveal>
-            <Reveal delay={0.3}>
-              <a
-                href="#lab-name"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
-              >
-                Register your lab <ArrowRight size={18} />
-              </a>
-            </Reveal>
-          </div>
-        </section>
-        <PagePhoto src="/photos/page-labs.webp" alt="Two lab scientists working at an analyser in a laboratory" className="pb-6" />
+        <PartnerHero
+          device="browser"
+          badge={{ icon: FlaskConical, label: "For Lab Owners" }}
+          title={{ lead: "Manage your lab,", highlight: "with the efficiency you\u2019ve always dreamt of." }}
+          body={[
+            <>
+              BetterHealth replaces the spreadsheets, WhatsApp threads and
+              paper logs your lab runs on today. Stay compliant with HeFRA
+              regulations and grow your lab with ease.
+            </>,
+          ]}
+          actions={[{ label: "Register your lab", href: "#lab-name", primary: true }]}
+          photo={{ src: "/photos/page-labs.webp", alt: "Two lab scientists working at an analyser in a laboratory" }}
+          shots={[{ src: "/partners/web-lab-qc-hero.webp", alt: "A Levey-Jennings QC chart in the BetterHealth lab dashboard" }]}
+        />
 
         {/* ──────────── Trust strip ──────────── */}
         <section className="py-8 px-6 border-y border-border bg-white">
@@ -535,14 +524,15 @@ export default function ForLabsPage() {
 
         {/* ──────────── Pain points ──────────── */}
         <section className="py-16 px-6 bg-base">
-          <div className="max-w-[680px] mx-auto">
+          <div className="max-w-[1080px] mx-auto grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-center">
+          <div>
             <Reveal>
-              <h2 className="text-[1.5rem] font-extrabold text-text-primary font-heading mb-2 text-center">
+              <h2 className="text-[1.5rem] font-extrabold text-text-primary font-heading mb-2 text-center lg:text-left">
                 Sound familiar?
               </h2>
-              <p className="text-[14px] text-text-muted mb-10 text-center">
-                Most labs in Ghana run on systems that were never made for them.
-                BetterHealth takes these off your plate.
+              <p className="text-[14px] text-text-muted mb-10 text-center lg:text-left">
+                Most labs in Ghana run on systems that were never made to make
+                them efficient. BetterHealth Lab App changes that.
               </p>
             </Reveal>
             <div className="flex flex-col gap-3">
@@ -557,6 +547,13 @@ export default function ForLabsPage() {
                 </Reveal>
               ))}
             </div>
+          </div>
+          <Reveal delay={0.1}>
+            <BrowserShot
+              src="/partners/web-lab-worklist-full.webp"
+              alt="The BetterHealth lab dashboard: samples, worklist, review, QC, reports and financials in one place"
+            />
+          </Reveal>
           </div>
         </section>
 
@@ -575,14 +572,15 @@ export default function ForLabsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {HOW_IT_WORKS.map((step, i) => (
                 <Reveal key={i} delay={i * 0.1}>
-                  <div className="relative bg-white border border-border rounded-card p-6 h-full">
-                    <span className="text-[2.2rem] font-extrabold text-primary/15 font-heading leading-none block mb-3">
+                  <div className="relative bg-white border border-border rounded-card p-4 sm:p-5 h-full">
+                    <CropShot {...step.shot} className="mb-5" />
+                    <span className="text-[2.2rem] font-extrabold text-primary/15 font-heading leading-none block mb-3 px-1">
                       {step.step}
                     </span>
-                    <h3 className="text-[15px] font-bold text-text-primary font-heading mb-2">
+                    <h3 className="text-[15px] font-bold text-text-primary font-heading mb-2 px-1">
                       {step.title}
                     </h3>
-                    <p className="text-[13px] text-text-secondary leading-relaxed">
+                    <p className="text-[13px] text-text-secondary leading-relaxed px-1 pb-1">
                       {step.body}
                     </p>
                   </div>
@@ -608,7 +606,8 @@ export default function ForLabsPage() {
                 const Icon = b.icon;
                 return (
                   <Reveal key={i} delay={i * 0.06}>
-                    <div className="bg-white border border-border rounded-card p-5 hover:border-primary/25 hover:shadow-sm transition-all h-full">
+                    <div className="bg-white border border-border rounded-card p-4 sm:p-5 hover:border-primary/25 hover:shadow-sm transition-all h-full">
+                      <CropShot {...b.shot} className="mb-5" />
                       <div className="w-10 h-10 rounded-card bg-primary-bg flex items-center justify-center mb-4">
                         <Icon size={20} className="text-primary" />
                       </div>

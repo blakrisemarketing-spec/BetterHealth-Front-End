@@ -5,7 +5,6 @@ import {
   Activity,
   Camera,
   Footprints,
-  Users,
   ArrowRight,
   CheckCircle2,
   Banknote,
@@ -16,7 +15,8 @@ import {
 } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import PagePhoto from "../components/ui/PagePhoto";
+import PartnerHero from "../components/partners/PartnerHero";
+import { CropShot } from "../components/partners/AppShot";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { submitPartnerSignup, HEARD_ABOUT_OPTIONS } from "../lib/partner-signup";
@@ -42,31 +42,31 @@ const BENEFITS = [
   {
     icon: Camera,
     title: "What they eat, meal by meal",
+    shot: { src: "/partners/crop-meal-noted.webp", alt: "A partner's view of a patient's lunch, marked seen, with a note", ratio: "4 / 3", position: "center 70%" },
     body: "A patient with diabetes can set a low-carb or no-added-sugar goal and invite you. You see each meal they photograph and whether the day stayed within the goal.",
   },
   {
     icon: Footprints,
     title: "Movement and water",
+    shot: { src: "/partners/crop-walks-feed.webp", alt: "A patient's morning walks as their partner sees them", ratio: "4 / 3" },
     body: "Steps and water goals work the same way. You see daily steps, the length and distance of each workout, or the water they drank against their target.",
-  },
-  {
-    icon: Users,
-    title: "Group challenges for your patients",
-    body: "Start a challenge for up to 50 patients and share the code. They compete on steps, water or a food rule for up to 92 days.",
   },
   {
     icon: ClipboardList,
     title: "Test panels you design",
+    shot: { src: "/partners/web-doctor-panel-builder.webp", position: "left top", alt: "Building a test panel in the doctor dashboard", ratio: "4 / 3" },
     body: "Choose the tests, add your own fee, and bill once or every 1, 3, 6 or 12 months. Invite patients by email, and they pay through BetterHealth.",
   },
   {
     icon: Activity,
     title: "Results for patients on your panel",
+    shot: { src: "/partners/web-doctor-results.webp", position: "left top", alt: "Released results for a patient on a doctor's panel", ratio: "4 / 3" },
     body: "Released results come to your dashboard in date order. Critical values are flagged for you to acknowledge, and you can add notes and sign off.",
   },
   {
     icon: Banknote,
     title: "Paid consultations",
+    shot: { src: "/partners/web-doctor-consultations.webp", position: "left top", alt: "Consultations in the doctor dashboard", ratio: "4 / 3" },
     body: "Patients can add a doctor consultation when they book tests. We assign it to a partner doctor, you hold the call once results are in, and BetterHealth pays you for it.",
   },
 ];
@@ -74,17 +74,20 @@ const BENEFITS = [
 const HOW_IT_WORKS = [
   {
     step: "01",
-    title: "Your patient invites you",
-    body: "Your patient sets a goal in the BetterHealth app, such as low carb or no sugary drinks, and invites you as their accountability partner. You use the same app on your phone.",
+    title: "Your patient tests wherever they are",
+    shot: { src: "/partners/crop-book-test.webp", alt: "Choosing a test package in the BetterHealth app" },
+    body: "Your patient books a lab test in the BetterHealth app, at a partner lab near them or with home collection. Their results are sent to you confidentially to review.",
   },
   {
     step: "02",
-    title: "You see what they log",
-    body: "You get their meal photos with the foods in them, and each day kept or missed with the reason. If the goal is steps or water, you see those instead.",
+    title: "You monitor their compliance at home",
+    shot: { src: "/partners/crop-clients-overview.webp", alt: "The patients a doctor follows, with what each has added to review" },
+    body: "Your patient invites you in the BetterHealth app. You see whether they take their medication, the meals they eat, and their water and movement, as they log them.",
   },
   {
     step: "03",
     title: "You respond between visits",
+    shot: { src: "/partners/crop-patient-note.webp", alt: "The patient sees that their doctor saw the meal, and reads the note" },
     body: "Mark each meal or workout as seen and add a short note. Your patient gets it on their phone before the next appointment.",
   },
 ];
@@ -92,15 +95,15 @@ const HOW_IT_WORKS = [
 const FAQS = [
   {
     q: "Do I need to install anything or pay a setup fee?",
-    a: "There's no fee. Your dashboard for panels, results and consultations runs in the browser. To follow patients between visits, install the BetterHealth app on your phone.",
+    a: "There's no fee. Remote monitoring is completely free for you and your patients. To follow patients between visits, install the BetterHealth app on your phone.",
   },
   {
     q: "What can I see when a patient invites me?",
-    a: "The goal they set, the meals they photograph with the foods in them, and each day kept or missed with the reason. When the goal is steps or water, you see their steps and workouts or their water. The invite doesn't show you lab results, weight or other readings.",
+    a: "The goal they set, the meals they log, whether they take their medication, their steps, workouts and water, and the lab results they share with you.",
   },
   {
     q: "Can I see my patient's full history, not just the latest results?",
-    a: "For patients on your panel, yes. You see every released result in date order, plus the health history they gave when they joined.",
+    a: "Yes. Patients can share their full results history with you. For patients on your panel, you see every released result in date order, plus the health history they gave when they joined.",
   },
   {
     q: "What happens if a result is critically abnormal?",
@@ -115,7 +118,6 @@ const FAQS = [
 const TRUST_STATS = [
   { value: "Free", label: "To partner" },
   { value: "No cap", label: "On patients you can follow" },
-  { value: "50", label: "Patients in one group challenge" },
   { value: "1–12 mo", label: "Panel billing you choose" },
 ];
 
@@ -490,55 +492,29 @@ export default function ForDoctorsPage() {
 
       <main>
         {/* ──────────── Hero ──────────── */}
-        <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
-          <GradientOrb
-            color="green"
-            size="560px"
-            className="top-[-10%] right-[-8%]"
-          />
-          <GradientOrb
-            color="blue"
-            size="340px"
-            className="bottom-[-10%] left-[-5%]"
-          />
-
-          <div className="max-w-[700px] mx-auto text-center relative z-10">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill bg-primary-bg border border-primary/25 text-primary text-xs font-bold font-heading tracking-wider uppercase mb-6">
-                <Stethoscope size={14} />
-                For Doctors
-              </span>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-5">
-                Follow your patients{" "}
-                <span className="text-primary tracking-normal pb-2 inline-block">
-                  between visits
-                </span>
-              </h1>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <p className="text-lg text-text-secondary font-body max-w-[560px] mx-auto mb-8">
-                See the meals your patients photograph, their steps and the
-                water they drink. Put them on a test panel you design, and hold
-                paid consultations through BetterHealth.
-              </p>
-            </Reveal>
-            <Reveal delay={0.3}>
-              <a
-                href="#doc-name"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-8 py-4 text-base font-bold font-heading transition-all hover:-translate-y-0.5 hover:shadow-lg no-underline"
-              >
-                Apply to partner <ArrowRight size={18} />
-              </a>
-            </Reveal>
-          </div>
-        </section>
-        <PagePhoto src="/photos/page-doctors.webp" alt="A doctor reviewing a patient's results at his desk" className="pb-6" />
+        <PartnerHero
+          badge={{ icon: Stethoscope, label: "For Doctors" }}
+          title={{ lead: "Monitor your patients", highlight: "between visits" }}
+          body={[
+            <>
+              Patient care should not end when the patient leaves the
+              hospital. Monitor your patient&rsquo;s compliance from their
+              home, track their prescription intake, meals they eat, sleep,
+              water and more.
+            </>,
+          ]}
+          actions={[{ label: "Apply to partner", href: "#doc-name", primary: true }]}
+          photo={{ src: "/photos/page-doctors.webp", alt: "A doctor reviewing a patient's results at his desk" }}
+          shots={[
+            { src: "/partners/phone-meal-noted.webp", alt: "A doctor's view of a patient's lunch in the BetterHealth app, marked seen with a note" },
+            { src: "/partners/phone-walks-feed.webp", alt: "A patient's morning walks as their doctor sees them" },
+            { src: "/partners/phone-water-days.webp", alt: "A patient's water each day against a 2 litre goal" },
+          ]}
+        />
 
         {/* ──────────── Trust strip ──────────── */}
         <section className="py-8 px-6 border-y border-border bg-white">
-          <div className="max-w-[900px] mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="max-w-[700px] mx-auto grid grid-cols-3 gap-6">
             {TRUST_STATS.map((s, i) => (
               <div key={i} className="text-center">
                 <div className="text-[1.6rem] font-extrabold text-primary font-heading">
@@ -557,24 +533,22 @@ export default function ForDoctorsPage() {
           <div className="max-w-[1000px] mx-auto">
             <Reveal>
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-2 text-center">
-                How follow-up between visits works
+                How remote monitoring between visits works
               </h2>
-              <p className="text-[14px] text-text-muted mb-12 text-center max-w-[480px] mx-auto">
-                Your patients choose who can watch, and they can remove you at
-                any time.
-              </p>
+              <div className="mb-12" />
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {HOW_IT_WORKS.map((step, i) => (
                 <Reveal key={i} delay={i * 0.1}>
-                  <div className="relative bg-section-alt border border-border rounded-card p-6 h-full">
-                    <span className="text-[2.2rem] font-extrabold text-primary/15 font-heading leading-none block mb-3">
+                  <div className="relative bg-section-alt border border-border rounded-card p-4 sm:p-5 h-full">
+                    <CropShot {...step.shot} className="mb-5" />
+                    <span className="text-[2.2rem] font-extrabold text-primary/15 font-heading leading-none block mb-3 px-1">
                       {step.step}
                     </span>
-                    <h3 className="text-[15px] font-bold text-text-primary font-heading mb-2">
+                    <h3 className="text-[15px] font-bold text-text-primary font-heading mb-2 px-1">
                       {step.title}
                     </h3>
-                    <p className="text-[13px] text-text-secondary leading-relaxed">
+                    <p className="text-[13px] text-text-secondary leading-relaxed px-1 pb-1">
                       {step.body}
                     </p>
                   </div>
@@ -589,11 +563,17 @@ export default function ForDoctorsPage() {
           <div className="max-w-[1100px] mx-auto">
             <Reveal>
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-2 text-center">
-                Built around how you practise
+                Built to give you the level of patient care you&rsquo;ve always
+                wished you had.
               </h2>
-              <p className="text-[14px] text-text-muted mb-10 text-center max-w-[520px] mx-auto">
-                Follow-up happens in the app. Panels, results and consultations
-                live in your BetterHealth dashboard.
+              <p className="text-[14px] text-text-muted mb-10 text-center max-w-[620px] mx-auto">
+                Doctors across the country are faced with a difficult
+                challenge, you have to see as many patients as possible in the
+                hospital in a limited time and when they go home, you have no
+                idea if they are staying compliant with your health
+                recommendations. BetterHealth Africa changes that. Now you can
+                deliver care to your patients both in the hospital and from the
+                comfort of their homes with ease.
               </p>
             </Reveal>
 
@@ -602,7 +582,8 @@ export default function ForDoctorsPage() {
                 const Icon = b.icon;
                 return (
                   <Reveal key={i} delay={i * 0.07}>
-                    <div className="bg-white border border-border rounded-card p-5 hover:border-primary/25 hover:shadow-sm transition-all h-full">
+                    <div className="bg-white border border-border rounded-card p-4 sm:p-5 hover:border-primary/25 hover:shadow-sm transition-all h-full">
+                      <CropShot {...b.shot} className="mb-5" />
                       <div className="w-10 h-10 rounded-card bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center mb-4">
                         <Icon size={18} className="text-white" />
                       </div>
@@ -628,7 +609,7 @@ export default function ForDoctorsPage() {
                 Common questions
               </h2>
               <p className="text-[14px] text-text-muted mb-8 text-center">
-                What doctors ask before applying.
+                What other doctors asked before applying.
               </p>
             </Reveal>
             <div className="flex flex-col gap-3">

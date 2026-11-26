@@ -18,7 +18,8 @@ import {
 } from "lucide-react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import PagePhoto from "../components/ui/PagePhoto";
+import PartnerHero from "../components/partners/PartnerHero";
+import { CropShot, PhoneShot } from "../components/partners/AppShot";
 import Reveal from "../components/ui/Reveal";
 import GradientOrb from "../components/ui/GradientOrb";
 import { submitPartnerSignup, HEARD_ABOUT_OPTIONS } from "../lib/partner-signup";
@@ -44,57 +45,65 @@ const COACHING_STEPS = [
   {
     step: "01",
     title: "You and your clients get the app",
+    shot: { src: "/app-screens/home-v2.webp", alt: "Home in the BetterHealth app: food, water and exercise for the day" },
     body: "Download BetterHealth on Android or iPhone and make a free account. Ask your clients to do the same.",
   },
   {
     step: "02",
-    title: "Your client invites you",
-    body: "Your client sets a goal, such as no sugary drinks or vegetables every day, and sends you an invite to be their accountability partner. They decide who can watch and can remove you at any time.",
+    title: "One-on-one coaching",
+    shot: { src: "/partners/crop-meal-feed.webp", alt: "A client's lunch as their nutritionist sees it, with Mark as seen and Leave a note" },
+    body: "Your client creates a challenge, such as no sugary drinks or vegetables every day, and invites you to coach them one-on-one. Each meal they log reaches you, and you can leave a note on it.",
   },
   {
     step: "03",
-    title: "You review what they eat",
-    body: "Each meal they photograph reaches you with the foods the app found in it and whether the day stayed within their goal. Mark it as seen and leave a short note, which they get on their phone.",
+    title: "Group coaching",
+    shot: { src: "/partners/crop-group-challenge.webp", alt: "A group challenge for clients: no sugary drinks for 30 days" },
+    body: "Create a group challenge for several clients and share its link or code. You can follow each person's meals and see who is keeping to the goal.",
   },
 ];
 
 const BENEFITS = [
   {
     icon: Camera,
-    title: "Meal photos as they're logged",
-    body: "You see the photo, the foods in it, and whether the day met the goal. If a client went over a carbohydrate limit, the app tells you so.",
+    title: "Log every meal",
+    shot: { src: "/app-screens/food-meal-v2.webp", alt: "A meal in the app with its calories and nutrients", position: "center 18%" },
+    body: "Your clients simply take a picture of each meal, our custom AI model identifies the meal and shows its total calories and nutrient breakdown.",
   },
   {
     icon: MessageSquareText,
     title: "Feedback on the meal itself",
-    body: "Mark a meal as seen and add a note of up to 280 characters. Your client reads it next to the photo.",
+    shot: { src: "/partners/crop-meal-noted.webp", alt: "A meal marked seen with the nutritionist's note" },
+    body: "You can comment on each meal and give your clients direct feedback on how to improve each meal.",
   },
   {
     icon: Users,
     title: "All your clients on one screen",
-    body: "The app lists each client you follow, with a count of meals waiting for your review. There's no cap on how many clients you follow.",
+    shot: { src: "/partners/crop-clients-overview.webp", alt: "The clients a nutritionist watches, with what each has added to review" },
+    body: "You can accurately monitor all your clients in group challenges or one-on-one coaching. Keeping track of each client's activities has never been easier.",
   },
   {
     icon: Bell,
-    title: "Alerts on your terms",
-    body: "Get each meal as it comes, one summary at 7 pm, or no alerts. Anything logged overnight waits until 7 am.",
+    title: "Receive client alerts",
+    shot: { src: "/partners/crop-lockscreen.webp", alt: "Notices on a phone's lock screen when clients add a meal or a walk" },
+    body: "You can turn on alerts and will be notified each time a client uploads a meal that you need to review. You can also customise each alert to fit your preference.",
   },
   {
     icon: Footprints,
-    title: "Water and movement goals too",
-    body: "Clients can set a daily water target or a steps goal instead. You follow those the same way, workouts included.",
+    title: "Comprehensive care",
+    shot: { src: "/partners/crop-water-days.webp", alt: "A client's water each day against a 2 litre goal" },
+    body: "You can also monitor daily water intake and workouts your clients log. Go beyond just diets and offer a level of care you've always wished was possible.",
   },
   {
     icon: Activity,
-    title: "Lab results for patients doctors send you",
-    body: "When a patient on a doctor's BetterHealth panel needs nutrition advice, we can assign them to you. You see their released results and add your nutrition note.",
+    title: "Track lab results",
+    shot: { src: "/app-screens/hba1c-trend-v1.webp", alt: "HbA1c results over time in the app" },
+    body: "You can also recommend lab tests your clients can book in the app and you can track the evidence of their progress on their health data.",
   },
 ];
 
 const GROUP_POINTS = [
-  "Up to 50 people in one challenge, for up to 92 days",
-  "Ready-made food rules: no added sugar, no sugary drinks, no fried food, low carb, vegetables every day, or a rule you write",
-  "Steps and water challenges as well",
+  "Ready-made food rules: no added sugar, no sugary drinks, no fried food, low carb, vegetables every day, or you can make your own.",
+  "Set the stakes - you can decide what the winner of a challenge gets which will keep the participants motivated.",
   "A leaderboard with gold, silver and bronze, and photos members add as proof",
 ];
 
@@ -105,15 +114,15 @@ const FAQS = [
   },
   {
     q: "What exactly can I see?",
-    a: "The goal your client set, their meal photos with the foods the app found, and each day kept or missed with the reason. In a water or steps challenge you see their water or their steps and workouts. You don't see their calorie and nutrient figures, lab results, weight or other health readings.",
+    a: "The goal your client set, their meal photos they log with the detailed nutrient breakdown, and a way to track compliance on a daily basis. In a water or steps challenge you see their water or their steps and workouts. If they share their lab results with you, you can also see their results and how your coaching is directly impacting their health.",
   },
   {
     q: "Do meals my clients type in show up?",
-    a: "No. Photos are what reach you, so ask clients to photograph their meals.",
+    a: "Yes. Every meal your client logs reaches you, whether they photograph it or type it in.",
   },
   {
     q: "Do I need special software?",
-    a: "No. You use the same BetterHealth app on your phone. Alerts come to the phone, so install the app rather than relying on the website.",
+    a: "No. You use the same BetterHealth app on your phone.",
   },
   {
     q: "How many clients can I follow?",
@@ -524,84 +533,58 @@ export default function ForNutritionistsPage() {
 
       <main>
         {/* ──────────── Hero ──────────── */}
-        <section className="flex items-center pt-[120px] pb-10 px-6 bg-base relative overflow-hidden">
-          <GradientOrb
-            color="green"
-            size="560px"
-            className="top-[-10%] right-[-8%]"
-          />
-          <GradientOrb
-            color="blue"
-            size="340px"
-            className="bottom-[-10%] left-[-5%]"
-          />
-
-          <div className="max-w-[680px] mx-auto text-center relative z-10">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill bg-primary-bg border border-primary/25 text-primary text-xs font-bold font-heading tracking-wider uppercase mb-6">
-                <Apple size={14} />
-                For Nutritionists &amp; Dieticians
-              </span>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h1 className="text-[1.8rem] sm:text-[2.6rem] md:text-[3.2rem] font-extrabold font-heading leading-[1.15] text-text-primary mb-4">
-                See what your clients eat{" "}
-                <span className="text-primary tracking-normal pb-2 inline-block">
-                  between appointments
-                </span>
-              </h1>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <p className="text-lg text-text-secondary font-body max-w-[560px] mx-auto mb-8">
-                Your clients photograph their meals in the BetterHealth app and
-                invite you as their accountability partner. You review each
-                meal, send a note, and run group challenges for the people you
-                coach.
-              </p>
-            </Reveal>
-            <Reveal delay={0.3}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a
-                  href="#nut-name"
-                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:-translate-y-0.5 no-underline"
-                >
-                  Apply to partner <ArrowRight size={16} />
-                </a>
-                <Link
-                  to="/download-app"
-                  className="inline-flex items-center gap-2 border border-primary/30 text-primary rounded-btn px-7 py-3.5 text-sm font-bold font-heading transition-all hover:bg-primary-bg no-underline"
-                >
-                  Get the app
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-        <PagePhoto src="/photos/page-nutritionists.webp" alt="A nutritionist talking a client through a plate of waakye" className="pb-6" />
+        <PartnerHero
+          badge={{ icon: Apple, label: "For Nutritionists & Dieticians" }}
+          title={{ lead: "Remote diet monitoring for", highlight: "effective client compliance" }}
+          body={[
+            <>
+              The BetterHealth App helps you monitor your client&rsquo;s diet
+              remotely so you can better guide them in achieving their health
+              goals.
+            </>,
+            <>
+              Your clients photograph their meals in the app and invite you as
+              their accountability partner. You can review each meal they
+              upload and leave a note.
+            </>,
+          ]}
+          actions={[
+            { label: "Apply to partner", href: "#nut-name", primary: true },
+            { label: "Get the app", to: "/download-app" },
+          ]}
+          photo={{ src: "/photos/page-nutritionists.webp", alt: "A nutritionist talking a client through a plate of waakye" }}
+          shots={[
+            { src: "/partners/phone-meal-feed.webp", alt: "A client's lunch as their nutritionist sees it in the BetterHealth app" },
+            { src: "/partners/phone-clients-overview.webp", alt: "The clients a nutritionist watches, with what each has added to review" },
+            { src: "/partners/phone-leaderboard.webp", alt: "A group challenge's league table" },
+          ]}
+        />
 
         {/* ──────────── One-to-one coaching ──────────── */}
         <section className="py-16 px-6 bg-base">
           <div className="max-w-[1000px] mx-auto">
             <Reveal>
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-2 text-center">
-                One-to-one coaching in the app
+                One-to-one and group coaching options
               </h2>
               <p className="text-[14px] text-text-muted mb-12 text-center max-w-[520px] mx-auto">
-                Your client photographs a meal, and you can see it and reply
-                the same day.
+                The app enables you to monitor your clients either on a
+                one-on-one basis or as a group. No more WhatsApp groups, now you
+                can see what each client eats in one place.
               </p>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {COACHING_STEPS.map((step, i) => (
                 <Reveal key={i} delay={i * 0.1}>
-                  <div className="relative bg-section-alt border border-border rounded-card p-6 h-full">
-                    <span className="text-[2.2rem] font-extrabold text-primary/15 font-heading leading-none block mb-3">
+                  <div className="relative bg-section-alt border border-border rounded-card p-4 sm:p-5 h-full">
+                    <CropShot {...step.shot} className="mb-5" />
+                    <span className="text-[2.2rem] font-extrabold text-primary/15 font-heading leading-none block mb-3 px-1">
                       {step.step}
                     </span>
-                    <h3 className="text-[15px] font-bold text-text-primary font-heading mb-2">
+                    <h3 className="text-[15px] font-bold text-text-primary font-heading mb-2 px-1">
                       {step.title}
                     </h3>
-                    <p className="text-[13px] text-text-secondary leading-relaxed">
+                    <p className="text-[13px] text-text-secondary leading-relaxed px-1 pb-1">
                       {step.body}
                     </p>
                   </div>
@@ -616,11 +599,13 @@ export default function ForNutritionistsPage() {
           <div className="max-w-[1100px] mx-auto">
             <Reveal>
               <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-2 text-center">
-                What you get as a partner
+                How it works
               </h2>
               <p className="text-[14px] text-text-muted mb-10 text-center max-w-[520px] mx-auto">
-                Your clients choose who can watch, and they can remove a
-                partner at any time.
+                Remote diet compliance. You can see everything your clients eat
+                on a daily basis and give them direct feedback in the app. Your
+                clients are 2.5 times more likely to stick to their diets with
+                you keeping them accountable.
               </p>
             </Reveal>
 
@@ -629,7 +614,8 @@ export default function ForNutritionistsPage() {
                 const Icon = b.icon;
                 return (
                   <Reveal key={i} delay={i * 0.07}>
-                    <div className="bg-white border border-border rounded-card p-5 hover:border-primary/25 hover:shadow-sm transition-all h-full">
+                    <div className="bg-white border border-border rounded-card p-4 sm:p-5 hover:border-primary/25 hover:shadow-sm transition-all h-full">
+                      <CropShot {...b.shot} className="mb-5" />
                       <div className="w-10 h-10 rounded-card bg-primary-bg flex items-center justify-center mb-4">
                         <Icon size={20} className="text-primary" />
                       </div>
@@ -648,31 +634,50 @@ export default function ForNutritionistsPage() {
         </section>
 
         {/* ──────────── Group coaching ──────────── */}
-        <section className="py-16 px-6 bg-base">
-          <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 text-primary text-xs font-bold font-heading tracking-wider uppercase mb-3">
-                <Trophy size={14} />
-                Group coaching
-              </span>
-              <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-3">
-                Run a group as a challenge
-              </h2>
-              <p className="text-[14px] text-text-secondary leading-relaxed">
-                Create a challenge in the app and share its link or code with
-                your clients. Use it for a sugar-free month or a 12-week
-                programme.
-              </p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <ul className="bg-section-alt border border-border rounded-card p-6 flex flex-col gap-3 list-none m-0">
-                {GROUP_POINTS.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-[14px] text-text-secondary leading-relaxed">
-                    <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+        <section className="py-16 lg:py-20 px-6 bg-base overflow-hidden">
+          <div className="max-w-[1040px] mx-auto grid grid-cols-1 md:grid-cols-[1.05fr_1fr] gap-12 items-center">
+            <div>
+              <Reveal>
+                <span className="inline-flex items-center gap-2 text-primary text-xs font-bold font-heading tracking-wider uppercase mb-3">
+                  <Trophy size={14} />
+                  Group coaching
+                </span>
+                <h2 className="text-[1.6rem] font-extrabold text-text-primary font-heading mb-3">
+                  Run a group as a challenge
+                </h2>
+                <p className="text-[14px] text-text-secondary leading-relaxed mb-6">
+                  Create a challenge in the app and share its link or code with
+                  your clients. Use it for a sugar-free month or a 12-week
+                  programme.
+                </p>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <ul className="bg-section-alt border border-border rounded-card p-6 flex flex-col gap-3 list-none m-0">
+                  {GROUP_POINTS.map((point) => (
+                    <li key={point} className="flex items-start gap-3 text-[14px] text-text-secondary leading-relaxed">
+                      <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+            <Reveal delay={0.15}>
+              <div className="relative mx-auto h-[470px] w-full max-w-[400px] sm:h-[520px]">
+                <div aria-hidden="true" className="absolute inset-x-4 bottom-0 top-16 rounded-[32px] bg-gradient-to-br from-mint to-cream" />
+                <PhoneShot
+                  src="/partners/phone-group-challenge.webp"
+                  alt="A group challenge for clients: no sugary drinks for 30 days"
+                  width={200}
+                  className="absolute left-2 top-0 -rotate-[5deg] sm:left-4"
+                />
+                <PhoneShot
+                  src="/partners/phone-leaderboard.webp"
+                  alt="The challenge's league table with gold, silver and bronze"
+                  width={210}
+                  className="absolute right-2 top-10 rotate-[4deg] sm:right-4"
+                />
+              </div>
             </Reveal>
           </div>
         </section>
@@ -723,13 +728,13 @@ export default function ForNutritionistsPage() {
           <div className="max-w-[560px] mx-auto text-center relative z-10">
             <Reveal>
               <h2 className="text-[1.7rem] sm:text-[2.2rem] md:text-[2.6rem] font-extrabold text-white font-heading tracking-tight mb-4">
-                Coach your clients between appointments
+                Coach your clients and track compliance with ease
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-[16px] text-white/80 font-body mb-8">
-                Apply below, then ask your first client to send you an invite
-                from the BetterHealth app.
+                Remote coaching and compliance monitoring made easy with
+                BetterHealth Africa.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
