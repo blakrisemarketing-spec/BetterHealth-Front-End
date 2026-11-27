@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { PhoneShot, BrowserShot } from "./AppShot";
-import PagePhoto from "../ui/PagePhoto";
 
 // The hero of a partner page (/for-doctors, /for-nutritionists, /for-labs).
 // Copy comes from the page; this only lays it out next to the app it describes.
@@ -10,14 +9,13 @@ import PagePhoto from "../ui/PagePhoto";
 //   title    { lead, highlight }
 //   body     array of paragraphs (strings or nodes)
 //   actions  array of { label, href | to, primary }
-//   photo    { src, alt } a person at work, from /photos
 //   shots    array of { src, alt } or { placeholder } app screens, first = main
 //   device   "phone" (the app) | "browser" (a staff dashboard; shots[0] only)
 //
-// A deep green stage with the app rising from its bottom edge, then the photo
-// (Damzi chose this over a photo-beside-app layout, 2026-11-26). Only the main
-// screen loads with the page: the side phones are hidden below 640px and lazy,
-// so a phone on 3G never fetches them, and the photo below is lazy too.
+// A deep green stage with the app rising from its bottom edge (Damzi chose this
+// over a photo-beside-app layout, 2026-11-26, and dropped the photo under it,
+// 2026-11-27). Only the main screen loads with the page: the side phones are
+// hidden below 640px and lazy, so a phone on 3G never fetches them.
 
 function Actions({ actions }) {
   return (
@@ -52,7 +50,7 @@ function Badge({ badge }) {
   );
 }
 
-export default function PartnerHero({ badge, title, body, actions, photo, shots, device = "phone" }) {
+export default function PartnerHero({ badge, title, body, actions, shots, device = "phone" }) {
   const [main, left, right] = shots;
   return (
     <>
@@ -99,7 +97,6 @@ export default function PartnerHero({ badge, title, body, actions, photo, shots,
           )}
         </div>
       </section>
-      <PagePhoto src={photo.src} alt={photo.alt} className="pt-8 pb-6" loading="lazy" />
     </>
   );
 }

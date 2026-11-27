@@ -504,7 +504,6 @@ export default function ForDoctorsPage() {
             </>,
           ]}
           actions={[{ label: "Apply to partner", href: "#doc-name", primary: true }]}
-          photo={{ src: "/photos/page-doctors.webp", alt: "A doctor reviewing a patient's results at his desk" }}
           shots={[
             { src: "/partners/phone-meal-noted.webp", alt: "A doctor's view of a patient's lunch in the BetterHealth app, marked seen with a note" },
             { src: "/partners/phone-walks-feed.webp", alt: "A patient's morning walks as their doctor sees them" },

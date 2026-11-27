@@ -552,7 +552,6 @@ export default function ForNutritionistsPage() {
             { label: "Apply to partner", href: "#nut-name", primary: true },
             { label: "Get the app", to: "/download-app" },
           ]}
-          photo={{ src: "/photos/page-nutritionists.webp", alt: "A nutritionist talking a client through a plate of waakye" }}
           shots={[
             { src: "/partners/phone-meal-feed.webp", alt: "A client's lunch as their nutritionist sees it in the BetterHealth app" },
             { src: "/partners/phone-clients-overview.webp", alt: "The clients a nutritionist watches, with what each has added to review" },

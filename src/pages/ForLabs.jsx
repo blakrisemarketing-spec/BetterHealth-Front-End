@@ -502,7 +502,6 @@ export default function ForLabsPage() {
             </>,
           ]}
           actions={[{ label: "Register your lab", href: "#lab-name", primary: true }]}
-          photo={{ src: "/photos/page-labs.webp", alt: "Two lab scientists working at an analyser in a laboratory" }}
           shots={[{ src: "/partners/web-lab-qc-hero.webp", alt: "A Levey-Jennings QC chart in the BetterHealth lab dashboard" }]}
         />
 
